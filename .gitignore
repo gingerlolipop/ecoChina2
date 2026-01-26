@@ -1,0 +1,5 @@
+data raw/
+data clean/
+*.log
+*.tmp
+.DS_Store
