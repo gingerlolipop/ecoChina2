@@ -1,16 +1,16 @@
 library(CEMT)
-library(raster)
+library(terra)
 library(rgdal)
 
 setwd("H:/Jing/ecoChina2")
 
 ## 1. convert veg type data to table---------
-r <- raster('raster/veg_3');r 
-#r2 <- raster('H:/Jing/ecoChina2/raster/veg_chn_poly2ras/veg_chn_poly2ras.tif');r2 #new raster I downloaded: 1:1million
+r <- rast('raster/veg_3');r 
+#r2 <- rast('H:/Jing/ecoChina2/raster/veg_chn_poly2ras/veg_chn_poly2ras.tif');r2 #new raster I downloaded: 1:1million
 crs(r) <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0" 
 
 
-writeRaster(r,'raster/ecosys_ori.tif',format="GTiff")
+writeRaster(r,'raster/ecosys_ori.tif',overwrite=TRUE)
 
 xyv <- xyvFromRaster(r, attr=T,keepNA=F);hd(xyv)
 #Q:x = longitude, y = latitude, v = ?some row has v value == ecosys name, but others are empty
@@ -25,7 +25,7 @@ xyv1 <- xyv1[complete.cases(xyv1[, 1:3]), ];hd(xyv1) #nothing deleted
 #revision: not remoging "" zone #xyv2 <- droplevels(xyv1[xyv1$zone!="",]);hd(xyv2) #remove "" zone
 
 #zone and zoneID ---
-lvl <- data.frame(levels(r));lvl
+lvl <- data.frame(cats(r)[[1]]);lvl
 # revision: no removing lvl2 <- droplevels(lvl[lvl$VEGETATI_3!="",]);hd(lvl2) #remove "" zone
 fWrite(lvl,'1. zoneID_zone_count.csv')
 
