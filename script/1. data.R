@@ -2,11 +2,11 @@ library(CEMT)
 library(raster)
 library(rgdal)
 
-setwd("E:/Jing/ecoChina/play/China")
+setwd("H:/Jing/ecoChina2")
 
 ## 1. convert veg type data to table---------
 r <- raster('raster/veg_3');r 
-#r2 <- raster('E:/Jing/ecoChina/play/China/raster/veg_chn_poly2ras/veg_chn_poly2ras.tif');r2 #new raster I downloaded: 1:1million
+#r2 <- raster('H:/Jing/ecoChina2/raster/veg_chn_poly2ras/veg_chn_poly2ras.tif');r2 #new raster I downloaded: 1:1million
 crs(r) <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0" 
 
 
