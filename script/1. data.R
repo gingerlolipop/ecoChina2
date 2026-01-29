@@ -10,7 +10,7 @@ r <- rast('raster/veg_3');r
 crs(r) <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0" 
 
 
-writeRaster(r,'raster/ecosys_ori.tif',overwrite=TRUE)
+writeRaster(r,'raster/ecosys_ori.tif',filetype="GTiff",overwrite=TRUE)
 
 xyv <- xyvFromRaster(r, attr=T,keepNA=F);hd(xyv)
 #Q:x = longitude, y = latitude, v = ?some row has v value == ecosys name, but others are empty
