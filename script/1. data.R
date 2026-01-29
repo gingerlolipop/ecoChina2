@@ -2,7 +2,7 @@ library(CEMT)
 library(raster)
 library(rgdal)
 
-setwd("E:/Jing/ecoChina/play/China")
+setwd("..")
 
 ## 1. convert veg type data to table---------
 r <- raster('raster/veg_3');r 
