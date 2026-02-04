@@ -1,6 +1,7 @@
 install.packages("H:/Jing/CEMT.zip", repos = NULL, type = "source", dependencies = TRUE)
 library(CEMT)
 library(terra)
+library(ClimateNAr)
 # library(rgdal)  # rgdal is retired; terra now handles CRS operations
 
 setwd("H:/Jing/ecoChina2")
@@ -33,17 +34,27 @@ fWrite(lvl,'data_raw/1. zoneID_zone_count.csv')
 rm(lvl,xyv,id,r2);gc()
 
 
-# get DEM----------------
-dem <- CEMT::getDEM('chn',id[,c('x','y')],z=90) #this function does not work on my laptop, need to retrieve from 3333b
+# 2. get DEM----------------
+dem <- fRead('data raw/1. coord.csv') #read dem, got before using the getDEM function from CEMT. now cannot use coz permission denied.
 
-id$id2 <- NA;hd(id)
-colnames(id) <- c("lon", "lat", "Vegetati_3", "id2");hd(id)
-id <- id[, c("Vegetati_3", "id2", "lat", "lon")];hd(id)
+# 3. get Climate -----------
+varList_Y=c("MAT","MWMT","MCMT","TD","MAP","MSP","AHM","SHM","bFFP","eFFP","FFP","CMD","CMI","DD_0","DD5","DD_18","DD18","DD1040","EMT","EXT",
+            "Eref", "rsds","NFFD", "PAS","RH")
+varList_S=c("Tmax_wt","Tmax_sp","Tmax_sm","Tmax_at","Tmin_wt","Tmin_sp","Tmin_sm","Tmin_at","Tave_wt","Tave_sp","Tave_sm","Tave_at",
+            "PPT_wt","PPT_sp","PPT_sm","PPT_at","rsds_wt","rsds_sp","rsds_sm","rsds_at",
+            "DD_0_wt","DD_0_sp","DD_0_sm","DD_0_at","DD5_wt","DD5_sp","DD5_sm","DD5_at","DD_18_wt",
+            "DD_18_sp","DD_18_sm","DD_18_at","DD18_wt","DD18_sp","DD18_sm","DD18_at","NFFD_wt","NFFD_sp",
+            "NFFD_sm","NFFD_at","PAS_wt","PAS_sp","PAS_sm","PAS_at","Eref_wt","Eref_sp","Eref_sm","Eref_at","CMD_wt",
+            "CMD_sp","CMD_sm","CMD_at","RH_wt","RH_sp","RH_sm","RH_at","CMI_wt","CMI_sp","CMI_sm","CMI_at")
 
-dem <- cbind(id,dem);hd(dem)
 
-#output ClimateAP input file----
-crd <- data.frame(ID=row(dt)[,1],dt[,c(3,2,1)],dem);hd(crd)
-fWrite(dem,'1. coord.csv')
+clm_vars <- c(varList_Y, varList_S); clm_vars
 
-fRead('1. coord.csv')
+options(timeout = 300)
+options(download.file.method = "libcurl")
+
+clm_6190 <- ClimateNAr(dem, "Normal_1961_1990.nrm", clm_vars,
+                       outDir = "raster/ClimateData/China4k/Normal_1961_1990SY/")
+typeof(clm_6190)
+
+
