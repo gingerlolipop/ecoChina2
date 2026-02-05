@@ -16,28 +16,31 @@ writeRaster(r,'raster/ecosys_ori.tif',filetype="GTiff",overwrite=TRUE)
 
 xyv <- as.data.frame(r, xy = TRUE, na.rm = TRUE);hd(xyv)
 #Q:x = longitude, y = latitude, v = ?some row has v value == ecosys name, but others are empty
+#Removed NAs, so for r the number of cells should be 4249*7396 = 31425604, but actually we only have 13845898
 
 id <- as.data.frame(r, cells = TRUE, xy = TRUE, na.rm = TRUE);hd(id)
 print(sort(unique(id$veg_3))) #levels = 1:56
 
 xyv1 <- id
-names(xyv1)[3:4] <- c('zoneID','zone');hd(xyv1)
+names(xyv1)[4] <- 'zoneID';hd(xyv1)
 xyv1$zoneID <- as.factor(xyv1$zoneID);str(xyv1)
-xyv1 <- xyv1[complete.cases(xyv1[, 1:3]), ];hd(xyv1) #nothing deleted
+xyv1 <- xyv1[complete.cases(xyv1[, 2:4]), ];hd(xyv1) #nothing deleted
 #revision: not remoging "" zone #xyv2 <- droplevels(xyv1[xyv1$zone!="",]);hd(xyv2) #remove "" zone
+xyv1 <- xyv1[, c("cell", "zoneID", "y", "x")] #reorder columns
 
 #zone and zoneID ---
 lvl <- data.frame(cats(r)[[1]]);lvl
 # revision: no removing lvl2 <- droplevels(lvl[lvl$VEGETATI_3!="",]);hd(lvl2) #remove "" zone
-fWrite(lvl,'data_raw/1. zoneID_zone_count.csv')
+fWrite(lvl,'data raw/1. zoneID_zone_count.csv')
 
 rm(lvl,xyv,id,r2);gc()
 
 
 # 2. get DEM----------------
-dem <- fRead('data raw/1. coord.csv') #read dem, got before using the getDEM function from CEMT. now cannot use coz permission denied.
+dem <- fRead('data raw/1. coord.csv');hd(dem) #read dem, got before using the getDEM function from CEMT. now cannot use coz permission denied.
+dem <- cbind(xyv1, china_90m = dem$china_90m); hd(dem)
 
-# 3. get Climate -----------
+# 3. get Climate (will be moved to climate RF, to get climate laters)-----------
 varList_Y=c("MAT","MWMT","MCMT","TD","MAP","MSP","AHM","SHM","bFFP","eFFP","FFP","CMD","CMI","DD_0","DD5","DD_18","DD18","DD1040","EMT","EXT",
             "Eref", "rsds","NFFD", "PAS","RH")
 varList_S=c("Tmax_wt","Tmax_sp","Tmax_sm","Tmax_at","Tmin_wt","Tmin_sp","Tmin_sm","Tmin_at","Tave_wt","Tave_sp","Tave_sm","Tave_at",
@@ -56,5 +59,8 @@ options(download.file.method = "libcurl")
 clm_6190 <- ClimateNAr(dem, "Normal_1961_1990.nrm", clm_vars,
                        outDir = "raster/ClimateData/China4k/Normal_1961_1990SY/")
 typeof(clm_6190)
+hd(clm_6190)
 
+fWrite(clm_6190,'data_raw/1. zoneID_Normal_1961_1990.csv')
+rm(clm_6190)
 
