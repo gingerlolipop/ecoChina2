@@ -40,7 +40,10 @@ rm(lvl,xyv,id,r2);gc()
 dem <- fRead('data raw/1. coord.csv');hd(dem) #read dem, got before using the getDEM function from CEMT. now cannot use coz permission denied.
 dem <- cbind(xyv1, china_90m = dem$china_90m); hd(dem)
 
-# 3. get Climate (will be moved to climate RF, to get climate laters)-----------
+fWrite(dem,'data raw/1. zoneID_dem.csv')
+
+
+# 3. get Climate (cannot get climate later when RF because of potential NA climate)-----------
 varList_Y=c("MAT","MWMT","MCMT","TD","MAP","MSP","AHM","SHM","bFFP","eFFP","FFP","CMD","CMI","DD_0","DD5","DD_18","DD18","DD1040","EMT","EXT",
             "Eref", "rsds","NFFD", "PAS","RH")
 varList_S=c("Tmax_wt","Tmax_sp","Tmax_sm","Tmax_at","Tmin_wt","Tmin_sp","Tmin_sm","Tmin_at","Tave_wt","Tave_sp","Tave_sm","Tave_at",
