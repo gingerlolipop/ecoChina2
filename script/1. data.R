@@ -43,7 +43,7 @@ dem <- cbind(xyv1, china_90m = dem$china_90m); hd(dem)
 fWrite(dem,'data raw/1. zoneID_dem.csv')
 
 
-# 3. get Climate (have to move to rf to get climate later due to limtied ram)-----------
+# 3. get Climate (clim data was downloaded using ClimateNAr::rasterDownload in 2024)-----------
 varList_Y=c("MAT","MWMT","MCMT","TD","MAP","MSP","AHM","SHM","bFFP","eFFP","FFP","CMD","CMI","DD_0","DD5","DD_18","DD18","DD1040","EMT","EXT",
             "Eref", "rsds","NFFD", "PAS","RH")
 varList_S=c("Tmax_wt","Tmax_sp","Tmax_sm","Tmax_at","Tmin_wt","Tmin_sp","Tmin_sm","Tmin_at","Tave_wt","Tave_sp","Tave_sm","Tave_at",
@@ -56,14 +56,39 @@ varList_S=c("Tmax_wt","Tmax_sp","Tmax_sm","Tmax_at","Tmin_wt","Tmin_sp","Tmin_sm
 
 clm_vars <- c(varList_Y, varList_S); clm_vars
 
-options(timeout = 300)
-options(download.file.method = "libcurl")
+rm(id,r,xyv,xyv1);gc()
 
-clm_6190 <- ClimateNAr(dem, "Normal_1961_1990.nrm", clm_vars,
-                       outDir = "raster/ClimateData/China4k/Normal_1961_1990SY/")
-typeof(clm_6190)
-hd(clm_6190)
+#create the path to outDir if not existing
+if (!dir.exists(outDir)) {
+  dir.create(outDir, recursive = TRUE)
+}
 
-fWrite(clm_6190,'data_raw/1. zoneID_Normal_1961_1990.csv')
-rm(clm_6190)
+# extact climate data for each row from the climate rasters
+inputFile <- 'data raw/1. zoneID_dem.csv'
+resolution <- '800m'
+periodList <- '/Normal_1961_1990.nrm'
+outDir <- 'data raw/'
+
+dem <- fRead(inputFile);hd(dem)
+
+ClmDir <- paste0(
+  "H:/Jing/ecoChina/play/China/ClimateData/CN/",
+  resolution,
+  substring(periodList, 1, regexpr("\\.", periodList) - 1)
+)
+
+clm_files <- list.files(ClmDir, pattern = "\\.tif$", full.names = TRUE)
+clm_names <- tools::file_path_sans_ext(basename(clm_files))
+clm_stack <- rast(clm_files)
+names(clm_stack) <- clm_names
+coords <- dem[, c("x", "y")]
+clm_vals <- terra::extract(clm_stack, coords)
+
+# terra::extract returns a column "ID" — remove it
+clm_vals$ID <- NULL
+
+# 6. Combine DEM + climate data
+clm_6190 <- cbind(dem, clm_vals)
+fWrite(clm_6190, paste0(outDir, "1. zoneID_Clm_800m_Normal_1961_1990SY.csv"))
+
 
