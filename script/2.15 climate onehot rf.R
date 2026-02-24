@@ -206,7 +206,10 @@ SMPL_POS   <- 8000L
 SMPL_PA    <- 1/1.3
 SMPL_MAXN  <- 20000L
 BASE_SEED  <- 49L
-VAR_ROW    <- 20          # row in opList to pick variable set
+VAR_ROW    <- 20L          # row in opList to pick variable set
+NTREE1     <- 100L         # trees per forest in classOP optimization rounds
+NTREE2     <- 500L         # trees per forest in classOP final run
+NOP        <- 3L           # number of classOP optimization rounds
 
 # zone column
 colname <- paste0("zone", 1)
@@ -245,7 +248,7 @@ if (length(varlist) < 2) stop("Too few predictors after intersect(varlist, names
 
 clm_x <- dt_s[, ..varlist]
 
-clim_zOp <- classOP(clm_x, clm_y, nTree1 = 3, nOP = 2)
+clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP)
 
 # 8.3 Save OP clm model ---------
 dir.create("rf", showWarnings = FALSE, recursive = TRUE)
@@ -265,6 +268,7 @@ importance_df <- data.frame(
   Importance = importance_vals[, "MeanDecreaseGini"]
 )
 rm(clim_zOp); gc()
+
 
 
 
@@ -298,7 +302,7 @@ for (i in 2:55){
     
     # 9.1 Select varlist ---------
     clmList <- read.csv(opfile)
-    if (nrow(clmList) < VAR_ROW || clmList[VAR_ROW+1, 2] == "0"){
+    if (nrow(clmList) < VAR_ROW+1 || clmList[VAR_ROW+1, 2] == "0"){
       print(paste("[SKIP] no valid variable set at row", VAR_ROW, "for", colname))
       next
     }
@@ -343,7 +347,7 @@ for (i in 2:55){
     
     clm_x <- dt_s[, ..varlist]
     
-    clim_zOp <- classOP(clm_x, clm_y, nTree1 = 3, nOP = 2)
+    clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP)
     
     # 9.4 Save OP clm model ---------
     filename <- paste0("rf/clm_zOp_zone", i, ".Rdata")
