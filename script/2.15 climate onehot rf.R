@@ -367,175 +367,179 @@ for (i in 2:55){
 }
 
 
-# 10. Spatial block CV + ensemble model (zone 1-55) =====================================
-
+# 10. Spatial block CV + weighted ensemble (zone 1-55) ==================================
 library(data.table)
+library(randomForest)
 
-# CV params (adjust here) ---------
+# rf params (adjust here for tuning) ---------
+SMPL_POS   <- 20000L
+SMPL_PA    <- 1/1
+SMPL_MAXN  <- 20000L
+BASE_SEED  <- 49L
+VAR_ROW    <- 20L          # row in opList to pick variable set
+NTREE1     <- 100L         # trees per forest in classOP optimization rounds
+NTREE2     <- 500L         # trees per forest in classOP final run
+NOP        <- 3L           # number of classOP optimization rounds
+
+# CV + ensemble params (adjust here) ---------
 K_FOLD   <- 5L             # try 5L or 10L
-NBX      <- 8L
-NBY      <- 6L
-THD      <- 0.75
+NBX      <- 8L             # spatial grid blocks in x (longitude)
+NBY      <- 6L             # spatial grid blocks in y (latitude)
 CV_SEED  <- 4901L
-BACC_MIN <- 0.65           # warn threshold for balanced accuracy
+THD      <- 0.75           # classOP label-cleaning confidence threshold
+BACC_MIN <- 0.65           # min balanced accuracy to keep a fold
+SENS_MIN <- 0.30           # min sensitivity to keep a fold
+SPEC_MIN <- 0.30           # min specificity to keep a fold
 OUT_DIR  <- "results_cv"
 MOD_DIR  <- "rf_final"
 
-dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
-dir.create(MOD_DIR, showWarnings = FALSE, recursive = TRUE)
+dir.create(OUT_DIR, showWarnings=FALSE, recursive=TRUE)
+dir.create(MOD_DIR, showWarnings=FALSE, recursive=TRUE)
 
-# clean up old summary
-sum_csv <- paste0(OUT_DIR, "/cv_summary_allzones.csv")
+sum_csv <- file.path(OUT_DIR, "cv_summary_allzones.csv")
 if (file.exists(sum_csv)) file.remove(sum_csv)
 
-# helper: spatial block fold assignment ---------
+
+# helper: assign spatial block folds ---------
 make_sp_folds <- function(dt, xcol="x", ycol="y", nbx=8L, nby=6L, K=5L, seed=49L){
-  bx <- cut(dt[[xcol]], nbx, labels = FALSE)
-  by <- cut(dt[[ycol]], nby, labels = FALSE)
-  blk <- (bx - 1L) * nby + by
+  bx <- cut(dt[[xcol]], nbx, labels=FALSE)
+  by <- cut(dt[[ycol]], nby, labels=FALSE)
+  blk <- (bx-1L)*nby + by
   set.seed(seed)
   ublk <- sample(unique(blk))
-  fold_map <- setNames(rep_len(1:K, length(ublk)), ublk)
-  as.integer(fold_map[as.character(blk)])
+  fmap <- setNames(rep_len(1:K, length(ublk)), ublk)
+  as.integer(fmap[as.character(blk)])
 }
 
-# helper: binary classification metrics ---------
-bin_metrics <- function(p, y01, thr=0.5){
+# helper: evaluate one fold ---------
+fold_eval <- function(m, te, colname, varlist, thr=0.5){
+  p    <- predict(m, te[, ..varlist], type="prob")[,"1"]
+  y01  <- as.integer(te[[colname]] == 1L)
   pred <- as.integer(p >= thr)
   tp <- sum(pred==1L & y01==1L); tn <- sum(pred==0L & y01==0L)
   fp <- sum(pred==1L & y01==0L); fn <- sum(pred==0L & y01==1L)
-  acc  <- (tp+tn)/max(1L, tp+tn+fp+fn)
   sens <- tp/max(1L, tp+fn)
   spec <- tn/max(1L, tn+fp)
-  bacc <- 0.5*(sens+spec)
-  list(acc=acc, sens=sens, spec=spec, bacc=bacc)
+  n_pos <- sum(y01)
+  n_neg <- length(y01) - n_pos
+  list(n_pos=n_pos, n_neg=n_neg,
+       acc=(tp+tn)/max(1L,tp+tn+fp+fn), sens=sens, spec=spec, bacc=0.5*(sens+spec))
 }
 
+# helper: predict from weighted ensemble ---------
+predict.rfEnsemble <- function(object, newdata, ...){
+  X <- as.data.frame(newdata[, object$varlist, drop=FALSE])
+  plist <- lapply(object$models, function(m) predict(m, X, type="prob")[,"1"])
+  as.numeric(do.call(cbind, plist) %*% object$weights)
+}
+
+# main loop ---------
 for (i in 1:55){
   
   colname <- paste0("zone", i)
   
-  # skip checks ---------
-  if (!(colname %in% names(combined_data))){
-    print(paste("[SKIP] column not found:", colname)); next
-  }
-  
-  n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-  if (is.na(n1_all) || n1_all == 0L){
-    print(paste("[SKIP] no 1s in:", colname)); next
-  }
+  if (!(colname %in% names(combined_data)))        { message("[SKIP] no col: ", colname); next }
+  n1_all <- sum(combined_data[[colname]]==1, na.rm=TRUE)
+  if (is.na(n1_all) || n1_all==0L)                 { message("[SKIP] no 1s: ", colname); next }
   
   opfile <- paste0("results/clmhot_opList_zone", i, ".csv")
-  if (!file.exists(opfile)){
-    print(paste("[SKIP] opList not found:", opfile)); next
-  }
+  if (!file.exists(opfile))                         { message("[SKIP] no opList: ", opfile); next }
   
   clmList <- read.csv(opfile)
-  if (nrow(clmList) < VAR_ROW+1 || clmList[VAR_ROW+1, 2] == "0"){
-    print(paste("[SKIP] no valid variable set at row", VAR_ROW, "for", colname)); next
-  }
+  if (nrow(clmList) < VAR_ROW+1 || clmList[VAR_ROW+1,2]=="0") { message("[SKIP] no varset: ", colname); next }
   
-  varlist <- trimws(unlist(strsplit(clmList[VAR_ROW+1, 2], ",")))
+  varlist <- trimws(unlist(strsplit(clmList[VAR_ROW+1,2], ",")))
   varlist <- intersect(varlist, names(combined_data))
-  if (length(varlist) < 2L){
-    print(paste("[SKIP] too few predictors for", colname)); next
-  }
+  if (length(varlist) < 2L)                         { message("[SKIP] too few vars: ", colname); next }
   
   tryCatch({
     
     # 10.1 Sampling ---------
     xlist <- names(combined_data)[6:74]
     cols  <- c(colname, xlist, "x", "y")
-    
     pos_i   <- min(SMPL_POS, as.integer(n1_all))
-    noise_i <- as.integer(round(0.10 * pos_i))
-    noise_i <- max(1L, min(noise_i, pos_i - 1L))
-    
-    print(paste("[RUN]", colname, "n1=", n1_all, "pos=", pos_i,
-                "vars=", length(varlist), "K=", K_FOLD))
+    noise_i <- max(1L, min(as.integer(round(0.10*pos_i)), pos_i-1L))
     
     dt_s <- smpl_pa(combined_data, colname,
-                    cols  = cols,
-                    pos   = pos_i,
-                    noise = noise_i,
-                    pa    = SMPL_PA,
-                    max_n = SMPL_MAXN,
-                    seed  = BASE_SEED + i)
-    
-    dt_s <- as.data.table(dt_s)[, c(colname, "x", "y", varlist), with=FALSE]
+                    cols=cols, pos=pos_i, noise=noise_i,
+                    pa=SMPL_PA, max_n=SMPL_MAXN, seed=BASE_SEED+i)
+    dt_s <- as.data.table(dt_s)[, c(colname,"x","y",varlist), with=FALSE]
     dt_s <- dt_s[complete.cases(dt_s)]
-    if (nrow(dt_s) < 50L || length(unique(dt_s[[colname]])) < 2L){
-      print(paste("[SKIP] too few rows / single class:", colname)); next
+    if (nrow(dt_s) < 100L || length(unique(dt_s[[colname]])) < 2L) {
+      message("[SKIP] too few obs: ", colname); next
     }
     
-    # 10.2 Spatial block fold assignment ---------
+    # 10.2 Assign spatial folds ---------
     dt_s[, fold := make_sp_folds(.SD, xcol="x", ycol="y",
-                                 nbx=NBX, nby=NBY, K=K_FOLD, seed=CV_SEED + i),
+                                 nbx=NBX, nby=NBY, K=K_FOLD, seed=CV_SEED+i),
          .SDcols=c("x","y")]
     
-    # 10.3 Train per-fold models + evaluate ---------
-    fold_models <- list()
-    fold_baccs  <- c()
-    cv_rows     <- list()
+    message("[RUN] ", colname, " n1=", n1_all, " pos=", pos_i,
+            " vars=", length(varlist), " K=", K_FOLD)
+    
+    # 10.3 Train + evaluate per fold ---------
+    fold_models <- vector("list", K_FOLD)
+    fold_stats  <- vector("list", K_FOLD)
     
     for (k in 1:K_FOLD){
-      tr <- dt_s[fold != k]
-      te <- dt_s[fold == k]
-      if (nrow(te) < 30L || length(unique(te[[colname]])) < 2L){
-        print(paste("  fold", k, "skipped: too few test obs")); next
-      }
+      tr <- dt_s[fold != k]; te <- dt_s[fold == k]
+      if (nrow(te) < 50L || length(unique(te[[colname]])) < 2L) next
       
-      m <- classOP(tr[, ..varlist], factor(tr[[colname]], levels=c(0,1)),
-                   nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
-      p <- predict(m, te[, ..varlist], type="prob")[, "1"]
-      met <- bin_metrics(p, as.integer(te[[colname]] == 1))
+      m  <- classOP(tr[, ..varlist], factor(tr[[colname]], levels=c(0,1)),
+                    nTree1=NTREE1, nTree2=NTREE2, nOP=NOP, thd=THD)
+      ev <- fold_eval(m, te, colname, varlist)
       
       fold_models[[k]] <- m
-      fold_baccs[k]    <- met$bacc
-      cv_rows[[k]] <- data.table(zone=i, fold=k, n_tr=nrow(tr), n_te=nrow(te),
-                                 acc=met$acc, sens=met$sens, spec=met$spec, bacc=met$bacc)
+      fold_stats[[k]]  <- data.table(zone=i, fold=k,
+                                     n_tr=nrow(tr), n_te=nrow(te),
+                                     n_pos=ev$n_pos, n_neg=ev$n_neg,
+                                     acc=ev$acc, sens=ev$sens, spec=ev$spec, bacc=ev$bacc)
       
-      print(paste("  fold", k, "bacc =", round(met$bacc, 3)))
+      message("  fold ", k, " | te: ", ev$n_pos, "+/", ev$n_neg,
+              "- | sens=", round(ev$sens,3), " spec=", round(ev$spec,3),
+              " bacc=", round(ev$bacc,3))
     }
     
-    # save per-zone CV detail
-    cv_res <- rbindlist(cv_rows, fill=TRUE)
-    if (nrow(cv_res) > 0L){
-      fwrite(cv_res, paste0(OUT_DIR, "/cv_zone", i, ".csv"))
-      cv_mean <- cv_res[, .(n_te=sum(n_te),
-                            acc=mean(acc), sens=mean(sens),
-                            spec=mean(spec), bacc=mean(bacc)),
-                        by=.(zone)]
-      cv_mean[, flag := ifelse(bacc < BACC_MIN, "WARN", "OK")]
-      fwrite(cv_mean, sum_csv, append=file.exists(sum_csv))
+    cv_res <- rbindlist(fold_stats, fill=TRUE)
+    if (nrow(cv_res)==0L) { message("[SKIP] no valid folds: ", colname); next }
+    
+    # 10.4 Save CV results ---------
+    fwrite(cv_res, file.path(OUT_DIR, paste0("cv_zone", i, ".csv")))
+    
+    cv_sum <- cv_res[, .(n_te=sum(n_te), acc=mean(acc), sens=mean(sens),
+                         spec=mean(spec), bacc=mean(bacc)), by=.(zone)]
+    cv_sum[, flag := ifelse(bacc < BACC_MIN, "WARN", "OK")]
+    fwrite(cv_sum, sum_csv, append=file.exists(sum_csv))
+    
+    # 10.5 Build weighted ensemble from qualifying folds ---------
+    keep <- cv_res[sens >= SENS_MIN & spec >= SPEC_MIN & bacc >= BACC_MIN, fold]
+    if (length(keep)==0L){
+      message("[WARN] ", colname, " no fold passed thresholds; keeping best bacc fold")
+      keep <- cv_res[which.max(bacc), fold]
     }
+    keep <- sort(unique(keep))
     
-    # 10.4 Combine validated fold models into final ensemble ---------
-    keep <- which(fold_baccs >= BACC_MIN)
-    if (length(keep) == 0L){
-      print(paste("[WARN]", colname, "no fold passed BACC_MIN, keeping best fold"))
-      keep <- which.max(fold_baccs)
-    }
+    # weights aligned with keep order; drop NULL models as safety
+    w    <- cv_res[match(keep, fold), bacc]
+    mods <- fold_models[keep]
+    ok   <- !vapply(mods, is.null, logical(1))
+    mods <- mods[ok]
+    w    <- w[ok]; w <- w/sum(w)
     
-    if (length(keep) == 1L){
-      clim_final <- fold_models[[keep]]
-    } else {
-      clim_final <- do.call(combine, fold_models[keep])
-    }
+    clim_ens <- list(models=mods, weights=w, varlist=varlist,
+                     cv=cv_res, keep=keep[ok])
+    class(clim_ens) <- "rfEnsemble"
     
-    modfile <- paste0(MOD_DIR, "/clm_zOp_zone", i, ".Rdata")
-    save(clim_final, file = modfile)
+    save(clim_ens, file=file.path(MOD_DIR, paste0("clm_ens_zone", i, ".Rdata")))
     
-    print(paste("[DONE]", colname,
-                "| folds kept:", length(keep), "/", K_FOLD,
-                "| baccs:", paste(round(fold_baccs, 3), collapse=", ")))
+    message("[DONE] ", colname, " | kept: ", paste(keep[ok], collapse=","),
+            " | w: ", paste(round(w,3), collapse=","))
     
-    rm(dt_s, cv_res, cv_mean, fold_models, fold_baccs, cv_rows, clim_final, clmList, varlist)
+    rm(dt_s, cv_res, cv_sum, fold_models, fold_stats, mods, w, clim_ens, clmList, varlist)
     gc()
     
-  }, error = function(e){
-    print(paste("[ERROR]", colname, ":", conditionMessage(e)))
+  }, error=function(e){
+    message("[ERROR] ", colname, ": ", conditionMessage(e))
     gc()
-    NULL
   })
 }
