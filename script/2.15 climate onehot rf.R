@@ -371,16 +371,6 @@ for (i in 2:55){
 library(data.table)
 library(randomForest)
 
-# rf params (adjust here for tuning) ---------
-SMPL_POS   <- 20000L
-SMPL_PA    <- 1/1
-SMPL_MAXN  <- 20000L
-BASE_SEED  <- 49L
-VAR_ROW    <- 20L          # row in opList to pick variable set
-NTREE1     <- 100L         # trees per forest in classOP optimization rounds
-NTREE2     <- 500L         # trees per forest in classOP final run
-NOP        <- 3L           # number of classOP optimization rounds
-
 # CV + ensemble params (adjust here) ---------
 K_FOLD   <- 5L             # try 5L or 10L
 NBX      <- 8L             # spatial grid blocks in x (longitude)
@@ -398,7 +388,6 @@ dir.create(MOD_DIR, showWarnings=FALSE, recursive=TRUE)
 
 sum_csv <- file.path(OUT_DIR, "cv_summary_allzones.csv")
 if (file.exists(sum_csv)) file.remove(sum_csv)
-
 
 # helper: assign spatial block folds ---------
 make_sp_folds <- function(dt, xcol="x", ycol="y", nbx=8L, nby=6L, K=5L, seed=49L){
@@ -524,7 +513,14 @@ for (i in 1:55){
     mods <- fold_models[keep]
     ok   <- !vapply(mods, is.null, logical(1))
     mods <- mods[ok]
-    w    <- w[ok]; w <- w/sum(w)
+    w    <- w[ok]
+    
+    wsum <- sum(w, na.rm = TRUE)
+    if (!is.finite(wsum) || wsum <= 0) {
+      w <- rep(1/length(w), length(w))   # fallback: equal weights
+    } else {
+      w <- w / wsum                      # normalize to sum=1
+    }
     
     clim_ens <- list(models=mods, weights=w, varlist=varlist,
                      cv=cv_res, keep=keep[ok])
