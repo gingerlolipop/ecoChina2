@@ -371,6 +371,17 @@ for (i in 2:55){
 library(data.table)
 library(randomForest)
 
+# rf params (adjust here for tuning) --------- 
+SMPL_POS   <- 20000L
+SMPL_PA    <- 1/1
+SMPL_MAXN  <- 20000L
+BASE_SEED  <- 49L
+VAR_ROW    <- 20L          # row in opList to pick variable set
+NTREE1     <- 100L         # trees per forest in classOP optimization rounds
+NTREE2     <- 500L         # trees per forest in classOP final run
+NOP        <- 3L           # number of classOP optimization rounds
+
+
 # CV + ensemble params (adjust here) ---------
 K_FOLD   <- 5L             # try 5L or 10L
 NBX      <- 8L             # spatial grid blocks in x (longitude)
