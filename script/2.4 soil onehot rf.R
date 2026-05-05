@@ -109,6 +109,9 @@ for (i in setdiff(2:55, 8)) {
   
   tryCatch({
     set.seed(BASE_SEED + i)
+    n_rounds <- if (n1 >= 6000) 3L else if (n1 >= 3000) 2L else 1L
+    cat(" sampling rounds:", n_rounds, "\n")
+    
     soil_ps <- soil_hot
     for (r in seq_len(n_rounds)) {
       soil_ps <- proSysSmpl(soil_ps,
@@ -230,6 +233,7 @@ cat("[TEST] zone", i, "| vars =", length(varlist), "\n")
 
 # 5.2 Sample
 set.seed(BASE_SEED)
+n1 <- sum(soil_hot[[colname]] == 1, na.rm = TRUE)
 n_rounds <- if (n1 >= 6000) 3L else if (n1 >= 3000) 2L else 1L
 cat(" sampling rounds:", n_rounds, "\n")
 
