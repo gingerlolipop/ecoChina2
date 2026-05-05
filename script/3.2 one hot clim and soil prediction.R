@@ -1,14 +1,12 @@
-#3.2 one hot clim and soil prediction
-# Dual Suitability Prediction — Part 1: Climate suitability maps
+# 3.2 Dual Suitability Prediction — Part 1: Climate suitability maps
 # ============================================================
-library(raster)
 library(terra)
 library(randomForest)
 library(CEMT)
 
 setwd("H:/Jing/ecoChina/play/China")
 
-original_raster <- raster('raster/veg_3')
+original_raster <- rast('raster/veg_3')
 climdir_normal  <- 'H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990'
 clm_mod_dir     <- 'H:/Jing/ecoChina2/rf_final'
 out_dir_clm     <- 'H:/Jing/ecoChina/play/China/clim suitability/normal'
@@ -18,21 +16,29 @@ dir.create(out_dir_clm, recursive = TRUE, showWarnings = FALSE)
 zones <- setdiff(1:55, 8)
 
 
-# ── helper: predict rfEnsemble onto raster stack ─────────────
-predict_ensemble_raster <- function(ens, raster_stack, template) {
-  vals         <- as.data.frame(values(raster_stack))
-  complete_idx <- complete.cases(vals[, ens$varlist, drop = FALSE])
+# ── helper: predict rfEnsemble onto SpatRaster stack ─────────────
+predict_ensemble_raster <- function(ens, raster_stack) {
+  
+  vals <- as.data.frame(values(raster_stack))
+  vals <- vals[, ens$varlist, drop = FALSE]
+  
+  complete_idx <- complete.cases(vals)
   pred_vals    <- rep(NA_real_, nrow(vals))
   
   if (sum(complete_idx) > 0) {
-    X     <- vals[complete_idx, ens$varlist, drop = FALSE]
+    
+    X <- vals[complete_idx, , drop = FALSE]
+    
     plist <- lapply(ens$models,
                     function(m) predict(m, X, type = "prob")[, "1"])
+    
     pred_vals[complete_idx] <- as.numeric(do.call(cbind, plist) %*% ens$weights)
   }
   
-  r_out         <- raster(template)
+  r_out <- raster_stack[[1]]
   values(r_out) <- pred_vals
+  names(r_out) <- "suitability"
+  
   r_out
 }
 
@@ -54,6 +60,7 @@ for (i in zones) {
     cat("[SKIP] model not found: zone", i, "\n"); next
   }
   load(mod_file)   # loads clim_ens
+  
   rfVar <- clim_ens$varlist
   cat("[RUN] zone", i, "| vars:", length(rfVar), "\n")
   
@@ -62,7 +69,7 @@ for (i in zones) {
   for (var in rfVar) {
     tif_path <- file.path(climdir_normal, paste0(var, ".tif"))
     if (file.exists(tif_path)) {
-      r        <- raster(tif_path)
+      r <- rast(tif_path)
       r[r == -9999] <- NA
       names(r) <- var
       raster_layers[[var]] <- r
@@ -76,16 +83,17 @@ for (i in zones) {
     rm(clim_ens, raster_layers); gc(); next
   }
   
-  raster_stack <- stack(raster_layers)
+  raster_stack <- rast(raster_layers)
+  names(raster_stack) <- rfVar
   
   # Predict
-  pclim <- predict_ensemble_raster(clim_ens, raster_stack, raster_stack[[1]])
-  pclim_resampled <- resample(pclim, original_raster)
+  pclim <- predict_ensemble_raster(clim_ens, raster_stack)
+  pclim_resampled <- resample(pclim, original_raster, method = "bilinear")
   
   plot(pclim_resampled, main = paste0("Zone ", i, " Climate Suitability (Normal)"))
   
   # Save
-  writeRaster(pclim_resampled, out_file, format = "GTiff", overwrite = TRUE)
+  writeRaster(pclim_resampled, out_file, overwrite = TRUE)
   cat("[DONE] zone", i, "\n")
   
   rm(clim_ens, raster_layers, raster_stack, pclim, pclim_resampled); gc()
@@ -121,15 +129,17 @@ for (scenario in scenarios) {
       if (!file.exists(mod_file)) {
         cat("[SKIP] model not found: zone", i, "\n"); next
       }
-      load(mod_file)
+      load(mod_file)   # loads clim_ens
+      
       rfVar <- clim_ens$varlist
       cat("[RUN] zone", i, "| vars:", length(rfVar), "\n")
       
+      # Stack climate rasters
       raster_layers <- list()
       for (var in rfVar) {
         tif_path <- file.path(climdir_fut, paste0(var, ".tif"))
         if (file.exists(tif_path)) {
-          r        <- raster(tif_path)
+          r <- rast(tif_path)
           r[r == -9999] <- NA
           names(r) <- var
           raster_layers[[var]] <- r
@@ -143,18 +153,18 @@ for (scenario in scenarios) {
         rm(clim_ens, raster_layers); gc(); next
       }
       
-      raster_stack <- stack(raster_layers)
+      raster_stack <- rast(raster_layers)
+      names(raster_stack) <- rfVar
       
-      pclim <- predict_ensemble_raster(clim_ens, raster_stack, raster_stack[[1]])
-      pclim_resampled <- resample(pclim, original_raster)
+      # Predict
+      pclim <- predict_ensemble_raster(clim_ens, raster_stack)
+      pclim_resampled <- resample(pclim, original_raster, method = "bilinear")
       
-      writeRaster(pclim_resampled, out_file, format = "GTiff", overwrite = TRUE)
+      # Save
+      writeRaster(pclim_resampled, out_file, overwrite = TRUE)
       cat("[DONE] zone", i, "\n")
       
       rm(clim_ens, raster_layers, raster_stack, pclim, pclim_resampled); gc()
     }
   }
 }
-# check
-r <- 
-  
