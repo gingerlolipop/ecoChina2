@@ -3,3 +3,5 @@ data clean/
 *.log
 *.tmp
 .DS_Store
+.Rproj.user
+.positai

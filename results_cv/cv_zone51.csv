@@ -1,0 +1,2 @@
+zone,fold,n_tr,n_te,acc,sens,spec,bacc
+51,5,47,40,0.225,0,1,0.5
