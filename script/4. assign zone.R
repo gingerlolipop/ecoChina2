@@ -28,7 +28,7 @@ zoneID <- c(1:7, 9:30, 31:50, 52:55)
 
 threshold <- 0.1
 novel_value <- 99
-tie_tol <- 1e-6
+tie_tol <- 1e-4
 
 set.seed(49)
 
