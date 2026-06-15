@@ -88,7 +88,7 @@ clm_vals <- terra::extract(clm_stack, coords)
 clm_vals$ID <- NULL
 
 # 6. Combine DEM + climate data
-clm_6190 <- cbind(dem, clm_vals)
+clm_6190 <- cbind(dem, clm_vals) #13806550 non-
 fWrite(clm_6190, paste0(outDir, "1. zoneID_Clm_800m_Normal_1961_1990SY.csv"))
 
 
