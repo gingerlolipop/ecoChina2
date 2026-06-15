@@ -6,10 +6,14 @@ library(foreach)
 # Assign each pixel to a vegetation zone using dual suitability maps.
 #
 # Main rules:
-#   1. The zone with the highest dual suitability is assigned.
-#   2. If the maximum suitability is below threshold, assign 99.
-#      Here 99 means novel ecosystem / no suitable current vegetation zone.
-#   3. If multiple zones have exactly the same highest suitability:
+#   1. If the original vegetation raster r is NA, return NA.
+#      This preserves the original map mask.
+#   2. The zone with the highest dual suitability is assigned.
+#   3. For future scenarios, if the maximum suitability is below threshold,
+#      assign 99. Here 99 means novel ecosystem / no suitable current zone.
+#   4. For normal period, do not assign 99.
+#      The normal period must be assigned to one of the existing zones.
+#   5. If multiple zones are nearly tied:
 #        - keep the original vegetation zone if it is one of the tied zones;
 #        - otherwise randomly choose one of the tied zones.
 #
@@ -22,7 +26,6 @@ dual_dir <- file.path(base_dir, "dual suit")
 output_dir <- file.path(base_dir, "result maps")
 
 r_file <- file.path(base_dir, "raster/ecosys_ori.tif")
-r <- rast(r_file)
 
 zoneID <- c(1:7, 9:30, 31:50, 52:55)
 
@@ -38,9 +41,6 @@ scenarios <- list.dirs(
   full.names = FALSE
 )
 
-# Keep only scenarios that already have at least one dual suitability tif.
-# This is useful because some future scenarios may still be running.
-# sapply() checks each scenario folder and returns TRUE/FALSE.
 scenarios <- scenarios[sapply(scenarios, function(scenario) {
   any(file.exists(file.path(
     dual_dir,
@@ -52,8 +52,7 @@ scenarios <- scenarios[sapply(scenarios, function(scenario) {
 print(scenarios)
 
 # Parallelization is done by scenario, not by pixel.
-# Each worker processes one scenario folder independently.
-# Do not set this too high because each scenario loads many raster layers.
+# workers = 1 is more stable for large terra raster operations.
 n_workers <- min(1, length(scenarios))
 
 registerDoFuture()
@@ -61,13 +60,14 @@ plan(multisession, workers = n_workers)
 
 output_files <- foreach(
   scenario = scenarios,
-  .options.future = list(
-    seed = TRUE,
-    packages = "terra"
-  )
+  .options.future = list(seed = TRUE)
 ) %dofuture% {
   
+  library(terra)
+  
   message("Processing scenario: ", scenario)
+  
+  r <- rast(r_file)
   
   input_dir <- file.path(dual_dir, scenario)
   
@@ -86,14 +86,10 @@ output_files <- foreach(
   
   dual_stack <- rast(files)
   
-  # zoneID_available is used instead of zoneID because some zone files
-  # may be missing. It keeps the layer-to-zone mapping correct.
+  # Use available zone IDs because some zone files may be missing.
   zoneID_available <- as.numeric(names(files))
   names(dual_stack) <- zoneID_available
   
-  # The assigned map must match the original vegetation map r exactly
-  # in extent, resolution, CRS, and number of rows/columns.
-  # Otherwise later pixel-by-pixel comparison with r will be invalid.
   if (!compareGeom(dual_stack, r, stopOnError = FALSE)) {
     dual_stack <- resample(
       dual_stack,
@@ -102,20 +98,18 @@ output_files <- foreach(
     )
   }
   
-  # Add r as the last layer.
-  # In assign_zone():
-  #   x[1:length(zoneID_available)] = dual suitability values
-  #   x[length(x)]                  = original vegetation zone from r
   stack_with_r <- c(dual_stack, r)
   names(stack_with_r)[nlyr(stack_with_r)] <- "original_zone"
+  
+  # Historical / normal period should not have novel ecosystem.
+  is_normal <- scenario == "normal"
   
   assign_zone <- function(x) {
     
     current_values <- x[seq_along(zoneID_available)]
     original_zone  <- x[length(x)]
     
-    # Keep the original raster mask.
-    # If the original vegetation map is NA, the assigned map should also be NA.
+    # Preserve original map mask.
     if (is.na(original_zone)) {
       return(NA_real_)
     }
@@ -126,12 +120,13 @@ output_files <- foreach(
     
     max_value <- max(current_values, na.rm = TRUE)
     
-    if (max_value < threshold) {
+    # Novel ecosystem only applies to future scenarios.
+    if (!is_normal && max_value < threshold) {
       return(novel_value)
     }
     
-    # Treat nearly equal values as ties.
-    # tie_tol = 1e-6 means differences after the 6th decimal place are ignored.
+    # Near ties are treated as ties.
+    # tie_tol = 1e-4 means differences after the 4th decimal place are ignored.
     tied_zones <- zoneID_available[
       !is.na(current_values) & (max_value - current_values <= tie_tol)
     ]
@@ -142,24 +137,28 @@ output_files <- foreach(
     }
     
     sample(tied_zones, 1)
-  }  
-  output_file <- file.path(
-    output_dir,
-    paste0("assigned_zone_", scenario, "_threshold", threshold, "_novel99_originalTie.tif")
-  )
-  
-  if (file.exists(output_file)) {
-    file.remove(output_file)
   }
   
-  # terra::app() applies assign_zone() pixel by pixel across layers.
-  # filename writes the result directly to disk, which avoids holding
-  # the full output raster in memory.
+  output_file <- file.path(
+    output_dir,
+    paste0(
+      "assigned_zone_",
+      scenario,
+      "_threshold", threshold,
+      "_tol", tie_tol,
+      "_novel99_maskNA_noNovelNormal.tif"
+    )
+  )
+  
   app(
     stack_with_r,
     fun = assign_zone,
     filename = output_file,
-    overwrite = TRUE
+    overwrite = TRUE,
+    wopt = list(
+      datatype = "INT2S",
+      gdal = c("COMPRESS=LZW")
+    )
   )
   
   message("Saved: ", output_file)
