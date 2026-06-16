@@ -1,552 +1,411 @@
-# Climate One-Hot classification rf#
+# Climate One-Hot RF — no spatial CV + multi-Forest
+# Zone 1 first, then loop over zones 2:55
+# ============================================================
 library(CEMT)
-library(terra)
 library(ClimateNAr)
-
 library(randomForest)
 library(caret)
-library(jsonlite)
-library(sf)
 library(data.table)
+library(foreach)
+library(doSNOW)
 
-rm();gc()
-setwd("H:/Jing/ecoChina2")
+rm(list = ls()); gc()
+
+base_dir <- "H:/Jing/ecoChina2"
+setwd(base_dir)
+
+source(file.path(base_dir, "functions", "mcRFop_cls3.R"))
+
+# 0. Multi-Forest functions ===================================================
+
+mcmfRF2 <- function(xy_y, xy_n, nr = 1.2, varList, yCol,
+                    reg = FALSE, nTree = 100, nForest = 10) {
+  library(foreach); library(doSNOW); library(randomForest)
+  nCore <- min(max(1L, parallel::detectCores() - 1L), nTree)
+  ntree_vec <- rep(floor(nTree / nCore), nCore)
+  if (nTree %% nCore > 0) {
+    ntree_vec[seq_len(nTree %% nCore)] <- ntree_vec[seq_len(nTree %% nCore)] + 1L
+  }
+  ntree_vec <- ntree_vec[ntree_vec > 0]
+  cl <- makeCluster(length(ntree_vec), type = "SOCK")
+  registerDoSNOW(cl)
+  on.exit(stopCluster(cl), add = TRUE)
+  
+  n_prs <- nrow(xy_y)
+  n_abs <- min(nrow(xy_n), floor(n_prs * nr))
+  
+  for (f in 1:nForest) {
+    train_abs <- xy_n[sample(seq_len(nrow(xy_n)), n_abs, replace = FALSE), ]
+    train <- rbind(xy_y, train_abs)
+    x2 <- train[, varList, drop = FALSE]
+    if (!reg) y2 <- factor(train[[yCol]], levels = c(0, 1))
+    if (reg)  y2 <- train[[yCol]]
+    
+    rf2 <- foreach(
+      ntree = ntree_vec,
+      .combine = combine,
+      .packages = "randomForest"
+    ) %dopar% randomForest(x2, y2, ntree = ntree, importance = TRUE)
+    
+    if (f == 1) rfC <- rf2 else rfC <- combine(rfC, rf2)
+  }
+  rfC
+}
+
+mcmfRFop <- function(xy_y, xy_n, nr = 1.2, varList, yCol,
+                     nTree = 100, nForest = 10, nP = 10, thd = 0.8) {
+  library(foreach); library(doSNOW); library(randomForest)
+  nCore <- min(max(1L, parallel::detectCores() - 1L), nTree)
+  ntree_vec <- rep(floor(nTree / nCore), nCore)
+  if (nTree %% nCore > 0) {
+    ntree_vec[seq_len(nTree %% nCore)] <- ntree_vec[seq_len(nTree %% nCore)] + 1L
+  }
+  ntree_vec <- ntree_vec[ntree_vec > 0]
+  cl <- makeCluster(length(ntree_vec), type = "SOCK")
+  registerDoSNOW(cl)
+  on.exit(stopCluster(cl), add = TRUE)
+  
+  n_prs <- nrow(xy_y)
+  n_abs <- min(nrow(xy_n), floor(n_prs * nr))
+  
+  for (f in 1:nForest) {
+    train_abs <- xy_n[sample(seq_len(nrow(xy_n)), n_abs, replace = FALSE), ]
+    train <- rbind(xy_y, train_abs)
+    x2 <- train[, varList, drop = FALSE]
+    y2 <- factor(train[[yCol]], levels = c(0, 1))
+    
+    Op <- classOP(x2, y2, nTree1 = 5, nTree2 = 10, nOP = nP, thd = thd)
+    x3 <- Op$x
+    y3 <- Op$y
+    
+    rf2 <- foreach(
+      ntree = ntree_vec,
+      .combine = combine,
+      .packages = "randomForest"
+    ) %dopar% randomForest(x3, y3, ntree = ntree, importance = TRUE)
+    
+    if (f == 1) rfC <- rf2 else rfC <- combine(rfC, rf2)
+  }
+  rfC
+}
+
+rf_acc <- function(m, x, y, zone, model_name, out_dir) {
+  
+  y <- factor(y, levels = c(0, 1))
+  
+  # OOB accuracy from randomForest object, if available
+  oob_acc <- NA_real_
+  if (!is.null(m$confusion)) {
+    cm_oob <- as.matrix(m$confusion[, c("0", "1"), drop = FALSE])
+    oob_acc <- sum(diag(cm_oob)) / sum(cm_oob)
+    
+    fwrite(
+      as.data.table(cm_oob, keep.rownames = "observed"),
+      file.path(out_dir, paste0(model_name, "_zone", zone, "_confusion_oob.csv"))
+    )
+  }
+  
+  # Training-set confusion matrix
+  pred <- predict(m, x, type = "response")
+  pred <- factor(pred, levels = c(0, 1))
+  
+  cm_train <- table(
+    observed = y,
+    predicted = pred
+  )
+  
+  train_acc <- sum(diag(cm_train)) / sum(cm_train)
+  
+  fwrite(
+    as.data.table(cm_train),
+    file.path(out_dir, paste0(model_name, "_zone", zone, "_confusion_train.csv"))
+  )
+  
+  data.table(
+    zone = zone,
+    model = model_name,
+    n = length(y),
+    oob_accuracy = oob_acc,
+    train_accuracy = train_acc
+  )
+}
+
+
+# ── params ─────────────────────────────────────
+SMPL_POS_OP   <- 5000L
+SMPL_POS_RF   <- 8000L
+SMPL_PA       <- 1 / 1.3
+SMPL_MAXN     <- 20000L
+BASE_SEED     <- 49L
+VAR_ROW       <- 20L
+NTREE_OPLIST  <- 100L
+NTREE_PLAIN   <- 500L
+NTREE_MF      <- 100L
+NFOREST       <- 10L
+MF_NR         <- 1.3
+NTREE1        <- 100L
+NTREE2        <- 500L
+NOP           <- 3L
+THD           <- 0.75
+OUT_DIR       <- "results"
+MOD_DIR       <- "rf"
+ACC_DIR       <- "accuracy_climate"
+# ───────────────────────────────────────────────
+
+dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
+dir.create(MOD_DIR, showWarnings = FALSE, recursive = TRUE)
+dir.create(ACC_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # 1. Import climate dataframe ============================================================
 
-#rf data
-dat <- fRead("data raw/1. zoneID_Clm_800m_Normal_1961_1990SY.csv");hd(dat);names(dat)
+dat <- fRead("data raw/1. zoneID_Clm_800m_Normal_1961_1990SY.csv"); hd(dat); names(dat)
 dat[dat == -9999] <- NA
-print(sort(unique(dat$zoneID))) #has zone 56
+print(sort(unique(dat$zoneID)))
 
 dat <- dat[complete.cases(dat$zoneID), ]
-hd(dat) #13845898 obs
-
-dat <- dat[complete.cases(dat[,6:ncol(dat)]), ];hd(dat) #13806550   obs
-zone_counts <- table(dat$zoneID);print(zone_counts) #what's deleted does not matter
+dat <- dat[complete.cases(dat[, 6:ncol(dat)]), ]
+zone_counts <- table(dat$zoneID); print(zone_counts)
 
 xlist <- colnames(dat)[6:ncol(dat)]
-x <- dat[,xlist]; hd(x)
+x <- dat[, xlist]; hd(x)
 
-summary(x$AHM) #max 3561.30
-summary(x$Tave_sm) #max 32.00
+summary(x$AHM)
+summary(x$Tave_sm)
 
-y <- as.factor(dat$zoneID);levels(y) # zone 56 disappeared due to missing climate data
+y <- as.factor(dat$zoneID); levels(y)
 
-# Aggregate data by 'zoneID'
-agg_data <- aggregate(dat[, 6:ncol(dat)], by=list(zoneID=dat$zoneID), FUN=mean)
+agg_data <- aggregate(dat[, 6:ncol(dat)], by = list(zoneID = dat$zoneID), FUN = mean)
+write.csv(agg_data, file.path(OUT_DIR, "summarize_climstat_by_zoneID.csv"), row.names = FALSE)
 
-# Write the aggregated data to a CSV file (mean climate of each zone)
-write.csv(agg_data, "results/summarize_climstat_by_zoneID.csv", row.names=FALSE) #summary all clim stats by zoneID
+# 2. One-hot encoding ====================================================================
 
-
-
-# 2. One-hot Encoding====================================================================
 dat$zoneID <- as.factor(dat$zoneID)
-one_hot <- model.matrix(~zoneID - 1, data = dat);hd(one_hot)
+one_hot <- model.matrix(~zoneID - 1, data = dat); hd(one_hot)
 colnames(one_hot) <- gsub("zoneID", "zone", colnames(one_hot))
-one_hot_df <- as.data.frame(one_hot);colnames(one_hot_df)
-
-# Combine the original data with the one-hot encoded columns
+one_hot_df <- as.data.frame(one_hot)
 combined_data <- cbind(dat, one_hot_df)
 head(combined_data)
 
+# 3. Variable selection: zone 1 first ====================================================
 
+i <- 1
+colname <- paste0("zone", i)
+opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
 
-# 3. Compressing & sampling =============================================================
-# smpl_pa params (adjust here for tuning) ---------
-SMPL_POS   <- 5000L      # target presence (cap by available n1)
-SMPL_PA    <- 1/1.3       # P/A ratio (presence/absence)
-SMPL_MAXN  <- 20000L      # max total sample size per zone
-BASE_SEED  <- 49L
+n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
+pos_i <- min(SMPL_POS_OP, as.integer(n1_all))
+noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
+cols <- c(colname, xlist)
 
-# 3.1 zone1，presence ≈ 5000±10%，P:A=1:1.3 ---------
-colname <- paste0("zone", 1)
+cat("[OPLIST] zone", i, "n1 =", n1_all, "\n")
 
-# predictors
-xlist <- names(combined_data)[6:74]
-cols  <- c(colname, xlist)
-
-# per-zone pos/noise (noise = 10% of pos)
-n1_all  <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-pos_i   <- min(SMPL_POS, as.integer(n1_all))
-noise_i <- as.integer(round(0.10 * pos_i))
-noise_i <- min(noise_i, pos_i - 1L)
-
-dt_s <- smpl_pa(combined_data, colname,
-                cols  = cols,
-                pos   = pos_i,
-                noise = noise_i,
-                pa    = SMPL_PA,
-                max_n = SMPL_MAXN,
-                seed  = BASE_SEED)
-
-dt_s[, .N, by = get(colname)]
-
-clm_y <- factor(dt_s[[colname]], levels = c(0, 1))
-print(table(clm_y))
-
-# x for mcRFop_cls: need data.frame + no NA
-x_df  <- na.omit(as.data.frame(dt_s[, ..xlist]))
-y_fac <- factor(dt_s[[colname]][as.numeric(rownames(x_df))], levels = c(0, 1))
-
-clmopList <- mcRFop_cls(x_df, y_fac, nTree=100)
-
-# make sure output dir exists
-dir.create("results", showWarnings = FALSE, recursive = TRUE)
-
-# build a single filename string
-outfile <- paste0("results/clmhot_opList_zone", 1, ".csv")
-
-# safest: convert to data.frame and write.csv (always works)
-write.csv(as.data.frame(clmopList), outfile, row.names = FALSE)
-
-# 3.2 Climate var optimize, zone 2-55 ------
-
-for (i in 2:55){
+if (!file.exists(opfile)) {
+  dt_s <- smpl_pa(combined_data, colname,
+                  cols = cols, pos = pos_i, noise = noise_i,
+                  pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
+  print(dt_s[, .N, by = get(colname)])
   
-  colname <- paste0("zone", i)
+  x_df <- na.omit(as.data.frame(dt_s[, ..xlist]))
+  y_fac <- factor(dt_s[[colname]][as.numeric(rownames(x_df))], levels = c(0, 1))
   
-  # skip if no one-hot column
-  if(!(colname %in% names(combined_data))){
-    print(paste("[SKIP] column not found:", colname))
-    next
-  }
-  
-  # skip if no presence
-  n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-  if(is.na(n1_all) || n1_all == 0){
-    print(paste("[SKIP] no 1s in:", colname))
-    next
-  }
-  
-  # ---------------- sampling parameters ----------------
-  pos_i   <- min(SMPL_POS, as.integer(n1_all))
-  
-  noise_i <- as.integer(round(0.10 * pos_i))
-  noise_i <- max(1L, min(noise_i, pos_i - 1L))   
-  
-  cols <- c(colname, names(combined_data)[6:74])
-  
-  print(paste("[RUN]", colname,
-              "n1=", n1_all,
-              "pos=", pos_i,
-              "noise~", noise_i,
-              "pa=", SMPL_PA,
-              "max_n=", SMPL_MAXN))
-  
-  tryCatch({
-    
-    # ---------------- smpl_pa ----------------
-    dt_s <- smpl_pa(combined_data, colname,
-                    cols  = cols,
-                    pos   = pos_i,
-                    noise = noise_i,
-                    pa    = SMPL_PA,
-                    max_n = SMPL_MAXN,
-                    seed  = BASE_SEED + i)
-    
-    # check sampled class balance
-    tab <- dt_s[, .N, by = get(colname)]
-    if(nrow(tab) < 2){
-      print(paste("[SKIP] sampled data has only one class:", colname))
-      next
-    }
-    
-    # ---------------- prepare y ----------------
-    clm_y <- factor(dt_s[[colname]], levels = c(0, 1))
-    print(table(clm_y))
-    
-    # ---------------- prepare x ----------------
-    x_df  <- na.omit(as.data.frame(dt_s[, ..xlist]))
-    if(nrow(x_df) < 10){
-      print(paste("[SKIP] too few rows after na.omit:", colname))
-      next
-    }
-    
-    y_fac <- factor(dt_s[[colname]][as.numeric(rownames(x_df))],
-                    levels = c(0,1))
-    
-    if(anyNA(y_fac) || length(unique(y_fac)) < 2){
-      print(paste("[SKIP] y invalid / single class after NA removal:", colname))
-      next
-    }
-    
-    # ---------------- mcRF optimize ----------------
-    clmopList <- mcRFop_cls(x_df, y_fac, nTree = 100)
-    
-    # ---------------- save result (FIXED) ----------------
-    
-    outfile <- paste0("results/clmhot_opList_zone", i, ".csv")
-    write.csv(as.data.frame(clmopList), outfile, row.names = FALSE)
-    
-    print(paste("[DONE]", colname))
-    
-    rm(dt_s, tab, clm_y, x_df, y_fac, clmopList)
-    gc()
-    
-  }, error = function(e){
-    
-    print(paste("[ERROR]", colname, ":", conditionMessage(e)))
-    gc()
-    NULL
-    
-  })
-  
+  clmopList <- mcRFop_cls(x_df, y_fac, nTree = NTREE_OPLIST)
+  write.csv(as.data.frame(clmopList), opfile, row.names = FALSE)
+  rm(dt_s, x_df, y_fac, clmopList); gc()
+} else {
+  cat("[SKIP] opList already exists: zone", i, "\n")
 }
 
+# 4. Variable selection: zones 2:55 ======================================================
 
+for (i in 2:55) {
+  colname <- paste0("zone", i)
+  
+  if (!(colname %in% names(combined_data))) {
+    cat("[SKIP] no col:", colname, "\n"); next
+  }
+  
+  n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
+  if (is.na(n1_all) || n1_all == 0) {
+    cat("[SKIP] no presence:", colname, "\n"); next
+  }
+  
+  opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
+  if (file.exists(opfile)) {
+    cat("[SKIP] opList already exists:", colname, "\n"); next
+  }
+  
+  tryCatch({
+    pos_i <- min(SMPL_POS_OP, as.integer(n1_all))
+    noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
+    cols <- c(colname, xlist)
+    
+    cat("[OPLIST] zone", i, "n1 =", n1_all, "\n")
+    
+    dt_s <- smpl_pa(combined_data, colname,
+                    cols = cols, pos = pos_i, noise = noise_i,
+                    pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
+    print(dt_s[, .N, by = get(colname)])
+    
+    x_df <- na.omit(as.data.frame(dt_s[, ..xlist]))
+    y_fac <- factor(dt_s[[colname]][as.numeric(rownames(x_df))], levels = c(0, 1))
+    
+    if (anyNA(y_fac) || length(unique(y_fac)) < 2) {
+      cat("[SKIP] invalid y:", colname, "\n"); next
+    }
+    
+    clmopList <- mcRFop_cls(x_df, y_fac, nTree = NTREE_OPLIST)
+    write.csv(as.data.frame(clmopList), opfile, row.names = FALSE)
+    rm(dt_s, x_df, y_fac, clmopList); gc()
+    
+  }, error = function(e) {
+    cat("[ERROR] opList", colname, ":", conditionMessage(e), "\n"); gc()
+  })
+}
 
+# 5. RF training: zone 1 first ===========================================================
 
+acc_all <- list()
 
-# 8. One-Hot Random Forest zone 1 =======================================================
+i <- 1
+colname <- paste0("zone", i)
+opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
 
-# rf params (adjust here for tuning) ---------
-SMPL_POS   <- 8000L
-SMPL_PA    <- 1/1.3
-SMPL_MAXN  <- 20000L
-BASE_SEED  <- 49L
-VAR_ROW    <- 20L          # row in opList to pick variable set
-NTREE1     <- 100L         # trees per forest in classOP optimization rounds
-NTREE2     <- 500L         # trees per forest in classOP final run
-NOP        <- 3L           # number of classOP optimization rounds
+n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
+pos_i <- min(SMPL_POS_RF, as.integer(n1_all))
+noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
+cols <- c(colname, xlist)
 
-# zone column
-colname <- paste0("zone", 1)
-
-# Select varlist from optimization results
-clmList  <- read.csv(paste0("results/clmhot_opList_zone", 1, ".csv"))
-varlist  <- trimws(unlist(strsplit(clmList[VAR_ROW+1, 2], ",")))
-
-# 8.1 Sampling ---------
-xlist <- names(combined_data)[6:74]
-cols  <- c(colname, xlist)
-
-n1_all  <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-if (is.na(n1_all) || n1_all == 0L) stop("No presence (1) rows for ", colname)
-
-pos_i   <- min(SMPL_POS, as.integer(n1_all))
-noise_i <- as.integer(round(0.10 * pos_i))
-noise_i <- min(noise_i, pos_i - 1L)
+cat("[RF] zone", i, "\n")
 
 dt_s <- smpl_pa(combined_data, colname,
-                cols  = cols,
-                pos   = pos_i,
-                noise = noise_i,
-                pa    = SMPL_PA,
-                max_n = SMPL_MAXN,
-                seed  = BASE_SEED)
+                cols = cols, pos = pos_i, noise = noise_i,
+                pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
+print(dt_s[, .N, by = get(colname)])
 
-dt_s[, .N, by = get(colname)]
-
-# 8.2 Train RF (classOP) ---------
+dt_s <- as.data.frame(dt_s)
+xy_y <- dt_s[dt_s[[colname]] == 1, ]
+xy_n <- dt_s[dt_s[[colname]] == 0, ]
 clm_y <- factor(dt_s[[colname]], levels = c(0, 1))
-print(table(clm_y))
+clm_x0 <- dt_s[, xlist, drop = FALSE]
 
+# 5.1 Plain single RF
+clm_plain <- randomForest(clm_x0, clm_y, ntree = NTREE_PLAIN, importance = TRUE)
+clm_plain$varlist <- xlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_plain, clm_x0, clm_y, i, "plain_rf", ACC_DIR)
+save(clm_plain, file = file.path(MOD_DIR, paste0("clm_plain_zone", i, ".Rdata")))
+
+# 5.2 Plain multi-Forest RF
+clm_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
+                  reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
+clm_mf$varlist <- xlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_mf, clm_x0, clm_y, i, "plain_mf_rf", ACC_DIR)
+save(clm_mf, file = file.path(MOD_DIR, paste0("clm_mf_zone", i, ".Rdata")))
+
+# 5.3 Optimized single RF
+clmList <- read.csv(opfile)
+varlist <- trimws(unlist(strsplit(clmList[VAR_ROW + 1, 2], ",")))
 varlist <- intersect(varlist, names(dt_s))
-if (length(varlist) < 2) stop("Too few predictors after intersect(varlist, names(dt_s))")
+clm_x <- dt_s[, varlist, drop = FALSE]
+clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
+clim_zOp$varlist <- varlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_zOp, clm_x, clm_y, i, "optimized_rf", ACC_DIR)
+save(clim_zOp, file = file.path(MOD_DIR, paste0("clm_zOp_zone", i, ".Rdata")))
 
-clm_x <- dt_s[, ..varlist]
+# 5.4 Optimized multi-Forest RF
+clim_mfOp <- mcmfRFop(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
+                      nTree = NTREE_MF, nForest = NFOREST, nP = NOP, thd = THD)
+clim_mfOp$varlist <- varlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_mfOp, clm_x, clm_y, i, "optimized_mf_rf", ACC_DIR)
+save(clim_mfOp, file = file.path(MOD_DIR, paste0("clm_mfOp_zone", i, ".Rdata")))
 
-clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP)
+rm(dt_s, xy_y, xy_n, clm_y, clm_x0, clm_plain, clm_mf,
+   clm_x, clim_zOp, clim_mfOp, clmList, varlist); gc()
 
-# 8.3 Save OP clm model ---------
-dir.create("rf", showWarnings = FALSE, recursive = TRUE)
-filename <- paste0("rf/clm_zOp_zone", 1, ".Rdata")
-save(clim_zOp, file = filename)
-rm(clim_zOp); gc()
+# 6. RF training: zones 2:55 =============================================================
 
-# 8.4 Load + check + importance ---------
-load(paste0("rf/clm_zOp_zone", 1, ".Rdata"))
-print(clim_zOp)
-clim_zOp$mtry
-clim_zOp$ntree
-
-importance_vals <- clim_zOp$importance
-importance_df <- data.frame(
-  Feature = rownames(importance_vals),
-  Importance = importance_vals[, "MeanDecreaseGini"]
-)
-rm(clim_zOp); gc()
-
-
-
-
-# 9. One-Hot Random Forest zone 2-55 =====================================================
-
-for (i in 2:55){
-  
+for (i in 2:55) {
   colname <- paste0("zone", i)
   
-  # skip if no one-hot column
-  if (!(colname %in% names(combined_data))){
-    print(paste("[SKIP] column not found:", colname))
-    next
+  if (!(colname %in% names(combined_data))) {
+    cat("[SKIP] no col:", colname, "\n"); next
   }
   
-  # skip if no presence
   n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-  if (is.na(n1_all) || n1_all == 0){
-    print(paste("[SKIP] no 1s in:", colname))
-    next
+  if (is.na(n1_all) || n1_all == 0) {
+    cat("[SKIP] no presence:", colname, "\n"); next
   }
   
-  # skip if opList file missing
-  opfile <- paste0("results/clmhot_opList_zone", i, ".csv")
-  if (!file.exists(opfile)){
-    print(paste("[SKIP] opList not found:", opfile))
-    next
+  opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
+  if (!file.exists(opfile)) {
+    cat("[SKIP] no opList:", colname, "\n"); next
   }
   
   tryCatch({
+    pos_i <- min(SMPL_POS_RF, as.integer(n1_all))
+    noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
+    cols <- c(colname, xlist)
     
-    # 9.1 Select varlist ---------
-    clmList <- read.csv(opfile)
-    if (nrow(clmList) < VAR_ROW+1 || clmList[VAR_ROW+1, 2] == "0"){
-      print(paste("[SKIP] no valid variable set at row", VAR_ROW, "for", colname))
-      next
-    }
-    varlist <- trimws(unlist(strsplit(clmList[VAR_ROW+1, 2], ",")))
-    
-    # 9.2 Sampling ---------
-    xlist <- names(combined_data)[6:74]
-    cols  <- c(colname, xlist)
-    
-    pos_i   <- min(SMPL_POS, as.integer(n1_all))
-    noise_i <- as.integer(round(0.10 * pos_i))
-    noise_i <- max(1L, min(noise_i, pos_i - 1L))
-    
-    print(paste("[RUN]", colname,
-                "n1=", n1_all,
-                "pos=", pos_i,
-                "vars=", length(varlist)))
+    cat("[RF] zone", i, "\n")
     
     dt_s <- smpl_pa(combined_data, colname,
-                    cols  = cols,
-                    pos   = pos_i,
-                    noise = noise_i,
-                    pa    = SMPL_PA,
-                    max_n = SMPL_MAXN,
-                    seed  = BASE_SEED + i)
+                    cols = cols, pos = pos_i, noise = noise_i,
+                    pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
+    print(dt_s[, .N, by = get(colname)])
     
-    tab <- dt_s[, .N, by = get(colname)]
-    if (nrow(tab) < 2){
-      print(paste("[SKIP] sampled data has only one class:", colname))
-      next
+    dt_s <- as.data.frame(dt_s)
+    xy_y <- dt_s[dt_s[[colname]] == 1, ]
+    xy_n <- dt_s[dt_s[[colname]] == 0, ]
+    if (nrow(xy_y) < 2 || nrow(xy_n) < 2) {
+      cat("[SKIP] too few pres/abs:", colname, "\n"); next
     }
     
-    # 9.3 Train RF (classOP) ---------
     clm_y <- factor(dt_s[[colname]], levels = c(0, 1))
-    print(table(clm_y))
+    clm_x0 <- dt_s[, xlist, drop = FALSE]
     
+    clm_plain <- randomForest(clm_x0, clm_y, ntree = NTREE_PLAIN, importance = TRUE)
+    clm_plain$varlist <- xlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_plain, clm_x0, clm_y, i, "plain_rf", ACC_DIR)
+    save(clm_plain, file = file.path(MOD_DIR, paste0("clm_plain_zone", i, ".Rdata")))
+    
+    clm_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
+                      reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
+    clm_mf$varlist <- xlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_mf, clm_x0, clm_y, i, "plain_mf_rf", ACC_DIR)
+    save(clm_mf, file = file.path(MOD_DIR, paste0("clm_mf_zone", i, ".Rdata")))
+    
+    clmList <- read.csv(opfile)
+    if (nrow(clmList) < VAR_ROW + 1 || clmList[VAR_ROW + 1, 2] == "0") {
+      cat("[SKIP] no valid varset:", colname, "\n"); next
+    }
+    varlist <- trimws(unlist(strsplit(clmList[VAR_ROW + 1, 2], ",")))
     varlist <- intersect(varlist, names(dt_s))
-    if (length(varlist) < 2){
-      print(paste("[SKIP] too few predictors for", colname))
-      next
+    if (length(varlist) < 2) {
+      cat("[SKIP] too few vars:", colname, "\n"); next
     }
     
-    clm_x <- dt_s[, ..varlist]
+    clm_x <- dt_s[, varlist, drop = FALSE]
+    clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
+    clim_zOp$varlist <- varlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_zOp, clm_x, clm_y, i, "optimized_rf", ACC_DIR)
+    save(clim_zOp, file = file.path(MOD_DIR, paste0("clm_zOp_zone", i, ".Rdata")))
     
-    clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP)
+    clim_mfOp <- mcmfRFop(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
+                          nTree = NTREE_MF, nForest = NFOREST, nP = NOP, thd = THD)
+    clim_mfOp$varlist <- varlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_mfOp, clm_x, clm_y, i, "optimized_mf_rf", ACC_DIR)
+    save(clim_mfOp, file = file.path(MOD_DIR, paste0("clm_mfOp_zone", i, ".Rdata")))
     
-    # 9.4 Save OP clm model ---------
-    filename <- paste0("rf/clm_zOp_zone", i, ".Rdata")
-    save(clim_zOp, file = filename)
+    cat("[DONE]", colname, "\n")
+    rm(dt_s, xy_y, xy_n, clm_y, clm_x0, clm_plain, clm_mf,
+       clm_x, clim_zOp, clim_mfOp, clmList, varlist); gc()
     
-    print(paste("[DONE]", colname))
-    
-    rm(dt_s, tab, clm_y, clm_x, clim_zOp, clmList, varlist)
-    gc()
-    
-  }, error = function(e){
-    print(paste("[ERROR]", colname, ":", conditionMessage(e)))
-    gc()
-    NULL
+  }, error = function(e) {
+    cat("[ERROR] RF", colname, ":", conditionMessage(e), "\n"); gc()
   })
-  
 }
 
-
-# 10. Spatial block CV + weighted ensemble (zone 1-55) ==================================
-library(data.table)
-library(randomForest)
-
-# rf params (adjust here for tuning) --------- 
-SMPL_POS   <- 20000L
-SMPL_PA    <- 1/1
-SMPL_MAXN  <- 20000L
-BASE_SEED  <- 49L
-VAR_ROW    <- 20L          # row in opList to pick variable set
-NTREE1     <- 100L         # trees per forest in classOP optimization rounds
-NTREE2     <- 500L         # trees per forest in classOP final run
-NOP        <- 3L           # number of classOP optimization rounds
-
-
-# CV + ensemble params (adjust here) ---------
-K_FOLD   <- 5L             # try 5L or 10L
-NBX      <- 8L             # spatial grid blocks in x (longitude)
-NBY      <- 6L             # spatial grid blocks in y (latitude)
-CV_SEED  <- 4901L
-THD      <- 0.75           # classOP label-cleaning confidence threshold
-BACC_MIN <- 0.65           # min balanced accuracy to keep a fold
-SENS_MIN <- 0.30           # min sensitivity to keep a fold
-SPEC_MIN <- 0.30           # min specificity to keep a fold
-OUT_DIR  <- "results_cv"
-MOD_DIR  <- "rf_final"
-
-dir.create(OUT_DIR, showWarnings=FALSE, recursive=TRUE)
-dir.create(MOD_DIR, showWarnings=FALSE, recursive=TRUE)
-
-sum_csv <- file.path(OUT_DIR, "cv_summary_allzones.csv")
-if (file.exists(sum_csv)) file.remove(sum_csv)
-
-# helper: assign spatial block folds ---------
-make_sp_folds <- function(dt, xcol="x", ycol="y", nbx=8L, nby=6L, K=5L, seed=49L){
-  bx <- cut(dt[[xcol]], nbx, labels=FALSE)
-  by <- cut(dt[[ycol]], nby, labels=FALSE)
-  blk <- (bx-1L)*nby + by
-  set.seed(seed)
-  ublk <- sample(unique(blk))
-  fmap <- setNames(rep_len(1:K, length(ublk)), ublk)
-  as.integer(fmap[as.character(blk)])
-}
-
-# helper: evaluate one fold ---------
-fold_eval <- function(m, te, colname, varlist, thr=0.5){
-  p    <- predict(m, te[, ..varlist], type="prob")[,"1"]
-  y01  <- as.integer(te[[colname]] == 1L)
-  pred <- as.integer(p >= thr)
-  tp <- sum(pred==1L & y01==1L); tn <- sum(pred==0L & y01==0L)
-  fp <- sum(pred==1L & y01==0L); fn <- sum(pred==0L & y01==1L)
-  sens <- tp/max(1L, tp+fn)
-  spec <- tn/max(1L, tn+fp)
-  n_pos <- sum(y01)
-  n_neg <- length(y01) - n_pos
-  list(n_pos=n_pos, n_neg=n_neg,
-       acc=(tp+tn)/max(1L,tp+tn+fp+fn), sens=sens, spec=spec, bacc=0.5*(sens+spec))
-}
-
-# helper: predict from weighted ensemble ---------
-predict.rfEnsemble <- function(object, newdata, ...){
-  X <- as.data.frame(newdata[, object$varlist, drop=FALSE])
-  plist <- lapply(object$models, function(m) predict(m, X, type="prob")[,"1"])
-  as.numeric(do.call(cbind, plist) %*% object$weights)
-}
-
-# main loop ---------
-for (i in 1:55){
-  
-  colname <- paste0("zone", i)
-  
-  if (!(colname %in% names(combined_data)))        { message("[SKIP] no col: ", colname); next }
-  n1_all <- sum(combined_data[[colname]]==1, na.rm=TRUE)
-  if (is.na(n1_all) || n1_all==0L)                 { message("[SKIP] no 1s: ", colname); next }
-  
-  opfile <- paste0("results/clmhot_opList_zone", i, ".csv")
-  if (!file.exists(opfile))                         { message("[SKIP] no opList: ", opfile); next }
-  
-  clmList <- read.csv(opfile)
-  if (nrow(clmList) < VAR_ROW+1 || clmList[VAR_ROW+1,2]=="0") { message("[SKIP] no varset: ", colname); next }
-  
-  varlist <- trimws(unlist(strsplit(clmList[VAR_ROW+1,2], ",")))
-  varlist <- intersect(varlist, names(combined_data))
-  if (length(varlist) < 2L)                         { message("[SKIP] too few vars: ", colname); next }
-  
-  tryCatch({
-    
-    # 10.1 Sampling ---------
-    xlist <- names(combined_data)[6:74]
-    cols  <- c(colname, xlist, "x", "y")
-    pos_i   <- min(SMPL_POS, as.integer(n1_all))
-    noise_i <- max(1L, min(as.integer(round(0.10*pos_i)), pos_i-1L))
-    
-    dt_s <- smpl_pa(combined_data, colname,
-                    cols=cols, pos=pos_i, noise=noise_i,
-                    pa=SMPL_PA, max_n=SMPL_MAXN, seed=BASE_SEED+i)
-    dt_s <- as.data.table(dt_s)[, c(colname,"x","y",varlist), with=FALSE]
-    dt_s <- dt_s[complete.cases(dt_s)]
-    if (nrow(dt_s) < 100L || length(unique(dt_s[[colname]])) < 2L) {
-      message("[SKIP] too few obs: ", colname); next
-    }
-    
-    # 10.2 Assign spatial folds ---------
-    dt_s[, fold := make_sp_folds(.SD, xcol="x", ycol="y",
-                                 nbx=NBX, nby=NBY, K=K_FOLD, seed=CV_SEED+i),
-         .SDcols=c("x","y")]
-    
-    message("[RUN] ", colname, " n1=", n1_all, " pos=", pos_i,
-            " vars=", length(varlist), " K=", K_FOLD)
-    
-    # 10.3 Train + evaluate per fold ---------
-    fold_models <- vector("list", K_FOLD)
-    fold_stats  <- vector("list", K_FOLD)
-    
-    for (k in 1:K_FOLD){
-      tr <- dt_s[fold != k]; te <- dt_s[fold == k]
-      if (nrow(te) < 50L || length(unique(te[[colname]])) < 2L) next
-      
-      m  <- classOP(tr[, ..varlist], factor(tr[[colname]], levels=c(0,1)),
-                    nTree1=NTREE1, nTree2=NTREE2, nOP=NOP, thd=THD)
-      ev <- fold_eval(m, te, colname, varlist)
-      
-      fold_models[[k]] <- m
-      fold_stats[[k]]  <- data.table(zone=i, fold=k,
-                                     n_tr=nrow(tr), n_te=nrow(te),
-                                     n_pos=ev$n_pos, n_neg=ev$n_neg,
-                                     acc=ev$acc, sens=ev$sens, spec=ev$spec, bacc=ev$bacc)
-      
-      message("  fold ", k, " | te: ", ev$n_pos, "+/", ev$n_neg,
-              "- | sens=", round(ev$sens,3), " spec=", round(ev$spec,3),
-              " bacc=", round(ev$bacc,3))
-    }
-    
-    cv_res <- rbindlist(fold_stats, fill=TRUE)
-    if (nrow(cv_res)==0L) { message("[SKIP] no valid folds: ", colname); next }
-    
-    # 10.4 Save CV results ---------
-    fwrite(cv_res, file.path(OUT_DIR, paste0("cv_zone", i, ".csv")))
-    
-    cv_sum <- cv_res[, .(n_te=sum(n_te), acc=mean(acc), sens=mean(sens),
-                         spec=mean(spec), bacc=mean(bacc)), by=.(zone)]
-    cv_sum[, flag := ifelse(bacc < BACC_MIN, "WARN", "OK")]
-    fwrite(cv_sum, sum_csv, append=file.exists(sum_csv))
-    
-    # 10.5 Build weighted ensemble from qualifying folds ---------
-    keep <- cv_res[sens >= SENS_MIN & spec >= SPEC_MIN & bacc >= BACC_MIN, fold]
-    if (length(keep)==0L){
-      message("[WARN] ", colname, " no fold passed thresholds; keeping best bacc fold")
-      keep <- cv_res[which.max(bacc), fold]
-    }
-    keep <- sort(unique(keep))
-    
-    # weights aligned with keep order; drop NULL models as safety
-    w    <- cv_res[match(keep, fold), bacc]
-    mods <- fold_models[keep]
-    ok   <- !vapply(mods, is.null, logical(1))
-    mods <- mods[ok]
-    w    <- w[ok]
-    
-    wsum <- sum(w, na.rm = TRUE)
-    if (!is.finite(wsum) || wsum <= 0) {
-      w <- rep(1/length(w), length(w))   # fallback: equal weights
-    } else {
-      w <- w / wsum                      # normalize to sum=1
-    }
-    
-    clim_ens <- list(models=mods, weights=w, varlist=varlist,
-                     cv=cv_res, keep=keep[ok])
-    class(clim_ens) <- "rfEnsemble"
-    
-    save(clim_ens, file=file.path(MOD_DIR, paste0("clm_ens_zone", i, ".Rdata")))
-    
-    message("[DONE] ", colname, " | kept: ", paste(keep[ok], collapse=","),
-            " | w: ", paste(round(w,3), collapse=","))
-    
-    rm(dt_s, cv_res, cv_sum, fold_models, fold_stats, mods, w, clim_ens, clmList, varlist)
-    gc()
-    
-  }, error=function(e){
-    message("[ERROR] ", colname, ": ", conditionMessage(e))
-    gc()
-  })
+if (length(acc_all) > 0) {
+  acc_all <- rbindlist(acc_all, fill = TRUE)
+  fwrite(acc_all, file.path(ACC_DIR, "climate_rf_accuracy_summary.csv"))
+  print(acc_all)
 }

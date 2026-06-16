@@ -1,98 +1,219 @@
-# Soil One-Hot RF — Part 1: Data prep + variable selection
+# Soil One-Hot RF — no spatial CV + multi-Forest
+# Zone 1 first, then loop over zones 2:55 except zone 8
 # ============================================================
 library(CEMT)
-library(raster)
 library(randomForest)
 library(caret)
 library(data.table)
-library(jsonlite)
-library(sf)
-
+library(foreach)
+library(doSNOW)
 
 rm(list = ls()); gc()
 
-# ── params (adjust here) ─────────────────────────────────────
-VAR_ROW   <- 8L      # row in opList for variable set (→ row 9, 0-indexed)
-NTREE_OP  <- 100L    # trees for mcRFop_cls
-BASE_SEED <- 49L
-OUT_DIR   <- "H:/Jing/ecoChina2/results"
-# ─────────────────────────────────────────────────────────────
+base_dir <- "H:/Jing/ecoChina2"
+
+source(file.path(base_dir, "functions", "mcRFop_cls3.R"))
+source(file.path(base_dir, "functions", "proportional sampling with print.R"))
+
+# 0. Multi-Forest functions ===================================================
+
+mcmfRF2 <- function(xy_y, xy_n, nr = 1.2, varList, yCol,
+                    reg = FALSE, nTree = 100, nForest = 10) {
+  library(foreach); library(doSNOW); library(randomForest)
+  nCore <- min(max(1L, parallel::detectCores() - 1L), nTree)
+  ntree_vec <- rep(floor(nTree / nCore), nCore)
+  if (nTree %% nCore > 0) {
+    ntree_vec[seq_len(nTree %% nCore)] <- ntree_vec[seq_len(nTree %% nCore)] + 1L
+  }
+  ntree_vec <- ntree_vec[ntree_vec > 0]
+  cl <- makeCluster(length(ntree_vec), type = "SOCK")
+  registerDoSNOW(cl)
+  on.exit(stopCluster(cl), add = TRUE)
+  
+  n_prs <- nrow(xy_y)
+  n_abs <- min(nrow(xy_n), floor(n_prs * nr))
+  
+  for (f in 1:nForest) {
+    train_abs <- xy_n[sample(seq_len(nrow(xy_n)), n_abs, replace = FALSE), ]
+    train <- rbind(xy_y, train_abs)
+    x2 <- train[, varList, drop = FALSE]
+    if (!reg) y2 <- factor(train[[yCol]], levels = c(0, 1))
+    if (reg)  y2 <- train[[yCol]]
+    
+    rf2 <- foreach(
+      ntree = ntree_vec,
+      .combine = combine,
+      .packages = "randomForest"
+    ) %dopar% randomForest(x2, y2, ntree = ntree, importance = TRUE)
+    
+    if (f == 1) rfC <- rf2 else rfC <- combine(rfC, rf2)
+  }
+  rfC
+}
+
+mcmfRFop <- function(xy_y, xy_n, nr = 1.2, varList, yCol,
+                     nTree = 100, nForest = 10, nP = 10, thd = 0.8) {
+  library(foreach); library(doSNOW); library(randomForest)
+  nCore <- min(max(1L, parallel::detectCores() - 1L), nTree)
+  ntree_vec <- rep(floor(nTree / nCore), nCore)
+  if (nTree %% nCore > 0) {
+    ntree_vec[seq_len(nTree %% nCore)] <- ntree_vec[seq_len(nTree %% nCore)] + 1L
+  }
+  ntree_vec <- ntree_vec[ntree_vec > 0]
+  cl <- makeCluster(length(ntree_vec), type = "SOCK")
+  registerDoSNOW(cl)
+  on.exit(stopCluster(cl), add = TRUE)
+  
+  n_prs <- nrow(xy_y)
+  n_abs <- min(nrow(xy_n), floor(n_prs * nr))
+  
+  for (f in 1:nForest) {
+    train_abs <- xy_n[sample(seq_len(nrow(xy_n)), n_abs, replace = FALSE), ]
+    train <- rbind(xy_y, train_abs)
+    x2 <- train[, varList, drop = FALSE]
+    y2 <- factor(train[[yCol]], levels = c(0, 1))
+    
+    Op <- classOP(x2, y2, nTree1 = 5, nTree2 = 10, nOP = nP, thd = thd)
+    x3 <- Op$x
+    y3 <- Op$y
+    
+    rf2 <- foreach(
+      ntree = ntree_vec,
+      .combine = combine,
+      .packages = "randomForest"
+    ) %dopar% randomForest(x3, y3, ntree = ntree, importance = TRUE)
+    
+    if (f == 1) rfC <- rf2 else rfC <- combine(rfC, rf2)
+  }
+  rfC
+}
+
+rf_acc <- function(m, x, y, zone, model_type, out_dir) {
+  y <- factor(y, levels = c(0, 1))
+  x <- as.data.frame(x)
+  dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+  
+  # Training-set confusion matrix. This is always calculated directly.
+  pred <- factor(predict(m, x, type = "response"), levels = c(0, 1))
+  cm_train <- table(observed = y, predicted = pred)
+  train_accuracy <- sum(diag(cm_train)) / sum(cm_train)
+  
+  fwrite(
+    as.data.table(cm_train),
+    file.path(out_dir, paste0(model_type, "_confusion_train_zone", zone, ".csv"))
+  )
+  
+  # OOB confusion matrix, if the randomForest object still has it.
+  # Combined multi-Forest objects may not always retain reliable OOB statistics.
+  oob_accuracy <- NA_real_
+  if (!is.null(m$confusion)) {
+    cm_oob_raw <- as.matrix(m$confusion)
+    cm_oob <- cm_oob_raw[, setdiff(colnames(cm_oob_raw), "class.error"), drop = FALSE]
+    oob_accuracy <- sum(diag(cm_oob)) / sum(cm_oob)
+    
+    fwrite(
+      as.data.table(cm_oob, keep.rownames = "observed"),
+      file.path(out_dir, paste0(model_type, "_confusion_oob_zone", zone, ".csv"))
+    )
+  }
+  
+  data.table(
+    zone = zone,
+    model = model_type,
+    n = length(y),
+    n_presence = sum(y == 1),
+    n_absence = sum(y == 0),
+    n_predictors = ncol(x),
+    train_accuracy = train_accuracy,
+    oob_accuracy = oob_accuracy
+  )
+}
+
+# ── params ─────────────────────────────────────
+VAR_ROW       <- 8L
+NTREE_OPLIST  <- 100L
+NTREE_PLAIN   <- 500L
+NTREE_MF      <- 100L
+NFOREST       <- 10L
+MF_NR         <- 1.3
+NTREE1        <- 100L
+NTREE2        <- 500L
+NOP           <- 3L
+THD           <- 0.75
+BASE_SEED     <- 49L
+OUT_DIR       <- file.path(base_dir, "results")
+MOD_DIR       <- file.path(base_dir, "rf_soil")
+ACC_DIR       <- file.path(base_dir, "accuracy_soil")
+# ───────────────────────────────────────────────
 
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
-
+dir.create(MOD_DIR, showWarnings = FALSE, recursive = TRUE)
+dir.create(ACC_DIR, showWarnings = FALSE, recursive = TRUE)
 
 # 1. Import & prep ============================================================
 
 setwd("H:/Jing/soil rasters")
-soil_dat2 <- fRead('new_soil_raster.csv'); hd(soil_dat2)
-soil_dat2 <- soil_dat2[, c(1:6, 8:22)]  # keep topsoil cols only
+soil_dat2 <- fRead("new_soil_raster.csv"); hd(soil_dat2)
+soil_dat2 <- soil_dat2[, c(1:6, 8:22)]
 names(soil_dat2)
 
 soil_train <- soil_dat2[complete.cases(soil_dat2[, c(2, 7:ncol(soil_dat2))]), ]
 cat("Rows after NA removal:", nrow(soil_train), "\n")
-cat("Zones present:", sort(unique(soil_train$zoneID)), "\n")  # zone 8 absent
+cat("Zones present:", sort(unique(soil_train$zoneID)), "\n")
 
-# soil vars only (strip ID + spatial cols); keep x,y separately for spatial CV
-soil_train2 <- soil_train[, -c(1, 3:6)]   # col1 = zoneID, cols 2-16 = 15 soil vars
-soil_coords  <- soil_train[, c("x", "y")] # saved for Part 2 spatial CV
+soil_train2 <- soil_train[, -c(1, 3:6)]
+soil_coords <- soil_train[, c("x", "y")]
 
-xlist <- names(soil_train2)[2:16]          # 15 soil variable names
+xlist <- names(soil_train2)[2:16]
 cat("Soil predictors:", xlist, "\n")
-
 
 # 2. One-hot encoding =========================================================
 
 soil_train2$zone <- as.character(soil_train2$zoneID)
 soil_hot_mat <- predict(dummyVars(~zone, data = soil_train2), newdata = soil_train2)
-soil_hot <- cbind(soil_train2, soil_hot_mat, soil_coords)  # x, y appended for later
+soil_hot <- cbind(soil_train2, soil_hot_mat, soil_coords)
 
-zones_all <- sort(setdiff(unique(soil_train$zoneID), 8))   # 1:55 minus zone 8
+zones_all <- sort(setdiff(unique(soil_train$zoneID), 8))
 cat("Total zones to process:", length(zones_all), "\n")
 
+# 3. Variable selection: zone 1 first =========================================
 
-# 3. Variable selection — zone 1 test =========================================
-
-i       <- 1
+i <- 1
 colname <- paste0("zone", i)
+opfile <- file.path(OUT_DIR, paste0("soilopList_zone", i, ".csv"))
 
 n1 <- sum(soil_hot[[colname]] == 1, na.rm = TRUE)
-cat("[TEST] zone", i, "| n_presence =", n1, "\n")
-
-set.seed(BASE_SEED)
 n_rounds <- if (n1 >= 6000) 3L else if (n1 >= 3000) 2L else 1L
-cat(" sampling rounds:", n_rounds, "\n")
+cat("[OPLIST] zone", i, "| n_presence =", n1, "| sampling rounds =", n_rounds, "\n")
 
-set.seed(BASE_SEED + i)
-soil_ps <- soil_hot
-for (r in seq_len(n_rounds)) {
-  soil_ps <- proSysSmpl(soil_ps,
-                        byCol = which(colnames(soil_ps) == colname),
-                        minSz = 2000)
+if (!file.exists(opfile)) {
+  set.seed(BASE_SEED + i)
+  soil_ps <- soil_hot
+  for (rr in seq_len(n_rounds)) {
+    soil_ps <- proSysSmpl(soil_ps,
+                          byCol = which(colnames(soil_ps) == colname),
+                          minSz = 2000)
+  }
+  print(table(soil_ps[[colname]]))
+  
+  soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
+  soil_x <- soil_ps[, xlist]
+  
+  soilopList <- mcRFop_cls(soil_x, soil_y, nTree = NTREE_OPLIST)
+  write.csv(as.data.frame(soilopList), opfile, row.names = FALSE)
+  
+  rm(soil_ps, soil_y, soil_x, soilopList); gc()
+} else {
+  cat("[SKIP] opList already exists: zone", i, "\n")
 }
-print(table(soil_ps[[colname]]))
 
-soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
-soil_x <- soil_ps[, xlist]
-
-soilopList <- mcRFop_cls(soil_x, soil_y, nTree = NTREE_OP)
-print(soilopList)
-
-write.csv(as.data.frame(soilopList),
-          file.path(OUT_DIR, paste0("soilopList_zone", i, ".csv")),
-          row.names = FALSE)
-
-cat("[DONE] zone", i, "\n")
-rm(soil_ps, soil_y, soil_x, soilopList); gc()
-
-
-# 4. Variable selection — zones 2:55 (skip 8) =================================
+# 4. Variable selection: zones 2:55, skipping zone 8 ==========================
 
 for (i in setdiff(2:55, 8)) {
-  
   colname <- paste0("zone", i)
   
   if (!(colname %in% names(soil_hot))) {
-    cat("[SKIP] column not found:", colname, "\n"); next
+    cat("[SKIP] no col:", colname, "\n"); next
   }
   
   n1 <- sum(soil_hot[[colname]] == 1, na.rm = TRUE)
@@ -105,276 +226,144 @@ for (i in setdiff(2:55, 8)) {
     cat("[SKIP] opList already exists:", colname, "\n"); next
   }
   
-  cat("[RUN] zone", i, "| n_presence =", n1, "\n")
-  
   tryCatch({
-    set.seed(BASE_SEED + i)
     n_rounds <- if (n1 >= 6000) 3L else if (n1 >= 3000) 2L else 1L
-    cat(" sampling rounds:", n_rounds, "\n")
+    cat("[OPLIST] zone", i, "| n_presence =", n1, "| sampling rounds =", n_rounds, "\n")
     
+    set.seed(BASE_SEED + i)
     soil_ps <- soil_hot
-    for (r in seq_len(n_rounds)) {
+    for (rr in seq_len(n_rounds)) {
       soil_ps <- proSysSmpl(soil_ps,
                             byCol = which(colnames(soil_ps) == colname),
                             minSz = 2000)
     }
-
-    tab <- table(soil_ps[[colname]])
-    if (length(tab) < 2) {
-      cat("[SKIP] single class after sampling:", colname, "\n"); next
+    print(table(soil_ps[[colname]]))
+    
+    if (length(unique(soil_ps[[colname]])) < 2) {
+      cat("[SKIP] single class:", colname, "\n"); next
     }
-    print(tab)
     
     soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
     soil_x <- soil_ps[, xlist]
     
-    if (nrow(soil_x) < 10) {
-      cat("[SKIP] too few rows:", colname, "\n"); next
-    }
+    soilopList <- mcRFop_cls(soil_x, soil_y, nTree = NTREE_OPLIST)
+    write.csv(as.data.frame(soilopList), opfile, row.names = FALSE)
     
-    soilopList <- mcRFop_cls(soil_x, soil_y, nTree = NTREE_OP)
-    
-    write.csv(as.data.frame(soilopList),
-              file.path(OUT_DIR, paste0("soilopList_zone", i, ".csv")),
-              row.names = FALSE)
-    
-    cat("[DONE] zone", i, "\n")
     rm(soil_ps, soil_y, soil_x, soilopList); gc()
     
   }, error = function(e) {
-    cat("[ERROR] zone", i, ":", conditionMessage(e), "\n")
-    gc()
+    cat("[ERROR] opList zone", i, ":", conditionMessage(e), "\n"); gc()
   })
 }
 
+# 5. RF training: zone 1 first ================================================
 
-# Soil One-Hot RF — Part 2: Spatial block CV + weighted ensemble
-# ============================================================
-# soil_hot and soil_train2 are still in memory from Part 1.
+acc_all <- list()
 
-# ── params ─────────────────────────────────────
-VAR_ROW  <- 8L        # row in opList for variable set (row 9, 0-indexed)
-NTREE1   <- 100L      # trees per classOP optimization round
-NTREE2   <- 500L      # trees for classOP final run
-NOP      <- 3L        # classOP optimization rounds
-BASE_SEED <- 49L
-
-K_FOLD   <- 5L
-NBX      <- 8L        # longitude blocks
-NBY      <- 6L        # latitude blocks
-CV_SEED  <- 4901L
-THD      <- 0.75      # classOP label-cleaning threshold
-BACC_MIN <- 0.55
-SENS_MIN <- 0.30
-SPEC_MIN <- 0.30
-
-RES_DIR  <- "H:/Jing/ecoChina2/results"           # soilopList files from Part 1
-OUT_DIR  <- "H:/Jing/ecoChina2/results_cv_soil"   # CV stats output
-MOD_DIR  <- "H:/Jing/ecoChina2/rf_final_soil"     # ensemble models output
-# ─────────────────────────────────────────────────────────────
-
-dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
-dir.create(MOD_DIR, showWarnings = FALSE, recursive = TRUE)
-
-xlist   <- names(soil_train2)[2:16]    # 15 soil variable names
-sum_csv <- file.path(OUT_DIR, "cv_summary_allzones.csv")
-if (file.exists(sum_csv)) file.remove(sum_csv)
-
-
-# ── helper functions ─────────────────────────────────────────
-
-make_sp_folds <- function(df, xcol = "x", ycol = "y",
-                          nbx = 8L, nby = 6L, K = 5L, seed = 49L) {
-  bx  <- cut(df[[xcol]], nbx, labels = FALSE)
-  by  <- cut(df[[ycol]], nby, labels = FALSE)
-  blk <- (bx - 1L) * nby + by
-  set.seed(seed)
-  ublk <- sample(unique(blk))
-  fmap <- setNames(rep_len(1:K, length(ublk)), ublk)
-  as.integer(fmap[as.character(blk)])
-}
-
-fold_eval <- function(m, te, colname, varlist, thr = 0.5) {
-  p    <- predict(m, te[, varlist, drop = FALSE], type = "prob")[, "1"]
-  y01  <- as.integer(as.character(te[[colname]]) == "1")
-  pred <- as.integer(p >= thr)
-  tp   <- sum(pred == 1L & y01 == 1L)
-  tn   <- sum(pred == 0L & y01 == 0L)
-  fp   <- sum(pred == 1L & y01 == 0L)
-  fn   <- sum(pred == 0L & y01 == 1L)
-  sens <- tp / max(1L, tp + fn)
-  spec <- tn / max(1L, tn + fp)
-  list(n_pos = sum(y01),
-       n_neg = length(y01) - sum(y01),
-       acc   = (tp + tn) / max(1L, tp + tn + fp + fn),
-       sens  = sens, spec = spec,
-       bacc  = 0.5 * (sens + spec))
-}
-
-predict.rfEnsemble <- function(object, newdata, ...) {
-  X     <- as.data.frame(newdata[, object$varlist, drop = FALSE])
-  plist <- lapply(object$models,
-                  function(m) predict(m, X, type = "prob")[, "1"])
-  as.numeric(do.call(cbind, plist) %*% object$weights)
-}
-
-
-# 5. Spatial CV — zone 1 test =================================================
-
-i       <- 1
+i <- 1
 colname <- paste0("zone", i)
+opfile <- file.path(OUT_DIR, paste0("soilopList_zone", i, ".csv"))
 
-# 5.1 Load varlist
-opfile  <- file.path(RES_DIR, paste0("soilopList_zone", i, ".csv"))
-soilList <- read.csv(opfile)
-varlist  <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
-varlist  <- intersect(varlist, names(soil_hot))
-cat("[TEST] zone", i, "| vars =", length(varlist), "\n")
-
-# 5.2 Sample
-set.seed(BASE_SEED)
 n1 <- sum(soil_hot[[colname]] == 1, na.rm = TRUE)
 n_rounds <- if (n1 >= 6000) 3L else if (n1 >= 3000) 2L else 1L
-cat(" sampling rounds:", n_rounds, "\n")
+cat("[RF] zone", i, "| n_presence =", n1, "| sampling rounds =", n_rounds, "\n")
 
+set.seed(BASE_SEED + i)
 soil_ps <- soil_hot
-for (r in seq_len(n_rounds)) {
+for (rr in seq_len(n_rounds)) {
   soil_ps <- proSysSmpl(soil_ps,
                         byCol = which(colnames(soil_ps) == colname),
                         minSz = 2000)
 }
-soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, "x", "y", varlist)]), ]
+soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, xlist)]), ]
 
 n_pos <- sum(soil_ps[[colname]] == 1)
 n_neg <- sum(soil_ps[[colname]] == 0)
-if (n_neg > n_pos * 1.5) { # absence 超过 presence 的1.5倍才触发 
-  idx_pos <- which(soil_ps[[colname]] == 1) 
-  idx_neg <- which(soil_ps[[colname]] == 0) 
-  idx_neg_sub <- sample(idx_neg, min(length(idx_neg), round(n_pos * 1.3))) 
+if (n_neg > n_pos * 1.5) {
+  idx_pos <- which(soil_ps[[colname]] == 1)
+  idx_neg <- which(soil_ps[[colname]] == 0)
+  idx_neg_sub <- sample(idx_neg, min(length(idx_neg), round(n_pos * 1.3)))
   soil_ps <- soil_ps[c(idx_pos, idx_neg_sub), ]
-  }
+}
 print(table(soil_ps[[colname]]))
 
-# 5.3 Assign spatial folds
-soil_ps$fold <- make_sp_folds(soil_ps, xcol = "x", ycol = "y",
-                              nbx = NBX, nby = NBY, K = K_FOLD,
-                              seed = CV_SEED + i)
+soil_ps <- as.data.frame(soil_ps)
+xy_y <- soil_ps[soil_ps[[colname]] == 1, ]
+xy_n <- soil_ps[soil_ps[[colname]] == 0, ]
+soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
+soil_x0 <- soil_ps[, xlist, drop = FALSE]
 
-# 5.4 Train + evaluate per fold
-fold_models <- vector("list", K_FOLD)
-fold_stats  <- vector("list", K_FOLD)
+# 5.1 Plain single RF
+soil_plain <- randomForest(soil_x0, soil_y, ntree = NTREE_PLAIN, importance = TRUE)
+soil_plain$varlist <- xlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_plain, soil_x0, soil_y, i, "plain_rf", ACC_DIR)
+save(soil_plain, file = file.path(MOD_DIR, paste0("soil_plain_zone", i, ".Rdata")))
 
-for (k in 1:K_FOLD) {
-  tr <- soil_ps[soil_ps$fold != k, ]
-  te <- soil_ps[soil_ps$fold == k, ]
-  
-  if (nrow(te) < 50 || length(unique(te[[colname]])) < 2) next
-  
-  m  <- classOP(tr[, varlist], factor(tr[[colname]], levels = c(0, 1)),
-                nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
-  ev <- fold_eval(m, te, colname, varlist)
-  
-  fold_models[[k]] <- m
-  fold_stats[[k]]  <- data.frame(zone = i, fold = k,
-                                 n_tr = nrow(tr), n_te = nrow(te),
-                                 n_pos = ev$n_pos, n_neg = ev$n_neg,
-                                 acc = ev$acc, sens = ev$sens,
-                                 spec = ev$spec, bacc = ev$bacc)
-  
-  cat("  fold", k, "| te:", ev$n_pos, "+/", ev$n_neg,
-      "- | sens =", round(ev$sens, 3),
-      " spec =", round(ev$spec, 3),
-      " bacc =", round(ev$bacc, 3), "\n")
-}
+# 5.2 Plain multi-Forest RF
+soil_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
+                   reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
+soil_mf$varlist <- xlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mf, soil_x0, soil_y, i, "plain_mf_rf", ACC_DIR)
+save(soil_mf, file = file.path(MOD_DIR, paste0("soil_mf_zone", i, ".Rdata")))
 
-# 5.5 Save CV stats
-cv_res <- do.call(rbind, fold_stats)
-write.csv(cv_res,
-          file.path(OUT_DIR, paste0("cv_zone", i, ".csv")),
-          row.names = FALSE)
+# 5.3 Optimized single RF
+soilList <- read.csv(opfile)
+varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
+varlist <- intersect(varlist, names(soil_ps))
+soil_x <- soil_ps[, varlist, drop = FALSE]
+soil_zOp <- classOP(soil_x, soil_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
+soil_zOp$varlist <- varlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_zOp, soil_x, soil_y, i, "optimized_rf", ACC_DIR)
+save(soil_zOp, file = file.path(MOD_DIR, paste0("soil_zOp_zone", i, ".Rdata")))
 
-cv_sum <- data.frame(zone = i,
-                     n_te  = sum(cv_res$n_te),
-                     acc   = mean(cv_res$acc),
-                     sens  = mean(cv_res$sens),
-                     spec  = mean(cv_res$spec),
-                     bacc  = mean(cv_res$bacc))
-cv_sum$flag <- ifelse(cv_sum$bacc < BACC_MIN, "WARN", "OK")
-write.csv(cv_sum, sum_csv, row.names = FALSE)
-print(cv_sum)
+# 5.4 Optimized multi-Forest RF
+soil_mfOp <- mcmfRFop(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
+                      nTree = NTREE_MF, nForest = NFOREST, nP = NOP, thd = THD)
+soil_mfOp$varlist <- varlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mfOp, soil_x, soil_y, i, "optimized_mf_rf", ACC_DIR)
+save(soil_mfOp, file = file.path(MOD_DIR, paste0("soil_mfOp_zone", i, ".Rdata")))
 
-# 5.6 Build weighted ensemble
-keep <- cv_res$fold[cv_res$sens >= SENS_MIN &
-                      cv_res$spec >= SPEC_MIN &
-                      cv_res$bacc >= BACC_MIN]
-if (length(keep) == 0) {
-  cat("[WARN] no fold passed thresholds; keeping best bacc fold\n")
-  keep <- cv_res$fold[which.max(cv_res$bacc)]
-}
-keep <- sort(unique(keep))
+rm(soil_ps, xy_y, xy_n, soil_y, soil_x0, soil_plain, soil_mf,
+   soil_x, soil_zOp, soil_mfOp, soilList, varlist); gc()
 
-mods <- fold_models[keep]
-w    <- cv_res$bacc[match(keep, cv_res$fold)]
-ok   <- !vapply(mods, is.null, logical(1))
-mods <- mods[ok]; w <- w[ok]
-w    <- w / sum(w)
-
-soil_ens <- list(models = mods, weights = w, varlist = varlist,
-                 cv = cv_res, keep = keep[ok])
-class(soil_ens) <- "rfEnsemble"
-
-save(soil_ens, file = file.path(MOD_DIR, paste0("soil_ens_zone", i, ".Rdata")))
-cat("[DONE] zone", i, "| kept folds:", paste(keep[ok], collapse = ","),
-    "| weights:", paste(round(w, 3), collapse = ","), "\n")
-
-rm(soil_ps, cv_res, cv_sum, fold_models, fold_stats, mods, w, soil_ens, soilList, varlist)
-gc()
-
-
-# 6. Spatial CV — zones 2:55 (skip 8) =========================================
+# 6. RF training: zones 2:55, skipping zone 8 =================================
 
 for (i in setdiff(2:55, 8)) {
-  
   colname <- paste0("zone", i)
   
-  if (!(colname %in% names(soil_hot)))                    { cat("[SKIP] no col:", colname, "\n"); next }
-  
-  n1 <- sum(soil_hot[[colname]] == 1, na.rm = TRUE)
-  if (is.na(n1) || n1 == 0)                               { cat("[SKIP] no presence:", colname, "\n"); next }
-  
-  opfile <- file.path(RES_DIR, paste0("soilopList_zone", i, ".csv"))
-  if (!file.exists(opfile))                               { cat("[SKIP] no opList:", colname, "\n"); next }
-  
-  soilList <- read.csv(opfile)
-  if (nrow(soilList) < VAR_ROW + 1 || soilList[VAR_ROW + 1, 2] == "0") {
-    cat("[SKIP] no valid varset:", colname, "\n"); next
+  if (!(colname %in% names(soil_hot))) {
+    cat("[SKIP] no col:", colname, "\n"); next
   }
   
-  varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
-  varlist <- intersect(varlist, names(soil_hot))
-  if (length(varlist) < 2)                                { cat("[SKIP] too few vars:", colname, "\n"); next }
+  n1 <- sum(soil_hot[[colname]] == 1, na.rm = TRUE)
+  if (is.na(n1) || n1 == 0) {
+    cat("[SKIP] no presence:", colname, "\n"); next
+  }
+  
+  opfile <- file.path(OUT_DIR, paste0("soilopList_zone", i, ".csv"))
+  if (!file.exists(opfile)) {
+    cat("[SKIP] no opList:", colname, "\n"); next
+  }
   
   tryCatch({
-    
-    # 6.1 Sample
-    set.seed(BASE_SEED)
     n_rounds <- if (n1 >= 6000) 3L else if (n1 >= 3000) 2L else 1L
-    cat(" sampling rounds:", n_rounds, "\n")
+    cat("[RF] zone", i, "| n_presence =", n1, "| sampling rounds =", n_rounds, "\n")
     
+    set.seed(BASE_SEED + i)
     soil_ps <- soil_hot
-    for (r in seq_len(n_rounds)) {
+    for (rr in seq_len(n_rounds)) {
       soil_ps <- proSysSmpl(soil_ps,
                             byCol = which(colnames(soil_ps) == colname),
                             minSz = 2000)
     }
-    soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, "x", "y", varlist)]), ]
+    soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, xlist)]), ]
     
     n_pos <- sum(soil_ps[[colname]] == 1)
     n_neg <- sum(soil_ps[[colname]] == 0)
-    if (n_neg > n_pos * 1.5) { # absence 超过 presence 的1.5倍才触发 
-      idx_pos <- which(soil_ps[[colname]] == 1) 
-      idx_neg <- which(soil_ps[[colname]] == 0) 
-      idx_neg_sub <- sample(idx_neg, min(length(idx_neg), round(n_pos * 1.3))) 
+    if (n_neg > n_pos * 1.5) {
+      idx_pos <- which(soil_ps[[colname]] == 1)
+      idx_neg <- which(soil_ps[[colname]] == 0)
+      idx_neg_sub <- sample(idx_neg, min(length(idx_neg), round(n_pos * 1.3)))
       soil_ps <- soil_ps[c(idx_pos, idx_neg_sub), ]
     }
     print(table(soil_ps[[colname]]))
@@ -383,95 +372,60 @@ for (i in setdiff(2:55, 8)) {
       cat("[SKIP] too few obs:", colname, "\n"); next
     }
     
-    cat("[RUN] zone", i, "| n1 =", n1,
-        "| sampled:", sum(soil_ps[[colname]] == 1), "+/",
-        sum(soil_ps[[colname]] == 0), "-",
-        "| vars =", length(varlist), "\n")
-    
-    # 6.2 Assign spatial folds
-    soil_ps$fold <- make_sp_folds(soil_ps, xcol = "x", ycol = "y",
-                                  nbx = NBX, nby = NBY, K = K_FOLD,
-                                  seed = CV_SEED + i)
-    
-    # 6.3 Train + evaluate per fold
-    fold_models <- vector("list", K_FOLD)
-    fold_stats  <- vector("list", K_FOLD)
-    
-    for (k in 1:K_FOLD) {
-      tr <- soil_ps[soil_ps$fold != k, ]
-      te <- soil_ps[soil_ps$fold == k, ]
-      
-      if (nrow(te) < 50 || length(unique(te[[colname]])) < 2) next
-      
-      m  <- classOP(tr[, varlist], factor(tr[[colname]], levels = c(0, 1)),
-                    nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
-      ev <- fold_eval(m, te, colname, varlist)
-      
-      fold_models[[k]] <- m
-      fold_stats[[k]]  <- data.frame(zone = i, fold = k,
-                                     n_tr = nrow(tr), n_te = nrow(te),
-                                     n_pos = ev$n_pos, n_neg = ev$n_neg,
-                                     acc = ev$acc, sens = ev$sens,
-                                     spec = ev$spec, bacc = ev$bacc)
-      
-      cat("  fold", k, "| te:", ev$n_pos, "+/", ev$n_neg,
-          "- | sens =", round(ev$sens, 3),
-          " spec =", round(ev$spec, 3),
-          " bacc =", round(ev$bacc, 3), "\n")
+    soil_ps <- as.data.frame(soil_ps)
+    xy_y <- soil_ps[soil_ps[[colname]] == 1, ]
+    xy_n <- soil_ps[soil_ps[[colname]] == 0, ]
+    if (nrow(xy_y) < 2 || nrow(xy_n) < 2) {
+      cat("[SKIP] too few pres/abs:", colname, "\n"); next
     }
     
-    # 6.4 Save CV stats
-    cv_res <- do.call(rbind, fold_stats)
-    if (is.null(cv_res) || nrow(cv_res) == 0) { cat("[SKIP] no valid folds:", colname, "\n"); next }
+    soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
+    soil_x0 <- soil_ps[, xlist, drop = FALSE]
     
-    write.csv(cv_res,
-              file.path(OUT_DIR, paste0("cv_zone", i, ".csv")),
-              row.names = FALSE)
+    soil_plain <- randomForest(soil_x0, soil_y, ntree = NTREE_PLAIN, importance = TRUE)
+    soil_plain$varlist <- xlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_plain, soil_x0, soil_y, i, "plain_rf", ACC_DIR)
+    save(soil_plain, file = file.path(MOD_DIR, paste0("soil_plain_zone", i, ".Rdata")))
     
-    cv_sum <- data.frame(zone = i,
-                         n_te  = sum(cv_res$n_te),
-                         acc   = mean(cv_res$acc),
-                         sens  = mean(cv_res$sens),
-                         spec  = mean(cv_res$spec),
-                         bacc  = mean(cv_res$bacc))
-    cv_sum$flag <- ifelse(cv_sum$bacc < BACC_MIN, "WARN", "OK")
-    write.csv(cv_sum, sum_csv, append = file.exists(sum_csv), row.names = FALSE)
+    soil_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
+                       reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
+    soil_mf$varlist <- xlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mf, soil_x0, soil_y, i, "plain_mf_rf", ACC_DIR)
+    save(soil_mf, file = file.path(MOD_DIR, paste0("soil_mf_zone", i, ".Rdata")))
     
-    # 6.5 Build weighted ensemble
-    keep <- cv_res$fold[cv_res$sens >= SENS_MIN &
-                          cv_res$spec >= SPEC_MIN &
-                          cv_res$bacc >= BACC_MIN]
-    if (length(keep) == 0) {
-      cat("[WARN] zone", i, "no fold passed; keeping best bacc fold\n")
-      keep <- cv_res$fold[which.max(cv_res$bacc)]
+    soilList <- read.csv(opfile)
+    if (nrow(soilList) < VAR_ROW + 1 || soilList[VAR_ROW + 1, 2] == "0") {
+      cat("[SKIP] no valid varset:", colname, "\n"); next
     }
-    keep <- sort(unique(keep))
+    varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
+    varlist <- intersect(varlist, names(soil_ps))
+    if (length(varlist) < 2) {
+      cat("[SKIP] too few vars:", colname, "\n"); next
+    }
     
-    mods <- fold_models[keep]
-    w    <- cv_res$bacc[match(keep, cv_res$fold)]
-    ok   <- !vapply(mods, is.null, logical(1))
-    mods <- mods[ok]; w <- w[ok]
-    wsum <- sum(w, na.rm = TRUE)
-    w    <- if (!is.finite(wsum) || wsum <= 0) rep(1 / length(w), length(w)) else w / wsum
+    soil_x <- soil_ps[, varlist, drop = FALSE]
+    soil_zOp <- classOP(soil_x, soil_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
+    soil_zOp$varlist <- varlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_zOp, soil_x, soil_y, i, "optimized_rf", ACC_DIR)
+    save(soil_zOp, file = file.path(MOD_DIR, paste0("soil_zOp_zone", i, ".Rdata")))
     
-    soil_ens <- list(models = mods, weights = w, varlist = varlist,
-                     cv = cv_res, keep = keep[ok])
-    class(soil_ens) <- "rfEnsemble"
+    soil_mfOp <- mcmfRFop(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
+                          nTree = NTREE_MF, nForest = NFOREST, nP = NOP, thd = THD)
+    soil_mfOp$varlist <- varlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mfOp, soil_x, soil_y, i, "optimized_mf_rf", ACC_DIR)
+    save(soil_mfOp, file = file.path(MOD_DIR, paste0("soil_mfOp_zone", i, ".Rdata")))
     
-    save(soil_ens,
-         file = file.path(MOD_DIR, paste0("soil_ens_zone", i, ".Rdata")))
-    
-    cat("[DONE] zone", i,
-        "| kept:", paste(keep[ok], collapse = ","),
-        "| w:", paste(round(w, 3), collapse = ","), "\n")
-    
-    rm(soil_ps, cv_res, cv_sum, fold_models, fold_stats,
-       mods, w, soil_ens, soilList, varlist)
-    gc()
+    cat("[DONE] zone", i, "\n")
+    rm(soil_ps, xy_y, xy_n, soil_y, soil_x0, soil_plain, soil_mf,
+       soil_x, soil_zOp, soil_mfOp, soilList, varlist); gc()
     
   }, error = function(e) {
-    cat("[ERROR] zone", i, ":", conditionMessage(e), "\n")
-    gc()
+    cat("[ERROR] RF zone", i, ":", conditionMessage(e), "\n"); gc()
   })
 }
 
+if (length(acc_all) > 0) {
+  acc_all <- rbindlist(acc_all, fill = TRUE)
+  fwrite(acc_all, file.path(ACC_DIR, "soil_rf_accuracy_summary.csv"))
+  print(acc_all)
+}
