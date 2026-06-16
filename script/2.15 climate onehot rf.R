@@ -303,8 +303,10 @@ save(clm_mf, file = file.path(MOD_DIR, paste0("clm_mf_zone", i, ".Rdata")))
 
 # 5.3 Optimized single RF
 clmList <- read.csv(opfile)
+
 varlist <- trimws(unlist(strsplit(clmList[VAR_ROW + 1, 2], ",")))
 varlist <- intersect(varlist, names(dt_s))
+
 clm_x <- dt_s[, varlist, drop = FALSE]
 clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
 clim_zOp$varlist <- varlist
