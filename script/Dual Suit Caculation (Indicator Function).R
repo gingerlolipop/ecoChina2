@@ -5,10 +5,12 @@
 
 # Define the dual suitability function
 calculate_dual_suitability <- function(climate, soil) {
-  # Apply the condition for suitability soil
-  ifelse(soil > threshold, climate, 0)
+  ifel(
+    is.na(soil),
+    NA,
+    ifel(soil > threshold, climate, 0)
+  )
 }
-
 
 # Exaple threshold == 0.2
 threshold <- 0.2 
@@ -19,3 +21,5 @@ dual_suitability <- overlay(pclim75, psoil75_masked, fun = calculate_dual_suitab
 # Plot and save the result
 plot(dual_suitability)
 writeRaster(dual_suitability, "dual_suitability.tif", overwrite = TRUE)
+
+
