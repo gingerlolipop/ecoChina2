@@ -104,7 +104,8 @@ rf_prob1 <- function(model, data) {
   predict(model, data, type = "prob")[, "1"]
 }
 
-mcPredict_terra <- function(x, y, filename, cores = predict_cores, ...) {
+mcPredict_terra <- function(x, y, filename, compress = FALSE,
+                            cores = predict_cores, ...) {
   remove_raster_files(filename)
   
   predict(
@@ -118,7 +119,7 @@ mcPredict_terra <- function(x, y, filename, cores = predict_cores, ...) {
     na.rm = TRUE,
     wopt = list(
       datatype = "FLT4S",
-      gdal = "COMPRESS=NONE"
+      gdal = if (compress) "COMPRESS=LZW" else "COMPRESS=NONE"
     ),
     ...
   )
@@ -159,37 +160,49 @@ predict_one_model <- function(model_file, object_name, raster_dir,
     return(NULL)
   }
   
-  tmp_file <- file.path(tmp_dir, paste0("tmp_", label, "_", basename(out_file)))
+  same_geom <- compareGeom(s[[1]], template, stopOnError = FALSE)
+  cat("  geometry matches template:", same_geom, "\n")
   
-  p0 <- mcPredict_terra(
-    s,
-    m,
-    filename = tmp_file
-  )
-  
-  if (!compareGeom(p0, template, stopOnError = FALSE)) {
-    p <- resample(p0, template, method = "bilinear")
+  if (same_geom) {
+    # Predictor rasters already match the template, so predict directly
+    # to the final file without creating and resampling a temporary raster.
+    p <- mcPredict_terra(
+      s,
+      m,
+      filename = out_file,
+      compress = TRUE
+    )
   } else {
-    p <- p0
+    tmp_file <- file.path(
+      tmp_dir,
+      paste0("tmp_", label, "_", basename(out_file))
+    )
+    
+    p0 <- mcPredict_terra(
+      s,
+      m,
+      filename = tmp_file,
+      compress = FALSE
+    )
+    
+    p <- resample(
+      p0,
+      template,
+      method = "bilinear",
+      filename = out_file,
+      overwrite = TRUE,
+      wopt = list(
+        datatype = "FLT4S",
+        gdal = "COMPRESS=LZW"
+      )
+    )
+    
+    remove_raster_files(tmp_file)
+    rm(p0)
   }
   
   names(p) <- label
-  
-  if (overwrite_outputs) remove_raster_files(out_file)
-  
-  writeRaster(
-    p,
-    out_file,
-    overwrite = overwrite_outputs,
-    wopt = list(
-      datatype = "FLT4S",
-      gdal = c("COMPRESS=LZW")
-    )
-  )
-  
-  remove_raster_files(tmp_file)
-  
-  rm(m, s, p0, p)
+  rm(m, s, p)
   gc()
   
   rast(out_file)
