@@ -21,7 +21,13 @@ terraOptions(tempdir = tmp_dir, memfrac = 0.15)
 zones <- c(1:7, 9:30, 31:50, 52:55)
 
 soil_threshold <- 0.2
-overwrite_outputs <- TRUE
+
+# Reuse existing climate/soil suitability rasters when their geometry
+# already matches the original vegetation raster.
+reuse_existing_suitability <- TRUE
+
+# Dual suitability was calculated incorrectly before, so overwrite it.
+overwrite_dual <- TRUE
 
 # A moderate number of workers is usually faster than using every core
 # because all workers read and write the same disk.
@@ -139,13 +145,26 @@ calculate_dual_suitability <- function(climate, soil, threshold = soil_threshold
 
 predict_one_model <- function(model_file, object_name, raster_dir,
                               out_file, template, label) {
+  if (file.exists(out_file) && reuse_existing_suitability) {
+    p <- rast(out_file)
+    same_geom <- compareGeom(p, template, stopOnError = FALSE)
+    
+    cat("  existing ", label, " geometry matches template: ",
+        same_geom, "\n", sep = "")
+    
+    if (same_geom) {
+      cat("  [USE EXISTING]", out_file, "\n")
+      return(p)
+    }
+    
+    cat("  [REGENERATE] existing raster geometry differs from template\n")
+    rm(p)
+    gc()
+  }
+  
   if (!file.exists(model_file)) {
     cat("[SKIP] model not found:", model_file, "\n")
     return(NULL)
-  }
-  
-  if (file.exists(out_file) && !overwrite_outputs) {
-    return(rast(out_file))
   }
   
   m <- load_rf(model_file, object_name)
@@ -166,6 +185,8 @@ predict_one_model <- function(model_file, object_name, raster_dir,
   if (same_geom) {
     # Predictor rasters already match the template, so predict directly
     # to the final file without creating and resampling a temporary raster.
+    remove_raster_files(out_file)
+    
     p <- mcPredict_terra(
       s,
       m,
@@ -184,6 +205,8 @@ predict_one_model <- function(model_file, object_name, raster_dir,
       filename = tmp_file,
       compress = FALSE
     )
+    
+    remove_raster_files(out_file)
     
     p <- resample(
       p0,
@@ -277,12 +300,12 @@ for (mrow in seq_len(nrow(model_set))) {
     )
     names(dual) <- "dual_suitability"
     
-    if (overwrite_outputs) remove_raster_files(dual_file)
+    if (overwrite_dual) remove_raster_files(dual_file)
     
     writeRaster(
       dual,
       dual_file,
-      overwrite = overwrite_outputs,
+      overwrite = overwrite_dual,
       wopt = list(
         datatype = "FLT4S",
         gdal = c("COMPRESS=LZW")
@@ -387,12 +410,12 @@ for (mrow in seq_len(nrow(model_set))) {
         )
         names(dual) <- "future_dual_suitability"
         
-        if (overwrite_outputs) remove_raster_files(dual_file)
+        if (overwrite_dual) remove_raster_files(dual_file)
         
         writeRaster(
           dual,
           dual_file,
-          overwrite = overwrite_outputs,
+          overwrite = overwrite_dual,
           wopt = list(
             datatype = "FLT4S",
             gdal = c("COMPRESS=LZW")
