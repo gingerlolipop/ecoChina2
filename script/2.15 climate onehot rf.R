@@ -3,8 +3,6 @@
 # ============================================================
 library(CEMT)
 library(ClimateNAr)
-library(randomForest)
-library(caret)
 library(data.table)
 library(foreach)
 library(doSNOW)
@@ -166,27 +164,55 @@ dat <- dat[complete.cases(dat$zoneID), ]
 dat <- dat[complete.cases(dat[, 6:ncol(dat)]), ]
 zone_counts <- table(dat$zoneID); print(zone_counts)
 
-xlist <- colnames(dat)[6:ncol(dat)]
-x <- dat[, xlist]; hd(x)
+# check clim data scale, avoid mismatching between different climAP versions
+summary(dat$AHM)
+summary(dat$Tave_sm)
 
-summary(x$AHM)
-summary(x$Tave_sm)
+# data summary
+#agg_data <- aggregate(dat[, 6:ncol(dat)], by = list(zoneID = dat$zoneID), FUN = mean)
+#write.csv(agg_data, file.path(OUT_DIR, "summarize_climstat_by_zoneID.csv"), row.names = FALSE)
 
-y <- as.factor(dat$zoneID); levels(y)
+# randomly split agg_data into training/testing 7:3
+set.seed(49)
+train_indices <- sample(nrow(dat), size = 0.7 * nrow(dat))
+train_data <- dat[train_indices, ]
+test_data <- dat[-train_indices, ]
 
-agg_data <- aggregate(dat[, 6:ncol(dat)], by = list(zoneID = dat$zoneID), FUN = mean)
-write.csv(agg_data, file.path(OUT_DIR, "summarize_climstat_by_zoneID.csv"), row.names = FALSE)
+fWrite(train_data, file.path(OUT_DIR, "train_data.csv"))
+fWrite(test_data, file.path(OUT_DIR, "test_data.csv"))
+
+zone_counts <- table(train_data$zoneID); print(zone_counts)
+zone_counts <- table(test_data$zoneID); print(zone_counts)
+
+
+# rf vars & labels
+xlist <- colnames(train_data)[6:ncol(train_data)]
+x <- train_data[, xlist]; hd(x)
+
+y <- as.factor(train_data$zoneID); levels(y)
+
+rm(); gc()
 
 # 2. One-hot encoding ====================================================================
 
-dat$zoneID <- as.factor(dat$zoneID)
-one_hot <- model.matrix(~zoneID - 1, data = dat); hd(one_hot)
+# training data
+train_data <- fRead(file.path(OUT_DIR, "train_data.csv"))
+train_data$zoneID <- as.factor(train_data$zoneID)
+one_hot <- model.matrix(~zoneID - 1, data = train_data); hd(one_hot)
 colnames(one_hot) <- gsub("zoneID", "zone", colnames(one_hot))
 one_hot_df <- as.data.frame(one_hot)
-combined_data <- cbind(dat, one_hot_df)
+combined_data <- cbind(train_data, one_hot_df)
 head(combined_data)
+fWrite(combined_data, file.path(OUT_DIR, "train_combined_data_onehot.csv"))
+# rm();gc()
+#combined_data <- fRead(file.path(OUT_DIR, "train_combined_data_onehot.csv"))
+
+# one-hot encoding for testing data
+
 
 # 3. Variable selection: zone 1 first ====================================================
+library(randomForest)
+library(caret)
 
 i <- 1
 colname <- paste0("zone", i)
