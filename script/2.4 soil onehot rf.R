@@ -159,27 +159,34 @@ soil_train <- soil_dat2[complete.cases(soil_dat2[, c(2, 7:ncol(soil_dat2))]), ]
 cat("Rows after NA removal:", nrow(soil_train), "\n")
 cat("Zones present:", sort(unique(soil_train$zoneID)), "\n")
 
+soil_coords <- soil_train[, c("x", "y")]
 soil_train2 <- soil_train[, -c(1, 3:6)]
+
 
 # randomly split agg_data into training/testing 7:3
 set.seed(49)
 train_indices <- sample(nrow(soil_train2), size = 0.7 * nrow(soil_train2))
 soil_train_data <- soil_train2[train_indices, ]
+soil_coords <- soil_coords[train_indices, ]
 soil_test_data <- soil_train2[-train_indices, ]
 
 fWrite(soil_train_data, file.path(OUT_DIR, "soil_train_data.csv"))
+fWrite(soil_coords, file.path(OUT_DIR, "soil_train_coords.csv"))
+
 fWrite(soil_test_data, file.path(OUT_DIR, "soil_test_data.csv"))
 
 zone_counts <- table(soil_train_data$zoneID); print(zone_counts)
 
+colnames(soil_train_data)
 xlist <- names(soil_train_data)[2:16]
 cat("Soil predictors:", xlist, "\n")
 
-rm();gc()
+rm(soil_train_data,soil_train,soil_train2,soil_dat2,soil_test_data);gc()
 
 # 2. One-hot encoding =========================================================
+library(caret)
 soil_train_data <- fRead(file.path(OUT_DIR, "soil_train_data.csv"))
-soil_coords <- soil_train_data[, c("x", "y")]
+
 
 soil_train_data$zone <- as.character(soil_train_data$zoneID)
 soil_hot_mat <- predict(dummyVars(~zone, data = soil_train_data), newdata = soil_train_data)
@@ -193,7 +200,7 @@ fWrite(soil_hot, file.path(OUT_DIR, "soil_hot_encoded.csv"))
 # 3. Variable selection: zone 1 first =========================================
 rm();gc()
 library(randomForest)
-library(caret)
+
 
 soil_hot <-fRead(file.path(OUT_DIR, "soil_hot_encoded.csv"))
 
