@@ -2,8 +2,6 @@
 # Zone 1 first, then loop over zones 2:55 except zone 8
 # ============================================================
 library(CEMT)
-library(randomForest)
-library(caret)
 library(data.table)
 library(foreach)
 library(doSNOW)
@@ -162,21 +160,42 @@ cat("Rows after NA removal:", nrow(soil_train), "\n")
 cat("Zones present:", sort(unique(soil_train$zoneID)), "\n")
 
 soil_train2 <- soil_train[, -c(1, 3:6)]
-soil_coords <- soil_train[, c("x", "y")]
 
-xlist <- names(soil_train2)[2:16]
+# randomly split agg_data into training/testing 7:3
+set.seed(49)
+train_indices <- sample(nrow(soil_train2), size = 0.7 * nrow(soil_train2))
+soil_train_data <- soil_train2[train_indices, ]
+soil_test_data <- soil_train2[-train_indices, ]
+
+fWrite(soil_train_data, file.path(OUT_DIR, "soil_train_data.csv"))
+fWrite(soil_test_data, file.path(OUT_DIR, "soil_test_data.csv"))
+
+zone_counts <- table(soil_train_data$zoneID); print(zone_counts)
+
+xlist <- names(soil_train_data)[2:16]
 cat("Soil predictors:", xlist, "\n")
 
+rm();gc()
+
 # 2. One-hot encoding =========================================================
+soil_train_data <- fRead(file.path(OUT_DIR, "soil_train_data.csv"))
+soil_coords <- soil_train_data[, c("x", "y")]
 
-soil_train2$zone <- as.character(soil_train2$zoneID)
-soil_hot_mat <- predict(dummyVars(~zone, data = soil_train2), newdata = soil_train2)
-soil_hot <- cbind(soil_train2, soil_hot_mat, soil_coords)
+soil_train_data$zone <- as.character(soil_train_data$zoneID)
+soil_hot_mat <- predict(dummyVars(~zone, data = soil_train_data), newdata = soil_train_data)
+soil_hot <- cbind(soil_train_data, soil_hot_mat, soil_coords)
 
-zones_all <- sort(setdiff(unique(soil_train$zoneID), 8))
+zones_all <- sort(setdiff(unique(soil_train_data$zoneID), 8))
 cat("Total zones to process:", length(zones_all), "\n")
 
+fWrite(soil_hot, file.path(OUT_DIR, "soil_hot_encoded.csv"))
+
 # 3. Variable selection: zone 1 first =========================================
+rm();gc()
+library(randomForest)
+library(caret)
+
+soil_hot <-fRead(file.path(OUT_DIR, "soil_hot_encoded.csv"))
 
 i <- 1
 colname <- paste0("zone", i)
