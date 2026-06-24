@@ -301,7 +301,10 @@ for (rr in seq_len(n_rounds)) {
                         byCol = which(colnames(soil_ps) == colname),
                         minSz = 2000)
 }
-soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, xlist)]), ]
+soilList <- read.csv(opfile)
+varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
+varlist <- intersect(varlist, names(soil_ps))
+soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, varlist)]), ]
 
 n_pos <- sum(soil_ps[[colname]] == 1)
 n_neg <- sum(soil_ps[[colname]] == 0)
@@ -317,26 +320,22 @@ soil_ps <- as.data.frame(soil_ps)
 xy_y <- soil_ps[soil_ps[[colname]] == 1, ]
 xy_n <- soil_ps[soil_ps[[colname]] == 0, ]
 soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
-soil_x0 <- soil_ps[, xlist, drop = FALSE]
+soil_x <- soil_ps[, varlist, drop = FALSE]
 
 # 5.1 Plain single RF
-soil_plain <- randomForest(soil_x0, soil_y, ntree = NTREE_PLAIN, importance = TRUE)
-soil_plain$varlist <- xlist
-acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_plain, soil_x0, soil_y, i, "plain_rf", ACC_DIR)
+soil_plain <- randomForest(soil_x, soil_y, ntree = NTREE_PLAIN, importance = TRUE)
+soil_plain$varlist <- varlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_plain, soil_x, soil_y, i, "plain_rf", ACC_DIR)
 save(soil_plain, file = file.path(MOD_DIR, paste0("soil_plain_zone", i, ".Rdata")))
 
 # 5.2 Plain multi-Forest RF
-soil_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
+soil_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
                    reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
-soil_mf$varlist <- xlist
-acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mf, soil_x0, soil_y, i, "plain_mf_rf", ACC_DIR)
+soil_mf$varlist <- varlist
+acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mf, soil_x, soil_y, i, "plain_mf_rf", ACC_DIR)
 save(soil_mf, file = file.path(MOD_DIR, paste0("soil_mf_zone", i, ".Rdata")))
 
 # 5.3 Optimized single RF
-soilList <- read.csv(opfile)
-varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
-varlist <- intersect(varlist, names(soil_ps))
-soil_x <- soil_ps[, varlist, drop = FALSE]
 soil_zOp <- classOP(soil_x, soil_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
 soil_zOp$varlist <- varlist
 acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_zOp, soil_x, soil_y, i, "optimized_rf", ACC_DIR)
@@ -349,8 +348,8 @@ soil_mfOp$varlist <- varlist
 acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mfOp, soil_x, soil_y, i, "optimized_mf_rf", ACC_DIR)
 save(soil_mfOp, file = file.path(MOD_DIR, paste0("soil_mfOp_zone", i, ".Rdata")))
 
-rm(soil_ps, xy_y, xy_n, soil_y, soil_x0, soil_plain, soil_mf,
-   soil_x, soil_zOp, soil_mfOp, soilList, varlist); gc()
+rm(soil_ps, xy_y, xy_n, soil_y, soil_x, soil_plain, soil_mf,
+   soil_zOp, soil_mfOp, soilList, varlist); gc()
 
 # 6. RF training: zones 2:55, skipping zone 8 =================================
 
@@ -382,7 +381,16 @@ for (i in setdiff(2:55, 8)) {
                             byCol = which(colnames(soil_ps) == colname),
                             minSz = 2000)
     }
-    soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, xlist)]), ]
+    soilList <- read.csv(opfile)
+    if (nrow(soilList) < VAR_ROW + 1 || soilList[VAR_ROW + 1, 2] == "0") {
+      cat("[SKIP] no valid varset:", colname, "\n"); next
+    }
+    varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
+    varlist <- intersect(varlist, names(soil_ps))
+    if (length(varlist) < 2) {
+      cat("[SKIP] too few vars:", colname, "\n"); next
+    }
+    soil_ps <- soil_ps[complete.cases(soil_ps[, c(colname, varlist)]), ]
     
     n_pos <- sum(soil_ps[[colname]] == 1)
     n_neg <- sum(soil_ps[[colname]] == 0)
@@ -406,30 +414,19 @@ for (i in setdiff(2:55, 8)) {
     }
     
     soil_y <- factor(soil_ps[[colname]], levels = c(0, 1))
-    soil_x0 <- soil_ps[, xlist, drop = FALSE]
+    soil_x <- soil_ps[, varlist, drop = FALSE]
     
-    soil_plain <- randomForest(soil_x0, soil_y, ntree = NTREE_PLAIN, importance = TRUE)
-    soil_plain$varlist <- xlist
-    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_plain, soil_x0, soil_y, i, "plain_rf", ACC_DIR)
+    soil_plain <- randomForest(soil_x, soil_y, ntree = NTREE_PLAIN, importance = TRUE)
+    soil_plain$varlist <- varlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_plain, soil_x, soil_y, i, "plain_rf", ACC_DIR)
     save(soil_plain, file = file.path(MOD_DIR, paste0("soil_plain_zone", i, ".Rdata")))
     
-    soil_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
+    soil_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
                        reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
-    soil_mf$varlist <- xlist
-    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mf, soil_x0, soil_y, i, "plain_mf_rf", ACC_DIR)
+    soil_mf$varlist <- varlist
+    acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_mf, soil_x, soil_y, i, "plain_mf_rf", ACC_DIR)
     save(soil_mf, file = file.path(MOD_DIR, paste0("soil_mf_zone", i, ".Rdata")))
     
-    soilList <- read.csv(opfile)
-    if (nrow(soilList) < VAR_ROW + 1 || soilList[VAR_ROW + 1, 2] == "0") {
-      cat("[SKIP] no valid varset:", colname, "\n"); next
-    }
-    varlist <- trimws(unlist(strsplit(soilList[VAR_ROW + 1, 2], ",")))
-    varlist <- intersect(varlist, names(soil_ps))
-    if (length(varlist) < 2) {
-      cat("[SKIP] too few vars:", colname, "\n"); next
-    }
-    
-    soil_x <- soil_ps[, varlist, drop = FALSE]
     soil_zOp <- classOP(soil_x, soil_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
     soil_zOp$varlist <- varlist
     acc_all[[length(acc_all) + 1L]] <- rf_acc(soil_zOp, soil_x, soil_y, i, "optimized_rf", ACC_DIR)
@@ -442,8 +439,8 @@ for (i in setdiff(2:55, 8)) {
     save(soil_mfOp, file = file.path(MOD_DIR, paste0("soil_mfOp_zone", i, ".Rdata")))
     
     cat("[DONE] zone", i, "\n")
-    rm(soil_ps, xy_y, xy_n, soil_y, soil_x0, soil_plain, soil_mf,
-       soil_x, soil_zOp, soil_mfOp, soilList, varlist); gc()
+    rm(soil_ps, xy_y, xy_n, soil_y, soil_x, soil_plain, soil_mf,
+       soil_zOp, soil_mfOp, soilList, varlist); gc()
     
   }, error = function(e) {
     cat("[ERROR] RF zone", i, ":", conditionMessage(e), "\n"); gc()

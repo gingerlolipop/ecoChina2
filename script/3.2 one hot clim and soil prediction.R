@@ -22,9 +22,9 @@ zones <- c(1:7, 9:30, 31:50, 52:55)
 
 soil_threshold <- 0.2
 
-# Reuse existing climate/soil suitability rasters when their geometry
-# already matches the original vegetation raster.
-reuse_existing_suitability <- TRUE
+# Regenerate climate and soil suitability for the remaining three methods.
+# Existing rasters may come from older model versions even if geometry matches.
+reuse_existing_suitability <- FALSE
 
 # Dual suitability was calculated incorrectly before, so overwrite it.
 overwrite_dual <- TRUE
@@ -33,11 +33,10 @@ overwrite_dual <- TRUE
 # because all workers read and write the same disk.
 predict_cores <- min(4L, max(1L, parallel::detectCores() - 1L))
 
-# Run optimized_mf first. After it is complete, replace this line with
-# c("optimized_rf", "plain_mf", "plain_rf") to run the other versions.
-methods_to_run <- "optimized_mf"
+# optimized_mf has already been completed. Run the remaining three methods.
 # methods_to_run <- c("optimized_rf", "plain_mf", "plain_rf")
-# methods_to_run <- c("optimized_mf", "optimized_rf", "plain_mf", "plain_rf")
+# methods_to_run <- "optimized_mf"
+methods_to_run <- c("plain_rf","optimized_rf", "plain_mf","optimized_mf")
 
 model_set <- data.table(
   method = c("optimized_mf", "optimized_rf", "plain_mf", "plain_rf"),
@@ -48,18 +47,57 @@ model_set <- data.table(
 )
 model_set <- model_set[method %in% methods_to_run]
 
-remove_raster_files <- function(filepath) {
+remove_raster_files <- function(
+    filepath,
+    retries = 5L,
+    wait = 0.5,
+    stop_if_failed = TRUE) {
+  
   base <- tools::file_path_sans_ext(filepath)
-  files <- c(
+  
+  files <- unique(c(
     filepath,
     paste0(filepath, ".aux.xml"),
     paste0(filepath, ".ovr"),
+    paste0(filepath, ".msk"),
     paste0(base, ".aux.xml"),
     paste0(base, ".ovr"),
     paste0(base, ".tfw")
-  )
+  ))
+  
   files <- files[file.exists(files)]
-  if (length(files) > 0) unlink(files, force = TRUE)
+  
+  if (length(files) == 0) {
+    return(invisible(TRUE))
+  }
+  
+  remaining <- files
+  
+  for (attempt in seq_len(retries)) {
+    gc()
+    suppressWarnings(unlink(remaining, force = TRUE))
+    remaining <- files[file.exists(files)]
+    
+    if (length(remaining) == 0) {
+      return(invisible(TRUE))
+    }
+    
+    if (attempt < retries) {
+      Sys.sleep(wait)
+    }
+  }
+  
+  msg <- paste0(
+    "Cannot remove existing raster file. The file may still be open or locked:\n",
+    paste(remaining, collapse = "\n")
+  )
+  
+  if (stop_if_failed) {
+    stop(msg, call. = FALSE)
+  }
+  
+  warning(msg, call. = FALSE)
+  invisible(FALSE)
 }
 
 get_stack <- function(varlist, raster_dir) {
@@ -185,8 +223,6 @@ predict_one_model <- function(model_file, object_name, raster_dir,
   if (same_geom) {
     # Predictor rasters already match the template, so predict directly
     # to the final file without creating and resampling a temporary raster.
-    remove_raster_files(out_file)
-    
     p <- mcPredict_terra(
       s,
       m,
@@ -194,9 +230,23 @@ predict_one_model <- function(model_file, object_name, raster_dir,
       compress = TRUE
     )
   } else {
-    tmp_file <- file.path(
-      tmp_dir,
-      paste0("tmp_", label, "_", basename(out_file))
+    tmp_file <- tempfile(
+      pattern = paste0(
+        "tmp_",
+        label,
+        "_",
+        tools::file_path_sans_ext(basename(out_file)),
+        "_"
+      ),
+      tmpdir = tmp_dir,
+      fileext = ".tif"
+    )
+    
+    on.exit(
+      suppressWarnings(
+        remove_raster_files(tmp_file, stop_if_failed = FALSE)
+      ),
+      add = TRUE
     )
     
     p0 <- mcPredict_terra(
@@ -220,8 +270,10 @@ predict_one_model <- function(model_file, object_name, raster_dir,
       )
     )
     
-    remove_raster_files(tmp_file)
+    # Release the temporary raster before deleting its file on Windows.
     rm(p0)
+    gc()
+    remove_raster_files(tmp_file)
   }
   
   names(p) <- label
