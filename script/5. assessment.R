@@ -1,109 +1,346 @@
+library(CEMT)
 library(terra)
 library(data.table)
+library(randomForest)
 
-# ------------------------------------------------------------
-# Pixel-by-pixel assessment: original map vs normal predictions
-# for all four RF model versions.
-# ------------------------------------------------------------
+# Outputs:
+#   1. rf_test_zone_metrics.csv: independent test metrics by method, niche and zone
+#   2. rf_test_model_summary.csv: mean RF metrics by method and niche
+#   3. normal_map_confusion_long.csv: original-predicted pixel counts
+#   4. normal_map_zone_metrics.csv: map metrics by method and zone
+#   5. normal_map_overall_metrics.csv: overall map accuracy and coverage
+# The last three files include only completed normal maps.
 
 base_dir <- "H:/Jing/ecoChina2"
+result_dir <- file.path(base_dir, "results")
 result_root <- file.path(base_dir, "result maps")
-assess_root <- file.path(base_dir, "assessment")
+assess_dir <- file.path(base_dir, "assessment")
+dir.create(assess_dir, recursive = TRUE, showWarnings = FALSE)
 
-r <- rast(file.path(base_dir, "raster/ecosys_ori.tif"))
-names(r) <- "ori"
+zoneID <- c(1:7, 9:50, 52:55)
+prob_threshold <- 0.5
+map_threshold <- 0.2
+tie_tol <- 1e-4
 
-method_order <- c("optimized_mf", "optimized_rf", "plain_mf", "plain_rf")
-methods <- method_order[dir.exists(file.path(result_root, method_order))]
+method_order <- c(
+  "optimized_mf",
+  "optimized_rf",
+  "plain_mf",
+  "plain_rf"
+)
 
-assess_one <- function(method) {
-  method_dir <- file.path(result_root, method)
-  pred_files <- list.files(
-    method_dir,
-    pattern = "^assigned_zone_normal_.*\\.tif$",
-    full.names = TRUE
+model_set <- data.frame(
+  method = method_order,
+  clm_prefix = c(
+    "clm_mfOp_zone", "clm_zOp_zone",
+    "clm_mf_zone", "clm_plain_zone"
+  ),
+  clm_object = c(
+    "clim_mfOp", "clim_zOp",
+    "clm_mf", "clm_plain"
+  ),
+  soil_prefix = c(
+    "soil_mfOp_zone", "soil_zOp_zone",
+    "soil_mf_zone", "soil_plain_zone"
+  ),
+  soil_object = c(
+    "soil_mfOp", "soil_zOp",
+    "soil_mf", "soil_plain"
+  )
+)
+
+div <- function(a, b) {
+  if (b > 0) a / b else NA_real_
+}
+
+mean_na <- function(x) {
+  if (all(is.na(x))) NA_real_ else mean(x, na.rm = TRUE)
+}
+
+auc_rank <- function(y, p) {
+  n1 <- sum(y == 1)
+  n0 <- sum(y == 0)
+  
+  if (n1 == 0 || n0 == 0) return(NA_real_)
+  
+  (sum(rank(p, ties.method = "average")[y == 1]) -
+      n1 * (n1 + 1) / 2) / (n1 * n0)
+}
+
+load_rf <- function(file, object) {
+  if (!file.exists(file)) return(NULL)
+  
+  e <- new.env()
+  load(file, envir = e)
+  
+  if (!exists(object, envir = e)) return(NULL)
+  get(object, envir = e)
+}
+
+get_vars <- function(m) {
+  if (!is.null(m$varlist)) return(m$varlist)
+  rownames(m$importance)
+}
+
+
+# 1. Independent climate and soil RF assessment ===============================
+
+clm_test_file <- file.path(result_dir, "test_data.csv")
+soil_test_file <- file.path(result_dir, "soil_test_data.csv")
+
+if (!file.exists(clm_test_file)) {
+  stop("Missing climate test data: ", clm_test_file)
+}
+
+if (!file.exists(soil_test_file)) {
+  stop("Missing soil test data: ", soil_test_file)
+}
+
+clm_test <- as.data.frame(fread(clm_test_file))
+soil_test <- as.data.frame(fread(soil_test_file))
+
+clm_test$zoneID <- as.numeric(as.character(clm_test$zoneID))
+soil_test$zoneID <- as.numeric(as.character(soil_test$zoneID))
+
+assess_rf <- function(method, niche, zone) {
+  cfg <- model_set[model_set$method == method, , drop = FALSE]
+  is_clm <- niche == "climate"
+  
+  prefix <- if (is_clm) cfg$clm_prefix else cfg$soil_prefix
+  object <- if (is_clm) cfg$clm_object else cfg$soil_object
+  test <- if (is_clm) clm_test else soil_test
+  model_dir <- if (is_clm) "rf" else "rf_soil"
+  
+  file <- file.path(
+    base_dir,
+    model_dir,
+    paste0(prefix, zone, ".Rdata")
   )
   
-  if (length(pred_files) == 0) {
-    warning("No normal assigned map found for method: ", method)
+  m <- load_rf(file, object)
+  
+  if (is.null(m)) {
+    cat("[SKIP MODEL]", method, "|", niche, "| zone", zone, "\n")
     return(NULL)
   }
   
-  pred_file <- pred_files[1]
-  p <- rast(pred_file)
-  names(p) <- "pred"
+  vars <- get_vars(m)
   
-  if (!compareGeom(r, p, stopOnError = FALSE)) {
-    stop("Original and prediction rasters do not align: ", method)
+  if (is.null(vars) || !all(vars %in% names(test))) {
+    cat("[SKIP VARS]", method, "|", niche, "| zone", zone, "\n")
+    return(NULL)
   }
   
-  s <- c(r, mask(p, r))
+  x <- test[, vars, drop = FALSE]
+  keep <- complete.cases(x) & !is.na(test$zoneID)
+  x <- x[keep, , drop = FALSE]
+  y <- as.integer(test$zoneID[keep] == zone)
   
-  ct <- as.data.table(crosstab(s, long = TRUE, useNA = FALSE))
-  setnames(ct, c("ori", "pred", "n"))
-  ct[, ori := as.integer(ori)]
-  ct[, pred := as.integer(pred)]
+  if (!nrow(x)) return(NULL)
   
-  mat <- dcast(ct, ori ~ pred, value.var = "n", fill = 0)
+  prob <- predict(m, x, type = "prob")
   
-  zones <- sort(unique(ct$ori))
-  assess <- rbindlist(lapply(zones, function(z) {
-    TP <- ct[ori == z & pred == z, sum(n)]
-    FN <- ct[ori == z & pred != z, sum(n)]
-    FP <- ct[ori != z & pred == z, sum(n)]
-    
-    TP <- ifelse(is.na(TP), 0, TP)
-    FN <- ifelse(is.na(FN), 0, FN)
-    FP <- ifelse(is.na(FP), 0, FP)
-    
-    recall <- TP / (TP + FN)
-    precision <- TP / (TP + FP)
-    f1 <- ifelse(
-      is.finite(precision + recall) && precision + recall > 0,
-      2 * precision * recall / (precision + recall),
-      NA_real_
-    )
-    
-    data.table(
-      method = method,
-      zone = z,
-      original_pixels = TP + FN,
-      predicted_pixels = TP + FP,
-      true_positive = TP,
-      false_negative = FN,
-      false_positive = FP,
-      recall = recall,
-      precision = precision,
-      f1 = f1
-    )
-  }))
+  if (!("1" %in% colnames(prob))) {
+    cat("[SKIP PROB]", method, "|", niche, "| zone", zone, "\n")
+    return(NULL)
+  }
   
-  overall <- ct[, .(
-    method = method,
-    total_pixels = sum(n),
-    correct_pixels = sum(n[ori == pred]),
-    accuracy = sum(n[ori == pred]) / sum(n)
-  )]
+  prob <- as.numeric(prob[, "1"])
+  pred <- as.integer(prob >= prob_threshold)
   
-  out_dir <- file.path(assess_root, method)
-  dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+  TP <- sum(y == 1 & pred == 1)
+  TN <- sum(y == 0 & pred == 0)
+  FP <- sum(y == 0 & pred == 1)
+  FN <- sum(y == 1 & pred == 0)
   
-  fwrite(mat, file.path(out_dir, paste0("normal_confusion_matrix_", method, ".csv")))
-  fwrite(assess, file.path(out_dir, paste0("normal_zone_assessment_", method, ".csv")))
-  fwrite(overall, file.path(out_dir, paste0("normal_overall_accuracy_", method, ".csv")))
+  recall <- div(TP, TP + FN)
+  specificity <- div(TN, TN + FP)
+  precision <- div(TP, TP + FP)
   
-  list(overall = overall, assess = assess)
+  data.table(
+    method,
+    niche,
+    zone,
+    threshold = prob_threshold,
+    n_test = length(y),
+    presence = sum(y == 1),
+    absence = sum(y == 0),
+    TP, TN, FP, FN,
+    accuracy = div(TP + TN, length(y)),
+    balanced_accuracy = mean(c(recall, specificity), na.rm = TRUE),
+    recall,
+    specificity,
+    precision,
+    f1 = div(2 * precision * recall, precision + recall),
+    auc = auc_rank(y, prob)
+  )
 }
 
-res <- lapply(methods, assess_one)
-res <- res[!vapply(res, is.null, logical(1))]
+rf_list <- list()
 
-overall_all <- rbindlist(lapply(res, `[[`, "overall"), fill = TRUE)
-assess_all <- rbindlist(lapply(res, `[[`, "assess"), fill = TRUE)
+for (method in method_order) {
+  for (niche in c("climate", "soil")) {
+    for (zone in zoneID) {
+      out <- assess_rf(method, niche, zone)
+      
+      if (!is.null(out)) {
+        rf_list[[length(rf_list) + 1L]] <- out
+      }
+    }
+  }
+}
 
-dir.create(assess_root, recursive = TRUE, showWarnings = FALSE)
-fwrite(overall_all, file.path(assess_root, "normal_overall_accuracy_all_methods.csv"))
-fwrite(assess_all, file.path(assess_root, "normal_zone_assessment_all_methods.csv"))
+if (!length(rf_list)) {
+  stop("No RF models could be assessed.")
+}
 
-print(overall_all[order(-accuracy)])
-print(assess_all[order(method, recall)])
+rf_test <- rbindlist(rf_list)
+
+rf_summary <- rf_test[, .(
+  zones_assessed = .N,
+  zones_with_presence = sum(presence > 0),
+  mean_accuracy = mean_na(accuracy),
+  mean_balanced_accuracy = mean_na(balanced_accuracy),
+  mean_recall = mean_na(recall),
+  mean_specificity = mean_na(specificity),
+  mean_precision = mean_na(precision),
+  mean_f1 = mean_na(f1),
+  mean_auc = mean_na(auc)
+), by = .(method, niche)]
+
+fwrite(
+  rf_test,
+  file.path(assess_dir, "rf_test_zone_metrics.csv")
+)
+
+fwrite(
+  rf_summary,
+  file.path(assess_dir, "rf_test_model_summary.csv")
+)
+
+cat("\n[RF ASSESSMENT COMPLETE]\n")
+print(rf_summary[order(niche, -mean_auc)])
+
+
+# 2. Completed normal-map assessment ==========================================
+
+r <- rast(file.path(base_dir, "raster/ecosys_ori.tif"))
+ori <- ifel(is.na(r) | r == 8, NA, r)
+names(ori) <- "ori"
+
+normal_files <- file.path(
+  result_root,
+  method_order,
+  paste0(
+    "assigned_zone_normal",
+    "_threshold", map_threshold,
+    "_tol", tie_tol,
+    "_novel99_maskNA8_noNovelNormal.tif"
+  )
+)
+
+names(normal_files) <- method_order
+normal_files <- normal_files[file.exists(normal_files)]
+
+if (!length(normal_files)) {
+  cat("\n[SKIP MAP ASSESSMENT] No completed normal maps found.\n")
+} else {
+  map_ct <- list()
+  map_zone <- list()
+  map_overall <- list()
+  
+  for (method in names(normal_files)) {
+    cat("[ASSESS MAP]", method, "\n")
+    
+    p <- rast(normal_files[[method]])
+    
+    if (!compareGeom(ori, p, stopOnError = FALSE)) {
+      cat("[SKIP GEOMETRY]", method, "\n")
+      next
+    }
+    
+    pred <- ifel(is.na(ori), NA, ifel(is.na(p), -999, p))
+    names(pred) <- "pred"
+    
+    ct <- as.data.table(
+      crosstab(c(ori, pred), long = TRUE, useNA = FALSE)
+    )
+    
+    setnames(ct, c("ori", "pred", "n"))
+    
+    ct[, `:=`(
+      method = method,
+      ori = as.integer(ori),
+      pred = as.integer(pred)
+    )]
+    
+    total <- sum(ct$n)
+    predicted <- ct[pred != -999, sum(n)]
+    correct <- ct[ori == pred, sum(n)]
+    
+    map_overall[[method]] <- data.table(
+      method,
+      valid_pixels = total,
+      predicted_pixels = predicted,
+      missing_predictions = total - predicted,
+      coverage = div(predicted, total),
+      accuracy_predicted = div(correct, predicted),
+      accuracy_all = div(correct, total)
+    )
+    
+    map_zone[[method]] <- rbindlist(
+      lapply(sort(unique(ct$ori)), function(z) {
+        TP <- ct[ori == z & pred == z, sum(n)]
+        FN <- ct[ori == z & pred != z, sum(n)]
+        FP <- ct[ori != z & pred == z, sum(n)]
+        TN <- total - TP - FN - FP
+        
+        recall <- div(TP, TP + FN)
+        specificity <- div(TN, TN + FP)
+        precision <- div(TP, TP + FP)
+        
+        data.table(
+          method,
+          zone = z,
+          original_pixels = TP + FN,
+          predicted_pixels = TP + FP,
+          TP, TN, FP, FN,
+          recall,
+          specificity,
+          precision,
+          f1 = div(
+            2 * precision * recall,
+            precision + recall
+          )
+        )
+      })
+    )
+    
+    ct[pred == -999, pred := NA_integer_]
+    map_ct[[method]] <- ct
+  }
+  
+  if (length(map_overall)) {
+    map_overall <- rbindlist(map_overall)
+    
+    fwrite(
+      rbindlist(map_ct),
+      file.path(assess_dir, "normal_map_confusion_long.csv")
+    )
+    
+    fwrite(
+      rbindlist(map_zone),
+      file.path(assess_dir, "normal_map_zone_metrics.csv")
+    )
+    
+    fwrite(
+      map_overall,
+      file.path(assess_dir, "normal_map_overall_metrics.csv")
+    )
+    
+    cat("\n[MAP ASSESSMENT COMPLETE]\n")
+    print(map_overall[order(-accuracy_all)])
+  } else {
+    cat("\n[SKIP MAP ASSESSMENT] No aligned normal maps found.\n")
+  }
+}
