@@ -4,12 +4,14 @@ library(data.table)
 library(randomForest)
 
 # Outputs:
-#   1. rf_test_zone_metrics.csv: balanced test metrics by method, niche and zone
-#   2. rf_test_model_summary.csv: mean RF metrics by method and niche
-#   3. normal_map_confusion_long.csv: original-predicted pixel counts
-#   4. normal_map_zone_metrics.csv: map metrics by method and zone
-#   5. normal_map_overall_metrics.csv: overall map accuracy and coverage
-# The last three files include only completed normal maps.
+#   1. rf_test_zone_metrics.csv
+#   2. rf_test_model_summary.csv
+#   3. normal_map_confusion_long.csv
+#   4. normal_map_zone_metrics.csv
+#   5. normal_map_overall_metrics.csv
+#   6. Four normal_map_confusion_matrix_[method].csv files
+#   7. normal_map_errors_from_original_zone.csv
+#   8. normal_map_errors_into_assigned_zone.csv
 
 base_dir <- "H:/Jing/ecoChina2"
 result_dir <- file.path(base_dir, "results")
@@ -59,8 +61,8 @@ mean_na <- function(x) {
 }
 
 auc_rank <- function(y, p) {
-  n1 <- sum(y == 1)
-  n0 <- sum(y == 0)
+  n1 <- as.numeric(sum(y == 1))
+  n0 <- as.numeric(sum(y == 0))
   
   if (n1 == 0 || n0 == 0) return(NA_real_)
   
@@ -85,7 +87,12 @@ get_vars <- function(m) {
 
 balance_test <- function(test, zone, seed) {
   pos <- which(test$zoneID == zone)
-  neg <- which(test$zoneID != zone & !is.na(test$zoneID))
+  
+  # Absence is sampled only from modeled zones.
+  neg <- which(
+    test$zoneID %in% zoneID &
+      test$zoneID != zone
+  )
   
   if (!length(pos) || !length(neg)) return(integer())
   
@@ -118,7 +125,7 @@ soil_test <- as.data.frame(fread(soil_test_file))
 clm_test$zoneID <- as.numeric(as.character(clm_test$zoneID))
 soil_test$zoneID <- as.numeric(as.character(soil_test$zoneID))
 
-# The same balanced test observations are used by all four models.
+# All four models use the same balanced test observations.
 test_index <- list(
   climate = setNames(
     lapply(
@@ -190,6 +197,7 @@ assess_rf <- function(method, niche, zone) {
   
   prob <- as.numeric(prob[, "1"])
   keep <- is.finite(prob)
+  
   prob <- prob[keep]
   y <- y[keep]
   
@@ -277,7 +285,14 @@ print(rf_summary[order(niche, -mean_auc)])
 # 2. Completed normal-map assessment ==========================================
 
 r <- rast(file.path(base_dir, "raster/ecosys_ori.tif"))
-ori <- ifel(is.na(r) | r == 8, NA, r)
+
+# Keep only modeled original zones. Zones 8 and 51 are excluded.
+ori <- subst(
+  r,
+  from = zoneID,
+  to = zoneID,
+  others = NA
+)
 names(ori) <- "ori"
 
 normal_files <- file.path(
@@ -302,6 +317,12 @@ if (!length(normal_files)) {
   map_zone <- list()
   map_overall <- list()
   
+  valid_original <- global(
+    !is.na(ori),
+    "sum",
+    na.rm = TRUE
+  )[1, 1]
+  
   for (method in names(normal_files)) {
     cat("[ASSESS MAP]", method, "\n")
     
@@ -312,11 +333,28 @@ if (!length(normal_files)) {
       next
     }
     
-    pred <- ifel(is.na(ori), NA, ifel(is.na(p), -999, p))
+    # Keep only valid modeled predictions.
+    pred <- subst(
+      p,
+      from = zoneID,
+      to = zoneID,
+      others = NA
+    )
     names(pred) <- "pred"
     
+    compared <- global(
+      !is.na(ori) & !is.na(pred),
+      "sum",
+      na.rm = TRUE
+    )[1, 1]
+    
+    # Pixels with NA in either raster are excluded.
     ct <- as.data.table(
-      crosstab(c(ori, pred), long = TRUE, useNA = FALSE)
+      crosstab(
+        c(ori, pred),
+        long = TRUE,
+        useNA = FALSE
+      )
     )
     
     setnames(ct, c("ori", "pred", "n"))
@@ -329,17 +367,15 @@ if (!length(normal_files)) {
     )]
     
     total <- sum(ct$n, na.rm = TRUE)
-    predicted <- ct[pred != -999, sum(n, na.rm = TRUE)]
     correct <- ct[ori == pred, sum(n, na.rm = TRUE)]
     
     map_overall[[method]] <- data.table(
       method,
-      valid_pixels = total,
-      predicted_pixels = predicted,
-      missing_predictions = total - predicted,
-      coverage = div(predicted, total),
-      accuracy_predicted = div(correct, predicted),
-      accuracy_all = div(correct, total)
+      valid_original_pixels = valid_original,
+      compared_pixels = compared,
+      missing_predictions = valid_original - compared,
+      coverage = div(compared, valid_original),
+      accuracy = div(correct, compared)
     )
     
     map_zone[[method]] <- rbindlist(
@@ -359,6 +395,7 @@ if (!length(normal_files)) {
           original_pixels = TP + FN,
           predicted_pixels = TP + FP,
           TP, TN, FP, FN,
+          accuracy = div(TP + TN, total),
           recall,
           specificity,
           precision,
@@ -368,7 +405,6 @@ if (!length(normal_files)) {
       })
     )
     
-    ct[pred == -999, pred := NA_integer_]
     map_ct[[method]] <- ct
   }
   
@@ -391,9 +427,146 @@ if (!length(normal_files)) {
     )
     
     cat("\n[MAP ASSESSMENT COMPLETE]\n")
-    print(map_overall[order(-accuracy_all)])
+    print(map_overall[order(-accuracy)])
     
   } else {
     cat("\n[SKIP MAP ASSESSMENT] No aligned normal maps found.\n")
   }
+}
+
+
+# 3. Confusion matrices and error directions ==================================
+
+ct_file <- file.path(
+  assess_dir,
+  "normal_map_confusion_long.csv"
+)
+
+if (!file.exists(ct_file)) {
+  cat("\n[SKIP CONFUSION TABLES] Map assessment file not found.\n")
+  
+} else {
+  ct <- fread(ct_file)
+  
+  ct[, `:=`(
+    ori = as.integer(ori),
+    pred = as.integer(pred),
+    n = as.numeric(n)
+  )]
+  
+  # Rows are original zones; columns are predicted zones.
+  for (m in unique(ct$method)) {
+    ct_m <- ct[
+      method == m &
+        !is.na(ori) &
+        !is.na(pred)
+    ]
+    
+    mat <- dcast(
+      ct_m,
+      ori ~ pred,
+      value.var = "n",
+      fill = 0
+    )
+    
+    fwrite(
+      mat,
+      file.path(
+        assess_dir,
+        paste0(
+          "normal_map_confusion_matrix_",
+          m,
+          ".csv"
+        )
+      )
+    )
+  }
+  
+  # Where pixels from each original zone were assigned.
+  error_out <- ct[
+    ori != pred,
+    .(pixels = sum(n)),
+    by = .(method, ori, pred)
+  ]
+  
+  ori_total <- ct[
+    ,
+    .(original_pixels = sum(n)),
+    by = .(method, ori)
+  ]
+  
+  error_out <- merge(
+    error_out,
+    ori_total,
+    by = c("method", "ori")
+  )
+  
+  error_out[
+    ,
+    percent_of_original :=
+      100 * pixels / original_pixels
+  ]
+  
+  setorder(error_out, method, ori, -pixels)
+  
+  setnames(
+    error_out,
+    c("ori", "pred"),
+    c("original_zone", "assigned_zone")
+  )
+  
+  fwrite(
+    error_out,
+    file.path(
+      assess_dir,
+      "normal_map_errors_from_original_zone.csv"
+    )
+  )
+  
+  # Where incorrectly assigned pixels in each predicted zone came from.
+  error_in <- ct[
+    ori != pred,
+    .(pixels = sum(n)),
+    by = .(method, pred, ori)
+  ]
+  
+  pred_total <- ct[
+    ,
+    .(predicted_pixels = sum(n)),
+    by = .(method, pred)
+  ]
+  
+  error_in <- merge(
+    error_in,
+    pred_total,
+    by = c("method", "pred")
+  )
+  
+  error_in[
+    ,
+    percent_of_predicted :=
+      100 * pixels / predicted_pixels
+  ]
+  
+  setorder(error_in, method, pred, -pixels)
+  
+  setnames(
+    error_in,
+    c("pred", "ori"),
+    c("assigned_zone", "original_source_zone")
+  )
+  
+  fwrite(
+    error_in,
+    file.path(
+      assess_dir,
+      "normal_map_errors_into_assigned_zone.csv"
+    )
+  )
+  
+  cat(
+    "\n[CONFUSION TABLES COMPLETE]\n",
+    "Results saved to: ", assess_dir, "\n",
+    sep = ""
+  )
 }
