@@ -4,7 +4,7 @@ library(data.table)
 library(randomForest)
 
 # Outputs:
-#   1. rf_test_zone_metrics.csv: independent test metrics by method, niche and zone
+#   1. rf_test_zone_metrics.csv: balanced test metrics by method, niche and zone
 #   2. rf_test_model_summary.csv: mean RF metrics by method and niche
 #   3. normal_map_confusion_long.csv: original-predicted pixel counts
 #   4. normal_map_zone_metrics.csv: map metrics by method and zone
@@ -21,6 +21,7 @@ zoneID <- c(1:7, 9:50, 52:55)
 prob_threshold <- 0.5
 map_threshold <- 0.2
 tie_tol <- 1e-4
+base_seed <- 49L
 
 method_order <- c(
   "optimized_mf",
@@ -50,7 +51,7 @@ model_set <- data.frame(
 )
 
 div <- function(a, b) {
-  if (b > 0) a / b else NA_real_
+  ifelse(is.finite(b) & b > 0, a / b, NA_real_)
 }
 
 mean_na <- function(x) {
@@ -82,6 +83,21 @@ get_vars <- function(m) {
   rownames(m$importance)
 }
 
+balance_test <- function(test, zone, seed) {
+  pos <- which(test$zoneID == zone)
+  neg <- which(test$zoneID != zone & !is.na(test$zoneID))
+  
+  if (!length(pos) || !length(neg)) return(integer())
+  
+  set.seed(seed)
+  
+  if (length(neg) > length(pos)) {
+    neg <- neg[sample.int(length(neg), length(pos))]
+  }
+  
+  c(pos, neg)
+}
+
 
 # 1. Independent climate and soil RF assessment ===============================
 
@@ -101,6 +117,24 @@ soil_test <- as.data.frame(fread(soil_test_file))
 
 clm_test$zoneID <- as.numeric(as.character(clm_test$zoneID))
 soil_test$zoneID <- as.numeric(as.character(soil_test$zoneID))
+
+# The same balanced test observations are used by all four models.
+test_index <- list(
+  climate = setNames(
+    lapply(
+      zoneID,
+      function(z) balance_test(clm_test, z, base_seed + z)
+    ),
+    zoneID
+  ),
+  soil = setNames(
+    lapply(
+      zoneID,
+      function(z) balance_test(soil_test, z, base_seed + 1000L + z)
+    ),
+    zoneID
+  )
+)
 
 assess_rf <- function(method, niche, zone) {
   cfg <- model_set[model_set$method == method, , drop = FALSE]
@@ -131,12 +165,21 @@ assess_rf <- function(method, niche, zone) {
     return(NULL)
   }
   
-  x <- test[, vars, drop = FALSE]
-  keep <- complete.cases(x) & !is.na(test$zoneID)
-  x <- x[keep, , drop = FALSE]
-  y <- as.integer(test$zoneID[keep] == zone)
+  idx <- test_index[[niche]][[as.character(zone)]]
   
-  if (!nrow(x)) return(NULL)
+  if (!length(idx)) {
+    cat("[SKIP TEST]", method, "|", niche, "| zone", zone, "\n")
+    return(NULL)
+  }
+  
+  x <- test[idx, vars, drop = FALSE]
+  y <- as.integer(test$zoneID[idx] == zone)
+  
+  keep <- complete.cases(x)
+  x <- x[keep, , drop = FALSE]
+  y <- y[keep]
+  
+  if (!nrow(x) || length(unique(y)) < 2) return(NULL)
   
   prob <- predict(m, x, type = "prob")
   
@@ -146,6 +189,10 @@ assess_rf <- function(method, niche, zone) {
   }
   
   prob <- as.numeric(prob[, "1"])
+  keep <- is.finite(prob)
+  prob <- prob[keep]
+  y <- y[keep]
+  
   pred <- as.integer(prob >= prob_threshold)
   
   TP <- sum(y == 1 & pred == 1)
@@ -156,22 +203,26 @@ assess_rf <- function(method, niche, zone) {
   recall <- div(TP, TP + FN)
   specificity <- div(TN, TN + FP)
   precision <- div(TP, TP + FP)
+  balanced_accuracy <- div(recall + specificity, 2)
+  tss <- recall + specificity - 1
   
   data.table(
     method,
     niche,
     zone,
     threshold = prob_threshold,
+    sampling = "all presence + equal absence",
     n_test = length(y),
     presence = sum(y == 1),
     absence = sum(y == 0),
     TP, TN, FP, FN,
     accuracy = div(TP + TN, length(y)),
-    balanced_accuracy = mean(c(recall, specificity), na.rm = TRUE),
+    balanced_accuracy,
     recall,
     specificity,
     precision,
     f1 = div(2 * precision * recall, precision + recall),
+    tss,
     auc = auc_rank(y, prob)
   )
 }
@@ -205,6 +256,7 @@ rf_summary <- rf_test[, .(
   mean_specificity = mean_na(specificity),
   mean_precision = mean_na(precision),
   mean_f1 = mean_na(f1),
+  mean_tss = mean_na(tss),
   mean_auc = mean_na(auc)
 ), by = .(method, niche)]
 
@@ -244,6 +296,7 @@ normal_files <- normal_files[file.exists(normal_files)]
 
 if (!length(normal_files)) {
   cat("\n[SKIP MAP ASSESSMENT] No completed normal maps found.\n")
+  
 } else {
   map_ct <- list()
   map_zone <- list()
@@ -271,12 +324,13 @@ if (!length(normal_files)) {
     ct[, `:=`(
       method = method,
       ori = as.integer(ori),
-      pred = as.integer(pred)
+      pred = as.integer(pred),
+      n = as.numeric(n)
     )]
     
-    total <- sum(ct$n)
-    predicted <- ct[pred != -999, sum(n)]
-    correct <- ct[ori == pred, sum(n)]
+    total <- sum(ct$n, na.rm = TRUE)
+    predicted <- ct[pred != -999, sum(n, na.rm = TRUE)]
+    correct <- ct[ori == pred, sum(n, na.rm = TRUE)]
     
     map_overall[[method]] <- data.table(
       method,
@@ -290,9 +344,9 @@ if (!length(normal_files)) {
     
     map_zone[[method]] <- rbindlist(
       lapply(sort(unique(ct$ori)), function(z) {
-        TP <- ct[ori == z & pred == z, sum(n)]
-        FN <- ct[ori == z & pred != z, sum(n)]
-        FP <- ct[ori != z & pred == z, sum(n)]
+        TP <- ct[ori == z & pred == z, sum(n, na.rm = TRUE)]
+        FN <- ct[ori == z & pred != z, sum(n, na.rm = TRUE)]
+        FP <- ct[ori != z & pred == z, sum(n, na.rm = TRUE)]
         TN <- total - TP - FN - FP
         
         recall <- div(TP, TP + FN)
@@ -308,10 +362,8 @@ if (!length(normal_files)) {
           recall,
           specificity,
           precision,
-          f1 = div(
-            2 * precision * recall,
-            precision + recall
-          )
+          f1 = div(2 * precision * recall, precision + recall),
+          tss = recall + specificity - 1
         )
       })
     )
@@ -324,12 +376,12 @@ if (!length(normal_files)) {
     map_overall <- rbindlist(map_overall)
     
     fwrite(
-      rbindlist(map_ct),
+      rbindlist(map_ct, fill = TRUE),
       file.path(assess_dir, "normal_map_confusion_long.csv")
     )
     
     fwrite(
-      rbindlist(map_zone),
+      rbindlist(map_zone, fill = TRUE),
       file.path(assess_dir, "normal_map_zone_metrics.csv")
     )
     
@@ -340,6 +392,7 @@ if (!length(normal_files)) {
     
     cat("\n[MAP ASSESSMENT COMPLETE]\n")
     print(map_overall[order(-accuracy_all)])
+    
   } else {
     cat("\n[SKIP MAP ASSESSMENT] No aligned normal maps found.\n")
   }
