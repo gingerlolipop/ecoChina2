@@ -398,6 +398,7 @@ if (!length(normal_files)) {
           accuracy = div(TP + TN, total),
           recall,
           specificity,
+          
           precision,
           f1 = div(2 * precision * recall, precision + recall),
           tss = recall + specificity - 1
@@ -678,7 +679,7 @@ if (length(missing_colors) > 0) {
 
 
 # ------------------------------------------------------------
-# 3. Category2 colours and abbreviations
+# 3. Category2 colours and display names
 # ------------------------------------------------------------
 
 # Use the colour of the first zone in each broad category2.
@@ -695,28 +696,39 @@ category_pal <- pal[, {
   )
 }, by = category2][order(first_zone)]
 
-make_category_abbreviation <- function(x) {
-  vapply(
-    strsplit(x, "_", fixed = TRUE),
-    function(words) {
-      paste0(substr(toupper(words), 1, 1), collapse = "")
-    },
-    character(1)
-  )
-}
+# Readable names shown directly in the category chord diagrams.
+category_names <- c(
+  cropland = "Cropland",
+  orchard = "Orchard",
+  plantation = "Tree\nplantation",
+  forest = "Forest",
+  grassland_meadow_steppe = "Grassland,\nmeadow & steppe",
+  wetland = "Wetland",
+  scrub = "Scrub",
+  alpine_vegetation = "Alpine\nvegetation",
+  desert = "Desert",
+  no_vegetation = "No\nvegetation",
+  rare_or_error = "Rare / error",
+  novel = "Novel"
+)
 
-category_pal[, abbreviation :=
-               make.unique(
-                 make_category_abbreviation(category2),
-                 sep = "_"
-               )
+category_pal[, display_label :=
+               unname(category_names[category2])
+]
+
+# Use a readable fallback for any future category2 not listed above.
+category_pal[
+  is.na(display_label),
+  display_label := tools::toTitleCase(
+    gsub("_", " ", category2, fixed = TRUE)
+  )
 ]
 
 fwrite(
   category_pal[
     ,
     .(
-      abbreviation,
+      display_label,
       category2,
       zoneIDs,
       color_zoneID,
@@ -738,7 +750,8 @@ plot_chord <- function(
     item_label,
     out_file,
     main,
-    label_cex = 0.45) {
+    label_cex = 0.65,
+    label_track_height = 0.13) {
   
   flow <- as.data.table(copy(flow))
   
@@ -787,8 +800,8 @@ plot_chord <- function(
   
   pdf(
     out_file,
-    width = 14,
-    height = 14,
+    width = 16,
+    height = 16,
     useDingbats = FALSE
   )
   
@@ -809,8 +822,8 @@ plot_chord <- function(
     clock.wise = FALSE,
     cell.padding = c(0, 0, 0, 0),
     track.margin = c(0.002, 0.002),
-    canvas.xlim = c(-1.30, 1.30),
-    canvas.ylim = c(-1.20, 1.20),
+    canvas.xlim = c(-1.38, 1.38),
+    canvas.ylim = c(-1.28, 1.28),
     points.overflow.warning = FALSE
   )
   
@@ -837,7 +850,7 @@ plot_chord <- function(
     
     annotationTrack = "grid",
     annotationTrackHeight = circlize::mm_h(2),
-    preAllocateTracks = list(track.height = 0.10),
+    preAllocateTracks = list(track.height = label_track_height),
     
     big.gap = 14,
     small.gap = 0.15,
@@ -846,7 +859,7 @@ plot_chord <- function(
     reduce = -1
   )
   
-  # Replace internal O_/P_ sector names with zone IDs or category abbreviations.
+  # Replace internal O_/P_ sector names with zone IDs or category names.
   circlize::circos.trackPlotRegion(
     track.index = 1,
     bg.border = NA,
@@ -872,23 +885,23 @@ plot_chord <- function(
     side = 3,
     line = 0.5,
     font = 2,
+    cex = 1.25
+  )
+  
+  text(
+    -1.27, 0,
+    labels = "Original",
+    srt = 90,
+    font = 2,
     cex = 1.15
   )
   
   text(
-    -1.20, 0,
-    labels = "Original",
-    srt = 90,
-    font = 2,
-    cex = 1.0
-  )
-  
-  text(
-    1.20, 0,
+    1.27, 0,
     labels = "Assigned",
     srt = 270,
     font = 2,
-    cex = 1.0
+    cex = 1.15
   )
 }
 
@@ -936,7 +949,7 @@ category_color <- setNames(
 )
 
 category_label <- setNames(
-  category_pal$abbreviation,
+  category_pal$display_label,
   category_pal$category2
 )
 
@@ -979,7 +992,8 @@ for (m in methods) {
       model_label,
       ": Original zone to assigned zone"
     ),
-    label_cex = 0.42
+    label_cex = 0.62,
+    label_track_height = 0.13
   )
   
   # Convert zones to category2 and aggregate pixel counts.
@@ -1022,7 +1036,8 @@ for (m in methods) {
       model_label,
       ": Original category to assigned category"
     ),
-    label_cex = 0.60
+    label_cex = 0.90,
+    label_track_height = 0.18
   )
 }
 
