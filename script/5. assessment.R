@@ -570,3 +570,472 @@ if (!file.exists(ct_file)) {
     sep = ""
   )
 }
+
+# ------------------------------------------------------------
+# Chord diagrams: original zone/category -> assigned zone/category
+#
+# Only pixels with non-missing original and predicted values are used.
+# Zone 8 is excluded because it was not modelled.
+#
+# Outputs:
+#   assessment/chord diagrams/normal_map_zone_chord_*.pdf
+#   assessment/chord diagrams/normal_map_category_chord_*.pdf
+#   assessment/chord diagrams/normal_map_category_confusion_long.csv
+#   assessment/chord diagrams/category_chord_legend.csv
+# ------------------------------------------------------------
+
+if (!requireNamespace("circlize", quietly = TRUE)) {
+  stop("Package 'circlize' is required. Run install.packages('circlize').")
+}
+
+if (!exists("out_dir")) {
+  out_dir <- file.path(base_dir, "assessment")
+}
+
+chord_dir <- file.path(out_dir, "chord diagrams")
+dir.create(chord_dir, recursive = TRUE, showWarnings = FALSE)
+
+
+# ------------------------------------------------------------
+# 1. Read valid pixel transitions
+# ------------------------------------------------------------
+
+chord_dt <- fread(
+  file.path(out_dir, "normal_map_confusion_long.csv")
+)
+
+required_cols <- c("ori", "pred", "n", "method")
+
+if (!all(required_cols %in% names(chord_dt))) {
+  stop(
+    "normal_map_confusion_long.csv must contain: ",
+    paste(required_cols, collapse = ", ")
+  )
+}
+
+chord_dt[, `:=`(
+  ori = as.integer(ori),
+  pred = as.integer(pred),
+  n = as.numeric(n),
+  method = as.character(method)
+)]
+
+# Exclude missing predictions and unmodelled zone 8.
+chord_dt <- chord_dt[
+  !is.na(ori) &
+    !is.na(pred) &
+    ori != 8L &
+    pred != 8L &
+    n > 0
+]
+
+
+# ------------------------------------------------------------
+# 2. Read zone/category palette
+# ------------------------------------------------------------
+
+if (!exists("color_df")) {
+  palette_file <- file.path(base_dir, "color_palette_China.csv")
+  
+  if (!file.exists(palette_file)) {
+    stop(
+      "Cannot find color_palette_China.csv. ",
+      "Run script/color_palette.R first."
+    )
+  }
+  
+  color_df <- fread(palette_file)
+}
+
+pal <- as.data.table(copy(color_df))
+
+pal[, `:=`(
+  zoneID = as.integer(zoneID),
+  category = as.character(category),
+  COLOR = as.character(COLOR),
+  count = as.numeric(count)
+)]
+
+# Zone 8 was not modelled and should not appear in these figures.
+pal <- pal[zoneID != 8L]
+
+used_zones <- sort(unique(c(chord_dt$ori, chord_dt$pred)))
+missing_colors <- setdiff(used_zones, pal$zoneID)
+
+if (length(missing_colors) > 0) {
+  stop(
+    "No palette entry for zone(s): ",
+    paste(missing_colors, collapse = ", ")
+  )
+}
+
+
+# ------------------------------------------------------------
+# 3. Category colours and abbreviations
+# ------------------------------------------------------------
+
+# Most categories contain one zone.
+# For a category containing multiple zones, use the exact palette colour
+# of the zone with the largest original pixel count.
+category_pal <- pal[, {
+  w <- fifelse(is.na(count), -Inf, count)
+  
+  i <- if (all(!is.finite(w))) {
+    which.min(zoneID)
+  } else {
+    which.max(w)
+  }
+  
+  .(
+    first_zone = min(zoneID),
+    zoneIDs = paste(zoneID, collapse = ","),
+    color_zoneID = zoneID[i],
+    COLOR = COLOR[i]
+  )
+}, by = category][order(first_zone)]
+
+make_category_abbreviation <- function(x) {
+  vapply(
+    strsplit(x, "_", fixed = TRUE),
+    function(words) {
+      paste0(substr(toupper(words), 1, 1), collapse = "")
+    },
+    character(1)
+  )
+}
+
+category_pal[, abbreviation :=
+               make.unique(
+                 make_category_abbreviation(category),
+                 sep = "_"
+               )
+]
+
+fwrite(
+  category_pal[
+    ,
+    .(
+      abbreviation,
+      category,
+      zoneIDs,
+      color_zoneID,
+      COLOR
+    )
+  ],
+  file.path(chord_dir, "category_chord_legend.csv")
+)
+
+
+# ------------------------------------------------------------
+# 4. Chord-diagram function
+# ------------------------------------------------------------
+
+plot_chord <- function(
+    flow,
+    item_order,
+    item_color,
+    item_label,
+    out_file,
+    main,
+    label_cex = 0.45) {
+  
+  flow <- as.data.table(copy(flow))
+  
+  flow[, `:=`(
+    from = as.character(from),
+    to = as.character(to),
+    n = as.numeric(n)
+  )]
+  
+  flow <- flow[n > 0]
+  
+  item_order <- as.character(item_order)
+  
+  # Original sectors run from top to bottom on the left.
+  from_id <- item_order[item_order %in% unique(flow$from)]
+  
+  # Reverse target order so corresponding classes appear opposite each other.
+  to_id <- rev(item_order[item_order %in% unique(flow$to)])
+  
+  from_sector <- paste0("O_", from_id)
+  to_sector <- paste0("P_", to_id)
+  sector_order <- c(from_sector, to_sector)
+  
+  flow[, `:=`(
+    from_sector = paste0("O_", from),
+    to_sector = paste0("P_", to)
+  )]
+  
+  sector_color <- c(
+    setNames(unname(item_color[from_id]), from_sector),
+    setNames(unname(item_color[to_id]), to_sector)
+  )
+  
+  sector_label <- c(
+    setNames(unname(item_label[from_id]), from_sector),
+    setNames(unname(item_label[to_id]), to_sector)
+  )
+  
+  link_color <- unname(item_color[flow$from])
+  
+  if (anyNA(sector_color) || anyNA(link_color)) {
+    stop("Missing colour while plotting: ", main)
+  }
+  
+  circlize::circos.clear()
+  
+  pdf(
+    out_file,
+    width = 14,
+    height = 14,
+    useDingbats = FALSE
+  )
+  
+  on.exit({
+    circlize::circos.clear()
+    dev.off()
+  }, add = TRUE)
+  
+  par(
+    mar = c(0.5, 0.5, 2.8, 0.5),
+    xpd = NA
+  )
+  
+  # Starting at the top and drawing counter-clockwise places
+  # original classes on the left and assigned classes on the right.
+  circlize::circos.par(
+    start.degree = 90,
+    clock.wise = FALSE,
+    cell.padding = c(0, 0, 0, 0),
+    track.margin = c(0.002, 0.002),
+    canvas.xlim = c(-1.30, 1.30),
+    canvas.ylim = c(-1.20, 1.20),
+    points.overflow.warning = FALSE
+  )
+  
+  circlize::chordDiagram(
+    x = as.data.frame(
+      flow[, .(from_sector, to_sector, n)]
+    ),
+    order = sector_order,
+    grid.col = sector_color,
+    grid.border = NA,
+    
+    # Link colour represents the original zone/category.
+    col = link_color,
+    transparency = 0.72,
+    
+    directional = 1,
+    direction.type = "diffHeight",
+    diffHeight = circlize::mm_h(1),
+    link.target.prop = FALSE,
+    
+    link.sort = "default",
+    link.decreasing = TRUE,
+    link.largest.ontop = TRUE,
+    
+    annotationTrack = "grid",
+    annotationTrackHeight = circlize::mm_h(2),
+    preAllocateTracks = list(track.height = 0.10),
+    
+    big.gap = 14,
+    small.gap = 0.15,
+    
+    # Keep zones/categories with very few pixels.
+    reduce = -1
+  )
+  
+  # Replace internal O_/P_ sector names with zone IDs or category abbreviations.
+  circlize::circos.trackPlotRegion(
+    track.index = 1,
+    bg.border = NA,
+    panel.fun = function(x, y) {
+      sector <- circlize::get.cell.meta.data("sector.index")
+      xlim <- circlize::get.cell.meta.data("xlim")
+      ylim <- circlize::get.cell.meta.data("ylim")
+      
+      circlize::circos.text(
+        x = mean(xlim),
+        y = mean(ylim),
+        labels = unname(sector_label[sector]),
+        facing = "clockwise",
+        niceFacing = TRUE,
+        adj = c(0.5, 0.5),
+        cex = label_cex
+      )
+    }
+  )
+  
+  mtext(
+    main,
+    side = 3,
+    line = 0.5,
+    font = 2,
+    cex = 1.15
+  )
+  
+  text(
+    -1.20, 0,
+    labels = "Original",
+    srt = 90,
+    font = 2,
+    cex = 1.0
+  )
+  
+  text(
+    1.20, 0,
+    labels = "Assigned",
+    srt = 270,
+    font = 2,
+    cex = 1.0
+  )
+}
+
+
+# ------------------------------------------------------------
+# 5. Draw four zone-level and four category-level figures
+# ------------------------------------------------------------
+
+preferred_method_order <- c(
+  "optimized_mf",
+  "optimized_rf",
+  "plain_mf",
+  "plain_rf"
+)
+
+methods <- c(
+  intersect(preferred_method_order, unique(chord_dt$method)),
+  setdiff(unique(chord_dt$method), preferred_method_order)
+)
+
+method_labels <- c(
+  optimized_mf = "Optimized MF",
+  optimized_rf = "Optimized RF",
+  plain_mf = "Plain MF",
+  plain_rf = "Plain RF"
+)
+
+zone_order <- as.character(pal$zoneID)
+
+zone_color <- setNames(
+  pal$COLOR,
+  as.character(pal$zoneID)
+)
+
+zone_label <- setNames(
+  as.character(pal$zoneID),
+  as.character(pal$zoneID)
+)
+
+category_order <- category_pal$category
+
+category_color <- setNames(
+  category_pal$COLOR,
+  category_pal$category
+)
+
+category_label <- setNames(
+  category_pal$abbreviation,
+  category_pal$category
+)
+
+zone_to_category <- setNames(
+  pal$category,
+  as.character(pal$zoneID)
+)
+
+category_flow_list <- vector("list", length(methods))
+names(category_flow_list) <- methods
+
+for (m in methods) {
+  
+  model_label <- unname(method_labels[m])
+  
+  if (is.na(model_label)) {
+    model_label <- gsub("_", " ", m)
+  }
+  
+  # Zone-level transitions.
+  zone_flow <- chord_dt[
+    method == m,
+    .(n = sum(n)),
+    by = .(
+      from = as.character(ori),
+      to = as.character(pred)
+    )
+  ]
+  
+  plot_chord(
+    flow = zone_flow,
+    item_order = zone_order,
+    item_color = zone_color,
+    item_label = zone_label,
+    out_file = file.path(
+      chord_dir,
+      paste0("normal_map_zone_chord_", m, ".pdf")
+    ),
+    main = paste0(
+      model_label,
+      ": Original zone to assigned zone"
+    ),
+    label_cex = 0.42
+  )
+  
+  # Convert zones to categories and aggregate pixel counts.
+  category_flow <- copy(zone_flow)
+  
+  category_flow[, from :=
+                  unname(zone_to_category[from])
+  ]
+  
+  category_flow[, to :=
+                  unname(zone_to_category[to])
+  ]
+  
+  category_flow <- category_flow[
+    ,
+    .(n = sum(n)),
+    by = .(from, to)
+  ]
+  
+  category_flow_list[[m]] <- category_flow[
+    ,
+    .(
+      method = m,
+      original_category = from,
+      assigned_category = to,
+      n
+    )
+  ]
+  
+  plot_chord(
+    flow = category_flow,
+    item_order = category_order,
+    item_color = category_color,
+    item_label = category_label,
+    out_file = file.path(
+      chord_dir,
+      paste0("normal_map_category_chord_", m, ".pdf")
+    ),
+    main = paste0(
+      model_label,
+      ": Original category to assigned category"
+    ),
+    label_cex = 0.44
+  )
+}
+
+
+# Save category-level transition counts used in the figures.
+category_flow_all <- rbindlist(
+  category_flow_list,
+  use.names = TRUE
+)
+
+fwrite(
+  category_flow_all,
+  file.path(
+    chord_dir,
+    "normal_map_category_confusion_long.csv"
+  )
+)
