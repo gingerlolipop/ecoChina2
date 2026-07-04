@@ -105,6 +105,18 @@ color_df <- data.frame(
     "subtropical_evergreen_forest", "xeromorphic_succulent_thorny_scrub", "tropical_needleleaf_forest", "tropical_rain_forest", "tropical_cropland_orchard_plantation", "mangrove",
     "tropical_monsoon_forest", "coral_island_scrub_dwarf_forest", "novel"
   ),
+  category2 = c(
+    "cropland", "forest", "forest", "wetland", "grassland_meadow_steppe", "wetland",
+    "scrub", "rare_or_error", "forest", "forest", "grassland_meadow_steppe", "cropland",
+    "grassland_meadow_steppe", "forest", "grassland_meadow_steppe", "grassland_meadow_steppe", "alpine_vegetation", "scrub",
+    "no_vegetation", "alpine_vegetation", "cropland", "alpine_vegetation", "desert", "desert",
+    "desert", "forest", "cropland", "forest", "desert", "forest",
+    "grassland_meadow_steppe", "desert", "cropland", "forest", "desert", "forest",
+    "forest", "desert", "forest", "grassland_meadow_steppe", "grassland_meadow_steppe", "desert",
+    "wetland", "scrub", "scrub", "scrub", "cropland", "wetland",
+    "forest", "scrub", "forest", "forest", "cropland", "wetland",
+    "forest", "scrub", "novel"
+  ),
   COLOR = c(
     "#FFD23F", "#005A32", "#33A02C", "#00B4D8", "#B8DE29", "#0077B6",
     "#C77DFF", "#BDBDBD", "#2CA25F", "#006D77", "#D9ED92", "#F8961E",
@@ -152,16 +164,28 @@ read_zone_palette <- function(json_file = "color_palette_China.json") {
   
   # This prevents the old "1. NA" name-legend problem if an older JSON file
   # is accidentally read. The hard-coded names here are the authority.
-  zone_lut <- color_df[, c("zoneID", "zone", "category", "count")]
-  names(zone_lut) <- c("zoneID", "zone_hard", "category_hard", "count_hard")
+  zone_lut <- color_df[, c("zoneID", "zone", "category", "category2", "count")]
+  names(zone_lut) <- c(
+    "zoneID", "zone_hard", "category_hard", "category2_hard", "count_hard"
+  )
   
-  pal <- merge(pal[, c("zoneID", "COLOR")], zone_lut,
-               by = "zoneID", all.x = TRUE, sort = FALSE)
+  pal <- merge(
+    pal[, c("zoneID", "COLOR")],
+    zone_lut,
+    by = "zoneID",
+    all.x = TRUE,
+    sort = FALSE
+  )
+  
   names(pal)[names(pal) == "zone_hard"] <- "zone"
   names(pal)[names(pal) == "category_hard"] <- "category"
+  names(pal)[names(pal) == "category2_hard"] <- "category2"
   names(pal)[names(pal) == "count_hard"] <- "count"
   
-  pal[order(pal$zoneID), c("zoneID", "zone", "category", "COLOR", "count")]
+  pal[
+    order(pal$zoneID),
+    c("zoneID", "zone", "category", "category2", "COLOR", "count")
+  ]
 }
 
 get_zoneID <- function(r = NULL, zoneID = NULL) {
@@ -186,6 +210,7 @@ filter_palette <- function(pal, r = NULL, zoneID = NULL) {
   }
   
   missing <- setdiff(keep, pal$zoneID)
+  
   if (length(missing) > 0) {
     stop(
       "Some raster values do not have colors in the palette JSON: ",
@@ -201,12 +226,30 @@ open_device <- function(file, width, height, res = 300) {
   ext <- tolower(tools::file_ext(file))
   
   if (ext %in% c("tif", "tiff")) {
-    tiff(file, width = width, height = height, units = "in",
-         res = res, compression = "lzw")
+    tiff(
+      file,
+      width = width,
+      height = height,
+      units = "in",
+      res = res,
+      compression = "lzw"
+    )
   } else if (ext == "png") {
-    png(file, width = width, height = height, units = "in", res = res)
+    png(
+      file,
+      width = width,
+      height = height,
+      units = "in",
+      res = res
+    )
   } else if (ext %in% c("jpg", "jpeg")) {
-    jpeg(file, width = width, height = height, units = "in", res = res)
+    jpeg(
+      file,
+      width = width,
+      height = height,
+      units = "in",
+      res = res
+    )
   } else {
     stop("Unsupported output format: ", ext)
   }
@@ -221,10 +264,23 @@ plot_zone_raster <- function(r, pal, out_file, main = "Vegetation zones") {
   pal_now <- filter_palette(pal, zoneID = zoneID)
   
   # terra::plot() uses sequential color positions, so recode only for plotting.
-  r_plot <- subst(r, from = zoneID, to = seq_along(zoneID), others = NA)
+  r_plot <- subst(
+    r,
+    from = zoneID,
+    to = seq_along(zoneID),
+    others = NA
+  )
   
   open_device(out_file, width = 10, height = 8, res = 300)
-  plot(r_plot, col = pal_now$COLOR, main = main, axes = TRUE, legend = FALSE)
+  
+  plot(
+    r_plot,
+    col = pal_now$COLOR,
+    main = main,
+    axes = TRUE,
+    legend = FALSE
+  )
+  
   dev.off()
 }
 
@@ -232,21 +288,42 @@ plot_zone_raster <- function(r, pal, out_file, main = "Vegetation zones") {
 # 4. Plot legends
 # ------------------------------------------------------------
 
-plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
-                             r = NULL, zoneID = NULL, drop_zoneID = 8) {
+plot_zone_legend <- function(
+    pal,
+    out_file,
+    type = c("ID", "name"),
+    r = NULL,
+    zoneID = NULL,
+    drop_zoneID = 8) {
+  
   type <- match.arg(type)
   
-  legend_df <- filter_palette(pal, r = r, zoneID = zoneID)
-  legend_df <- legend_df[!legend_df$zoneID %in% drop_zoneID, ]
-  legend_df <- legend_df[order(legend_df$zoneID), ]
+  legend_df <- filter_palette(
+    pal,
+    r = r,
+    zoneID = zoneID
+  )
+  
+  legend_df <- legend_df[
+    !legend_df$zoneID %in% drop_zoneID,
+  ]
+  
+  legend_df <- legend_df[
+    order(legend_df$zoneID),
+  ]
   
   if (nrow(legend_df) == 0) {
     stop("No zones left to plot after filtering the legend.")
   }
   
   if (any(is.na(legend_df$zone))) {
-    stop("Some zone names are NA: ",
-         paste(legend_df$zoneID[is.na(legend_df$zone)], collapse = ", "))
+    stop(
+      "Some zone names are NA: ",
+      paste(
+        legend_df$zoneID[is.na(legend_df$zone)],
+        collapse = ", "
+      )
+    )
   }
   
   if (type == "ID") {
@@ -254,8 +331,15 @@ plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
     n_col <- 2
     n_row <- ceiling(n / n_col)
     
-    col_id <- rep(seq_len(n_col), length.out = n)
-    row_id <- rep(n_row:1, each = n_col)[seq_len(n)]
+    col_id <- rep(
+      seq_len(n_col),
+      length.out = n
+    )
+    
+    row_id <- rep(
+      n_row:1,
+      each = n_col
+    )[seq_len(n)]
     
     # The ID legend is compact. The color bar is intentionally narrow.
     col_start <- c(0.10, 0.62)
@@ -267,19 +351,55 @@ plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
     tx <- x1 + text_gap
     y <- row_id
     
-    open_device(out_file, width = 7.0, height = max(2.2, 0.25 * n_row + 0.8), res = 300)
-    par(bg = "white", fg = "black", col.axis = "black", col.main = "black",
-        mar = c(0.2, 0.2, 1.0, 0.2), xpd = NA)
-    plot.new()
-    plot.window(xlim = c(0, 1), ylim = c(0.5, n_row + 0.5),
-                xaxs = "i", yaxs = "i")
-    title(main = "Legend: Vegetation Type ID", adj = 0, cex.main = 1.0)
+    open_device(
+      out_file,
+      width = 7.0,
+      height = max(2.2, 0.25 * n_row + 0.8),
+      res = 300
+    )
     
-    rect(xleft = x0, ybottom = y - 0.32,
-         xright = x1, ytop = y + 0.32,
-         col = legend_df$COLOR, border = NA)
-    text(tx, y, labels = legend_df$zoneID,
-         adj = c(0, 0.5), cex = 0.85, col = "black")
+    par(
+      bg = "white",
+      fg = "black",
+      col.axis = "black",
+      col.main = "black",
+      mar = c(0.2, 0.2, 1.0, 0.2),
+      xpd = NA
+    )
+    
+    plot.new()
+    
+    plot.window(
+      xlim = c(0, 1),
+      ylim = c(0.5, n_row + 0.5),
+      xaxs = "i",
+      yaxs = "i"
+    )
+    
+    title(
+      main = "Legend: Vegetation Type ID",
+      adj = 0,
+      cex.main = 1.0
+    )
+    
+    rect(
+      xleft = x0,
+      ybottom = y - 0.32,
+      xright = x1,
+      ytop = y + 0.32,
+      col = legend_df$COLOR,
+      border = NA
+    )
+    
+    text(
+      tx,
+      y,
+      labels = legend_df$zoneID,
+      adj = c(0, 0.5),
+      cex = 0.85,
+      col = "black"
+    )
+    
     dev.off()
     
   } else {
@@ -287,8 +407,15 @@ plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
     n_col <- 2
     n_row <- ceiling(n / n_col)
     
-    col_id <- rep(seq_len(n_col), length.out = n)
-    row_id <- rep(n_row:1, each = n_col)[seq_len(n)]
+    col_id <- rep(
+      seq_len(n_col),
+      length.out = n
+    )
+    
+    row_id <- rep(
+      n_row:1,
+      each = n_col
+    )[seq_len(n)]
     
     # Two columns keep the name legend readable without forcing a huge image.
     col_start <- c(0.02, 0.51)
@@ -300,21 +427,61 @@ plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
     tx <- x1 + text_gap
     y <- row_id
     
-    label <- paste0(legend_df$zoneID, ". ", legend_df$zone)
+    label <- paste0(
+      legend_df$zoneID,
+      ". ",
+      legend_df$zone
+    )
     
-    open_device(out_file, width = 20, height = max(6, 0.34 * n_row + 0.8), res = 300)
-    par(bg = "white", fg = "black", col.axis = "black", col.main = "black",
-        mar = c(0.2, 0.2, 1.0, 0.2), xpd = NA)
+    open_device(
+      out_file,
+      width = 20,
+      height = max(6, 0.34 * n_row + 0.8),
+      res = 300
+    )
+    
+    par(
+      bg = "white",
+      fg = "black",
+      col.axis = "black",
+      col.main = "black",
+      mar = c(0.2, 0.2, 1.0, 0.2),
+      xpd = NA
+    )
+    
     plot.new()
-    plot.window(xlim = c(0, 1), ylim = c(0.5, n_row + 0.5),
-                xaxs = "i", yaxs = "i")
-    title(main = "Legend: Vegetation Type Names", adj = 0, cex.main = 1.0)
     
-    rect(xleft = x0, ybottom = y - 0.30,
-         xright = x1, ytop = y + 0.30,
-         col = legend_df$COLOR, border = NA)
-    text(tx, y, labels = label,
-         adj = c(0, 0.5), cex = 0.60, col = "black")
+    plot.window(
+      xlim = c(0, 1),
+      ylim = c(0.5, n_row + 0.5),
+      xaxs = "i",
+      yaxs = "i"
+    )
+    
+    title(
+      main = "Legend: Vegetation Type Names",
+      adj = 0,
+      cex.main = 1.0
+    )
+    
+    rect(
+      xleft = x0,
+      ybottom = y - 0.30,
+      xright = x1,
+      ytop = y + 0.30,
+      col = legend_df$COLOR,
+      border = NA
+    )
+    
+    text(
+      tx,
+      y,
+      labels = label,
+      adj = c(0, 0.5),
+      cex = 0.60,
+      col = "black"
+    )
+    
     dev.off()
   }
 }
@@ -325,37 +492,75 @@ plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
 
 pal <- read_zone_palette()
 
-dir.create("result maps", showWarnings = FALSE, recursive = TRUE)
+dir.create(
+  "result maps",
+  showWarnings = FALSE,
+  recursive = TRUE
+)
 
 r <- rast("raster/veg_3")
+
 plot_zone_raster(
-  r, pal,
+  r,
+  pal,
   "result maps/veg_3_color.tif",
   "Vegetation Types of China"
 )
 
-plot_zone_legend(pal, "result maps/legend_ID.png", type = "ID", r = r)
-plot_zone_legend(pal, "result maps/legend_names.png", type = "name", r = r)
+plot_zone_legend(
+  pal,
+  "result maps/legend_ID.png",
+  type = "ID",
+  r = r
+)
+
+plot_zone_legend(
+  pal,
+  "result maps/legend_names.png",
+  type = "name",
+  r = r
+)
 
 # Future predicted map example:
 # pred <- rast("path/to/predicted_zone_map.tif")
-# plot_zone_raster(pred, pal,
-#                  "result maps/pred_zone_color.tif",
-#                  "Predicted Vegetation Zones")
-# plot_zone_legend(pal, "result maps/pred_legend_ID.png", type = "ID", r = pred)
-# plot_zone_legend(pal, "result maps/pred_legend_names.png", type = "name", r = pred)
+#
+# plot_zone_raster(
+#   pred,
+#   pal,
+#   "result maps/pred_zone_color.tif",
+#   "Predicted Vegetation Zones"
+# )
+#
+# plot_zone_legend(
+#   pal,
+#   "result maps/pred_legend_ID.png",
+#   type = "ID",
+#   r = pred
+# )
+#
+# plot_zone_legend(
+#   pal,
+#   "result maps/pred_legend_names.png",
+#   type = "name",
+#   r = pred
+# )
 
 # ------------------------------------------------------------
 # Plot original map and predicted normal-period map
 # ------------------------------------------------------------
 
-dir.create("result maps", showWarnings = FALSE, recursive = TRUE)
+dir.create(
+  "result maps",
+  showWarnings = FALSE,
+  recursive = TRUE
+)
 
 # Original vegetation raster
 r_ori <- rast("raster/veg_3")
 
 plot_zone_raster(
-  r_ori, pal,
+  r_ori,
+  pal,
   "result maps/veg_3_original_color.tif",
   "Original Vegetation Types of China"
 )
@@ -374,13 +579,14 @@ plot_zone_legend(
   r = r_ori
 )
 
-
 # Predicted normal-period vegetation raster
-r_pred <- rast("result maps/assigned_zone_normal_threshold0.1_novel99_originalTie.tif")
+r_pred <- rast(
+  "result maps/assigned_zone_normal_threshold0.1_novel99_originalTie.tif"
+)
 
 plot_zone_raster(
-  r_pred, pal,
+  r_pred,
+  pal,
   "result maps/pred_normal_color.tif",
   "Predicted Vegetation Zones: Normal Period"
 )
-
