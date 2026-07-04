@@ -572,7 +572,7 @@ if (!file.exists(ct_file)) {
 }
 
 # ------------------------------------------------------------
-# Chord diagrams: original zone/category -> assigned zone/category
+# Chord diagrams: original zone/category2 -> assigned zone/category2
 #
 # Only pixels with non-missing original and predicted values are used.
 # Zone 8 is excluded because it was not modelled.
@@ -631,7 +631,7 @@ chord_dt <- chord_dt[
 
 
 # ------------------------------------------------------------
-# 2. Read zone/category palette
+# 2. Read zone/category2 palette
 # ------------------------------------------------------------
 
 if (!exists("color_df")) {
@@ -649,9 +649,16 @@ if (!exists("color_df")) {
 
 pal <- as.data.table(copy(color_df))
 
+if (!("category2" %in% names(pal))) {
+  stop(
+    "The palette does not contain category2. ",
+    "Run the updated script/color_palette.R first."
+  )
+}
+
 pal[, `:=`(
   zoneID = as.integer(zoneID),
-  category = as.character(category),
+  category2 = as.character(category2),
   COLOR = as.character(COLOR),
   count = as.numeric(count)
 )]
@@ -671,28 +678,22 @@ if (length(missing_colors) > 0) {
 
 
 # ------------------------------------------------------------
-# 3. Category colours and abbreviations
+# 3. Category2 colours and abbreviations
 # ------------------------------------------------------------
 
-# Most categories contain one zone.
-# For a category containing multiple zones, use the exact palette colour
-# of the zone with the largest original pixel count.
+# Use the colour of the first zone in each broad category2.
+# This preserves the intended palette families: forests are green,
+# wetlands are blue, grasslands are light green, and deserts are brown.
 category_pal <- pal[, {
-  w <- fifelse(is.na(count), -Inf, count)
-  
-  i <- if (all(!is.finite(w))) {
-    which.min(zoneID)
-  } else {
-    which.max(w)
-  }
+  i <- which.min(zoneID)
   
   .(
-    first_zone = min(zoneID),
+    first_zone = zoneID[i],
     zoneIDs = paste(zoneID, collapse = ","),
     color_zoneID = zoneID[i],
     COLOR = COLOR[i]
   )
-}, by = category][order(first_zone)]
+}, by = category2][order(first_zone)]
 
 make_category_abbreviation <- function(x) {
   vapply(
@@ -706,7 +707,7 @@ make_category_abbreviation <- function(x) {
 
 category_pal[, abbreviation :=
                make.unique(
-                 make_category_abbreviation(category),
+                 make_category_abbreviation(category2),
                  sep = "_"
                )
 ]
@@ -716,7 +717,7 @@ fwrite(
     ,
     .(
       abbreviation,
-      category,
+      category2,
       zoneIDs,
       color_zoneID,
       COLOR
@@ -821,7 +822,7 @@ plot_chord <- function(
     grid.col = sector_color,
     grid.border = NA,
     
-    # Link colour represents the original zone/category.
+    # Link colour represents the original zone/category2.
     col = link_color,
     transparency = 0.72,
     
@@ -893,7 +894,7 @@ plot_chord <- function(
 
 
 # ------------------------------------------------------------
-# 5. Draw four zone-level and four category-level figures
+# 5. Draw four zone-level and four category2-level figures
 # ------------------------------------------------------------
 
 preferred_method_order <- c(
@@ -927,20 +928,20 @@ zone_label <- setNames(
   as.character(pal$zoneID)
 )
 
-category_order <- category_pal$category
+category_order <- category_pal$category2
 
 category_color <- setNames(
   category_pal$COLOR,
-  category_pal$category
+  category_pal$category2
 )
 
 category_label <- setNames(
   category_pal$abbreviation,
-  category_pal$category
+  category_pal$category2
 )
 
 zone_to_category <- setNames(
-  pal$category,
+  pal$category2,
   as.character(pal$zoneID)
 )
 
@@ -981,7 +982,7 @@ for (m in methods) {
     label_cex = 0.42
   )
   
-  # Convert zones to categories and aggregate pixel counts.
+  # Convert zones to category2 and aggregate pixel counts.
   category_flow <- copy(zone_flow)
   
   category_flow[, from :=
@@ -1002,8 +1003,8 @@ for (m in methods) {
     ,
     .(
       method = m,
-      original_category = from,
-      assigned_category = to,
+      original_category2 = from,
+      assigned_category2 = to,
       n
     )
   ]
@@ -1021,12 +1022,12 @@ for (m in methods) {
       model_label,
       ": Original category to assigned category"
     ),
-    label_cex = 0.44
+    label_cex = 0.60
   )
 }
 
 
-# Save category-level transition counts used in the figures.
+# Save category2-level transition counts used in the figures.
 category_flow_all <- rbindlist(
   category_flow_list,
   use.names = TRUE
