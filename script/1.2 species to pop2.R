@@ -5,6 +5,7 @@ library(terra)
 library(CEMT)
 library(reshape2)
 library(stringr)
+library(grid)
 
 rm(list = ls())
 gc()
@@ -53,17 +54,20 @@ species_names <- c(
   "saliMat", "phylPub", "pinuYun", "chamFor", "cyclLon"
 )
 
-# Preserve the original population definition used in the previous results.
+# Preserve the original population definition.
 # This includes Zone8 when a species occurs there.
 zoneID <- 1:55
 
-# Minimum number of occupied raster cells required to define a population.
+# Minimum occupied raster cells required to define a population.
 min_population_cells <- 10L
 
 
 # 2. Load the reference-period ecosystem raster ================================
 
-ecotype_file <- file.path(base_dir, "raster/ecosys_ori.tif")
+ecotype_file <- file.path(
+  base_dir,
+  "raster/ecosys_ori.tif"
+)
 
 if (!file.exists(ecotype_file)) {
   stop("Missing ecosystem raster: ", ecotype_file)
@@ -71,6 +75,7 @@ if (!file.exists(ecotype_file)) {
 
 ecotype_raster <- rast(ecotype_file)
 names(ecotype_raster) <- "zoneID"
+
 ecotype_raster
 
 
@@ -101,6 +106,7 @@ count_zone_cells <- function(species_data) {
     species_points
   )$zoneID
   
+  # Count each occupied raster cell only once for each species.
   occupied <- unique(
     data.frame(
       cell = cells,
@@ -128,12 +134,20 @@ species_data <- read.csv(
 
 head(species_data)
 
-# Keep presence records only, following the original file structure.
-species_data <- species_data[species_data[, 2] == "y", ]
+# Keep presence records only.
+species_data <- species_data[
+  !is.na(species_data[, 2]) &
+    species_data[, 2] == "y",
+  ,
+  drop = FALSE
+]
 
 if (nrow(species_data) == 0) {
+  
   cat("No presence data for species: lariGme\n")
+  
 } else {
+  
   tabulated_values <- count_zone_cells(species_data)
   
   cat("Presence-cell counts for each zone:\n")
@@ -164,7 +178,13 @@ for (i in seq_along(species_names)) {
   }
   
   species_data <- read.csv(species_file)
-  species_data <- species_data[species_data[, 2] == "y", ]
+  
+  species_data <- species_data[
+    !is.na(species_data[, 2]) &
+      species_data[, 2] == "y",
+    ,
+    drop = FALSE
+  ]
   
   if (nrow(species_data) == 0) {
     cat("No presence data for species:", species_names[i], "\n")
@@ -174,6 +194,7 @@ for (i in seq_along(species_names)) {
   tabulated_values <- count_zone_cells(species_data)
   
   for (zone in names(tabulated_values)) {
+    
     results[
       match(as.numeric(zone), zoneID),
       i
@@ -204,13 +225,13 @@ write.csv(
 # Population abundance is the number of occupied raster cells.
 population_abundance <- results
 
-# Retain only species × zone populations represented by at least 10 cells.
+# Retain populations represented by at least 10 occupied cells.
 population_abundance[
   !is.na(population_abundance) &
     population_abundance < min_population_cells
 ] <- NA
 
-# Remove zones that contain no retained population.
+# Remove zones containing no retained population.
 population_abundance <- population_abundance[
   apply(
     population_abundance,
@@ -259,7 +280,6 @@ species_summary <- merge(
   sort = FALSE
 )
 
-# Sort as in the previous table: number of populations from high to low.
 species_summary <- species_summary[
   order(
     -species_summary$NumberPopulations,
@@ -304,7 +324,6 @@ df_long$PopulationID <- paste(
   sep = "-"
 )
 
-# Long table: one row for every retained species × zone population.
 write.csv(
   df_long[
     ,
@@ -420,10 +439,11 @@ if (
   )
 }
 
-# Natural-log transformation.
-heatmap_matrix <- log1p(heatmap_abundance)
+# Natural logarithm: ln(abundance + 1).
+heatmap_matrix <- log1p(
+  heatmap_abundance
+)
 
-# Blank cells represent species that do not form a retained population in a zone.
 label_matrix <- matrix(
   "",
   nrow = nrow(heatmap_matrix),
@@ -437,7 +457,7 @@ label_matrix[!is.na(heatmap_matrix)] <- format(
     2
   ),
   trim = TRUE,
-  nsmall = 1
+  nsmall = 2
 )
 
 max_value <- max(
@@ -445,7 +465,15 @@ max_value <- max(
   na.rm = TRUE
 )
 
-# Use many color steps to create a refined continuous gradient.
+if (!is.finite(max_value) || max_value <= 0) {
+  stop("The heatmap contains no positive finite values.")
+}
+
+# Round the legend maximum upward.
+# For example, 10.99 becomes 11.
+legend_max <- ceiling(max_value)
+
+# Detailed color gradient.
 heatmap_colors <- grDevices::colorRampPalette(
   c(
     "#FDE725",
@@ -454,118 +482,365 @@ heatmap_colors <- grDevices::colorRampPalette(
     "#3B528B",
     "#440154"
   )
-)(501)
+)(2001)
 
-col_fun <- circlize::colorRamp2(
-  seq(
-    0,
-    max_value,
-    length.out = length(heatmap_colors)
-  ),
-  heatmap_colors
-)
-
-# Fine legend ticks: 20 subdivisions per unit.
-legend_at <- unique(
-  c(
-    seq(
+value_to_color <- function(x) {
+  
+  color_index <- 1L + round(
+    pmax(
       0,
-      floor(max_value / 0.05) * 0.05,
-      by = 0.05
-    ),
-    max_value
+      pmin(legend_max, x)
+    ) /
+      legend_max *
+      (length(heatmap_colors) - 1L)
   )
-)
+  
+  heatmap_colors[color_index]
+}
 
-# Show labels only at whole-number values.
-legend_labels <- ifelse(
-  abs(legend_at - round(legend_at)) < 1e-8,
-  sprintf("%.0f", round(legend_at)),
-  ""
-)
 
-# Values above this threshold use white text.
-text_threshold <- max_value * 0.42
+# Draw heatmap and custom legend ===============================================
 
-ht <- ComplexHeatmap::Heatmap(
-  heatmap_matrix,
-  name = "ln abundance",
-  col = col_fun,
-  na_col = "white",
-  cluster_rows = FALSE,
-  cluster_columns = FALSE,
-  rect_gp = grid::gpar(
-    col = "white",
-    lwd = 1
-  ),
-  row_names_side = "left",
-  row_names_gp = grid::gpar(
-    fontsize = 10
-  ),
-  column_names_gp = grid::gpar(
-    fontsize = 10
-  ),
-  column_names_rot = 45,
-  row_title = "Ecotypes",
-  row_title_gp = grid::gpar(
-    fontsize = 11
-  ),
-  column_title = "Species",
-  column_title_side = "bottom",
-  column_title_gp = grid::gpar(
-    fontsize = 11
-  ),
-  heatmap_legend_param = list(
-    title = "ln abundance",
-    color_bar = "continuous",
-    at = legend_at,
-    labels = legend_labels,
-    title_gp = grid::gpar(
-      fontsize = 9
+draw_species_heatmap <- function() {
+  
+  nr <- nrow(heatmap_matrix)
+  nc <- ncol(heatmap_matrix)
+  
+  grid::grid.newpage()
+  
+  # Heatmap and legend share the same layout row and therefore the same height.
+  plot_layout <- grid::grid.layout(
+    nrow = 5,
+    ncol = 6,
+    widths = grid::unit.c(
+      grid::unit(0.55, "cm"),
+      grid::unit(1.55, "cm"),
+      grid::unit(1, "null"),
+      grid::unit(0.55, "cm"),
+      grid::unit(1.55, "cm"),
+      grid::unit(0.20, "cm")
     ),
-    labels_gp = grid::gpar(
-      fontsize = 7.5
-    ),
-    legend_height = grid::unit(
-      9,
-      "cm"
-    ),
-    legend_width = grid::unit(
-      3.5,
-      "mm"
-    ),
-    border = "grey55"
-  ),
-  cell_fun = function(j, i, x, y, width, height, fill) {
+    heights = grid::unit.c(
+      grid::unit(0.25, "cm"),
+      grid::unit(1, "null"),
+      grid::unit(1.35, "cm"),
+      grid::unit(0.50, "cm"),
+      grid::unit(0.20, "cm")
+    )
+  )
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout = plot_layout,
+      gp = grid::gpar(fill = "white")
+    )
+  )
+  
+  
+  # 8.1 Heatmap body -----------------------------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 2,
+      layout.pos.col = 3,
+      clip = "off"
+    )
+  )
+  
+  for (i in seq_len(nr)) {
     
-    value <- heatmap_matrix[i, j]
-    
-    if (!is.na(value)) {
+    for (j in seq_len(nc)) {
       
-      text_color <- ifelse(
-        value >= text_threshold,
-        "white",
-        "black"
-      )
+      value <- heatmap_matrix[i, j]
       
-      grid::grid.text(
-        label_matrix[i, j],
-        x = x,
-        y = y,
+      x_position <- (j - 0.5) / nc
+      y_position <- 1 - (i - 0.5) / nr
+      
+      if (is.na(value)) {
+        fill_color <- "white"
+      } else {
+        fill_color <- value_to_color(value)
+      }
+      
+      grid::grid.rect(
+        x = grid::unit(x_position, "npc"),
+        y = grid::unit(y_position, "npc"),
+        width = grid::unit(1 / nc, "npc"),
+        height = grid::unit(1 / nr, "npc"),
         gp = grid::gpar(
-          fontsize = 7.5,
-          col = text_color
+          fill = fill_color,
+          col = "white",
+          lwd = 0.7
         )
       )
+      
+      if (!is.na(value)) {
+        
+        rgb_value <- grDevices::col2rgb(fill_color) / 255
+        
+        luminance <- (
+          0.2126 * rgb_value[1] +
+            0.7152 * rgb_value[2] +
+            0.0722 * rgb_value[3]
+        )
+        
+        text_color <- ifelse(
+          luminance < 0.52,
+          "white",
+          "black"
+        )
+        
+        grid::grid.text(
+          label_matrix[i, j],
+          x = grid::unit(x_position, "npc"),
+          y = grid::unit(y_position, "npc"),
+          gp = grid::gpar(
+            fontsize = 7.3,
+            col = text_color
+          )
+        )
+      }
     }
   }
-)
+  
+  grid::popViewport()
+  
+  
+  # 8.2 Row names --------------------------------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 2,
+      layout.pos.col = 2,
+      clip = "off"
+    )
+  )
+  
+  grid::grid.text(
+    rownames(heatmap_matrix),
+    x = grid::unit(0.98, "npc"),
+    y = grid::unit(
+      1 - (seq_len(nr) - 0.5) / nr,
+      "npc"
+    ),
+    just = "right",
+    gp = grid::gpar(
+      fontsize = 8.5
+    )
+  )
+  
+  grid::popViewport()
+  
+  
+  # 8.3 Y-axis title -----------------------------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 2,
+      layout.pos.col = 1
+    )
+  )
+  
+  grid::grid.text(
+    "Ecotypes",
+    rot = 90,
+    gp = grid::gpar(
+      fontsize = 10
+    )
+  )
+  
+  grid::popViewport()
+  
+  
+  # 8.4 Column names -----------------------------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 3,
+      layout.pos.col = 3,
+      clip = "off"
+    )
+  )
+  
+  grid::grid.text(
+    colnames(heatmap_matrix),
+    x = grid::unit(
+      (seq_len(nc) - 0.5) / nc,
+      "npc"
+    ),
+    y = grid::unit(0.95, "npc"),
+    rot = 45,
+    just = c("right", "centre"),
+    gp = grid::gpar(
+      fontsize = 8.5
+    )
+  )
+  
+  grid::popViewport()
+  
+  
+  # 8.5 X-axis title -----------------------------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 4,
+      layout.pos.col = 3
+    )
+  )
+  
+  grid::grid.text(
+    "Species",
+    gp = grid::gpar(
+      fontsize = 10
+    )
+  )
+  
+  grid::popViewport()
+  
+  
+  # 8.6 Legend title -----------------------------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 2,
+      layout.pos.col = 4
+    )
+  )
+  
+  grid::grid.text(
+    "ln abundance",
+    rot = 90,
+    gp = grid::gpar(
+      fontsize = 9
+    )
+  )
+  
+  grid::popViewport()
+  
+  
+  # 8.7 Continuous legend with fine ticks -------------------------------------
+  
+  grid::pushViewport(
+    grid::viewport(
+      layout.pos.row = 2,
+      layout.pos.col = 5,
+      xscale = c(0, 1),
+      yscale = c(0, legend_max),
+      clip = "off"
+    )
+  )
+  
+  # Thin sections produce a smooth continuous gradient.
+  number_legend_sections <- 1000L
+  
+  legend_edges <- seq(
+    0,
+    legend_max,
+    length.out = number_legend_sections + 1L
+  )
+  
+  legend_centres <- (
+    legend_edges[-1] +
+      legend_edges[-length(legend_edges)]
+  ) / 2
+  
+  legend_section_height <- legend_max /
+    number_legend_sections
+  
+  grid::grid.rect(
+    x = grid::unit(0.18, "npc"),
+    y = grid::unit(legend_centres, "native"),
+    width = grid::unit(0.24, "npc"),
+    height = grid::unit(
+      legend_section_height * 1.02,
+      "native"
+    ),
+    gp = grid::gpar(
+      fill = value_to_color(legend_centres),
+      col = NA
+    )
+  )
+  
+  # Legend border.
+  grid::grid.rect(
+    x = grid::unit(0.18, "npc"),
+    y = grid::unit(legend_max / 2, "native"),
+    width = grid::unit(0.24, "npc"),
+    height = grid::unit(legend_max, "native"),
+    gp = grid::gpar(
+      fill = NA,
+      col = "grey45",
+      lwd = 0.7
+    )
+  )
+  
+  # Twenty subdivisions per unit.
+  legend_step <- 0.05
+  
+  minor_ticks <- seq(
+    0,
+    legend_max,
+    by = legend_step
+  )
+  
+  major_ticks <- seq(
+    0,
+    legend_max,
+    by = 1
+  )
+  
+  is_major <- abs(
+    minor_ticks - round(minor_ticks)
+  ) < 1e-8
+  
+  fine_ticks <- minor_ticks[
+    !is_major
+  ]
+  
+  # Short minor ticks.
+  grid::grid.segments(
+    x0 = grid::unit(0.30, "npc"),
+    x1 = grid::unit(0.35, "npc"),
+    y0 = grid::unit(fine_ticks, "native"),
+    y1 = grid::unit(fine_ticks, "native"),
+    gp = grid::gpar(
+      col = "grey55",
+      lwd = 0.45
+    )
+  )
+  
+  # Longer integer ticks.
+  grid::grid.segments(
+    x0 = grid::unit(0.30, "npc"),
+    x1 = grid::unit(0.41, "npc"),
+    y0 = grid::unit(major_ticks, "native"),
+    y1 = grid::unit(major_ticks, "native"),
+    gp = grid::gpar(
+      col = "grey20",
+      lwd = 0.7
+    )
+  )
+  
+  # Integer labels from 0 to the rounded upper limit.
+  grid::grid.text(
+    as.character(major_ticks),
+    x = grid::unit(0.46, "npc"),
+    y = grid::unit(major_ticks, "native"),
+    just = "left",
+    gp = grid::gpar(
+      fontsize = 7.5
+    )
+  )
+  
+  grid::popViewport()
+  
+  grid::popViewport()
+}
 
-# Show in the RStudio Plots panel.
-ComplexHeatmap::draw(
-  ht,
-  heatmap_legend_side = "right"
-)
+
+# Display directly in the RStudio Plots panel.
+draw_species_heatmap()
+
 
 # Save the same heatmap.
 heatmap_file <- file.path(
@@ -574,29 +849,34 @@ heatmap_file <- file.path(
 )
 
 png(
-  heatmap_file,
+  filename = heatmap_file,
   width = 2600,
   height = 2200,
   res = 250
 )
 
-ComplexHeatmap::draw(
-  ht,
-  heatmap_legend_side = "right"
-)
+draw_species_heatmap()
 
 dev.off()
 
-
-# 9. Summary ==================================================================
+# 9. Summary ===================================================================
 
 cat(
   "\nCOMPLETE\n",
-  "Species processed: ", length(species_names), "\n",
+  "Species processed: ",
+  length(species_names),
+  "\n",
   "Populations retained: ",
-  sum(!is.na(population_abundance)), "\n",
+  sum(!is.na(population_abundance)),
+  "\n",
   "Zones shown in heatmap: ",
-  nrow(heatmap_abundance), "\n",
-  "Outputs written to: ", base_dir, "\n",
+  nrow(heatmap_abundance),
+  "\n",
+  "Heatmap saved to: ",
+  heatmap_file,
+  "\n",
+  "Outputs written to: ",
+  base_dir,
+  "\n",
   sep = ""
 )
