@@ -1,7 +1,7 @@
 # Section 7. Multiclass RF: climate + soil
 # ============================================================
 # Purpose:
-#   1. Use mcRFop backward elimination to select variables.
+#   1. Use the mcRFop elimination path and retain exactly 30 variables.
 #   2. Fit one ordinary multiclass random forest for all 53 zones.
 #   3. Use selected climate and soil predictors in the same model.
 #   4. Evaluate the model on a stratified independent test set.
@@ -12,6 +12,7 @@
 #   - This is one standard randomForest model, not the four binary-RF variants.
 #   - All predictors used by the existing plain climate and plain soil RFs are used.
 #   - Class-balanced sampling is applied within each tree because zone sizes differ greatly.
+#   - The existing mcRFop path and train/test cell split can be reused.
 #   - Normal-map agreement is reconstruction agreement, not independent validation.
 # ============================================================
 
@@ -62,10 +63,17 @@ base_seed <- 49L
 ntree <- 500L
 
 # Backward variable selection before the final RF.
+# The final model retains exactly this many predictors from the mcRFop path.
+target_predictors <- 30L
+
 op_ntree <- 100L
 op_nrep <- 10L
 op_per_zone <- 1000L
-op_accuracy_tolerance <- 0.001
+
+# Reuse previous intermediate results when available.
+reuse_saved_train_test <- TRUE
+reuse_existing_cell_split <- TRUE
+reuse_existing_op_list <- TRUE
 
 # Maximum observations retained after complete-case filtering.
 # Smaller zones use all available observations and keep a 70:30 split.
@@ -81,6 +89,15 @@ predict_cores <- min(
 
 model_file <- file.path(model_dir, "multiclass_climate_soil_rf.Rdata")
 map_file <- file.path(map_dir, "assigned_zone_normal_multiclass_rf.tif")
+
+train_data_cache <- file.path(tmp_dir, "multiclass_train_data.rds")
+test_data_cache <- file.path(tmp_dir, "multiclass_test_data.rds")
+train_cells_file <- file.path(assess_dir, "multiclass_train_cells.csv")
+test_cells_file <- file.path(assess_dir, "multiclass_test_cells.csv")
+op_list_file <- file.path(
+  assess_dir,
+  "multiclass_mcRFop_variable_selection.csv"
+)
 
 set.seed(base_seed)
 
@@ -227,7 +244,7 @@ mcRFop_cls_multiclass <- function(
 
 select_op_variables <- function(
     op_list,
-    tolerance = op_accuracy_tolerance) {
+    n_keep = target_predictors) {
   
   op <- as.data.table(op_list)
   
@@ -246,18 +263,20 @@ select_op_variables <- function(
   
   op[, n_variables := lengths(strsplit(variable, ","))]
   
-  best_accuracy <- max(op$accuracy)
+  candidates <- op[n_variables == n_keep]
   
-  candidates <- op[
-    accuracy >= best_accuracy - tolerance
-  ]
+  if (!nrow(candidates)) {
+    stop(
+      "The mcRFop path does not contain exactly ",
+      n_keep,
+      " predictors. Available set sizes: ",
+      paste(sort(unique(op$n_variables)), collapse = ", ")
+    )
+  }
   
-  # Prefer the smallest set whose accuracy is effectively tied with the best.
-  setorder(
-    candidates,
-    n_variables,
-    -accuracy
-  )
+  # Normally there is one row for each set size. If duplicated, keep the
+  # highest-accuracy row at the requested size.
+  setorder(candidates, -accuracy)
   
   selected <- trimws(
     unlist(
@@ -268,7 +287,7 @@ select_op_variables <- function(
   list(
     variables = selected,
     selected_row = candidates[1],
-    best_accuracy = best_accuracy,
+    best_accuracy = max(op$accuracy),
     all_candidates = op
   )
 }
@@ -363,6 +382,63 @@ extract_without_id <- function(x, points) {
   }
   
   out
+}
+
+extract_predictor_data <- function(
+    cell_data,
+    r,
+    clm_stack,
+    soil_stack) {
+  
+  cell_data <- as.data.table(copy(cell_data))
+  
+  if (!all(c("cell", "zoneID") %in% names(cell_data))) {
+    stop("Cell data must contain cell and zoneID columns.")
+  }
+  
+  cell_data[, `:=`(
+    cell = as.integer(cell),
+    zoneID = as.integer(as.character(zoneID))
+  )]
+  
+  xy <- xyFromCell(r, cell_data$cell)
+  
+  points <- vect(
+    data.frame(
+      x = xy[, 1],
+      y = xy[, 2]
+    ),
+    geom = c("x", "y"),
+    crs = crs(r)
+  )
+  
+  points_clm <- if (
+    same.crs(points, clm_stack)
+  ) {
+    points
+  } else {
+    project(points, crs(clm_stack))
+  }
+  
+  points_soil <- if (
+    same.crs(points, soil_stack)
+  ) {
+    points
+  } else {
+    project(points, crs(soil_stack))
+  }
+  
+  cat("\n[EXTRACT CLIMATE]\n")
+  clm_values <- extract_without_id(clm_stack, points_clm)
+  
+  cat("\n[EXTRACT SOIL]\n")
+  soil_values <- extract_without_id(soil_stack, points_soil)
+  
+  cbind(
+    cell_data,
+    clm_values,
+    soil_values
+  )
 }
 
 rf_class <- function(model, data) {
@@ -589,157 +665,239 @@ soil_stack <- get_stack(
 
 # 3. Stratified training and testing samples ===================================
 
-if (!file.exists(clm_data_file)) {
-  stop("Missing cell-zone table: ", clm_data_file)
-}
-
-cat("\n[READ CELL INDEX]\n")
-
-cell_dt <- fread(
-  clm_data_file,
-  select = c("cell", "zoneID")
+cache_ready <- (
+  reuse_saved_train_test &&
+    file.exists(train_data_cache) &&
+    file.exists(test_data_cache)
 )
 
-cell_dt[, `:=`(
+split_ready <- (
+  reuse_existing_cell_split &&
+    file.exists(train_cells_file) &&
+    file.exists(test_cells_file)
+)
+
+if (cache_ready) {
+  cat("\n[REUSE SAVED TRAIN/TEST DATA]\n")
+  
+  train_data <- as.data.table(readRDS(train_data_cache))
+  test_data <- as.data.table(readRDS(test_data_cache))
+  
+  required_columns <- c("cell", "zoneID", predictor_vars)
+  
+  if (
+    !all(required_columns %in% names(train_data)) ||
+    !all(required_columns %in% names(test_data))
+  ) {
+    stop(
+      "Saved train/test data do not contain the current predictor set. ",
+      "Delete the two RDS cache files and rerun."
+    )
+  }
+  
+  if (
+    any(!complete.cases(train_data[, ..predictor_vars])) ||
+    any(!complete.cases(test_data[, ..predictor_vars]))
+  ) {
+    stop("Saved train/test data contain missing predictor values.")
+  }
+  
+} else if (split_ready) {
+  cat("\n[REUSE EXISTING TRAIN/TEST CELL SPLIT]\n")
+  
+  train_cells <- fread(train_cells_file)
+  test_cells <- fread(test_cells_file)
+  
+  if (
+    !all(c("cell", "zoneID") %in% names(train_cells)) ||
+    !all(c("cell", "zoneID") %in% names(test_cells))
+  ) {
+    stop("Existing train/test cell files have an unexpected structure.")
+  }
+  
+  train_cells <- train_cells[, .(cell, zoneID)]
+  test_cells <- test_cells[, .(cell, zoneID)]
+  
+  train_cells[, split_id := "train"]
+  test_cells[, split_id := "test"]
+  
+  split_cells <- rbindlist(
+    list(train_cells, test_cells),
+    use.names = TRUE
+  )
+  
+  split_data <- extract_predictor_data(
+    split_cells,
+    r,
+    clm_stack,
+    soil_stack
+  )
+  
+  if (any(!complete.cases(split_data[, ..predictor_vars]))) {
+    stop(
+      "Some cells in the saved split no longer have complete predictor data. ",
+      "Set reuse_existing_cell_split <- FALSE and rerun."
+    )
+  }
+  
+  train_data <- copy(split_data[split_id == "train"])
+  test_data <- copy(split_data[split_id == "test"])
+  
+  train_data[, split_id := NULL]
+  test_data[, split_id := NULL]
+  
+  rm(train_cells, test_cells, split_cells, split_data)
+  gc()
+  
+  saveRDS(train_data, train_data_cache)
+  saveRDS(test_data, test_data_cache)
+  
+} else {
+  if (!file.exists(clm_data_file)) {
+    stop("Missing cell-zone table: ", clm_data_file)
+  }
+  
+  cat("\n[READ CELL INDEX]\n")
+  
+  cell_dt <- fread(
+    clm_data_file,
+    select = c("cell", "zoneID")
+  )
+  
+  cell_dt[, `:=`(
+    cell = as.integer(cell),
+    zoneID = as.integer(as.character(zoneID))
+  )]
+  
+  cell_dt <- cell_dt[
+    zoneID %in% zones &
+      !is.na(cell)
+  ]
+  
+  missing_zone <- setdiff(zones, unique(cell_dt$zoneID))
+  
+  if (length(missing_zone) > 0) {
+    stop(
+      "Modeled zones missing from the cell table: ",
+      paste(missing_zone, collapse = ", ")
+    )
+  }
+  
+  set.seed(base_seed)
+  
+  sample_cells <- cell_dt[
+    ,
+    {
+      n_take <- min(.N, candidate_per_zone)
+      .SD[sample.int(.N, n_take)]
+    },
+    by = zoneID
+  ]
+  
+  rm(cell_dt)
+  gc()
+  
+  sample_data <- extract_predictor_data(
+    sample_cells[, .(cell, zoneID)],
+    r,
+    clm_stack,
+    soil_stack
+  )
+  
+  rm(sample_cells)
+  gc()
+  
+  sample_data <- sample_data[
+    complete.cases(sample_data[, ..predictor_vars])
+  ]
+  
+  available_count <- sample_data[
+    ,
+    .(complete_observations = .N),
+    by = zoneID
+  ][order(zoneID)]
+  
+  fwrite(
+    available_count,
+    file.path(assess_dir, "multiclass_complete_samples_by_zone.csv")
+  )
+  
+  missing_zone <- setdiff(zones, unique(sample_data$zoneID))
+  
+  if (length(missing_zone) > 0) {
+    stop(
+      "No complete climate-soil observations for zones: ",
+      paste(missing_zone, collapse = ", ")
+    )
+  }
+  
+  train_list <- vector("list", length(zones))
+  test_list <- vector("list", length(zones))
+  
+  for (k in seq_along(zones)) {
+    z <- zones[k]
+    d <- sample_data[zoneID == z]
+    
+    set.seed(base_seed + z)
+    idx <- sample.int(nrow(d))
+    
+    n_train <- min(
+      max_train_per_zone,
+      floor(train_fraction * nrow(d))
+    )
+    
+    n_test <- min(
+      max_test_per_zone,
+      nrow(d) - n_train
+    )
+    
+    if (n_train < 2 || n_test < 1) {
+      stop(
+        "Insufficient complete observations for zone ",
+        z,
+        ": train = ", n_train,
+        ", test = ", n_test
+      )
+    }
+    
+    train_idx <- idx[seq_len(n_train)]
+    test_idx <- idx[n_train + seq_len(n_test)]
+    
+    train_list[[k]] <- d[train_idx]
+    test_list[[k]] <- d[test_idx]
+  }
+  
+  train_data <- rbindlist(train_list)
+  test_data <- rbindlist(test_list)
+  
+  rm(train_list, test_list, sample_data)
+  gc()
+  
+  saveRDS(train_data, train_data_cache)
+  saveRDS(test_data, test_data_cache)
+}
+
+train_data[, `:=`(
   cell = as.integer(cell),
   zoneID = as.integer(as.character(zoneID))
 )]
 
-cell_dt <- cell_dt[
-  zoneID %in% zones &
-    !is.na(cell)
-]
+test_data[, `:=`(
+  cell = as.integer(cell),
+  zoneID = as.integer(as.character(zoneID))
+)]
 
-missing_zone <- setdiff(zones, unique(cell_dt$zoneID))
+missing_train_zone <- setdiff(zones, unique(train_data$zoneID))
+missing_test_zone <- setdiff(zones, unique(test_data$zoneID))
 
-if (length(missing_zone) > 0) {
+if (length(missing_train_zone) > 0 || length(missing_test_zone) > 0) {
   stop(
-    "Modeled zones missing from the cell table: ",
-    paste(missing_zone, collapse = ", ")
+    "Train/test data are missing modeled zones. Training: ",
+    paste(missing_train_zone, collapse = ", "),
+    "; testing: ",
+    paste(missing_test_zone, collapse = ", ")
   )
 }
-
-set.seed(base_seed)
-
-sample_cells <- cell_dt[
-  ,
-  {
-    n_take <- min(.N, candidate_per_zone)
-    .SD[sample.int(.N, n_take)]
-  },
-  by = zoneID
-]
-
-rm(cell_dt)
-gc()
-
-xy <- xyFromCell(r, sample_cells$cell)
-
-points <- vect(
-  data.frame(
-    x = xy[, 1],
-    y = xy[, 2]
-  ),
-  geom = c("x", "y"),
-  crs = crs(r)
-)
-
-points_clm <- if (
-  same.crs(points, clm_stack)
-) {
-  points
-} else {
-  project(points, crs(clm_stack))
-}
-
-points_soil <- if (
-  same.crs(points, soil_stack)
-) {
-  points
-} else {
-  project(points, crs(soil_stack))
-}
-
-cat("\n[EXTRACT CLIMATE]\n")
-clm_values <- extract_without_id(clm_stack, points_clm)
-
-cat("\n[EXTRACT SOIL]\n")
-soil_values <- extract_without_id(soil_stack, points_soil)
-
-sample_data <- cbind(
-  sample_cells[, .(cell, zoneID)],
-  clm_values,
-  soil_values
-)
-
-rm(points, points_clm, points_soil, xy, clm_values, soil_values, sample_cells)
-gc()
-
-sample_data <- sample_data[
-  complete.cases(sample_data[, ..predictor_vars])
-]
-
-available_count <- sample_data[
-  ,
-  .(complete_observations = .N),
-  by = zoneID
-][order(zoneID)]
-
-fwrite(
-  available_count,
-  file.path(assess_dir, "multiclass_complete_samples_by_zone.csv")
-)
-
-missing_zone <- setdiff(zones, unique(sample_data$zoneID))
-
-if (length(missing_zone) > 0) {
-  stop(
-    "No complete climate-soil observations for zones: ",
-    paste(missing_zone, collapse = ", ")
-  )
-}
-
-train_list <- vector("list", length(zones))
-test_list <- vector("list", length(zones))
-
-for (k in seq_along(zones)) {
-  z <- zones[k]
-  d <- sample_data[zoneID == z]
-  
-  set.seed(base_seed + z)
-  idx <- sample.int(nrow(d))
-  
-  n_train <- min(
-    max_train_per_zone,
-    floor(train_fraction * nrow(d))
-  )
-  
-  n_test <- min(
-    max_test_per_zone,
-    nrow(d) - n_train
-  )
-  
-  if (n_train < 2 || n_test < 1) {
-    stop(
-      "Insufficient complete observations for zone ",
-      z,
-      ": train = ", n_train,
-      ", test = ", n_test
-    )
-  }
-  
-  train_idx <- idx[seq_len(n_train)]
-  test_idx <- idx[n_train + seq_len(n_test)]
-  
-  train_list[[k]] <- d[train_idx]
-  test_list[[k]] <- d[test_idx]
-}
-
-train_data <- rbindlist(train_list)
-test_data <- rbindlist(test_list)
-
-rm(train_list, test_list, sample_data)
-gc()
 
 setorder(train_data, zoneID, cell)
 setorder(test_data, zoneID, cell)
@@ -758,12 +916,12 @@ fwrite(
 
 fwrite(
   train_data[, .(cell, zoneID)],
-  file.path(assess_dir, "multiclass_train_cells.csv")
+  train_cells_file
 )
 
 fwrite(
   test_data[, .(cell, zoneID)],
-  file.path(assess_dir, "multiclass_test_cells.csv")
+  test_cells_file
 )
 
 cat("\nTraining observations:", nrow(train_data), "\n")
@@ -772,51 +930,72 @@ cat("Testing observations:", nrow(test_data), "\n")
 
 # 4. Pre-training variable selection with mcRFop ==============================
 
-op_train <- train_data[
-  ,
-  {
-    n_take <- min(.N, op_per_zone)
-    .SD[sample.int(.N, n_take)]
-  },
-  by = zoneID
-]
-
-x_op <- as.data.frame(
-  op_train[, ..predictor_vars]
-)
-
-y_op <- factor(
-  op_train$zoneID,
-  levels = as.character(zones)
-)
-
-cat("\n[PRE-TRAIN VARIABLE SELECTION]\n")
-cat("Observations:", nrow(op_train), "\n")
-cat("Candidate predictors:", length(predictor_vars), "\n")
-
-set.seed(base_seed)
-
-multiclass_opList <- mcRFop_cls_multiclass(
-  x = x_op,
-  y = y_op,
-  nTree = op_ntree,
-  nRep = op_nrep
-)
-
-fwrite(
-  as.data.table(
-    multiclass_opList,
-    keep.rownames = "row"
-  ),
-  file.path(
-    assess_dir,
-    "multiclass_mcRFop_variable_selection.csv"
+if (reuse_existing_op_list && file.exists(op_list_file)) {
+  cat("\n[REUSE EXISTING mcRFop PATH]\n")
+  cat("File:", op_list_file, "\n")
+  
+  op_dt <- fread(op_list_file)
+  
+  if ("row" %in% names(op_dt)) {
+    op_dt[, row := NULL]
+  }
+  
+  if (!all(c("Accy", "variable") %in% names(op_dt))) {
+    stop("Existing mcRFop file has an unexpected structure.")
+  }
+  
+  multiclass_opList <- as.data.frame(
+    op_dt[, .(Accy, variable)]
   )
-)
+  
+  rm(op_dt)
+  
+} else {
+  set.seed(base_seed + 5000L)
+  
+  op_train <- train_data[
+    ,
+    {
+      n_take <- min(.N, op_per_zone)
+      .SD[sample.int(.N, n_take)]
+    },
+    by = zoneID
+  ]
+  
+  x_op <- as.data.frame(
+    op_train[, ..predictor_vars]
+  )
+  
+  y_op <- factor(
+    op_train$zoneID,
+    levels = as.character(zones)
+  )
+  
+  cat("\n[PRE-TRAIN VARIABLE SELECTION]\n")
+  cat("Observations:", nrow(op_train), "\n")
+  cat("Candidate predictors:", length(predictor_vars), "\n")
+  
+  set.seed(base_seed)
+  
+  multiclass_opList <- mcRFop_cls_multiclass(
+    x = x_op,
+    y = y_op,
+    nTree = op_ntree,
+    nRep = op_nrep
+  )
+  
+  fwrite(
+    as.data.table(
+      multiclass_opList,
+      keep.rownames = "row"
+    ),
+    op_list_file
+  )
+}
 
 op_selected <- select_op_variables(
   multiclass_opList,
-  tolerance = op_accuracy_tolerance
+  n_keep = target_predictors
 )
 
 selected_vars <- op_selected$variables
@@ -824,16 +1003,17 @@ selected_clm_vars <- intersect(selected_vars, clm_vars)
 selected_soil_vars <- intersect(selected_vars, soil_model_vars)
 
 if (
-  !length(selected_vars) ||
+  length(selected_vars) != target_predictors ||
   !all(selected_vars %in% predictor_vars)
 ) {
-  stop("Invalid predictor set returned by mcRFop.")
+  stop("Invalid predictor set returned by the mcRFop path.")
 }
 
 selected_summary <- data.table(
+  selection_rule = "fixed_predictor_count",
+  target_predictors = target_predictors,
   selected_accuracy = op_selected$selected_row$accuracy,
-  best_accuracy = op_selected$best_accuracy,
-  accuracy_tolerance = op_accuracy_tolerance,
+  best_accuracy_on_path = op_selected$best_accuracy,
   n_selected = length(selected_vars),
   n_climate_selected = length(selected_clm_vars),
   n_soil_selected = length(selected_soil_vars),
@@ -863,20 +1043,26 @@ fwrite(
   )
 )
 
+cat("Target predictors:", target_predictors, "\n")
 cat("Selected predictors:", length(selected_vars), "\n")
 cat("Selected climate predictors:", length(selected_clm_vars), "\n")
 cat("Selected soil predictors:", length(selected_soil_vars), "\n")
-cat("Selected accuracy:", op_selected$selected_row$accuracy, "\n")
-cat("Best accuracy:", op_selected$best_accuracy, "\n")
+cat("Accuracy at target predictor count:", op_selected$selected_row$accuracy, "\n")
+cat("Best accuracy on path:", op_selected$best_accuracy, "\n")
 cat("Variables:", paste(selected_vars, collapse = ", "), "\n")
 
-rm(
-  x_op,
-  y_op,
-  op_train,
-  multiclass_opList,
-  op_selected
+objects_to_remove <- intersect(
+  c(
+    "x_op",
+    "y_op",
+    "op_train",
+    "multiclass_opList",
+    "op_selected"
+  ),
+  ls()
 )
+
+rm(list = objects_to_remove)
 gc()
 
 
@@ -924,6 +1110,7 @@ multiclass_rf <- randomForest(
 )
 
 multiclass_rf$varlist <- selected_vars
+multiclass_rf$target_predictors <- target_predictors
 multiclass_rf$all_candidate_vars <- predictor_vars
 multiclass_rf$climate_vars <- selected_clm_vars
 multiclass_rf$soil_vars <- selected_soil_vars
