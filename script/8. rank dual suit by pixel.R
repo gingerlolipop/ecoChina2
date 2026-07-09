@@ -10,6 +10,13 @@
 #   dual suit ranking/{method}/{scenario}/ranked_suitability.tif
 #   dual suit ranking/{method}/{scenario}/ranked_summary.tif
 #
+# Resume behavior:
+#   - If all three output rasters already exist, have correct geometry,
+#     and have the expected number of layers, the job is reused.
+#   - Existing valid outputs are not recalculated when the script is rerun.
+#   - Missing/incomplete jobs are skipped and recorded, not allowed to stop
+#     the whole script.
+#
 # Notes:
 #   - Zone 8 and zone 51 were not modeled.
 #   - NA cells and original zone 8 cells are masked out.
@@ -60,8 +67,7 @@ future_order <- c(
 
 scenario_order <- c("normal", future_order)
 
-# Run all by default.
-# Temporarily restrict these if testing.
+# Run all by default. Restrict these only for testing.
 methods_to_run <- method_order
 scenarios_to_run <- scenario_order
 
@@ -73,20 +79,24 @@ dual_threshold <- 0.2
 rank_min_suitability <- 0
 
 # Keep only top K zones per pixel.
-# If still slow, change 10 to 5.
 top_k_rank <- 10
 
 # terra::app parallelization can be unstable on Windows.
-# If worker errors continue, set this to 1L.
+# If worker errors occur, set this to 1L.
 rank_cores <- min(4L, max(1L, parallel::detectCores() - 1L))
 
-# Reuse completed outputs if geometry and layer count are correct.
+# Resume control.
+# TRUE = do not rerun jobs whose output rasters are already valid.
 reuse_existing_outputs <- TRUE
 
-# Overwrite invalid or old-format outputs.
+# If a job is invalid or incomplete, old outputs are overwritten before recomputing.
 overwrite_outputs <- TRUE
 
 # 1. Helper functions ===========================================================
+
+cat0 <- function(...) {
+  cat(..., "\n", sep = "")
+}
 
 safe_name <- function(x) {
   x <- gsub("[^A-Za-z0-9_]+", "_", x)
@@ -159,6 +169,16 @@ rank_layer_names <- function(k, suffix) {
   paste0("rank", seq_len(k), "_", suffix)
 }
 
+rank_output_files <- function(method, scenario) {
+  out_dir <- file.path(output_root, method, scenario)
+  list(
+    out_dir = out_dir,
+    ranked_zone_file = file.path(out_dir, "ranked_zone.tif"),
+    ranked_suit_file = file.path(out_dir, "ranked_suitability.tif"),
+    ranked_summary_file = file.path(out_dir, "ranked_summary.tif")
+  )
+}
+
 valid_output <- function(file, expected_nlyr, template) {
   if (!file.exists(file)) return(FALSE)
   
@@ -170,7 +190,64 @@ valid_output <- function(file, expected_nlyr, template) {
   if (is.null(x)) return(FALSE)
   if (nlyr(x) != expected_nlyr) return(FALSE)
   
-  compareGeom(x, template, stopOnError = FALSE)
+  isTRUE(compareGeom(x, template, stopOnError = FALSE))
+}
+
+valid_rank_outputs <- function(method, scenario, template, k_rank, n_summary_layers) {
+  out <- rank_output_files(method, scenario)
+  
+  valid_zone <- valid_output(out$ranked_zone_file, k_rank, template)
+  valid_suit <- valid_output(out$ranked_suit_file, k_rank, template)
+  valid_summary <- valid_output(out$ranked_summary_file, n_summary_layers, template)
+  
+  list(
+    all_valid = valid_zone && valid_suit && valid_summary,
+    valid_zone = valid_zone,
+    valid_suit = valid_suit,
+    valid_summary = valid_summary,
+    ranked_zone_file = out$ranked_zone_file,
+    ranked_suitability_file = out$ranked_suit_file,
+    ranked_summary_file = out$ranked_summary_file
+  )
+}
+
+make_layer_index <- function(method, scenario, k_rank, summary_layer_names) {
+  rbindlist(list(
+    data.table(
+      method = method,
+      scenario = scenario,
+      raster_type = "ranked_zone",
+      layer = seq_len(k_rank),
+      layer_name = rank_layer_names(k_rank, "zone"),
+      rank = seq_len(k_rank),
+      meaning = "zone ID at this rank"
+    ),
+    data.table(
+      method = method,
+      scenario = scenario,
+      raster_type = "ranked_suitability",
+      layer = seq_len(k_rank),
+      layer_name = rank_layer_names(k_rank, "suit"),
+      rank = seq_len(k_rank),
+      meaning = "dual suitability at this rank"
+    ),
+    data.table(
+      method = method,
+      scenario = scenario,
+      raster_type = "ranked_summary",
+      layer = seq_along(summary_layer_names),
+      layer_name = summary_layer_names,
+      rank = NA_integer_,
+      meaning = c(
+        "number of zones with dual suitability above rank_min_suitability",
+        "number of zones with dual suitability above dual_threshold",
+        "rank1_suit minus rank2_suit",
+        "highest dual suitability",
+        "second-highest dual suitability",
+        "1 if no zone is above dual_threshold, otherwise 0"
+      )
+    )
+  ))
 }
 
 read_dual_stack <- function(files, template, valid_mask) {
@@ -178,7 +255,7 @@ read_dual_stack <- function(files, template, valid_mask) {
   names(s) <- as.character(zoneID)
   
   if (!compareGeom(s, template, stopOnError = FALSE)) {
-    cat("[RESAMPLE] dual suitability rasters to reference geometry\n")
+    cat0("[RESAMPLE] dual suitability rasters to reference geometry")
     s <- resample(s, template, method = "bilinear")
     names(s) <- as.character(zoneID)
   }
@@ -218,7 +295,6 @@ make_rank_fun <- function(zoneID, rank_min, threshold, top_k) {
     )
     
     if (length(valid_rank) > 0) {
-      
       # Higher dual suitability first.
       # Exact ties are ordered by smaller zone ID for reproducibility.
       ord <- valid_rank[order(-x[valid_rank], zoneID[valid_rank])]
@@ -302,72 +378,79 @@ cat(
   "Rank minimum suitability: ", rank_min_suitability, "\n",
   "Dual threshold: ", dual_threshold, "\n",
   "Cores: ", rank_cores, "\n",
+  "Reuse existing valid outputs: ", reuse_existing_outputs, "\n",
   sep = ""
 )
 
-# 3. Find available jobs ========================================================
+# 3. Build complete job table ===================================================
 
 job_list <- list()
 
 for (method in methods_to_run) {
   for (scenario in scenarios_to_run) {
-    
-    input_dir <- file.path(dual_root, method, scenario)
     files <- dual_file(method, scenario, zoneID)
-    
     missing_zone <- zoneID[!file.exists(files)]
+    out_valid <- valid_rank_outputs(
+      method = method,
+      scenario = scenario,
+      template = r,
+      k_rank = k_rank,
+      n_summary_layers = n_summary_layers
+    )
     
     job_list[[length(job_list) + 1L]] <- data.table(
       method = method,
       scenario = scenario,
-      input_dir = input_dir,
       n_required_zones = length(zoneID),
       n_missing_zones = length(missing_zone),
-      missing_zones = paste(missing_zone, collapse = ",")
+      missing_zones = paste(missing_zone, collapse = ","),
+      input_complete = length(missing_zone) == 0,
+      output_valid = out_valid$all_valid,
+      valid_ranked_zone = out_valid$valid_zone,
+      valid_ranked_suitability = out_valid$valid_suit,
+      valid_ranked_summary = out_valid$valid_summary,
+      ranked_zone_file = out_valid$ranked_zone_file,
+      ranked_suitability_file = out_valid$ranked_suitability_file,
+      ranked_summary_file = out_valid$ranked_summary_file
     )
   }
 }
 
 jobs <- rbindlist(job_list)
-
-available_jobs <- jobs[n_missing_zones == 0]
-missing_jobs <- jobs[n_missing_zones > 0]
+setorder(jobs, method, scenario)
 
 fwrite(
-  available_jobs,
-  file.path(table_dir, "ranking_jobs_available.csv")
+  jobs,
+  file.path(table_dir, "ranking_jobs_all.csv")
 )
 
 fwrite(
-  missing_jobs,
-  file.path(table_dir, "ranking_jobs_missing.csv")
+  jobs[input_complete == TRUE],
+  file.path(table_dir, "ranking_jobs_input_complete.csv")
 )
 
-if (nrow(available_jobs) == 0) {
-  stop(
-    "No complete dual suitability jobs found.\n",
-    "Check: ",
-    file.path(table_dir, "ranking_jobs_missing.csv")
-  )
-}
+fwrite(
+  jobs[input_complete == FALSE & output_valid == FALSE],
+  file.path(table_dir, "ranking_jobs_missing_input_and_output.csv")
+)
 
 cat(
-  "\n[AVAILABLE JOBS]\n",
-  "Available jobs: ", nrow(available_jobs), " of ", nrow(jobs), "\n",
+  "\n[JOB STATUS]\n",
+  "Total method-scenario jobs: ", nrow(jobs), "\n",
+  "Already valid outputs: ", jobs[, sum(output_valid)], "\n",
+  "Input-complete jobs: ", jobs[, sum(input_complete)], "\n",
+  "Missing-input and no valid output jobs: ", jobs[, sum(!input_complete & !output_valid)], "\n",
   sep = ""
 )
-
-print(available_jobs[, .(method, scenario)])
 
 # 4. Rank dual suitability ======================================================
 
 output_index <- list()
 layer_index <- list()
 
-for (j in seq_len(nrow(available_jobs))) {
-  
-  method <- available_jobs$method[j]
-  scenario <- available_jobs$scenario[j]
+for (j in seq_len(nrow(jobs))) {
+  method <- jobs$method[j]
+  scenario <- jobs$scenario[j]
   
   cat(
     "\n==============================\n",
@@ -380,255 +463,253 @@ for (j in seq_len(nrow(available_jobs))) {
     sep = ""
   )
   
-  out_dir <- file.path(output_root, method, scenario)
-  dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+  out <- rank_output_files(method, scenario)
+  dir.create(out$out_dir, recursive = TRUE, showWarnings = FALSE)
   
-  ranked_zone_file <- file.path(out_dir, "ranked_zone.tif")
-  ranked_suit_file <- file.path(out_dir, "ranked_suitability.tif")
-  ranked_summary_file <- file.path(out_dir, "ranked_summary.tif")
-  
-  # Use a unique temporary filename each time.
-  # This avoids terra overwrite errors after failed previous runs.
-  tmp_rank_all <- tempfile(
-    pattern = paste0(
-      "tmp_rank_all_",
-      safe_name(method),
-      "_",
-      safe_name(scenario),
-      "_top",
-      k_rank,
-      "_"
-    ),
-    tmpdir = tmp_dir,
-    fileext = ".tif"
-  )
-  
-  reuse_this <- (
-    reuse_existing_outputs &&
-      valid_output(ranked_zone_file, expected_zone_layers, r) &&
-      valid_output(ranked_suit_file, expected_suit_layers, r) &&
-      valid_output(ranked_summary_file, expected_summary_layers, r)
-  )
-  
-  if (reuse_this) {
-    
-    cat("[REUSE]", method, "|", scenario, "\n")
+  # Reuse completed outputs first. This allows a full rerun to resume safely,
+  # even if the original dual-suitability inputs have since been moved.
+  if (reuse_existing_outputs && isTRUE(jobs$output_valid[j])) {
+    cat0("[REUSE] valid outputs already exist: ", method, " | ", scenario)
     
     output_index[[length(output_index) + 1L]] <- data.table(
       method = method,
       scenario = scenario,
       status = "reused",
+      message = NA_character_,
       n_input_zones = length(zoneID),
+      n_missing_zones = jobs$n_missing_zones[j],
+      missing_zones = jobs$missing_zones[j],
       top_k_rank = k_rank,
       rank_min_suitability = rank_min_suitability,
       dual_threshold = dual_threshold,
-      ranked_zone_file = ranked_zone_file,
-      ranked_suitability_file = ranked_suit_file,
-      ranked_summary_file = ranked_summary_file
+      ranked_zone_file = out$ranked_zone_file,
+      ranked_suitability_file = out$ranked_suit_file,
+      ranked_summary_file = out$ranked_summary_file
     )
     
-    layer_index[[length(layer_index) + 1L]] <- rbindlist(list(
-      data.table(
-        method = method,
-        scenario = scenario,
-        raster_type = "ranked_zone",
-        layer = seq_len(k_rank),
-        layer_name = rank_layer_names(k_rank, "zone"),
-        rank = seq_len(k_rank),
-        meaning = "zone ID at this rank"
-      ),
-      data.table(
-        method = method,
-        scenario = scenario,
-        raster_type = "ranked_suitability",
-        layer = seq_len(k_rank),
-        layer_name = rank_layer_names(k_rank, "suit"),
-        rank = seq_len(k_rank),
-        meaning = "dual suitability at this rank"
-      ),
-      data.table(
-        method = method,
-        scenario = scenario,
-        raster_type = "ranked_summary",
-        layer = seq_along(summary_layer_names),
-        layer_name = summary_layer_names,
-        rank = NA_integer_,
-        meaning = c(
-          "number of zones with dual suitability above rank_min_suitability",
-          "number of zones with dual suitability above dual_threshold",
-          "rank1_suit minus rank2_suit",
-          "highest dual suitability",
-          "second-highest dual suitability",
-          "1 if no zone is above dual_threshold, otherwise 0"
-        )
-      )
-    ))
+    layer_index[[length(layer_index) + 1L]] <- make_layer_index(
+      method,
+      scenario,
+      k_rank,
+      summary_layer_names
+    )
     
     next
   }
   
-  files <- dual_file(method, scenario, zoneID)
-  names(files) <- zoneID
-  
-  dual_stack <- read_dual_stack(
-    files = files,
-    template = r,
-    valid_mask = valid_mask
-  )
-  
-  if (overwrite_outputs) {
-    remove_raster_files(ranked_zone_file, must_remove = TRUE)
-    remove_raster_files(ranked_suit_file, must_remove = TRUE)
-    remove_raster_files(ranked_summary_file, must_remove = TRUE)
+  if (!isTRUE(jobs$input_complete[j])) {
+    msg <- paste0(
+      "Missing input dual suitability rasters for zones: ",
+      jobs$missing_zones[j]
+    )
+    
+    cat0("[SKIP MISSING INPUT] ", method, " | ", scenario)
+    cat0("  ", msg)
+    
+    output_index[[length(output_index) + 1L]] <- data.table(
+      method = method,
+      scenario = scenario,
+      status = "skipped_missing_input",
+      message = msg,
+      n_input_zones = length(zoneID) - jobs$n_missing_zones[j],
+      n_missing_zones = jobs$n_missing_zones[j],
+      missing_zones = jobs$missing_zones[j],
+      top_k_rank = k_rank,
+      rank_min_suitability = rank_min_suitability,
+      dual_threshold = dual_threshold,
+      ranked_zone_file = out$ranked_zone_file,
+      ranked_suitability_file = out$ranked_suit_file,
+      ranked_summary_file = out$ranked_summary_file
+    )
+    
+    next
   }
   
-  # In case tempfile somehow already exists.
-  remove_raster_files(tmp_rank_all, must_remove = TRUE)
-  
-  rank_fun <- make_rank_fun(
-    zoneID = zoneID,
-    rank_min = rank_min_suitability,
-    threshold = dual_threshold,
-    top_k = k_rank
-  )
-  
-  # Main computation.
-  # Temporary raster is uncompressed for speed.
-  rank_all <- app(
-    dual_stack,
-    fun = rank_fun,
-    filename = tmp_rank_all,
-    overwrite = TRUE,
-    cores = rank_cores,
-    wopt = list(
-      datatype = "FLT4S",
-      gdal = "COMPRESS=NONE"
+  tryCatch({
+    files <- dual_file(method, scenario, zoneID)
+    names(files) <- zoneID
+    
+    # Use a unique temporary filename each time.
+    tmp_rank_all <- tempfile(
+      pattern = paste0(
+        "tmp_rank_all_",
+        safe_name(method),
+        "_",
+        safe_name(scenario),
+        "_top",
+        k_rank,
+        "_"
+      ),
+      tmpdir = tmp_dir,
+      fileext = ".tif"
     )
-  )
-  
-  zone_layers <- seq_len(k_rank)
-  suit_layers <- k_rank + seq_len(k_rank)
-  summary_layers <- 2 * k_rank + seq_len(n_summary_layers)
-  
-  ranked_zone <- rank_all[[zone_layers]]
-  names(ranked_zone) <- rank_layer_names(k_rank, "zone")
-  
-  ranked_suit <- rank_all[[suit_layers]]
-  names(ranked_suit) <- rank_layer_names(k_rank, "suit")
-  
-  ranked_summary <- rank_all[[summary_layers]]
-  names(ranked_summary) <- summary_layer_names
-  
-  # Delete old outputs again immediately before writing.
-  # This avoids Windows file-lock / stale sidecar issues.
-  remove_raster_files(ranked_zone_file, must_remove = TRUE)
-  writeRaster(
-    ranked_zone,
-    ranked_zone_file,
-    overwrite = TRUE,
-    wopt = list(
-      datatype = "INT2S",
-      gdal = "COMPRESS=LZW"
+    
+    dual_stack <- read_dual_stack(
+      files = files,
+      template = r,
+      valid_mask = valid_mask
     )
-  )
-  
-  remove_raster_files(ranked_suit_file, must_remove = TRUE)
-  writeRaster(
-    ranked_suit,
-    ranked_suit_file,
-    overwrite = TRUE,
-    wopt = list(
-      datatype = "FLT4S",
-      gdal = "COMPRESS=LZW"
+    
+    if (overwrite_outputs) {
+      remove_raster_files(out$ranked_zone_file, must_remove = TRUE)
+      remove_raster_files(out$ranked_suit_file, must_remove = TRUE)
+      remove_raster_files(out$ranked_summary_file, must_remove = TRUE)
+    }
+    
+    remove_raster_files(tmp_rank_all, must_remove = TRUE)
+    
+    rank_fun <- make_rank_fun(
+      zoneID = zoneID,
+      rank_min = rank_min_suitability,
+      threshold = dual_threshold,
+      top_k = k_rank
     )
-  )
-  
-  remove_raster_files(ranked_summary_file, must_remove = TRUE)
-  writeRaster(
-    ranked_summary,
-    ranked_summary_file,
-    overwrite = TRUE,
-    wopt = list(
-      datatype = "FLT4S",
-      gdal = "COMPRESS=LZW"
-    )
-  )
-  
-  output_index[[length(output_index) + 1L]] <- data.table(
-    method = method,
-    scenario = scenario,
-    status = "created",
-    n_input_zones = length(zoneID),
-    top_k_rank = k_rank,
-    rank_min_suitability = rank_min_suitability,
-    dual_threshold = dual_threshold,
-    ranked_zone_file = ranked_zone_file,
-    ranked_suitability_file = ranked_suit_file,
-    ranked_summary_file = ranked_summary_file
-  )
-  
-  layer_index[[length(layer_index) + 1L]] <- rbindlist(list(
-    data.table(
-      method = method,
-      scenario = scenario,
-      raster_type = "ranked_zone",
-      layer = seq_len(k_rank),
-      layer_name = rank_layer_names(k_rank, "zone"),
-      rank = seq_len(k_rank),
-      meaning = "zone ID at this rank"
-    ),
-    data.table(
-      method = method,
-      scenario = scenario,
-      raster_type = "ranked_suitability",
-      layer = seq_len(k_rank),
-      layer_name = rank_layer_names(k_rank, "suit"),
-      rank = seq_len(k_rank),
-      meaning = "dual suitability at this rank"
-    ),
-    data.table(
-      method = method,
-      scenario = scenario,
-      raster_type = "ranked_summary",
-      layer = seq_along(summary_layer_names),
-      layer_name = summary_layer_names,
-      rank = NA_integer_,
-      meaning = c(
-        "number of zones with dual suitability above rank_min_suitability",
-        "number of zones with dual suitability above dual_threshold",
-        "rank1_suit minus rank2_suit",
-        "highest dual suitability",
-        "second-highest dual suitability",
-        "1 if no zone is above dual_threshold, otherwise 0"
+    
+    # Main computation.
+    # Temporary raster is uncompressed for speed.
+    rank_all <- app(
+      dual_stack,
+      fun = rank_fun,
+      filename = tmp_rank_all,
+      overwrite = TRUE,
+      cores = rank_cores,
+      wopt = list(
+        datatype = "FLT4S",
+        gdal = "COMPRESS=NONE"
       )
     )
-  ))
-  
-  cat(
-    "[SAVED]\n",
-    "  ", ranked_zone_file, "\n",
-    "  ", ranked_suit_file, "\n",
-    "  ", ranked_summary_file, "\n",
-    sep = ""
-  )
-  
-  rm(
-    dual_stack,
-    rank_fun,
-    rank_all,
-    ranked_zone,
-    ranked_suit,
-    ranked_summary
-  )
-  
-  gc()
-  remove_raster_files(tmp_rank_all)
+    
+    zone_layers <- seq_len(k_rank)
+    suit_layers <- k_rank + seq_len(k_rank)
+    summary_layers <- 2 * k_rank + seq_len(n_summary_layers)
+    
+    ranked_zone <- rank_all[[zone_layers]]
+    names(ranked_zone) <- rank_layer_names(k_rank, "zone")
+    
+    ranked_suit <- rank_all[[suit_layers]]
+    names(ranked_suit) <- rank_layer_names(k_rank, "suit")
+    
+    ranked_summary <- rank_all[[summary_layers]]
+    names(ranked_summary) <- summary_layer_names
+    
+    remove_raster_files(out$ranked_zone_file, must_remove = TRUE)
+    writeRaster(
+      ranked_zone,
+      out$ranked_zone_file,
+      overwrite = TRUE,
+      wopt = list(
+        datatype = "INT2S",
+        gdal = "COMPRESS=LZW"
+      )
+    )
+    
+    remove_raster_files(out$ranked_suit_file, must_remove = TRUE)
+    writeRaster(
+      ranked_suit,
+      out$ranked_suit_file,
+      overwrite = TRUE,
+      wopt = list(
+        datatype = "FLT4S",
+        gdal = "COMPRESS=LZW"
+      )
+    )
+    
+    remove_raster_files(out$ranked_summary_file, must_remove = TRUE)
+    writeRaster(
+      ranked_summary,
+      out$ranked_summary_file,
+      overwrite = TRUE,
+      wopt = list(
+        datatype = "FLT4S",
+        gdal = "COMPRESS=LZW"
+      )
+    )
+    
+    output_index[[length(output_index) + 1L]] <- data.table(
+      method = method,
+      scenario = scenario,
+      status = "created",
+      message = NA_character_,
+      n_input_zones = length(zoneID),
+      n_missing_zones = 0L,
+      missing_zones = "",
+      top_k_rank = k_rank,
+      rank_min_suitability = rank_min_suitability,
+      dual_threshold = dual_threshold,
+      ranked_zone_file = out$ranked_zone_file,
+      ranked_suitability_file = out$ranked_suit_file,
+      ranked_summary_file = out$ranked_summary_file
+    )
+    
+    layer_index[[length(layer_index) + 1L]] <- make_layer_index(
+      method,
+      scenario,
+      k_rank,
+      summary_layer_names
+    )
+    
+    cat(
+      "[SAVED]\n",
+      "  ", out$ranked_zone_file, "\n",
+      "  ", out$ranked_suit_file, "\n",
+      "  ", out$ranked_summary_file, "\n",
+      sep = ""
+    )
+    
+    rm(
+      dual_stack,
+      rank_fun,
+      rank_all,
+      ranked_zone,
+      ranked_suit,
+      ranked_summary
+    )
+    
+    gc()
+    remove_raster_files(tmp_rank_all)
+  }, error = function(e) {
+    msg <- conditionMessage(e)
+    
+    cat0("[ERROR] ", method, " | ", scenario)
+    cat0("  ", msg)
+    
+    output_index[[length(output_index) + 1L]] <<- data.table(
+      method = method,
+      scenario = scenario,
+      status = "error",
+      message = msg,
+      n_input_zones = length(zoneID),
+      n_missing_zones = 0L,
+      missing_zones = "",
+      top_k_rank = k_rank,
+      rank_min_suitability = rank_min_suitability,
+      dual_threshold = dual_threshold,
+      ranked_zone_file = out$ranked_zone_file,
+      ranked_suitability_file = out$ranked_suit_file,
+      ranked_summary_file = out$ranked_summary_file
+    )
+    
+    gc()
+  })
 }
 
 # 5. Save index tables ==========================================================
 
 output_index <- rbindlist(output_index, fill = TRUE)
-layer_index <- rbindlist(layer_index, fill = TRUE)
+
+if (length(layer_index) > 0) {
+  layer_index <- rbindlist(layer_index, fill = TRUE)
+} else {
+  layer_index <- data.table(
+    method = character(),
+    scenario = character(),
+    raster_type = character(),
+    layer = integer(),
+    layer_name = character(),
+    rank = integer(),
+    meaning = character()
+  )
+}
 
 setorder(output_index, method, scenario)
 setorder(layer_index, method, scenario, raster_type, layer)
@@ -646,7 +727,11 @@ fwrite(
 cat(
   "\nCOMPLETE\n",
   "Output root: ", output_root, "\n",
-  "Jobs processed: ", nrow(output_index), "\n",
+  "Jobs total: ", nrow(output_index), "\n",
+  "Created: ", output_index[, sum(status == "created")], "\n",
+  "Reused: ", output_index[, sum(status == "reused")], "\n",
+  "Skipped missing input: ", output_index[, sum(status == "skipped_missing_input")], "\n",
+  "Errors: ", output_index[, sum(status == "error")], "\n",
   "Top K ranks saved: ", k_rank, "\n",
   "Rank minimum suitability: ", rank_min_suitability, "\n",
   "Dual threshold: ", dual_threshold, "\n",
