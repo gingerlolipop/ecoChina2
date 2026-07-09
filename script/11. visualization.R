@@ -1235,11 +1235,13 @@ run_step("Table 1 and Figure 1 | One-hot climate/soil binary RF performance", {
   x_all <- x_all[is.finite(x_all)]
   if (length(x_all) == 0) stop("No finite values are available for plotting.")
   
-  # Zoomed range for readability. Current metrics are not expected below 0.4.
-  x_lower <- 0.4
+  # Zoomed range for readability. Figure 1a starts from 0.6 to reduce blank space.
+  x_lower_fig1a <- 0.6
+  x_lower_fig1b <- 0.4
   x_upper <- max(1, ceiling(max(x_all, na.rm = TRUE) / 0.05) * 0.05)
-  if (x_upper <= x_lower) x_upper <- 1
-  x_breaks <- seq(x_lower, x_upper, by = 0.1)
+  if (x_upper <= x_lower_fig1a) x_upper <- 1
+  x_breaks_fig1a <- seq(x_lower_fig1a, x_upper, by = 0.1)
+  x_breaks_fig1b <- seq(x_lower_fig1b, x_upper, by = 0.1)
   
   # Figure 1a: summary means.
   p1 <- ggplot(plot_summary, aes(x = mean, y = metric_label)) +
@@ -1267,13 +1269,13 @@ run_step("Table 1 and Figure 1 | One-hot climate/soil binary RF performance", {
     ) +
     scale_fill_manual(values = niche_cols, guide = "none") +
     scale_x_continuous(
-      limits = c(x_lower, x_upper),
-      breaks = x_breaks,
+      limits = c(x_lower_fig1a, x_upper),
+      breaks = x_breaks_fig1a,
       expand = expansion(mult = c(0.01, 0.02))
     ) +
     labs(
       title = "Figure 1a. One-hot binary RF performance across vegetation zones",
-      subtitle = "Points are means across modeled vegetation zones; horizontal lines show approximate 95% confidence intervals. OOB/Train metrics come from RF training summaries, and Test metrics come from independent balanced test-set assessment. The x-axis is zoomed to the observed performance range for readability.",
+      subtitle = "Points are means across modeled vegetation zones; horizontal lines show approximate 95% confidence intervals. OOB/Train metrics come from RF training summaries, and Test metrics come from independent balanced test-set assessment. Figure 1a starts at 0.6 on the x-axis to reduce blank space and make error bars easier to see.",
       x = "Metric value",
       y = NULL,
       caption = "Modeled zones: 1-7, 9-50, 52-55."
@@ -1339,8 +1341,8 @@ run_step("Table 1 and Figure 1 | One-hot climate/soil binary RF performance", {
     scale_colour_manual(values = zone_cols, guide = "none") +
     scale_fill_manual(values = niche_cols, guide = "none") +
     scale_x_continuous(
-      limits = c(x_lower, x_upper),
-      breaks = x_breaks,
+      limits = c(x_lower_fig1b, x_upper),
+      breaks = x_breaks_fig1b,
       expand = expansion(mult = c(0.01, 0.02))
     ) +
     labs(
@@ -2159,7 +2161,7 @@ run_step("Figure 10a | Binary workflows vs multiclass reference-map F1 compariso
       colour = "grey45",
       linewidth = 0.45
     ) +
-    geom_point(alpha = 0.90) +
+    geom_point(alpha = 0.80) +
     geom_text(
       aes(label = zoneID),
       check_overlap = TRUE,
