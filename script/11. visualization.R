@@ -14,12 +14,15 @@
 #
 # Key outputs:
 #   visualization/tables/Table1_*.csv
+#   visualization/figures/Figure1a_onehot_binary_RF_summary.png
+#   visualization/figures/Figure1b_onehot_binary_RF_zone_level_metrics.png
 #   visualization/figures/Figure1_onehot_binary_RF_OOB_train_test_performance_dotrange.png
 #   visualization/visualization_step_log.csv
 # ============================================================
 
 library(data.table)
 library(ggplot2)
+library(grid)
 
 rm(list = ls())
 gc()
@@ -155,15 +158,36 @@ metric_from_col <- function(x) {
   NA_character_
 }
 
-theme_ms <- function(base_size = 11) {
-  theme_bw(base_size = base_size) +
+default_zone_colors <- function(vals) {
+  vals <- sort(unique(as.integer(vals)))
+  vals <- vals[!is.na(vals)]
+  cols <- grDevices::hcl.colors(length(vals), palette = "Dark 3")
+  names(cols) <- as.character(vals)
+  cols
+}
+
+zone_color_vector <- function(vals = model_zoneID) {
+  cols <- default_zone_colors(vals)
+  cols[as.character(vals)]
+}
+
+theme_fig1 <- function(base_size = 11) {
+  theme_minimal(base_size = base_size) +
     theme(
       panel.grid.minor = element_blank(),
-      strip.background = element_rect(fill = "grey92", colour = "grey70"),
-      strip.text = element_text(face = "bold"),
-      plot.title = element_text(face = "bold"),
+      panel.grid.major.y = element_blank(),
+      panel.grid.major.x = element_line(colour = "grey88", linewidth = 0.35),
+      strip.background = element_rect(fill = "grey95", colour = "grey78", linewidth = 0.5),
+      strip.text = element_text(face = "bold", colour = "grey15"),
       axis.text = element_text(colour = "grey20"),
-      legend.title = element_text(face = "bold")
+      axis.title = element_text(colour = "grey10", face = "bold"),
+      plot.title = element_text(face = "bold", size = rel(1.18), colour = "grey10"),
+      plot.subtitle = element_text(colour = "grey20"),
+      plot.caption = element_text(colour = "grey35", size = rel(0.88)),
+      legend.title = element_text(face = "bold"),
+      panel.spacing.x = unit(0.42, "lines"),
+      panel.spacing.y = unit(0.42, "lines"),
+      plot.margin = margin(8, 10, 8, 8)
     )
 }
 
@@ -468,7 +492,7 @@ make_binary_rf_table1 <- function() {
     ci95_high = mean + 1.96 * se
   )]
   
-  # All Figure 1 metrics are bounded by 0 and 1, except TSS.
+  # Most Figure 1 metrics are bounded by 0 and 1. TSS can be negative.
   summary_long[!grepl("TSS", metric), `:=`(
     ci95_low = pmax(ci95_low, 0),
     ci95_high = pmin(ci95_high, 1)
@@ -484,7 +508,7 @@ make_binary_rf_table1 <- function() {
 
 # 3. Table 1 support files + Figure 1 ==========================================
 
-run_step("Figure 1 | One-hot binary RF performance dot-range panels", {
+run_step("Figure 1 | One-hot binary RF summary and zone-level panels", {
   tbl <- make_binary_rf_table1()
   long <- tbl$long
   summary_long <- tbl$summary_long
@@ -535,18 +559,9 @@ run_step("Figure 1 | One-hot binary RF performance dot-range panels", {
   fwrite(table_main, main_file)
   cat0("[SAVED] ", main_file)
   
-  plot_dt <- copy(summary_long)
-  plot_dt <- plot_dt[
-    grepl("^(OOB|Train|Test)", metric) &
-      !grepl("error|threshold", metric, ignore.case = TRUE)
-  ]
-  
-  if (nrow(plot_dt) == 0) {
-    stop("No OOB/Train/Test metrics found.")
-  }
-  
-  plot_dt[, eval_set := sub(" .*", "", metric)]
-  plot_dt[, metric_name := sub("^(OOB|Train|Test) ", "", metric)]
+  # -----------------------------------------------------------------------------
+  # Shared plotting data preparation
+  # -----------------------------------------------------------------------------
   
   metric_label_map <- c(
     "accuracy" = "Accuracy",
@@ -570,65 +585,195 @@ run_step("Figure 1 | One-hot binary RF performance dot-range panels", {
     "TSS"
   )
   
-  plot_dt[, metric_label := unname(metric_label_map[metric_name])]
-  plot_dt <- plot_dt[!is.na(metric_label)]
+  plot_summary <- copy(summary_long)
+  plot_summary <- plot_summary[
+    grepl("^(OOB|Train|Test)", metric) &
+      !grepl("error|threshold", metric, ignore.case = TRUE)
+  ]
   
-  if (nrow(plot_dt) == 0) {
+  if (nrow(plot_summary) == 0) {
+    stop("No OOB/Train/Test metrics found.")
+  }
+  
+  plot_summary[, eval_set := sub(" .*", "", metric)]
+  plot_summary[, metric_name := sub("^(OOB|Train|Test) ", "", metric)]
+  plot_summary[, metric_label := unname(metric_label_map[metric_name])]
+  plot_summary <- plot_summary[!is.na(metric_label)]
+  
+  if (nrow(plot_summary) == 0) {
     stop("No supported Figure 1 metrics found.")
   }
   
-  plot_dt[, metric_label := factor(metric_label, levels = rev(metric_levels))]
-  plot_dt[, eval_set := factor(eval_set, levels = c("OOB", "Train", "Test"))]
-  plot_dt[, workflow := factor(workflow, levels = workflow_order)]
-  plot_dt[, workflow_label := factor(
+  plot_summary[, metric_label := factor(metric_label, levels = rev(metric_levels))]
+  plot_summary[, eval_set := factor(eval_set, levels = c("OOB", "Train", "Test"))]
+  plot_summary[, workflow := factor(workflow, levels = workflow_order)]
+  plot_summary[, workflow_label := factor(
     workflow_labels[as.character(workflow)],
     levels = workflow_labels[workflow_order]
   )]
-  plot_dt[, niche_type := factor(niche_type, levels = c("climate", "soil"))]
+  plot_summary[, niche_type := factor(niche_type, levels = c("climate", "soil"))]
   
-  p <- ggplot(plot_dt, aes(x = mean, y = metric_label, colour = niche_type)) +
+  plot_zone <- copy(long)
+  plot_zone <- plot_zone[
+    grepl("^(OOB|Train|Test)", metric) &
+      !grepl("error|threshold", metric, ignore.case = TRUE)
+  ]
+  plot_zone[, eval_set := sub(" .*", "", metric)]
+  plot_zone[, metric_name := sub("^(OOB|Train|Test) ", "", metric)]
+  plot_zone[, metric_label := unname(metric_label_map[metric_name])]
+  plot_zone <- plot_zone[!is.na(metric_label)]
+  plot_zone[, metric_label := factor(metric_label, levels = rev(metric_levels))]
+  plot_zone[, eval_set := factor(eval_set, levels = c("OOB", "Train", "Test"))]
+  plot_zone[, workflow := factor(workflow, levels = workflow_order)]
+  plot_zone[, workflow_label := factor(
+    workflow_labels[as.character(workflow)],
+    levels = workflow_labels[workflow_order]
+  )]
+  plot_zone[, niche_type := factor(niche_type, levels = c("climate", "soil"))]
+  plot_zone[, zoneID_chr := factor(as.character(zoneID), levels = as.character(model_zoneID))]
+  
+  zone_cols <- zone_color_vector(model_zoneID)
+  
+  x_all <- c(
+    plot_zone$value,
+    plot_summary$ci95_low,
+    plot_summary$ci95_high,
+    plot_summary$mean
+  )
+  x_all <- x_all[is.finite(x_all)]
+  if (length(x_all) == 0) stop("No finite values are available for plotting.")
+  
+  x_lower <- min(x_all, na.rm = TRUE)
+  x_upper <- max(x_all, na.rm = TRUE)
+  x_lower <- min(0, floor(x_lower / 0.1) * 0.1)
+  x_upper <- max(1, ceiling(x_upper / 0.1) * 0.1)
+  if (x_upper <= x_lower) x_upper <- x_lower + 1
+  x_breaks <- pretty(c(x_lower, x_upper), n = 6)
+  
+  # -----------------------------------------------------------------------------
+  # Figure 1a: workflow-level summary
+  # -----------------------------------------------------------------------------
+  
+  p1 <- ggplot(plot_summary, aes(x = mean, y = metric_label)) +
     geom_segment(
       aes(x = ci95_low, xend = ci95_high, yend = metric_label),
-      linewidth = 0.6,
-      alpha = 0.8,
+      linewidth = 0.9,
+      colour = "grey35",
+      alpha = 0.95,
       na.rm = TRUE
     ) +
-    geom_point(size = 2.2, na.rm = TRUE) +
+    geom_point(
+      aes(fill = niche_type),
+      shape = 21,
+      size = 2.8,
+      stroke = 0.35,
+      colour = "grey12",
+      na.rm = TRUE
+    ) +
     facet_grid(
       niche_type + eval_set ~ workflow_label,
       scales = "free_y",
-      space = "free_y"
+      space = "free_y",
+      switch = "y"
     ) +
-    scale_colour_manual(values = niche_cols, guide = "none") +
+    scale_fill_manual(values = niche_cols, guide = "none") +
     scale_x_continuous(
-      limits = c(0, 1.02),
-      breaks = seq(0, 1, by = 0.2),
+      limits = c(x_lower, x_upper),
+      breaks = x_breaks,
       expand = expansion(mult = c(0.01, 0.02))
     ) +
     labs(
-      title = "One-hot binary RF performance across vegetation zones",
-      subtitle = "OOB/Train accuracy comes from RF training summaries; Test metrics come from independent balanced test-set assessment.",
-      x = "Mean metric value",
-      y = NULL
+      title = "Figure 1a. One-hot binary RF performance across vegetation zones",
+      subtitle = "Points are means across modeled vegetation zones; horizontal lines show approximate 95% confidence intervals. OOB/Train metrics come from RF training summaries, and Test metrics come from independent balanced test-set assessment.",
+      x = "Metric value",
+      y = NULL,
+      caption = "Modeled zones: 1-7, 9-50, 52-55."
     ) +
-    theme_ms(base_size = 10) +
+    theme_fig1(base_size = 10.2) +
     theme(
-      panel.grid.major.y = element_blank(),
-      panel.grid.minor = element_blank(),
-      axis.text.x = element_text(size = 8),
-      axis.text.y = element_text(size = 8),
-      strip.text = element_text(size = 9)
+      axis.text.x = element_text(size = 8.5),
+      axis.text.y = element_text(size = 8.6),
+      strip.text.x = element_text(size = 9.6),
+      strip.text.y = element_text(size = 9.1),
+      axis.ticks.y = element_blank()
     )
   
+  fig1a_file <- file.path(fig_dir, "Figure1a_onehot_binary_RF_summary.png")
+  save_gg(p1, fig1a_file, width = 13.5, height = 9.6)
+  
+  # Keep the original Figure 1 filename for backward compatibility.
   save_gg(
-    p,
+    p1,
     file.path(fig_dir, "Figure1_onehot_binary_RF_OOB_train_test_performance_dotrange.png"),
     width = 13.5,
-    height = 9.5
+    height = 9.6
   )
+  
+  # -----------------------------------------------------------------------------
+  # Figure 1b: zone-level variation
+  # -----------------------------------------------------------------------------
+  
+  p2 <- ggplot(plot_zone, aes(x = value, y = metric_label)) +
+    geom_point(
+      aes(colour = zoneID_chr),
+      position = position_jitter(width = 0, height = 0.13),
+      size = 1.1,
+      alpha = 0.60,
+      stroke = 0,
+      show.legend = FALSE
+    ) +
+    geom_segment(
+      data = plot_summary,
+      aes(x = ci95_low, xend = ci95_high, y = metric_label, yend = metric_label),
+      inherit.aes = FALSE,
+      linewidth = 0.8,
+      colour = "grey15",
+      alpha = 0.95
+    ) +
+    geom_point(
+      data = plot_summary,
+      aes(x = mean, y = metric_label, fill = niche_type),
+      inherit.aes = FALSE,
+      shape = 23,
+      size = 2.35,
+      stroke = 0.35,
+      colour = "grey10",
+      show.legend = FALSE
+    ) +
+    facet_grid(
+      niche_type + eval_set ~ workflow_label,
+      scales = "free_y",
+      space = "free_y",
+      switch = "y"
+    ) +
+    scale_colour_manual(values = zone_cols, guide = "none") +
+    scale_fill_manual(values = niche_cols, guide = "none") +
+    scale_x_continuous(
+      limits = c(x_lower, x_upper),
+      breaks = x_breaks,
+      expand = expansion(mult = c(0.01, 0.02))
+    ) +
+    labs(
+      title = "Figure 1b. Zone-level variation in one-hot binary RF performance",
+      subtitle = "Small points are individual vegetation zones. Diamonds and horizontal lines show the corresponding mean and approximate 95% confidence interval across zones.",
+      x = "Metric value",
+      y = NULL,
+      caption = "Each point represents one modeled vegetation zone."
+    ) +
+    theme_fig1(base_size = 10.0) +
+    theme(
+      axis.text.x = element_text(size = 8.3),
+      axis.text.y = element_text(size = 8.4),
+      strip.text.x = element_text(size = 9.5),
+      strip.text.y = element_text(size = 9.0),
+      axis.ticks.y = element_blank()
+    )
+  
+  fig1b_file <- file.path(fig_dir, "Figure1b_onehot_binary_RF_zone_level_metrics.png")
+  save_gg(p2, fig1b_file, width = 13.5, height = 10.4)
 })
 
-# 4. Save step log ==============================================================
+# 4. Save step log ============================================================== 
 
 cat0("\n============================================================")
 cat0("SAVE VISUALIZATION STEP LOG")
