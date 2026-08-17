@@ -1,0 +1,5 @@
+method,model_family,model_version,map_threshold_in_filename,valid_original_pixels,compared_pixels,missing_predictions,coverage,exact_accuracy,prediction_file
+plain_rf,single RF,original,0.2,12627345,12393826,233519,0.981506880504176,0.602834185343574,H:/Jing/ecoChina2/result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+rf_var,single RF,corrected,0.4,12627345,12393826,233519,0.981506880504176,0.60266579504989,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_normal_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+plain_mf,multi-Forest,original,0.2,12627345,12393826,233519,0.981506880504176,0.603274404530127,H:/Jing/ecoChina2/result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,multi-Forest,corrected,0.4,12627345,12393826,233519,0.981506880504176,0.602434228139075,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_normal_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif

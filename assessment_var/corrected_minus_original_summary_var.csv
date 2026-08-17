@@ -1,0 +1,3 @@
+model_family,original_method,corrected_method,delta_mean_n_variables,delta_mean_balanced_accuracy,delta_mean_f1,delta_mean_auc,delta_normal_exact_accuracy,delta_normal_coverage
+single RF,plain_rf,rf_var,-48,0.000485608241659996,0.000478557386981104,0.000127453847738157,-0.000168390293683318,0
+multi-Forest,plain_mf,mf_var,-48,0.000524136752810933,0.000516689272082038,0.000128001597170302,-0.000840176391051384,0

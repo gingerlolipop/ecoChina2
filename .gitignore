@@ -5,3 +5,15 @@ data clean/
 .DS_Store
 .Rproj.user
 .positai
+accuracy*
+.RData
+.Rhistory
+clim suit*
+data/
+dual suit*
+ecoChina2.Rproj
+future*
+rf*
+soil suit*
+tmp*
+species_*

@@ -1,0 +1,12 @@
+category2,first_zone,COLOR,display_label
+cropland,1,#FFD23F,Cropland
+forest,2,#005A32,Forest
+wetland,4,#00B4D8,Wetland
+grassland_meadow_steppe,5,#B8DE29,"Grassland,
+meadow & steppe"
+scrub,7,#C77DFF,Scrub
+alpine_vegetation,17,#A2D2FF,"Alpine
+vegetation"
+no_vegetation,19,#E0E0E0,"No
+vegetation"
+desert,23,#B5651D,Desert
