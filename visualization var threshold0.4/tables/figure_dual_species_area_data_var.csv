@@ -1,0 +1,241 @@
+Species,method,scenario,area_metric,area_value,period,ssp,method_label,area_metric_label
+chamFor,mf_var,2011-2040SSP245,suitable_area_km2,2532989.29141394,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+chamFor,mf_var,2011-2040SSP585,suitable_area_km2,2546796.92076828,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+chamFor,mf_var,2041-2070SSP245,suitable_area_km2,2632184.54714302,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+chamFor,mf_var,2041-2070SSP585,suitable_area_km2,2680350.01657618,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+chamFor,mf_var,2071-2100SSP245,suitable_area_km2,2698443.15622645,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+chamFor,mf_var,2071-2100SSP585,suitable_area_km2,2728828.80849517,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+chamFor,rf_var,2011-2040SSP245,suitable_area_km2,2539633.51281685,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+chamFor,rf_var,2011-2040SSP585,suitable_area_km2,2551947.7991389,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+chamFor,rf_var,2041-2070SSP245,suitable_area_km2,2637641.49033028,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+chamFor,rf_var,2041-2070SSP585,suitable_area_km2,2685160.72809512,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+chamFor,rf_var,2071-2100SSP245,suitable_area_km2,2702346.37016694,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+chamFor,rf_var,2071-2100SSP585,suitable_area_km2,2731005.62169828,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+cyclLon,mf_var,2011-2040SSP245,suitable_area_km2,2349468.86298131,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+cyclLon,mf_var,2011-2040SSP585,suitable_area_km2,2366150.31645228,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+cyclLon,mf_var,2041-2070SSP245,suitable_area_km2,2516767.76943591,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+cyclLon,mf_var,2041-2070SSP585,suitable_area_km2,2581917.83535084,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+cyclLon,mf_var,2071-2100SSP245,suitable_area_km2,2600074.95520825,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+cyclLon,mf_var,2071-2100SSP585,suitable_area_km2,2654311.84408272,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+cyclLon,rf_var,2011-2040SSP245,suitable_area_km2,2356218.08191445,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+cyclLon,rf_var,2011-2040SSP585,suitable_area_km2,2372806.95385846,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+cyclLon,rf_var,2041-2070SSP245,suitable_area_km2,2522361.74584711,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+cyclLon,rf_var,2041-2070SSP585,suitable_area_km2,2586843.31414425,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+cyclLon,rf_var,2071-2100SSP245,suitable_area_km2,2604046.46328454,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+cyclLon,rf_var,2071-2100SSP585,suitable_area_km2,2657027.86450977,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+lariGme,mf_var,2011-2040SSP245,suitable_area_km2,2037328.30988742,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+lariGme,mf_var,2011-2040SSP585,suitable_area_km2,2020692.65556033,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+lariGme,mf_var,2041-2070SSP245,suitable_area_km2,1833970.60094567,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+lariGme,mf_var,2041-2070SSP585,suitable_area_km2,1699216.78383471,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+lariGme,mf_var,2071-2100SSP245,suitable_area_km2,1699718.94450117,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+lariGme,mf_var,2071-2100SSP585,suitable_area_km2,1376959.70940697,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+lariGme,rf_var,2011-2040SSP245,suitable_area_km2,2038404.19754478,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+lariGme,rf_var,2011-2040SSP585,suitable_area_km2,2019558.35149556,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+lariGme,rf_var,2041-2070SSP245,suitable_area_km2,1841308.88800911,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+lariGme,rf_var,2041-2070SSP585,suitable_area_km2,1704611.33443994,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+lariGme,rf_var,2071-2100SSP245,suitable_area_km2,1700391.48481695,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+lariGme,rf_var,2071-2100SSP585,suitable_area_km2,1386669.86030207,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+lariOlg,mf_var,2011-2040SSP245,suitable_area_km2,2446380.54789209,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+lariOlg,mf_var,2011-2040SSP585,suitable_area_km2,2434888.69421832,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+lariOlg,mf_var,2041-2070SSP245,suitable_area_km2,2350814.61669731,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+lariOlg,mf_var,2041-2070SSP585,suitable_area_km2,2273356.95973223,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+lariOlg,mf_var,2071-2100SSP245,suitable_area_km2,2277068.55826384,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+lariOlg,mf_var,2071-2100SSP585,suitable_area_km2,2070761.93031702,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+lariOlg,rf_var,2011-2040SSP245,suitable_area_km2,2460552.79085346,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+lariOlg,rf_var,2011-2040SSP585,suitable_area_km2,2448698.7721465,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+lariOlg,rf_var,2041-2070SSP245,suitable_area_km2,2339808.12528129,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+lariOlg,rf_var,2041-2070SSP585,suitable_area_km2,2256425.76539736,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+lariOlg,rf_var,2071-2100SSP245,suitable_area_km2,2253511.31105036,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+lariOlg,rf_var,2071-2100SSP585,suitable_area_km2,2076915.05786378,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+phylPub,mf_var,2011-2040SSP245,suitable_area_km2,2506508.15528307,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+phylPub,mf_var,2011-2040SSP585,suitable_area_km2,2517654.30833348,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+phylPub,mf_var,2041-2070SSP245,suitable_area_km2,2553693.67598862,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+phylPub,mf_var,2041-2070SSP585,suitable_area_km2,2571334.90392977,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+phylPub,mf_var,2071-2100SSP245,suitable_area_km2,2586477.07684084,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+phylPub,mf_var,2071-2100SSP585,suitable_area_km2,2616112.8381107,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+phylPub,rf_var,2011-2040SSP245,suitable_area_km2,2506865.76447525,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+phylPub,rf_var,2011-2040SSP585,suitable_area_km2,2517310.3256016,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+phylPub,rf_var,2041-2070SSP245,suitable_area_km2,2549811.2612459,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+phylPub,rf_var,2041-2070SSP585,suitable_area_km2,2568852.44758817,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+phylPub,rf_var,2071-2100SSP245,suitable_area_km2,2581968.41475028,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+phylPub,rf_var,2071-2100SSP585,suitable_area_km2,2620685.33373337,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+pinuSyl,mf_var,2011-2040SSP245,suitable_area_km2,2178779.89803193,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+pinuSyl,mf_var,2011-2040SSP585,suitable_area_km2,2171408.42546355,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+pinuSyl,mf_var,2041-2070SSP245,suitable_area_km2,2105758.94380295,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+pinuSyl,mf_var,2041-2070SSP585,suitable_area_km2,2029467.61619864,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+pinuSyl,mf_var,2071-2100SSP245,suitable_area_km2,2022278.27195988,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+pinuSyl,mf_var,2071-2100SSP585,suitable_area_km2,1756021.08359596,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+pinuSyl,rf_var,2011-2040SSP245,suitable_area_km2,2192205.91999094,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+pinuSyl,rf_var,2011-2040SSP585,suitable_area_km2,2183704.06953644,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+pinuSyl,rf_var,2041-2070SSP245,suitable_area_km2,2108715.65382377,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+pinuSyl,rf_var,2041-2070SSP585,suitable_area_km2,2023314.4597166,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+pinuSyl,rf_var,2071-2100SSP245,suitable_area_km2,2018109.62685905,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+pinuSyl,rf_var,2071-2100SSP585,suitable_area_km2,1771981.25749677,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+pinuYun,mf_var,2011-2040SSP245,suitable_area_km2,4893790.30559452,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+pinuYun,mf_var,2011-2040SSP585,suitable_area_km2,4902270.41608545,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+pinuYun,mf_var,2041-2070SSP245,suitable_area_km2,4876075.34312934,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+pinuYun,mf_var,2041-2070SSP585,suitable_area_km2,4774370.01518607,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+pinuYun,mf_var,2071-2100SSP245,suitable_area_km2,4762370.80887006,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+pinuYun,mf_var,2071-2100SSP585,suitable_area_km2,4556999.26332719,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+pinuYun,rf_var,2011-2040SSP245,suitable_area_km2,4889675.22940532,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+pinuYun,rf_var,2011-2040SSP585,suitable_area_km2,4896334.64004868,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+pinuYun,rf_var,2041-2070SSP245,suitable_area_km2,4860695.30760246,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+pinuYun,rf_var,2041-2070SSP585,suitable_area_km2,4778999.20902774,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+pinuYun,rf_var,2071-2100SSP245,suitable_area_km2,4770680.22044618,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+pinuYun,rf_var,2071-2100SSP585,suitable_area_km2,4566138.1301114,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+querVar,mf_var,2011-2040SSP245,suitable_area_km2,5186723.31900267,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+querVar,mf_var,2011-2040SSP585,suitable_area_km2,5187158.87618437,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+querVar,mf_var,2041-2070SSP245,suitable_area_km2,5091053.58200681,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+querVar,mf_var,2041-2070SSP585,suitable_area_km2,4986317.58013377,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+querVar,mf_var,2071-2100SSP245,suitable_area_km2,4988185.19557311,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+querVar,mf_var,2071-2100SSP585,suitable_area_km2,4722414.72749874,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+querVar,rf_var,2011-2040SSP245,suitable_area_km2,5201078.75369929,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+querVar,rf_var,2011-2040SSP585,suitable_area_km2,5197476.43308264,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+querVar,rf_var,2041-2070SSP245,suitable_area_km2,5082620.60258627,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+querVar,rf_var,2041-2070SSP585,suitable_area_km2,4986250.02331268,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+querVar,rf_var,2071-2100SSP245,suitable_area_km2,4989164.00530041,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+querVar,rf_var,2071-2100SSP585,suitable_area_km2,4738170.3436616,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+robiPse,mf_var,2011-2040SSP245,suitable_area_km2,2590158.05831455,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+robiPse,mf_var,2011-2040SSP585,suitable_area_km2,2580088.50640626,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+robiPse,mf_var,2041-2070SSP245,suitable_area_km2,2483590.80060673,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+robiPse,mf_var,2041-2070SSP585,suitable_area_km2,2402665.87579576,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+robiPse,mf_var,2071-2100SSP245,suitable_area_km2,2404685.21263869,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+robiPse,mf_var,2071-2100SSP585,suitable_area_km2,2165976.37434895,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+robiPse,rf_var,2011-2040SSP245,suitable_area_km2,2604784.62595938,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+robiPse,rf_var,2011-2040SSP585,suitable_area_km2,2594390.00863525,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+robiPse,rf_var,2041-2070SSP245,suitable_area_km2,2485566.94256569,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+robiPse,rf_var,2041-2070SSP585,suitable_area_km2,2397953.91976102,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+robiPse,rf_var,2071-2100SSP245,suitable_area_km2,2395943.43715589,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+robiPse,rf_var,2071-2100SSP585,suitable_area_km2,2180068.38930768,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+saliMat,mf_var,2011-2040SSP245,suitable_area_km2,1846458.63995657,2011-2040,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+saliMat,mf_var,2011-2040SSP585,suitable_area_km2,1847603.424646,2011-2040,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+saliMat,mf_var,2041-2070SSP245,suitable_area_km2,1831882.63551363,2041-2070,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+saliMat,mf_var,2041-2070SSP585,suitable_area_km2,1771532.15831576,2041-2070,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+saliMat,mf_var,2071-2100SSP245,suitable_area_km2,1784456.72300074,2071-2100,SSP245,Plain MF RF,Area with dual suitability >= 0.4
+saliMat,mf_var,2071-2100SSP585,suitable_area_km2,1591676.32266419,2071-2100,SSP585,Plain MF RF,Area with dual suitability >= 0.4
+saliMat,rf_var,2011-2040SSP245,suitable_area_km2,1869730.88861071,2011-2040,SSP245,Plain RF,Area with dual suitability >= 0.4
+saliMat,rf_var,2011-2040SSP585,suitable_area_km2,1869046.09188963,2011-2040,SSP585,Plain RF,Area with dual suitability >= 0.4
+saliMat,rf_var,2041-2070SSP245,suitable_area_km2,1840214.43485624,2041-2070,SSP245,Plain RF,Area with dual suitability >= 0.4
+saliMat,rf_var,2041-2070SSP585,suitable_area_km2,1763610.84462451,2041-2070,SSP585,Plain RF,Area with dual suitability >= 0.4
+saliMat,rf_var,2071-2100SSP245,suitable_area_km2,1772613.33838705,2071-2100,SSP245,Plain RF,Area with dual suitability >= 0.4
+saliMat,rf_var,2071-2100SSP585,suitable_area_km2,1597302.63926742,2071-2100,SSP585,Plain RF,Area with dual suitability >= 0.4
+chamFor,mf_var,2011-2040SSP245,suitability_weighted_area_km2,2102663.57921769,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+chamFor,mf_var,2011-2040SSP585,suitability_weighted_area_km2,2090905.76665587,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+chamFor,mf_var,2041-2070SSP245,suitability_weighted_area_km2,2085379.30040621,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+chamFor,mf_var,2041-2070SSP585,suitability_weighted_area_km2,2087588.25418609,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+chamFor,mf_var,2071-2100SSP245,suitability_weighted_area_km2,2087434.85113433,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+chamFor,mf_var,2071-2100SSP585,suitability_weighted_area_km2,2040384.70677761,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+chamFor,rf_var,2011-2040SSP245,suitability_weighted_area_km2,2104044.85803298,2011-2040,SSP245,Plain RF,Suitability-weighted area
+chamFor,rf_var,2011-2040SSP585,suitability_weighted_area_km2,2093105.77832173,2011-2040,SSP585,Plain RF,Suitability-weighted area
+chamFor,rf_var,2041-2070SSP245,suitability_weighted_area_km2,2090299.15276902,2041-2070,SSP245,Plain RF,Suitability-weighted area
+chamFor,rf_var,2041-2070SSP585,suitability_weighted_area_km2,2089953.97413737,2041-2070,SSP585,Plain RF,Suitability-weighted area
+chamFor,rf_var,2071-2100SSP245,suitability_weighted_area_km2,2088890.16179825,2071-2100,SSP245,Plain RF,Suitability-weighted area
+chamFor,rf_var,2071-2100SSP585,suitability_weighted_area_km2,2044830.32634648,2071-2100,SSP585,Plain RF,Suitability-weighted area
+cyclLon,mf_var,2011-2040SSP245,suitability_weighted_area_km2,1942969.85168484,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+cyclLon,mf_var,2011-2040SSP585,suitability_weighted_area_km2,1937324.43058089,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+cyclLon,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1979508.34362022,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+cyclLon,mf_var,2041-2070SSP585,suitability_weighted_area_km2,2005394.63353014,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+cyclLon,mf_var,2071-2100SSP245,suitability_weighted_area_km2,2008986.64383584,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+cyclLon,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1993073.84392388,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+cyclLon,rf_var,2011-2040SSP245,suitability_weighted_area_km2,1943838.41478888,2011-2040,SSP245,Plain RF,Suitability-weighted area
+cyclLon,rf_var,2011-2040SSP585,suitability_weighted_area_km2,1938831.35658741,2011-2040,SSP585,Plain RF,Suitability-weighted area
+cyclLon,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1984049.64503189,2041-2070,SSP245,Plain RF,Suitability-weighted area
+cyclLon,rf_var,2041-2070SSP585,suitability_weighted_area_km2,2007745.9588587,2041-2070,SSP585,Plain RF,Suitability-weighted area
+cyclLon,rf_var,2071-2100SSP245,suitability_weighted_area_km2,2010355.31050026,2071-2100,SSP245,Plain RF,Suitability-weighted area
+cyclLon,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1997543.59932919,2071-2100,SSP585,Plain RF,Suitability-weighted area
+lariGme,mf_var,2011-2040SSP245,suitability_weighted_area_km2,1727229.91382033,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+lariGme,mf_var,2011-2040SSP585,suitability_weighted_area_km2,1710041.54273587,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+lariGme,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1571418.39703668,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+lariGme,mf_var,2041-2070SSP585,suitability_weighted_area_km2,1481978.34126058,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+lariGme,mf_var,2071-2100SSP245,suitability_weighted_area_km2,1474657.91618629,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+lariGme,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1295687.32693319,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+lariGme,rf_var,2011-2040SSP245,suitability_weighted_area_km2,1731763.90852028,2011-2040,SSP245,Plain RF,Suitability-weighted area
+lariGme,rf_var,2011-2040SSP585,suitability_weighted_area_km2,1713996.85916372,2011-2040,SSP585,Plain RF,Suitability-weighted area
+lariGme,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1573878.72123965,2041-2070,SSP245,Plain RF,Suitability-weighted area
+lariGme,rf_var,2041-2070SSP585,suitability_weighted_area_km2,1480814.47026387,2041-2070,SSP585,Plain RF,Suitability-weighted area
+lariGme,rf_var,2071-2100SSP245,suitability_weighted_area_km2,1472342.3196299,2071-2100,SSP245,Plain RF,Suitability-weighted area
+lariGme,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1289663.65666487,2071-2100,SSP585,Plain RF,Suitability-weighted area
+lariOlg,mf_var,2011-2040SSP245,suitability_weighted_area_km2,1992947.8094458,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+lariOlg,mf_var,2011-2040SSP585,suitability_weighted_area_km2,1969718.23071175,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+lariOlg,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1813592.05802742,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+lariOlg,mf_var,2041-2070SSP585,suitability_weighted_area_km2,1718539.11866969,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+lariOlg,mf_var,2071-2100SSP245,suitability_weighted_area_km2,1713606.04714943,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+lariOlg,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1546187.76006312,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+lariOlg,rf_var,2011-2040SSP245,suitability_weighted_area_km2,2001088.12698969,2011-2040,SSP245,Plain RF,Suitability-weighted area
+lariOlg,rf_var,2011-2040SSP585,suitability_weighted_area_km2,1976848.54273727,2011-2040,SSP585,Plain RF,Suitability-weighted area
+lariOlg,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1818444.375384,2041-2070,SSP245,Plain RF,Suitability-weighted area
+lariOlg,rf_var,2041-2070SSP585,suitability_weighted_area_km2,1720994.35356649,2041-2070,SSP585,Plain RF,Suitability-weighted area
+lariOlg,rf_var,2071-2100SSP245,suitability_weighted_area_km2,1715122.5576618,2071-2100,SSP245,Plain RF,Suitability-weighted area
+lariOlg,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1551745.24095317,2071-2100,SSP585,Plain RF,Suitability-weighted area
+phylPub,mf_var,2011-2040SSP245,suitability_weighted_area_km2,2085072.69189647,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+phylPub,mf_var,2011-2040SSP585,suitability_weighted_area_km2,2073946.03807173,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+phylPub,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1981393.59083234,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+phylPub,mf_var,2041-2070SSP585,suitability_weighted_area_km2,1944406.79771648,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+phylPub,mf_var,2071-2100SSP245,suitability_weighted_area_km2,1938965.34793361,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+phylPub,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1858114.24642139,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+phylPub,rf_var,2011-2040SSP245,suitability_weighted_area_km2,2087792.18652852,2011-2040,SSP245,Plain RF,Suitability-weighted area
+phylPub,rf_var,2011-2040SSP585,suitability_weighted_area_km2,2076376.71145453,2011-2040,SSP585,Plain RF,Suitability-weighted area
+phylPub,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1981781.22788207,2041-2070,SSP245,Plain RF,Suitability-weighted area
+phylPub,rf_var,2041-2070SSP585,suitability_weighted_area_km2,1943568.04954435,2041-2070,SSP585,Plain RF,Suitability-weighted area
+phylPub,rf_var,2071-2100SSP245,suitability_weighted_area_km2,1937677.5887472,2071-2100,SSP245,Plain RF,Suitability-weighted area
+phylPub,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1855825.269958,2071-2100,SSP585,Plain RF,Suitability-weighted area
+pinuSyl,mf_var,2011-2040SSP245,suitability_weighted_area_km2,1743856.22990033,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+pinuSyl,mf_var,2011-2040SSP585,suitability_weighted_area_km2,1723113.27304745,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+pinuSyl,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1599006.78208255,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+pinuSyl,mf_var,2041-2070SSP585,suitability_weighted_area_km2,1525486.13369207,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+pinuSyl,mf_var,2071-2100SSP245,suitability_weighted_area_km2,1517106.47815627,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+pinuSyl,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1369795.12830816,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+pinuSyl,rf_var,2011-2040SSP245,suitability_weighted_area_km2,1750870.92895663,2011-2040,SSP245,Plain RF,Suitability-weighted area
+pinuSyl,rf_var,2011-2040SSP585,suitability_weighted_area_km2,1729908.23865314,2011-2040,SSP585,Plain RF,Suitability-weighted area
+pinuSyl,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1601495.78115918,2041-2070,SSP245,Plain RF,Suitability-weighted area
+pinuSyl,rf_var,2041-2070SSP585,suitability_weighted_area_km2,1527318.17618729,2041-2070,SSP585,Plain RF,Suitability-weighted area
+pinuSyl,rf_var,2071-2100SSP245,suitability_weighted_area_km2,1519276.2784994,2071-2100,SSP245,Plain RF,Suitability-weighted area
+pinuSyl,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1377185.42290601,2071-2100,SSP585,Plain RF,Suitability-weighted area
+pinuYun,mf_var,2011-2040SSP245,suitability_weighted_area_km2,4206461.45875606,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+pinuYun,mf_var,2011-2040SSP585,suitability_weighted_area_km2,4187413.27723213,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+pinuYun,mf_var,2041-2070SSP245,suitability_weighted_area_km2,4105531.43746847,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+pinuYun,mf_var,2041-2070SSP585,suitability_weighted_area_km2,4016245.3139629,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+pinuYun,mf_var,2071-2100SSP245,suitability_weighted_area_km2,3996258.41624059,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+pinuYun,mf_var,2071-2100SSP585,suitability_weighted_area_km2,3794961.49527456,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+pinuYun,rf_var,2011-2040SSP245,suitability_weighted_area_km2,4213109.75768622,2011-2040,SSP245,Plain RF,Suitability-weighted area
+pinuYun,rf_var,2011-2040SSP585,suitability_weighted_area_km2,4194064.89921485,2011-2040,SSP585,Plain RF,Suitability-weighted area
+pinuYun,rf_var,2041-2070SSP245,suitability_weighted_area_km2,4106458.06740249,2041-2070,SSP245,Plain RF,Suitability-weighted area
+pinuYun,rf_var,2041-2070SSP585,suitability_weighted_area_km2,4015289.1230699,2041-2070,SSP585,Plain RF,Suitability-weighted area
+pinuYun,rf_var,2071-2100SSP245,suitability_weighted_area_km2,3995674.33181894,2071-2100,SSP245,Plain RF,Suitability-weighted area
+pinuYun,rf_var,2071-2100SSP585,suitability_weighted_area_km2,3792848.5492081,2071-2100,SSP585,Plain RF,Suitability-weighted area
+querVar,mf_var,2011-2040SSP245,suitability_weighted_area_km2,4207089.41982477,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+querVar,mf_var,2011-2040SSP585,suitability_weighted_area_km2,4166610.29644365,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+querVar,mf_var,2041-2070SSP245,suitability_weighted_area_km2,3887245.92096167,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+querVar,mf_var,2041-2070SSP585,suitability_weighted_area_km2,3732715.44490255,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+querVar,mf_var,2071-2100SSP245,suitability_weighted_area_km2,3713865.88980595,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+querVar,mf_var,2071-2100SSP585,suitability_weighted_area_km2,3420312.09421978,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+querVar,rf_var,2011-2040SSP245,suitability_weighted_area_km2,4213306.78026875,2011-2040,SSP245,Plain RF,Suitability-weighted area
+querVar,rf_var,2011-2040SSP585,suitability_weighted_area_km2,4172690.87828709,2011-2040,SSP585,Plain RF,Suitability-weighted area
+querVar,rf_var,2041-2070SSP245,suitability_weighted_area_km2,3889369.63396708,2041-2070,SSP245,Plain RF,Suitability-weighted area
+querVar,rf_var,2041-2070SSP585,suitability_weighted_area_km2,3734618.35887549,2041-2070,SSP585,Plain RF,Suitability-weighted area
+querVar,rf_var,2071-2100SSP245,suitability_weighted_area_km2,3714766.72342789,2071-2100,SSP245,Plain RF,Suitability-weighted area
+querVar,rf_var,2071-2100SSP585,suitability_weighted_area_km2,3426802.5717831,2071-2100,SSP585,Plain RF,Suitability-weighted area
+robiPse,mf_var,2011-2040SSP245,suitability_weighted_area_km2,2101951.12778093,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+robiPse,mf_var,2011-2040SSP585,suitability_weighted_area_km2,2078348.34034521,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+robiPse,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1913818.07404308,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+robiPse,mf_var,2041-2070SSP585,suitability_weighted_area_km2,1804783.02907732,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+robiPse,mf_var,2071-2100SSP245,suitability_weighted_area_km2,1797217.98073297,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+robiPse,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1603108.34688833,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+robiPse,rf_var,2011-2040SSP245,suitability_weighted_area_km2,2110474.73913156,2011-2040,SSP245,Plain RF,Suitability-weighted area
+robiPse,rf_var,2011-2040SSP585,suitability_weighted_area_km2,2086426.06748153,2011-2040,SSP585,Plain RF,Suitability-weighted area
+robiPse,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1921159.06753651,2041-2070,SSP245,Plain RF,Suitability-weighted area
+robiPse,rf_var,2041-2070SSP585,suitability_weighted_area_km2,1810690.64353653,2041-2070,SSP585,Plain RF,Suitability-weighted area
+robiPse,rf_var,2071-2100SSP245,suitability_weighted_area_km2,1801859.98111217,2071-2100,SSP245,Plain RF,Suitability-weighted area
+robiPse,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1611369.12315974,2071-2100,SSP585,Plain RF,Suitability-weighted area
+saliMat,mf_var,2011-2040SSP245,suitability_weighted_area_km2,1472079.29913067,2011-2040,SSP245,Plain MF RF,Suitability-weighted area
+saliMat,mf_var,2011-2040SSP585,suitability_weighted_area_km2,1457623.41273222,2011-2040,SSP585,Plain MF RF,Suitability-weighted area
+saliMat,mf_var,2041-2070SSP245,suitability_weighted_area_km2,1358982.36636075,2041-2070,SSP245,Plain MF RF,Suitability-weighted area
+saliMat,mf_var,2041-2070SSP585,suitability_weighted_area_km2,1286827.56712025,2041-2070,SSP585,Plain MF RF,Suitability-weighted area
+saliMat,mf_var,2071-2100SSP245,suitability_weighted_area_km2,1285793.62638767,2071-2100,SSP245,Plain MF RF,Suitability-weighted area
+saliMat,mf_var,2071-2100SSP585,suitability_weighted_area_km2,1163257.60920283,2071-2100,SSP585,Plain MF RF,Suitability-weighted area
+saliMat,rf_var,2011-2040SSP245,suitability_weighted_area_km2,1482266.80575459,2011-2040,SSP245,Plain RF,Suitability-weighted area
+saliMat,rf_var,2011-2040SSP585,suitability_weighted_area_km2,1466808.00040929,2011-2040,SSP585,Plain RF,Suitability-weighted area
+saliMat,rf_var,2041-2070SSP245,suitability_weighted_area_km2,1365332.99103966,2041-2070,SSP245,Plain RF,Suitability-weighted area
+saliMat,rf_var,2041-2070SSP585,suitability_weighted_area_km2,1291345.47513466,2041-2070,SSP585,Plain RF,Suitability-weighted area
+saliMat,rf_var,2071-2100SSP245,suitability_weighted_area_km2,1289718.68730137,2071-2100,SSP245,Plain RF,Suitability-weighted area
+saliMat,rf_var,2071-2100SSP585,suitability_weighted_area_km2,1173691.90971541,2071-2100,SSP585,Plain RF,Suitability-weighted area

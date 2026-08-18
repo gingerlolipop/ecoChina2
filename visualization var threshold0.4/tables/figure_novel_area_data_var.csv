@@ -1,0 +1,13 @@
+zoneID,area_km2,method,scenario,period,ssp,zone,category,category2,COLOR,count,method_label
+99,167348.253474198,mf_var,2011-2040SSP245,2011-2040,SSP245,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain MF RF
+99,318098.419526464,mf_var,2041-2070SSP245,2041-2070,SSP245,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain MF RF
+99,477493.36224965,mf_var,2071-2100SSP245,2071-2100,SSP245,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain MF RF
+99,173887.340623754,mf_var,2011-2040SSP585,2011-2040,SSP585,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain MF RF
+99,465879.338590774,mf_var,2041-2070SSP585,2041-2070,SSP585,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain MF RF
+99,964430.482091655,mf_var,2071-2100SSP585,2071-2100,SSP585,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain MF RF
+99,165913.158567593,rf_var,2011-2040SSP245,2011-2040,SSP245,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain RF
+99,324138.447735807,rf_var,2041-2070SSP245,2041-2070,SSP245,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain RF
+99,486365.094333413,rf_var,2071-2100SSP245,2071-2100,SSP245,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain RF
+99,173998.759846369,rf_var,2011-2040SSP585,2011-2040,SSP585,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain RF
+99,471850.032385451,rf_var,2041-2070SSP585,2041-2070,SSP585,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain RF
+99,909403.968639294,rf_var,2071-2100SSP585,2071-2100,SSP585,Novel zone / no suitable current zone,novel,novel,#1A1A1A,,Plain RF

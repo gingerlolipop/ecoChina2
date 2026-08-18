@@ -1,0 +1,1435 @@
+niche,method,zone,metric,value,metric_label,niche_label,method_label,zone_factor
+climate,mf_var,1,balanced_accuracy,0.984430604982206,Balanced accuracy,Climate,Plain MF RF,1
+climate,mf_var,2,balanced_accuracy,0.956889657281302,Balanced accuracy,Climate,Plain MF RF,2
+climate,mf_var,3,balanced_accuracy,0.925566411185042,Balanced accuracy,Climate,Plain MF RF,3
+climate,mf_var,4,balanced_accuracy,0.964226138671308,Balanced accuracy,Climate,Plain MF RF,4
+climate,mf_var,5,balanced_accuracy,0.929307473457775,Balanced accuracy,Climate,Plain MF RF,5
+climate,mf_var,6,balanced_accuracy,0.973209363860204,Balanced accuracy,Climate,Plain MF RF,6
+climate,mf_var,7,balanced_accuracy,0.921877344054727,Balanced accuracy,Climate,Plain MF RF,7
+climate,mf_var,9,balanced_accuracy,0.990127631722483,Balanced accuracy,Climate,Plain MF RF,9
+climate,mf_var,10,balanced_accuracy,0.969126710776761,Balanced accuracy,Climate,Plain MF RF,10
+climate,mf_var,11,balanced_accuracy,0.961592702954757,Balanced accuracy,Climate,Plain MF RF,11
+climate,mf_var,12,balanced_accuracy,0.955136639226215,Balanced accuracy,Climate,Plain MF RF,12
+climate,mf_var,13,balanced_accuracy,0.940969932832661,Balanced accuracy,Climate,Plain MF RF,13
+climate,mf_var,14,balanced_accuracy,0.985860531116967,Balanced accuracy,Climate,Plain MF RF,14
+climate,mf_var,15,balanced_accuracy,0.942340610618476,Balanced accuracy,Climate,Plain MF RF,15
+climate,mf_var,16,balanced_accuracy,0.942545731984232,Balanced accuracy,Climate,Plain MF RF,16
+climate,mf_var,17,balanced_accuracy,0.999172185430464,Balanced accuracy,Climate,Plain MF RF,17
+climate,mf_var,18,balanced_accuracy,0.949327221647198,Balanced accuracy,Climate,Plain MF RF,18
+climate,mf_var,19,balanced_accuracy,0.95511596751235,Balanced accuracy,Climate,Plain MF RF,19
+climate,mf_var,20,balanced_accuracy,0.940327198695747,Balanced accuracy,Climate,Plain MF RF,20
+climate,mf_var,21,balanced_accuracy,0.943248998270237,Balanced accuracy,Climate,Plain MF RF,21
+climate,mf_var,22,balanced_accuracy,0.972263516156795,Balanced accuracy,Climate,Plain MF RF,22
+climate,mf_var,23,balanced_accuracy,0.942838873392611,Balanced accuracy,Climate,Plain MF RF,23
+climate,mf_var,24,balanced_accuracy,0.946707508046303,Balanced accuracy,Climate,Plain MF RF,24
+climate,mf_var,25,balanced_accuracy,0.956720713132589,Balanced accuracy,Climate,Plain MF RF,25
+climate,mf_var,26,balanced_accuracy,0.967863817339725,Balanced accuracy,Climate,Plain MF RF,26
+climate,mf_var,27,balanced_accuracy,0.959022995371637,Balanced accuracy,Climate,Plain MF RF,27
+climate,mf_var,28,balanced_accuracy,0.95612332902113,Balanced accuracy,Climate,Plain MF RF,28
+climate,mf_var,29,balanced_accuracy,0.981468361604793,Balanced accuracy,Climate,Plain MF RF,29
+climate,mf_var,30,balanced_accuracy,0.916021393329841,Balanced accuracy,Climate,Plain MF RF,30
+climate,mf_var,31,balanced_accuracy,0.952213004916042,Balanced accuracy,Climate,Plain MF RF,31
+climate,mf_var,32,balanced_accuracy,0.974235019124522,Balanced accuracy,Climate,Plain MF RF,32
+climate,mf_var,33,balanced_accuracy,0.961800725410711,Balanced accuracy,Climate,Plain MF RF,33
+climate,mf_var,34,balanced_accuracy,0.990811153358682,Balanced accuracy,Climate,Plain MF RF,34
+climate,mf_var,35,balanced_accuracy,0.988314195711818,Balanced accuracy,Climate,Plain MF RF,35
+climate,mf_var,36,balanced_accuracy,0.971412070459139,Balanced accuracy,Climate,Plain MF RF,36
+climate,mf_var,37,balanced_accuracy,0.968440122044241,Balanced accuracy,Climate,Plain MF RF,37
+climate,mf_var,38,balanced_accuracy,0.995122491963197,Balanced accuracy,Climate,Plain MF RF,38
+climate,mf_var,39,balanced_accuracy,0.986900863352188,Balanced accuracy,Climate,Plain MF RF,39
+climate,mf_var,40,balanced_accuracy,0.926296655593772,Balanced accuracy,Climate,Plain MF RF,40
+climate,mf_var,41,balanced_accuracy,0.966605939151029,Balanced accuracy,Climate,Plain MF RF,41
+climate,mf_var,42,balanced_accuracy,0.977323396394675,Balanced accuracy,Climate,Plain MF RF,42
+climate,mf_var,43,balanced_accuracy,0.994358669833729,Balanced accuracy,Climate,Plain MF RF,43
+climate,mf_var,44,balanced_accuracy,0.916655050645851,Balanced accuracy,Climate,Plain MF RF,44
+climate,mf_var,45,balanced_accuracy,0.984109083452942,Balanced accuracy,Climate,Plain MF RF,45
+climate,mf_var,46,balanced_accuracy,0.967494964692179,Balanced accuracy,Climate,Plain MF RF,46
+climate,mf_var,47,balanced_accuracy,0.953250799988805,Balanced accuracy,Climate,Plain MF RF,47
+climate,mf_var,48,balanced_accuracy,0.998050682261209,Balanced accuracy,Climate,Plain MF RF,48
+climate,mf_var,49,balanced_accuracy,0.939326009816629,Balanced accuracy,Climate,Plain MF RF,49
+climate,mf_var,50,balanced_accuracy,0.996062992125984,Balanced accuracy,Climate,Plain MF RF,50
+climate,mf_var,52,balanced_accuracy,0.994562914842536,Balanced accuracy,Climate,Plain MF RF,52
+climate,mf_var,53,balanced_accuracy,0.98771643086981,Balanced accuracy,Climate,Plain MF RF,53
+climate,mf_var,54,balanced_accuracy,0.996823563384349,Balanced accuracy,Climate,Plain MF RF,54
+climate,mf_var,55,balanced_accuracy,0.994726268206931,Balanced accuracy,Climate,Plain MF RF,55
+climate,rf_var,1,balanced_accuracy,0.985097864768683,Balanced accuracy,Climate,Plain RF,1
+climate,rf_var,2,balanced_accuracy,0.956519182367746,Balanced accuracy,Climate,Plain RF,2
+climate,rf_var,3,balanced_accuracy,0.925283656796333,Balanced accuracy,Climate,Plain RF,3
+climate,rf_var,4,balanced_accuracy,0.964153611836379,Balanced accuracy,Climate,Plain RF,4
+climate,rf_var,5,balanced_accuracy,0.929099299146485,Balanced accuracy,Climate,Plain RF,5
+climate,rf_var,6,balanced_accuracy,0.973448237844989,Balanced accuracy,Climate,Plain RF,6
+climate,rf_var,7,balanced_accuracy,0.921959854781122,Balanced accuracy,Climate,Plain RF,7
+climate,rf_var,9,balanced_accuracy,0.990073088251336,Balanced accuracy,Climate,Plain RF,9
+climate,rf_var,10,balanced_accuracy,0.969228677603553,Balanced accuracy,Climate,Plain RF,10
+climate,rf_var,11,balanced_accuracy,0.961467597752656,Balanced accuracy,Climate,Plain RF,11
+climate,rf_var,12,balanced_accuracy,0.955149974219014,Balanced accuracy,Climate,Plain RF,12
+climate,rf_var,13,balanced_accuracy,0.940768913261395,Balanced accuracy,Climate,Plain RF,13
+climate,rf_var,14,balanced_accuracy,0.985556456517332,Balanced accuracy,Climate,Plain RF,14
+climate,rf_var,15,balanced_accuracy,0.942031933999327,Balanced accuracy,Climate,Plain RF,15
+climate,rf_var,16,balanced_accuracy,0.942453087249541,Balanced accuracy,Climate,Plain RF,16
+climate,rf_var,17,balanced_accuracy,0.999172185430464,Balanced accuracy,Climate,Plain RF,17
+climate,rf_var,18,balanced_accuracy,0.949386366996895,Balanced accuracy,Climate,Plain RF,18
+climate,rf_var,19,balanced_accuracy,0.955201791844595,Balanced accuracy,Climate,Plain RF,19
+climate,rf_var,20,balanced_accuracy,0.940213644364055,Balanced accuracy,Climate,Plain RF,20
+climate,rf_var,21,balanced_accuracy,0.943205206805194,Balanced accuracy,Climate,Plain RF,21
+climate,rf_var,22,balanced_accuracy,0.972263516156795,Balanced accuracy,Climate,Plain RF,22
+climate,rf_var,23,balanced_accuracy,0.942305174861792,Balanced accuracy,Climate,Plain RF,23
+climate,rf_var,24,balanced_accuracy,0.946792102426088,Balanced accuracy,Climate,Plain RF,24
+climate,rf_var,25,balanced_accuracy,0.956685618024847,Balanced accuracy,Climate,Plain RF,25
+climate,rf_var,26,balanced_accuracy,0.967782562769156,Balanced accuracy,Climate,Plain RF,26
+climate,rf_var,27,balanced_accuracy,0.958822599976107,Balanced accuracy,Climate,Plain RF,27
+climate,rf_var,28,balanced_accuracy,0.955979588903263,Balanced accuracy,Climate,Plain RF,28
+climate,rf_var,29,balanced_accuracy,0.981255819602445,Balanced accuracy,Climate,Plain RF,29
+climate,rf_var,30,balanced_accuracy,0.916171077553699,Balanced accuracy,Climate,Plain RF,30
+climate,rf_var,31,balanced_accuracy,0.952209075226055,Balanced accuracy,Climate,Plain RF,31
+climate,rf_var,32,balanced_accuracy,0.973597535061623,Balanced accuracy,Climate,Plain RF,32
+climate,rf_var,33,balanced_accuracy,0.961651376146789,Balanced accuracy,Climate,Plain RF,33
+climate,rf_var,34,balanced_accuracy,0.990494296577947,Balanced accuracy,Climate,Plain RF,34
+climate,rf_var,35,balanced_accuracy,0.988263387867087,Balanced accuracy,Climate,Plain RF,35
+climate,rf_var,36,balanced_accuracy,0.970978920011551,Balanced accuracy,Climate,Plain RF,36
+climate,rf_var,37,balanced_accuracy,0.968292767491852,Balanced accuracy,Climate,Plain RF,37
+climate,rf_var,38,balanced_accuracy,0.995122491963197,Balanced accuracy,Climate,Plain RF,38
+climate,rf_var,39,balanced_accuracy,0.98697529026496,Balanced accuracy,Climate,Plain RF,39
+climate,rf_var,40,balanced_accuracy,0.926169268307023,Balanced accuracy,Climate,Plain RF,40
+climate,rf_var,41,balanced_accuracy,0.966678812169794,Balanced accuracy,Climate,Plain RF,41
+climate,rf_var,42,balanced_accuracy,0.977387094719409,Balanced accuracy,Climate,Plain RF,42
+climate,rf_var,43,balanced_accuracy,0.994061757719715,Balanced accuracy,Climate,Plain RF,43
+climate,rf_var,44,balanced_accuracy,0.916695706718706,Balanced accuracy,Climate,Plain RF,44
+climate,rf_var,45,balanced_accuracy,0.98431412753742,Balanced accuracy,Climate,Plain RF,45
+climate,rf_var,46,balanced_accuracy,0.967494964692179,Balanced accuracy,Climate,Plain RF,46
+climate,rf_var,47,balanced_accuracy,0.953386075063673,Balanced accuracy,Climate,Plain RF,47
+climate,rf_var,48,balanced_accuracy,0.998050682261209,Balanced accuracy,Climate,Plain RF,48
+climate,rf_var,49,balanced_accuracy,0.939389754159318,Balanced accuracy,Climate,Plain RF,49
+climate,rf_var,50,balanced_accuracy,0.996062992125984,Balanced accuracy,Climate,Plain RF,50
+climate,rf_var,52,balanced_accuracy,0.994421691851434,Balanced accuracy,Climate,Plain RF,52
+climate,rf_var,53,balanced_accuracy,0.987741968435569,Balanced accuracy,Climate,Plain RF,53
+climate,rf_var,54,balanced_accuracy,0.99653479641929,Balanced accuracy,Climate,Plain RF,54
+climate,rf_var,55,balanced_accuracy,0.994726268206931,Balanced accuracy,Climate,Plain RF,55
+soil,mf_var,1,balanced_accuracy,0.805190744215135,Balanced accuracy,Soil,Plain MF RF,1
+soil,mf_var,2,balanced_accuracy,0.8446088794926,Balanced accuracy,Soil,Plain MF RF,2
+soil,mf_var,3,balanced_accuracy,0.807576265504526,Balanced accuracy,Soil,Plain MF RF,3
+soil,mf_var,4,balanced_accuracy,0.763777955271566,Balanced accuracy,Soil,Plain MF RF,4
+soil,mf_var,5,balanced_accuracy,0.771448914204343,Balanced accuracy,Soil,Plain MF RF,5
+soil,mf_var,6,balanced_accuracy,0.83193108974359,Balanced accuracy,Soil,Plain MF RF,6
+soil,mf_var,7,balanced_accuracy,0.748150757308912,Balanced accuracy,Soil,Plain MF RF,7
+soil,mf_var,9,balanced_accuracy,0.901408450704225,Balanced accuracy,Soil,Plain MF RF,9
+soil,mf_var,10,balanced_accuracy,0.830007127583749,Balanced accuracy,Soil,Plain MF RF,10
+soil,mf_var,11,balanced_accuracy,0.830923248053393,Balanced accuracy,Soil,Plain MF RF,11
+soil,mf_var,12,balanced_accuracy,0.799964751498061,Balanced accuracy,Soil,Plain MF RF,12
+soil,mf_var,13,balanced_accuracy,0.83709787816564,Balanced accuracy,Soil,Plain MF RF,13
+soil,mf_var,14,balanced_accuracy,0.86225,Balanced accuracy,Soil,Plain MF RF,14
+soil,mf_var,15,balanced_accuracy,0.829732698645185,Balanced accuracy,Soil,Plain MF RF,15
+soil,mf_var,16,balanced_accuracy,0.878277817150957,Balanced accuracy,Soil,Plain MF RF,16
+soil,mf_var,17,balanced_accuracy,0.890781563126253,Balanced accuracy,Soil,Plain MF RF,17
+soil,mf_var,18,balanced_accuracy,0.810710301227222,Balanced accuracy,Soil,Plain MF RF,18
+soil,mf_var,19,balanced_accuracy,0.884850959575337,Balanced accuracy,Soil,Plain MF RF,19
+soil,mf_var,20,balanced_accuracy,0.916070756492284,Balanced accuracy,Soil,Plain MF RF,20
+soil,mf_var,21,balanced_accuracy,0.873523280055594,Balanced accuracy,Soil,Plain MF RF,21
+soil,mf_var,22,balanced_accuracy,0.85,Balanced accuracy,Soil,Plain MF RF,22
+soil,mf_var,23,balanced_accuracy,0.894966794826983,Balanced accuracy,Soil,Plain MF RF,23
+soil,mf_var,24,balanced_accuracy,0.874156545209177,Balanced accuracy,Soil,Plain MF RF,24
+soil,mf_var,25,balanced_accuracy,0.822285919025439,Balanced accuracy,Soil,Plain MF RF,25
+soil,mf_var,26,balanced_accuracy,0.839851024208566,Balanced accuracy,Soil,Plain MF RF,26
+soil,mf_var,27,balanced_accuracy,0.829913043478261,Balanced accuracy,Soil,Plain MF RF,27
+soil,mf_var,28,balanced_accuracy,0.75927622537792,Balanced accuracy,Soil,Plain MF RF,28
+soil,mf_var,29,balanced_accuracy,0.892951875710496,Balanced accuracy,Soil,Plain MF RF,29
+soil,mf_var,30,balanced_accuracy,0.846073662265462,Balanced accuracy,Soil,Plain MF RF,30
+soil,mf_var,31,balanced_accuracy,0.886433185991159,Balanced accuracy,Soil,Plain MF RF,31
+soil,mf_var,32,balanced_accuracy,0.842022471910113,Balanced accuracy,Soil,Plain MF RF,32
+soil,mf_var,33,balanced_accuracy,0.836298323640096,Balanced accuracy,Soil,Plain MF RF,33
+soil,mf_var,34,balanced_accuracy,0.873551106427819,Balanced accuracy,Soil,Plain MF RF,34
+soil,mf_var,35,balanced_accuracy,0.919186911254338,Balanced accuracy,Soil,Plain MF RF,35
+soil,mf_var,36,balanced_accuracy,0.816731952993844,Balanced accuracy,Soil,Plain MF RF,36
+soil,mf_var,37,balanced_accuracy,0.868567197334321,Balanced accuracy,Soil,Plain MF RF,37
+soil,mf_var,38,balanced_accuracy,0.948432760364004,Balanced accuracy,Soil,Plain MF RF,38
+soil,mf_var,39,balanced_accuracy,0.835204941044357,Balanced accuracy,Soil,Plain MF RF,39
+soil,mf_var,40,balanced_accuracy,0.833802816901408,Balanced accuracy,Soil,Plain MF RF,40
+soil,mf_var,41,balanced_accuracy,0.851948573724387,Balanced accuracy,Soil,Plain MF RF,41
+soil,mf_var,42,balanced_accuracy,0.902340892465252,Balanced accuracy,Soil,Plain MF RF,42
+soil,mf_var,43,balanced_accuracy,0.901296111665005,Balanced accuracy,Soil,Plain MF RF,43
+soil,mf_var,44,balanced_accuracy,0.829674220963173,Balanced accuracy,Soil,Plain MF RF,44
+soil,mf_var,45,balanced_accuracy,0.837762669962917,Balanced accuracy,Soil,Plain MF RF,45
+soil,mf_var,46,balanced_accuracy,0.800534963698892,Balanced accuracy,Soil,Plain MF RF,46
+soil,mf_var,47,balanced_accuracy,0.8191064293498,Balanced accuracy,Soil,Plain MF RF,47
+soil,mf_var,48,balanced_accuracy,0.898678414096916,Balanced accuracy,Soil,Plain MF RF,48
+soil,mf_var,49,balanced_accuracy,0.841503870254331,Balanced accuracy,Soil,Plain MF RF,49
+soil,mf_var,50,balanced_accuracy,0.876996805111821,Balanced accuracy,Soil,Plain MF RF,50
+soil,mf_var,52,balanced_accuracy,0.934261838440111,Balanced accuracy,Soil,Plain MF RF,52
+soil,mf_var,53,balanced_accuracy,0.934343434343434,Balanced accuracy,Soil,Plain MF RF,53
+soil,mf_var,54,balanced_accuracy,0.940754716981132,Balanced accuracy,Soil,Plain MF RF,54
+soil,mf_var,55,balanced_accuracy,0.923111919927207,Balanced accuracy,Soil,Plain MF RF,55
+soil,rf_var,1,balanced_accuracy,0.803314571607255,Balanced accuracy,Soil,Plain RF,1
+soil,rf_var,2,balanced_accuracy,0.845313601127555,Balanced accuracy,Soil,Plain RF,2
+soil,rf_var,3,balanced_accuracy,0.806738183037211,Balanced accuracy,Soil,Plain RF,3
+soil,rf_var,4,balanced_accuracy,0.763777955271566,Balanced accuracy,Soil,Plain RF,4
+soil,rf_var,5,balanced_accuracy,0.769134923460306,Balanced accuracy,Soil,Plain RF,5
+soil,rf_var,6,balanced_accuracy,0.831730769230769,Balanced accuracy,Soil,Plain RF,6
+soil,rf_var,7,balanced_accuracy,0.748326875660444,Balanced accuracy,Soil,Plain RF,7
+soil,rf_var,9,balanced_accuracy,0.901408450704225,Balanced accuracy,Soil,Plain RF,9
+soil,rf_var,10,balanced_accuracy,0.82679971489665,Balanced accuracy,Soil,Plain RF,10
+soil,rf_var,11,balanced_accuracy,0.830552465702633,Balanced accuracy,Soil,Plain RF,11
+soil,rf_var,12,balanced_accuracy,0.799964751498061,Balanced accuracy,Soil,Plain RF,12
+soil,rf_var,13,balanced_accuracy,0.839151266255989,Balanced accuracy,Soil,Plain RF,13
+soil,rf_var,14,balanced_accuracy,0.86225,Balanced accuracy,Soil,Plain RF,14
+soil,rf_var,15,balanced_accuracy,0.829915781764921,Balanced accuracy,Soil,Plain RF,15
+soil,rf_var,16,balanced_accuracy,0.877569099929128,Balanced accuracy,Soil,Plain RF,16
+soil,rf_var,17,balanced_accuracy,0.890781563126253,Balanced accuracy,Soil,Plain RF,17
+soil,rf_var,18,balanced_accuracy,0.810710301227222,Balanced accuracy,Soil,Plain RF,18
+soil,rf_var,19,balanced_accuracy,0.884850959575337,Balanced accuracy,Soil,Plain RF,19
+soil,rf_var,20,balanced_accuracy,0.916070756492284,Balanced accuracy,Soil,Plain RF,20
+soil,rf_var,21,balanced_accuracy,0.873523280055594,Balanced accuracy,Soil,Plain RF,21
+soil,rf_var,22,balanced_accuracy,0.850236966824645,Balanced accuracy,Soil,Plain RF,22
+soil,rf_var,23,balanced_accuracy,0.894966794826983,Balanced accuracy,Soil,Plain RF,23
+soil,rf_var,24,balanced_accuracy,0.874493927125506,Balanced accuracy,Soil,Plain RF,24
+soil,rf_var,25,balanced_accuracy,0.822285919025439,Balanced accuracy,Soil,Plain RF,25
+soil,rf_var,26,balanced_accuracy,0.836126629422719,Balanced accuracy,Soil,Plain RF,26
+soil,rf_var,27,balanced_accuracy,0.829913043478261,Balanced accuracy,Soil,Plain RF,27
+soil,rf_var,28,balanced_accuracy,0.75927622537792,Balanced accuracy,Soil,Plain RF,28
+soil,rf_var,29,balanced_accuracy,0.892951875710496,Balanced accuracy,Soil,Plain RF,29
+soil,rf_var,30,balanced_accuracy,0.845552466990966,Balanced accuracy,Soil,Plain RF,30
+soil,rf_var,31,balanced_accuracy,0.886433185991159,Balanced accuracy,Soil,Plain RF,31
+soil,rf_var,32,balanced_accuracy,0.842022471910113,Balanced accuracy,Soil,Plain RF,32
+soil,rf_var,33,balanced_accuracy,0.83800889497092,Balanced accuracy,Soil,Plain RF,33
+soil,rf_var,34,balanced_accuracy,0.873551106427819,Balanced accuracy,Soil,Plain RF,34
+soil,rf_var,35,balanced_accuracy,0.919186911254338,Balanced accuracy,Soil,Plain RF,35
+soil,rf_var,36,balanced_accuracy,0.816731952993844,Balanced accuracy,Soil,Plain RF,36
+soil,rf_var,37,balanced_accuracy,0.868567197334321,Balanced accuracy,Soil,Plain RF,37
+soil,rf_var,38,balanced_accuracy,0.948432760364004,Balanced accuracy,Soil,Plain RF,38
+soil,rf_var,39,balanced_accuracy,0.835204941044357,Balanced accuracy,Soil,Plain RF,39
+soil,rf_var,40,balanced_accuracy,0.833802816901408,Balanced accuracy,Soil,Plain RF,40
+soil,rf_var,41,balanced_accuracy,0.851948573724387,Balanced accuracy,Soil,Plain RF,41
+soil,rf_var,42,balanced_accuracy,0.902340892465252,Balanced accuracy,Soil,Plain RF,42
+soil,rf_var,43,balanced_accuracy,0.901296111665005,Balanced accuracy,Soil,Plain RF,43
+soil,rf_var,44,balanced_accuracy,0.829674220963173,Balanced accuracy,Soil,Plain RF,44
+soil,rf_var,45,balanced_accuracy,0.837762669962917,Balanced accuracy,Soil,Plain RF,45
+soil,rf_var,46,balanced_accuracy,0.800534963698892,Balanced accuracy,Soil,Plain RF,46
+soil,rf_var,47,balanced_accuracy,0.819469669451508,Balanced accuracy,Soil,Plain RF,47
+soil,rf_var,48,balanced_accuracy,0.898678414096916,Balanced accuracy,Soil,Plain RF,48
+soil,rf_var,49,balanced_accuracy,0.841503870254331,Balanced accuracy,Soil,Plain RF,49
+soil,rf_var,50,balanced_accuracy,0.876996805111821,Balanced accuracy,Soil,Plain RF,50
+soil,rf_var,52,balanced_accuracy,0.934261838440111,Balanced accuracy,Soil,Plain RF,52
+soil,rf_var,53,balanced_accuracy,0.934132996632997,Balanced accuracy,Soil,Plain RF,53
+soil,rf_var,54,balanced_accuracy,0.940754716981132,Balanced accuracy,Soil,Plain RF,54
+soil,rf_var,55,balanced_accuracy,0.923566878980892,Balanced accuracy,Soil,Plain RF,55
+climate,mf_var,1,f1,0.984516699845167,F1,Climate,Plain MF RF,1
+climate,mf_var,2,f1,0.957261369664959,F1,Climate,Plain MF RF,2
+climate,mf_var,3,f1,0.926589473621754,F1,Climate,Plain MF RF,3
+climate,mf_var,4,f1,0.964945010038555,F1,Climate,Plain MF RF,4
+climate,mf_var,5,f1,0.930926349690652,F1,Climate,Plain MF RF,5
+climate,mf_var,6,f1,0.973518834683425,F1,Climate,Plain MF RF,6
+climate,mf_var,7,f1,0.923388134907499,F1,Climate,Plain MF RF,7
+climate,mf_var,9,f1,0.990206157675451,F1,Climate,Plain MF RF,9
+climate,mf_var,10,f1,0.969532988226876,F1,Climate,Plain MF RF,10
+climate,mf_var,11,f1,0.962108546615352,F1,Climate,Plain MF RF,11
+climate,mf_var,12,f1,0.955986307044895,F1,Climate,Plain MF RF,12
+climate,mf_var,13,f1,0.941942490800004,F1,Climate,Plain MF RF,13
+climate,mf_var,14,f1,0.985996084926969,F1,Climate,Plain MF RF,14
+climate,mf_var,15,f1,0.943333264387311,F1,Climate,Plain MF RF,15
+climate,mf_var,16,f1,0.943732832358425,F1,Climate,Plain MF RF,16
+climate,mf_var,17,f1,0.999172870140612,F1,Climate,Plain MF RF,17
+climate,mf_var,18,f1,0.950516208216013,F1,Climate,Plain MF RF,18
+climate,mf_var,19,f1,0.955117282839404,F1,Climate,Plain MF RF,19
+climate,mf_var,20,f1,0.941693480638463,F1,Climate,Plain MF RF,20
+climate,mf_var,21,f1,0.944365590647731,F1,Climate,Plain MF RF,21
+climate,mf_var,22,f1,0.972537475306968,F1,Climate,Plain MF RF,22
+climate,mf_var,23,f1,0.944046604008852,F1,Climate,Plain MF RF,23
+climate,mf_var,24,f1,0.947498580335564,F1,Climate,Plain MF RF,24
+climate,mf_var,25,f1,0.957370022123894,F1,Climate,Plain MF RF,25
+climate,mf_var,26,f1,0.968439532378406,F1,Climate,Plain MF RF,26
+climate,mf_var,27,f1,0.95938968032693,F1,Climate,Plain MF RF,27
+climate,mf_var,28,f1,0.956963096119277,F1,Climate,Plain MF RF,28
+climate,mf_var,29,f1,0.981662310088233,F1,Climate,Plain MF RF,29
+climate,mf_var,30,f1,0.918795996303595,F1,Climate,Plain MF RF,30
+climate,mf_var,31,f1,0.953194372008614,F1,Climate,Plain MF RF,31
+climate,mf_var,32,f1,0.974628583385645,F1,Climate,Plain MF RF,32
+climate,mf_var,33,f1,0.96241624263187,F1,Climate,Plain MF RF,33
+climate,mf_var,34,f1,0.990866141732283,F1,Climate,Plain MF RF,34
+climate,mf_var,35,f1,0.988387357366455,F1,Climate,Plain MF RF,35
+climate,mf_var,36,f1,0.971994342291372,F1,Climate,Plain MF RF,36
+climate,mf_var,37,f1,0.968598804667489,F1,Climate,Plain MF RF,37
+climate,mf_var,38,f1,0.99514348785872,F1,Climate,Plain MF RF,38
+climate,mf_var,39,f1,0.987041672802238,F1,Climate,Plain MF RF,39
+climate,mf_var,40,f1,0.929393818497571,F1,Climate,Plain MF RF,40
+climate,mf_var,41,f1,0.967240362447054,F1,Climate,Plain MF RF,41
+climate,mf_var,42,f1,0.977644744003014,F1,Climate,Plain MF RF,42
+climate,mf_var,43,f1,0.99438368312149,F1,Climate,Plain MF RF,43
+climate,mf_var,44,f1,0.92004992004992,F1,Climate,Plain MF RF,44
+climate,mf_var,45,f1,0.984259165227988,F1,Climate,Plain MF RF,45
+climate,mf_var,46,f1,0.96813483520274,F1,Climate,Plain MF RF,46
+climate,mf_var,47,f1,0.954438413209314,F1,Climate,Plain MF RF,47
+climate,mf_var,48,f1,0.998054474708171,F1,Climate,Plain MF RF,48
+climate,mf_var,49,f1,0.941023390303093,F1,Climate,Plain MF RF,49
+climate,mf_var,50,f1,0.996057818659658,F1,Climate,Plain MF RF,50
+climate,mf_var,52,f1,0.994585472189016,F1,Climate,Plain MF RF,52
+climate,mf_var,53,f1,0.987805805552034,F1,Climate,Plain MF RF,53
+climate,mf_var,54,f1,0.996829057365235,F1,Climate,Plain MF RF,54
+climate,mf_var,55,f1,0.994751312171957,F1,Climate,Plain MF RF,55
+climate,rf_var,1,f1,0.985176991150442,F1,Climate,Plain RF,1
+climate,rf_var,2,f1,0.956881771847774,F1,Climate,Plain RF,2
+climate,rf_var,3,f1,0.926287862825805,F1,Climate,Plain RF,3
+climate,rf_var,4,f1,0.964865201087633,F1,Climate,Plain RF,4
+climate,rf_var,5,f1,0.930697098672274,F1,Climate,Plain RF,5
+climate,rf_var,6,f1,0.973748751021891,F1,Climate,Plain RF,6
+climate,rf_var,7,f1,0.923523617706297,F1,Climate,Plain RF,7
+climate,rf_var,9,f1,0.990150449182812,F1,Climate,Plain RF,9
+climate,rf_var,10,f1,0.969635310690249,F1,Climate,Plain RF,10
+climate,rf_var,11,f1,0.96198896019387,F1,Climate,Plain RF,11
+climate,rf_var,12,f1,0.956013392156521,F1,Climate,Plain RF,12
+climate,rf_var,13,f1,0.941752306950239,F1,Climate,Plain RF,13
+climate,rf_var,14,f1,0.985700667302192,F1,Climate,Plain RF,14
+climate,rf_var,15,f1,0.943047964324853,F1,Climate,Plain RF,15
+climate,rf_var,16,f1,0.94363979568781,F1,Climate,Plain RF,16
+climate,rf_var,17,f1,0.999172870140612,F1,Climate,Plain RF,17
+climate,rf_var,18,f1,0.950588235294118,F1,Climate,Plain RF,18
+climate,rf_var,19,f1,0.955207511391202,F1,Climate,Plain RF,19
+climate,rf_var,20,f1,0.941603815439219,F1,Climate,Plain RF,20
+climate,rf_var,21,f1,0.944329233121839,F1,Climate,Plain RF,21
+climate,rf_var,22,f1,0.972539602618227,F1,Climate,Plain RF,22
+climate,rf_var,23,f1,0.94351026122622,F1,Climate,Plain RF,23
+climate,rf_var,24,f1,0.947592990179741,F1,Climate,Plain RF,24
+climate,rf_var,25,f1,0.957335158567192,F1,Climate,Plain RF,25
+climate,rf_var,26,f1,0.968374875373878,F1,Climate,Plain RF,26
+climate,rf_var,27,f1,0.959181100677704,F1,Climate,Plain RF,27
+climate,rf_var,28,f1,0.956846443794695,F1,Climate,Plain RF,28
+climate,rf_var,29,f1,0.981453664203169,F1,Climate,Plain RF,29
+climate,rf_var,30,f1,0.918929903680196,F1,Climate,Plain RF,30
+climate,rf_var,31,f1,0.953194306266225,F1,Climate,Plain RF,31
+climate,rf_var,32,f1,0.974000836995187,F1,Climate,Plain RF,32
+climate,rf_var,33,f1,0.96226533928444,F1,Climate,Plain RF,33
+climate,rf_var,34,f1,0.990554156171284,F1,Climate,Plain RF,34
+climate,rf_var,35,f1,0.988337456454789,F1,Climate,Plain RF,35
+climate,rf_var,36,f1,0.97158207267072,F1,Climate,Plain RF,36
+climate,rf_var,37,f1,0.968442665378377,F1,Climate,Plain RF,37
+climate,rf_var,38,f1,0.995144023838428,F1,Climate,Plain RF,38
+climate,rf_var,39,f1,0.987114350931448,F1,Climate,Plain RF,39
+climate,rf_var,40,f1,0.929263151965225,F1,Climate,Plain RF,40
+climate,rf_var,41,f1,0.967311851017818,F1,Climate,Plain RF,41
+climate,rf_var,42,f1,0.977710339053998,F1,Climate,Plain RF,42
+climate,rf_var,43,f1,0.994089834515366,F1,Climate,Plain RF,43
+climate,rf_var,44,f1,0.920091591315539,F1,Climate,Plain RF,44
+climate,rf_var,45,f1,0.984452799512245,F1,Climate,Plain RF,45
+climate,rf_var,46,f1,0.96812952806957,F1,Climate,Plain RF,46
+climate,rf_var,47,f1,0.954571697435594,F1,Climate,Plain RF,47
+climate,rf_var,48,f1,0.998054474708171,F1,Climate,Plain RF,48
+climate,rf_var,49,f1,0.941076832505345,F1,Climate,Plain RF,49
+climate,rf_var,50,f1,0.996057818659658,F1,Climate,Plain RF,50
+climate,rf_var,52,f1,0.994444835103017,F1,Climate,Plain RF,52
+climate,rf_var,53,f1,0.987831465801349,F1,Climate,Plain RF,53
+climate,rf_var,54,f1,0.996539792387543,F1,Climate,Plain RF,54
+climate,rf_var,55,f1,0.994751312171957,F1,Climate,Plain RF,55
+soil,mf_var,1,f1,0.82009818076812,F1,Soil,Plain MF RF,1
+soil,mf_var,2,f1,0.853973509933775,F1,Soil,Plain MF RF,2
+soil,mf_var,3,f1,0.825425790754258,F1,Soil,Plain MF RF,3
+soil,mf_var,4,f1,0.747168198332977,F1,Soil,Plain MF RF,4
+soil,mf_var,5,f1,0.781706902414145,F1,Soil,Plain MF RF,5
+soil,mf_var,6,f1,0.843499347136728,F1,Soil,Plain MF RF,6
+soil,mf_var,7,f1,0.775086505190312,F1,Soil,Plain MF RF,7
+soil,mf_var,9,f1,0.908667287977633,F1,Soil,Plain MF RF,9
+soil,mf_var,10,f1,0.830610795454546,F1,Soil,Plain MF RF,10
+soil,mf_var,11,f1,0.837317160185516,F1,Soil,Plain MF RF,11
+soil,mf_var,12,f1,0.809467852946114,F1,Soil,Plain MF RF,12
+soil,mf_var,13,f1,0.846846846846847,F1,Soil,Plain MF RF,13
+soil,mf_var,14,f1,0.869400331832188,F1,Soil,Plain MF RF,14
+soil,mf_var,15,f1,0.839655172413793,F1,Soil,Plain MF RF,15
+soil,mf_var,16,f1,0.883972301976018,F1,Soil,Plain MF RF,16
+soil,mf_var,17,f1,0.894277400581959,F1,Soil,Plain MF RF,17
+soil,mf_var,18,f1,0.810780669144981,F1,Soil,Plain MF RF,18
+soil,mf_var,19,f1,0.884615384615385,F1,Soil,Plain MF RF,19
+soil,mf_var,20,f1,0.919436416184971,F1,Soil,Plain MF RF,20
+soil,mf_var,21,f1,0.884076433121019,F1,Soil,Plain MF RF,21
+soil,mf_var,22,f1,0.854449298689354,F1,Soil,Plain MF RF,22
+soil,mf_var,23,f1,0.899042499580044,F1,Soil,Plain MF RF,23
+soil,mf_var,24,f1,0.879288025889968,F1,Soil,Plain MF RF,24
+soil,mf_var,25,f1,0.832658569500675,F1,Soil,Plain MF RF,25
+soil,mf_var,26,f1,0.843065693430657,F1,Soil,Plain MF RF,26
+soil,mf_var,27,f1,0.837541528239203,F1,Soil,Plain MF RF,27
+soil,mf_var,28,f1,0.769061744671501,F1,Soil,Plain MF RF,28
+soil,mf_var,29,f1,0.894727035587852,F1,Soil,Plain MF RF,29
+soil,mf_var,30,f1,0.855653307266211,F1,Soil,Plain MF RF,30
+soil,mf_var,31,f1,0.891523221825268,F1,Soil,Plain MF RF,31
+soil,mf_var,32,f1,0.843255295429209,F1,Soil,Plain MF RF,32
+soil,mf_var,33,f1,0.842624568327578,F1,Soil,Plain MF RF,33
+soil,mf_var,34,f1,0.877675840978593,F1,Soil,Plain MF RF,34
+soil,mf_var,35,f1,0.921672272945699,F1,Soil,Plain MF RF,35
+soil,mf_var,36,f1,0.838311528017773,F1,Soil,Plain MF RF,36
+soil,mf_var,37,f1,0.867090977162112,F1,Soil,Plain MF RF,37
+soil,mf_var,38,f1,0.948170731707317,F1,Soil,Plain MF RF,38
+soil,mf_var,39,f1,0.847254748894093,F1,Soil,Plain MF RF,39
+soil,mf_var,40,f1,0.840540540540541,F1,Soil,Plain MF RF,40
+soil,mf_var,41,f1,0.848944455831113,F1,Soil,Plain MF RF,41
+soil,mf_var,42,f1,0.906903765690376,F1,Soil,Plain MF RF,42
+soil,mf_var,43,f1,0.903508771929825,F1,Soil,Plain MF RF,43
+soil,mf_var,44,f1,0.837004405286344,F1,Soil,Plain MF RF,44
+soil,mf_var,45,f1,0.838511227314672,F1,Soil,Plain MF RF,45
+soil,mf_var,46,f1,0.819314641744548,F1,Soil,Plain MF RF,46
+soil,mf_var,47,f1,0.825017568517217,F1,Soil,Plain MF RF,47
+soil,mf_var,48,f1,0.901709401709402,F1,Soil,Plain MF RF,48
+soil,mf_var,49,f1,0.855218855218855,F1,Soil,Plain MF RF,49
+soil,mf_var,50,f1,0.882978723404255,F1,Soil,Plain MF RF,50
+soil,mf_var,52,f1,0.936112615051435,F1,Soil,Plain MF RF,52
+soil,mf_var,53,f1,0.935081148564295,F1,Soil,Plain MF RF,53
+soil,mf_var,54,f1,0.941264496820052,F1,Soil,Plain MF RF,54
+soil,mf_var,55,f1,0.924452391595887,F1,Soil,Plain MF RF,55
+soil,rf_var,1,f1,0.818888568960553,F1,Soil,Plain RF,1
+soil,rf_var,2,f1,0.853569046030687,F1,Soil,Plain RF,2
+soil,rf_var,3,f1,0.823888804032381,F1,Soil,Plain RF,3
+soil,rf_var,4,f1,0.747168198332977,F1,Soil,Plain RF,4
+soil,rf_var,5,f1,0.780132225800983,F1,Soil,Plain RF,5
+soil,rf_var,6,f1,0.843342036553525,F1,Soil,Plain RF,6
+soil,rf_var,7,f1,0.775279131938984,F1,Soil,Plain RF,7
+soil,rf_var,9,f1,0.908667287977633,F1,Soil,Plain RF,9
+soil,rf_var,10,f1,0.828510938602682,F1,Soil,Plain RF,10
+soil,rf_var,11,f1,0.837134711332858,F1,Soil,Plain RF,11
+soil,rf_var,12,f1,0.809467852946114,F1,Soil,Plain RF,12
+soil,rf_var,13,f1,0.850127551020408,F1,Soil,Plain RF,13
+soil,rf_var,14,f1,0.869400331832188,F1,Soil,Plain RF,14
+soil,rf_var,15,f1,0.839855197379762,F1,Soil,Plain RF,15
+soil,rf_var,16,f1,0.883138846609166,F1,Soil,Plain RF,16
+soil,rf_var,17,f1,0.894277400581959,F1,Soil,Plain RF,17
+soil,rf_var,18,f1,0.810780669144981,F1,Soil,Plain RF,18
+soil,rf_var,19,f1,0.884615384615385,F1,Soil,Plain RF,19
+soil,rf_var,20,f1,0.919436416184971,F1,Soil,Plain RF,20
+soil,rf_var,21,f1,0.884076433121019,F1,Soil,Plain RF,21
+soil,rf_var,22,f1,0.854645814167433,F1,Soil,Plain RF,22
+soil,rf_var,23,f1,0.899042499580044,F1,Soil,Plain RF,23
+soil,rf_var,24,f1,0.879572677241826,F1,Soil,Plain RF,24
+soil,rf_var,25,f1,0.832658569500675,F1,Soil,Plain RF,25
+soil,rf_var,26,f1,0.83816091954023,F1,Soil,Plain RF,26
+soil,rf_var,27,f1,0.837541528239203,F1,Soil,Plain RF,27
+soil,rf_var,28,f1,0.769061744671501,F1,Soil,Plain RF,28
+soil,rf_var,29,f1,0.894727035587852,F1,Soil,Plain RF,29
+soil,rf_var,30,f1,0.855235303696466,F1,Soil,Plain RF,30
+soil,rf_var,31,f1,0.891523221825268,F1,Soil,Plain RF,31
+soil,rf_var,32,f1,0.843255295429209,F1,Soil,Plain RF,32
+soil,rf_var,33,f1,0.842821576763486,F1,Soil,Plain RF,33
+soil,rf_var,34,f1,0.877675840978593,F1,Soil,Plain RF,34
+soil,rf_var,35,f1,0.921672272945699,F1,Soil,Plain RF,35
+soil,rf_var,36,f1,0.838311528017773,F1,Soil,Plain RF,36
+soil,rf_var,37,f1,0.867090977162112,F1,Soil,Plain RF,37
+soil,rf_var,38,f1,0.948170731707317,F1,Soil,Plain RF,38
+soil,rf_var,39,f1,0.847254748894093,F1,Soil,Plain RF,39
+soil,rf_var,40,f1,0.840540540540541,F1,Soil,Plain RF,40
+soil,rf_var,41,f1,0.848944455831113,F1,Soil,Plain RF,41
+soil,rf_var,42,f1,0.906903765690376,F1,Soil,Plain RF,42
+soil,rf_var,43,f1,0.903508771929825,F1,Soil,Plain RF,43
+soil,rf_var,44,f1,0.837004405286344,F1,Soil,Plain RF,44
+soil,rf_var,45,f1,0.838511227314672,F1,Soil,Plain RF,45
+soil,rf_var,46,f1,0.819314641744548,F1,Soil,Plain RF,46
+soil,rf_var,47,f1,0.825430277485072,F1,Soil,Plain RF,47
+soil,rf_var,48,f1,0.901709401709402,F1,Soil,Plain RF,48
+soil,rf_var,49,f1,0.855364951227716,F1,Soil,Plain RF,49
+soil,rf_var,50,f1,0.882978723404255,F1,Soil,Plain RF,50
+soil,rf_var,52,f1,0.936112615051435,F1,Soil,Plain RF,52
+soil,rf_var,53,f1,0.934859521331946,F1,Soil,Plain RF,53
+soil,rf_var,54,f1,0.941264496820052,F1,Soil,Plain RF,54
+soil,rf_var,55,f1,0.924865831842576,F1,Soil,Plain RF,55
+climate,mf_var,1,auc,0.998579772569686,AUC,Climate,Plain MF RF,1
+climate,mf_var,4,auc,0.990105199890017,AUC,Climate,Plain MF RF,4
+climate,mf_var,6,auc,0.992953711412861,AUC,Climate,Plain MF RF,6
+climate,mf_var,9,auc,0.997824020735253,AUC,Climate,Plain MF RF,9
+climate,mf_var,10,auc,0.989832401079188,AUC,Climate,Plain MF RF,10
+climate,mf_var,11,auc,0.989433966922106,AUC,Climate,Plain MF RF,11
+climate,mf_var,14,auc,0.997605348318594,AUC,Climate,Plain MF RF,14
+climate,mf_var,17,auc,0.999986294460769,AUC,Climate,Plain MF RF,17
+climate,mf_var,18,auc,0.98006030936656,AUC,Climate,Plain MF RF,18
+climate,mf_var,22,auc,0.995453804759592,AUC,Climate,Plain MF RF,22
+climate,mf_var,26,auc,0.991982282661074,AUC,Climate,Plain MF RF,26
+climate,mf_var,28,auc,0.988450266136161,AUC,Climate,Plain MF RF,28
+climate,mf_var,32,auc,0.994389756155347,AUC,Climate,Plain MF RF,32
+climate,mf_var,34,auc,0.99806472392096,AUC,Climate,Plain MF RF,34
+climate,mf_var,35,auc,0.99825574361233,AUC,Climate,Plain MF RF,35
+climate,mf_var,36,auc,0.993343100099738,AUC,Climate,Plain MF RF,36
+climate,mf_var,38,auc,0.99947160452484,AUC,Climate,Plain MF RF,38
+climate,mf_var,39,auc,0.996571498449731,AUC,Climate,Plain MF RF,39
+climate,mf_var,41,auc,0.988975082280031,AUC,Climate,Plain MF RF,41
+climate,mf_var,43,auc,0.999535942586648,AUC,Climate,Plain MF RF,43
+climate,mf_var,45,auc,0.996987634584618,AUC,Climate,Plain MF RF,45
+climate,mf_var,46,auc,0.987890517115995,AUC,Climate,Plain MF RF,46
+climate,mf_var,48,auc,1,AUC,Climate,Plain MF RF,48
+climate,mf_var,50,auc,0.999970722163667,AUC,Climate,Plain MF RF,50
+climate,mf_var,52,auc,0.998855467532563,AUC,Climate,Plain MF RF,52
+climate,mf_var,53,auc,0.997766867112188,AUC,Climate,Plain MF RF,53
+climate,mf_var,54,auc,0.999443354353089,AUC,Climate,Plain MF RF,54
+climate,mf_var,55,auc,0.999197165749136,AUC,Climate,Plain MF RF,55
+climate,rf_var,1,auc,0.998715569434594,AUC,Climate,Plain RF,1
+climate,rf_var,4,auc,0.990071153622315,AUC,Climate,Plain RF,4
+climate,rf_var,6,auc,0.992916436204701,AUC,Climate,Plain RF,6
+climate,rf_var,9,auc,0.99785376468772,AUC,Climate,Plain RF,9
+climate,rf_var,10,auc,0.989814711918807,AUC,Climate,Plain RF,10
+climate,rf_var,11,auc,0.989270707702831,AUC,Climate,Plain RF,11
+climate,rf_var,14,auc,0.997519020226806,AUC,Climate,Plain RF,14
+climate,rf_var,17,auc,0.999986294460769,AUC,Climate,Plain RF,17
+climate,rf_var,18,auc,0.980124185119872,AUC,Climate,Plain RF,18
+climate,rf_var,22,auc,0.995455613714809,AUC,Climate,Plain RF,22
+climate,rf_var,26,auc,0.991809015063549,AUC,Climate,Plain RF,26
+climate,rf_var,28,auc,0.988414757244387,AUC,Climate,Plain RF,28
+climate,rf_var,32,auc,0.99438122346187,AUC,Climate,Plain RF,32
+climate,rf_var,34,auc,0.99822475868284,AUC,Climate,Plain RF,34
+climate,rf_var,35,auc,0.998208611734009,AUC,Climate,Plain RF,35
+climate,rf_var,36,auc,0.993419878090809,AUC,Climate,Plain RF,36
+climate,rf_var,38,auc,0.999295611966811,AUC,Climate,Plain RF,38
+climate,rf_var,39,auc,0.996364680705221,AUC,Climate,Plain RF,39
+climate,rf_var,41,auc,0.988875449104539,AUC,Climate,Plain RF,41
+climate,rf_var,43,auc,0.999545639835027,AUC,Climate,Plain RF,43
+climate,rf_var,45,auc,0.996866739717914,AUC,Climate,Plain RF,45
+climate,rf_var,46,auc,0.987838851854862,AUC,Climate,Plain RF,46
+climate,rf_var,48,auc,1,AUC,Climate,Plain RF,48
+climate,rf_var,50,auc,0.999972444389333,AUC,Climate,Plain RF,50
+climate,rf_var,52,auc,0.998909256320447,AUC,Climate,Plain RF,52
+climate,rf_var,53,auc,0.997743986475867,AUC,Climate,Plain RF,53
+climate,rf_var,54,auc,0.999593324721746,AUC,Climate,Plain RF,54
+climate,rf_var,55,auc,0.998504823690535,AUC,Climate,Plain RF,55
+soil,mf_var,1,auc,0.836845143599365,AUC,Soil,Plain MF RF,1
+soil,mf_var,2,auc,0.867903617024764,AUC,Soil,Plain MF RF,2
+soil,mf_var,3,auc,0.837744368608392,AUC,Soil,Plain MF RF,3
+soil,mf_var,4,auc,0.839183903198971,AUC,Soil,Plain MF RF,4
+soil,mf_var,5,auc,0.794051148466108,AUC,Soil,Plain MF RF,5
+soil,mf_var,6,auc,0.845108664247411,AUC,Soil,Plain MF RF,6
+soil,mf_var,7,auc,0.779649949422581,AUC,Soil,Plain MF RF,7
+soil,mf_var,9,auc,0.910327786639353,AUC,Soil,Plain MF RF,9
+soil,mf_var,10,auc,0.849072588572802,AUC,Soil,Plain MF RF,10
+soil,mf_var,11,auc,0.884892289583078,AUC,Soil,Plain MF RF,11
+soil,mf_var,12,auc,0.832147863800385,AUC,Soil,Plain MF RF,12
+soil,mf_var,13,auc,0.880317937841792,AUC,Soil,Plain MF RF,13
+soil,mf_var,14,auc,0.888844125,AUC,Soil,Plain MF RF,14
+soil,mf_var,15,auc,0.878019044666784,AUC,Soil,Plain MF RF,15
+soil,mf_var,16,auc,0.89382935083813,AUC,Soil,Plain MF RF,16
+soil,mf_var,17,auc,0.895709254179702,AUC,Soil,Plain MF RF,17
+soil,mf_var,18,auc,0.83792674340498,AUC,Soil,Plain MF RF,18
+soil,mf_var,19,auc,0.906294783530949,AUC,Soil,Plain MF RF,19
+soil,mf_var,20,auc,0.93329285917756,AUC,Soil,Plain MF RF,20
+soil,mf_var,21,auc,0.906731037160487,AUC,Soil,Plain MF RF,21
+soil,mf_var,22,auc,0.884733496552189,AUC,Soil,Plain MF RF,22
+soil,mf_var,23,auc,0.923581860748039,AUC,Soil,Plain MF RF,23
+soil,mf_var,24,auc,0.90064802597431,AUC,Soil,Plain MF RF,24
+soil,mf_var,25,auc,0.890528315601114,AUC,Soil,Plain MF RF,25
+soil,mf_var,26,auc,0.866867949571556,AUC,Soil,Plain MF RF,26
+soil,mf_var,27,auc,0.865062230623819,AUC,Soil,Plain MF RF,27
+soil,mf_var,28,auc,0.795927028684779,AUC,Soil,Plain MF RF,28
+soil,mf_var,29,auc,0.926255122358662,AUC,Soil,Plain MF RF,29
+soil,mf_var,30,auc,0.865722072167134,AUC,Soil,Plain MF RF,30
+soil,mf_var,31,auc,0.905324030424484,AUC,Soil,Plain MF RF,31
+soil,mf_var,32,auc,0.904135134452721,AUC,Soil,Plain MF RF,32
+soil,mf_var,33,auc,0.894160637336757,AUC,Soil,Plain MF RF,33
+soil,mf_var,34,auc,0.900258827160974,AUC,Soil,Plain MF RF,34
+soil,mf_var,35,auc,0.930989047238286,AUC,Soil,Plain MF RF,35
+soil,mf_var,36,auc,0.847071384484537,AUC,Soil,Plain MF RF,36
+soil,mf_var,37,auc,0.882998823505384,AUC,Soil,Plain MF RF,37
+soil,mf_var,38,auc,0.95303418493213,AUC,Soil,Plain MF RF,38
+soil,mf_var,39,auc,0.84819627353552,AUC,Soil,Plain MF RF,39
+soil,mf_var,40,auc,0.848210734477286,AUC,Soil,Plain MF RF,40
+soil,mf_var,41,auc,0.881106438437603,AUC,Soil,Plain MF RF,41
+soil,mf_var,42,auc,0.915088599547597,AUC,Soil,Plain MF RF,42
+soil,mf_var,43,auc,0.92732619688293,AUC,Soil,Plain MF RF,43
+soil,mf_var,44,auc,0.839356068281585,AUC,Soil,Plain MF RF,44
+soil,mf_var,45,auc,0.846354401426474,AUC,Soil,Plain MF RF,45
+soil,mf_var,46,auc,0.818235723654556,AUC,Soil,Plain MF RF,46
+soil,mf_var,47,auc,0.879147986234084,AUC,Soil,Plain MF RF,47
+soil,mf_var,48,auc,0.918756913582643,AUC,Soil,Plain MF RF,48
+soil,mf_var,49,auc,0.866384008736519,AUC,Soil,Plain MF RF,49
+soil,mf_var,50,auc,0.908982688401433,AUC,Soil,Plain MF RF,50
+soil,mf_var,52,auc,0.953240431095352,AUC,Soil,Plain MF RF,52
+soil,mf_var,53,auc,0.938999191550749,AUC,Soil,Plain MF RF,53
+soil,mf_var,54,auc,0.959719473122107,AUC,Soil,Plain MF RF,54
+soil,mf_var,55,auc,0.954527691233904,AUC,Soil,Plain MF RF,55
+soil,rf_var,1,auc,0.837018015872178,AUC,Soil,Plain RF,1
+soil,rf_var,2,auc,0.867599677884107,AUC,Soil,Plain RF,2
+soil,rf_var,3,auc,0.837340695497753,AUC,Soil,Plain RF,3
+soil,rf_var,4,auc,0.838164288575978,AUC,Soil,Plain RF,4
+soil,rf_var,5,auc,0.794633875932278,AUC,Soil,Plain RF,5
+soil,rf_var,6,auc,0.845357299242891,AUC,Soil,Plain RF,6
+soil,rf_var,7,auc,0.780881599211704,AUC,Soil,Plain RF,7
+soil,rf_var,9,auc,0.910023268382933,AUC,Soil,Plain RF,9
+soil,rf_var,10,auc,0.850719985023438,AUC,Soil,Plain RF,10
+soil,rf_var,11,auc,0.884949343597007,AUC,Soil,Plain RF,11
+soil,rf_var,12,auc,0.837457068455274,AUC,Soil,Plain RF,12
+soil,rf_var,13,auc,0.874787481594231,AUC,Soil,Plain RF,13
+soil,rf_var,14,auc,0.88745325,AUC,Soil,Plain RF,14
+soil,rf_var,15,auc,0.873658368105271,AUC,Soil,Plain RF,15
+soil,rf_var,16,auc,0.893723809232009,AUC,Soil,Plain RF,16
+soil,rf_var,17,auc,0.895050622286657,AUC,Soil,Plain RF,17
+soil,rf_var,18,auc,0.839464833451602,AUC,Soil,Plain RF,18
+soil,rf_var,19,auc,0.906614828162127,AUC,Soil,Plain RF,19
+soil,rf_var,20,auc,0.932996881289707,AUC,Soil,Plain RF,20
+soil,rf_var,21,auc,0.905167753164236,AUC,Soil,Plain RF,21
+soil,rf_var,22,auc,0.884856135306934,AUC,Soil,Plain RF,22
+soil,rf_var,23,auc,0.922164872947561,AUC,Soil,Plain RF,23
+soil,rf_var,24,auc,0.898738642386096,AUC,Soil,Plain RF,24
+soil,rf_var,25,auc,0.855463015751223,AUC,Soil,Plain RF,25
+soil,rf_var,26,auc,0.863024349878108,AUC,Soil,Plain RF,26
+soil,rf_var,27,auc,0.857833920604915,AUC,Soil,Plain RF,27
+soil,rf_var,28,auc,0.79583280960254,AUC,Soil,Plain RF,28
+soil,rf_var,29,auc,0.926268188959125,AUC,Soil,Plain RF,29
+soil,rf_var,30,auc,0.861675051829773,AUC,Soil,Plain RF,30
+soil,rf_var,31,auc,0.9045754305952,AUC,Soil,Plain RF,31
+soil,rf_var,32,auc,0.903526120439338,AUC,Soil,Plain RF,32
+soil,rf_var,33,auc,0.890277178099209,AUC,Soil,Plain RF,33
+soil,rf_var,34,auc,0.900300466022134,AUC,Soil,Plain RF,34
+soil,rf_var,35,auc,0.93005020046511,AUC,Soil,Plain RF,35
+soil,rf_var,36,auc,0.847036155232922,AUC,Soil,Plain RF,36
+soil,rf_var,37,auc,0.881127987344356,AUC,Soil,Plain RF,37
+soil,rf_var,38,auc,0.953016421281212,AUC,Soil,Plain RF,38
+soil,rf_var,39,auc,0.848400878825433,AUC,Soil,Plain RF,39
+soil,rf_var,40,auc,0.84724211465979,AUC,Soil,Plain RF,40
+soil,rf_var,41,auc,0.870552810832912,AUC,Soil,Plain RF,41
+soil,rf_var,42,auc,0.914468913767888,AUC,Soil,Plain RF,42
+soil,rf_var,43,auc,0.927231764328152,AUC,Soil,Plain RF,43
+soil,rf_var,44,auc,0.839900646722949,AUC,Soil,Plain RF,44
+soil,rf_var,45,auc,0.845910920255897,AUC,Soil,Plain RF,45
+soil,rf_var,46,auc,0.818375823460519,AUC,Soil,Plain RF,46
+soil,rf_var,47,auc,0.851421933923023,AUC,Soil,Plain RF,47
+soil,rf_var,48,auc,0.918909740146325,AUC,Soil,Plain RF,48
+soil,rf_var,49,auc,0.866280209592753,AUC,Soil,Plain RF,49
+soil,rf_var,50,auc,0.909220008369995,AUC,Soil,Plain RF,50
+soil,rf_var,52,auc,0.952806852833234,AUC,Soil,Plain RF,52
+soil,rf_var,53,auc,0.939034884478908,AUC,Soil,Plain RF,53
+soil,rf_var,54,auc,0.959849341402634,AUC,Soil,Plain RF,54
+soil,rf_var,55,auc,0.954330224929438,AUC,Soil,Plain RF,55
+climate,mf_var,1,precision,0.979102507699076,Precision,Climate,Plain MF RF,1
+climate,mf_var,2,precision,0.949078087971793,Precision,Climate,Plain MF RF,2
+climate,mf_var,3,precision,0.914026513710456,Precision,Climate,Plain MF RF,3
+climate,mf_var,4,precision,0.945936531159647,Precision,Climate,Plain MF RF,4
+climate,mf_var,5,precision,0.910085175488019,Precision,Climate,Plain MF RF,5
+climate,mf_var,6,precision,0.96240169497612,Precision,Climate,Plain MF RF,6
+climate,mf_var,7,precision,0.905869787983316,Precision,Climate,Plain MF RF,7
+climate,mf_var,9,precision,0.982392097917114,Precision,Climate,Plain MF RF,9
+climate,mf_var,10,precision,0.956940122271513,Precision,Climate,Plain MF RF,10
+climate,mf_var,11,precision,0.949357838795394,Precision,Climate,Plain MF RF,11
+climate,mf_var,12,precision,0.938217394653725,Precision,Climate,Plain MF RF,12
+climate,mf_var,13,precision,0.926674930886571,Precision,Climate,Plain MF RF,13
+climate,mf_var,14,precision,0.97663319081237,Precision,Climate,Plain MF RF,14
+climate,mf_var,15,precision,0.92736786455015,Precision,Climate,Plain MF RF,15
+climate,mf_var,16,precision,0.924628476010863,Precision,Climate,Plain MF RF,16
+climate,mf_var,17,precision,0.998347107438017,Precision,Climate,Plain MF RF,17
+climate,mf_var,18,precision,0.92872460496614,Precision,Climate,Plain MF RF,18
+climate,mf_var,19,precision,0.95508929393739,Precision,Climate,Plain MF RF,19
+climate,mf_var,20,precision,0.920614874445056,Precision,Climate,Plain MF RF,20
+climate,mf_var,21,precision,0.926143450322866,Precision,Climate,Plain MF RF,21
+climate,mf_var,22,precision,0.963025467934949,Precision,Climate,Plain MF RF,22
+climate,mf_var,23,precision,0.924513002683553,Precision,Climate,Plain MF RF,23
+climate,mf_var,24,precision,0.93363965884047,Precision,Climate,Plain MF RF,24
+climate,mf_var,25,precision,0.943219126762482,Precision,Climate,Plain MF RF,25
+climate,mf_var,26,precision,0.951395421762308,Precision,Climate,Plain MF RF,26
+climate,mf_var,27,precision,0.950880672892385,Precision,Climate,Plain MF RF,27
+climate,mf_var,28,precision,0.938991492010791,Precision,Climate,Plain MF RF,28
+climate,mf_var,29,precision,0.971494836164688,Precision,Climate,Plain MF RF,29
+climate,mf_var,30,precision,0.889410407988403,Precision,Climate,Plain MF RF,30
+climate,mf_var,31,precision,0.934013215460278,Precision,Climate,Plain MF RF,31
+climate,mf_var,32,precision,0.959964962901896,Precision,Climate,Plain MF RF,32
+climate,mf_var,33,precision,0.947154437952947,Precision,Climate,Plain MF RF,33
+climate,mf_var,34,precision,0.984971822166562,Precision,Climate,Plain MF RF,34
+climate,mf_var,35,precision,0.982237832413447,Precision,Climate,Plain MF RF,35
+climate,mf_var,36,precision,0.952592181868589,Precision,Climate,Plain MF RF,36
+climate,mf_var,37,precision,0.963753067774212,Precision,Climate,Plain MF RF,37
+climate,mf_var,38,precision,0.990878118474558,Precision,Climate,Plain MF RF,38
+climate,mf_var,39,precision,0.976544289044289,Precision,Climate,Plain MF RF,39
+climate,mf_var,40,precision,0.891913804907931,Precision,Climate,Plain MF RF,40
+climate,mf_var,41,precision,0.949207240072962,Precision,Climate,Plain MF RF,41
+climate,mf_var,42,precision,0.96398423149161,Precision,Climate,Plain MF RF,42
+climate,mf_var,43,precision,0.989994114184815,Precision,Climate,Plain MF RF,43
+climate,mf_var,44,precision,0.884040514352402,Precision,Climate,Plain MF RF,44
+climate,mf_var,45,precision,0.975050301810865,Precision,Climate,Plain MF RF,45
+climate,mf_var,46,precision,0.949444755505786,Precision,Climate,Plain MF RF,46
+climate,mf_var,47,precision,0.930792626156043,Precision,Climate,Plain MF RF,47
+climate,mf_var,48,precision,0.996116504854369,Precision,Climate,Plain MF RF,48
+climate,mf_var,49,precision,0.915414289158563,Precision,Climate,Plain MF RF,49
+climate,mf_var,50,precision,0.997368421052632,Precision,Climate,Plain MF RF,50
+climate,mf_var,52,precision,0.990476190476191,Precision,Climate,Plain MF RF,52
+climate,mf_var,53,precision,0.980670492298399,Precision,Climate,Plain MF RF,53
+climate,mf_var,54,precision,0.995107913669065,Precision,Climate,Plain MF RF,54
+climate,mf_var,55,precision,0.990049751243781,Precision,Climate,Plain MF RF,55
+climate,rf_var,1,precision,0.979973591549296,Precision,Climate,Plain RF,1
+climate,rf_var,2,precision,0.948968261312113,Precision,Climate,Plain RF,2
+climate,rf_var,3,precision,0.91400343189791,Precision,Climate,Plain RF,3
+climate,rf_var,4,precision,0.94608441083191,Precision,Climate,Plain RF,4
+climate,rf_var,5,precision,0.910185400152565,Precision,Climate,Plain RF,5
+climate,rf_var,6,precision,0.962851189193073,Precision,Climate,Plain RF,6
+climate,rf_var,7,precision,0.905381644183097,Precision,Climate,Plain RF,7
+climate,rf_var,9,precision,0.982493824508646,Precision,Climate,Plain RF,9
+climate,rf_var,10,precision,0.956989010018979,Precision,Climate,Plain RF,10
+climate,rf_var,11,precision,0.949146538555204,Precision,Climate,Plain RF,11
+climate,rf_var,12,precision,0.937956579014901,Precision,Climate,Plain RF,12
+climate,rf_var,13,precision,0.926372065046047,Precision,Climate,Plain RF,13
+climate,rf_var,14,precision,0.975956284153006,Precision,Climate,Plain RF,14
+climate,rf_var,15,precision,0.926803495224548,Precision,Climate,Plain RF,15
+climate,rf_var,16,precision,0.924573623952363,Precision,Climate,Plain RF,16
+climate,rf_var,17,precision,0.998347107438017,Precision,Climate,Plain RF,17
+climate,rf_var,18,precision,0.928539199097575,Precision,Climate,Plain RF,18
+climate,rf_var,19,precision,0.955085572218432,Precision,Climate,Plain RF,19
+climate,rf_var,20,precision,0.920206876795268,Precision,Climate,Plain RF,20
+climate,rf_var,21,precision,0.926002704394905,Precision,Climate,Plain RF,21
+climate,rf_var,22,precision,0.962954440865163,Precision,Climate,Plain RF,22
+climate,rf_var,23,precision,0.924206134590126,Precision,Climate,Plain RF,23
+climate,rf_var,24,precision,0.933541283282809,Precision,Climate,Plain RF,24
+climate,rf_var,25,precision,0.943191106751676,Precision,Climate,Plain RF,25
+climate,rf_var,26,precision,0.950892857142857,Precision,Climate,Plain RF,26
+climate,rf_var,27,precision,0.950902308318658,Precision,Climate,Plain RF,27
+climate,rf_var,28,precision,0.938367995577973,Precision,Climate,Plain RF,28
+climate,rf_var,29,precision,0.971202631996195,Precision,Climate,Plain RF,29
+climate,rf_var,30,precision,0.889651306321117,Precision,Climate,Plain RF,30
+climate,rf_var,31,precision,0.933940705768781,Precision,Climate,Plain RF,31
+climate,rf_var,32,precision,0.959346661170651,Precision,Climate,Plain RF,32
+climate,rf_var,33,precision,0.947102191952921,Precision,Climate,Plain RF,33
+climate,rf_var,34,precision,0.984355444305382,Precision,Climate,Plain RF,34
+climate,rf_var,35,precision,0.982139273530002,Precision,Climate,Plain RF,35
+climate,rf_var,36,precision,0.95180055401662,Precision,Climate,Plain RF,36
+climate,rf_var,37,precision,0.963885835966479,Precision,Climate,Plain RF,37
+climate,rf_var,38,precision,0.990770245028019,Precision,Climate,Plain RF,38
+climate,rf_var,39,precision,0.976686580212735,Precision,Climate,Plain RF,39
+climate,rf_var,40,precision,0.891888482401918,Precision,Climate,Plain RF,40
+climate,rf_var,41,precision,0.949277395818718,Precision,Climate,Plain RF,41
+climate,rf_var,42,precision,0.963931246517962,Precision,Climate,Plain RF,42
+climate,rf_var,43,precision,0.989411764705882,Precision,Climate,Plain RF,43
+climate,rf_var,44,precision,0.884053316203629,Precision,Climate,Plain RF,44
+climate,rf_var,45,precision,0.975825946817083,Precision,Climate,Plain RF,45
+climate,rf_var,46,precision,0.949591598599767,Precision,Climate,Plain RF,46
+climate,rf_var,47,precision,0.930894453113917,Precision,Climate,Plain RF,47
+climate,rf_var,48,precision,0.996116504854369,Precision,Climate,Plain RF,48
+climate,rf_var,49,precision,0.915591462679368,Precision,Climate,Plain RF,49
+climate,rf_var,50,precision,0.997368421052632,Precision,Climate,Plain RF,50
+climate,rf_var,52,precision,0.990336134453782,Precision,Climate,Plain RF,52
+climate,rf_var,53,precision,0.980671465243872,Precision,Climate,Plain RF,53
+climate,rf_var,54,precision,0.995105096458393,Precision,Climate,Plain RF,54
+climate,rf_var,55,precision,0.990049751243781,Precision,Climate,Plain RF,55
+soil,mf_var,1,precision,0.761802575107296,Precision,Soil,Plain MF RF,1
+soil,mf_var,2,precision,0.805434103685197,Precision,Soil,Plain MF RF,2
+soil,mf_var,3,precision,0.755357639855274,Precision,Soil,Plain MF RF,3
+soil,mf_var,4,precision,0.80367816091954,Precision,Soil,Plain MF RF,4
+soil,mf_var,5,precision,0.748128864301985,Precision,Soil,Plain MF RF,5
+soil,mf_var,6,precision,0.789179755671902,Precision,Soil,Plain MF RF,6
+soil,mf_var,7,precision,0.700198920147769,Precision,Soil,Plain MF RF,7
+soil,mf_var,9,precision,0.846354166666667,Precision,Soil,Plain MF RF,9
+soil,mf_var,10,precision,0.827671620665251,Precision,Soil,Plain MF RF,10
+soil,mf_var,11,precision,0.80680646270196,Precision,Soil,Plain MF RF,11
+soil,mf_var,12,precision,0.77275641025641,Precision,Soil,Plain MF RF,12
+soil,mf_var,13,precision,0.799028536733455,Precision,Soil,Plain MF RF,13
+soil,mf_var,14,precision,0.826498422712934,Precision,Soil,Plain MF RF,14
+soil,mf_var,15,precision,0.793418051482568,Precision,Soil,Plain MF RF,15
+soil,mf_var,16,precision,0.844465956760245,Precision,Soil,Plain MF RF,16
+soil,mf_var,17,precision,0.866541353383459,Precision,Soil,Plain MF RF,17
+soil,mf_var,18,precision,0.810479375696767,Precision,Soil,Plain MF RF,18
+soil,mf_var,19,precision,0.886428864288643,Precision,Soil,Plain MF RF,19
+soil,mf_var,20,precision,0.883987495658215,Precision,Soil,Plain MF RF,20
+soil,mf_var,21,precision,0.815990593768372,Precision,Soil,Plain MF RF,21
+soil,mf_var,22,precision,0.829834747655203,Precision,Soil,Plain MF RF,22
+soil,mf_var,23,precision,0.865459249676585,Precision,Soil,Plain MF RF,23
+soil,mf_var,24,precision,0.844838308457712,Precision,Soil,Plain MF RF,24
+soil,mf_var,25,precision,0.786738922537456,Precision,Soil,Plain MF RF,25
+soil,mf_var,26,precision,0.826475849731664,Precision,Soil,Plain MF RF,26
+soil,mf_var,27,precision,0.801589825119237,Precision,Soil,Plain MF RF,27
+soil,mf_var,28,precision,0.73902027027027,Precision,Soil,Plain MF RF,28
+soil,mf_var,29,precision,0.880131964809384,Precision,Soil,Plain MF RF,29
+soil,mf_var,30,precision,0.805521472392638,Precision,Soil,Plain MF RF,30
+soil,mf_var,31,precision,0.853279452906435,Precision,Soil,Plain MF RF,31
+soil,mf_var,32,precision,0.836725663716814,Precision,Soil,Plain MF RF,32
+soil,mf_var,33,precision,0.811272957568081,Precision,Soil,Plain MF RF,33
+soil,mf_var,34,precision,0.84995064165844,Precision,Soil,Plain MF RF,34
+soil,mf_var,35,precision,0.894172494172494,Precision,Soil,Plain MF RF,35
+soil,mf_var,36,precision,0.75,Precision,Soil,Plain MF RF,36
+soil,mf_var,37,precision,0.876940552820901,Precision,Soil,Plain MF RF,37
+soil,mf_var,38,precision,0.953013278855975,Precision,Soil,Plain MF RF,38
+soil,mf_var,39,precision,0.789524733268671,Precision,Soil,Plain MF RF,39
+soil,mf_var,40,precision,0.807792207792208,Precision,Soil,Plain MF RF,40
+soil,mf_var,41,precision,0.86652719665272,Precision,Soil,Plain MF RF,41
+soil,mf_var,42,precision,0.866422385076616,Precision,Soil,Plain MF RF,42
+soil,mf_var,43,precision,0.883698760724499,Precision,Soil,Plain MF RF,43
+soil,mf_var,44,precision,0.802469135802469,Precision,Soil,Plain MF RF,44
+soil,mf_var,45,precision,0.834660134721372,Precision,Soil,Plain MF RF,45
+soil,mf_var,46,precision,0.748813666561215,Precision,Soil,Plain MF RF,46
+soil,mf_var,47,precision,0.79891119428377,Precision,Soil,Plain MF RF,47
+soil,mf_var,48,precision,0.87551867219917,Precision,Soil,Plain MF RF,48
+soil,mf_var,49,precision,0.787108769755191,Precision,Soil,Plain MF RF,49
+soil,mf_var,50,precision,0.842028985507246,Precision,Soil,Plain MF RF,50
+soil,mf_var,52,precision,0.910479199578726,Precision,Soil,Plain MF RF,52
+soil,mf_var,53,precision,0.924691358024691,Precision,Soil,Plain MF RF,53
+soil,mf_var,54,precision,0.933234421364985,Precision,Soil,Plain MF RF,54
+soil,mf_var,55,precision,0.908611599297012,Precision,Soil,Plain MF RF,55
+soil,rf_var,1,precision,0.75880469583778,Precision,Soil,Plain RF,1
+soil,rf_var,2,precision,0.810322989233692,Precision,Soil,Plain RF,2
+soil,rf_var,3,precision,0.756734006734007,Precision,Soil,Plain RF,3
+soil,rf_var,4,precision,0.80367816091954,Precision,Soil,Plain RF,4
+soil,rf_var,5,precision,0.744660194174757,Precision,Soil,Plain RF,5
+soil,rf_var,6,precision,0.788904396371249,Precision,Soil,Plain RF,6
+soil,rf_var,7,precision,0.700284090909091,Precision,Soil,Plain RF,7
+soil,rf_var,9,precision,0.846354166666667,Precision,Soil,Plain RF,9
+soil,rf_var,10,precision,0.820405310971349,Precision,Soil,Plain RF,10
+soil,rf_var,11,precision,0.805831903945112,Precision,Soil,Plain RF,11
+soil,rf_var,12,precision,0.77275641025641,Precision,Soil,Plain RF,12
+soil,rf_var,13,precision,0.795820895522388,Precision,Soil,Plain RF,13
+soil,rf_var,14,precision,0.826498422712934,Precision,Soil,Plain RF,14
+soil,rf_var,15,precision,0.793485342019544,Precision,Soil,Plain RF,15
+soil,rf_var,16,precision,0.844710449692656,Precision,Soil,Plain RF,16
+soil,rf_var,17,precision,0.866541353383459,Precision,Soil,Plain RF,17
+soil,rf_var,18,precision,0.810479375696767,Precision,Soil,Plain RF,18
+soil,rf_var,19,precision,0.886428864288643,Precision,Soil,Plain RF,19
+soil,rf_var,20,precision,0.883987495658215,Precision,Soil,Plain RF,20
+soil,rf_var,21,precision,0.815990593768372,Precision,Soil,Plain RF,21
+soil,rf_var,22,precision,0.830205540661305,Precision,Soil,Plain RF,22
+soil,rf_var,23,precision,0.865459249676585,Precision,Soil,Plain RF,23
+soil,rf_var,24,precision,0.845364032358432,Precision,Soil,Plain RF,24
+soil,rf_var,25,precision,0.786738922537456,Precision,Soil,Plain RF,25
+soil,rf_var,26,precision,0.827883742052679,Precision,Soil,Plain RF,26
+soil,rf_var,27,precision,0.801589825119237,Precision,Soil,Plain RF,27
+soil,rf_var,28,precision,0.73902027027027,Precision,Soil,Plain RF,28
+soil,rf_var,29,precision,0.880131964809384,Precision,Soil,Plain RF,29
+soil,rf_var,30,precision,0.804780876494024,Precision,Soil,Plain RF,30
+soil,rf_var,31,precision,0.853279452906435,Precision,Soil,Plain RF,31
+soil,rf_var,32,precision,0.836725663716814,Precision,Soil,Plain RF,32
+soil,rf_var,33,precision,0.818504190844616,Precision,Soil,Plain RF,33
+soil,rf_var,34,precision,0.84995064165844,Precision,Soil,Plain RF,34
+soil,rf_var,35,precision,0.894172494172494,Precision,Soil,Plain RF,35
+soil,rf_var,36,precision,0.75,Precision,Soil,Plain RF,36
+soil,rf_var,37,precision,0.876940552820901,Precision,Soil,Plain RF,37
+soil,rf_var,38,precision,0.953013278855975,Precision,Soil,Plain RF,38
+soil,rf_var,39,precision,0.789524733268671,Precision,Soil,Plain RF,39
+soil,rf_var,40,precision,0.807792207792208,Precision,Soil,Plain RF,40
+soil,rf_var,41,precision,0.86652719665272,Precision,Soil,Plain RF,41
+soil,rf_var,42,precision,0.866422385076616,Precision,Soil,Plain RF,42
+soil,rf_var,43,precision,0.883698760724499,Precision,Soil,Plain RF,43
+soil,rf_var,44,precision,0.802469135802469,Precision,Soil,Plain RF,44
+soil,rf_var,45,precision,0.834660134721372,Precision,Soil,Plain RF,45
+soil,rf_var,46,precision,0.748813666561215,Precision,Soil,Plain RF,46
+soil,rf_var,47,precision,0.799047942876573,Precision,Soil,Plain RF,47
+soil,rf_var,48,precision,0.87551867219917,Precision,Soil,Plain RF,48
+soil,rf_var,49,precision,0.786575935663471,Precision,Soil,Plain RF,49
+soil,rf_var,50,precision,0.842028985507246,Precision,Soil,Plain RF,50
+soil,rf_var,52,precision,0.910479199578726,Precision,Soil,Plain RF,52
+soil,rf_var,53,precision,0.924660354055167,Precision,Soil,Plain RF,53
+soil,rf_var,54,precision,0.933234421364985,Precision,Soil,Plain RF,54
+soil,rf_var,55,precision,0.909410729991205,Precision,Soil,Plain RF,55
+climate,mf_var,1,recall,0.989991103202847,Recall,Climate,Plain MF RF,1
+climate,mf_var,2,recall,0.96558699691859,Recall,Climate,Plain MF RF,2
+climate,mf_var,3,recall,0.939502592917905,Recall,Climate,Plain MF RF,3
+climate,mf_var,4,recall,0.984733101247462,Recall,Climate,Plain MF RF,4
+climate,mf_var,5,recall,0.952744431337173,Recall,Climate,Plain MF RF,5
+climate,mf_var,6,recall,0.98489581419279,Recall,Climate,Plain MF RF,6
+climate,mf_var,7,recall,0.941597407662996,Recall,Climate,Plain MF RF,7
+climate,mf_var,9,recall,0.998145521981019,Recall,Climate,Plain MF RF,9
+climate,mf_var,10,recall,0.982461705791716,Recall,Climate,Plain MF RF,10
+climate,mf_var,11,recall,0.975206423583468,Recall,Climate,Plain MF RF,11
+climate,mf_var,12,recall,0.974441263801718,Recall,Climate,Plain MF RF,12
+climate,mf_var,13,recall,0.957721563771449,Recall,Climate,Plain MF RF,13
+climate,mf_var,14,recall,0.995540239205352,Recall,Climate,Plain MF RF,14
+climate,mf_var,15,recall,0.959858008755191,Recall,Climate,Plain MF RF,15
+climate,mf_var,16,recall,0.963643299605806,Recall,Climate,Plain MF RF,16
+climate,mf_var,17,recall,1,Recall,Climate,Plain MF RF,17
+climate,mf_var,18,recall,0.973355019961556,Recall,Climate,Plain MF RF,18
+climate,mf_var,19,recall,0.955145273381897,Recall,Climate,Plain MF RF,19
+climate,mf_var,20,recall,0.963759946142803,Recall,Climate,Plain MF RF,20
+climate,mf_var,21,recall,0.963319174092969,Recall,Climate,Plain MF RF,21
+climate,mf_var,22,recall,0.982239261403646,Recall,Climate,Plain MF RF,22
+climate,mf_var,23,recall,0.964423454539962,Recall,Climate,Plain MF RF,23
+climate,mf_var,24,recall,0.961775144203908,Recall,Climate,Plain MF RF,24
+climate,mf_var,25,recall,0.971951989892609,Recall,Climate,Plain MF RF,25
+climate,mf_var,26,recall,0.986105468432599,Recall,Climate,Plain MF RF,26
+climate,mf_var,27,recall,0.968052349443325,Recall,Climate,Plain MF RF,27
+climate,mf_var,28,recall,0.975636050021561,Recall,Climate,Plain MF RF,28
+climate,mf_var,29,recall,0.992044856483543,Recall,Climate,Plain MF RF,29
+climate,mf_var,30,recall,0.950189695968313,Recall,Climate,Plain MF RF,30
+climate,mf_var,31,recall,0.973179865840384,Recall,Climate,Plain MF RF,31
+climate,mf_var,32,recall,0.989747131321717,Recall,Climate,Plain MF RF,32
+climate,mf_var,33,recall,0.978177938980158,Recall,Climate,Plain MF RF,33
+climate,mf_var,34,recall,0.996831432192649,Recall,Climate,Plain MF RF,34
+climate,mf_var,35,recall,0.99461436845849,Recall,Climate,Plain MF RF,35
+climate,mf_var,36,recall,0.992203291943402,Recall,Climate,Plain MF RF,36
+climate,mf_var,37,recall,0.973493516399695,Recall,Climate,Plain MF RF,37
+climate,mf_var,38,recall,0.99944573772309,Recall,Climate,Plain MF RF,38
+climate,mf_var,39,recall,0.99776719261685,Recall,Climate,Plain MF RF,39
+climate,mf_var,40,recall,0.970161977834612,Recall,Climate,Plain MF RF,40
+climate,mf_var,41,recall,0.985971943887776,Recall,Climate,Plain MF RF,41
+climate,mf_var,42,recall,0.991697985009661,Recall,Climate,Plain MF RF,42
+climate,mf_var,43,recall,0.998812351543943,Recall,Climate,Plain MF RF,43
+climate,mf_var,44,recall,0.959117414738407,Recall,Climate,Plain MF RF,44
+climate,mf_var,45,recall,0.993643633381177,Recall,Climate,Plain MF RF,45
+climate,mf_var,46,recall,0.987575529617317,Recall,Climate,Plain MF RF,46
+climate,mf_var,47,recall,0.979316907518495,Recall,Climate,Plain MF RF,47
+climate,mf_var,48,recall,1,Recall,Climate,Plain MF RF,48
+climate,mf_var,49,recall,0.968106580540977,Recall,Climate,Plain MF RF,49
+climate,mf_var,50,recall,0.994750656167979,Recall,Climate,Plain MF RF,50
+climate,mf_var,52,recall,0.998728993080073,Recall,Climate,Plain MF RF,52
+climate,mf_var,53,recall,0.995045712242709,Recall,Climate,Plain MF RF,53
+climate,mf_var,54,recall,0.998556165174704,Recall,Climate,Plain MF RF,54
+climate,mf_var,55,recall,0.999497739829232,Recall,Climate,Plain MF RF,55
+climate,rf_var,1,recall,0.990435943060498,Recall,Climate,Plain RF,1
+climate,rf_var,2,recall,0.964928374850046,Recall,Climate,Plain RF,2
+climate,rf_var,3,recall,0.938907003886369,Recall,Climate,Plain RF,3
+climate,rf_var,4,recall,0.984406730490281,Recall,Climate,Plain RF,4
+climate,rf_var,5,recall,0.952154604121851,Recall,Climate,Plain RF,5
+climate,rf_var,6,recall,0.98489581419279,Recall,Climate,Plain RF,6
+climate,rf_var,7,recall,0.942407512976687,Recall,Climate,Plain RF,7
+climate,rf_var,9,recall,0.997927348096433,Recall,Climate,Plain RF,9
+climate,rf_var,10,recall,0.982620320855615,Recall,Climate,Plain RF,10
+climate,rf_var,11,recall,0.975183677183086,Recall,Climate,Plain RF,11
+climate,rf_var,12,recall,0.974779083619295,Recall,Climate,Plain RF,12
+climate,rf_var,13,recall,0.957651876986743,Recall,Climate,Plain RF,13
+climate,rf_var,14,recall,0.99564159740523,Recall,Climate,Plain RF,14
+climate,rf_var,15,recall,0.959872039510607,Recall,Climate,Plain RF,15
+climate,rf_var,16,recall,0.963508873912333,Recall,Climate,Plain RF,16
+climate,rf_var,17,recall,1,Recall,Climate,Plain RF,17
+climate,rf_var,18,recall,0.973709892059737,Recall,Climate,Plain RF,18
+climate,rf_var,19,recall,0.955329481704764,Recall,Climate,Plain RF,19
+climate,rf_var,20,recall,0.964019498900956,Recall,Climate,Plain RF,20
+climate,rf_var,21,recall,0.963395809156795,Recall,Climate,Plain RF,21
+climate,rf_var,22,recall,0.982317502542837,Recall,Climate,Plain RF,22
+climate,rf_var,23,recall,0.963638011419135,Recall,Climate,Plain RF,23
+climate,rf_var,24,recall,0.962074175499894,Recall,Climate,Plain RF,24
+climate,rf_var,25,recall,0.971909875763319,Recall,Climate,Plain RF,25
+climate,rf_var,26,recall,0.986511741285447,Recall,Climate,Plain RF,26
+climate,rf_var,27,recall,0.967605313560988,Recall,Climate,Plain RF,27
+climate,rf_var,28,recall,0.976067270375162,Recall,Climate,Plain RF,28
+climate,rf_var,29,recall,0.991923403910773,Recall,Climate,Plain RF,29
+climate,rf_var,30,recall,0.950201210139379,Recall,Climate,Plain RF,30
+climate,rf_var,31,recall,0.973258459640119,Recall,Climate,Plain RF,31
+climate,rf_var,32,recall,0.989109647258818,Recall,Climate,Plain RF,32
+climate,rf_var,33,recall,0.977921911670578,Recall,Climate,Plain RF,33
+climate,rf_var,34,recall,0.996831432192649,Recall,Climate,Plain RF,34
+climate,rf_var,35,recall,0.99461436845849,Recall,Climate,Plain RF,35
+climate,rf_var,36,recall,0.992203291943402,Recall,Climate,Plain RF,36
+climate,rf_var,37,recall,0.973042784827682,Recall,Climate,Plain RF,37
+climate,rf_var,38,recall,0.999556590178472,Recall,Climate,Plain RF,38
+climate,rf_var,39,recall,0.99776719261685,Recall,Climate,Plain RF,39
+climate,rf_var,40,recall,0.969907203261115,Recall,Climate,Plain RF,40
+climate,rf_var,41,recall,0.98604481690654,Recall,Climate,Plain RF,41
+climate,rf_var,42,recall,0.991889079983863,Recall,Climate,Plain RF,42
+climate,rf_var,43,recall,0.998812351543943,Recall,Climate,Plain RF,43
+climate,rf_var,44,recall,0.959192918873711,Recall,Climate,Plain RF,44
+climate,rf_var,45,recall,0.993233545212221,Recall,Climate,Plain RF,45
+climate,rf_var,46,recall,0.987405663811303,Recall,Climate,Plain RF,46
+climate,rf_var,47,recall,0.979484835197642,Recall,Climate,Plain RF,47
+climate,rf_var,48,recall,1,Recall,Climate,Plain RF,48
+climate,rf_var,49,recall,0.968021588084058,Recall,Climate,Plain RF,49
+climate,rf_var,50,recall,0.994750656167979,Recall,Climate,Plain RF,50
+climate,rf_var,52,recall,0.998587770088971,Recall,Climate,Plain RF,52
+climate,rf_var,53,recall,0.995096787374228,Recall,Climate,Plain RF,53
+climate,rf_var,54,recall,0.997978631244586,Recall,Climate,Plain RF,54
+climate,rf_var,55,recall,0.999497739829232,Recall,Climate,Plain RF,55
+soil,mf_var,1,recall,0.888055034396498,Recall,Soil,Plain MF RF,1
+soil,mf_var,2,recall,0.908738548273432,Recall,Soil,Plain MF RF,2
+soil,mf_var,3,recall,0.909822326516929,Recall,Soil,Plain MF RF,3
+soil,mf_var,4,recall,0.698083067092652,Recall,Soil,Plain MF RF,4
+soil,mf_var,5,recall,0.818440726237095,Recall,Soil,Plain MF RF,5
+soil,mf_var,6,recall,0.905849358974359,Recall,Soil,Plain MF RF,6
+soil,mf_var,7,recall,0.867911236350828,Recall,Soil,Plain MF RF,7
+soil,mf_var,9,recall,0.980885311871227,Recall,Soil,Plain MF RF,9
+soil,mf_var,10,recall,0.833570919458304,Recall,Soil,Plain MF RF,10
+soil,mf_var,11,recall,0.870226177233964,Recall,Soil,Plain MF RF,11
+soil,mf_var,12,recall,0.849841381741276,Recall,Soil,Plain MF RF,12
+soil,mf_var,13,recall,0.900752908966461,Recall,Soil,Plain MF RF,13
+soil,mf_var,14,recall,0.917,Recall,Soil,Plain MF RF,14
+soil,mf_var,15,recall,0.891614793116075,Recall,Soil,Plain MF RF,15
+soil,mf_var,16,recall,0.92735648476258,Recall,Soil,Plain MF RF,16
+soil,mf_var,17,recall,0.923847695390782,Recall,Soil,Plain MF RF,17
+soil,mf_var,18,recall,0.811082186686501,Recall,Soil,Plain MF RF,18
+soil,mf_var,19,recall,0.882809309922417,Recall,Soil,Plain MF RF,19
+soil,mf_var,20,recall,0.957847196085811,Recall,Soil,Plain MF RF,20
+soil,mf_var,21,recall,0.96455872133426,Recall,Soil,Plain MF RF,21
+soil,mf_var,22,recall,0.880568720379147,Recall,Soil,Plain MF RF,22
+soil,mf_var,23,recall,0.935337294652219,Recall,Soil,Plain MF RF,23
+soil,mf_var,24,recall,0.916666666666667,Recall,Soil,Plain MF RF,24
+soil,mf_var,25,recall,0.884270870655679,Recall,Soil,Plain MF RF,25
+soil,mf_var,26,recall,0.860335195530726,Recall,Soil,Plain MF RF,26
+soil,mf_var,27,recall,0.876869565217391,Recall,Soil,Plain MF RF,27
+soil,mf_var,28,recall,0.801649106733852,Recall,Soil,Plain MF RF,28
+soil,mf_var,29,recall,0.909814323607427,Recall,Soil,Plain MF RF,29
+soil,mf_var,30,recall,0.912439193884642,Recall,Soil,Plain MF RF,30
+soil,mf_var,31,recall,0.933356001360081,Recall,Soil,Plain MF RF,31
+soil,mf_var,32,recall,0.849887640449438,Recall,Soil,Plain MF RF,32
+soil,mf_var,33,recall,0.876496749914472,Recall,Soil,Plain MF RF,33
+soil,mf_var,34,recall,0.9072708113804,Recall,Soil,Plain MF RF,34
+soil,mf_var,35,recall,0.950917203767972,Recall,Soil,Plain MF RF,35
+soil,mf_var,36,recall,0.950195858981533,Recall,Soil,Plain MF RF,36
+soil,mf_var,37,recall,0.857460199925953,Recall,Soil,Plain MF RF,37
+soil,mf_var,38,recall,0.943377148634985,Recall,Soil,Plain MF RF,38
+soil,mf_var,39,recall,0.914093206064009,Recall,Soil,Plain MF RF,39
+soil,mf_var,40,recall,0.876056338028169,Recall,Soil,Plain MF RF,40
+soil,mf_var,41,recall,0.83206106870229,Recall,Soil,Plain MF RF,41
+soil,mf_var,42,recall,0.951353328456474,Recall,Soil,Plain MF RF,42
+soil,mf_var,43,recall,0.924227318045862,Recall,Soil,Plain MF RF,43
+soil,mf_var,44,recall,0.874645892351275,Recall,Soil,Plain MF RF,44
+soil,mf_var,45,recall,0.842398022249691,Recall,Soil,Plain MF RF,45
+soil,mf_var,46,recall,0.904470768055025,Recall,Soil,Plain MF RF,46
+soil,mf_var,47,recall,0.852887758808573,Recall,Soil,Plain MF RF,47
+soil,mf_var,48,recall,0.929515418502203,Recall,Soil,Plain MF RF,48
+soil,mf_var,49,recall,0.936232952451161,Recall,Soil,Plain MF RF,49
+soil,mf_var,50,recall,0.928115015974441,Recall,Soil,Plain MF RF,50
+soil,mf_var,52,recall,0.963231197771588,Recall,Soil,Plain MF RF,52
+soil,mf_var,53,recall,0.945707070707071,Recall,Soil,Plain MF RF,53
+soil,mf_var,54,recall,0.949433962264151,Recall,Soil,Plain MF RF,54
+soil,mf_var,55,recall,0.940855323020928,Recall,Soil,Plain MF RF,55
+soil,rf_var,1,recall,0.889305816135084,Recall,Soil,Plain RF,1
+soil,rf_var,2,recall,0.90169133192389,Recall,Soil,Plain RF,2
+soil,rf_var,3,recall,0.904123365739189,Recall,Soil,Plain RF,3
+soil,rf_var,4,recall,0.698083067092652,Recall,Soil,Plain RF,4
+soil,rf_var,5,recall,0.819152723389107,Recall,Soil,Plain RF,5
+soil,rf_var,6,recall,0.905849358974359,Recall,Soil,Plain RF,6
+soil,rf_var,7,recall,0.868263473053892,Recall,Soil,Plain RF,7
+soil,rf_var,9,recall,0.980885311871227,Recall,Soil,Plain RF,9
+soil,rf_var,10,recall,0.836778332145403,Recall,Soil,Plain RF,10
+soil,rf_var,11,recall,0.870967741935484,Recall,Soil,Plain RF,11
+soil,rf_var,12,recall,0.849841381741276,Recall,Soil,Plain RF,12
+soil,rf_var,13,recall,0.912388774811773,Recall,Soil,Plain RF,13
+soil,rf_var,14,recall,0.917,Recall,Soil,Plain RF,14
+soil,rf_var,15,recall,0.891980959355547,Recall,Soil,Plain RF,15
+soil,rf_var,16,recall,0.925230333097094,Recall,Soil,Plain RF,16
+soil,rf_var,17,recall,0.923847695390782,Recall,Soil,Plain RF,17
+soil,rf_var,18,recall,0.811082186686501,Recall,Soil,Plain RF,18
+soil,rf_var,19,recall,0.882809309922417,Recall,Soil,Plain RF,19
+soil,rf_var,20,recall,0.957847196085811,Recall,Soil,Plain RF,20
+soil,rf_var,21,recall,0.96455872133426,Recall,Soil,Plain RF,21
+soil,rf_var,22,recall,0.880568720379147,Recall,Soil,Plain RF,22
+soil,rf_var,23,recall,0.935337294652219,Recall,Soil,Plain RF,23
+soil,rf_var,24,recall,0.916666666666667,Recall,Soil,Plain RF,24
+soil,rf_var,25,recall,0.884270870655679,Recall,Soil,Plain RF,25
+soil,rf_var,26,recall,0.848696461824953,Recall,Soil,Plain RF,26
+soil,rf_var,27,recall,0.876869565217391,Recall,Soil,Plain RF,27
+soil,rf_var,28,recall,0.801649106733852,Recall,Soil,Plain RF,28
+soil,rf_var,29,recall,0.909814323607427,Recall,Soil,Plain RF,29
+soil,rf_var,30,recall,0.912439193884642,Recall,Soil,Plain RF,30
+soil,rf_var,31,recall,0.933356001360081,Recall,Soil,Plain RF,31
+soil,rf_var,32,recall,0.849887640449438,Recall,Soil,Plain RF,32
+soil,rf_var,33,recall,0.868628121792679,Recall,Soil,Plain RF,33
+soil,rf_var,34,recall,0.9072708113804,Recall,Soil,Plain RF,34
+soil,rf_var,35,recall,0.950917203767972,Recall,Soil,Plain RF,35
+soil,rf_var,36,recall,0.950195858981533,Recall,Soil,Plain RF,36
+soil,rf_var,37,recall,0.857460199925953,Recall,Soil,Plain RF,37
+soil,rf_var,38,recall,0.943377148634985,Recall,Soil,Plain RF,38
+soil,rf_var,39,recall,0.914093206064009,Recall,Soil,Plain RF,39
+soil,rf_var,40,recall,0.876056338028169,Recall,Soil,Plain RF,40
+soil,rf_var,41,recall,0.83206106870229,Recall,Soil,Plain RF,41
+soil,rf_var,42,recall,0.951353328456474,Recall,Soil,Plain RF,42
+soil,rf_var,43,recall,0.924227318045862,Recall,Soil,Plain RF,43
+soil,rf_var,44,recall,0.874645892351275,Recall,Soil,Plain RF,44
+soil,rf_var,45,recall,0.842398022249691,Recall,Soil,Plain RF,45
+soil,rf_var,46,recall,0.904470768055025,Recall,Soil,Plain RF,46
+soil,rf_var,47,recall,0.853614239011987,Recall,Soil,Plain RF,47
+soil,rf_var,48,recall,0.929515418502203,Recall,Soil,Plain RF,48
+soil,rf_var,49,recall,0.937338739402875,Recall,Soil,Plain RF,49
+soil,rf_var,50,recall,0.928115015974441,Recall,Soil,Plain RF,50
+soil,rf_var,52,recall,0.963231197771588,Recall,Soil,Plain RF,52
+soil,rf_var,53,recall,0.945286195286195,Recall,Soil,Plain RF,53
+soil,rf_var,54,recall,0.949433962264151,Recall,Soil,Plain RF,54
+soil,rf_var,55,recall,0.940855323020928,Recall,Soil,Plain RF,55
+climate,mf_var,1,specificity,0.978870106761566,Specificity,Climate,Plain MF RF,1
+climate,mf_var,2,specificity,0.948192317644015,Specificity,Climate,Plain MF RF,2
+climate,mf_var,3,specificity,0.911630229452178,Specificity,Climate,Plain MF RF,3
+climate,mf_var,4,specificity,0.943719176095155,Specificity,Climate,Plain MF RF,4
+climate,mf_var,5,specificity,0.905870515578378,Specificity,Climate,Plain MF RF,5
+climate,mf_var,6,specificity,0.961522913527618,Specificity,Climate,Plain MF RF,6
+climate,mf_var,7,specificity,0.902157280446458,Specificity,Climate,Plain MF RF,7
+climate,mf_var,9,specificity,0.982109741463947,Specificity,Climate,Plain MF RF,9
+climate,mf_var,10,specificity,0.955791715761805,Specificity,Climate,Plain MF RF,10
+climate,mf_var,11,specificity,0.947978982326047,Specificity,Climate,Plain MF RF,11
+climate,mf_var,12,specificity,0.935832014650712,Specificity,Climate,Plain MF RF,12
+climate,mf_var,13,specificity,0.924218301893873,Specificity,Climate,Plain MF RF,13
+climate,mf_var,14,specificity,0.976180823028583,Specificity,Climate,Plain MF RF,14
+climate,mf_var,15,specificity,0.92482321248176,Specificity,Climate,Plain MF RF,15
+climate,mf_var,16,specificity,0.921448164362659,Specificity,Climate,Plain MF RF,16
+climate,mf_var,17,specificity,0.998344370860927,Specificity,Climate,Plain MF RF,17
+climate,mf_var,18,specificity,0.92529942333284,Specificity,Climate,Plain MF RF,18
+climate,mf_var,19,specificity,0.955086661642803,Specificity,Climate,Plain MF RF,19
+climate,mf_var,20,specificity,0.916894451248692,Specificity,Climate,Plain MF RF,20
+climate,mf_var,21,specificity,0.923178822447505,Specificity,Climate,Plain MF RF,21
+climate,mf_var,22,specificity,0.962287770909944,Specificity,Climate,Plain MF RF,22
+climate,mf_var,23,specificity,0.92125429224526,Specificity,Climate,Plain MF RF,23
+climate,mf_var,24,specificity,0.931639871888697,Specificity,Climate,Plain MF RF,24
+climate,mf_var,25,specificity,0.94148943637257,Specificity,Climate,Plain MF RF,25
+climate,mf_var,26,specificity,0.949622166246851,Specificity,Climate,Plain MF RF,26
+climate,mf_var,27,specificity,0.94999364129995,Specificity,Climate,Plain MF RF,27
+climate,mf_var,28,specificity,0.936610608020699,Specificity,Climate,Plain MF RF,28
+climate,mf_var,29,specificity,0.970891866726043,Specificity,Climate,Plain MF RF,29
+climate,mf_var,30,specificity,0.881853090691369,Specificity,Climate,Plain MF RF,30
+climate,mf_var,31,specificity,0.9312461439917,Specificity,Climate,Plain MF RF,31
+climate,mf_var,32,specificity,0.958722906927327,Specificity,Climate,Plain MF RF,32
+climate,mf_var,33,specificity,0.945423511841263,Specificity,Climate,Plain MF RF,33
+climate,mf_var,34,specificity,0.984790874524715,Specificity,Climate,Plain MF RF,34
+climate,mf_var,35,specificity,0.982014022965146,Specificity,Climate,Plain MF RF,35
+climate,mf_var,36,specificity,0.950620848974877,Specificity,Climate,Plain MF RF,36
+climate,mf_var,37,specificity,0.963386727688787,Specificity,Climate,Plain MF RF,37
+climate,mf_var,38,specificity,0.990799246203303,Specificity,Climate,Plain MF RF,38
+climate,mf_var,39,specificity,0.976034534087526,Specificity,Climate,Plain MF RF,39
+climate,mf_var,40,specificity,0.882431333352931,Specificity,Climate,Plain MF RF,40
+climate,mf_var,41,specificity,0.947239934414283,Specificity,Climate,Plain MF RF,41
+climate,mf_var,42,specificity,0.962948807779689,Specificity,Climate,Plain MF RF,42
+climate,mf_var,43,specificity,0.989904988123515,Specificity,Climate,Plain MF RF,43
+climate,mf_var,44,specificity,0.874192686553294,Specificity,Climate,Plain MF RF,44
+climate,mf_var,45,specificity,0.974574533524708,Specificity,Climate,Plain MF RF,45
+climate,mf_var,46,specificity,0.947414399767041,Specificity,Climate,Plain MF RF,46
+climate,mf_var,47,specificity,0.927184692459114,Specificity,Climate,Plain MF RF,47
+climate,mf_var,48,specificity,0.996101364522417,Specificity,Climate,Plain MF RF,48
+climate,mf_var,49,specificity,0.910545439092281,Specificity,Climate,Plain MF RF,49
+climate,mf_var,50,specificity,0.99737532808399,Specificity,Climate,Plain MF RF,50
+climate,mf_var,52,specificity,0.990396836604999,Specificity,Climate,Plain MF RF,52
+climate,mf_var,53,specificity,0.98038714949691,Specificity,Climate,Plain MF RF,53
+climate,mf_var,54,specificity,0.995090961593994,Specificity,Climate,Plain MF RF,54
+climate,mf_var,55,specificity,0.989954796584631,Specificity,Climate,Plain MF RF,55
+climate,rf_var,1,specificity,0.979759786476868,Specificity,Climate,Plain RF,1
+climate,rf_var,2,specificity,0.948109989885447,Specificity,Climate,Plain RF,2
+climate,rf_var,3,specificity,0.911660309706296,Specificity,Climate,Plain RF,3
+climate,rf_var,4,specificity,0.943900493182477,Specificity,Climate,Plain RF,4
+climate,rf_var,5,specificity,0.906043994171119,Specificity,Climate,Plain RF,5
+climate,rf_var,6,specificity,0.962000661497189,Specificity,Climate,Plain RF,6
+climate,rf_var,7,specificity,0.901512196585556,Specificity,Climate,Plain RF,7
+climate,rf_var,9,specificity,0.98221882840624,Specificity,Climate,Plain RF,9
+climate,rf_var,10,specificity,0.955837034351491,Specificity,Climate,Plain RF,10
+climate,rf_var,11,specificity,0.947751518322226,Specificity,Climate,Plain RF,11
+climate,rf_var,12,specificity,0.935520864818733,Specificity,Climate,Plain RF,12
+climate,rf_var,13,specificity,0.923885949536047,Specificity,Climate,Plain RF,13
+climate,rf_var,14,specificity,0.975471315629435,Specificity,Climate,Plain RF,14
+climate,rf_var,15,specificity,0.924191828488046,Specificity,Climate,Plain RF,15
+climate,rf_var,16,specificity,0.92139730058675,Specificity,Climate,Plain RF,16
+climate,rf_var,17,specificity,0.998344370860927,Specificity,Climate,Plain RF,17
+climate,rf_var,18,specificity,0.925062841934053,Specificity,Climate,Plain RF,18
+climate,rf_var,19,specificity,0.955074101984426,Specificity,Climate,Plain RF,19
+climate,rf_var,20,specificity,0.916407789827154,Specificity,Climate,Plain RF,20
+climate,rf_var,21,specificity,0.923014604453592,Specificity,Climate,Plain RF,21
+climate,rf_var,22,specificity,0.962209529770753,Specificity,Climate,Plain RF,22
+climate,rf_var,23,specificity,0.92097233830445,Specificity,Climate,Plain RF,23
+climate,rf_var,24,specificity,0.931510029352282,Specificity,Climate,Plain RF,24
+climate,rf_var,25,specificity,0.941461360286376,Specificity,Climate,Plain RF,25
+climate,rf_var,26,specificity,0.949053384252864,Specificity,Climate,Plain RF,26
+climate,rf_var,27,specificity,0.950039886391226,Specificity,Climate,Plain RF,27
+climate,rf_var,28,specificity,0.935891907431364,Specificity,Climate,Plain RF,28
+climate,rf_var,29,specificity,0.970588235294118,Specificity,Climate,Plain RF,29
+climate,rf_var,30,specificity,0.882140944968019,Specificity,Climate,Plain RF,30
+climate,rf_var,31,specificity,0.931159690811992,Specificity,Climate,Plain RF,31
+climate,rf_var,32,specificity,0.958085422864428,Specificity,Climate,Plain RF,32
+climate,rf_var,33,specificity,0.945380840623,Specificity,Climate,Plain RF,33
+climate,rf_var,34,specificity,0.984157160963245,Specificity,Climate,Plain RF,34
+climate,rf_var,35,specificity,0.981912407275683,Specificity,Climate,Plain RF,35
+climate,rf_var,36,specificity,0.9497545480797,Specificity,Climate,Plain RF,36
+climate,rf_var,37,specificity,0.963542750156022,Specificity,Climate,Plain RF,37
+climate,rf_var,38,specificity,0.990688393747921,Specificity,Climate,Plain RF,38
+climate,rf_var,39,specificity,0.976183387913069,Specificity,Climate,Plain RF,39
+climate,rf_var,40,specificity,0.882431333352931,Specificity,Climate,Plain RF,40
+climate,rf_var,41,specificity,0.947312807433048,Specificity,Climate,Plain RF,41
+climate,rf_var,42,specificity,0.962885109454955,Specificity,Climate,Plain RF,42
+climate,rf_var,43,specificity,0.989311163895487,Specificity,Climate,Plain RF,43
+climate,rf_var,44,specificity,0.874198494563702,Specificity,Climate,Plain RF,44
+climate,rf_var,45,specificity,0.97539470986262,Specificity,Climate,Plain RF,45
+climate,rf_var,46,specificity,0.947584265573054,Specificity,Climate,Plain RF,46
+climate,rf_var,47,specificity,0.927287314929704,Specificity,Climate,Plain RF,47
+climate,rf_var,48,specificity,0.996101364522417,Specificity,Climate,Plain RF,48
+climate,rf_var,49,specificity,0.910757920234579,Specificity,Climate,Plain RF,49
+climate,rf_var,50,specificity,0.99737532808399,Specificity,Climate,Plain RF,50
+climate,rf_var,52,specificity,0.990255613613896,Specificity,Climate,Plain RF,52
+climate,rf_var,53,specificity,0.98038714949691,Specificity,Climate,Plain RF,53
+climate,rf_var,54,specificity,0.995090961593994,Specificity,Climate,Plain RF,54
+climate,rf_var,55,specificity,0.989954796584631,Specificity,Climate,Plain RF,55
+soil,mf_var,1,specificity,0.722326454033771,Specificity,Soil,Plain MF RF,1
+soil,mf_var,2,specificity,0.780479210711769,Specificity,Soil,Plain MF RF,2
+soil,mf_var,3,specificity,0.705330204492122,Specificity,Soil,Plain MF RF,3
+soil,mf_var,4,specificity,0.829472843450479,Specificity,Soil,Plain MF RF,4
+soil,mf_var,5,specificity,0.724457102171591,Specificity,Soil,Plain MF RF,5
+soil,mf_var,6,specificity,0.75801282051282,Specificity,Soil,Plain MF RF,6
+soil,mf_var,7,specificity,0.628390278266996,Specificity,Soil,Plain MF RF,7
+soil,mf_var,9,specificity,0.821931589537223,Specificity,Soil,Plain MF RF,9
+soil,mf_var,10,specificity,0.826443335709195,Specificity,Soil,Plain MF RF,10
+soil,mf_var,11,specificity,0.791620318872822,Specificity,Soil,Plain MF RF,11
+soil,mf_var,12,specificity,0.750088121254847,Specificity,Soil,Plain MF RF,12
+soil,mf_var,13,specificity,0.773442847364819,Specificity,Soil,Plain MF RF,13
+soil,mf_var,14,specificity,0.8075,Specificity,Soil,Plain MF RF,14
+soil,mf_var,15,specificity,0.767850604174295,Specificity,Soil,Plain MF RF,15
+soil,mf_var,16,specificity,0.829199149539334,Specificity,Soil,Plain MF RF,16
+soil,mf_var,17,specificity,0.857715430861724,Specificity,Soil,Plain MF RF,17
+soil,mf_var,18,specificity,0.810338415767944,Specificity,Soil,Plain MF RF,18
+soil,mf_var,19,specificity,0.886892609228256,Specificity,Soil,Plain MF RF,19
+soil,mf_var,20,specificity,0.874294316898758,Specificity,Soil,Plain MF RF,20
+soil,mf_var,21,specificity,0.782487838776928,Specificity,Soil,Plain MF RF,21
+soil,mf_var,22,specificity,0.819431279620853,Specificity,Soil,Plain MF RF,22
+soil,mf_var,23,specificity,0.854596295001748,Specificity,Soil,Plain MF RF,23
+soil,mf_var,24,specificity,0.831646423751687,Specificity,Soil,Plain MF RF,24
+soil,mf_var,25,specificity,0.760300967395199,Specificity,Soil,Plain MF RF,25
+soil,mf_var,26,specificity,0.819366852886406,Specificity,Soil,Plain MF RF,26
+soil,mf_var,27,specificity,0.782956521739131,Specificity,Soil,Plain MF RF,27
+soil,mf_var,28,specificity,0.716903344021988,Specificity,Soil,Plain MF RF,28
+soil,mf_var,29,specificity,0.876089427813566,Specificity,Soil,Plain MF RF,29
+soil,mf_var,30,specificity,0.779708130646282,Specificity,Soil,Plain MF RF,30
+soil,mf_var,31,specificity,0.839510370622237,Specificity,Soil,Plain MF RF,31
+soil,mf_var,32,specificity,0.834157303370787,Specificity,Soil,Plain MF RF,32
+soil,mf_var,33,specificity,0.79609989736572,Specificity,Soil,Plain MF RF,33
+soil,mf_var,34,specificity,0.839831401475237,Specificity,Soil,Plain MF RF,34
+soil,mf_var,35,specificity,0.887456618740704,Specificity,Soil,Plain MF RF,35
+soil,mf_var,36,specificity,0.683268047006156,Specificity,Soil,Plain MF RF,36
+soil,mf_var,37,specificity,0.879674194742688,Specificity,Soil,Plain MF RF,37
+soil,mf_var,38,specificity,0.953488372093023,Specificity,Soil,Plain MF RF,38
+soil,mf_var,39,specificity,0.756316676024705,Specificity,Soil,Plain MF RF,39
+soil,mf_var,40,specificity,0.791549295774648,Specificity,Soil,Plain MF RF,40
+soil,mf_var,41,specificity,0.871836078746485,Specificity,Soil,Plain MF RF,41
+soil,mf_var,42,specificity,0.853328456474031,Specificity,Soil,Plain MF RF,42
+soil,mf_var,43,specificity,0.878364905284148,Specificity,Soil,Plain MF RF,43
+soil,mf_var,44,specificity,0.784702549575071,Specificity,Soil,Plain MF RF,44
+soil,mf_var,45,specificity,0.833127317676143,Specificity,Soil,Plain MF RF,45
+soil,mf_var,46,specificity,0.696599159342759,Specificity,Soil,Plain MF RF,46
+soil,mf_var,47,specificity,0.785325099891028,Specificity,Soil,Plain MF RF,47
+soil,mf_var,48,specificity,0.86784140969163,Specificity,Soil,Plain MF RF,48
+soil,mf_var,49,specificity,0.746774788057501,Specificity,Soil,Plain MF RF,49
+soil,mf_var,50,specificity,0.825878594249201,Specificity,Soil,Plain MF RF,50
+soil,mf_var,52,specificity,0.905292479108635,Specificity,Soil,Plain MF RF,52
+soil,mf_var,53,specificity,0.922979797979798,Specificity,Soil,Plain MF RF,53
+soil,mf_var,54,specificity,0.932075471698113,Specificity,Soil,Plain MF RF,54
+soil,mf_var,55,specificity,0.905368516833485,Specificity,Soil,Plain MF RF,55
+soil,rf_var,1,specificity,0.717323327079425,Specificity,Soil,Plain RF,1
+soil,rf_var,2,specificity,0.788935870331219,Specificity,Soil,Plain RF,2
+soil,rf_var,3,specificity,0.709353000335233,Specificity,Soil,Plain RF,3
+soil,rf_var,4,specificity,0.829472843450479,Specificity,Soil,Plain RF,4
+soil,rf_var,5,specificity,0.719117123531506,Specificity,Soil,Plain RF,5
+soil,rf_var,6,specificity,0.75761217948718,Specificity,Soil,Plain RF,6
+soil,rf_var,7,specificity,0.628390278266996,Specificity,Soil,Plain RF,7
+soil,rf_var,9,specificity,0.821931589537223,Specificity,Soil,Plain RF,9
+soil,rf_var,10,specificity,0.816821097647897,Specificity,Soil,Plain RF,10
+soil,rf_var,11,specificity,0.790137189469781,Specificity,Soil,Plain RF,11
+soil,rf_var,12,specificity,0.750088121254847,Specificity,Soil,Plain RF,12
+soil,rf_var,13,specificity,0.765913757700205,Specificity,Soil,Plain RF,13
+soil,rf_var,14,specificity,0.8075,Specificity,Soil,Plain RF,14
+soil,rf_var,15,specificity,0.767850604174295,Specificity,Soil,Plain RF,15
+soil,rf_var,16,specificity,0.829907866761162,Specificity,Soil,Plain RF,16
+soil,rf_var,17,specificity,0.857715430861724,Specificity,Soil,Plain RF,17
+soil,rf_var,18,specificity,0.810338415767944,Specificity,Soil,Plain RF,18
+soil,rf_var,19,specificity,0.886892609228256,Specificity,Soil,Plain RF,19
+soil,rf_var,20,specificity,0.874294316898758,Specificity,Soil,Plain RF,20
+soil,rf_var,21,specificity,0.782487838776928,Specificity,Soil,Plain RF,21
+soil,rf_var,22,specificity,0.819905213270142,Specificity,Soil,Plain RF,22
+soil,rf_var,23,specificity,0.854596295001748,Specificity,Soil,Plain RF,23
+soil,rf_var,24,specificity,0.832321187584346,Specificity,Soil,Plain RF,24
+soil,rf_var,25,specificity,0.760300967395199,Specificity,Soil,Plain RF,25
+soil,rf_var,26,specificity,0.823556797020484,Specificity,Soil,Plain RF,26
+soil,rf_var,27,specificity,0.782956521739131,Specificity,Soil,Plain RF,27
+soil,rf_var,28,specificity,0.716903344021988,Specificity,Soil,Plain RF,28
+soil,rf_var,29,specificity,0.876089427813566,Specificity,Soil,Plain RF,29
+soil,rf_var,30,specificity,0.77866574009729,Specificity,Soil,Plain RF,30
+soil,rf_var,31,specificity,0.839510370622237,Specificity,Soil,Plain RF,31
+soil,rf_var,32,specificity,0.834157303370787,Specificity,Soil,Plain RF,32
+soil,rf_var,33,specificity,0.807389668149162,Specificity,Soil,Plain RF,33
+soil,rf_var,34,specificity,0.839831401475237,Specificity,Soil,Plain RF,34
+soil,rf_var,35,specificity,0.887456618740704,Specificity,Soil,Plain RF,35
+soil,rf_var,36,specificity,0.683268047006156,Specificity,Soil,Plain RF,36
+soil,rf_var,37,specificity,0.879674194742688,Specificity,Soil,Plain RF,37
+soil,rf_var,38,specificity,0.953488372093023,Specificity,Soil,Plain RF,38
+soil,rf_var,39,specificity,0.756316676024705,Specificity,Soil,Plain RF,39
+soil,rf_var,40,specificity,0.791549295774648,Specificity,Soil,Plain RF,40
+soil,rf_var,41,specificity,0.871836078746485,Specificity,Soil,Plain RF,41
+soil,rf_var,42,specificity,0.853328456474031,Specificity,Soil,Plain RF,42
+soil,rf_var,43,specificity,0.878364905284148,Specificity,Soil,Plain RF,43
+soil,rf_var,44,specificity,0.784702549575071,Specificity,Soil,Plain RF,44
+soil,rf_var,45,specificity,0.833127317676143,Specificity,Soil,Plain RF,45
+soil,rf_var,46,specificity,0.696599159342759,Specificity,Soil,Plain RF,46
+soil,rf_var,47,specificity,0.785325099891028,Specificity,Soil,Plain RF,47
+soil,rf_var,48,specificity,0.86784140969163,Specificity,Soil,Plain RF,48
+soil,rf_var,49,specificity,0.745669001105787,Specificity,Soil,Plain RF,49
+soil,rf_var,50,specificity,0.825878594249201,Specificity,Soil,Plain RF,50
+soil,rf_var,52,specificity,0.905292479108635,Specificity,Soil,Plain RF,52
+soil,rf_var,53,specificity,0.922979797979798,Specificity,Soil,Plain RF,53
+soil,rf_var,54,specificity,0.932075471698113,Specificity,Soil,Plain RF,54
+soil,rf_var,55,specificity,0.906278434940855,Specificity,Soil,Plain RF,55
+climate,mf_var,1,tss,0.968861209964413,TSS,Climate,Plain MF RF,1
+climate,mf_var,2,tss,0.913779314562604,TSS,Climate,Plain MF RF,2
+climate,mf_var,3,tss,0.851132822370083,TSS,Climate,Plain MF RF,3
+climate,mf_var,4,tss,0.928452277342617,TSS,Climate,Plain MF RF,4
+climate,mf_var,5,tss,0.858614946915551,TSS,Climate,Plain MF RF,5
+climate,mf_var,6,tss,0.946418727720407,TSS,Climate,Plain MF RF,6
+climate,mf_var,7,tss,0.843754688109454,TSS,Climate,Plain MF RF,7
+climate,mf_var,9,tss,0.980255263444966,TSS,Climate,Plain MF RF,9
+climate,mf_var,10,tss,0.938253421553521,TSS,Climate,Plain MF RF,10
+climate,mf_var,11,tss,0.923185405909515,TSS,Climate,Plain MF RF,11
+climate,mf_var,12,tss,0.91027327845243,TSS,Climate,Plain MF RF,12
+climate,mf_var,13,tss,0.881939865665321,TSS,Climate,Plain MF RF,13
+climate,mf_var,14,tss,0.971721062233935,TSS,Climate,Plain MF RF,14
+climate,mf_var,15,tss,0.884681221236951,TSS,Climate,Plain MF RF,15
+climate,mf_var,16,tss,0.885091463968465,TSS,Climate,Plain MF RF,16
+climate,mf_var,17,tss,0.998344370860927,TSS,Climate,Plain MF RF,17
+climate,mf_var,18,tss,0.898654443294396,TSS,Climate,Plain MF RF,18
+climate,mf_var,19,tss,0.910231935024701,TSS,Climate,Plain MF RF,19
+climate,mf_var,20,tss,0.880654397391495,TSS,Climate,Plain MF RF,20
+climate,mf_var,21,tss,0.886497996540474,TSS,Climate,Plain MF RF,21
+climate,mf_var,22,tss,0.94452703231359,TSS,Climate,Plain MF RF,22
+climate,mf_var,23,tss,0.885677746785222,TSS,Climate,Plain MF RF,23
+climate,mf_var,24,tss,0.893415016092605,TSS,Climate,Plain MF RF,24
+climate,mf_var,25,tss,0.913441426265179,TSS,Climate,Plain MF RF,25
+climate,mf_var,26,tss,0.935727634679451,TSS,Climate,Plain MF RF,26
+climate,mf_var,27,tss,0.918045990743274,TSS,Climate,Plain MF RF,27
+climate,mf_var,28,tss,0.91224665804226,TSS,Climate,Plain MF RF,28
+climate,mf_var,29,tss,0.962936723209586,TSS,Climate,Plain MF RF,29
+climate,mf_var,30,tss,0.832042786659681,TSS,Climate,Plain MF RF,30
+climate,mf_var,31,tss,0.904426009832084,TSS,Climate,Plain MF RF,31
+climate,mf_var,32,tss,0.948470038249044,TSS,Climate,Plain MF RF,32
+climate,mf_var,33,tss,0.923601450821421,TSS,Climate,Plain MF RF,33
+climate,mf_var,34,tss,0.981622306717364,TSS,Climate,Plain MF RF,34
+climate,mf_var,35,tss,0.976628391423636,TSS,Climate,Plain MF RF,35
+climate,mf_var,36,tss,0.942824140918279,TSS,Climate,Plain MF RF,36
+climate,mf_var,37,tss,0.936880244088482,TSS,Climate,Plain MF RF,37
+climate,mf_var,38,tss,0.990244983926394,TSS,Climate,Plain MF RF,38
+climate,mf_var,39,tss,0.973801726704376,TSS,Climate,Plain MF RF,39
+climate,mf_var,40,tss,0.852593311187544,TSS,Climate,Plain MF RF,40
+climate,mf_var,41,tss,0.933211878302059,TSS,Climate,Plain MF RF,41
+climate,mf_var,42,tss,0.95464679278935,TSS,Climate,Plain MF RF,42
+climate,mf_var,43,tss,0.988717339667458,TSS,Climate,Plain MF RF,43
+climate,mf_var,44,tss,0.833310101291701,TSS,Climate,Plain MF RF,44
+climate,mf_var,45,tss,0.968218166905885,TSS,Climate,Plain MF RF,45
+climate,mf_var,46,tss,0.934989929384358,TSS,Climate,Plain MF RF,46
+climate,mf_var,47,tss,0.90650159997761,TSS,Climate,Plain MF RF,47
+climate,mf_var,48,tss,0.996101364522417,TSS,Climate,Plain MF RF,48
+climate,mf_var,49,tss,0.878652019633258,TSS,Climate,Plain MF RF,49
+climate,mf_var,50,tss,0.992125984251969,TSS,Climate,Plain MF RF,50
+climate,mf_var,52,tss,0.989125829685073,TSS,Climate,Plain MF RF,52
+climate,mf_var,53,tss,0.975432861739619,TSS,Climate,Plain MF RF,53
+climate,mf_var,54,tss,0.993647126768698,TSS,Climate,Plain MF RF,54
+climate,mf_var,55,tss,0.989452536413862,TSS,Climate,Plain MF RF,55
+climate,rf_var,1,tss,0.970195729537366,TSS,Climate,Plain RF,1
+climate,rf_var,2,tss,0.913038364735493,TSS,Climate,Plain RF,2
+climate,rf_var,3,tss,0.850567313592665,TSS,Climate,Plain RF,3
+climate,rf_var,4,tss,0.928307223672759,TSS,Climate,Plain RF,4
+climate,rf_var,5,tss,0.858198598292971,TSS,Climate,Plain RF,5
+climate,rf_var,6,tss,0.946896475689978,TSS,Climate,Plain RF,6
+climate,rf_var,7,tss,0.843919709562243,TSS,Climate,Plain RF,7
+climate,rf_var,9,tss,0.980146176502673,TSS,Climate,Plain RF,9
+climate,rf_var,10,tss,0.938457355207106,TSS,Climate,Plain RF,10
+climate,rf_var,11,tss,0.922935195505311,TSS,Climate,Plain RF,11
+climate,rf_var,12,tss,0.910299948438028,TSS,Climate,Plain RF,12
+climate,rf_var,13,tss,0.88153782652279,TSS,Climate,Plain RF,13
+climate,rf_var,14,tss,0.971112913034665,TSS,Climate,Plain RF,14
+climate,rf_var,15,tss,0.884063867998653,TSS,Climate,Plain RF,15
+climate,rf_var,16,tss,0.884906174499083,TSS,Climate,Plain RF,16
+climate,rf_var,17,tss,0.998344370860927,TSS,Climate,Plain RF,17
+climate,rf_var,18,tss,0.89877273399379,TSS,Climate,Plain RF,18
+climate,rf_var,19,tss,0.91040358368919,TSS,Climate,Plain RF,19
+climate,rf_var,20,tss,0.880427288728111,TSS,Climate,Plain RF,20
+climate,rf_var,21,tss,0.886410413610387,TSS,Climate,Plain RF,21
+climate,rf_var,22,tss,0.94452703231359,TSS,Climate,Plain RF,22
+climate,rf_var,23,tss,0.884610349723585,TSS,Climate,Plain RF,23
+climate,rf_var,24,tss,0.893584204852176,TSS,Climate,Plain RF,24
+climate,rf_var,25,tss,0.913371236049695,TSS,Climate,Plain RF,25
+climate,rf_var,26,tss,0.935565125538312,TSS,Climate,Plain RF,26
+climate,rf_var,27,tss,0.917645199952213,TSS,Climate,Plain RF,27
+climate,rf_var,28,tss,0.911959177806526,TSS,Climate,Plain RF,28
+climate,rf_var,29,tss,0.962511639204891,TSS,Climate,Plain RF,29
+climate,rf_var,30,tss,0.832342155107399,TSS,Climate,Plain RF,30
+climate,rf_var,31,tss,0.904418150452111,TSS,Climate,Plain RF,31
+climate,rf_var,32,tss,0.947195070123247,TSS,Climate,Plain RF,32
+climate,rf_var,33,tss,0.923302752293578,TSS,Climate,Plain RF,33
+climate,rf_var,34,tss,0.980988593155893,TSS,Climate,Plain RF,34
+climate,rf_var,35,tss,0.976526775734173,TSS,Climate,Plain RF,35
+climate,rf_var,36,tss,0.941957840023101,TSS,Climate,Plain RF,36
+climate,rf_var,37,tss,0.936585534983704,TSS,Climate,Plain RF,37
+climate,rf_var,38,tss,0.990244983926394,TSS,Climate,Plain RF,38
+climate,rf_var,39,tss,0.97395058052992,TSS,Climate,Plain RF,39
+climate,rf_var,40,tss,0.852338536614046,TSS,Climate,Plain RF,40
+climate,rf_var,41,tss,0.933357624339588,TSS,Climate,Plain RF,41
+climate,rf_var,42,tss,0.954774189438818,TSS,Climate,Plain RF,42
+climate,rf_var,43,tss,0.98812351543943,TSS,Climate,Plain RF,43
+climate,rf_var,44,tss,0.833391413437413,TSS,Climate,Plain RF,44
+climate,rf_var,45,tss,0.968628255074841,TSS,Climate,Plain RF,45
+climate,rf_var,46,tss,0.934989929384358,TSS,Climate,Plain RF,46
+climate,rf_var,47,tss,0.906772150127345,TSS,Climate,Plain RF,47
+climate,rf_var,48,tss,0.996101364522417,TSS,Climate,Plain RF,48
+climate,rf_var,49,tss,0.878779508318637,TSS,Climate,Plain RF,49
+climate,rf_var,50,tss,0.992125984251969,TSS,Climate,Plain RF,50
+climate,rf_var,52,tss,0.988843383702867,TSS,Climate,Plain RF,52
+climate,rf_var,53,tss,0.975483936871137,TSS,Climate,Plain RF,53
+climate,rf_var,54,tss,0.993069592838579,TSS,Climate,Plain RF,54
+climate,rf_var,55,tss,0.989452536413862,TSS,Climate,Plain RF,55
+soil,mf_var,1,tss,0.610381488430269,TSS,Soil,Plain MF RF,1
+soil,mf_var,2,tss,0.689217758985201,TSS,Soil,Plain MF RF,2
+soil,mf_var,3,tss,0.615152531009051,TSS,Soil,Plain MF RF,3
+soil,mf_var,4,tss,0.527555910543131,TSS,Soil,Plain MF RF,4
+soil,mf_var,5,tss,0.542897828408687,TSS,Soil,Plain MF RF,5
+soil,mf_var,6,tss,0.663862179487179,TSS,Soil,Plain MF RF,6
+soil,mf_var,7,tss,0.496301514617823,TSS,Soil,Plain MF RF,7
+soil,mf_var,9,tss,0.802816901408451,TSS,Soil,Plain MF RF,9
+soil,mf_var,10,tss,0.660014255167498,TSS,Soil,Plain MF RF,10
+soil,mf_var,11,tss,0.661846496106785,TSS,Soil,Plain MF RF,11
+soil,mf_var,12,tss,0.599929502996123,TSS,Soil,Plain MF RF,12
+soil,mf_var,13,tss,0.67419575633128,TSS,Soil,Plain MF RF,13
+soil,mf_var,14,tss,0.7245,TSS,Soil,Plain MF RF,14
+soil,mf_var,15,tss,0.65946539729037,TSS,Soil,Plain MF RF,15
+soil,mf_var,16,tss,0.756555634301914,TSS,Soil,Plain MF RF,16
+soil,mf_var,17,tss,0.781563126252505,TSS,Soil,Plain MF RF,17
+soil,mf_var,18,tss,0.621420602454444,TSS,Soil,Plain MF RF,18
+soil,mf_var,19,tss,0.769701919150674,TSS,Soil,Plain MF RF,19
+soil,mf_var,20,tss,0.832141512984569,TSS,Soil,Plain MF RF,20
+soil,mf_var,21,tss,0.747046560111188,TSS,Soil,Plain MF RF,21
+soil,mf_var,22,tss,0.7,TSS,Soil,Plain MF RF,22
+soil,mf_var,23,tss,0.789933589653967,TSS,Soil,Plain MF RF,23
+soil,mf_var,24,tss,0.748313090418354,TSS,Soil,Plain MF RF,24
+soil,mf_var,25,tss,0.644571838050878,TSS,Soil,Plain MF RF,25
+soil,mf_var,26,tss,0.679702048417132,TSS,Soil,Plain MF RF,26
+soil,mf_var,27,tss,0.659826086956522,TSS,Soil,Plain MF RF,27
+soil,mf_var,28,tss,0.518552450755841,TSS,Soil,Plain MF RF,28
+soil,mf_var,29,tss,0.785903751420993,TSS,Soil,Plain MF RF,29
+soil,mf_var,30,tss,0.692147324530924,TSS,Soil,Plain MF RF,30
+soil,mf_var,31,tss,0.772866371982319,TSS,Soil,Plain MF RF,31
+soil,mf_var,32,tss,0.684044943820225,TSS,Soil,Plain MF RF,32
+soil,mf_var,33,tss,0.672596647280192,TSS,Soil,Plain MF RF,33
+soil,mf_var,34,tss,0.747102212855638,TSS,Soil,Plain MF RF,34
+soil,mf_var,35,tss,0.838373822508676,TSS,Soil,Plain MF RF,35
+soil,mf_var,36,tss,0.633463905987689,TSS,Soil,Plain MF RF,36
+soil,mf_var,37,tss,0.737134394668641,TSS,Soil,Plain MF RF,37
+soil,mf_var,38,tss,0.896865520728008,TSS,Soil,Plain MF RF,38
+soil,mf_var,39,tss,0.670409882088714,TSS,Soil,Plain MF RF,39
+soil,mf_var,40,tss,0.667605633802817,TSS,Soil,Plain MF RF,40
+soil,mf_var,41,tss,0.703897147448775,TSS,Soil,Plain MF RF,41
+soil,mf_var,42,tss,0.804681784930505,TSS,Soil,Plain MF RF,42
+soil,mf_var,43,tss,0.80259222333001,TSS,Soil,Plain MF RF,43
+soil,mf_var,44,tss,0.659348441926346,TSS,Soil,Plain MF RF,44
+soil,mf_var,45,tss,0.675525339925834,TSS,Soil,Plain MF RF,45
+soil,mf_var,46,tss,0.601069927397784,TSS,Soil,Plain MF RF,46
+soil,mf_var,47,tss,0.638212858699601,TSS,Soil,Plain MF RF,47
+soil,mf_var,48,tss,0.797356828193833,TSS,Soil,Plain MF RF,48
+soil,mf_var,49,tss,0.683007740508662,TSS,Soil,Plain MF RF,49
+soil,mf_var,50,tss,0.753993610223642,TSS,Soil,Plain MF RF,50
+soil,mf_var,52,tss,0.868523676880223,TSS,Soil,Plain MF RF,52
+soil,mf_var,53,tss,0.868686868686869,TSS,Soil,Plain MF RF,53
+soil,mf_var,54,tss,0.881509433962264,TSS,Soil,Plain MF RF,54
+soil,mf_var,55,tss,0.846223839854413,TSS,Soil,Plain MF RF,55
+soil,rf_var,1,tss,0.606629143214509,TSS,Soil,Plain RF,1
+soil,rf_var,2,tss,0.690627202255109,TSS,Soil,Plain RF,2
+soil,rf_var,3,tss,0.613476366074422,TSS,Soil,Plain RF,3
+soil,rf_var,4,tss,0.527555910543131,TSS,Soil,Plain RF,4
+soil,rf_var,5,tss,0.538269846920612,TSS,Soil,Plain RF,5
+soil,rf_var,6,tss,0.663461538461538,TSS,Soil,Plain RF,6
+soil,rf_var,7,tss,0.496653751320888,TSS,Soil,Plain RF,7
+soil,rf_var,9,tss,0.802816901408451,TSS,Soil,Plain RF,9
+soil,rf_var,10,tss,0.6535994297933,TSS,Soil,Plain RF,10
+soil,rf_var,11,tss,0.661104931405265,TSS,Soil,Plain RF,11
+soil,rf_var,12,tss,0.599929502996123,TSS,Soil,Plain RF,12
+soil,rf_var,13,tss,0.678302532511978,TSS,Soil,Plain RF,13
+soil,rf_var,14,tss,0.7245,TSS,Soil,Plain RF,14
+soil,rf_var,15,tss,0.659831563529843,TSS,Soil,Plain RF,15
+soil,rf_var,16,tss,0.755138199858257,TSS,Soil,Plain RF,16
+soil,rf_var,17,tss,0.781563126252505,TSS,Soil,Plain RF,17
+soil,rf_var,18,tss,0.621420602454444,TSS,Soil,Plain RF,18
+soil,rf_var,19,tss,0.769701919150674,TSS,Soil,Plain RF,19
+soil,rf_var,20,tss,0.832141512984569,TSS,Soil,Plain RF,20
+soil,rf_var,21,tss,0.747046560111188,TSS,Soil,Plain RF,21
+soil,rf_var,22,tss,0.700473933649289,TSS,Soil,Plain RF,22
+soil,rf_var,23,tss,0.789933589653967,TSS,Soil,Plain RF,23
+soil,rf_var,24,tss,0.748987854251012,TSS,Soil,Plain RF,24
+soil,rf_var,25,tss,0.644571838050878,TSS,Soil,Plain RF,25
+soil,rf_var,26,tss,0.672253258845438,TSS,Soil,Plain RF,26
+soil,rf_var,27,tss,0.659826086956522,TSS,Soil,Plain RF,27
+soil,rf_var,28,tss,0.518552450755841,TSS,Soil,Plain RF,28
+soil,rf_var,29,tss,0.785903751420993,TSS,Soil,Plain RF,29
+soil,rf_var,30,tss,0.691104933981932,TSS,Soil,Plain RF,30
+soil,rf_var,31,tss,0.772866371982319,TSS,Soil,Plain RF,31
+soil,rf_var,32,tss,0.684044943820225,TSS,Soil,Plain RF,32
+soil,rf_var,33,tss,0.676017789941841,TSS,Soil,Plain RF,33
+soil,rf_var,34,tss,0.747102212855638,TSS,Soil,Plain RF,34
+soil,rf_var,35,tss,0.838373822508676,TSS,Soil,Plain RF,35
+soil,rf_var,36,tss,0.633463905987689,TSS,Soil,Plain RF,36
+soil,rf_var,37,tss,0.737134394668641,TSS,Soil,Plain RF,37
+soil,rf_var,38,tss,0.896865520728008,TSS,Soil,Plain RF,38
+soil,rf_var,39,tss,0.670409882088714,TSS,Soil,Plain RF,39
+soil,rf_var,40,tss,0.667605633802817,TSS,Soil,Plain RF,40
+soil,rf_var,41,tss,0.703897147448775,TSS,Soil,Plain RF,41
+soil,rf_var,42,tss,0.804681784930505,TSS,Soil,Plain RF,42
+soil,rf_var,43,tss,0.80259222333001,TSS,Soil,Plain RF,43
+soil,rf_var,44,tss,0.659348441926346,TSS,Soil,Plain RF,44
+soil,rf_var,45,tss,0.675525339925834,TSS,Soil,Plain RF,45
+soil,rf_var,46,tss,0.601069927397784,TSS,Soil,Plain RF,46
+soil,rf_var,47,tss,0.638939338903015,TSS,Soil,Plain RF,47
+soil,rf_var,48,tss,0.797356828193833,TSS,Soil,Plain RF,48
+soil,rf_var,49,tss,0.683007740508662,TSS,Soil,Plain RF,49
+soil,rf_var,50,tss,0.753993610223642,TSS,Soil,Plain RF,50
+soil,rf_var,52,tss,0.868523676880223,TSS,Soil,Plain RF,52
+soil,rf_var,53,tss,0.868265993265993,TSS,Soil,Plain RF,53
+soil,rf_var,54,tss,0.881509433962264,TSS,Soil,Plain RF,54
+soil,rf_var,55,tss,0.847133757961784,TSS,Soil,Plain RF,55

@@ -1,0 +1,14 @@
+step,status,message,elapsed_sec
+Table 1 and Figure 1 | Final plain RF/MF performance,done,,11.13
+Reference-map recalculation | RF and MF common valid mask,done,,47.57
+Figure 2 | Predicted reference maps,done,,9.87
+Table 2 | Reference-map reconstruction performance,done,,0.01
+Figure 3 | Climate and soil zone-level metrics,done,,3.97
+Figure 4 | Major ecotype confusion flows,done,,2.26
+"Figure 5 | Ecosystem niche maps, 2 x 4",done,,30.72
+Figure 6 | Area change and zone-transition trajectories,done,,509.96
+Table 3 and Figure 7 | Reference population abundance,done,,1.83
+Figure 8 | Tree population dual-niche projection maps,done,,2703.29
+Figure 9 | Species-level dual-niche projection maps,done,,1980.56
+Chord diagrams | Original to assigned pixel transitions,done,,53.3
+Figure 10 | Optional multiclass robustness comparison,done,,52.42

@@ -1,0 +1,13 @@
+method,model_family,model_version,metric,value,method_label,metric_label
+mf_var,multi-Forest,corrected,mean_balanced_accuracy,0.964378162854292,Corrected multi-Forest,Balanced accuracy
+plain_mf,multi-Forest,original,mean_balanced_accuracy,0.963854026101482,Original multi-Forest,Balanced accuracy
+rf_var,single RF,corrected,mean_balanced_accuracy,0.96430622251151,Corrected single RF,Balanced accuracy
+plain_rf,single RF,original,mean_balanced_accuracy,0.96382061426985,Original single RF,Balanced accuracy
+mf_var,multi-Forest,corrected,mean_f1,0.965065595309702,Corrected multi-Forest,F1
+plain_mf,multi-Forest,original,mean_f1,0.964548906037619,Original multi-Forest,F1
+rf_var,single RF,corrected,mean_f1,0.964996006390981,Corrected single RF,F1
+plain_rf,single RF,original,mean_f1,0.964517449004,Original single RF,F1
+mf_var,multi-Forest,corrected,mean_auc,0.988545771850015,Corrected multi-Forest,AUC
+plain_mf,multi-Forest,original,mean_auc,0.988417770252845,Original multi-Forest,AUC
+rf_var,single RF,corrected,mean_auc,0.988481556420576,Corrected single RF,AUC
+plain_rf,single RF,original,mean_auc,0.988354102572838,Original single RF,AUC

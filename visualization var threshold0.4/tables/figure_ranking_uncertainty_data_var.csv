@@ -1,0 +1,37 @@
+method,method_label,scenario,period,ssp,metric,value,metric_label
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,mean_top1_suit,0.790299937860459,Mean top suitability
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,mean_top1_suit,0.78128758503765,Mean top suitability
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,mean_top1_suit,0.716441545741379,Mean top suitability
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,mean_top1_suit,0.681079144367635,Mean top suitability
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,mean_top1_suit,0.676423175129191,Mean top suitability
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,mean_top1_suit,0.606002157728522,Mean top suitability
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,mean_top1_suit,0.792274653420213,Mean top suitability
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,mean_top1_suit,0.783250246399515,Mean top suitability
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,mean_top1_suit,0.718174099926971,Mean top suitability
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,mean_top1_suit,0.682649622522994,Mean top suitability
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,mean_top1_suit,0.678062238668317,Mean top suitability
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,mean_top1_suit,0.607274957665708,Mean top suitability
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,mean_top1_minus_top2,0.164128401295047,Mean top1 - top2
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,mean_top1_minus_top2,0.162626311859728,Mean top1 - top2
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,mean_top1_minus_top2,0.144631408144649,Mean top1 - top2
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,mean_top1_minus_top2,0.13788526201789,Mean top1 - top2
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,mean_top1_minus_top2,0.137055476559701,Mean top1 - top2
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,mean_top1_minus_top2,0.135497276632568,Mean top1 - top2
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,mean_top1_minus_top2,0.165183300472837,Mean top1 - top2
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,mean_top1_minus_top2,0.163620405240949,Mean top1 - top2
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,mean_top1_minus_top2,0.146487967174793,Mean top1 - top2
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,mean_top1_minus_top2,0.139825404184173,Mean top1 - top2
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,mean_top1_minus_top2,0.139248259109087,Mean top1 - top2
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,mean_top1_minus_top2,0.136415339327588,Mean top1 - top2
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,mean_n_zone_above_threshold,1.27884272327749,Mean zones >= 0.4
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,mean_n_zone_above_threshold,1.26639522982597,Mean zones >= 0.4
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,mean_n_zone_above_threshold,1.16524532034452,Mean zones >= 0.4
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,mean_n_zone_above_threshold,1.09270867156603,Mean zones >= 0.4
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,mean_n_zone_above_threshold,1.0841476587053,Mean zones >= 0.4
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,mean_n_zone_above_threshold,0.87976380660814,Mean zones >= 0.4
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,mean_n_zone_above_threshold,1.28197583728224,Mean zones >= 0.4
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,mean_n_zone_above_threshold,1.26878665562005,Mean zones >= 0.4
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,mean_n_zone_above_threshold,1.16510992119674,Mean zones >= 0.4
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,mean_n_zone_above_threshold,1.0916252556355,Mean zones >= 0.4
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,mean_n_zone_above_threshold,1.08263297023663,Mean zones >= 0.4
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,mean_n_zone_above_threshold,0.877333590787945,Mean zones >= 0.4

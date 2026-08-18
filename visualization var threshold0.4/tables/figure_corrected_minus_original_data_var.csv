@@ -1,0 +1,9 @@
+model_family,original_method,corrected_method,metric,delta,metric_label
+single RF,plain_rf,rf_var,delta_mean_balanced_accuracy,0.000485608241659996,Balanced accuracy
+multi-Forest,plain_mf,mf_var,delta_mean_balanced_accuracy,0.000524136752810933,Balanced accuracy
+single RF,plain_rf,rf_var,delta_mean_f1,0.000478557386981104,F1
+multi-Forest,plain_mf,mf_var,delta_mean_f1,0.000516689272082038,F1
+single RF,plain_rf,rf_var,delta_mean_auc,0.000127453847738157,AUC
+multi-Forest,plain_mf,mf_var,delta_mean_auc,0.000128001597170302,AUC
+single RF,plain_rf,rf_var,delta_normal_exact_accuracy,-0.000168390293683318,Normal-map agreement
+multi-Forest,plain_mf,mf_var,delta_normal_exact_accuracy,-0.000840176391051384,Normal-map agreement

@@ -1,0 +1,2015 @@
+niche_type,method,zoneID,metric,value,method_label
+climate,rf_var,1,OOB accuracy,0.985019484791741,Plain RF
+climate,rf_var,1,Test AUC,0.998715569434594,Plain RF
+climate,rf_var,1,Test F1,0.985176991150442,Plain RF
+climate,rf_var,1,Test TSS,0.970195729537366,Plain RF
+climate,rf_var,1,Test accuracy,0.985097864768683,Plain RF
+climate,rf_var,1,Test balanced accuracy,0.985097864768683,Plain RF
+climate,rf_var,1,Test precision,0.979973591549296,Plain RF
+climate,rf_var,1,Test recall,0.990435943060498,Plain RF
+climate,rf_var,1,Test specificity,0.979759786476868,Plain RF
+climate,rf_var,1,Train accuracy,1,Plain RF
+climate,rf_var,2,OOB accuracy,0.956197677558736,Plain RF
+climate,rf_var,2,Test AUC,0.988977350458448,Plain RF
+climate,rf_var,2,Test F1,0.956881771847774,Plain RF
+climate,rf_var,2,Test TSS,0.913038364735493,Plain RF
+climate,rf_var,2,Test accuracy,0.956519182367746,Plain RF
+climate,rf_var,2,Test balanced accuracy,0.956519182367746,Plain RF
+climate,rf_var,2,Test precision,0.948968261312113,Plain RF
+climate,rf_var,2,Test recall,0.964928374850046,Plain RF
+climate,rf_var,2,Test specificity,0.948109989885447,Plain RF
+climate,rf_var,2,Train accuracy,1,Plain RF
+climate,rf_var,3,OOB accuracy,0.918928223076482,Plain RF
+climate,rf_var,3,Test AUC,0.9734763972929,Plain RF
+climate,rf_var,3,Test F1,0.926287862825805,Plain RF
+climate,rf_var,3,Test TSS,0.850567313592665,Plain RF
+climate,rf_var,3,Test accuracy,0.925283656796333,Plain RF
+climate,rf_var,3,Test balanced accuracy,0.925283656796333,Plain RF
+climate,rf_var,3,Test precision,0.91400343189791,Plain RF
+climate,rf_var,3,Test recall,0.938907003886369,Plain RF
+climate,rf_var,3,Test specificity,0.911660309706296,Plain RF
+climate,rf_var,3,Train accuracy,1,Plain RF
+climate,rf_var,4,OOB accuracy,0.960887117915378,Plain RF
+climate,rf_var,4,Test AUC,0.990071153622315,Plain RF
+climate,rf_var,4,Test F1,0.964865201087633,Plain RF
+climate,rf_var,4,Test TSS,0.928307223672759,Plain RF
+climate,rf_var,4,Test accuracy,0.96415361183638,Plain RF
+climate,rf_var,4,Test balanced accuracy,0.964153611836379,Plain RF
+climate,rf_var,4,Test precision,0.94608441083191,Plain RF
+climate,rf_var,4,Test recall,0.984406730490281,Plain RF
+climate,rf_var,4,Test specificity,0.943900493182477,Plain RF
+climate,rf_var,4,Train accuracy,0.999947569863157,Plain RF
+climate,rf_var,5,OOB accuracy,0.924961258791274,Plain RF
+climate,rf_var,5,Test AUC,0.974728523457356,Plain RF
+climate,rf_var,5,Test F1,0.930697098672274,Plain RF
+climate,rf_var,5,Test TSS,0.858198598292971,Plain RF
+climate,rf_var,5,Test accuracy,0.929099299146485,Plain RF
+climate,rf_var,5,Test balanced accuracy,0.929099299146485,Plain RF
+climate,rf_var,5,Test precision,0.910185400152565,Plain RF
+climate,rf_var,5,Test recall,0.952154604121851,Plain RF
+climate,rf_var,5,Test specificity,0.906043994171119,Plain RF
+climate,rf_var,5,Train accuracy,1,Plain RF
+climate,rf_var,6,OOB accuracy,0.970558908422986,Plain RF
+climate,rf_var,6,Test AUC,0.992916436204701,Plain RF
+climate,rf_var,6,Test F1,0.973748751021891,Plain RF
+climate,rf_var,6,Test TSS,0.946896475689978,Plain RF
+climate,rf_var,6,Test accuracy,0.973448237844989,Plain RF
+climate,rf_var,6,Test balanced accuracy,0.973448237844989,Plain RF
+climate,rf_var,6,Test precision,0.962851189193073,Plain RF
+climate,rf_var,6,Test recall,0.98489581419279,Plain RF
+climate,rf_var,6,Test specificity,0.962000661497189,Plain RF
+climate,rf_var,6,Train accuracy,1,Plain RF
+climate,rf_var,7,OOB accuracy,0.920709010339734,Plain RF
+climate,rf_var,7,Test AUC,0.968157022388968,Plain RF
+climate,rf_var,7,Test F1,0.923523617706297,Plain RF
+climate,rf_var,7,Test TSS,0.843919709562243,Plain RF
+climate,rf_var,7,Test accuracy,0.921959854781121,Plain RF
+climate,rf_var,7,Test balanced accuracy,0.921959854781122,Plain RF
+climate,rf_var,7,Test precision,0.905381644183097,Plain RF
+climate,rf_var,7,Test recall,0.942407512976687,Plain RF
+climate,rf_var,7,Test specificity,0.901512196585556,Plain RF
+climate,rf_var,7,Train accuracy,0.999881831610044,Plain RF
+climate,rf_var,9,OOB accuracy,0.987889829600257,Plain RF
+climate,rf_var,9,Test AUC,0.99785376468772,Plain RF
+climate,rf_var,9,Test F1,0.990150449182812,Plain RF
+climate,rf_var,9,Test TSS,0.980146176502673,Plain RF
+climate,rf_var,9,Test accuracy,0.990073088251336,Plain RF
+climate,rf_var,9,Test balanced accuracy,0.990073088251336,Plain RF
+climate,rf_var,9,Test precision,0.982493824508646,Plain RF
+climate,rf_var,9,Test recall,0.997927348096433,Plain RF
+climate,rf_var,9,Test specificity,0.98221882840624,Plain RF
+climate,rf_var,9,Train accuracy,1,Plain RF
+climate,rf_var,10,OOB accuracy,0.967097319488046,Plain RF
+climate,rf_var,10,Test AUC,0.989814711918807,Plain RF
+climate,rf_var,10,Test F1,0.969635310690249,Plain RF
+climate,rf_var,10,Test TSS,0.938457355207106,Plain RF
+climate,rf_var,10,Test accuracy,0.969228677603553,Plain RF
+climate,rf_var,10,Test balanced accuracy,0.969228677603553,Plain RF
+climate,rf_var,10,Test precision,0.956989010018979,Plain RF
+climate,rf_var,10,Test recall,0.982620320855615,Plain RF
+climate,rf_var,10,Test specificity,0.955837034351491,Plain RF
+climate,rf_var,10,Train accuracy,1,Plain RF
+climate,rf_var,11,OOB accuracy,0.96050173472111,Plain RF
+climate,rf_var,11,Test AUC,0.989270707702831,Plain RF
+climate,rf_var,11,Test F1,0.96198896019387,Plain RF
+climate,rf_var,11,Test TSS,0.922935195505311,Plain RF
+climate,rf_var,11,Test accuracy,0.961467597752656,Plain RF
+climate,rf_var,11,Test balanced accuracy,0.961467597752656,Plain RF
+climate,rf_var,11,Test precision,0.949146538555204,Plain RF
+climate,rf_var,11,Test recall,0.975183677183086,Plain RF
+climate,rf_var,11,Test specificity,0.947751518322226,Plain RF
+climate,rf_var,11,Train accuracy,1,Plain RF
+climate,rf_var,12,OOB accuracy,0.949498930300642,Plain RF
+climate,rf_var,12,Test AUC,0.986761868600949,Plain RF
+climate,rf_var,12,Test F1,0.956013392156521,Plain RF
+climate,rf_var,12,Test TSS,0.910299948438028,Plain RF
+climate,rf_var,12,Test accuracy,0.955149974219014,Plain RF
+climate,rf_var,12,Test balanced accuracy,0.955149974219014,Plain RF
+climate,rf_var,12,Test precision,0.937956579014901,Plain RF
+climate,rf_var,12,Test recall,0.974779083619295,Plain RF
+climate,rf_var,12,Test specificity,0.935520864818733,Plain RF
+climate,rf_var,12,Train accuracy,0.99994370003378,Plain RF
+climate,rf_var,13,OOB accuracy,0.936494448221165,Plain RF
+climate,rf_var,13,Test AUC,0.980486151383649,Plain RF
+climate,rf_var,13,Test F1,0.941752306950239,Plain RF
+climate,rf_var,13,Test TSS,0.88153782652279,Plain RF
+climate,rf_var,13,Test accuracy,0.940768913261395,Plain RF
+climate,rf_var,13,Test balanced accuracy,0.940768913261395,Plain RF
+climate,rf_var,13,Test precision,0.926372065046047,Plain RF
+climate,rf_var,13,Test recall,0.957651876986743,Plain RF
+climate,rf_var,13,Test specificity,0.923885949536047,Plain RF
+climate,rf_var,13,Train accuracy,1,Plain RF
+climate,rf_var,14,OOB accuracy,0.982526479564359,Plain RF
+climate,rf_var,14,Test AUC,0.997519020226806,Plain RF
+climate,rf_var,14,Test F1,0.985700667302192,Plain RF
+climate,rf_var,14,Test TSS,0.971112913034665,Plain RF
+climate,rf_var,14,Test accuracy,0.985556456517332,Plain RF
+climate,rf_var,14,Test balanced accuracy,0.985556456517332,Plain RF
+climate,rf_var,14,Test precision,0.975956284153006,Plain RF
+climate,rf_var,14,Test recall,0.99564159740523,Plain RF
+climate,rf_var,14,Test specificity,0.975471315629435,Plain RF
+climate,rf_var,14,Train accuracy,1,Plain RF
+climate,rf_var,15,OOB accuracy,0.939356167353132,Plain RF
+climate,rf_var,15,Test AUC,0.981691536821099,Plain RF
+climate,rf_var,15,Test F1,0.943047964324853,Plain RF
+climate,rf_var,15,Test TSS,0.884063867998653,Plain RF
+climate,rf_var,15,Test accuracy,0.942031933999326,Plain RF
+climate,rf_var,15,Test balanced accuracy,0.942031933999327,Plain RF
+climate,rf_var,15,Test precision,0.926803495224548,Plain RF
+climate,rf_var,15,Test recall,0.959872039510607,Plain RF
+climate,rf_var,15,Test specificity,0.924191828488046,Plain RF
+climate,rf_var,15,Train accuracy,1,Plain RF
+climate,rf_var,16,OOB accuracy,0.939038509942109,Plain RF
+climate,rf_var,16,Test AUC,0.9798130157864,Plain RF
+climate,rf_var,16,Test F1,0.94363979568781,Plain RF
+climate,rf_var,16,Test TSS,0.884906174499083,Plain RF
+climate,rf_var,16,Test accuracy,0.942453087249541,Plain RF
+climate,rf_var,16,Test balanced accuracy,0.942453087249541,Plain RF
+climate,rf_var,16,Test precision,0.924573623952363,Plain RF
+climate,rf_var,16,Test recall,0.963508873912333,Plain RF
+climate,rf_var,16,Test specificity,0.92139730058675,Plain RF
+climate,rf_var,16,Train accuracy,1,Plain RF
+climate,rf_var,17,OOB accuracy,0.999342105263158,Plain RF
+climate,rf_var,17,Test AUC,0.999986294460769,Plain RF
+climate,rf_var,17,Test F1,0.999172870140612,Plain RF
+climate,rf_var,17,Test TSS,0.998344370860927,Plain RF
+climate,rf_var,17,Test accuracy,0.999172185430464,Plain RF
+climate,rf_var,17,Test balanced accuracy,0.999172185430464,Plain RF
+climate,rf_var,17,Test precision,0.998347107438017,Plain RF
+climate,rf_var,17,Test recall,1,Plain RF
+climate,rf_var,17,Test specificity,0.998344370860927,Plain RF
+climate,rf_var,17,Train accuracy,1,Plain RF
+climate,rf_var,18,OOB accuracy,0.945100988397078,Plain RF
+climate,rf_var,18,Test AUC,0.980124185119872,Plain RF
+climate,rf_var,18,Test F1,0.950588235294118,Plain RF
+climate,rf_var,18,Test TSS,0.89877273399379,Plain RF
+climate,rf_var,18,Test accuracy,0.949386366996895,Plain RF
+climate,rf_var,18,Test balanced accuracy,0.949386366996895,Plain RF
+climate,rf_var,18,Test precision,0.928539199097575,Plain RF
+climate,rf_var,18,Test recall,0.973709892059737,Plain RF
+climate,rf_var,18,Test specificity,0.925062841934053,Plain RF
+climate,rf_var,18,Train accuracy,1,Plain RF
+climate,rf_var,19,OOB accuracy,0.950435052827843,Plain RF
+climate,rf_var,19,Test AUC,0.990729815811518,Plain RF
+climate,rf_var,19,Test F1,0.955207511391202,Plain RF
+climate,rf_var,19,Test TSS,0.91040358368919,Plain RF
+climate,rf_var,19,Test accuracy,0.955201791844595,Plain RF
+climate,rf_var,19,Test balanced accuracy,0.955201791844595,Plain RF
+climate,rf_var,19,Test precision,0.955085572218432,Plain RF
+climate,rf_var,19,Test recall,0.955329481704764,Plain RF
+climate,rf_var,19,Test specificity,0.955074101984426,Plain RF
+climate,rf_var,19,Train accuracy,0.999948207996685,Plain RF
+climate,rf_var,20,OOB accuracy,0.937967307791471,Plain RF
+climate,rf_var,20,Test AUC,0.976002446879581,Plain RF
+climate,rf_var,20,Test F1,0.941603815439219,Plain RF
+climate,rf_var,20,Test TSS,0.880427288728111,Plain RF
+climate,rf_var,20,Test accuracy,0.940213644364055,Plain RF
+climate,rf_var,20,Test balanced accuracy,0.940213644364055,Plain RF
+climate,rf_var,20,Test precision,0.920206876795268,Plain RF
+climate,rf_var,20,Test recall,0.964019498900956,Plain RF
+climate,rf_var,20,Test specificity,0.916407789827154,Plain RF
+climate,rf_var,20,Train accuracy,1,Plain RF
+climate,rf_var,21,OOB accuracy,0.940252409606475,Plain RF
+climate,rf_var,21,Test AUC,0.98329489515959,Plain RF
+climate,rf_var,21,Test F1,0.944329233121839,Plain RF
+climate,rf_var,21,Test TSS,0.886410413610387,Plain RF
+climate,rf_var,21,Test accuracy,0.943205206805194,Plain RF
+climate,rf_var,21,Test balanced accuracy,0.943205206805194,Plain RF
+climate,rf_var,21,Test precision,0.926002704394905,Plain RF
+climate,rf_var,21,Test recall,0.963395809156795,Plain RF
+climate,rf_var,21,Test specificity,0.923014604453592,Plain RF
+climate,rf_var,21,Train accuracy,1,Plain RF
+climate,rf_var,22,OOB accuracy,0.97336660386006,Plain RF
+climate,rf_var,22,Test AUC,0.995455613714809,Plain RF
+climate,rf_var,22,Test F1,0.972539602618227,Plain RF
+climate,rf_var,22,Test TSS,0.94452703231359,Plain RF
+climate,rf_var,22,Test accuracy,0.972263516156795,Plain RF
+climate,rf_var,22,Test balanced accuracy,0.972263516156795,Plain RF
+climate,rf_var,22,Test precision,0.962954440865163,Plain RF
+climate,rf_var,22,Test recall,0.982317502542837,Plain RF
+climate,rf_var,22,Test specificity,0.962209529770753,Plain RF
+climate,rf_var,22,Train accuracy,1,Plain RF
+climate,rf_var,23,OOB accuracy,0.935138468438166,Plain RF
+climate,rf_var,23,Test AUC,0.979518359541987,Plain RF
+climate,rf_var,23,Test F1,0.94351026122622,Plain RF
+climate,rf_var,23,Test TSS,0.884610349723585,Plain RF
+climate,rf_var,23,Test accuracy,0.942305174861792,Plain RF
+climate,rf_var,23,Test balanced accuracy,0.942305174861792,Plain RF
+climate,rf_var,23,Test precision,0.924206134590126,Plain RF
+climate,rf_var,23,Test recall,0.963638011419135,Plain RF
+climate,rf_var,23,Test specificity,0.92097233830445,Plain RF
+climate,rf_var,23,Train accuracy,1,Plain RF
+climate,rf_var,24,OOB accuracy,0.940819160013884,Plain RF
+climate,rf_var,24,Test AUC,0.981451692550376,Plain RF
+climate,rf_var,24,Test F1,0.947592990179741,Plain RF
+climate,rf_var,24,Test TSS,0.893584204852176,Plain RF
+climate,rf_var,24,Test accuracy,0.946792102426088,Plain RF
+climate,rf_var,24,Test balanced accuracy,0.946792102426088,Plain RF
+climate,rf_var,24,Test precision,0.933541283282809,Plain RF
+climate,rf_var,24,Test recall,0.962074175499894,Plain RF
+climate,rf_var,24,Test specificity,0.931510029352282,Plain RF
+climate,rf_var,24,Train accuracy,1,Plain RF
+climate,rf_var,25,OOB accuracy,0.952189361479778,Plain RF
+climate,rf_var,25,Test AUC,0.987940732440293,Plain RF
+climate,rf_var,25,Test F1,0.957335158567192,Plain RF
+climate,rf_var,25,Test TSS,0.913371236049695,Plain RF
+climate,rf_var,25,Test accuracy,0.956685618024847,Plain RF
+climate,rf_var,25,Test balanced accuracy,0.956685618024847,Plain RF
+climate,rf_var,25,Test precision,0.943191106751676,Plain RF
+climate,rf_var,25,Test recall,0.971909875763319,Plain RF
+climate,rf_var,25,Test specificity,0.941461360286376,Plain RF
+climate,rf_var,25,Train accuracy,1,Plain RF
+climate,rf_var,26,OOB accuracy,0.964298668324784,Plain RF
+climate,rf_var,26,Test AUC,0.991809015063549,Plain RF
+climate,rf_var,26,Test F1,0.968374875373878,Plain RF
+climate,rf_var,26,Test TSS,0.935565125538312,Plain RF
+climate,rf_var,26,Test accuracy,0.967782562769156,Plain RF
+climate,rf_var,26,Test balanced accuracy,0.967782562769156,Plain RF
+climate,rf_var,26,Test precision,0.950892857142857,Plain RF
+climate,rf_var,26,Test recall,0.986511741285447,Plain RF
+climate,rf_var,26,Test specificity,0.949053384252864,Plain RF
+climate,rf_var,26,Train accuracy,1,Plain RF
+climate,rf_var,27,OOB accuracy,0.962881982404081,Plain RF
+climate,rf_var,27,Test AUC,0.990642318454477,Plain RF
+climate,rf_var,27,Test F1,0.959181100677704,Plain RF
+climate,rf_var,27,Test TSS,0.917645199952213,Plain RF
+climate,rf_var,27,Test accuracy,0.958822599976107,Plain RF
+climate,rf_var,27,Test balanced accuracy,0.958822599976107,Plain RF
+climate,rf_var,27,Test precision,0.950902308318658,Plain RF
+climate,rf_var,27,Test recall,0.967605313560988,Plain RF
+climate,rf_var,27,Test specificity,0.950039886391226,Plain RF
+climate,rf_var,27,Train accuracy,1,Plain RF
+climate,rf_var,28,OOB accuracy,0.953904045155221,Plain RF
+climate,rf_var,28,Test AUC,0.988414757244387,Plain RF
+climate,rf_var,28,Test F1,0.956846443794695,Plain RF
+climate,rf_var,28,Test TSS,0.911959177806526,Plain RF
+climate,rf_var,28,Test accuracy,0.955979588903263,Plain RF
+climate,rf_var,28,Test balanced accuracy,0.955979588903263,Plain RF
+climate,rf_var,28,Test precision,0.938367995577973,Plain RF
+climate,rf_var,28,Test recall,0.976067270375162,Plain RF
+climate,rf_var,28,Test specificity,0.935891907431364,Plain RF
+climate,rf_var,28,Train accuracy,1,Plain RF
+climate,rf_var,29,OOB accuracy,0.976424995963184,Plain RF
+climate,rf_var,29,Test AUC,0.996107169941644,Plain RF
+climate,rf_var,29,Test F1,0.981453664203169,Plain RF
+climate,rf_var,29,Test TSS,0.962511639204891,Plain RF
+climate,rf_var,29,Test accuracy,0.981255819602445,Plain RF
+climate,rf_var,29,Test balanced accuracy,0.981255819602445,Plain RF
+climate,rf_var,29,Test precision,0.971202631996195,Plain RF
+climate,rf_var,29,Test recall,0.991923403910773,Plain RF
+climate,rf_var,29,Test specificity,0.970588235294118,Plain RF
+climate,rf_var,29,Train accuracy,1,Plain RF
+climate,rf_var,30,OOB accuracy,0.910255766041907,Plain RF
+climate,rf_var,30,Test AUC,0.961790694990093,Plain RF
+climate,rf_var,30,Test F1,0.918929903680196,Plain RF
+climate,rf_var,30,Test TSS,0.832342155107399,Plain RF
+climate,rf_var,30,Test accuracy,0.916171077553699,Plain RF
+climate,rf_var,30,Test balanced accuracy,0.916171077553699,Plain RF
+climate,rf_var,30,Test precision,0.889651306321117,Plain RF
+climate,rf_var,30,Test recall,0.950201210139379,Plain RF
+climate,rf_var,30,Test specificity,0.882140944968019,Plain RF
+climate,rf_var,30,Train accuracy,1,Plain RF
+climate,rf_var,31,OOB accuracy,0.950109616638028,Plain RF
+climate,rf_var,31,Test AUC,0.986604263317746,Plain RF
+climate,rf_var,31,Test F1,0.953194306266225,Plain RF
+climate,rf_var,31,Test TSS,0.904418150452111,Plain RF
+climate,rf_var,31,Test accuracy,0.952209075226055,Plain RF
+climate,rf_var,31,Test balanced accuracy,0.952209075226055,Plain RF
+climate,rf_var,31,Test precision,0.933940705768781,Plain RF
+climate,rf_var,31,Test recall,0.973258459640119,Plain RF
+climate,rf_var,31,Test specificity,0.931159690811992,Plain RF
+climate,rf_var,31,Train accuracy,1,Plain RF
+climate,rf_var,32,OOB accuracy,0.96955325253235,Plain RF
+climate,rf_var,32,Test AUC,0.99438122346187,Plain RF
+climate,rf_var,32,Test F1,0.974000836995187,Plain RF
+climate,rf_var,32,Test TSS,0.947195070123247,Plain RF
+climate,rf_var,32,Test accuracy,0.973597535061623,Plain RF
+climate,rf_var,32,Test balanced accuracy,0.973597535061623,Plain RF
+climate,rf_var,32,Test precision,0.959346661170651,Plain RF
+climate,rf_var,32,Test recall,0.989109647258818,Plain RF
+climate,rf_var,32,Test specificity,0.958085422864428,Plain RF
+climate,rf_var,32,Train accuracy,0.999941448562562,Plain RF
+climate,rf_var,33,OOB accuracy,0.958556776175353,Plain RF
+climate,rf_var,33,Test AUC,0.987850408055474,Plain RF
+climate,rf_var,33,Test F1,0.96226533928444,Plain RF
+climate,rf_var,33,Test TSS,0.923302752293578,Plain RF
+climate,rf_var,33,Test accuracy,0.961651376146789,Plain RF
+climate,rf_var,33,Test balanced accuracy,0.961651376146789,Plain RF
+climate,rf_var,33,Test precision,0.947102191952921,Plain RF
+climate,rf_var,33,Test recall,0.977921911670578,Plain RF
+climate,rf_var,33,Test specificity,0.945380840623,Plain RF
+climate,rf_var,33,Train accuracy,1,Plain RF
+climate,rf_var,34,OOB accuracy,0.987113402061856,Plain RF
+climate,rf_var,34,Test AUC,0.99822475868284,Plain RF
+climate,rf_var,34,Test F1,0.990554156171284,Plain RF
+climate,rf_var,34,Test TSS,0.980988593155893,Plain RF
+climate,rf_var,34,Test accuracy,0.990494296577947,Plain RF
+climate,rf_var,34,Test balanced accuracy,0.990494296577947,Plain RF
+climate,rf_var,34,Test precision,0.984355444305382,Plain RF
+climate,rf_var,34,Test recall,0.996831432192649,Plain RF
+climate,rf_var,34,Test specificity,0.984157160963245,Plain RF
+climate,rf_var,34,Train accuracy,1,Plain RF
+climate,rf_var,35,OOB accuracy,0.987263873280891,Plain RF
+climate,rf_var,35,Test AUC,0.998208611734009,Plain RF
+climate,rf_var,35,Test F1,0.988337456454789,Plain RF
+climate,rf_var,35,Test TSS,0.976526775734173,Plain RF
+climate,rf_var,35,Test accuracy,0.988263387867087,Plain RF
+climate,rf_var,35,Test balanced accuracy,0.988263387867087,Plain RF
+climate,rf_var,35,Test precision,0.982139273530002,Plain RF
+climate,rf_var,35,Test recall,0.99461436845849,Plain RF
+climate,rf_var,35,Test specificity,0.981912407275683,Plain RF
+climate,rf_var,35,Train accuracy,1,Plain RF
+climate,rf_var,36,OOB accuracy,0.96933919643395,Plain RF
+climate,rf_var,36,Test AUC,0.993419878090809,Plain RF
+climate,rf_var,36,Test F1,0.97158207267072,Plain RF
+climate,rf_var,36,Test TSS,0.941957840023101,Plain RF
+climate,rf_var,36,Test accuracy,0.970978920011551,Plain RF
+climate,rf_var,36,Test balanced accuracy,0.970978920011551,Plain RF
+climate,rf_var,36,Test precision,0.95180055401662,Plain RF
+climate,rf_var,36,Test recall,0.992203291943402,Plain RF
+climate,rf_var,36,Test specificity,0.9497545480797,Plain RF
+climate,rf_var,36,Train accuracy,1,Plain RF
+climate,rf_var,37,OOB accuracy,0.968597041192323,Plain RF
+climate,rf_var,37,Test AUC,0.994506441192978,Plain RF
+climate,rf_var,37,Test F1,0.968442665378377,Plain RF
+climate,rf_var,37,Test TSS,0.936585534983704,Plain RF
+climate,rf_var,37,Test accuracy,0.968292767491852,Plain RF
+climate,rf_var,37,Test balanced accuracy,0.968292767491852,Plain RF
+climate,rf_var,37,Test precision,0.963885835966479,Plain RF
+climate,rf_var,37,Test recall,0.973042784827682,Plain RF
+climate,rf_var,37,Test specificity,0.963542750156022,Plain RF
+climate,rf_var,37,Train accuracy,1,Plain RF
+climate,rf_var,38,OOB accuracy,0.993045677256204,Plain RF
+climate,rf_var,38,Test AUC,0.999295611966811,Plain RF
+climate,rf_var,38,Test F1,0.995144023838428,Plain RF
+climate,rf_var,38,Test TSS,0.990244983926394,Plain RF
+climate,rf_var,38,Test accuracy,0.995122491963197,Plain RF
+climate,rf_var,38,Test balanced accuracy,0.995122491963197,Plain RF
+climate,rf_var,38,Test precision,0.990770245028019,Plain RF
+climate,rf_var,38,Test recall,0.999556590178472,Plain RF
+climate,rf_var,38,Test specificity,0.990688393747921,Plain RF
+climate,rf_var,38,Train accuracy,0.999894631473579,Plain RF
+climate,rf_var,39,OOB accuracy,0.984243269957556,Plain RF
+climate,rf_var,39,Test AUC,0.996364680705221,Plain RF
+climate,rf_var,39,Test F1,0.987114350931448,Plain RF
+climate,rf_var,39,Test TSS,0.97395058052992,Plain RF
+climate,rf_var,39,Test accuracy,0.98697529026496,Plain RF
+climate,rf_var,39,Test balanced accuracy,0.98697529026496,Plain RF
+climate,rf_var,39,Test precision,0.976686580212735,Plain RF
+climate,rf_var,39,Test recall,0.99776719261685,Plain RF
+climate,rf_var,39,Test specificity,0.976183387913069,Plain RF
+climate,rf_var,39,Train accuracy,1,Plain RF
+climate,rf_var,40,OOB accuracy,0.922916208489114,Plain RF
+climate,rf_var,40,Test AUC,0.963981971525484,Plain RF
+climate,rf_var,40,Test F1,0.929263151965225,Plain RF
+climate,rf_var,40,Test TSS,0.852338536614046,Plain RF
+climate,rf_var,40,Test accuracy,0.926169268307023,Plain RF
+climate,rf_var,40,Test balanced accuracy,0.926169268307023,Plain RF
+climate,rf_var,40,Test precision,0.891888482401918,Plain RF
+climate,rf_var,40,Test recall,0.969907203261115,Plain RF
+climate,rf_var,40,Test specificity,0.882431333352931,Plain RF
+climate,rf_var,40,Train accuracy,1,Plain RF
+climate,rf_var,41,OOB accuracy,0.963374827109267,Plain RF
+climate,rf_var,41,Test AUC,0.988875449104539,Plain RF
+climate,rf_var,41,Test F1,0.967311851017818,Plain RF
+climate,rf_var,41,Test TSS,0.933357624339588,Plain RF
+climate,rf_var,41,Test accuracy,0.966678812169794,Plain RF
+climate,rf_var,41,Test balanced accuracy,0.966678812169794,Plain RF
+climate,rf_var,41,Test precision,0.949277395818718,Plain RF
+climate,rf_var,41,Test recall,0.98604481690654,Plain RF
+climate,rf_var,41,Test specificity,0.947312807433048,Plain RF
+climate,rf_var,41,Train accuracy,1,Plain RF
+climate,rf_var,42,OOB accuracy,0.9765555959869,Plain RF
+climate,rf_var,42,Test AUC,0.992659566382916,Plain RF
+climate,rf_var,42,Test F1,0.977710339053998,Plain RF
+climate,rf_var,42,Test TSS,0.954774189438818,Plain RF
+climate,rf_var,42,Test accuracy,0.977387094719409,Plain RF
+climate,rf_var,42,Test balanced accuracy,0.977387094719409,Plain RF
+climate,rf_var,42,Test precision,0.963931246517962,Plain RF
+climate,rf_var,42,Test recall,0.991889079983863,Plain RF
+climate,rf_var,42,Test specificity,0.962885109454955,Plain RF
+climate,rf_var,42,Train accuracy,0.999896033685086,Plain RF
+climate,rf_var,43,OOB accuracy,0.993733117233928,Plain RF
+climate,rf_var,43,Test AUC,0.999545639835027,Plain RF
+climate,rf_var,43,Test F1,0.994089834515366,Plain RF
+climate,rf_var,43,Test TSS,0.98812351543943,Plain RF
+climate,rf_var,43,Test accuracy,0.994061757719715,Plain RF
+climate,rf_var,43,Test balanced accuracy,0.994061757719715,Plain RF
+climate,rf_var,43,Test precision,0.989411764705882,Plain RF
+climate,rf_var,43,Test recall,0.998812351543943,Plain RF
+climate,rf_var,43,Test specificity,0.989311163895487,Plain RF
+climate,rf_var,43,Train accuracy,0.999891950297137,Plain RF
+climate,rf_var,44,OOB accuracy,0.914785681714546,Plain RF
+climate,rf_var,44,Test AUC,0.960376263618184,Plain RF
+climate,rf_var,44,Test F1,0.920091591315539,Plain RF
+climate,rf_var,44,Test TSS,0.833391413437413,Plain RF
+climate,rf_var,44,Test accuracy,0.916695706718706,Plain RF
+climate,rf_var,44,Test balanced accuracy,0.916695706718706,Plain RF
+climate,rf_var,44,Test precision,0.884053316203629,Plain RF
+climate,rf_var,44,Test recall,0.959192918873711,Plain RF
+climate,rf_var,44,Test specificity,0.874198494563702,Plain RF
+climate,rf_var,44,Train accuracy,1,Plain RF
+climate,rf_var,45,OOB accuracy,0.980294082198385,Plain RF
+climate,rf_var,45,Test AUC,0.996866739717914,Plain RF
+climate,rf_var,45,Test F1,0.984452799512245,Plain RF
+climate,rf_var,45,Test TSS,0.968628255074841,Plain RF
+climate,rf_var,45,Test accuracy,0.98431412753742,Plain RF
+climate,rf_var,45,Test balanced accuracy,0.98431412753742,Plain RF
+climate,rf_var,45,Test precision,0.975825946817083,Plain RF
+climate,rf_var,45,Test recall,0.993233545212221,Plain RF
+climate,rf_var,45,Test specificity,0.97539470986262,Plain RF
+climate,rf_var,45,Train accuracy,1,Plain RF
+climate,rf_var,46,OOB accuracy,0.960473882606354,Plain RF
+climate,rf_var,46,Test AUC,0.987838851854862,Plain RF
+climate,rf_var,46,Test F1,0.96812952806957,Plain RF
+climate,rf_var,46,Test TSS,0.934989929384358,Plain RF
+climate,rf_var,46,Test accuracy,0.967494964692179,Plain RF
+climate,rf_var,46,Test balanced accuracy,0.967494964692179,Plain RF
+climate,rf_var,46,Test precision,0.949591598599767,Plain RF
+climate,rf_var,46,Test recall,0.987405663811303,Plain RF
+climate,rf_var,46,Test specificity,0.947584265573054,Plain RF
+climate,rf_var,46,Train accuracy,1,Plain RF
+climate,rf_var,47,OOB accuracy,0.95030193236715,Plain RF
+climate,rf_var,47,Test AUC,0.983177066973637,Plain RF
+climate,rf_var,47,Test F1,0.954571697435594,Plain RF
+climate,rf_var,47,Test TSS,0.906772150127345,Plain RF
+climate,rf_var,47,Test accuracy,0.953386075063673,Plain RF
+climate,rf_var,47,Test balanced accuracy,0.953386075063673,Plain RF
+climate,rf_var,47,Test precision,0.930894453113917,Plain RF
+climate,rf_var,47,Test recall,0.979484835197642,Plain RF
+climate,rf_var,47,Test specificity,0.927287314929704,Plain RF
+climate,rf_var,47,Train accuracy,1,Plain RF
+climate,rf_var,48,OOB accuracy,0.995967741935484,Plain RF
+climate,rf_var,48,Test AUC,1,Plain RF
+climate,rf_var,48,Test F1,0.998054474708171,Plain RF
+climate,rf_var,48,Test TSS,0.996101364522417,Plain RF
+climate,rf_var,48,Test accuracy,0.998050682261209,Plain RF
+climate,rf_var,48,Test balanced accuracy,0.998050682261209,Plain RF
+climate,rf_var,48,Test precision,0.996116504854369,Plain RF
+climate,rf_var,48,Test recall,1,Plain RF
+climate,rf_var,48,Test specificity,0.996101364522417,Plain RF
+climate,rf_var,48,Train accuracy,1,Plain RF
+climate,rf_var,49,OOB accuracy,0.937661556958221,Plain RF
+climate,rf_var,49,Test AUC,0.979100007111795,Plain RF
+climate,rf_var,49,Test F1,0.941076832505345,Plain RF
+climate,rf_var,49,Test TSS,0.878779508318637,Plain RF
+climate,rf_var,49,Test accuracy,0.939389754159318,Plain RF
+climate,rf_var,49,Test balanced accuracy,0.939389754159318,Plain RF
+climate,rf_var,49,Test precision,0.915591462679368,Plain RF
+climate,rf_var,49,Test recall,0.968021588084058,Plain RF
+climate,rf_var,49,Test specificity,0.910757920234579,Plain RF
+climate,rf_var,49,Train accuracy,1,Plain RF
+climate,rf_var,50,OOB accuracy,0.990212527964206,Plain RF
+climate,rf_var,50,Test AUC,0.999972444389333,Plain RF
+climate,rf_var,50,Test F1,0.996057818659658,Plain RF
+climate,rf_var,50,Test TSS,0.992125984251969,Plain RF
+climate,rf_var,50,Test accuracy,0.996062992125984,Plain RF
+climate,rf_var,50,Test balanced accuracy,0.996062992125984,Plain RF
+climate,rf_var,50,Test precision,0.997368421052632,Plain RF
+climate,rf_var,50,Test recall,0.994750656167979,Plain RF
+climate,rf_var,50,Test specificity,0.99737532808399,Plain RF
+climate,rf_var,50,Train accuracy,1,Plain RF
+climate,rf_var,52,OOB accuracy,0.994202113248442,Plain RF
+climate,rf_var,52,Test AUC,0.998909256320447,Plain RF
+climate,rf_var,52,Test F1,0.994444835103017,Plain RF
+climate,rf_var,52,Test TSS,0.988843383702867,Plain RF
+climate,rf_var,52,Test accuracy,0.994421691851433,Plain RF
+climate,rf_var,52,Test balanced accuracy,0.994421691851434,Plain RF
+climate,rf_var,52,Test precision,0.990336134453782,Plain RF
+climate,rf_var,52,Test recall,0.998587770088971,Plain RF
+climate,rf_var,52,Test specificity,0.990255613613896,Plain RF
+climate,rf_var,52,Train accuracy,1,Plain RF
+climate,rf_var,53,OOB accuracy,0.984666852523,Plain RF
+climate,rf_var,53,Test AUC,0.997743986475867,Plain RF
+climate,rf_var,53,Test F1,0.987831465801349,Plain RF
+climate,rf_var,53,Test TSS,0.975483936871137,Plain RF
+climate,rf_var,53,Test accuracy,0.987741968435569,Plain RF
+climate,rf_var,53,Test balanced accuracy,0.987741968435569,Plain RF
+climate,rf_var,53,Test precision,0.980671465243872,Plain RF
+climate,rf_var,53,Test recall,0.995096787374228,Plain RF
+climate,rf_var,53,Test specificity,0.98038714949691,Plain RF
+climate,rf_var,53,Train accuracy,1,Plain RF
+climate,rf_var,54,OOB accuracy,0.997418657702005,Plain RF
+climate,rf_var,54,Test AUC,0.999593324721746,Plain RF
+climate,rf_var,54,Test F1,0.996539792387543,Plain RF
+climate,rf_var,54,Test TSS,0.993069592838579,Plain RF
+climate,rf_var,54,Test accuracy,0.99653479641929,Plain RF
+climate,rf_var,54,Test balanced accuracy,0.99653479641929,Plain RF
+climate,rf_var,54,Test precision,0.995105096458393,Plain RF
+climate,rf_var,54,Test recall,0.997978631244586,Plain RF
+climate,rf_var,54,Test specificity,0.995090961593994,Plain RF
+climate,rf_var,54,Train accuracy,1,Plain RF
+climate,rf_var,55,OOB accuracy,0.9951975987994,Plain RF
+climate,rf_var,55,Test AUC,0.998504823690535,Plain RF
+climate,rf_var,55,Test F1,0.994751312171957,Plain RF
+climate,rf_var,55,Test TSS,0.989452536413862,Plain RF
+climate,rf_var,55,Test accuracy,0.994726268206931,Plain RF
+climate,rf_var,55,Test balanced accuracy,0.994726268206931,Plain RF
+climate,rf_var,55,Test precision,0.990049751243781,Plain RF
+climate,rf_var,55,Test recall,0.999497739829232,Plain RF
+climate,rf_var,55,Test specificity,0.989954796584631,Plain RF
+climate,rf_var,55,Train accuracy,1,Plain RF
+climate,mf_var,1,Test AUC,0.998579772569686,Plain MF RF
+climate,mf_var,1,Test F1,0.984516699845167,Plain MF RF
+climate,mf_var,1,Test TSS,0.968861209964413,Plain MF RF
+climate,mf_var,1,Test accuracy,0.984430604982206,Plain MF RF
+climate,mf_var,1,Test balanced accuracy,0.984430604982206,Plain MF RF
+climate,mf_var,1,Test precision,0.979102507699076,Plain MF RF
+climate,mf_var,1,Test recall,0.989991103202847,Plain MF RF
+climate,mf_var,1,Test specificity,0.978870106761566,Plain MF RF
+climate,mf_var,1,Train accuracy,1,Plain MF RF
+climate,mf_var,2,Test AUC,0.989029070646933,Plain MF RF
+climate,mf_var,2,Test F1,0.957261369664959,Plain MF RF
+climate,mf_var,2,Test TSS,0.913779314562604,Plain MF RF
+climate,mf_var,2,Test accuracy,0.956889657281302,Plain MF RF
+climate,mf_var,2,Test balanced accuracy,0.956889657281302,Plain MF RF
+climate,mf_var,2,Test precision,0.949078087971793,Plain MF RF
+climate,mf_var,2,Test recall,0.96558699691859,Plain MF RF
+climate,mf_var,2,Test specificity,0.948192317644015,Plain MF RF
+climate,mf_var,2,Train accuracy,1,Plain MF RF
+climate,mf_var,3,Test AUC,0.97373180205267,Plain MF RF
+climate,mf_var,3,Test F1,0.926589473621754,Plain MF RF
+climate,mf_var,3,Test TSS,0.851132822370083,Plain MF RF
+climate,mf_var,3,Test accuracy,0.925566411185042,Plain MF RF
+climate,mf_var,3,Test balanced accuracy,0.925566411185042,Plain MF RF
+climate,mf_var,3,Test precision,0.914026513710456,Plain MF RF
+climate,mf_var,3,Test recall,0.939502592917905,Plain MF RF
+climate,mf_var,3,Test specificity,0.911630229452178,Plain MF RF
+climate,mf_var,3,Train accuracy,1,Plain MF RF
+climate,mf_var,4,Test AUC,0.990105199890017,Plain MF RF
+climate,mf_var,4,Test F1,0.964945010038555,Plain MF RF
+climate,mf_var,4,Test TSS,0.928452277342617,Plain MF RF
+climate,mf_var,4,Test accuracy,0.964226138671308,Plain MF RF
+climate,mf_var,4,Test balanced accuracy,0.964226138671308,Plain MF RF
+climate,mf_var,4,Test precision,0.945936531159647,Plain MF RF
+climate,mf_var,4,Test recall,0.984733101247462,Plain MF RF
+climate,mf_var,4,Test specificity,0.943719176095155,Plain MF RF
+climate,mf_var,4,Train accuracy,0.999947569863157,Plain MF RF
+climate,mf_var,5,Test AUC,0.97482882739291,Plain MF RF
+climate,mf_var,5,Test F1,0.930926349690652,Plain MF RF
+climate,mf_var,5,Test TSS,0.858614946915551,Plain MF RF
+climate,mf_var,5,Test accuracy,0.929307473457775,Plain MF RF
+climate,mf_var,5,Test balanced accuracy,0.929307473457775,Plain MF RF
+climate,mf_var,5,Test precision,0.910085175488019,Plain MF RF
+climate,mf_var,5,Test recall,0.952744431337173,Plain MF RF
+climate,mf_var,5,Test specificity,0.905870515578378,Plain MF RF
+climate,mf_var,5,Train accuracy,1,Plain MF RF
+climate,mf_var,6,Test AUC,0.992953711412861,Plain MF RF
+climate,mf_var,6,Test F1,0.973518834683425,Plain MF RF
+climate,mf_var,6,Test TSS,0.946418727720407,Plain MF RF
+climate,mf_var,6,Test accuracy,0.973209363860204,Plain MF RF
+climate,mf_var,6,Test balanced accuracy,0.973209363860204,Plain MF RF
+climate,mf_var,6,Test precision,0.96240169497612,Plain MF RF
+climate,mf_var,6,Test recall,0.98489581419279,Plain MF RF
+climate,mf_var,6,Test specificity,0.961522913527618,Plain MF RF
+climate,mf_var,6,Train accuracy,1,Plain MF RF
+climate,mf_var,7,Test AUC,0.968307435631368,Plain MF RF
+climate,mf_var,7,Test F1,0.923388134907499,Plain MF RF
+climate,mf_var,7,Test TSS,0.843754688109454,Plain MF RF
+climate,mf_var,7,Test accuracy,0.921877344054727,Plain MF RF
+climate,mf_var,7,Test balanced accuracy,0.921877344054727,Plain MF RF
+climate,mf_var,7,Test precision,0.905869787983316,Plain MF RF
+climate,mf_var,7,Test recall,0.941597407662996,Plain MF RF
+climate,mf_var,7,Test specificity,0.902157280446458,Plain MF RF
+climate,mf_var,7,Train accuracy,0.999881831610044,Plain MF RF
+climate,mf_var,9,Test AUC,0.997824020735253,Plain MF RF
+climate,mf_var,9,Test F1,0.990206157675451,Plain MF RF
+climate,mf_var,9,Test TSS,0.980255263444966,Plain MF RF
+climate,mf_var,9,Test accuracy,0.990127631722483,Plain MF RF
+climate,mf_var,9,Test balanced accuracy,0.990127631722483,Plain MF RF
+climate,mf_var,9,Test precision,0.982392097917114,Plain MF RF
+climate,mf_var,9,Test recall,0.998145521981019,Plain MF RF
+climate,mf_var,9,Test specificity,0.982109741463947,Plain MF RF
+climate,mf_var,9,Train accuracy,1,Plain MF RF
+climate,mf_var,10,Test AUC,0.989832401079188,Plain MF RF
+climate,mf_var,10,Test F1,0.969532988226876,Plain MF RF
+climate,mf_var,10,Test TSS,0.938253421553521,Plain MF RF
+climate,mf_var,10,Test accuracy,0.969126710776761,Plain MF RF
+climate,mf_var,10,Test balanced accuracy,0.969126710776761,Plain MF RF
+climate,mf_var,10,Test precision,0.956940122271513,Plain MF RF
+climate,mf_var,10,Test recall,0.982461705791716,Plain MF RF
+climate,mf_var,10,Test specificity,0.955791715761805,Plain MF RF
+climate,mf_var,10,Train accuracy,1,Plain MF RF
+climate,mf_var,11,Test AUC,0.989433966922106,Plain MF RF
+climate,mf_var,11,Test F1,0.962108546615352,Plain MF RF
+climate,mf_var,11,Test TSS,0.923185405909515,Plain MF RF
+climate,mf_var,11,Test accuracy,0.961592702954757,Plain MF RF
+climate,mf_var,11,Test balanced accuracy,0.961592702954757,Plain MF RF
+climate,mf_var,11,Test precision,0.949357838795394,Plain MF RF
+climate,mf_var,11,Test recall,0.975206423583468,Plain MF RF
+climate,mf_var,11,Test specificity,0.947978982326047,Plain MF RF
+climate,mf_var,11,Train accuracy,1,Plain MF RF
+climate,mf_var,12,Test AUC,0.986817479240959,Plain MF RF
+climate,mf_var,12,Test F1,0.955986307044895,Plain MF RF
+climate,mf_var,12,Test TSS,0.91027327845243,Plain MF RF
+climate,mf_var,12,Test accuracy,0.955136639226215,Plain MF RF
+climate,mf_var,12,Test balanced accuracy,0.955136639226215,Plain MF RF
+climate,mf_var,12,Test precision,0.938217394653725,Plain MF RF
+climate,mf_var,12,Test recall,0.974441263801718,Plain MF RF
+climate,mf_var,12,Test specificity,0.935832014650712,Plain MF RF
+climate,mf_var,12,Train accuracy,0.99994370003378,Plain MF RF
+climate,mf_var,13,Test AUC,0.980626919701956,Plain MF RF
+climate,mf_var,13,Test F1,0.941942490800004,Plain MF RF
+climate,mf_var,13,Test TSS,0.881939865665321,Plain MF RF
+climate,mf_var,13,Test accuracy,0.940969932832661,Plain MF RF
+climate,mf_var,13,Test balanced accuracy,0.940969932832661,Plain MF RF
+climate,mf_var,13,Test precision,0.926674930886571,Plain MF RF
+climate,mf_var,13,Test recall,0.957721563771449,Plain MF RF
+climate,mf_var,13,Test specificity,0.924218301893873,Plain MF RF
+climate,mf_var,13,Train accuracy,1,Plain MF RF
+climate,mf_var,14,Test AUC,0.997605348318594,Plain MF RF
+climate,mf_var,14,Test F1,0.985996084926969,Plain MF RF
+climate,mf_var,14,Test TSS,0.971721062233935,Plain MF RF
+climate,mf_var,14,Test accuracy,0.985860531116967,Plain MF RF
+climate,mf_var,14,Test balanced accuracy,0.985860531116967,Plain MF RF
+climate,mf_var,14,Test precision,0.97663319081237,Plain MF RF
+climate,mf_var,14,Test recall,0.995540239205352,Plain MF RF
+climate,mf_var,14,Test specificity,0.976180823028583,Plain MF RF
+climate,mf_var,14,Train accuracy,1,Plain MF RF
+climate,mf_var,15,Test AUC,0.981813772336273,Plain MF RF
+climate,mf_var,15,Test F1,0.943333264387311,Plain MF RF
+climate,mf_var,15,Test TSS,0.884681221236951,Plain MF RF
+climate,mf_var,15,Test accuracy,0.942340610618476,Plain MF RF
+climate,mf_var,15,Test balanced accuracy,0.942340610618476,Plain MF RF
+climate,mf_var,15,Test precision,0.92736786455015,Plain MF RF
+climate,mf_var,15,Test recall,0.959858008755191,Plain MF RF
+climate,mf_var,15,Test specificity,0.92482321248176,Plain MF RF
+climate,mf_var,15,Train accuracy,1,Plain MF RF
+climate,mf_var,16,Test AUC,0.979874519695907,Plain MF RF
+climate,mf_var,16,Test F1,0.943732832358425,Plain MF RF
+climate,mf_var,16,Test TSS,0.885091463968465,Plain MF RF
+climate,mf_var,16,Test accuracy,0.942545731984232,Plain MF RF
+climate,mf_var,16,Test balanced accuracy,0.942545731984232,Plain MF RF
+climate,mf_var,16,Test precision,0.924628476010863,Plain MF RF
+climate,mf_var,16,Test recall,0.963643299605806,Plain MF RF
+climate,mf_var,16,Test specificity,0.921448164362659,Plain MF RF
+climate,mf_var,16,Train accuracy,1,Plain MF RF
+climate,mf_var,17,Test AUC,0.999986294460769,Plain MF RF
+climate,mf_var,17,Test F1,0.999172870140612,Plain MF RF
+climate,mf_var,17,Test TSS,0.998344370860927,Plain MF RF
+climate,mf_var,17,Test accuracy,0.999172185430464,Plain MF RF
+climate,mf_var,17,Test balanced accuracy,0.999172185430464,Plain MF RF
+climate,mf_var,17,Test precision,0.998347107438017,Plain MF RF
+climate,mf_var,17,Test recall,1,Plain MF RF
+climate,mf_var,17,Test specificity,0.998344370860927,Plain MF RF
+climate,mf_var,17,Train accuracy,1,Plain MF RF
+climate,mf_var,18,Test AUC,0.98006030936656,Plain MF RF
+climate,mf_var,18,Test F1,0.950516208216013,Plain MF RF
+climate,mf_var,18,Test TSS,0.898654443294396,Plain MF RF
+climate,mf_var,18,Test accuracy,0.949327221647198,Plain MF RF
+climate,mf_var,18,Test balanced accuracy,0.949327221647198,Plain MF RF
+climate,mf_var,18,Test precision,0.92872460496614,Plain MF RF
+climate,mf_var,18,Test recall,0.973355019961556,Plain MF RF
+climate,mf_var,18,Test specificity,0.92529942333284,Plain MF RF
+climate,mf_var,18,Train accuracy,1,Plain MF RF
+climate,mf_var,19,Test AUC,0.990746651779603,Plain MF RF
+climate,mf_var,19,Test F1,0.955117282839404,Plain MF RF
+climate,mf_var,19,Test TSS,0.910231935024701,Plain MF RF
+climate,mf_var,19,Test accuracy,0.95511596751235,Plain MF RF
+climate,mf_var,19,Test balanced accuracy,0.95511596751235,Plain MF RF
+climate,mf_var,19,Test precision,0.95508929393739,Plain MF RF
+climate,mf_var,19,Test recall,0.955145273381897,Plain MF RF
+climate,mf_var,19,Test specificity,0.955086661642803,Plain MF RF
+climate,mf_var,19,Train accuracy,0.999948207996685,Plain MF RF
+climate,mf_var,20,Test AUC,0.976038277250591,Plain MF RF
+climate,mf_var,20,Test F1,0.941693480638463,Plain MF RF
+climate,mf_var,20,Test TSS,0.880654397391495,Plain MF RF
+climate,mf_var,20,Test accuracy,0.940327198695747,Plain MF RF
+climate,mf_var,20,Test balanced accuracy,0.940327198695747,Plain MF RF
+climate,mf_var,20,Test precision,0.920614874445056,Plain MF RF
+climate,mf_var,20,Test recall,0.963759946142803,Plain MF RF
+climate,mf_var,20,Test specificity,0.916894451248692,Plain MF RF
+climate,mf_var,20,Train accuracy,1,Plain MF RF
+climate,mf_var,21,Test AUC,0.983286398808383,Plain MF RF
+climate,mf_var,21,Test F1,0.944365590647731,Plain MF RF
+climate,mf_var,21,Test TSS,0.886497996540474,Plain MF RF
+climate,mf_var,21,Test accuracy,0.943248998270237,Plain MF RF
+climate,mf_var,21,Test balanced accuracy,0.943248998270237,Plain MF RF
+climate,mf_var,21,Test precision,0.926143450322866,Plain MF RF
+climate,mf_var,21,Test recall,0.963319174092969,Plain MF RF
+climate,mf_var,21,Test specificity,0.923178822447505,Plain MF RF
+climate,mf_var,21,Train accuracy,1,Plain MF RF
+climate,mf_var,22,Test AUC,0.995453804759592,Plain MF RF
+climate,mf_var,22,Test F1,0.972537475306968,Plain MF RF
+climate,mf_var,22,Test TSS,0.94452703231359,Plain MF RF
+climate,mf_var,22,Test accuracy,0.972263516156795,Plain MF RF
+climate,mf_var,22,Test balanced accuracy,0.972263516156795,Plain MF RF
+climate,mf_var,22,Test precision,0.963025467934949,Plain MF RF
+climate,mf_var,22,Test recall,0.982239261403646,Plain MF RF
+climate,mf_var,22,Test specificity,0.962287770909944,Plain MF RF
+climate,mf_var,22,Train accuracy,1,Plain MF RF
+climate,mf_var,23,Test AUC,0.979640928460842,Plain MF RF
+climate,mf_var,23,Test F1,0.944046604008852,Plain MF RF
+climate,mf_var,23,Test TSS,0.885677746785222,Plain MF RF
+climate,mf_var,23,Test accuracy,0.942838873392611,Plain MF RF
+climate,mf_var,23,Test balanced accuracy,0.942838873392611,Plain MF RF
+climate,mf_var,23,Test precision,0.924513002683553,Plain MF RF
+climate,mf_var,23,Test recall,0.964423454539962,Plain MF RF
+climate,mf_var,23,Test specificity,0.92125429224526,Plain MF RF
+climate,mf_var,23,Train accuracy,1,Plain MF RF
+climate,mf_var,24,Test AUC,0.981470997749982,Plain MF RF
+climate,mf_var,24,Test F1,0.947498580335564,Plain MF RF
+climate,mf_var,24,Test TSS,0.893415016092605,Plain MF RF
+climate,mf_var,24,Test accuracy,0.946707508046303,Plain MF RF
+climate,mf_var,24,Test balanced accuracy,0.946707508046303,Plain MF RF
+climate,mf_var,24,Test precision,0.93363965884047,Plain MF RF
+climate,mf_var,24,Test recall,0.961775144203908,Plain MF RF
+climate,mf_var,24,Test specificity,0.931639871888697,Plain MF RF
+climate,mf_var,24,Train accuracy,1,Plain MF RF
+climate,mf_var,25,Test AUC,0.987982205610292,Plain MF RF
+climate,mf_var,25,Test F1,0.957370022123894,Plain MF RF
+climate,mf_var,25,Test TSS,0.913441426265179,Plain MF RF
+climate,mf_var,25,Test accuracy,0.956720713132589,Plain MF RF
+climate,mf_var,25,Test balanced accuracy,0.956720713132589,Plain MF RF
+climate,mf_var,25,Test precision,0.943219126762482,Plain MF RF
+climate,mf_var,25,Test recall,0.971951989892609,Plain MF RF
+climate,mf_var,25,Test specificity,0.94148943637257,Plain MF RF
+climate,mf_var,25,Train accuracy,1,Plain MF RF
+climate,mf_var,26,Test AUC,0.991982282661074,Plain MF RF
+climate,mf_var,26,Test F1,0.968439532378406,Plain MF RF
+climate,mf_var,26,Test TSS,0.935727634679451,Plain MF RF
+climate,mf_var,26,Test accuracy,0.967863817339725,Plain MF RF
+climate,mf_var,26,Test balanced accuracy,0.967863817339725,Plain MF RF
+climate,mf_var,26,Test precision,0.951395421762308,Plain MF RF
+climate,mf_var,26,Test recall,0.986105468432599,Plain MF RF
+climate,mf_var,26,Test specificity,0.949622166246851,Plain MF RF
+climate,mf_var,26,Train accuracy,1,Plain MF RF
+climate,mf_var,27,Test AUC,0.990745080173002,Plain MF RF
+climate,mf_var,27,Test F1,0.95938968032693,Plain MF RF
+climate,mf_var,27,Test TSS,0.918045990743274,Plain MF RF
+climate,mf_var,27,Test accuracy,0.959022995371637,Plain MF RF
+climate,mf_var,27,Test balanced accuracy,0.959022995371637,Plain MF RF
+climate,mf_var,27,Test precision,0.950880672892385,Plain MF RF
+climate,mf_var,27,Test recall,0.968052349443325,Plain MF RF
+climate,mf_var,27,Test specificity,0.94999364129995,Plain MF RF
+climate,mf_var,27,Train accuracy,1,Plain MF RF
+climate,mf_var,28,Test AUC,0.988450266136161,Plain MF RF
+climate,mf_var,28,Test F1,0.956963096119277,Plain MF RF
+climate,mf_var,28,Test TSS,0.91224665804226,Plain MF RF
+climate,mf_var,28,Test accuracy,0.95612332902113,Plain MF RF
+climate,mf_var,28,Test balanced accuracy,0.95612332902113,Plain MF RF
+climate,mf_var,28,Test precision,0.938991492010791,Plain MF RF
+climate,mf_var,28,Test recall,0.975636050021561,Plain MF RF
+climate,mf_var,28,Test specificity,0.936610608020699,Plain MF RF
+climate,mf_var,28,Train accuracy,1,Plain MF RF
+climate,mf_var,29,Test AUC,0.99619162871437,Plain MF RF
+climate,mf_var,29,Test F1,0.981662310088233,Plain MF RF
+climate,mf_var,29,Test TSS,0.962936723209586,Plain MF RF
+climate,mf_var,29,Test accuracy,0.981468361604793,Plain MF RF
+climate,mf_var,29,Test balanced accuracy,0.981468361604793,Plain MF RF
+climate,mf_var,29,Test precision,0.971494836164688,Plain MF RF
+climate,mf_var,29,Test recall,0.992044856483543,Plain MF RF
+climate,mf_var,29,Test specificity,0.970891866726043,Plain MF RF
+climate,mf_var,29,Train accuracy,1,Plain MF RF
+climate,mf_var,30,Test AUC,0.961817697020158,Plain MF RF
+climate,mf_var,30,Test F1,0.918795996303595,Plain MF RF
+climate,mf_var,30,Test TSS,0.832042786659681,Plain MF RF
+climate,mf_var,30,Test accuracy,0.916021393329841,Plain MF RF
+climate,mf_var,30,Test balanced accuracy,0.916021393329841,Plain MF RF
+climate,mf_var,30,Test precision,0.889410407988403,Plain MF RF
+climate,mf_var,30,Test recall,0.950189695968313,Plain MF RF
+climate,mf_var,30,Test specificity,0.881853090691369,Plain MF RF
+climate,mf_var,30,Train accuracy,1,Plain MF RF
+climate,mf_var,31,Test AUC,0.986700382220978,Plain MF RF
+climate,mf_var,31,Test F1,0.953194372008614,Plain MF RF
+climate,mf_var,31,Test TSS,0.904426009832084,Plain MF RF
+climate,mf_var,31,Test accuracy,0.952213004916042,Plain MF RF
+climate,mf_var,31,Test balanced accuracy,0.952213004916042,Plain MF RF
+climate,mf_var,31,Test precision,0.934013215460278,Plain MF RF
+climate,mf_var,31,Test recall,0.973179865840384,Plain MF RF
+climate,mf_var,31,Test specificity,0.9312461439917,Plain MF RF
+climate,mf_var,31,Train accuracy,1,Plain MF RF
+climate,mf_var,32,Test AUC,0.994389756155347,Plain MF RF
+climate,mf_var,32,Test F1,0.974628583385645,Plain MF RF
+climate,mf_var,32,Test TSS,0.948470038249044,Plain MF RF
+climate,mf_var,32,Test accuracy,0.974235019124522,Plain MF RF
+climate,mf_var,32,Test balanced accuracy,0.974235019124522,Plain MF RF
+climate,mf_var,32,Test precision,0.959964962901896,Plain MF RF
+climate,mf_var,32,Test recall,0.989747131321717,Plain MF RF
+climate,mf_var,32,Test specificity,0.958722906927327,Plain MF RF
+climate,mf_var,32,Train accuracy,0.999941448562562,Plain MF RF
+climate,mf_var,33,Test AUC,0.987961278860144,Plain MF RF
+climate,mf_var,33,Test F1,0.96241624263187,Plain MF RF
+climate,mf_var,33,Test TSS,0.923601450821421,Plain MF RF
+climate,mf_var,33,Test accuracy,0.961800725410711,Plain MF RF
+climate,mf_var,33,Test balanced accuracy,0.961800725410711,Plain MF RF
+climate,mf_var,33,Test precision,0.947154437952947,Plain MF RF
+climate,mf_var,33,Test recall,0.978177938980158,Plain MF RF
+climate,mf_var,33,Test specificity,0.945423511841263,Plain MF RF
+climate,mf_var,33,Train accuracy,1,Plain MF RF
+climate,mf_var,34,Test AUC,0.99806472392096,Plain MF RF
+climate,mf_var,34,Test F1,0.990866141732283,Plain MF RF
+climate,mf_var,34,Test TSS,0.981622306717364,Plain MF RF
+climate,mf_var,34,Test accuracy,0.990811153358682,Plain MF RF
+climate,mf_var,34,Test balanced accuracy,0.990811153358682,Plain MF RF
+climate,mf_var,34,Test precision,0.984971822166562,Plain MF RF
+climate,mf_var,34,Test recall,0.996831432192649,Plain MF RF
+climate,mf_var,34,Test specificity,0.984790874524715,Plain MF RF
+climate,mf_var,34,Train accuracy,1,Plain MF RF
+climate,mf_var,35,Test AUC,0.99825574361233,Plain MF RF
+climate,mf_var,35,Test F1,0.988387357366455,Plain MF RF
+climate,mf_var,35,Test TSS,0.976628391423636,Plain MF RF
+climate,mf_var,35,Test accuracy,0.988314195711818,Plain MF RF
+climate,mf_var,35,Test balanced accuracy,0.988314195711818,Plain MF RF
+climate,mf_var,35,Test precision,0.982237832413447,Plain MF RF
+climate,mf_var,35,Test recall,0.99461436845849,Plain MF RF
+climate,mf_var,35,Test specificity,0.982014022965146,Plain MF RF
+climate,mf_var,35,Train accuracy,1,Plain MF RF
+climate,mf_var,36,Test AUC,0.993343100099738,Plain MF RF
+climate,mf_var,36,Test F1,0.971994342291372,Plain MF RF
+climate,mf_var,36,Test TSS,0.942824140918279,Plain MF RF
+climate,mf_var,36,Test accuracy,0.971412070459139,Plain MF RF
+climate,mf_var,36,Test balanced accuracy,0.971412070459139,Plain MF RF
+climate,mf_var,36,Test precision,0.952592181868589,Plain MF RF
+climate,mf_var,36,Test recall,0.992203291943402,Plain MF RF
+climate,mf_var,36,Test specificity,0.950620848974877,Plain MF RF
+climate,mf_var,36,Train accuracy,1,Plain MF RF
+climate,mf_var,37,Test AUC,0.994613898453107,Plain MF RF
+climate,mf_var,37,Test F1,0.968598804667489,Plain MF RF
+climate,mf_var,37,Test TSS,0.936880244088482,Plain MF RF
+climate,mf_var,37,Test accuracy,0.968440122044241,Plain MF RF
+climate,mf_var,37,Test balanced accuracy,0.968440122044241,Plain MF RF
+climate,mf_var,37,Test precision,0.963753067774212,Plain MF RF
+climate,mf_var,37,Test recall,0.973493516399695,Plain MF RF
+climate,mf_var,37,Test specificity,0.963386727688787,Plain MF RF
+climate,mf_var,37,Train accuracy,1,Plain MF RF
+climate,mf_var,38,Test AUC,0.99947160452484,Plain MF RF
+climate,mf_var,38,Test F1,0.99514348785872,Plain MF RF
+climate,mf_var,38,Test TSS,0.990244983926394,Plain MF RF
+climate,mf_var,38,Test accuracy,0.995122491963197,Plain MF RF
+climate,mf_var,38,Test balanced accuracy,0.995122491963197,Plain MF RF
+climate,mf_var,38,Test precision,0.990878118474558,Plain MF RF
+climate,mf_var,38,Test recall,0.99944573772309,Plain MF RF
+climate,mf_var,38,Test specificity,0.990799246203303,Plain MF RF
+climate,mf_var,38,Train accuracy,0.999894631473579,Plain MF RF
+climate,mf_var,39,Test AUC,0.996571498449731,Plain MF RF
+climate,mf_var,39,Test F1,0.987041672802238,Plain MF RF
+climate,mf_var,39,Test TSS,0.973801726704376,Plain MF RF
+climate,mf_var,39,Test accuracy,0.986900863352188,Plain MF RF
+climate,mf_var,39,Test balanced accuracy,0.986900863352188,Plain MF RF
+climate,mf_var,39,Test precision,0.976544289044289,Plain MF RF
+climate,mf_var,39,Test recall,0.99776719261685,Plain MF RF
+climate,mf_var,39,Test specificity,0.976034534087526,Plain MF RF
+climate,mf_var,39,Train accuracy,1,Plain MF RF
+climate,mf_var,40,Test AUC,0.964180497718979,Plain MF RF
+climate,mf_var,40,Test F1,0.929393818497571,Plain MF RF
+climate,mf_var,40,Test TSS,0.852593311187544,Plain MF RF
+climate,mf_var,40,Test accuracy,0.926296655593772,Plain MF RF
+climate,mf_var,40,Test balanced accuracy,0.926296655593772,Plain MF RF
+climate,mf_var,40,Test precision,0.891913804907931,Plain MF RF
+climate,mf_var,40,Test recall,0.970161977834612,Plain MF RF
+climate,mf_var,40,Test specificity,0.882431333352931,Plain MF RF
+climate,mf_var,40,Train accuracy,1,Plain MF RF
+climate,mf_var,41,Test AUC,0.988975082280031,Plain MF RF
+climate,mf_var,41,Test F1,0.967240362447054,Plain MF RF
+climate,mf_var,41,Test TSS,0.933211878302059,Plain MF RF
+climate,mf_var,41,Test accuracy,0.966605939151029,Plain MF RF
+climate,mf_var,41,Test balanced accuracy,0.966605939151029,Plain MF RF
+climate,mf_var,41,Test precision,0.949207240072962,Plain MF RF
+climate,mf_var,41,Test recall,0.985971943887776,Plain MF RF
+climate,mf_var,41,Test specificity,0.947239934414283,Plain MF RF
+climate,mf_var,41,Train accuracy,1,Plain MF RF
+climate,mf_var,42,Test AUC,0.992650375071399,Plain MF RF
+climate,mf_var,42,Test F1,0.977644744003014,Plain MF RF
+climate,mf_var,42,Test TSS,0.95464679278935,Plain MF RF
+climate,mf_var,42,Test accuracy,0.977323396394675,Plain MF RF
+climate,mf_var,42,Test balanced accuracy,0.977323396394675,Plain MF RF
+climate,mf_var,42,Test precision,0.96398423149161,Plain MF RF
+climate,mf_var,42,Test recall,0.991697985009661,Plain MF RF
+climate,mf_var,42,Test specificity,0.962948807779689,Plain MF RF
+climate,mf_var,42,Train accuracy,0.999948016842543,Plain MF RF
+climate,mf_var,43,Test AUC,0.999535942586648,Plain MF RF
+climate,mf_var,43,Test F1,0.99438368312149,Plain MF RF
+climate,mf_var,43,Test TSS,0.988717339667458,Plain MF RF
+climate,mf_var,43,Test accuracy,0.994358669833729,Plain MF RF
+climate,mf_var,43,Test balanced accuracy,0.994358669833729,Plain MF RF
+climate,mf_var,43,Test precision,0.989994114184815,Plain MF RF
+climate,mf_var,43,Test recall,0.998812351543943,Plain MF RF
+climate,mf_var,43,Test specificity,0.989904988123515,Plain MF RF
+climate,mf_var,43,Train accuracy,0.999891950297137,Plain MF RF
+climate,mf_var,44,Test AUC,0.960585331584415,Plain MF RF
+climate,mf_var,44,Test F1,0.92004992004992,Plain MF RF
+climate,mf_var,44,Test TSS,0.833310101291701,Plain MF RF
+climate,mf_var,44,Test accuracy,0.916655050645851,Plain MF RF
+climate,mf_var,44,Test balanced accuracy,0.916655050645851,Plain MF RF
+climate,mf_var,44,Test precision,0.884040514352402,Plain MF RF
+climate,mf_var,44,Test recall,0.959117414738407,Plain MF RF
+climate,mf_var,44,Test specificity,0.874192686553294,Plain MF RF
+climate,mf_var,44,Train accuracy,1,Plain MF RF
+climate,mf_var,45,Test AUC,0.996987634584618,Plain MF RF
+climate,mf_var,45,Test F1,0.984259165227988,Plain MF RF
+climate,mf_var,45,Test TSS,0.968218166905885,Plain MF RF
+climate,mf_var,45,Test accuracy,0.984109083452942,Plain MF RF
+climate,mf_var,45,Test balanced accuracy,0.984109083452942,Plain MF RF
+climate,mf_var,45,Test precision,0.975050301810865,Plain MF RF
+climate,mf_var,45,Test recall,0.993643633381177,Plain MF RF
+climate,mf_var,45,Test specificity,0.974574533524708,Plain MF RF
+climate,mf_var,45,Train accuracy,1,Plain MF RF
+climate,mf_var,46,Test AUC,0.987890517115995,Plain MF RF
+climate,mf_var,46,Test F1,0.96813483520274,Plain MF RF
+climate,mf_var,46,Test TSS,0.934989929384358,Plain MF RF
+climate,mf_var,46,Test accuracy,0.967494964692179,Plain MF RF
+climate,mf_var,46,Test balanced accuracy,0.967494964692179,Plain MF RF
+climate,mf_var,46,Test precision,0.949444755505786,Plain MF RF
+climate,mf_var,46,Test recall,0.987575529617317,Plain MF RF
+climate,mf_var,46,Test specificity,0.947414399767041,Plain MF RF
+climate,mf_var,46,Train accuracy,1,Plain MF RF
+climate,mf_var,47,Test AUC,0.98320991279812,Plain MF RF
+climate,mf_var,47,Test F1,0.954438413209314,Plain MF RF
+climate,mf_var,47,Test TSS,0.90650159997761,Plain MF RF
+climate,mf_var,47,Test accuracy,0.953250799988805,Plain MF RF
+climate,mf_var,47,Test balanced accuracy,0.953250799988805,Plain MF RF
+climate,mf_var,47,Test precision,0.930792626156043,Plain MF RF
+climate,mf_var,47,Test recall,0.979316907518495,Plain MF RF
+climate,mf_var,47,Test specificity,0.927184692459114,Plain MF RF
+climate,mf_var,47,Train accuracy,1,Plain MF RF
+climate,mf_var,48,Test AUC,1,Plain MF RF
+climate,mf_var,48,Test F1,0.998054474708171,Plain MF RF
+climate,mf_var,48,Test TSS,0.996101364522417,Plain MF RF
+climate,mf_var,48,Test accuracy,0.998050682261209,Plain MF RF
+climate,mf_var,48,Test balanced accuracy,0.998050682261209,Plain MF RF
+climate,mf_var,48,Test precision,0.996116504854369,Plain MF RF
+climate,mf_var,48,Test recall,1,Plain MF RF
+climate,mf_var,48,Test specificity,0.996101364522417,Plain MF RF
+climate,mf_var,48,Train accuracy,1,Plain MF RF
+climate,mf_var,49,Test AUC,0.979087980524734,Plain MF RF
+climate,mf_var,49,Test F1,0.941023390303093,Plain MF RF
+climate,mf_var,49,Test TSS,0.878652019633258,Plain MF RF
+climate,mf_var,49,Test accuracy,0.939326009816629,Plain MF RF
+climate,mf_var,49,Test balanced accuracy,0.939326009816629,Plain MF RF
+climate,mf_var,49,Test precision,0.915414289158563,Plain MF RF
+climate,mf_var,49,Test recall,0.968106580540977,Plain MF RF
+climate,mf_var,49,Test specificity,0.910545439092281,Plain MF RF
+climate,mf_var,49,Train accuracy,1,Plain MF RF
+climate,mf_var,50,Test AUC,0.999970722163667,Plain MF RF
+climate,mf_var,50,Test F1,0.996057818659658,Plain MF RF
+climate,mf_var,50,Test TSS,0.992125984251969,Plain MF RF
+climate,mf_var,50,Test accuracy,0.996062992125984,Plain MF RF
+climate,mf_var,50,Test balanced accuracy,0.996062992125984,Plain MF RF
+climate,mf_var,50,Test precision,0.997368421052632,Plain MF RF
+climate,mf_var,50,Test recall,0.994750656167979,Plain MF RF
+climate,mf_var,50,Test specificity,0.99737532808399,Plain MF RF
+climate,mf_var,50,Train accuracy,1,Plain MF RF
+climate,mf_var,52,Test AUC,0.998855467532563,Plain MF RF
+climate,mf_var,52,Test F1,0.994585472189016,Plain MF RF
+climate,mf_var,52,Test TSS,0.989125829685073,Plain MF RF
+climate,mf_var,52,Test accuracy,0.994562914842536,Plain MF RF
+climate,mf_var,52,Test balanced accuracy,0.994562914842536,Plain MF RF
+climate,mf_var,52,Test precision,0.990476190476191,Plain MF RF
+climate,mf_var,52,Test recall,0.998728993080073,Plain MF RF
+climate,mf_var,52,Test specificity,0.990396836604999,Plain MF RF
+climate,mf_var,52,Train accuracy,1,Plain MF RF
+climate,mf_var,53,Test AUC,0.997766867112188,Plain MF RF
+climate,mf_var,53,Test F1,0.987805805552034,Plain MF RF
+climate,mf_var,53,Test TSS,0.975432861739619,Plain MF RF
+climate,mf_var,53,Test accuracy,0.98771643086981,Plain MF RF
+climate,mf_var,53,Test balanced accuracy,0.98771643086981,Plain MF RF
+climate,mf_var,53,Test precision,0.980670492298399,Plain MF RF
+climate,mf_var,53,Test recall,0.995045712242709,Plain MF RF
+climate,mf_var,53,Test specificity,0.98038714949691,Plain MF RF
+climate,mf_var,53,Train accuracy,1,Plain MF RF
+climate,mf_var,54,Test AUC,0.999443354353089,Plain MF RF
+climate,mf_var,54,Test F1,0.996829057365235,Plain MF RF
+climate,mf_var,54,Test TSS,0.993647126768698,Plain MF RF
+climate,mf_var,54,Test accuracy,0.996823563384349,Plain MF RF
+climate,mf_var,54,Test balanced accuracy,0.996823563384349,Plain MF RF
+climate,mf_var,54,Test precision,0.995107913669065,Plain MF RF
+climate,mf_var,54,Test recall,0.998556165174704,Plain MF RF
+climate,mf_var,54,Test specificity,0.995090961593994,Plain MF RF
+climate,mf_var,54,Train accuracy,1,Plain MF RF
+climate,mf_var,55,Test AUC,0.999197165749136,Plain MF RF
+climate,mf_var,55,Test F1,0.994751312171957,Plain MF RF
+climate,mf_var,55,Test TSS,0.989452536413862,Plain MF RF
+climate,mf_var,55,Test accuracy,0.994726268206931,Plain MF RF
+climate,mf_var,55,Test balanced accuracy,0.994726268206931,Plain MF RF
+climate,mf_var,55,Test precision,0.990049751243781,Plain MF RF
+climate,mf_var,55,Test recall,0.999497739829232,Plain MF RF
+climate,mf_var,55,Test specificity,0.989954796584631,Plain MF RF
+climate,mf_var,55,Train accuracy,1,Plain MF RF
+soil,rf_var,1,OOB accuracy,0.789678675754625,Plain RF
+soil,rf_var,1,Test AUC,0.837018015872178,Plain RF
+soil,rf_var,1,Test F1,0.818888568960553,Plain RF
+soil,rf_var,1,Test TSS,0.606629143214509,Plain RF
+soil,rf_var,1,Test accuracy,0.803314571607255,Plain RF
+soil,rf_var,1,Test balanced accuracy,0.803314571607255,Plain RF
+soil,rf_var,1,Test precision,0.75880469583778,Plain RF
+soil,rf_var,1,Test recall,0.889305816135084,Plain RF
+soil,rf_var,1,Test specificity,0.717323327079425,Plain RF
+soil,rf_var,1,Train accuracy,0.797955209347614,Plain RF
+soil,rf_var,2,OOB accuracy,0.851888471425747,Plain RF
+soil,rf_var,2,Test AUC,0.867599677884107,Plain RF
+soil,rf_var,2,Test F1,0.853569046030687,Plain RF
+soil,rf_var,2,Test TSS,0.690627202255109,Plain RF
+soil,rf_var,2,Test accuracy,0.845313601127555,Plain RF
+soil,rf_var,2,Test balanced accuracy,0.845313601127555,Plain RF
+soil,rf_var,2,Test precision,0.810322989233692,Plain RF
+soil,rf_var,2,Test recall,0.90169133192389,Plain RF
+soil,rf_var,2,Test specificity,0.788935870331219,Plain RF
+soil,rf_var,2,Train accuracy,0.859205062289895,Plain RF
+soil,rf_var,3,OOB accuracy,0.809114531281231,Plain RF
+soil,rf_var,3,Test AUC,0.837340695497753,Plain RF
+soil,rf_var,3,Test F1,0.823888804032381,Plain RF
+soil,rf_var,3,Test TSS,0.613476366074422,Plain RF
+soil,rf_var,3,Test accuracy,0.806738183037211,Plain RF
+soil,rf_var,3,Test balanced accuracy,0.806738183037211,Plain RF
+soil,rf_var,3,Test precision,0.756734006734007,Plain RF
+soil,rf_var,3,Test recall,0.904123365739189,Plain RF
+soil,rf_var,3,Test specificity,0.709353000335233,Plain RF
+soil,rf_var,3,Train accuracy,0.820107935238857,Plain RF
+soil,rf_var,4,OOB accuracy,0.78113594890511,Plain RF
+soil,rf_var,4,Test AUC,0.838164288575978,Plain RF
+soil,rf_var,4,Test F1,0.747168198332977,Plain RF
+soil,rf_var,4,Test TSS,0.527555910543131,Plain RF
+soil,rf_var,4,Test accuracy,0.763777955271566,Plain RF
+soil,rf_var,4,Test balanced accuracy,0.763777955271566,Plain RF
+soil,rf_var,4,Test precision,0.80367816091954,Plain RF
+soil,rf_var,4,Test recall,0.698083067092652,Plain RF
+soil,rf_var,4,Test specificity,0.829472843450479,Plain RF
+soil,rf_var,4,Train accuracy,0.785241788321168,Plain RF
+soil,rf_var,5,OOB accuracy,0.774041297935103,Plain RF
+soil,rf_var,5,Test AUC,0.794633875932278,Plain RF
+soil,rf_var,5,Test F1,0.780132225800983,Plain RF
+soil,rf_var,5,Test TSS,0.538269846920612,Plain RF
+soil,rf_var,5,Test accuracy,0.769134923460306,Plain RF
+soil,rf_var,5,Test balanced accuracy,0.769134923460306,Plain RF
+soil,rf_var,5,Test precision,0.744660194174757,Plain RF
+soil,rf_var,5,Test recall,0.819152723389107,Plain RF
+soil,rf_var,5,Test specificity,0.719117123531506,Plain RF
+soil,rf_var,5,Train accuracy,0.779547689282203,Plain RF
+soil,rf_var,6,OOB accuracy,0.833082383308238,Plain RF
+soil,rf_var,6,Test AUC,0.845357299242891,Plain RF
+soil,rf_var,6,Test F1,0.843342036553525,Plain RF
+soil,rf_var,6,Test TSS,0.663461538461538,Plain RF
+soil,rf_var,6,Test accuracy,0.831730769230769,Plain RF
+soil,rf_var,6,Test balanced accuracy,0.831730769230769,Plain RF
+soil,rf_var,6,Test precision,0.788904396371249,Plain RF
+soil,rf_var,6,Test recall,0.905849358974359,Plain RF
+soil,rf_var,6,Test specificity,0.75761217948718,Plain RF
+soil,rf_var,6,Train accuracy,0.838674983867498,Plain RF
+soil,rf_var,7,OOB accuracy,0.763982546608489,Plain RF
+soil,rf_var,7,Test AUC,0.780881599211704,Plain RF
+soil,rf_var,7,Test F1,0.775279131938984,Plain RF
+soil,rf_var,7,Test TSS,0.496653751320888,Plain RF
+soil,rf_var,7,Test accuracy,0.748326875660444,Plain RF
+soil,rf_var,7,Test balanced accuracy,0.748326875660444,Plain RF
+soil,rf_var,7,Test precision,0.700284090909091,Plain RF
+soil,rf_var,7,Test recall,0.868263473053892,Plain RF
+soil,rf_var,7,Test specificity,0.628390278266996,Plain RF
+soil,rf_var,7,Train accuracy,0.774692582308608,Plain RF
+soil,rf_var,9,OOB accuracy,0.881892948631522,Plain RF
+soil,rf_var,9,Test AUC,0.910023268382933,Plain RF
+soil,rf_var,9,Test F1,0.908667287977633,Plain RF
+soil,rf_var,9,Test TSS,0.802816901408451,Plain RF
+soil,rf_var,9,Test accuracy,0.901408450704225,Plain RF
+soil,rf_var,9,Test balanced accuracy,0.901408450704225,Plain RF
+soil,rf_var,9,Test precision,0.846354166666667,Plain RF
+soil,rf_var,9,Test recall,0.980885311871227,Plain RF
+soil,rf_var,9,Test specificity,0.821931589537223,Plain RF
+soil,rf_var,9,Train accuracy,0.884724282054739,Plain RF
+soil,rf_var,10,OOB accuracy,0.828882497945768,Plain RF
+soil,rf_var,10,Test AUC,0.850719985023438,Plain RF
+soil,rf_var,10,Test F1,0.828510938602682,Plain RF
+soil,rf_var,10,Test TSS,0.6535994297933,Plain RF
+soil,rf_var,10,Test accuracy,0.82679971489665,Plain RF
+soil,rf_var,10,Test balanced accuracy,0.82679971489665,Plain RF
+soil,rf_var,10,Test precision,0.820405310971349,Plain RF
+soil,rf_var,10,Test recall,0.836778332145403,Plain RF
+soil,rf_var,10,Test specificity,0.816821097647897,Plain RF
+soil,rf_var,10,Train accuracy,0.834018077239113,Plain RF
+soil,rf_var,11,OOB accuracy,0.82857737971256,Plain RF
+soil,rf_var,11,Test AUC,0.884949343597007,Plain RF
+soil,rf_var,11,Test F1,0.837134711332858,Plain RF
+soil,rf_var,11,Test TSS,0.661104931405265,Plain RF
+soil,rf_var,11,Test accuracy,0.830552465702633,Plain RF
+soil,rf_var,11,Test balanced accuracy,0.830552465702633,Plain RF
+soil,rf_var,11,Test precision,0.805831903945112,Plain RF
+soil,rf_var,11,Test recall,0.870967741935484,Plain RF
+soil,rf_var,11,Test specificity,0.790137189469781,Plain RF
+soil,rf_var,11,Train accuracy,0.833576338262862,Plain RF
+soil,rf_var,12,OOB accuracy,0.808752997601918,Plain RF
+soil,rf_var,12,Test AUC,0.837457068455274,Plain RF
+soil,rf_var,12,Test F1,0.809467852946114,Plain RF
+soil,rf_var,12,Test TSS,0.599929502996123,Plain RF
+soil,rf_var,12,Test accuracy,0.799964751498061,Plain RF
+soil,rf_var,12,Test balanced accuracy,0.799964751498061,Plain RF
+soil,rf_var,12,Test precision,0.77275641025641,Plain RF
+soil,rf_var,12,Test recall,0.849841381741276,Plain RF
+soil,rf_var,12,Test specificity,0.750088121254847,Plain RF
+soil,rf_var,12,Train accuracy,0.812150279776179,Plain RF
+soil,rf_var,13,OOB accuracy,0.836536516285656,Plain RF
+soil,rf_var,13,Test AUC,0.874787481594231,Plain RF
+soil,rf_var,13,Test F1,0.850127551020408,Plain RF
+soil,rf_var,13,Test TSS,0.678302532511978,Plain RF
+soil,rf_var,13,Test accuracy,0.839151266255989,Plain RF
+soil,rf_var,13,Test balanced accuracy,0.839151266255989,Plain RF
+soil,rf_var,13,Test precision,0.795820895522388,Plain RF
+soil,rf_var,13,Test recall,0.912388774811773,Plain RF
+soil,rf_var,13,Test specificity,0.765913757700205,Plain RF
+soil,rf_var,13,Train accuracy,0.845033380538135,Plain RF
+soil,rf_var,14,OOB accuracy,0.854024197790637,Plain RF
+soil,rf_var,14,Test AUC,0.88745325,Plain RF
+soil,rf_var,14,Test F1,0.869400331832188,Plain RF
+soil,rf_var,14,Test TSS,0.7245,Plain RF
+soil,rf_var,14,Test accuracy,0.86225,Plain RF
+soil,rf_var,14,Test balanced accuracy,0.86225,Plain RF
+soil,rf_var,14,Test precision,0.826498422712934,Plain RF
+soil,rf_var,14,Test recall,0.917,Plain RF
+soil,rf_var,14,Test specificity,0.8075,Plain RF
+soil,rf_var,14,Train accuracy,0.859284587059442,Plain RF
+soil,rf_var,15,OOB accuracy,0.834405144694534,Plain RF
+soil,rf_var,15,Test AUC,0.873658368105271,Plain RF
+soil,rf_var,15,Test F1,0.839855197379762,Plain RF
+soil,rf_var,15,Test TSS,0.659831563529843,Plain RF
+soil,rf_var,15,Test accuracy,0.829915781764921,Plain RF
+soil,rf_var,15,Test balanced accuracy,0.829915781764921,Plain RF
+soil,rf_var,15,Test precision,0.793485342019544,Plain RF
+soil,rf_var,15,Test recall,0.891980959355547,Plain RF
+soil,rf_var,15,Test specificity,0.767850604174295,Plain RF
+soil,rf_var,15,Train accuracy,0.841036977491961,Plain RF
+soil,rf_var,16,OOB accuracy,0.881492168178071,Plain RF
+soil,rf_var,16,Test AUC,0.893723809232009,Plain RF
+soil,rf_var,16,Test F1,0.883138846609166,Plain RF
+soil,rf_var,16,Test TSS,0.755138199858257,Plain RF
+soil,rf_var,16,Test accuracy,0.877569099929128,Plain RF
+soil,rf_var,16,Test balanced accuracy,0.877569099929128,Plain RF
+soil,rf_var,16,Test precision,0.844710449692656,Plain RF
+soil,rf_var,16,Test recall,0.925230333097094,Plain RF
+soil,rf_var,16,Test specificity,0.829907866761162,Plain RF
+soil,rf_var,16,Train accuracy,0.884171475680132,Plain RF
+soil,rf_var,17,OOB accuracy,0.883365200764818,Plain RF
+soil,rf_var,17,Test AUC,0.895050622286657,Plain RF
+soil,rf_var,17,Test F1,0.894277400581959,Plain RF
+soil,rf_var,17,Test TSS,0.781563126252505,Plain RF
+soil,rf_var,17,Test accuracy,0.890781563126252,Plain RF
+soil,rf_var,17,Test balanced accuracy,0.890781563126253,Plain RF
+soil,rf_var,17,Test precision,0.866541353383459,Plain RF
+soil,rf_var,17,Test recall,0.923847695390782,Plain RF
+soil,rf_var,17,Test specificity,0.857715430861724,Plain RF
+soil,rf_var,17,Train accuracy,0.884512428298279,Plain RF
+soil,rf_var,18,OOB accuracy,0.817848674283251,Plain RF
+soil,rf_var,18,Test AUC,0.839464833451602,Plain RF
+soil,rf_var,18,Test F1,0.810780669144981,Plain RF
+soil,rf_var,18,Test TSS,0.621420602454444,Plain RF
+soil,rf_var,18,Test accuracy,0.810710301227222,Plain RF
+soil,rf_var,18,Test balanced accuracy,0.810710301227222,Plain RF
+soil,rf_var,18,Test precision,0.810479375696767,Plain RF
+soil,rf_var,18,Test recall,0.811082186686501,Plain RF
+soil,rf_var,18,Test specificity,0.810338415767944,Plain RF
+soil,rf_var,18,Train accuracy,0.818710929079543,Plain RF
+soil,rf_var,19,OOB accuracy,0.88577610750484,Plain RF
+soil,rf_var,19,Test AUC,0.906614828162127,Plain RF
+soil,rf_var,19,Test F1,0.884615384615385,Plain RF
+soil,rf_var,19,Test TSS,0.769701919150674,Plain RF
+soil,rf_var,19,Test accuracy,0.884850959575337,Plain RF
+soil,rf_var,19,Test balanced accuracy,0.884850959575337,Plain RF
+soil,rf_var,19,Test precision,0.886428864288643,Plain RF
+soil,rf_var,19,Test recall,0.882809309922417,Plain RF
+soil,rf_var,19,Test specificity,0.886892609228256,Plain RF
+soil,rf_var,19,Train accuracy,0.888509281403029,Plain RF
+soil,rf_var,20,OOB accuracy,0.912631578947368,Plain RF
+soil,rf_var,20,Test AUC,0.932996881289707,Plain RF
+soil,rf_var,20,Test F1,0.919436416184971,Plain RF
+soil,rf_var,20,Test TSS,0.832141512984569,Plain RF
+soil,rf_var,20,Test accuracy,0.916070756492284,Plain RF
+soil,rf_var,20,Test balanced accuracy,0.916070756492284,Plain RF
+soil,rf_var,20,Test precision,0.883987495658215,Plain RF
+soil,rf_var,20,Test recall,0.957847196085811,Plain RF
+soil,rf_var,20,Test specificity,0.874294316898758,Plain RF
+soil,rf_var,20,Train accuracy,0.914105263157895,Plain RF
+soil,rf_var,21,OOB accuracy,0.872035080725533,Plain RF
+soil,rf_var,21,Test AUC,0.905167753164236,Plain RF
+soil,rf_var,21,Test F1,0.884076433121019,Plain RF
+soil,rf_var,21,Test TSS,0.747046560111188,Plain RF
+soil,rf_var,21,Test accuracy,0.873523280055594,Plain RF
+soil,rf_var,21,Test balanced accuracy,0.873523280055594,Plain RF
+soil,rf_var,21,Test precision,0.815990593768372,Plain RF
+soil,rf_var,21,Test recall,0.96455872133426,Plain RF
+soil,rf_var,21,Test specificity,0.782487838776928,Plain RF
+soil,rf_var,21,Train accuracy,0.878612716763006,Plain RF
+soil,rf_var,22,OOB accuracy,0.835318222563709,Plain RF
+soil,rf_var,22,Test AUC,0.884856135306934,Plain RF
+soil,rf_var,22,Test F1,0.854645814167433,Plain RF
+soil,rf_var,22,Test TSS,0.700473933649289,Plain RF
+soil,rf_var,22,Test accuracy,0.850236966824645,Plain RF
+soil,rf_var,22,Test balanced accuracy,0.850236966824645,Plain RF
+soil,rf_var,22,Test precision,0.830205540661305,Plain RF
+soil,rf_var,22,Test recall,0.880568720379147,Plain RF
+soil,rf_var,22,Test specificity,0.819905213270142,Plain RF
+soil,rf_var,22,Train accuracy,0.836598796260725,Plain RF
+soil,rf_var,23,OOB accuracy,0.892966360856269,Plain RF
+soil,rf_var,23,Test AUC,0.922164872947561,Plain RF
+soil,rf_var,23,Test F1,0.899042499580044,Plain RF
+soil,rf_var,23,Test TSS,0.789933589653967,Plain RF
+soil,rf_var,23,Test accuracy,0.894966794826984,Plain RF
+soil,rf_var,23,Test balanced accuracy,0.894966794826983,Plain RF
+soil,rf_var,23,Test precision,0.865459249676585,Plain RF
+soil,rf_var,23,Test recall,0.935337294652219,Plain RF
+soil,rf_var,23,Test specificity,0.854596295001748,Plain RF
+soil,rf_var,23,Train accuracy,0.896228338430173,Plain RF
+soil,rf_var,24,OOB accuracy,0.866439727673208,Plain RF
+soil,rf_var,24,Test AUC,0.898738642386096,Plain RF
+soil,rf_var,24,Test F1,0.879572677241826,Plain RF
+soil,rf_var,24,Test TSS,0.748987854251012,Plain RF
+soil,rf_var,24,Test accuracy,0.874493927125506,Plain RF
+soil,rf_var,24,Test balanced accuracy,0.874493927125506,Plain RF
+soil,rf_var,24,Test precision,0.845364032358432,Plain RF
+soil,rf_var,24,Test recall,0.916666666666667,Plain RF
+soil,rf_var,24,Test specificity,0.832321187584346,Plain RF
+soil,rf_var,24,Train accuracy,0.871445734881858,Plain RF
+soil,rf_var,25,OOB accuracy,0.829361873990307,Plain RF
+soil,rf_var,25,Test AUC,0.855463015751223,Plain RF
+soil,rf_var,25,Test F1,0.832658569500675,Plain RF
+soil,rf_var,25,Test TSS,0.644571838050878,Plain RF
+soil,rf_var,25,Test accuracy,0.822285919025439,Plain RF
+soil,rf_var,25,Test balanced accuracy,0.822285919025439,Plain RF
+soil,rf_var,25,Test precision,0.786738922537456,Plain RF
+soil,rf_var,25,Test recall,0.884270870655679,Plain RF
+soil,rf_var,25,Test specificity,0.760300967395199,Plain RF
+soil,rf_var,25,Train accuracy,0.834006462035541,Plain RF
+soil,rf_var,26,OOB accuracy,0.827433628318584,Plain RF
+soil,rf_var,26,Test AUC,0.863024349878108,Plain RF
+soil,rf_var,26,Test F1,0.83816091954023,Plain RF
+soil,rf_var,26,Test TSS,0.672253258845438,Plain RF
+soil,rf_var,26,Test accuracy,0.836126629422719,Plain RF
+soil,rf_var,26,Test balanced accuracy,0.836126629422719,Plain RF
+soil,rf_var,26,Test precision,0.827883742052679,Plain RF
+soil,rf_var,26,Test recall,0.848696461824953,Plain RF
+soil,rf_var,26,Test specificity,0.823556797020484,Plain RF
+soil,rf_var,26,Train accuracy,0.832237673830594,Plain RF
+soil,rf_var,27,OOB accuracy,0.831490046249749,Plain RF
+soil,rf_var,27,Test AUC,0.857833920604915,Plain RF
+soil,rf_var,27,Test F1,0.837541528239203,Plain RF
+soil,rf_var,27,Test TSS,0.659826086956522,Plain RF
+soil,rf_var,27,Test accuracy,0.829913043478261,Plain RF
+soil,rf_var,27,Test balanced accuracy,0.829913043478261,Plain RF
+soil,rf_var,27,Test precision,0.801589825119237,Plain RF
+soil,rf_var,27,Test recall,0.876869565217391,Plain RF
+soil,rf_var,27,Test specificity,0.782956521739131,Plain RF
+soil,rf_var,27,Train accuracy,0.83370199075005,Plain RF
+soil,rf_var,28,OOB accuracy,0.769392292490119,Plain RF
+soil,rf_var,28,Test AUC,0.79583280960254,Plain RF
+soil,rf_var,28,Test F1,0.769061744671501,Plain RF
+soil,rf_var,28,Test TSS,0.518552450755841,Plain RF
+soil,rf_var,28,Test accuracy,0.75927622537792,Plain RF
+soil,rf_var,28,Test balanced accuracy,0.75927622537792,Plain RF
+soil,rf_var,28,Test precision,0.73902027027027,Plain RF
+soil,rf_var,28,Test recall,0.801649106733852,Plain RF
+soil,rf_var,28,Test specificity,0.716903344021988,Plain RF
+soil,rf_var,28,Train accuracy,0.770998023715415,Plain RF
+soil,rf_var,29,OOB accuracy,0.899066511085181,Plain RF
+soil,rf_var,29,Test AUC,0.926268188959125,Plain RF
+soil,rf_var,29,Test F1,0.894727035587852,Plain RF
+soil,rf_var,29,Test TSS,0.785903751420993,Plain RF
+soil,rf_var,29,Test accuracy,0.892951875710496,Plain RF
+soil,rf_var,29,Test balanced accuracy,0.892951875710496,Plain RF
+soil,rf_var,29,Test precision,0.880131964809384,Plain RF
+soil,rf_var,29,Test recall,0.909814323607427,Plain RF
+soil,rf_var,29,Test specificity,0.876089427813566,Plain RF
+soil,rf_var,29,Train accuracy,0.900427849085959,Plain RF
+soil,rf_var,30,OOB accuracy,0.851620696597544,Plain RF
+soil,rf_var,30,Test AUC,0.861675051829773,Plain RF
+soil,rf_var,30,Test F1,0.855235303696466,Plain RF
+soil,rf_var,30,Test TSS,0.691104933981932,Plain RF
+soil,rf_var,30,Test accuracy,0.845552466990966,Plain RF
+soil,rf_var,30,Test balanced accuracy,0.845552466990966,Plain RF
+soil,rf_var,30,Test precision,0.804780876494024,Plain RF
+soil,rf_var,30,Test recall,0.912439193884642,Plain RF
+soil,rf_var,30,Test specificity,0.77866574009729,Plain RF
+soil,rf_var,30,Train accuracy,0.855244614455406,Plain RF
+soil,rf_var,31,OOB accuracy,0.888022395520896,Plain RF
+soil,rf_var,31,Test AUC,0.9045754305952,Plain RF
+soil,rf_var,31,Test F1,0.891523221825268,Plain RF
+soil,rf_var,31,Test TSS,0.772866371982319,Plain RF
+soil,rf_var,31,Test accuracy,0.886433185991159,Plain RF
+soil,rf_var,31,Test balanced accuracy,0.886433185991159,Plain RF
+soil,rf_var,31,Test precision,0.853279452906435,Plain RF
+soil,rf_var,31,Test recall,0.933356001360081,Plain RF
+soil,rf_var,31,Test specificity,0.839510370622237,Plain RF
+soil,rf_var,31,Train accuracy,0.896420715856829,Plain RF
+soil,rf_var,32,OOB accuracy,0.824322711540757,Plain RF
+soil,rf_var,32,Test AUC,0.903526120439338,Plain RF
+soil,rf_var,32,Test F1,0.843255295429209,Plain RF
+soil,rf_var,32,Test TSS,0.684044943820225,Plain RF
+soil,rf_var,32,Test accuracy,0.842022471910113,Plain RF
+soil,rf_var,32,Test balanced accuracy,0.842022471910113,Plain RF
+soil,rf_var,32,Test precision,0.836725663716814,Plain RF
+soil,rf_var,32,Test recall,0.849887640449438,Plain RF
+soil,rf_var,32,Test specificity,0.834157303370787,Plain RF
+soil,rf_var,32,Train accuracy,0.829335242869077,Plain RF
+soil,rf_var,33,OOB accuracy,0.823055219669488,Plain RF
+soil,rf_var,33,Test AUC,0.890277178099209,Plain RF
+soil,rf_var,33,Test F1,0.842821576763486,Plain RF
+soil,rf_var,33,Test TSS,0.676017789941841,Plain RF
+soil,rf_var,33,Test accuracy,0.83800889497092,Plain RF
+soil,rf_var,33,Test balanced accuracy,0.83800889497092,Plain RF
+soil,rf_var,33,Test precision,0.818504190844616,Plain RF
+soil,rf_var,33,Test recall,0.868628121792679,Plain RF
+soil,rf_var,33,Test specificity,0.807389668149162,Plain RF
+soil,rf_var,33,Train accuracy,0.8409915356711,Plain RF
+soil,rf_var,34,OOB accuracy,0.872935196950445,Plain RF
+soil,rf_var,34,Test AUC,0.900300466022134,Plain RF
+soil,rf_var,34,Test F1,0.877675840978593,Plain RF
+soil,rf_var,34,Test TSS,0.747102212855638,Plain RF
+soil,rf_var,34,Test accuracy,0.873551106427819,Plain RF
+soil,rf_var,34,Test balanced accuracy,0.873551106427819,Plain RF
+soil,rf_var,34,Test precision,0.84995064165844,Plain RF
+soil,rf_var,34,Test recall,0.9072708113804,Plain RF
+soil,rf_var,34,Test specificity,0.839831401475237,Plain RF
+soil,rf_var,34,Train accuracy,0.876747141041932,Plain RF
+soil,rf_var,35,OOB accuracy,0.914289435977595,Plain RF
+soil,rf_var,35,Test AUC,0.93005020046511,Plain RF
+soil,rf_var,35,Test F1,0.921672272945699,Plain RF
+soil,rf_var,35,Test TSS,0.838373822508676,Plain RF
+soil,rf_var,35,Test accuracy,0.919186911254338,Plain RF
+soil,rf_var,35,Test balanced accuracy,0.919186911254338,Plain RF
+soil,rf_var,35,Test precision,0.894172494172494,Plain RF
+soil,rf_var,35,Test recall,0.950917203767972,Plain RF
+soil,rf_var,35,Test specificity,0.887456618740704,Plain RF
+soil,rf_var,35,Train accuracy,0.915982805783509,Plain RF
+soil,rf_var,36,OOB accuracy,0.804627249357326,Plain RF
+soil,rf_var,36,Test AUC,0.847036155232922,Plain RF
+soil,rf_var,36,Test F1,0.838311528017773,Plain RF
+soil,rf_var,36,Test TSS,0.633463905987689,Plain RF
+soil,rf_var,36,Test accuracy,0.816731952993844,Plain RF
+soil,rf_var,36,Test balanced accuracy,0.816731952993844,Plain RF
+soil,rf_var,36,Test precision,0.75,Plain RF
+soil,rf_var,36,Test recall,0.950195858981533,Plain RF
+soil,rf_var,36,Test specificity,0.683268047006156,Plain RF
+soil,rf_var,36,Train accuracy,0.805751928020566,Plain RF
+soil,rf_var,37,OOB accuracy,0.862409347300564,Plain RF
+soil,rf_var,37,Test AUC,0.881127987344356,Plain RF
+soil,rf_var,37,Test F1,0.867090977162112,Plain RF
+soil,rf_var,37,Test TSS,0.737134394668641,Plain RF
+soil,rf_var,37,Test accuracy,0.868567197334321,Plain RF
+soil,rf_var,37,Test balanced accuracy,0.868567197334321,Plain RF
+soil,rf_var,37,Test precision,0.876940552820901,Plain RF
+soil,rf_var,37,Test recall,0.857460199925953,Plain RF
+soil,rf_var,37,Test specificity,0.879674194742688,Plain RF
+soil,rf_var,37,Train accuracy,0.863819500402901,Plain RF
+soil,rf_var,38,OOB accuracy,0.947476125511596,Plain RF
+soil,rf_var,38,Test AUC,0.953016421281212,Plain RF
+soil,rf_var,38,Test F1,0.948170731707317,Plain RF
+soil,rf_var,38,Test TSS,0.896865520728008,Plain RF
+soil,rf_var,38,Test accuracy,0.948432760364004,Plain RF
+soil,rf_var,38,Test balanced accuracy,0.948432760364004,Plain RF
+soil,rf_var,38,Test precision,0.953013278855975,Plain RF
+soil,rf_var,38,Test recall,0.943377148634985,Plain RF
+soil,rf_var,38,Test specificity,0.953488372093023,Plain RF
+soil,rf_var,38,Train accuracy,0.947476125511596,Plain RF
+soil,rf_var,39,OOB accuracy,0.818834796488428,Plain RF
+soil,rf_var,39,Test AUC,0.848400878825433,Plain RF
+soil,rf_var,39,Test F1,0.847254748894093,Plain RF
+soil,rf_var,39,Test TSS,0.670409882088714,Plain RF
+soil,rf_var,39,Test accuracy,0.835204941044357,Plain RF
+soil,rf_var,39,Test balanced accuracy,0.835204941044357,Plain RF
+soil,rf_var,39,Test precision,0.789524733268671,Plain RF
+soil,rf_var,39,Test recall,0.914093206064009,Plain RF
+soil,rf_var,39,Test specificity,0.756316676024705,Plain RF
+soil,rf_var,39,Train accuracy,0.819632881085395,Plain RF
+soil,rf_var,40,OOB accuracy,0.82472516075503,Plain RF
+soil,rf_var,40,Test AUC,0.84724211465979,Plain RF
+soil,rf_var,40,Test F1,0.840540540540541,Plain RF
+soil,rf_var,40,Test TSS,0.667605633802817,Plain RF
+soil,rf_var,40,Test accuracy,0.833802816901408,Plain RF
+soil,rf_var,40,Test balanced accuracy,0.833802816901408,Plain RF
+soil,rf_var,40,Test precision,0.807792207792208,Plain RF
+soil,rf_var,40,Test recall,0.876056338028169,Plain RF
+soil,rf_var,40,Test specificity,0.791549295774648,Plain RF
+soil,rf_var,40,Train accuracy,0.834059323791744,Plain RF
+soil,rf_var,41,OOB accuracy,0.851445549080105,Plain RF
+soil,rf_var,41,Test AUC,0.870552810832912,Plain RF
+soil,rf_var,41,Test F1,0.848944455831113,Plain RF
+soil,rf_var,41,Test TSS,0.703897147448775,Plain RF
+soil,rf_var,41,Test accuracy,0.851948573724387,Plain RF
+soil,rf_var,41,Test balanced accuracy,0.851948573724387,Plain RF
+soil,rf_var,41,Test precision,0.86652719665272,Plain RF
+soil,rf_var,41,Test recall,0.83206106870229,Plain RF
+soil,rf_var,41,Test specificity,0.871836078746485,Plain RF
+soil,rf_var,41,Train accuracy,0.853388184207519,Plain RF
+soil,rf_var,42,OOB accuracy,0.914565534486351,Plain RF
+soil,rf_var,42,Test AUC,0.914468913767888,Plain RF
+soil,rf_var,42,Test F1,0.906903765690376,Plain RF
+soil,rf_var,42,Test TSS,0.804681784930505,Plain RF
+soil,rf_var,42,Test accuracy,0.902340892465252,Plain RF
+soil,rf_var,42,Test balanced accuracy,0.902340892465252,Plain RF
+soil,rf_var,42,Test precision,0.866422385076616,Plain RF
+soil,rf_var,42,Test recall,0.951353328456474,Plain RF
+soil,rf_var,42,Test specificity,0.853328456474031,Plain RF
+soil,rf_var,42,Train accuracy,0.914773911231507,Plain RF
+soil,rf_var,43,OOB accuracy,0.903817914831131,Plain RF
+soil,rf_var,43,Test AUC,0.927231764328152,Plain RF
+soil,rf_var,43,Test F1,0.903508771929825,Plain RF
+soil,rf_var,43,Test TSS,0.80259222333001,Plain RF
+soil,rf_var,43,Test accuracy,0.901296111665005,Plain RF
+soil,rf_var,43,Test balanced accuracy,0.901296111665005,Plain RF
+soil,rf_var,43,Test precision,0.883698760724499,Plain RF
+soil,rf_var,43,Test recall,0.924227318045862,Plain RF
+soil,rf_var,43,Test specificity,0.878364905284148,Plain RF
+soil,rf_var,43,Train accuracy,0.904552129221733,Plain RF
+soil,rf_var,44,OOB accuracy,0.824529447480267,Plain RF
+soil,rf_var,44,Test AUC,0.839900646722949,Plain RF
+soil,rf_var,44,Test F1,0.837004405286344,Plain RF
+soil,rf_var,44,Test TSS,0.659348441926346,Plain RF
+soil,rf_var,44,Test accuracy,0.829674220963173,Plain RF
+soil,rf_var,44,Test balanced accuracy,0.829674220963173,Plain RF
+soil,rf_var,44,Test precision,0.802469135802469,Plain RF
+soil,rf_var,44,Test recall,0.874645892351275,Plain RF
+soil,rf_var,44,Test specificity,0.784702549575071,Plain RF
+soil,rf_var,44,Train accuracy,0.834041691965189,Plain RF
+soil,rf_var,45,OOB accuracy,0.835733882030178,Plain RF
+soil,rf_var,45,Test AUC,0.845910920255897,Plain RF
+soil,rf_var,45,Test F1,0.838511227314672,Plain RF
+soil,rf_var,45,Test TSS,0.675525339925834,Plain RF
+soil,rf_var,45,Test accuracy,0.837762669962917,Plain RF
+soil,rf_var,45,Test balanced accuracy,0.837762669962917,Plain RF
+soil,rf_var,45,Test precision,0.834660134721372,Plain RF
+soil,rf_var,45,Test recall,0.842398022249691,Plain RF
+soil,rf_var,45,Test specificity,0.833127317676143,Plain RF
+soil,rf_var,45,Train accuracy,0.836762688614541,Plain RF
+soil,rf_var,46,OOB accuracy,0.817631632035505,Plain RF
+soil,rf_var,46,Test AUC,0.818375823460519,Plain RF
+soil,rf_var,46,Test F1,0.819314641744548,Plain RF
+soil,rf_var,46,Test TSS,0.601069927397784,Plain RF
+soil,rf_var,46,Test accuracy,0.800534963698892,Plain RF
+soil,rf_var,46,Test balanced accuracy,0.800534963698892,Plain RF
+soil,rf_var,46,Test precision,0.748813666561215,Plain RF
+soil,rf_var,46,Test recall,0.904470768055025,Plain RF
+soil,rf_var,46,Test specificity,0.696599159342759,Plain RF
+soil,rf_var,46,Train accuracy,0.819245511398023,Plain RF
+soil,rf_var,47,OOB accuracy,0.830515297906602,Plain RF
+soil,rf_var,47,Test AUC,0.851421933923023,Plain RF
+soil,rf_var,47,Test F1,0.825430277485072,Plain RF
+soil,rf_var,47,Test TSS,0.638939338903015,Plain RF
+soil,rf_var,47,Test accuracy,0.819469669451508,Plain RF
+soil,rf_var,47,Test balanced accuracy,0.819469669451508,Plain RF
+soil,rf_var,47,Test precision,0.799047942876573,Plain RF
+soil,rf_var,47,Test recall,0.853614239011987,Plain RF
+soil,rf_var,47,Test specificity,0.785325099891028,Plain RF
+soil,rf_var,47,Train accuracy,0.8329307568438,Plain RF
+soil,rf_var,48,OOB accuracy,0.894519983518747,Plain RF
+soil,rf_var,48,Test AUC,0.918909740146325,Plain RF
+soil,rf_var,48,Test F1,0.901709401709402,Plain RF
+soil,rf_var,48,Test TSS,0.797356828193833,Plain RF
+soil,rf_var,48,Test accuracy,0.898678414096916,Plain RF
+soil,rf_var,48,Test balanced accuracy,0.898678414096916,Plain RF
+soil,rf_var,48,Test precision,0.87551867219917,Plain RF
+soil,rf_var,48,Test recall,0.929515418502203,Plain RF
+soil,rf_var,48,Test specificity,0.86784140969163,Plain RF
+soil,rf_var,48,Train accuracy,0.903996703749485,Plain RF
+soil,rf_var,49,OOB accuracy,0.832381729200653,Plain RF
+soil,rf_var,49,Test AUC,0.866280209592753,Plain RF
+soil,rf_var,49,Test F1,0.855364951227716,Plain RF
+soil,rf_var,49,Test TSS,0.683007740508662,Plain RF
+soil,rf_var,49,Test accuracy,0.841503870254331,Plain RF
+soil,rf_var,49,Test balanced accuracy,0.841503870254331,Plain RF
+soil,rf_var,49,Test precision,0.786575935663471,Plain RF
+soil,rf_var,49,Test recall,0.937338739402875,Plain RF
+soil,rf_var,49,Test specificity,0.745669001105787,Plain RF
+soil,rf_var,49,Train accuracy,0.837275693311582,Plain RF
+soil,rf_var,50,OOB accuracy,0.874329958308517,Plain RF
+soil,rf_var,50,Test AUC,0.909220008369995,Plain RF
+soil,rf_var,50,Test F1,0.882978723404255,Plain RF
+soil,rf_var,50,Test TSS,0.753993610223642,Plain RF
+soil,rf_var,50,Test accuracy,0.876996805111821,Plain RF
+soil,rf_var,50,Test balanced accuracy,0.876996805111821,Plain RF
+soil,rf_var,50,Test precision,0.842028985507246,Plain RF
+soil,rf_var,50,Test recall,0.928115015974441,Plain RF
+soil,rf_var,50,Test specificity,0.825878594249201,Plain RF
+soil,rf_var,50,Train accuracy,0.877605717689101,Plain RF
+soil,rf_var,52,OOB accuracy,0.923520685676611,Plain RF
+soil,rf_var,52,Test AUC,0.952806852833234,Plain RF
+soil,rf_var,52,Test F1,0.936112615051435,Plain RF
+soil,rf_var,52,Test TSS,0.868523676880223,Plain RF
+soil,rf_var,52,Test accuracy,0.934261838440112,Plain RF
+soil,rf_var,52,Test balanced accuracy,0.934261838440111,Plain RF
+soil,rf_var,52,Test precision,0.910479199578726,Plain RF
+soil,rf_var,52,Test recall,0.963231197771588,Plain RF
+soil,rf_var,52,Test specificity,0.905292479108635,Plain RF
+soil,rf_var,52,Train accuracy,0.924344816218889,Plain RF
+soil,rf_var,53,OOB accuracy,0.923142302088392,Plain RF
+soil,rf_var,53,Test AUC,0.939034884478908,Plain RF
+soil,rf_var,53,Test F1,0.934859521331946,Plain RF
+soil,rf_var,53,Test TSS,0.868265993265993,Plain RF
+soil,rf_var,53,Test accuracy,0.934132996632997,Plain RF
+soil,rf_var,53,Test balanced accuracy,0.934132996632997,Plain RF
+soil,rf_var,53,Test precision,0.924660354055167,Plain RF
+soil,rf_var,53,Test recall,0.945286195286195,Plain RF
+soil,rf_var,53,Test specificity,0.922979797979798,Plain RF
+soil,rf_var,53,Train accuracy,0.924235065565809,Plain RF
+soil,rf_var,54,OOB accuracy,0.933458043826831,Plain RF
+soil,rf_var,54,Test AUC,0.959849341402634,Plain RF
+soil,rf_var,54,Test F1,0.941264496820052,Plain RF
+soil,rf_var,54,Test TSS,0.881509433962264,Plain RF
+soil,rf_var,54,Test accuracy,0.940754716981132,Plain RF
+soil,rf_var,54,Test balanced accuracy,0.940754716981132,Plain RF
+soil,rf_var,54,Test precision,0.933234421364985,Plain RF
+soil,rf_var,54,Test recall,0.949433962264151,Plain RF
+soil,rf_var,54,Test specificity,0.932075471698113,Plain RF
+soil,rf_var,54,Train accuracy,0.93439337252806,Plain RF
+soil,rf_var,55,OOB accuracy,0.914704010184596,Plain RF
+soil,rf_var,55,Test AUC,0.954330224929438,Plain RF
+soil,rf_var,55,Test F1,0.924865831842576,Plain RF
+soil,rf_var,55,Test TSS,0.847133757961784,Plain RF
+soil,rf_var,55,Test accuracy,0.923566878980892,Plain RF
+soil,rf_var,55,Test balanced accuracy,0.923566878980892,Plain RF
+soil,rf_var,55,Test precision,0.909410729991205,Plain RF
+soil,rf_var,55,Test recall,0.940855323020928,Plain RF
+soil,rf_var,55,Test specificity,0.906278434940855,Plain RF
+soil,rf_var,55,Train accuracy,0.918523233609166,Plain RF
+soil,mf_var,1,Test AUC,0.836845143599365,Plain MF RF
+soil,mf_var,1,Test F1,0.82009818076812,Plain MF RF
+soil,mf_var,1,Test TSS,0.610381488430269,Plain MF RF
+soil,mf_var,1,Test accuracy,0.805190744215135,Plain MF RF
+soil,mf_var,1,Test balanced accuracy,0.805190744215135,Plain MF RF
+soil,mf_var,1,Test precision,0.761802575107296,Plain MF RF
+soil,mf_var,1,Test recall,0.888055034396498,Plain MF RF
+soil,mf_var,1,Test specificity,0.722326454033771,Plain MF RF
+soil,mf_var,1,Train accuracy,0.797955209347614,Plain MF RF
+soil,mf_var,2,Test AUC,0.867903617024764,Plain MF RF
+soil,mf_var,2,Test F1,0.853973509933775,Plain MF RF
+soil,mf_var,2,Test TSS,0.689217758985201,Plain MF RF
+soil,mf_var,2,Test accuracy,0.8446088794926,Plain MF RF
+soil,mf_var,2,Test balanced accuracy,0.8446088794926,Plain MF RF
+soil,mf_var,2,Test precision,0.805434103685197,Plain MF RF
+soil,mf_var,2,Test recall,0.908738548273432,Plain MF RF
+soil,mf_var,2,Test specificity,0.780479210711769,Plain MF RF
+soil,mf_var,2,Train accuracy,0.859205062289895,Plain MF RF
+soil,mf_var,3,Test AUC,0.837744368608392,Plain MF RF
+soil,mf_var,3,Test F1,0.825425790754258,Plain MF RF
+soil,mf_var,3,Test TSS,0.615152531009051,Plain MF RF
+soil,mf_var,3,Test accuracy,0.807576265504526,Plain MF RF
+soil,mf_var,3,Test balanced accuracy,0.807576265504526,Plain MF RF
+soil,mf_var,3,Test precision,0.755357639855274,Plain MF RF
+soil,mf_var,3,Test recall,0.909822326516929,Plain MF RF
+soil,mf_var,3,Test specificity,0.705330204492122,Plain MF RF
+soil,mf_var,3,Train accuracy,0.8199080551669,Plain MF RF
+soil,mf_var,4,Test AUC,0.839183903198971,Plain MF RF
+soil,mf_var,4,Test F1,0.747168198332977,Plain MF RF
+soil,mf_var,4,Test TSS,0.527555910543131,Plain MF RF
+soil,mf_var,4,Test accuracy,0.763777955271566,Plain MF RF
+soil,mf_var,4,Test balanced accuracy,0.763777955271566,Plain MF RF
+soil,mf_var,4,Test precision,0.80367816091954,Plain MF RF
+soil,mf_var,4,Test recall,0.698083067092652,Plain MF RF
+soil,mf_var,4,Test specificity,0.829472843450479,Plain MF RF
+soil,mf_var,4,Train accuracy,0.785241788321168,Plain MF RF
+soil,mf_var,5,Test AUC,0.794051148466108,Plain MF RF
+soil,mf_var,5,Test F1,0.781706902414145,Plain MF RF
+soil,mf_var,5,Test TSS,0.542897828408687,Plain MF RF
+soil,mf_var,5,Test accuracy,0.771448914204343,Plain MF RF
+soil,mf_var,5,Test balanced accuracy,0.771448914204343,Plain MF RF
+soil,mf_var,5,Test precision,0.748128864301985,Plain MF RF
+soil,mf_var,5,Test recall,0.818440726237095,Plain MF RF
+soil,mf_var,5,Test specificity,0.724457102171591,Plain MF RF
+soil,mf_var,5,Train accuracy,0.779547689282203,Plain MF RF
+soil,mf_var,6,Test AUC,0.845108664247411,Plain MF RF
+soil,mf_var,6,Test F1,0.843499347136728,Plain MF RF
+soil,mf_var,6,Test TSS,0.663862179487179,Plain MF RF
+soil,mf_var,6,Test accuracy,0.83193108974359,Plain MF RF
+soil,mf_var,6,Test balanced accuracy,0.83193108974359,Plain MF RF
+soil,mf_var,6,Test precision,0.789179755671902,Plain MF RF
+soil,mf_var,6,Test recall,0.905849358974359,Plain MF RF
+soil,mf_var,6,Test specificity,0.75801282051282,Plain MF RF
+soil,mf_var,6,Train accuracy,0.838674983867498,Plain MF RF
+soil,mf_var,7,Test AUC,0.779649949422581,Plain MF RF
+soil,mf_var,7,Test F1,0.775086505190312,Plain MF RF
+soil,mf_var,7,Test TSS,0.496301514617823,Plain MF RF
+soil,mf_var,7,Test accuracy,0.748150757308912,Plain MF RF
+soil,mf_var,7,Test balanced accuracy,0.748150757308912,Plain MF RF
+soil,mf_var,7,Test precision,0.700198920147769,Plain MF RF
+soil,mf_var,7,Test recall,0.867911236350828,Plain MF RF
+soil,mf_var,7,Test specificity,0.628390278266996,Plain MF RF
+soil,mf_var,7,Train accuracy,0.774692582308608,Plain MF RF
+soil,mf_var,9,Test AUC,0.910327786639353,Plain MF RF
+soil,mf_var,9,Test F1,0.908667287977633,Plain MF RF
+soil,mf_var,9,Test TSS,0.802816901408451,Plain MF RF
+soil,mf_var,9,Test accuracy,0.901408450704225,Plain MF RF
+soil,mf_var,9,Test balanced accuracy,0.901408450704225,Plain MF RF
+soil,mf_var,9,Test precision,0.846354166666667,Plain MF RF
+soil,mf_var,9,Test recall,0.980885311871227,Plain MF RF
+soil,mf_var,9,Test specificity,0.821931589537223,Plain MF RF
+soil,mf_var,9,Train accuracy,0.884724282054739,Plain MF RF
+soil,mf_var,10,Test AUC,0.849072588572802,Plain MF RF
+soil,mf_var,10,Test F1,0.830610795454546,Plain MF RF
+soil,mf_var,10,Test TSS,0.660014255167498,Plain MF RF
+soil,mf_var,10,Test accuracy,0.830007127583749,Plain MF RF
+soil,mf_var,10,Test balanced accuracy,0.830007127583749,Plain MF RF
+soil,mf_var,10,Test precision,0.827671620665251,Plain MF RF
+soil,mf_var,10,Test recall,0.833570919458304,Plain MF RF
+soil,mf_var,10,Test specificity,0.826443335709195,Plain MF RF
+soil,mf_var,10,Train accuracy,0.834018077239113,Plain MF RF
+soil,mf_var,11,Test AUC,0.884892289583078,Plain MF RF
+soil,mf_var,11,Test F1,0.837317160185516,Plain MF RF
+soil,mf_var,11,Test TSS,0.661846496106785,Plain MF RF
+soil,mf_var,11,Test accuracy,0.830923248053393,Plain MF RF
+soil,mf_var,11,Test balanced accuracy,0.830923248053393,Plain MF RF
+soil,mf_var,11,Test precision,0.80680646270196,Plain MF RF
+soil,mf_var,11,Test recall,0.870226177233964,Plain MF RF
+soil,mf_var,11,Test specificity,0.791620318872822,Plain MF RF
+soil,mf_var,11,Train accuracy,0.833576338262862,Plain MF RF
+soil,mf_var,12,Test AUC,0.832147863800385,Plain MF RF
+soil,mf_var,12,Test F1,0.809467852946114,Plain MF RF
+soil,mf_var,12,Test TSS,0.599929502996123,Plain MF RF
+soil,mf_var,12,Test accuracy,0.799964751498061,Plain MF RF
+soil,mf_var,12,Test balanced accuracy,0.799964751498061,Plain MF RF
+soil,mf_var,12,Test precision,0.77275641025641,Plain MF RF
+soil,mf_var,12,Test recall,0.849841381741276,Plain MF RF
+soil,mf_var,12,Test specificity,0.750088121254847,Plain MF RF
+soil,mf_var,12,Train accuracy,0.812150279776179,Plain MF RF
+soil,mf_var,13,Test AUC,0.880317937841792,Plain MF RF
+soil,mf_var,13,Test F1,0.846846846846847,Plain MF RF
+soil,mf_var,13,Test TSS,0.67419575633128,Plain MF RF
+soil,mf_var,13,Test accuracy,0.83709787816564,Plain MF RF
+soil,mf_var,13,Test balanced accuracy,0.83709787816564,Plain MF RF
+soil,mf_var,13,Test precision,0.799028536733455,Plain MF RF
+soil,mf_var,13,Test recall,0.900752908966461,Plain MF RF
+soil,mf_var,13,Test specificity,0.773442847364819,Plain MF RF
+soil,mf_var,13,Train accuracy,0.845033380538135,Plain MF RF
+soil,mf_var,14,Test AUC,0.888844125,Plain MF RF
+soil,mf_var,14,Test F1,0.869400331832188,Plain MF RF
+soil,mf_var,14,Test TSS,0.7245,Plain MF RF
+soil,mf_var,14,Test accuracy,0.86225,Plain MF RF
+soil,mf_var,14,Test balanced accuracy,0.86225,Plain MF RF
+soil,mf_var,14,Test precision,0.826498422712934,Plain MF RF
+soil,mf_var,14,Test recall,0.917,Plain MF RF
+soil,mf_var,14,Test specificity,0.8075,Plain MF RF
+soil,mf_var,14,Train accuracy,0.859284587059442,Plain MF RF
+soil,mf_var,15,Test AUC,0.878019044666784,Plain MF RF
+soil,mf_var,15,Test F1,0.839655172413793,Plain MF RF
+soil,mf_var,15,Test TSS,0.65946539729037,Plain MF RF
+soil,mf_var,15,Test accuracy,0.829732698645185,Plain MF RF
+soil,mf_var,15,Test balanced accuracy,0.829732698645185,Plain MF RF
+soil,mf_var,15,Test precision,0.793418051482568,Plain MF RF
+soil,mf_var,15,Test recall,0.891614793116075,Plain MF RF
+soil,mf_var,15,Test specificity,0.767850604174295,Plain MF RF
+soil,mf_var,15,Train accuracy,0.841036977491961,Plain MF RF
+soil,mf_var,16,Test AUC,0.89382935083813,Plain MF RF
+soil,mf_var,16,Test F1,0.883972301976018,Plain MF RF
+soil,mf_var,16,Test TSS,0.756555634301914,Plain MF RF
+soil,mf_var,16,Test accuracy,0.878277817150957,Plain MF RF
+soil,mf_var,16,Test balanced accuracy,0.878277817150957,Plain MF RF
+soil,mf_var,16,Test precision,0.844465956760245,Plain MF RF
+soil,mf_var,16,Test recall,0.92735648476258,Plain MF RF
+soil,mf_var,16,Test specificity,0.829199149539334,Plain MF RF
+soil,mf_var,16,Train accuracy,0.884171475680132,Plain MF RF
+soil,mf_var,17,Test AUC,0.895709254179702,Plain MF RF
+soil,mf_var,17,Test F1,0.894277400581959,Plain MF RF
+soil,mf_var,17,Test TSS,0.781563126252505,Plain MF RF
+soil,mf_var,17,Test accuracy,0.890781563126252,Plain MF RF
+soil,mf_var,17,Test balanced accuracy,0.890781563126253,Plain MF RF
+soil,mf_var,17,Test precision,0.866541353383459,Plain MF RF
+soil,mf_var,17,Test recall,0.923847695390782,Plain MF RF
+soil,mf_var,17,Test specificity,0.857715430861724,Plain MF RF
+soil,mf_var,17,Train accuracy,0.884512428298279,Plain MF RF
+soil,mf_var,18,Test AUC,0.83792674340498,Plain MF RF
+soil,mf_var,18,Test F1,0.810780669144981,Plain MF RF
+soil,mf_var,18,Test TSS,0.621420602454444,Plain MF RF
+soil,mf_var,18,Test accuracy,0.810710301227222,Plain MF RF
+soil,mf_var,18,Test balanced accuracy,0.810710301227222,Plain MF RF
+soil,mf_var,18,Test precision,0.810479375696767,Plain MF RF
+soil,mf_var,18,Test recall,0.811082186686501,Plain MF RF
+soil,mf_var,18,Test specificity,0.810338415767944,Plain MF RF
+soil,mf_var,18,Train accuracy,0.818710929079543,Plain MF RF
+soil,mf_var,19,Test AUC,0.906294783530949,Plain MF RF
+soil,mf_var,19,Test F1,0.884615384615385,Plain MF RF
+soil,mf_var,19,Test TSS,0.769701919150674,Plain MF RF
+soil,mf_var,19,Test accuracy,0.884850959575337,Plain MF RF
+soil,mf_var,19,Test balanced accuracy,0.884850959575337,Plain MF RF
+soil,mf_var,19,Test precision,0.886428864288643,Plain MF RF
+soil,mf_var,19,Test recall,0.882809309922417,Plain MF RF
+soil,mf_var,19,Test specificity,0.886892609228256,Plain MF RF
+soil,mf_var,19,Train accuracy,0.888509281403029,Plain MF RF
+soil,mf_var,20,Test AUC,0.93329285917756,Plain MF RF
+soil,mf_var,20,Test F1,0.919436416184971,Plain MF RF
+soil,mf_var,20,Test TSS,0.832141512984569,Plain MF RF
+soil,mf_var,20,Test accuracy,0.916070756492284,Plain MF RF
+soil,mf_var,20,Test balanced accuracy,0.916070756492284,Plain MF RF
+soil,mf_var,20,Test precision,0.883987495658215,Plain MF RF
+soil,mf_var,20,Test recall,0.957847196085811,Plain MF RF
+soil,mf_var,20,Test specificity,0.874294316898758,Plain MF RF
+soil,mf_var,20,Train accuracy,0.914105263157895,Plain MF RF
+soil,mf_var,21,Test AUC,0.906731037160487,Plain MF RF
+soil,mf_var,21,Test F1,0.884076433121019,Plain MF RF
+soil,mf_var,21,Test TSS,0.747046560111188,Plain MF RF
+soil,mf_var,21,Test accuracy,0.873523280055594,Plain MF RF
+soil,mf_var,21,Test balanced accuracy,0.873523280055594,Plain MF RF
+soil,mf_var,21,Test precision,0.815990593768372,Plain MF RF
+soil,mf_var,21,Test recall,0.96455872133426,Plain MF RF
+soil,mf_var,21,Test specificity,0.782487838776928,Plain MF RF
+soil,mf_var,21,Train accuracy,0.878612716763006,Plain MF RF
+soil,mf_var,22,Test AUC,0.884733496552189,Plain MF RF
+soil,mf_var,22,Test F1,0.854449298689354,Plain MF RF
+soil,mf_var,22,Test TSS,0.7,Plain MF RF
+soil,mf_var,22,Test accuracy,0.85,Plain MF RF
+soil,mf_var,22,Test balanced accuracy,0.85,Plain MF RF
+soil,mf_var,22,Test precision,0.829834747655203,Plain MF RF
+soil,mf_var,22,Test recall,0.880568720379147,Plain MF RF
+soil,mf_var,22,Test specificity,0.819431279620853,Plain MF RF
+soil,mf_var,22,Train accuracy,0.836598796260725,Plain MF RF
+soil,mf_var,23,Test AUC,0.923581860748039,Plain MF RF
+soil,mf_var,23,Test F1,0.899042499580044,Plain MF RF
+soil,mf_var,23,Test TSS,0.789933589653967,Plain MF RF
+soil,mf_var,23,Test accuracy,0.894966794826984,Plain MF RF
+soil,mf_var,23,Test balanced accuracy,0.894966794826983,Plain MF RF
+soil,mf_var,23,Test precision,0.865459249676585,Plain MF RF
+soil,mf_var,23,Test recall,0.935337294652219,Plain MF RF
+soil,mf_var,23,Test specificity,0.854596295001748,Plain MF RF
+soil,mf_var,23,Train accuracy,0.896228338430173,Plain MF RF
+soil,mf_var,24,Test AUC,0.90064802597431,Plain MF RF
+soil,mf_var,24,Test F1,0.879288025889968,Plain MF RF
+soil,mf_var,24,Test TSS,0.748313090418354,Plain MF RF
+soil,mf_var,24,Test accuracy,0.874156545209177,Plain MF RF
+soil,mf_var,24,Test balanced accuracy,0.874156545209177,Plain MF RF
+soil,mf_var,24,Test precision,0.844838308457712,Plain MF RF
+soil,mf_var,24,Test recall,0.916666666666667,Plain MF RF
+soil,mf_var,24,Test specificity,0.831646423751687,Plain MF RF
+soil,mf_var,24,Train accuracy,0.871445734881858,Plain MF RF
+soil,mf_var,25,Test AUC,0.890528315601114,Plain MF RF
+soil,mf_var,25,Test F1,0.832658569500675,Plain MF RF
+soil,mf_var,25,Test TSS,0.644571838050878,Plain MF RF
+soil,mf_var,25,Test accuracy,0.822285919025439,Plain MF RF
+soil,mf_var,25,Test balanced accuracy,0.822285919025439,Plain MF RF
+soil,mf_var,25,Test precision,0.786738922537456,Plain MF RF
+soil,mf_var,25,Test recall,0.884270870655679,Plain MF RF
+soil,mf_var,25,Test specificity,0.760300967395199,Plain MF RF
+soil,mf_var,25,Train accuracy,0.834006462035541,Plain MF RF
+soil,mf_var,26,Test AUC,0.866867949571556,Plain MF RF
+soil,mf_var,26,Test F1,0.843065693430657,Plain MF RF
+soil,mf_var,26,Test TSS,0.679702048417132,Plain MF RF
+soil,mf_var,26,Test accuracy,0.839851024208566,Plain MF RF
+soil,mf_var,26,Test balanced accuracy,0.839851024208566,Plain MF RF
+soil,mf_var,26,Test precision,0.826475849731664,Plain MF RF
+soil,mf_var,26,Test recall,0.860335195530726,Plain MF RF
+soil,mf_var,26,Test specificity,0.819366852886406,Plain MF RF
+soil,mf_var,26,Train accuracy,0.832237673830594,Plain MF RF
+soil,mf_var,27,Test AUC,0.865062230623819,Plain MF RF
+soil,mf_var,27,Test F1,0.837541528239203,Plain MF RF
+soil,mf_var,27,Test TSS,0.659826086956522,Plain MF RF
+soil,mf_var,27,Test accuracy,0.829913043478261,Plain MF RF
+soil,mf_var,27,Test balanced accuracy,0.829913043478261,Plain MF RF
+soil,mf_var,27,Test precision,0.801589825119237,Plain MF RF
+soil,mf_var,27,Test recall,0.876869565217391,Plain MF RF
+soil,mf_var,27,Test specificity,0.782956521739131,Plain MF RF
+soil,mf_var,27,Train accuracy,0.83370199075005,Plain MF RF
+soil,mf_var,28,Test AUC,0.795927028684779,Plain MF RF
+soil,mf_var,28,Test F1,0.769061744671501,Plain MF RF
+soil,mf_var,28,Test TSS,0.518552450755841,Plain MF RF
+soil,mf_var,28,Test accuracy,0.75927622537792,Plain MF RF
+soil,mf_var,28,Test balanced accuracy,0.75927622537792,Plain MF RF
+soil,mf_var,28,Test precision,0.73902027027027,Plain MF RF
+soil,mf_var,28,Test recall,0.801649106733852,Plain MF RF
+soil,mf_var,28,Test specificity,0.716903344021988,Plain MF RF
+soil,mf_var,28,Train accuracy,0.770998023715415,Plain MF RF
+soil,mf_var,29,Test AUC,0.926255122358662,Plain MF RF
+soil,mf_var,29,Test F1,0.894727035587852,Plain MF RF
+soil,mf_var,29,Test TSS,0.785903751420993,Plain MF RF
+soil,mf_var,29,Test accuracy,0.892951875710496,Plain MF RF
+soil,mf_var,29,Test balanced accuracy,0.892951875710496,Plain MF RF
+soil,mf_var,29,Test precision,0.880131964809384,Plain MF RF
+soil,mf_var,29,Test recall,0.909814323607427,Plain MF RF
+soil,mf_var,29,Test specificity,0.876089427813566,Plain MF RF
+soil,mf_var,29,Train accuracy,0.900427849085959,Plain MF RF
+soil,mf_var,30,Test AUC,0.865722072167134,Plain MF RF
+soil,mf_var,30,Test F1,0.855653307266211,Plain MF RF
+soil,mf_var,30,Test TSS,0.692147324530924,Plain MF RF
+soil,mf_var,30,Test accuracy,0.846073662265462,Plain MF RF
+soil,mf_var,30,Test balanced accuracy,0.846073662265462,Plain MF RF
+soil,mf_var,30,Test precision,0.805521472392638,Plain MF RF
+soil,mf_var,30,Test recall,0.912439193884642,Plain MF RF
+soil,mf_var,30,Test specificity,0.779708130646282,Plain MF RF
+soil,mf_var,30,Train accuracy,0.855244614455406,Plain MF RF
+soil,mf_var,31,Test AUC,0.905324030424484,Plain MF RF
+soil,mf_var,31,Test F1,0.891523221825268,Plain MF RF
+soil,mf_var,31,Test TSS,0.772866371982319,Plain MF RF
+soil,mf_var,31,Test accuracy,0.886433185991159,Plain MF RF
+soil,mf_var,31,Test balanced accuracy,0.886433185991159,Plain MF RF
+soil,mf_var,31,Test precision,0.853279452906435,Plain MF RF
+soil,mf_var,31,Test recall,0.933356001360081,Plain MF RF
+soil,mf_var,31,Test specificity,0.839510370622237,Plain MF RF
+soil,mf_var,31,Train accuracy,0.896820635872826,Plain MF RF
+soil,mf_var,32,Test AUC,0.904135134452721,Plain MF RF
+soil,mf_var,32,Test F1,0.843255295429209,Plain MF RF
+soil,mf_var,32,Test TSS,0.684044943820225,Plain MF RF
+soil,mf_var,32,Test accuracy,0.842022471910113,Plain MF RF
+soil,mf_var,32,Test balanced accuracy,0.842022471910113,Plain MF RF
+soil,mf_var,32,Test precision,0.836725663716814,Plain MF RF
+soil,mf_var,32,Test recall,0.849887640449438,Plain MF RF
+soil,mf_var,32,Test specificity,0.834157303370787,Plain MF RF
+soil,mf_var,32,Train accuracy,0.829335242869077,Plain MF RF
+soil,mf_var,33,Test AUC,0.894160637336757,Plain MF RF
+soil,mf_var,33,Test F1,0.842624568327578,Plain MF RF
+soil,mf_var,33,Test TSS,0.672596647280192,Plain MF RF
+soil,mf_var,33,Test accuracy,0.836298323640096,Plain MF RF
+soil,mf_var,33,Test balanced accuracy,0.836298323640096,Plain MF RF
+soil,mf_var,33,Test precision,0.811272957568081,Plain MF RF
+soil,mf_var,33,Test recall,0.876496749914472,Plain MF RF
+soil,mf_var,33,Test specificity,0.79609989736572,Plain MF RF
+soil,mf_var,33,Train accuracy,0.8409915356711,Plain MF RF
+soil,mf_var,34,Test AUC,0.900258827160974,Plain MF RF
+soil,mf_var,34,Test F1,0.877675840978593,Plain MF RF
+soil,mf_var,34,Test TSS,0.747102212855638,Plain MF RF
+soil,mf_var,34,Test accuracy,0.873551106427819,Plain MF RF
+soil,mf_var,34,Test balanced accuracy,0.873551106427819,Plain MF RF
+soil,mf_var,34,Test precision,0.84995064165844,Plain MF RF
+soil,mf_var,34,Test recall,0.9072708113804,Plain MF RF
+soil,mf_var,34,Test specificity,0.839831401475237,Plain MF RF
+soil,mf_var,34,Train accuracy,0.876747141041932,Plain MF RF
+soil,mf_var,35,Test AUC,0.930989047238286,Plain MF RF
+soil,mf_var,35,Test F1,0.921672272945699,Plain MF RF
+soil,mf_var,35,Test TSS,0.838373822508676,Plain MF RF
+soil,mf_var,35,Test accuracy,0.919186911254338,Plain MF RF
+soil,mf_var,35,Test balanced accuracy,0.919186911254338,Plain MF RF
+soil,mf_var,35,Test precision,0.894172494172494,Plain MF RF
+soil,mf_var,35,Test recall,0.950917203767972,Plain MF RF
+soil,mf_var,35,Test specificity,0.887456618740704,Plain MF RF
+soil,mf_var,35,Train accuracy,0.915982805783509,Plain MF RF
+soil,mf_var,36,Test AUC,0.847071384484537,Plain MF RF
+soil,mf_var,36,Test F1,0.838311528017773,Plain MF RF
+soil,mf_var,36,Test TSS,0.633463905987689,Plain MF RF
+soil,mf_var,36,Test accuracy,0.816731952993844,Plain MF RF
+soil,mf_var,36,Test balanced accuracy,0.816731952993844,Plain MF RF
+soil,mf_var,36,Test precision,0.75,Plain MF RF
+soil,mf_var,36,Test recall,0.950195858981533,Plain MF RF
+soil,mf_var,36,Test specificity,0.683268047006156,Plain MF RF
+soil,mf_var,36,Train accuracy,0.805751928020566,Plain MF RF
+soil,mf_var,37,Test AUC,0.882998823505384,Plain MF RF
+soil,mf_var,37,Test F1,0.867090977162112,Plain MF RF
+soil,mf_var,37,Test TSS,0.737134394668641,Plain MF RF
+soil,mf_var,37,Test accuracy,0.868567197334321,Plain MF RF
+soil,mf_var,37,Test balanced accuracy,0.868567197334321,Plain MF RF
+soil,mf_var,37,Test precision,0.876940552820901,Plain MF RF
+soil,mf_var,37,Test recall,0.857460199925953,Plain MF RF
+soil,mf_var,37,Test specificity,0.879674194742688,Plain MF RF
+soil,mf_var,37,Train accuracy,0.863819500402901,Plain MF RF
+soil,mf_var,38,Test AUC,0.95303418493213,Plain MF RF
+soil,mf_var,38,Test F1,0.948170731707317,Plain MF RF
+soil,mf_var,38,Test TSS,0.896865520728008,Plain MF RF
+soil,mf_var,38,Test accuracy,0.948432760364004,Plain MF RF
+soil,mf_var,38,Test balanced accuracy,0.948432760364004,Plain MF RF
+soil,mf_var,38,Test precision,0.953013278855975,Plain MF RF
+soil,mf_var,38,Test recall,0.943377148634985,Plain MF RF
+soil,mf_var,38,Test specificity,0.953488372093023,Plain MF RF
+soil,mf_var,38,Train accuracy,0.947476125511596,Plain MF RF
+soil,mf_var,39,Test AUC,0.84819627353552,Plain MF RF
+soil,mf_var,39,Test F1,0.847254748894093,Plain MF RF
+soil,mf_var,39,Test TSS,0.670409882088714,Plain MF RF
+soil,mf_var,39,Test accuracy,0.835204941044357,Plain MF RF
+soil,mf_var,39,Test balanced accuracy,0.835204941044357,Plain MF RF
+soil,mf_var,39,Test precision,0.789524733268671,Plain MF RF
+soil,mf_var,39,Test recall,0.914093206064009,Plain MF RF
+soil,mf_var,39,Test specificity,0.756316676024705,Plain MF RF
+soil,mf_var,39,Train accuracy,0.819632881085395,Plain MF RF
+soil,mf_var,40,Test AUC,0.848210734477286,Plain MF RF
+soil,mf_var,40,Test F1,0.840540540540541,Plain MF RF
+soil,mf_var,40,Test TSS,0.667605633802817,Plain MF RF
+soil,mf_var,40,Test accuracy,0.833802816901408,Plain MF RF
+soil,mf_var,40,Test balanced accuracy,0.833802816901408,Plain MF RF
+soil,mf_var,40,Test precision,0.807792207792208,Plain MF RF
+soil,mf_var,40,Test recall,0.876056338028169,Plain MF RF
+soil,mf_var,40,Test specificity,0.791549295774648,Plain MF RF
+soil,mf_var,40,Train accuracy,0.834059323791744,Plain MF RF
+soil,mf_var,41,Test AUC,0.881106438437603,Plain MF RF
+soil,mf_var,41,Test F1,0.848944455831113,Plain MF RF
+soil,mf_var,41,Test TSS,0.703897147448775,Plain MF RF
+soil,mf_var,41,Test accuracy,0.851948573724387,Plain MF RF
+soil,mf_var,41,Test balanced accuracy,0.851948573724387,Plain MF RF
+soil,mf_var,41,Test precision,0.86652719665272,Plain MF RF
+soil,mf_var,41,Test recall,0.83206106870229,Plain MF RF
+soil,mf_var,41,Test specificity,0.871836078746485,Plain MF RF
+soil,mf_var,41,Train accuracy,0.853388184207519,Plain MF RF
+soil,mf_var,42,Test AUC,0.915088599547597,Plain MF RF
+soil,mf_var,42,Test F1,0.906903765690376,Plain MF RF
+soil,mf_var,42,Test TSS,0.804681784930505,Plain MF RF
+soil,mf_var,42,Test accuracy,0.902340892465252,Plain MF RF
+soil,mf_var,42,Test balanced accuracy,0.902340892465252,Plain MF RF
+soil,mf_var,42,Test precision,0.866422385076616,Plain MF RF
+soil,mf_var,42,Test recall,0.951353328456474,Plain MF RF
+soil,mf_var,42,Test specificity,0.853328456474031,Plain MF RF
+soil,mf_var,42,Train accuracy,0.914773911231507,Plain MF RF
+soil,mf_var,43,Test AUC,0.92732619688293,Plain MF RF
+soil,mf_var,43,Test F1,0.903508771929825,Plain MF RF
+soil,mf_var,43,Test TSS,0.80259222333001,Plain MF RF
+soil,mf_var,43,Test accuracy,0.901296111665005,Plain MF RF
+soil,mf_var,43,Test balanced accuracy,0.901296111665005,Plain MF RF
+soil,mf_var,43,Test precision,0.883698760724499,Plain MF RF
+soil,mf_var,43,Test recall,0.924227318045862,Plain MF RF
+soil,mf_var,43,Test specificity,0.878364905284148,Plain MF RF
+soil,mf_var,43,Train accuracy,0.904552129221733,Plain MF RF
+soil,mf_var,44,Test AUC,0.839356068281585,Plain MF RF
+soil,mf_var,44,Test F1,0.837004405286344,Plain MF RF
+soil,mf_var,44,Test TSS,0.659348441926346,Plain MF RF
+soil,mf_var,44,Test accuracy,0.829674220963173,Plain MF RF
+soil,mf_var,44,Test balanced accuracy,0.829674220963173,Plain MF RF
+soil,mf_var,44,Test precision,0.802469135802469,Plain MF RF
+soil,mf_var,44,Test recall,0.874645892351275,Plain MF RF
+soil,mf_var,44,Test specificity,0.784702549575071,Plain MF RF
+soil,mf_var,44,Train accuracy,0.834041691965189,Plain MF RF
+soil,mf_var,45,Test AUC,0.846354401426474,Plain MF RF
+soil,mf_var,45,Test F1,0.838511227314672,Plain MF RF
+soil,mf_var,45,Test TSS,0.675525339925834,Plain MF RF
+soil,mf_var,45,Test accuracy,0.837762669962917,Plain MF RF
+soil,mf_var,45,Test balanced accuracy,0.837762669962917,Plain MF RF
+soil,mf_var,45,Test precision,0.834660134721372,Plain MF RF
+soil,mf_var,45,Test recall,0.842398022249691,Plain MF RF
+soil,mf_var,45,Test specificity,0.833127317676143,Plain MF RF
+soil,mf_var,45,Train accuracy,0.836762688614541,Plain MF RF
+soil,mf_var,46,Test AUC,0.818235723654556,Plain MF RF
+soil,mf_var,46,Test F1,0.819314641744548,Plain MF RF
+soil,mf_var,46,Test TSS,0.601069927397784,Plain MF RF
+soil,mf_var,46,Test accuracy,0.800534963698892,Plain MF RF
+soil,mf_var,46,Test balanced accuracy,0.800534963698892,Plain MF RF
+soil,mf_var,46,Test precision,0.748813666561215,Plain MF RF
+soil,mf_var,46,Test recall,0.904470768055025,Plain MF RF
+soil,mf_var,46,Test specificity,0.696599159342759,Plain MF RF
+soil,mf_var,46,Train accuracy,0.819245511398023,Plain MF RF
+soil,mf_var,47,Test AUC,0.879147986234084,Plain MF RF
+soil,mf_var,47,Test F1,0.825017568517217,Plain MF RF
+soil,mf_var,47,Test TSS,0.638212858699601,Plain MF RF
+soil,mf_var,47,Test accuracy,0.8191064293498,Plain MF RF
+soil,mf_var,47,Test balanced accuracy,0.8191064293498,Plain MF RF
+soil,mf_var,47,Test precision,0.79891119428377,Plain MF RF
+soil,mf_var,47,Test recall,0.852887758808573,Plain MF RF
+soil,mf_var,47,Test specificity,0.785325099891028,Plain MF RF
+soil,mf_var,47,Train accuracy,0.8329307568438,Plain MF RF
+soil,mf_var,48,Test AUC,0.918756913582643,Plain MF RF
+soil,mf_var,48,Test F1,0.901709401709402,Plain MF RF
+soil,mf_var,48,Test TSS,0.797356828193833,Plain MF RF
+soil,mf_var,48,Test accuracy,0.898678414096916,Plain MF RF
+soil,mf_var,48,Test balanced accuracy,0.898678414096916,Plain MF RF
+soil,mf_var,48,Test precision,0.87551867219917,Plain MF RF
+soil,mf_var,48,Test recall,0.929515418502203,Plain MF RF
+soil,mf_var,48,Test specificity,0.86784140969163,Plain MF RF
+soil,mf_var,48,Train accuracy,0.903996703749485,Plain MF RF
+soil,mf_var,49,Test AUC,0.866384008736519,Plain MF RF
+soil,mf_var,49,Test F1,0.855218855218855,Plain MF RF
+soil,mf_var,49,Test TSS,0.683007740508662,Plain MF RF
+soil,mf_var,49,Test accuracy,0.841503870254331,Plain MF RF
+soil,mf_var,49,Test balanced accuracy,0.841503870254331,Plain MF RF
+soil,mf_var,49,Test precision,0.787108769755191,Plain MF RF
+soil,mf_var,49,Test recall,0.936232952451161,Plain MF RF
+soil,mf_var,49,Test specificity,0.746774788057501,Plain MF RF
+soil,mf_var,49,Train accuracy,0.837479608482871,Plain MF RF
+soil,mf_var,50,Test AUC,0.908982688401433,Plain MF RF
+soil,mf_var,50,Test F1,0.882978723404255,Plain MF RF
+soil,mf_var,50,Test TSS,0.753993610223642,Plain MF RF
+soil,mf_var,50,Test accuracy,0.876996805111821,Plain MF RF
+soil,mf_var,50,Test balanced accuracy,0.876996805111821,Plain MF RF
+soil,mf_var,50,Test precision,0.842028985507246,Plain MF RF
+soil,mf_var,50,Test recall,0.928115015974441,Plain MF RF
+soil,mf_var,50,Test specificity,0.825878594249201,Plain MF RF
+soil,mf_var,50,Train accuracy,0.877605717689101,Plain MF RF
+soil,mf_var,52,Test AUC,0.953240431095352,Plain MF RF
+soil,mf_var,52,Test F1,0.936112615051435,Plain MF RF
+soil,mf_var,52,Test TSS,0.868523676880223,Plain MF RF
+soil,mf_var,52,Test accuracy,0.934261838440112,Plain MF RF
+soil,mf_var,52,Test balanced accuracy,0.934261838440111,Plain MF RF
+soil,mf_var,52,Test precision,0.910479199578726,Plain MF RF
+soil,mf_var,52,Test recall,0.963231197771588,Plain MF RF
+soil,mf_var,52,Test specificity,0.905292479108635,Plain MF RF
+soil,mf_var,52,Train accuracy,0.924344816218889,Plain MF RF
+soil,mf_var,53,Test AUC,0.938999191550749,Plain MF RF
+soil,mf_var,53,Test F1,0.935081148564295,Plain MF RF
+soil,mf_var,53,Test TSS,0.868686868686869,Plain MF RF
+soil,mf_var,53,Test accuracy,0.934343434343434,Plain MF RF
+soil,mf_var,53,Test balanced accuracy,0.934343434343434,Plain MF RF
+soil,mf_var,53,Test precision,0.924691358024691,Plain MF RF
+soil,mf_var,53,Test recall,0.945707070707071,Plain MF RF
+soil,mf_var,53,Test specificity,0.922979797979798,Plain MF RF
+soil,mf_var,53,Train accuracy,0.924235065565809,Plain MF RF
+soil,mf_var,54,Test AUC,0.959719473122107,Plain MF RF
+soil,mf_var,54,Test F1,0.941264496820052,Plain MF RF
+soil,mf_var,54,Test TSS,0.881509433962264,Plain MF RF
+soil,mf_var,54,Test accuracy,0.940754716981132,Plain MF RF
+soil,mf_var,54,Test balanced accuracy,0.940754716981132,Plain MF RF
+soil,mf_var,54,Test precision,0.933234421364985,Plain MF RF
+soil,mf_var,54,Test recall,0.949433962264151,Plain MF RF
+soil,mf_var,54,Test specificity,0.932075471698113,Plain MF RF
+soil,mf_var,54,Train accuracy,0.93439337252806,Plain MF RF
+soil,mf_var,55,Test AUC,0.954527691233904,Plain MF RF
+soil,mf_var,55,Test F1,0.924452391595887,Plain MF RF
+soil,mf_var,55,Test TSS,0.846223839854413,Plain MF RF
+soil,mf_var,55,Test accuracy,0.923111919927207,Plain MF RF
+soil,mf_var,55,Test balanced accuracy,0.923111919927207,Plain MF RF
+soil,mf_var,55,Test precision,0.908611599297012,Plain MF RF
+soil,mf_var,55,Test recall,0.940855323020928,Plain MF RF
+soil,mf_var,55,Test specificity,0.905368516833485,Plain MF RF
+soil,mf_var,55,Train accuracy,0.918523233609166,Plain MF RF

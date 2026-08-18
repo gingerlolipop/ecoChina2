@@ -1,0 +1,83 @@
+source_zone,PopulationID,Species,Zone,Population,reference_abundance,zone_name,COLOR,projected,species
+2,lariGme-Zone2,lariGme,Zone2,53291,53291,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,lariGme
+3,lariGme-Zone3,lariGme,Zone3,354,354,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,lariGme
+4,lariGme-Zone4,lariGme,Zone4,439,439,"Grass, Carex and forb swamp meadows",#00B4D8,TRUE,lariGme
+5,lariGme-Zone5,lariGme,Zone5,313,313,Grass and forb meadows,#B8DE29,TRUE,lariGme
+6,lariGme-Zone6,lariGme,Zone6,446,446,Cold-temperate and temperate marshes,#0077B6,TRUE,lariGme
+7,lariGme-Zone7,lariGme,Zone7,47,47,Deciduous scrubs in temperate zone,#C77DFF,TRUE,lariGme
+9,lariGme-Zone9,lariGme,Zone9,10,10,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,lariGme
+12,lariGme-Zone12,lariGme,Zone12,27,27,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,lariGme
+2,lariOlg-Zone2,lariOlg,Zone2,6784,6784,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,lariOlg
+3,lariOlg-Zone3,lariOlg,Zone3,135,135,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,lariOlg
+6,lariOlg-Zone6,lariOlg,Zone6,108,108,Cold-temperate and temperate marshes,#0077B6,TRUE,lariOlg
+7,lariOlg-Zone7,lariOlg,Zone7,39,39,Deciduous scrubs in temperate zone,#C77DFF,TRUE,lariOlg
+9,lariOlg-Zone9,lariOlg,Zone9,28,28,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,lariOlg
+12,lariOlg-Zone12,lariOlg,Zone12,54,54,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,lariOlg
+27,lariOlg-Zone27,lariOlg,Zone27,135,135,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,lariOlg
+2,pinuSyl-Zone2,pinuSyl,Zone2,1696,1696,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,pinuSyl
+3,pinuSyl-Zone3,pinuSyl,Zone3,33,33,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,pinuSyl
+5,pinuSyl-Zone5,pinuSyl,Zone5,10,10,Grass and forb meadows,#B8DE29,TRUE,pinuSyl
+27,pinuSyl-Zone27,pinuSyl,Zone27,10,10,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,pinuSyl
+3,querVar-Zone3,querVar,Zone3,20658,20658,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,querVar
+5,querVar-Zone5,querVar,Zone5,26,26,Grass and forb meadows,#B8DE29,TRUE,querVar
+7,querVar-Zone7,querVar,Zone7,368,368,Deciduous scrubs in temperate zone,#C77DFF,TRUE,querVar
+10,querVar-Zone10,querVar,Zone10,22,22,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,querVar
+21,querVar-Zone21,querVar,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,querVar
+26,querVar-Zone26,querVar,Zone26,38,38,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,querVar
+27,querVar-Zone27,querVar,Zone27,339,339,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,querVar
+28,querVar-Zone28,querVar,Zone28,17394,17394,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,querVar
+30,querVar-Zone30,querVar,Zone30,1037,1037,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,querVar
+33,querVar-Zone33,querVar,Zone33,58,58,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,querVar
+36,querVar-Zone36,querVar,Zone36,975,975,Broadleaf evergreen and deciduous mixed forests in subtropical zone,#40916C,TRUE,querVar
+37,querVar-Zone37,querVar,Zone37,58,58,Needleleaf forests in temperate zone,#0B3D2E,TRUE,querVar
+40,querVar-Zone40,querVar,Zone40,354,354,Subtropical and tropical grasslands,#AACC00,TRUE,querVar
+41,querVar-Zone41,querVar,Zone41,92,92,Temperate grasslands,#70E000,TRUE,querVar
+44,querVar-Zone44,querVar,Zone44,25385,25385,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,querVar
+47,querVar-Zone47,querVar,Zone47,455,455,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,querVar
+49,querVar-Zone49,querVar,Zone49,176,176,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,querVar
+3,robiPse-Zone3,robiPse,Zone3,11620,11620,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,robiPse
+7,robiPse-Zone7,robiPse,Zone7,51,51,Deciduous scrubs in temperate zone,#C77DFF,TRUE,robiPse
+12,robiPse-Zone12,robiPse,Zone12,13,13,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,robiPse
+27,robiPse-Zone27,robiPse,Zone27,493,493,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,robiPse
+33,robiPse-Zone33,robiPse,Zone33,200,200,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,robiPse
+37,robiPse-Zone37,robiPse,Zone37,432,432,Needleleaf forests in temperate zone,#0B3D2E,TRUE,robiPse
+41,robiPse-Zone41,robiPse,Zone41,66,66,Temperate grasslands,#70E000,TRUE,robiPse
+3,saliMat-Zone3,saliMat,Zone3,3066,3066,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,saliMat
+27,saliMat-Zone27,saliMat,Zone27,203,203,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,saliMat
+37,saliMat-Zone37,saliMat,Zone37,159,159,Needleleaf forests in temperate zone,#0B3D2E,TRUE,saliMat
+21,phylPub-Zone21,phylPub,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,phylPub
+26,phylPub-Zone26,phylPub,Zone26,18383,18383,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,phylPub
+28,phylPub-Zone28,phylPub,Zone28,17,17,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,phylPub
+30,phylPub-Zone30,phylPub,Zone30,759,759,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,phylPub
+40,phylPub-Zone40,phylPub,Zone40,136,136,Subtropical and tropical grasslands,#AACC00,TRUE,phylPub
+44,phylPub-Zone44,phylPub,Zone44,221,221,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,phylPub
+47,phylPub-Zone47,phylPub,Zone47,25,25,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,phylPub
+49,phylPub-Zone49,phylPub,Zone49,204,204,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,phylPub
+5,pinuYun-Zone5,pinuYun,Zone5,186,186,Grass and forb meadows,#B8DE29,TRUE,pinuYun
+7,pinuYun-Zone7,pinuYun,Zone7,19,19,Deciduous scrubs in temperate zone,#C77DFF,TRUE,pinuYun
+10,pinuYun-Zone10,pinuYun,Zone10,138,138,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,pinuYun
+18,pinuYun-Zone18,pinuYun,Zone18,10,10,Subalpine broadleaf deciduous scrubs,#9D4EDD,TRUE,pinuYun
+21,pinuYun-Zone21,pinuYun,Zone21,271,271,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,pinuYun
+28,pinuYun-Zone28,pinuYun,Zone28,33,33,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,pinuYun
+30,pinuYun-Zone30,pinuYun,Zone30,59235,59235,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,pinuYun
+39,pinuYun-Zone39,pinuYun,Zone39,138,138,Sclerophyllous broadleaf evergreen forests in subtropical zone,#118AB2,TRUE,pinuYun
+40,pinuYun-Zone40,pinuYun,Zone40,940,940,Subtropical and tropical grasslands,#AACC00,TRUE,pinuYun
+44,pinuYun-Zone44,pinuYun,Zone44,781,781,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,pinuYun
+45,pinuYun-Zone45,pinuYun,Zone45,16,16,Subalpine needleleaf evergreen scrubs,#7209B7,TRUE,pinuYun
+46,pinuYun-Zone46,pinuYun,Zone46,160,160,Subalpine sclerophyllous broadleaf evergreen scrubs,#B5179E,TRUE,pinuYun
+47,pinuYun-Zone47,pinuYun,Zone47,1222,1222,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,pinuYun
+49,pinuYun-Zone49,pinuYun,Zone49,113,113,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,pinuYun
+50,pinuYun-Zone50,pinuYun,Zone50,14,14,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,#FF006E,TRUE,pinuYun
+10,chamFor-Zone10,chamFor,Zone10,27,27,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,chamFor
+21,chamFor-Zone21,chamFor,Zone21,36,36,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,chamFor
+26,chamFor-Zone26,chamFor,Zone26,10,10,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,chamFor
+30,chamFor-Zone30,chamFor,Zone30,10,10,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,chamFor
+34,chamFor-Zone34,chamFor,Zone34,32,32,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,chamFor
+49,chamFor-Zone49,chamFor,Zone49,45,45,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,chamFor
+53,chamFor-Zone53,chamFor,Zone53,17,17,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,chamFor
+10,cyclLon-Zone10,cyclLon,Zone10,25,25,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,cyclLon
+21,cyclLon-Zone21,cyclLon,Zone21,73,73,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,cyclLon
+26,cyclLon-Zone26,cyclLon,Zone26,17,17,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,cyclLon
+34,cyclLon-Zone34,cyclLon,Zone34,26,26,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,cyclLon
+49,cyclLon-Zone49,cyclLon,Zone49,319,319,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,cyclLon
+53,cyclLon-Zone53,cyclLon,Zone53,29,29,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,cyclLon
