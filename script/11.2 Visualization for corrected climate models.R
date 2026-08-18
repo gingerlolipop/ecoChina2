@@ -12,7 +12,7 @@
 # Main outputs:
 #   Figure 1    Climate/soil independent-test metrics (parallel dot-range plot)
 #   Figure 2    Normal-map reconstruction metrics
-#   Figure 3    Zone-level climate/soil F1, precision and sensitivity
+#   Figure 3    Zone-level climate/soil F1, precision and recall
 #   Figure 4    Major normal-map confusion Sankey
 #               + zone/category chord PDFs for all normal-map transitions
 #   Figure 5a-b Future assigned ecosystem maps, future only (SSP rows)
@@ -21,7 +21,7 @@
 #   Figure 8    Assigned-zone species suitable area
 #   Figure 9    Continuous dual-suitability species area
 #   Figure 10a  Population suitable area
-#   Figure 10b  Zone-level F1 bubble comparison incl. Multiclass RF
+#   Figure 10b  Zone-level macro metrics（balanced accuracy, recall, specificity, precision, F1, TSS comparison incl. Multiclass RF
 #   Figure 10c  Zone-colored zone-level F1 vs Multiclass RF bubble comparison
 #   Figure 11   Pixel-level ranking summaries
 #
@@ -887,13 +887,50 @@ model_zone_metrics <- model_zone_metrics[
     zone %in% model_zoneID
 ]
 
-model_zone_metrics_out <- copy(model_zone_metrics)
-if ("recall" %in% names(model_zone_metrics_out)) {
-  setnames(model_zone_metrics_out, "recall", "sensitivity")
+expected_assessment_grid <- CJ(
+  niche = c("climate", "soil"),
+  method = method_order,
+  zone = model_zoneID,
+  unique = TRUE
+)
+
+observed_assessment_grid <- unique(
+  model_zone_metrics[, .(niche, method, zone)]
+)
+
+missing_assessment_rows <- fsetdiff(
+  expected_assessment_grid,
+  observed_assessment_grid
+)
+
+duplicated_assessment_rows <- model_zone_metrics[
+  ,
+  .N,
+  by = .(niche, method, zone)
+][N != 1L]
+
+nonfinite_auc_rows <- model_zone_metrics[!is.finite(auc)]
+
+if (
+  nrow(missing_assessment_rows) > 0L ||
+  nrow(duplicated_assessment_rows) > 0L ||
+  nrow(nonfinite_auc_rows) > 0L
+) {
+  if (nrow(missing_assessment_rows) > 0L) print(missing_assessment_rows)
+  if (nrow(duplicated_assessment_rows) > 0L) print(duplicated_assessment_rows)
+  if (nrow(nonfinite_auc_rows) > 0L) {
+    print(nonfinite_auc_rows[, .(niche, method, zone, n_test, auc)])
+  }
+  
+  stop(
+    "Incomplete final assessment. Re-run script 5.1 after applying the ",
+    "floating-point AUC fix; all 53 zones must have one finite AUC for each ",
+    "niche and method."
+  )
 }
 
 fwrite(
-  model_zone_metrics_out,
+  model_zone_metrics,
   file.path(
     table_dir,
     "main_text_climate_soil_zone_metrics.csv"
@@ -1032,22 +1069,6 @@ for (table_name in c(
   
   table_object <- get(table_name)
   
-  if (!("period" %in% names(table_object)) &&
-      "scenario" %in% names(table_object)) {
-    table_object[
-      ,
-      period := sub("SSP.*$", "", scenario)
-    ]
-  }
-  
-  if (!("ssp" %in% names(table_object)) &&
-      "scenario" %in% names(table_object)) {
-    table_object[
-      ,
-      ssp := sub("^.*(SSP[0-9]+)$", "\\1", scenario)
-    ]
-  }
-  
   if ("period" %in% names(table_object)) {
     table_object[
       ,
@@ -1064,473 +1085,6 @@ for (table_name in c(
   
   assign(table_name, table_object)
 }
-
-
-# 2b. Spatial result summaries ===================================================
-# These tables use area_km2 from script 6.1/6.21. Those areas were calculated
-# with terra::cellSize(..., unit = "km"), so unequal cell area by latitude is
-# already accounted for.
-
-zone_lookup <- unique(
-  palette[
-    zoneID %in% model_zoneID,
-    .(
-      zoneID,
-      zone_name = as.character(zone)
-    )
-  ],
-  by = "zoneID"
-)
-
-zone_lookup <- rbind(
-  zone_lookup,
-  data.table(
-    zoneID = novel_value,
-    zone_name = "Novel zone"
-  ),
-  fill = TRUE
-)
-
-
-# Source-zone contribution to future novel area ---------------------------------
-
-source_area <- transition[
-  normal_zone %in% model_zoneID,
-  .(
-    source_area_km2 = sum(area_km2, na.rm = TRUE)
-  ),
-  by = .(
-    method,
-    scenario,
-    period,
-    ssp,
-    normal_zone
-  )
-]
-
-source_novel <- transition[
-  normal_zone %in% model_zoneID &
-    future_zone == novel_value,
-  .(
-    novel_area_km2 = sum(area_km2, na.rm = TRUE)
-  ),
-  by = .(
-    method,
-    scenario,
-    period,
-    ssp,
-    normal_zone
-  )
-]
-
-source_novel_summary <- merge(
-  source_area,
-  source_novel,
-  by = c(
-    "method",
-    "scenario",
-    "period",
-    "ssp",
-    "normal_zone"
-  ),
-  all.x = TRUE,
-  sort = FALSE
-)
-
-source_novel_summary[
-  is.na(novel_area_km2),
-  novel_area_km2 := 0
-]
-
-source_novel_summary[
-  ,
-  novel_share_of_source := fifelse(
-    source_area_km2 > 0,
-    novel_area_km2 / source_area_km2,
-    NA_real_
-  )
-]
-
-source_novel_summary[
-  ,
-  rank_by_novel_area := frank(
-    -novel_area_km2,
-    ties.method = "min"
-  ),
-  by = .(
-    method,
-    scenario
-  )
-]
-
-source_novel_summary[
-  ,
-  rank_by_novel_share := NA_integer_
-]
-
-source_novel_summary[
-  is.finite(novel_share_of_source),
-  rank_by_novel_share := frank(
-    -novel_share_of_source,
-    ties.method = "min"
-  ),
-  by = .(
-    method,
-    scenario
-  )
-]
-
-source_novel_summary <- merge(
-  source_novel_summary,
-  zone_lookup[
-    zoneID %in% model_zoneID
-  ],
-  by.x = "normal_zone",
-  by.y = "zoneID",
-  all.x = TRUE,
-  sort = FALSE
-)
-
-setnames(
-  source_novel_summary,
-  "normal_zone",
-  "source_zone"
-)
-
-setorder(
-  source_novel_summary,
-  method,
-  ssp,
-  period,
-  rank_by_novel_area,
-  source_zone
-)
-
-fwrite(
-  source_novel_summary,
-  file.path(
-    table_dir,
-    "source_zone_to_novel_summary.csv"
-  )
-)
-
-
-# Zone-level spatial reorganization ---------------------------------------------
-# Normal and future areas are calculated from the same transition table, so each
-# comparison uses the same common-valid cells for a method x future scenario.
-
-normal_zone_area <- transition[
-  normal_zone %in% model_zoneID,
-  .(
-    normal_assigned_area_km2 = sum(
-      area_km2,
-      na.rm = TRUE
-    )
-  ),
-  by = .(
-    method,
-    scenario,
-    period,
-    ssp,
-    zoneID = normal_zone
-  )
-]
-
-future_zone_area <- transition[
-  future_zone %in% c(
-    model_zoneID,
-    novel_value
-  ),
-  .(
-    future_assigned_area_km2 = sum(
-      area_km2,
-      na.rm = TRUE
-    )
-  ),
-  by = .(
-    method,
-    scenario,
-    period,
-    ssp,
-    zoneID = future_zone
-  )
-]
-
-ecosystem_zone_change <- merge(
-  normal_zone_area,
-  future_zone_area,
-  by = c(
-    "method",
-    "scenario",
-    "period",
-    "ssp",
-    "zoneID"
-  ),
-  all = TRUE,
-  sort = FALSE
-)
-
-ecosystem_zone_change[
-  is.na(normal_assigned_area_km2),
-  normal_assigned_area_km2 := 0
-]
-
-ecosystem_zone_change[
-  is.na(future_assigned_area_km2),
-  future_assigned_area_km2 := 0
-]
-
-ecosystem_zone_change[
-  ,
-  `:=`(
-    area_change_km2 =
-      future_assigned_area_km2 -
-      normal_assigned_area_km2,
-    percent_change = fifelse(
-      normal_assigned_area_km2 > 0,
-      100 * (
-        future_assigned_area_km2 -
-          normal_assigned_area_km2
-      ) / normal_assigned_area_km2,
-      NA_real_
-    )
-  )
-]
-
-ecosystem_zone_change[
-  ,
-  change_direction := fifelse(
-    area_change_km2 > 0,
-    "gain",
-    fifelse(
-      area_change_km2 < 0,
-      "loss",
-      "stable"
-    )
-  )
-]
-
-ecosystem_zone_change[
-  ,
-  `:=`(
-    rank_gain = NA_integer_,
-    rank_loss = NA_integer_,
-    rank_absolute_change = frank(
-      -abs(area_change_km2),
-      ties.method = "min"
-    )
-  ),
-  by = .(
-    method,
-    scenario
-  )
-]
-
-ecosystem_zone_change[
-  area_change_km2 > 0,
-  rank_gain := frank(
-    -area_change_km2,
-    ties.method = "min"
-  ),
-  by = .(
-    method,
-    scenario
-  )
-]
-
-ecosystem_zone_change[
-  area_change_km2 < 0,
-  rank_loss := frank(
-    area_change_km2,
-    ties.method = "min"
-  ),
-  by = .(
-    method,
-    scenario
-  )
-]
-
-ecosystem_zone_change <- merge(
-  ecosystem_zone_change,
-  zone_lookup,
-  by = "zoneID",
-  all.x = TRUE,
-  sort = FALSE
-)
-
-ecosystem_zone_change[
-  ,
-  baseline_definition :=
-    "normal-period assigned map on the same common-valid cells"
-]
-
-setorder(
-  ecosystem_zone_change,
-  method,
-  ssp,
-  period,
-  rank_absolute_change,
-  zoneID
-)
-
-fwrite(
-  ecosystem_zone_change,
-  file.path(
-    table_dir,
-    "ecosystem_zone_change_summary.csv"
-  )
-)
-
-
-# Population-specific change within species -------------------------------------
-# The comparison is 2011-2040 to 2071-2100 within each SSP. It therefore shows
-# redistribution among ecological-provenance populations without treating the
-# first future period as a historical vegetation baseline.
-
-population_start <- dual_population_area[
-  as.character(period) == period_levels[1],
-  .(
-    Species,
-    PopulationID,
-    source_zone,
-    zone_name,
-    reference_abundance,
-    method,
-    ssp,
-    start_period = as.character(period),
-    start_suitable_area_km2 = suitable_area_km2,
-    start_weighted_area_km2 =
-      suitability_weighted_area_km2,
-    start_mean_dual_suitability =
-      mean_dual_suitability,
-    start_max_dual_suitability =
-      max_dual_suitability
-  )
-]
-
-population_end <- dual_population_area[
-  as.character(period) == period_levels[3],
-  .(
-    Species,
-    PopulationID,
-    source_zone,
-    method,
-    ssp,
-    end_period = as.character(period),
-    end_suitable_area_km2 = suitable_area_km2,
-    end_weighted_area_km2 =
-      suitability_weighted_area_km2,
-    end_mean_dual_suitability =
-      mean_dual_suitability,
-    end_max_dual_suitability =
-      max_dual_suitability
-  )
-]
-
-population_change_summary <- merge(
-  population_start,
-  population_end,
-  by = c(
-    "Species",
-    "PopulationID",
-    "source_zone",
-    "method",
-    "ssp"
-  ),
-  all = FALSE,
-  sort = FALSE
-)
-
-population_change_summary[
-  ,
-  `:=`(
-    suitable_area_change_km2 =
-      end_suitable_area_km2 -
-      start_suitable_area_km2,
-    suitable_area_percent_change = fifelse(
-      start_suitable_area_km2 > 0,
-      100 * (
-        end_suitable_area_km2 -
-          start_suitable_area_km2
-      ) / start_suitable_area_km2,
-      NA_real_
-    ),
-    weighted_area_change_km2 =
-      end_weighted_area_km2 -
-      start_weighted_area_km2,
-    mean_dual_suitability_change =
-      end_mean_dual_suitability -
-      start_mean_dual_suitability
-  )
-]
-
-population_change_summary[
-  ,
-  `:=`(
-    within_species_gain_rank = NA_integer_,
-    within_species_loss_rank = NA_integer_,
-    within_species_absolute_change_rank = frank(
-      -abs(suitable_area_change_km2),
-      ties.method = "min"
-    )
-  ),
-  by = .(
-    Species,
-    method,
-    ssp
-  )
-]
-
-population_change_summary[
-  suitable_area_change_km2 > 0,
-  within_species_gain_rank := frank(
-    -suitable_area_change_km2,
-    ties.method = "min"
-  ),
-  by = .(
-    Species,
-    method,
-    ssp
-  )
-]
-
-population_change_summary[
-  suitable_area_change_km2 < 0,
-  within_species_loss_rank := frank(
-    suitable_area_change_km2,
-    ties.method = "min"
-  ),
-  by = .(
-    Species,
-    method,
-    ssp
-  )
-]
-
-setorder(
-  population_change_summary,
-  Species,
-  method,
-  ssp,
-  within_species_absolute_change_rank,
-  source_zone
-)
-
-fwrite(
-  population_change_summary,
-  file.path(
-    table_dir,
-    "population_change_summary.csv"
-  )
-)
-
-cat(
-  "\n[SPATIAL RESULT TABLES SAVED]\n",
-  "  source_zone_to_novel_summary.csv\n",
-  "  ecosystem_zone_change_summary.csv\n",
-  "  population_change_summary.csv\n",
-  sep = ""
-)
 
 
 # 3. Climate and soil assessment ================================================
@@ -1550,7 +1104,7 @@ metric_labels <- c(
   f1 = "F1",
   auc = "AUC",
   precision = "Precision",
-  recall = "Sensitivity",
+  recall = "Recall",
   specificity = "Specificity",
   tss = "TSS"
 )
@@ -1607,14 +1161,8 @@ performance_summary[
   )
 ]
 
-performance_summary_out <- copy(performance_summary)
-performance_summary_out[
-  metric == "recall",
-  metric := "sensitivity"
-]
-
 fwrite(
-  performance_summary_out,
+  performance_summary,
   file.path(
     table_dir,
     "Figure_var_1_climate_soil_metric_summary.csv"
@@ -1762,7 +1310,7 @@ map_metric_columns <- c(
 map_metric_labels <- c(
   f1 = "F1",
   precision = "Precision",
-  recall = "Sensitivity",
+  recall = "Recall",
   tss = "TSS"
 )
 
@@ -1916,7 +1464,7 @@ zone_metric_long[
   `:=`(
     metric_label = factor(
       metric_labels[metric],
-      levels = c("F1", "Precision", "Sensitivity", "TSS")
+      levels = c("F1", "Precision", "Recall", "TSS")
     ),
     niche_label = factor(
       niche,
@@ -3166,42 +2714,16 @@ reference_overall_metrics <- merge(
   sort = FALSE
 )
 
-reference_overall_metrics_out <- copy(reference_overall_metrics)
-
-rename_10b <- c(
-  macro_recall = "macro_sensitivity",
-  macro_recall_se = "macro_sensitivity_se"
-)
-
-for (old_name in names(rename_10b)) {
-  if (old_name %in% names(reference_overall_metrics_out)) {
-    setnames(
-      reference_overall_metrics_out,
-      old_name,
-      rename_10b[[old_name]]
-    )
-  }
-}
-
 fwrite(
-  reference_overall_metrics_out,
+  reference_overall_metrics,
   file.path(
     table_dir,
     "Figure_var_10b_reference_map_overall_metrics.csv"
   )
 )
 
-reference_zone_metrics_common_out <- copy(reference_zone_metrics_common)
-if ("recall" %in% names(reference_zone_metrics_common_out)) {
-  setnames(
-    reference_zone_metrics_common_out,
-    "recall",
-    "sensitivity"
-  )
-}
-
 fwrite(
-  reference_zone_metrics_common_out,
+  reference_zone_metrics_common,
   file.path(
     table_dir,
     "Figure_var_10b_reference_map_zone_metrics_common_mask.csv"
@@ -3214,7 +2736,7 @@ metric_labels_10b <- c(
   exact_zone_accuracy = "Exact-zone accuracy",
   broad_category_accuracy = "Broad-category accuracy",
   macro_balanced_accuracy = "Macro balanced accuracy",
-  macro_recall = "Macro sensitivity",
+  macro_recall = "Macro recall",
   macro_specificity = "Macro specificity",
   macro_precision = "Macro precision",
   macro_f1 = "Macro F1",
@@ -3857,20 +3379,8 @@ for (method in method_order) {
 
 # 13. Save figure-source tables ==================================================
 
-performance_long_out <- copy(performance_long)
-performance_long_out[
-  metric == "recall",
-  metric := "sensitivity"
-]
-
-map_zone_long_out <- copy(map_zone_long)
-map_zone_long_out[
-  metric == "recall",
-  metric := "sensitivity"
-]
-
 fwrite(
-  performance_long_out,
+  performance_long,
   file.path(
     table_dir,
     "figure_climate_soil_zone_metrics_long.csv"
@@ -3878,7 +3388,7 @@ fwrite(
 )
 
 fwrite(
-  map_zone_long_out,
+  map_zone_long,
   file.path(
     table_dir,
     "figure_normal_map_assessment_data_var.csv"

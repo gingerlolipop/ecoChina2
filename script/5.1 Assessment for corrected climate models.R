@@ -76,8 +76,10 @@ mean_na <- function(x) {
 }
 
 auc_rank <- function(y, probability) {
-  n1 <- sum(y == 1)
-  n0 <- sum(y == 0)
+  # Force floating-point arithmetic.  On large test sets, integer n1 * n0
+  # can exceed R's 32-bit integer range and silently turn the AUC into NA.
+  n1 <- as.numeric(sum(y == 1))
+  n0 <- as.numeric(sum(y == 0))
   
   if (n1 == 0 || n0 == 0) {
     return(NA_real_)
@@ -333,6 +335,7 @@ model_summary <- model_zone_metrics[
   ,
   .(
     zones_assessed = .N,
+    zones_with_auc = sum(is.finite(auc)),
     mean_n_variables = mean_na(n_variables),
     mean_accuracy = mean_na(accuracy),
     mean_balanced_accuracy = mean_na(balanced_accuracy),
@@ -349,6 +352,39 @@ model_summary <- model_zone_metrics[
     method_label
   )
 ]
+
+# The final workflow must contain one finite AUC for every modeled ecotype,
+# model and niche.  This catches missing model files and any future regression
+# of the integer-overflow bug before manuscript tables are regenerated.
+assessment_audit <- model_zone_metrics[
+  ,
+  .(
+    zones_assessed = .N,
+    zones_with_finite_auc = sum(is.finite(auc)),
+    expected_zones = length(zoneID)
+  ),
+  by = .(niche, method, method_label)
+]
+
+fwrite(
+  assessment_audit,
+  file.path(assessment_dir, "model_test_completeness_audit_var.csv")
+)
+
+incomplete <- assessment_audit[
+  zones_assessed != expected_zones |
+    zones_with_finite_auc != expected_zones
+]
+
+if (nrow(incomplete) > 0L) {
+  print(incomplete)
+  stop(
+    "Final model assessment is incomplete: every niche-method combination ",
+    "must have one finite AUC for each of the ",
+    length(zoneID),
+    " modeled zones."
+  )
+}
 
 setorder(model_zone_metrics, niche, method, zone)
 setorder(model_summary, niche, method)
