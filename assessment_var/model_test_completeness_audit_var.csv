@@ -1,0 +1,5 @@
+niche,method,method_label,zones_assessed,zones_with_finite_auc,expected_zones
+climate,rf_var,Plain RF,53,53,53
+soil,rf_var,Plain RF,53,53,53
+climate,mf_var,Plain MF RF,53,53,53
+soil,mf_var,Plain MF RF,53,53,53
