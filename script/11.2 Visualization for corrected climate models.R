@@ -1050,6 +1050,442 @@ for (table_name in c(
 }
 
 
+# 2b. Spatial result summaries ===================================================
+# These tables use area_km2 from script 6.1/6.21. Those areas were calculated
+# with terra::cellSize(..., unit = "km"), so unequal cell area by latitude is
+# already accounted for.
+
+zone_lookup <- unique(
+  palette[
+    zoneID %in% model_zoneID,
+    .(
+      zoneID,
+      zone_name = as.character(zone)
+    )
+  ],
+  by = "zoneID"
+)
+
+zone_lookup <- rbind(
+  zone_lookup,
+  data.table(
+    zoneID = novel_value,
+    zone_name = "Novel zone"
+  ),
+  fill = TRUE
+)
+
+
+# Source-zone contribution to future novel area ---------------------------------
+
+source_area <- transition[
+  normal_zone %in% model_zoneID,
+  .(
+    source_area_km2 = sum(area_km2, na.rm = TRUE)
+  ),
+  by = .(
+    method,
+    scenario,
+    period,
+    ssp,
+    normal_zone
+  )
+]
+
+source_novel <- transition[
+  normal_zone %in% model_zoneID &
+    future_zone == novel_value,
+  .(
+    novel_area_km2 = sum(area_km2, na.rm = TRUE)
+  ),
+  by = .(
+    method,
+    scenario,
+    period,
+    ssp,
+    normal_zone
+  )
+]
+
+source_novel_summary <- merge(
+  source_area,
+  source_novel,
+  by = c(
+    "method",
+    "scenario",
+    "period",
+    "ssp",
+    "normal_zone"
+  ),
+  all.x = TRUE,
+  sort = FALSE
+)
+
+source_novel_summary[
+  is.na(novel_area_km2),
+  novel_area_km2 := 0
+]
+
+source_novel_summary[
+  ,
+  novel_share_of_source := fifelse(
+    source_area_km2 > 0,
+    novel_area_km2 / source_area_km2,
+    NA_real_
+  )
+]
+
+source_novel_summary[
+  ,
+  `:=`(
+    rank_by_novel_area = frank(
+      -novel_area_km2,
+      ties.method = "min"
+    ),
+    rank_by_novel_share = frank(
+      -novel_share_of_source,
+      ties.method = "min",
+      na.last = "keep"
+    )
+  ),
+  by = .(
+    method,
+    scenario
+  )
+]
+
+source_novel_summary <- merge(
+  source_novel_summary,
+  zone_lookup[
+    zoneID %in% model_zoneID
+  ],
+  by.x = "normal_zone",
+  by.y = "zoneID",
+  all.x = TRUE,
+  sort = FALSE
+)
+
+setnames(
+  source_novel_summary,
+  "normal_zone",
+  "source_zone"
+)
+
+setorder(
+  source_novel_summary,
+  method,
+  ssp,
+  period,
+  rank_by_novel_area,
+  source_zone
+)
+
+fwrite(
+  source_novel_summary,
+  file.path(
+    table_dir,
+    "source_zone_to_novel_summary.csv"
+  )
+)
+
+
+# Zone-level spatial reorganization ---------------------------------------------
+# Normal and future areas are calculated from the same transition table, so each
+# comparison uses the same common-valid cells for a method x future scenario.
+
+normal_zone_area <- transition[
+  normal_zone %in% model_zoneID,
+  .(
+    normal_assigned_area_km2 = sum(
+      area_km2,
+      na.rm = TRUE
+    )
+  ),
+  by = .(
+    method,
+    scenario,
+    period,
+    ssp,
+    zoneID = normal_zone
+  )
+]
+
+future_zone_area <- transition[
+  future_zone %in% c(
+    model_zoneID,
+    novel_value
+  ),
+  .(
+    future_assigned_area_km2 = sum(
+      area_km2,
+      na.rm = TRUE
+    )
+  ),
+  by = .(
+    method,
+    scenario,
+    period,
+    ssp,
+    zoneID = future_zone
+  )
+]
+
+ecosystem_zone_change <- merge(
+  normal_zone_area,
+  future_zone_area,
+  by = c(
+    "method",
+    "scenario",
+    "period",
+    "ssp",
+    "zoneID"
+  ),
+  all = TRUE,
+  sort = FALSE
+)
+
+ecosystem_zone_change[
+  is.na(normal_assigned_area_km2),
+  normal_assigned_area_km2 := 0
+]
+
+ecosystem_zone_change[
+  is.na(future_assigned_area_km2),
+  future_assigned_area_km2 := 0
+]
+
+ecosystem_zone_change[
+  ,
+  `:=`(
+    area_change_km2 =
+      future_assigned_area_km2 -
+      normal_assigned_area_km2,
+    percent_change = fifelse(
+      normal_assigned_area_km2 > 0,
+      100 * (
+        future_assigned_area_km2 -
+          normal_assigned_area_km2
+      ) / normal_assigned_area_km2,
+      NA_real_
+    )
+  )
+]
+
+ecosystem_zone_change[
+  ,
+  change_direction := fifelse(
+    area_change_km2 > 0,
+    "gain",
+    fifelse(
+      area_change_km2 < 0,
+      "loss",
+      "stable"
+    )
+  )
+]
+
+ecosystem_zone_change[
+  ,
+  `:=`(
+    rank_gain = fifelse(
+      area_change_km2 > 0,
+      frank(
+        -area_change_km2,
+        ties.method = "min"
+      ),
+      NA_real_
+    ),
+    rank_loss = fifelse(
+      area_change_km2 < 0,
+      frank(
+        area_change_km2,
+        ties.method = "min"
+      ),
+      NA_real_
+    ),
+    rank_absolute_change = frank(
+      -abs(area_change_km2),
+      ties.method = "min"
+    )
+  ),
+  by = .(
+    method,
+    scenario
+  )
+]
+
+ecosystem_zone_change <- merge(
+  ecosystem_zone_change,
+  zone_lookup,
+  by = "zoneID",
+  all.x = TRUE,
+  sort = FALSE
+)
+
+ecosystem_zone_change[
+  ,
+  baseline_definition :=
+    "normal-period assigned map on the same common-valid cells"
+]
+
+setorder(
+  ecosystem_zone_change,
+  method,
+  ssp,
+  period,
+  rank_absolute_change,
+  zoneID
+)
+
+fwrite(
+  ecosystem_zone_change,
+  file.path(
+    table_dir,
+    "ecosystem_zone_change_summary.csv"
+  )
+)
+
+
+# Population-specific change within species -------------------------------------
+# The comparison is 2011-2040 to 2071-2100 within each SSP. It therefore shows
+# redistribution among ecological-provenance populations without treating the
+# first future period as a historical vegetation baseline.
+
+population_start <- dual_population_area[
+  as.character(period) == period_levels[1],
+  .(
+    Species,
+    PopulationID,
+    source_zone,
+    zone_name,
+    reference_abundance,
+    method,
+    ssp,
+    start_period = as.character(period),
+    start_suitable_area_km2 = suitable_area_km2,
+    start_weighted_area_km2 =
+      suitability_weighted_area_km2,
+    start_mean_dual_suitability =
+      mean_dual_suitability,
+    start_max_dual_suitability =
+      max_dual_suitability
+  )
+]
+
+population_end <- dual_population_area[
+  as.character(period) == period_levels[3],
+  .(
+    Species,
+    PopulationID,
+    source_zone,
+    method,
+    ssp,
+    end_period = as.character(period),
+    end_suitable_area_km2 = suitable_area_km2,
+    end_weighted_area_km2 =
+      suitability_weighted_area_km2,
+    end_mean_dual_suitability =
+      mean_dual_suitability,
+    end_max_dual_suitability =
+      max_dual_suitability
+  )
+]
+
+population_change_summary <- merge(
+  population_start,
+  population_end,
+  by = c(
+    "Species",
+    "PopulationID",
+    "source_zone",
+    "method",
+    "ssp"
+  ),
+  all = FALSE,
+  sort = FALSE
+)
+
+population_change_summary[
+  ,
+  `:=`(
+    suitable_area_change_km2 =
+      end_suitable_area_km2 -
+      start_suitable_area_km2,
+    suitable_area_percent_change = fifelse(
+      start_suitable_area_km2 > 0,
+      100 * (
+        end_suitable_area_km2 -
+          start_suitable_area_km2
+      ) / start_suitable_area_km2,
+      NA_real_
+    ),
+    weighted_area_change_km2 =
+      end_weighted_area_km2 -
+      start_weighted_area_km2,
+    mean_dual_suitability_change =
+      end_mean_dual_suitability -
+      start_mean_dual_suitability
+  )
+]
+
+population_change_summary[
+  ,
+  `:=`(
+    within_species_gain_rank = fifelse(
+      suitable_area_change_km2 > 0,
+      frank(
+        -suitable_area_change_km2,
+        ties.method = "min"
+      ),
+      NA_real_
+    ),
+    within_species_loss_rank = fifelse(
+      suitable_area_change_km2 < 0,
+      frank(
+        suitable_area_change_km2,
+        ties.method = "min"
+      ),
+      NA_real_
+    ),
+    within_species_absolute_change_rank =
+      frank(
+        -abs(suitable_area_change_km2),
+        ties.method = "min"
+      )
+  ),
+  by = .(
+    Species,
+    method,
+    ssp
+  )
+]
+
+setorder(
+  population_change_summary,
+  Species,
+  method,
+  ssp,
+  within_species_absolute_change_rank,
+  source_zone
+)
+
+fwrite(
+  population_change_summary,
+  file.path(
+    table_dir,
+    "population_change_summary.csv"
+  )
+)
+
+cat(
+  "\n[SPATIAL RESULT TABLES SAVED]\n",
+  "  source_zone_to_novel_summary.csv\n",
+  "  ecosystem_zone_change_summary.csv\n",
+  "  population_change_summary.csv\n",
+  sep = ""
+)
+
+
 # 3. Climate and soil assessment ================================================
 
 metric_columns <- c(
