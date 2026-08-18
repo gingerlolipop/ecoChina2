@@ -12,7 +12,7 @@
 # Main outputs:
 #   Figure 1    Climate/soil independent-test metrics (parallel dot-range plot)
 #   Figure 2    Normal-map reconstruction metrics
-#   Figure 3    Zone-level climate/soil F1, precision and recall
+#   Figure 3    Zone-level climate/soil F1, precision and sensitivity
 #   Figure 4    Major normal-map confusion Sankey
 #               + zone/category chord PDFs for all normal-map transitions
 #   Figure 5a-b Future assigned ecosystem maps, future only (SSP rows)
@@ -21,7 +21,7 @@
 #   Figure 8    Assigned-zone species suitable area
 #   Figure 9    Continuous dual-suitability species area
 #   Figure 10a  Population suitable area
-#   Figure 10b  Zone-level macro metrics（balanced accuracy, recall, specificity, precision, F1, TSS comparison incl. Multiclass RF
+#   Figure 10b  Zone-level F1 bubble comparison incl. Multiclass RF
 #   Figure 10c  Zone-colored zone-level F1 vs Multiclass RF bubble comparison
 #   Figure 11   Pixel-level ranking summaries
 #
@@ -887,8 +887,13 @@ model_zone_metrics <- model_zone_metrics[
     zone %in% model_zoneID
 ]
 
+model_zone_metrics_out <- copy(model_zone_metrics)
+if ("recall" %in% names(model_zone_metrics_out)) {
+  setnames(model_zone_metrics_out, "recall", "sensitivity")
+}
+
 fwrite(
-  model_zone_metrics,
+  model_zone_metrics_out,
   file.path(
     table_dir,
     "main_text_climate_soil_zone_metrics.csv"
@@ -1062,7 +1067,7 @@ metric_labels <- c(
   f1 = "F1",
   auc = "AUC",
   precision = "Precision",
-  recall = "Recall",
+  recall = "Sensitivity",
   specificity = "Specificity",
   tss = "TSS"
 )
@@ -1119,8 +1124,14 @@ performance_summary[
   )
 ]
 
+performance_summary_out <- copy(performance_summary)
+performance_summary_out[
+  metric == "recall",
+  metric := "sensitivity"
+]
+
 fwrite(
-  performance_summary,
+  performance_summary_out,
   file.path(
     table_dir,
     "Figure_var_1_climate_soil_metric_summary.csv"
@@ -1268,7 +1279,7 @@ map_metric_columns <- c(
 map_metric_labels <- c(
   f1 = "F1",
   precision = "Precision",
-  recall = "Recall",
+  recall = "Sensitivity",
   tss = "TSS"
 )
 
@@ -1422,7 +1433,7 @@ zone_metric_long[
   `:=`(
     metric_label = factor(
       metric_labels[metric],
-      levels = c("F1", "Precision", "Recall", "TSS")
+      levels = c("F1", "Precision", "Sensitivity", "TSS")
     ),
     niche_label = factor(
       niche,
@@ -2672,16 +2683,42 @@ reference_overall_metrics <- merge(
   sort = FALSE
 )
 
+reference_overall_metrics_out <- copy(reference_overall_metrics)
+
+rename_10b <- c(
+  macro_recall = "macro_sensitivity",
+  macro_recall_se = "macro_sensitivity_se"
+)
+
+for (old_name in names(rename_10b)) {
+  if (old_name %in% names(reference_overall_metrics_out)) {
+    setnames(
+      reference_overall_metrics_out,
+      old_name,
+      rename_10b[[old_name]]
+    )
+  }
+}
+
 fwrite(
-  reference_overall_metrics,
+  reference_overall_metrics_out,
   file.path(
     table_dir,
     "Figure_var_10b_reference_map_overall_metrics.csv"
   )
 )
 
+reference_zone_metrics_common_out <- copy(reference_zone_metrics_common)
+if ("recall" %in% names(reference_zone_metrics_common_out)) {
+  setnames(
+    reference_zone_metrics_common_out,
+    "recall",
+    "sensitivity"
+  )
+}
+
 fwrite(
-  reference_zone_metrics_common,
+  reference_zone_metrics_common_out,
   file.path(
     table_dir,
     "Figure_var_10b_reference_map_zone_metrics_common_mask.csv"
@@ -2694,7 +2731,7 @@ metric_labels_10b <- c(
   exact_zone_accuracy = "Exact-zone accuracy",
   broad_category_accuracy = "Broad-category accuracy",
   macro_balanced_accuracy = "Macro balanced accuracy",
-  macro_recall = "Macro recall",
+  macro_recall = "Macro sensitivity",
   macro_specificity = "Macro specificity",
   macro_precision = "Macro precision",
   macro_f1 = "Macro F1",
@@ -3337,8 +3374,20 @@ for (method in method_order) {
 
 # 13. Save figure-source tables ==================================================
 
+performance_long_out <- copy(performance_long)
+performance_long_out[
+  metric == "recall",
+  metric := "sensitivity"
+]
+
+map_zone_long_out <- copy(map_zone_long)
+map_zone_long_out[
+  metric == "recall",
+  metric := "sensitivity"
+]
+
 fwrite(
-  performance_long,
+  performance_long_out,
   file.path(
     table_dir,
     "figure_climate_soil_zone_metrics_long.csv"
@@ -3346,7 +3395,7 @@ fwrite(
 )
 
 fwrite(
-  map_zone_long,
+  map_zone_long_out,
   file.path(
     table_dir,
     "figure_normal_map_assessment_data_var.csv"
