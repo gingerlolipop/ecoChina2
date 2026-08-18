@@ -1,2 +1,0 @@
-method,n_test,overall_accuracy,macro_balanced_accuracy,macro_recall,macro_specificity,macro_precision,macro_f1,macro_tss,macro_auc,oob_accuracy,ntree,mtry,samples_per_class_per_tree,n_predictors,n_climate_predictors,n_soil_predictors,candidate_predictors
-multiclass_rf,100793,0.702519024138581,0.855301069906838,0.716327318707,0.994274821106676,0.700992633523558,0.703932946668014,0.710602139813675,0.990163685007529,0.701199555100202,500,5,1098,30,20,10,84
