@@ -21,7 +21,7 @@
 #   Figure 8    Assigned-zone species suitable area
 #   Figure 9    Continuous dual-suitability species area
 #   Figure 10a  Population suitable area
-#   Figure 10b  Zone-level F1 bubble comparison incl. Multiclass RF
+#   Figure 10b  Zone-level macro metrics（balanced accuracy, recall, specificity, precision, F1, TSS comparison incl. Multiclass RF
 #   Figure 10c  Zone-colored zone-level F1 vs Multiclass RF bubble comparison
 #   Figure 11   Pixel-level ranking summaries
 #
@@ -54,9 +54,9 @@ reference_file <- file.path(base_dir, "raster/ecosys_ori.tif")
 palette_file <- file.path(base_dir, "color_palette_China.csv")
 soil_model_root <- file.path(base_dir, "rf_soil")
 soil_test_file <- file.path(base_dir, "results", "soil_test_data.csv")
-climate_zone_metric_file <- file.path(
+model_zone_metric_file <- file.path(
   assessment_dir,
-  "climate_test_zone_metrics_var.csv"
+  "model_test_zone_metrics_var.csv"
 )
 
 output_root <- file.path(base_dir, "visualization var threshold0.4")
@@ -65,13 +65,15 @@ table_dir <- file.path(output_root, "tables")
 chord_dir <- file.path(figure_dir, "chord diagrams")
 assigned_species_page_dir <- file.path(figure_dir, "assigned species maps")
 dual_species_page_dir <- file.path(figure_dir, "dual species maps")
+population_detail_dir <- file.path(figure_dir, "population detail")
 
 for (dir_name in c(
   figure_dir,
   table_dir,
   chord_dir,
   assigned_species_page_dir,
-  dual_species_page_dir
+  dual_species_page_dir,
+  population_detail_dir
 )) {
   dir.create(dir_name, recursive = TRUE, showWarnings = FALSE)
 }
@@ -875,40 +877,13 @@ assess_selected_soil_models <- function() {
 
 # 2. Read current main-text source data ==========================================
 
-climate_zone_metrics <- fread(
-  require_file(climate_zone_metric_file)
-)
-
-climate_zone_metrics <- climate_zone_metrics[
-  method %in% method_order
-]
-
-climate_zone_metrics[
-  ,
-  niche := "climate"
-]
-
-soil_zone_metrics <- assess_selected_soil_models()
-
-fwrite(
-  soil_zone_metrics,
-  file.path(
-    table_dir,
-    "soil_test_zone_metrics_selected_variables.csv"
-  )
-)
-
-model_zone_metrics <- rbindlist(
-  list(
-    climate_zone_metrics,
-    soil_zone_metrics
-  ),
-  fill = TRUE,
-  use.names = TRUE
+model_zone_metrics <- fread(
+  require_file(model_zone_metric_file)
 )
 
 model_zone_metrics <- model_zone_metrics[
   method %in% method_order &
+    niche %in% c("climate", "soil") &
     zone %in% model_zoneID
 ]
 
@@ -1078,7 +1053,8 @@ metric_columns <- c(
   "auc",
   "precision",
   "recall",
-  "specificity"
+  "specificity",
+  "tss"
 )
 
 metric_labels <- c(
@@ -1087,7 +1063,8 @@ metric_labels <- c(
   auc = "AUC",
   precision = "Precision",
   recall = "Recall",
-  specificity = "Specificity"
+  specificity = "Specificity",
+  tss = "TSS"
 )
 
 performance_long <- melt(
@@ -1284,13 +1261,15 @@ normal_map_zone_metrics <- fread(
 map_metric_columns <- c(
   "f1",
   "precision",
-  "recall"
+  "recall",
+  "tss"
 )
 
 map_metric_labels <- c(
   f1 = "F1",
   precision = "Precision",
-  recall = "Recall"
+  recall = "Recall",
+  tss = "TSS"
 )
 
 map_zone_long <- melt(
@@ -1433,7 +1412,8 @@ zone_metric_long <- performance_long[
   metric %in% c(
     "f1",
     "precision",
-    "recall"
+    "recall",
+    "tss"
   )
 ]
 
@@ -1442,7 +1422,7 @@ zone_metric_long[
   `:=`(
     metric_label = factor(
       metric_labels[metric],
-      levels = c("F1", "Precision", "Recall")
+      levels = c("F1", "Precision", "Recall", "TSS")
     ),
     niche_label = factor(
       niche,
@@ -2018,126 +1998,896 @@ save_plot(
 
 dual_population_area[
   ,
-  period := factor(sub("SSP.*$", "", scenario), levels = period_levels)
+  period := factor(
+    sub("SSP.*$", "", scenario),
+    levels = period_levels
+  )
 ]
 
 dual_population_area[
   ,
-  ssp := factor(sub("^.*(SSP[0-9]+)$", "\\1", scenario), levels = ssp_levels)
+  ssp := factor(
+    sub("^.*(SSP[0-9]+)$", "\\1", scenario),
+    levels = ssp_levels
+  )
 ]
 
 dual_population_area[
   ,
-  `:=`(
-    method_label = factor(
-      method_labels[method],
-      levels = method_labels[method_order]
+  method_label := factor(
+    method_labels[method],
+    levels = method_labels[method_order]
+  )
+]
+
+# Detailed population visualization: one species per page/file.
+# Population labels retain source-zone information because each population
+# represents a distinct evolutionary environment.
+population_detail <- copy(dual_population_area)
+
+population_detail[
+  ,
+  population_label := ifelse(
+    !is.na(zone_name) & nzchar(zone_name),
+    paste0("P", PopulationID, " | Z", source_zone, " ", zone_name),
+    paste0("P", PopulationID, " | Z", source_zone)
+  )
+]
+
+fwrite(
+  population_detail,
+  file.path(
+    table_dir,
+    "Figure_var_10a_population_detail_long.csv"
+  )
+)
+
+population_species <- sort(unique(population_detail$Species))
+
+population_index <- list()
+
+for (species_name in population_species) {
+  
+  species_dt <- population_detail[
+    Species == species_name
+  ]
+  
+  population_order <- species_dt[
+    ,
+    .(
+      source_zone = first(source_zone)
     ),
-    population_factor = factor(
-      paste0("P", PopulationID),
-      levels = rev(sort(unique(paste0("P", PopulationID))))
+    by = .(
+      PopulationID,
+      population_label
     )
+  ][
+    order(source_zone, PopulationID)
+  ]$population_label
+  
+  species_dt[
+    ,
+    population_label := factor(
+      population_label,
+      levels = rev(population_order)
+    )
+  ]
+  
+  # 10a-1: absolute suitable area for every population.
+  p_area <- ggplot(
+    species_dt,
+    aes(
+      x = suitable_area_km2,
+      y = population_label
+    )
+  ) +
+    geom_point(
+      shape = 16,
+      size = 1.9,
+      color = "black"
+    ) +
+    facet_grid(
+      method_label + ssp ~ period,
+      scales = "free_x"
+    ) +
+    labs(
+      x = expression("Suitable area (km"^2*")"),
+      y = "Population and source zone",
+      title = paste0(
+        species_name,
+        ": population-level future niche area"
+      ),
+      subtitle = paste(
+        "Each point is one source population.",
+        "Rows compare Plain RF vs Plain MF RF; within each row, SSP245 and SSP585 are separated."
+      )
+    ) +
+    theme_bw(base_size = 9.6) +
+    theme(
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_blank(),
+      panel.grid.major.x = element_line(color = "grey90", linewidth = 0.3),
+      strip.text = element_text(face = "bold"),
+      axis.text.y = element_text(size = 6.8),
+      axis.text.x = element_text(size = 8.2),
+      panel.spacing = grid::unit(0.75, "lines"),
+      legend.position = "none",
+      plot.subtitle = element_text(size = 9)
+    )
+  
+  area_file <- file.path(
+    population_detail_dir,
+    paste0(
+      "Figure_var_10a_population_area_",
+      safe_name(species_name),
+      ".png"
+    )
+  )
+  
+  save_plot(
+    p_area,
+    area_file,
+    14.2,
+    max(5.6, 2.8 + 0.30 * length(population_order))
+  )
+  
+  # 10a-2: mean dual suitability for the same populations.
+  p_suit <- ggplot(
+    species_dt,
+    aes(
+      x = mean_dual_suitability,
+      y = population_label
+    )
+  ) +
+    geom_point(
+      shape = 16,
+      size = 1.9,
+      color = "black"
+    ) +
+    facet_grid(
+      method_label + ssp ~ period,
+      scales = "fixed"
+    ) +
+    scale_x_continuous(
+      limits = c(0, 1),
+      breaks = seq(0, 1, by = 0.2)
+    ) +
+    labs(
+      x = "Mean dual suitability",
+      y = "Population and source zone",
+      title = paste0(
+        species_name,
+        ": population-level mean dual suitability"
+      ),
+      subtitle = paste(
+        "Each point is one source population.",
+        "This figure emphasizes differences among evolutionary source environments."
+      )
+    ) +
+    theme_bw(base_size = 9.6) +
+    theme(
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_blank(),
+      panel.grid.major.x = element_line(color = "grey90", linewidth = 0.3),
+      strip.text = element_text(face = "bold"),
+      axis.text.y = element_text(size = 6.8),
+      axis.text.x = element_text(size = 8.2),
+      panel.spacing = grid::unit(0.75, "lines"),
+      legend.position = "none",
+      plot.subtitle = element_text(size = 9)
+    )
+  
+  suit_file <- file.path(
+    population_detail_dir,
+    paste0(
+      "Figure_var_10a_population_mean_suitability_",
+      safe_name(species_name),
+      ".png"
+    )
+  )
+  
+  save_plot(
+    p_suit,
+    suit_file,
+    14.2,
+    max(5.6, 2.8 + 0.30 * length(population_order))
+  )
+  
+  population_index[[length(population_index) + 1L]] <- data.table(
+    Species = species_name,
+    n_populations = length(population_order),
+    area_figure = area_file,
+    mean_suitability_figure = suit_file
+  )
+}
+
+population_index <- rbindlist(
+  population_index,
+  fill = TRUE
+)
+
+fwrite(
+  population_index,
+  file.path(
+    table_dir,
+    "Figure_var_10a_population_detail_index.csv"
+  )
+)
+
+# Cross-species population comparison after the within-species detail views.
+population_species_summary <- population_detail[
+  ,
+  .(
+    n_populations = uniqueN(PopulationID),
+    median_suitable_area_km2 = median(suitable_area_km2, na.rm = TRUE),
+    q25_suitable_area_km2 = quantile(suitable_area_km2, 0.25, na.rm = TRUE, names = FALSE),
+    q75_suitable_area_km2 = quantile(suitable_area_km2, 0.75, na.rm = TRUE, names = FALSE)
   ),
-  by = Species
+  by = .(
+    Species,
+    method_label,
+    period,
+    ssp
+  )
 ]
 
-figure_10a <- ggplot(
-  dual_population_area,
+figure_10a_summary <- ggplot(
+  population_species_summary,
   aes(
-    x = period,
-    y = population_factor,
-    fill = suitable_area_km2
+    x = median_suitable_area_km2,
+    y = reorder(Species, median_suitable_area_km2),
+    shape = method_label
   )
 ) +
-  geom_tile(color = "white", linewidth = 0.15) +
+  geom_errorbarh(
+    aes(
+      xmin = q25_suitable_area_km2,
+      xmax = q75_suitable_area_km2
+    ),
+    height = 0.18,
+    position = position_dodge(width = 0.5),
+    linewidth = 0.5,
+    color = "grey45"
+  ) +
+  geom_point(
+    position = position_dodge(width = 0.5),
+    size = 2.2,
+    fill = "white",
+    color = "black",
+    stroke = 0.55
+  ) +
   facet_grid(
-    method_label + ssp ~ Species,
-    scales = "free_y",
-    space = "free_y"
+    ssp ~ period,
+    scales = "free_x"
   ) +
-  scale_fill_gradient(
-    low = "grey95",
-    high = "grey20"
-  ) +
+  scale_shape_manual(values = c(21, 24)) +
   labs(
-    x = "Future period",
-    y = "Population",
-    fill = expression("Area (km"^2*")"),
-    title = "Population-level niches from source-zone dual suitability",
-    subtitle = "Each cell is one source population. Darker cells indicate larger niche area."
+    x = expression("Median population suitable area (km"^2*")"),
+    y = "Species",
+    shape = NULL,
+    title = "Across-species comparison of population niche area",
+    subtitle = "Points are species medians across populations; horizontal bars show the interquartile range."
   ) +
-  theme_bw(base_size = 8.2) +
+  theme_bw(base_size = 9.2) +
   theme(
-    legend.position = "right",
-    panel.grid = element_blank(),
-    strip.text.y = element_text(angle = 0),
-    strip.text.x = element_text(face = "italic", size = 9),
-    axis.text.y = element_text(size = 5.8),
-    panel.spacing = grid::unit(0.55, "lines")
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.spacing = grid::unit(0.9, "lines")
   )
 
 save_plot(
-  figure_10a,
-  file.path(figure_dir, "Figure_var_10a_dual_population_area.png"),
-  13.5,
-  9.5
+  figure_10a_summary,
+  file.path(
+    figure_dir,
+    "Figure_var_10a_population_species_summary.png"
+  ),
+  12.0,
+  7.5
 )
 
 normal_map_zone_metrics <- fread(
   require_file(file.path(assessment_dir, "normal_map_zone_metrics_var.csv"))
 )
 
-bubble_dt <- normal_map_zone_metrics[
-  method %in% method_order,
-  .(method, zone, f1)
-]
-
-require_file(multiclass_reference_map_file)
-
-multiclass_map <- rast(multiclass_reference_map_file)
-
-if (!compareGeom(reference_map, multiclass_map, stopOnError = FALSE)) {
-  stop("Geometry mismatch between original and Multiclass RF reference maps.")
-}
-
-multiclass_metrics <- calculate_zone_metrics_from_maps(
-  reference_map,
-  multiclass_map
+# Recalculate all three reference maps on one common valid mask so that the
+# overall comparison is directly comparable across Plain RF, Plain MF RF and
+# Multiclass RF.
+reference_methods <- c(
+  method_order,
+  "multiclass_rf"
 )
 
-multiclass_metrics[, method := "multiclass_rf"]
+reference_map_files <- c(
+  setNames(
+    vapply(
+      method_order,
+      function(method_key) {
+        assigned_map_file(method_key, "normal")
+      },
+      character(1)
+    ),
+    method_order
+  ),
+  multiclass_rf = multiclass_reference_map_file
+)
 
-bubble_dt <- rbind(
-  bubble_dt,
-  multiclass_metrics[, .(method, zone, f1)],
+for (map_file in reference_map_files) {
+  require_file(map_file)
+}
+
+original_modeled <- subst(
+  reference_map,
+  from = model_zoneID,
+  to = model_zoneID,
+  others = NA
+)
+
+names(original_modeled) <- "original_zone"
+
+predicted_maps <- lapply(
+  reference_methods,
+  function(method_key) {
+    
+    predicted <- rast(reference_map_files[[method_key]])[[1]]
+    
+    if (!compareGeom(
+      original_modeled,
+      predicted,
+      stopOnError = FALSE
+    )) {
+      stop(
+        "Geometry mismatch for reference-map comparison: ",
+        method_key
+      )
+    }
+    
+    predicted <- subst(
+      predicted,
+      from = model_zoneID,
+      to = model_zoneID,
+      others = NA
+    )
+    
+    names(predicted) <- method_key
+    predicted
+  }
+)
+
+names(predicted_maps) <- reference_methods
+
+valid_original_pixels <- as.numeric(
+  global(
+    !is.na(original_modeled),
+    fun = "sum",
+    na.rm = TRUE
+  )[1, 1]
+)
+
+individual_coverage_dt <- rbindlist(
+  lapply(
+    reference_methods,
+    function(method_key) {
+      
+      individual_mask <-
+        !is.na(original_modeled) &
+        !is.na(predicted_maps[[method_key]])
+      
+      compared_pixels <- as.numeric(
+        global(
+          individual_mask,
+          fun = "sum",
+          na.rm = TRUE
+        )[1, 1]
+      )
+      
+      data.table(
+        method = method_key,
+        individual_map_coverage = div(
+          compared_pixels,
+          valid_original_pixels
+        )
+      )
+    }
+  ),
   fill = TRUE
 )
 
-ref_area <- cellSize(reference_map, unit = "km")
-ref_modeled <- subst(reference_map, from = model_zoneID, to = model_zoneID, others = NA)
-area_dt <- as.data.table(zonal(ref_area, ref_modeled, fun = "sum", na.rm = TRUE))
-setnames(area_dt, names(area_dt)[1:2], c("zone", "area_km2"))
-area_dt[, `:=`(zone = as.integer(zone), area_km2 = as.numeric(area_km2))]
+common_valid <- !is.na(original_modeled)
 
-bubble_dt <- merge(bubble_dt, area_dt, by = "zone", all.x = TRUE, sort = FALSE)
+for (method_key in reference_methods) {
+  common_valid <-
+    common_valid &
+    !is.na(predicted_maps[[method_key]])
+}
 
-bubble_method_levels <- c(
-  method_order,
-  if ("multiclass_rf" %in% bubble_dt$method) "multiclass_rf" else character(0)
+common_pixels <- as.numeric(
+  global(
+    common_valid,
+    fun = "sum",
+    na.rm = TRUE
+  )[1, 1]
 )
 
-bubble_method_labels <- method_labels
+if (!is.finite(common_pixels) || common_pixels <= 0) {
+  stop(
+    "No common valid pixels across Plain RF, Plain MF RF and Multiclass RF."
+  )
+}
+
+original_common <- ifel(
+  common_valid,
+  original_modeled,
+  NA
+)
+
+names(original_common) <- "original_zone"
+
+reference_overall_list <- list()
+reference_zone_list <- list()
+
+for (method_key in reference_methods) {
+  
+  predicted_common <- ifel(
+    common_valid,
+    predicted_maps[[method_key]],
+    NA
+  )
+  
+  names(predicted_common) <- "predicted_zone"
+  
+  confusion <- as.data.table(
+    crosstab(
+      c(
+        original_common,
+        predicted_common
+      ),
+      long = TRUE,
+      useNA = FALSE
+    )
+  )
+  
+  setnames(
+    confusion,
+    names(confusion),
+    c(
+      "original_zone",
+      "predicted_zone",
+      "n"
+    )
+  )
+  
+  confusion[
+    ,
+    `:=`(
+      original_zone = as.integer(original_zone),
+      predicted_zone = as.integer(predicted_zone),
+      n = as.numeric(n)
+    )
+  ]
+  
+  confusion <- confusion[
+    original_zone %in% model_zoneID &
+      predicted_zone %in% model_zoneID &
+      n > 0
+  ]
+  
+  total_compared <- sum(
+    confusion$n,
+    na.rm = TRUE
+  )
+  
+  zone_metrics <- rbindlist(
+    lapply(
+      model_zoneID,
+      function(zone_value) {
+        
+        tp <- confusion[
+          original_zone == zone_value &
+            predicted_zone == zone_value,
+          sum(n, na.rm = TRUE)
+        ]
+        
+        fn <- confusion[
+          original_zone == zone_value &
+            predicted_zone != zone_value,
+          sum(n, na.rm = TRUE)
+        ]
+        
+        fp <- confusion[
+          original_zone != zone_value &
+            predicted_zone == zone_value,
+          sum(n, na.rm = TRUE)
+        ]
+        
+        tn <- total_compared - tp - fn - fp
+        
+        recall_value <- div(
+          tp,
+          tp + fn
+        )
+        
+        specificity_value <- div(
+          tn,
+          tn + fp
+        )
+        
+        precision_value <- div(
+          tp,
+          tp + fp
+        )
+        
+        data.table(
+          method = method_key,
+          zone = zone_value,
+          recall = recall_value,
+          specificity = specificity_value,
+          precision = precision_value,
+          balanced_accuracy = div(
+            recall_value + specificity_value,
+            2
+          ),
+          f1 = div(
+            2 * precision_value * recall_value,
+            precision_value + recall_value
+          ),
+          tss = recall_value + specificity_value - 1
+        )
+      }
+    ),
+    fill = TRUE
+  )
+  
+  exact_accuracy <- div(
+    confusion[
+      original_zone == predicted_zone,
+      sum(n, na.rm = TRUE)
+    ],
+    total_compared
+  )
+  
+  broad_accuracy <- NA_real_
+  
+  category_lookup_10b <- unique(
+    palette[
+      zoneID %in% model_zoneID,
+      .(
+        zoneID,
+        category2 = as.character(category2)
+      )
+    ],
+    by = "zoneID"
+  )
+  
+  if (nrow(category_lookup_10b) > 0) {
+    
+    category_map <- setNames(
+      category_lookup_10b$category2,
+      as.character(category_lookup_10b$zoneID)
+    )
+    
+    confusion[
+      ,
+      `:=`(
+        original_category = unname(
+          category_map[as.character(original_zone)]
+        ),
+        predicted_category = unname(
+          category_map[as.character(predicted_zone)]
+        )
+      )
+    ]
+    
+    if (
+      !anyNA(confusion$original_category) &&
+      !anyNA(confusion$predicted_category)
+    ) {
+      broad_accuracy <- div(
+        confusion[
+          original_category == predicted_category,
+          sum(n, na.rm = TRUE)
+        ],
+        total_compared
+      )
+    }
+  }
+  
+  reference_zone_list[[method_key]] <- zone_metrics
+  
+  reference_overall_list[[method_key]] <- data.table(
+    method = method_key,
+    individual_map_coverage = individual_coverage_dt[
+      method == method_key,
+      individual_map_coverage
+    ],
+    common_comparison_coverage = div(
+      common_pixels,
+      valid_original_pixels
+    ),
+    exact_zone_accuracy = exact_accuracy,
+    broad_category_accuracy = broad_accuracy,
+    macro_balanced_accuracy = mean(
+      zone_metrics$balanced_accuracy,
+      na.rm = TRUE
+    ),
+    macro_recall = mean(
+      zone_metrics$recall,
+      na.rm = TRUE
+    ),
+    macro_specificity = mean(
+      zone_metrics$specificity,
+      na.rm = TRUE
+    ),
+    macro_precision = mean(
+      zone_metrics$precision,
+      na.rm = TRUE
+    ),
+    macro_f1 = mean(
+      zone_metrics$f1,
+      na.rm = TRUE
+    ),
+    macro_tss = mean(
+      zone_metrics$tss,
+      na.rm = TRUE
+    )
+  )
+}
+
+reference_overall_metrics <- rbindlist(
+  reference_overall_list,
+  fill = TRUE
+)
+
+reference_zone_metrics_common <- rbindlist(
+  reference_zone_list,
+  fill = TRUE
+)
+
+reference_overall_metrics[
+  ,
+  method_label := factor(
+    method_labels[method],
+    levels = rev(method_labels[reference_methods])
+  )
+]
+
+macro_se_dt <- reference_zone_metrics_common[
+  ,
+  .(
+    macro_balanced_accuracy_se = sd(balanced_accuracy, na.rm = TRUE) / sqrt(sum(is.finite(balanced_accuracy))),
+    macro_recall_se = sd(recall, na.rm = TRUE) / sqrt(sum(is.finite(recall))),
+    macro_specificity_se = sd(specificity, na.rm = TRUE) / sqrt(sum(is.finite(specificity))),
+    macro_precision_se = sd(precision, na.rm = TRUE) / sqrt(sum(is.finite(precision))),
+    macro_f1_se = sd(f1, na.rm = TRUE) / sqrt(sum(is.finite(f1))),
+    macro_tss_se = sd(tss, na.rm = TRUE) / sqrt(sum(is.finite(tss)))
+  ),
+  by = method
+]
+
+reference_overall_metrics <- merge(
+  reference_overall_metrics,
+  macro_se_dt,
+  by = "method",
+  all.x = TRUE,
+  sort = FALSE
+)
+
+fwrite(
+  reference_overall_metrics,
+  file.path(
+    table_dir,
+    "Figure_var_10b_reference_map_overall_metrics.csv"
+  )
+)
+
+fwrite(
+  reference_zone_metrics_common,
+  file.path(
+    table_dir,
+    "Figure_var_10b_reference_map_zone_metrics_common_mask.csv"
+  )
+)
+
+metric_labels_10b <- c(
+  individual_map_coverage = "Individual map coverage",
+  common_comparison_coverage = "Common comparison coverage",
+  exact_zone_accuracy = "Exact-zone accuracy",
+  broad_category_accuracy = "Broad-category accuracy",
+  macro_balanced_accuracy = "Macro balanced accuracy",
+  macro_recall = "Macro recall",
+  macro_specificity = "Macro specificity",
+  macro_precision = "Macro precision",
+  macro_f1 = "Macro F1",
+  macro_tss = "Macro TSS"
+)
+
+metric_order_10b <- names(metric_labels_10b)
+
+error_lookup_10b <- c(
+  individual_map_coverage = NA_character_,
+  common_comparison_coverage = NA_character_,
+  exact_zone_accuracy = NA_character_,
+  broad_category_accuracy = NA_character_,
+  macro_balanced_accuracy = "macro_balanced_accuracy_se",
+  macro_recall = "macro_recall_se",
+  macro_specificity = "macro_specificity_se",
+  macro_precision = "macro_precision_se",
+  macro_f1 = "macro_f1_se",
+  macro_tss = "macro_tss_se"
+)
+
+overall_long_10b <- rbindlist(
+  lapply(metric_order_10b, function(metric_name) {
+    se_col <- error_lookup_10b[[metric_name]]
+    value_vec <- reference_overall_metrics[[metric_name]]
+    se_vec <- if (is.na(se_col)) {
+      rep(NA_real_, nrow(reference_overall_metrics))
+    } else {
+      reference_overall_metrics[[se_col]]
+    }
+    data.table(
+      method = reference_overall_metrics$method,
+      method_label = reference_overall_metrics$method_label,
+      metric = metric_name,
+      metric_label = metric_labels_10b[[metric_name]],
+      value = value_vec,
+      se = se_vec
+    )
+  }),
+  fill = TRUE
+)
+
+overall_long_10b[
+  ,
+  `:=`(
+    metric_label = factor(
+      metric_label,
+      levels = unname(metric_labels_10b[metric_order_10b])
+    ),
+    method_label = factor(
+      method_label,
+      levels = rev(method_labels[reference_methods])
+    ),
+    xmin = pmax(0, value - 1.96 * se),
+    xmax = pmin(1, value + 1.96 * se)
+  )
+]
+
+method_shapes_10b <- c(
+  "Plain RF" = 16,
+  "Plain MF RF" = 17,
+  "Multiclass RF" = 15
+)
+
+figure_10b <- ggplot(
+  overall_long_10b,
+  aes(
+    x = value,
+    y = method_label,
+    shape = method_label
+  )
+) +
+  geom_errorbarh(
+    data = overall_long_10b[is.finite(xmin) & is.finite(xmax)],
+    aes(xmin = xmin, xmax = xmax),
+    height = 0.16,
+    linewidth = 0.5,
+    color = "grey45"
+  ) +
+  geom_point(
+    size = 2.9,
+    color = "black"
+  ) +
+  facet_wrap(
+    ~ metric_label,
+    ncol = 2
+  ) +
+  scale_shape_manual(
+    values = method_shapes_10b
+  ) +
+  scale_x_continuous(
+    limits = c(0, 1),
+    breaks = seq(0, 1, by = 0.2)
+  ) +
+  labs(
+    title = "Overall reference-map reconstruction performance",
+    subtitle = "Compared on the same original raster; reconstruction agreement, not independent validation.",
+    x = "Metric value",
+    y = NULL,
+    shape = "Model"
+  ) +
+  theme_bw(base_size = 10.2) +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    strip.text = element_text(face = "bold"),
+    plot.subtitle = element_text(size = 9.5)
+  )
+
+save_plot(
+  figure_10b,
+  file.path(
+    figure_dir,
+    "Figure_var_10b_reference_map_overall_metrics.png"
+  ),
+  10.4,
+  9.6
+)
+
+# Keep the zone-level F1 bubble plot as a separate diagnostic figure.
+bubble_dt <- copy(
+  reference_zone_metrics_common[
+    ,
+    .(
+      method,
+      zone,
+      f1
+    )
+  ]
+)
+
+ref_area <- cellSize(
+  reference_map,
+  unit = "km"
+)
+
+ref_modeled <- subst(
+  reference_map,
+  from = model_zoneID,
+  to = model_zoneID,
+  others = NA
+)
+
+area_dt <- as.data.table(
+  zonal(
+    ref_area,
+    ref_modeled,
+    fun = "sum",
+    na.rm = TRUE
+  )
+)
+
+setnames(
+  area_dt,
+  names(area_dt)[1:2],
+  c(
+    "zone",
+    "area_km2"
+  )
+)
+
+area_dt[
+  ,
+  `:=`(
+    zone = as.integer(zone),
+    area_km2 = as.numeric(area_km2)
+  )
+]
+
+bubble_dt <- merge(
+  bubble_dt,
+  area_dt,
+  by = "zone",
+  all.x = TRUE,
+  sort = FALSE
+)
 
 bubble_dt[
   ,
   `:=`(
     method_label = factor(
-      bubble_method_labels[method],
-      levels = bubble_method_labels[bubble_method_levels]
+      method_labels[method],
+      levels = method_labels[reference_methods]
     ),
     zone_factor = factor(
       as.character(zone),
-      levels = rev(as.character(sort(unique(zone))))
+      levels = rev(
+        as.character(
+          sort(unique(zone))
+        )
+      )
     )
   )
 ]
@@ -2150,13 +2900,26 @@ bubble_fill_values <- c(
   "Multiclass RF" = method_colors[["multiclass_rf"]]
 )
 
-figure_10b <- ggplot(
+figure_10c <- ggplot(
   bubble_dt,
-  aes(x = f1, y = zone_factor, size = area_km2, fill = method_label)
+  aes(
+    x = f1,
+    y = zone_factor,
+    size = area_km2,
+    fill = method_label
+  )
 ) +
-  geom_point(shape = 21, color = "grey20", alpha = 0.8) +
-  scale_fill_manual(values = bubble_fill_values) +
-  facet_grid(. ~ method_label) +
+  geom_point(
+    shape = 21,
+    color = "grey20",
+    alpha = 0.8
+  ) +
+  scale_fill_manual(
+    values = bubble_fill_values
+  ) +
+  facet_grid(
+    . ~ method_label
+  ) +
   scale_x_continuous(
     limits = c(0, 1),
     breaks = seq(0, 1, by = 0.2)
@@ -2179,97 +2942,108 @@ figure_10b <- ggplot(
   )
 
 save_plot(
-  figure_10b,
-  file.path(figure_dir, "Figure_var_10b_reference_map_F1_bubble.png"),
+  figure_10c,
+  file.path(
+    figure_dir,
+    "Figure_var_10c_reference_map_F1_bubble.png"
+  ),
   15.5,
   7.2
 )
 
-# Keep the earlier zone-colored comparison version as an additional figure.
-if ("multiclass_rf" %in% bubble_dt$method) {
-  
-  multiclass_compare <- merge(
-    bubble_dt[method %in% method_order, .(
+# Keep the earlier zone-colored binary-vs-multiclass plot with 45-degree line.
+multiclass_compare <- merge(
+  bubble_dt[
+    method %in% method_order,
+    .(
       method,
       method_label,
       zone,
       area_km2,
       binary_f1 = f1
-    )],
-    bubble_dt[method == "multiclass_rf", .(
+    )
+  ],
+  bubble_dt[
+    method == "multiclass_rf",
+    .(
       zone,
       multiclass_f1 = f1
-    )],
-    by = "zone",
-    all.x = TRUE,
-    sort = FALSE
+    )
+  ],
+  by = "zone",
+  all.x = TRUE,
+  sort = FALSE
+)
+
+multiclass_compare[
+  ,
+  zone_factor := factor(
+    as.character(zone),
+    levels = as.character(model_zoneID)
   )
-  
-  multiclass_compare[
-    ,
-    zone_factor := factor(
-      as.character(zone),
-      levels = as.character(model_zoneID)
-    )
-  ]
-  
-  figure_10c <- ggplot(
-    multiclass_compare,
-    aes(
-      x = multiclass_f1,
-      y = binary_f1,
-      size = area_km2,
-      fill = zone_factor
-    )
+]
+
+figure_10d <- ggplot(
+  multiclass_compare,
+  aes(
+    x = multiclass_f1,
+    y = binary_f1,
+    size = area_km2,
+    fill = zone_factor
+  )
+) +
+  geom_abline(
+    slope = 1,
+    intercept = 0,
+    linetype = "dashed",
+    linewidth = 0.55,
+    color = "grey45"
   ) +
-    geom_abline(
-      slope = 1,
-      intercept = 0,
-      linetype = "dashed",
-      linewidth = 0.55,
-      color = "grey45"
-    ) +
-    geom_point(
-      shape = 21,
-      color = "grey20",
-      alpha = 0.88,
-      stroke = 0.22
-    ) +
-    facet_grid(. ~ method_label) +
-    scale_fill_manual(
-      values = zone_color_vector(model_zoneID),
-      guide = "none"
-    ) +
-    scale_x_continuous(
-      limits = c(0, 1),
-      breaks = seq(0, 1, by = 0.2)
-    ) +
-    scale_y_continuous(
-      limits = c(0, 1),
-      breaks = seq(0, 1, by = 0.2)
-    ) +
-    labs(
-      x = "Multiclass RF zone-level F1",
-      y = "Binary-model zone-level F1",
-      size = expression("Original area (km"^2*")"),
-      title = "Zone-level F1: binary workflow vs Multiclass RF",
-      subtitle = "Dashed line indicates equality with the Multiclass RF."
-    ) +
-    theme_bw(base_size = 9.7) +
-    theme(
-      legend.position = "right",
-      panel.grid.minor = element_blank(),
-      panel.spacing = grid::unit(2.0, "lines"),
-      strip.text.x = element_text(face = "bold", size = 10)
-    )
-  
-  save_plot(
-    figure_10c,
-    file.path(figure_dir, "Figure_var_10c_reference_map_F1_vs_multiclass_bubble.png"),
-    11.8,
-    6.2
+  geom_point(
+    shape = 21,
+    color = "grey20",
+    alpha = 0.88,
+    stroke = 0.22
+  ) +
+  facet_grid(
+    . ~ method_label
+  ) +
+  scale_fill_manual(
+    values = zone_color_vector(model_zoneID),
+    guide = "none"
+  ) +
+  scale_x_continuous(
+    limits = c(0, 1),
+    breaks = seq(0, 1, by = 0.2)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 1),
+    breaks = seq(0, 1, by = 0.2)
+  ) +
+  labs(
+    x = "Multiclass RF zone-level F1",
+    y = "Binary-model zone-level F1",
+    size = expression("Original area (km"^2*")"),
+    title = "Zone-level F1: binary workflow vs Multiclass RF",
+    subtitle = "Dashed line indicates equal F1."
+  ) +
+  theme_bw(base_size = 9.7) +
+  theme(
+    legend.position = "right",
+    panel.grid.minor = element_blank(),
+    panel.spacing = grid::unit(2.0, "lines"),
+    strip.text.x = element_text(face = "bold", size = 10)
   )
-}
+
+save_plot(
+  figure_10d,
+  file.path(
+    figure_dir,
+    "Figure_var_10d_reference_map_F1_vs_multiclass_bubble.png"
+  ),
+  11.8,
+  6.2
+)
 
 
 # 11. Pixel-level ranking and uncertainty =======================================
@@ -2572,7 +3346,7 @@ fwrite(
 )
 
 fwrite(
-  map_long,
+  map_zone_long,
   file.path(
     table_dir,
     "figure_normal_map_assessment_data_var.csv"
@@ -2635,7 +3409,7 @@ cat(
   new_threshold,
   "\n",
   "Main-text models: Plain RF, Plain MF RF\n",
-  "Soil assessment source: selected-variable soil_plain / soil_mf models\n",
+  "Assessment source: final 5.1 selected-variable climate + soil Plain RF / Plain MF RF models\n",
   "Climate assessment source: rf_var / mf_var independent-test results\n",
   "Figures: ",
   figure_dir,
