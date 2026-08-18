@@ -1032,6 +1032,22 @@ for (table_name in c(
   
   table_object <- get(table_name)
   
+  if (!("period" %in% names(table_object)) &&
+      "scenario" %in% names(table_object)) {
+    table_object[
+      ,
+      period := sub("SSP.*$", "", scenario)
+    ]
+  }
+  
+  if (!("ssp" %in% names(table_object)) &&
+      "scenario" %in% names(table_object)) {
+    table_object[
+      ,
+      ssp := sub("^.*(SSP[0-9]+)$", "\\1", scenario)
+    ]
+  }
+  
   if ("period" %in% names(table_object)) {
     table_object[
       ,
@@ -1137,16 +1153,26 @@ source_novel_summary[
 
 source_novel_summary[
   ,
-  `:=`(
-    rank_by_novel_area = frank(
-      -novel_area_km2,
-      ties.method = "min"
-    ),
-    rank_by_novel_share = frank(
-      -novel_share_of_source,
-      ties.method = "min",
-      na.last = "keep"
-    )
+  rank_by_novel_area := frank(
+    -novel_area_km2,
+    ties.method = "min"
+  ),
+  by = .(
+    method,
+    scenario
+  )
+]
+
+source_novel_summary[
+  ,
+  rank_by_novel_share := NA_integer_
+]
+
+source_novel_summary[
+  is.finite(novel_share_of_source),
+  rank_by_novel_share := frank(
+    -novel_share_of_source,
+    ties.method = "min"
   ),
   by = .(
     method,
@@ -1287,26 +1313,36 @@ ecosystem_zone_change[
 ecosystem_zone_change[
   ,
   `:=`(
-    rank_gain = fifelse(
-      area_change_km2 > 0,
-      frank(
-        -area_change_km2,
-        ties.method = "min"
-      ),
-      NA_real_
-    ),
-    rank_loss = fifelse(
-      area_change_km2 < 0,
-      frank(
-        area_change_km2,
-        ties.method = "min"
-      ),
-      NA_real_
-    ),
+    rank_gain = NA_integer_,
+    rank_loss = NA_integer_,
     rank_absolute_change = frank(
       -abs(area_change_km2),
       ties.method = "min"
     )
+  ),
+  by = .(
+    method,
+    scenario
+  )
+]
+
+ecosystem_zone_change[
+  area_change_km2 > 0,
+  rank_gain := frank(
+    -area_change_km2,
+    ties.method = "min"
+  ),
+  by = .(
+    method,
+    scenario
+  )
+]
+
+ecosystem_zone_change[
+  area_change_km2 < 0,
+  rank_loss := frank(
+    area_change_km2,
+    ties.method = "min"
   ),
   by = .(
     method,
@@ -1431,27 +1467,38 @@ population_change_summary[
 population_change_summary[
   ,
   `:=`(
-    within_species_gain_rank = fifelse(
-      suitable_area_change_km2 > 0,
-      frank(
-        -suitable_area_change_km2,
-        ties.method = "min"
-      ),
-      NA_real_
-    ),
-    within_species_loss_rank = fifelse(
-      suitable_area_change_km2 < 0,
-      frank(
-        suitable_area_change_km2,
-        ties.method = "min"
-      ),
-      NA_real_
-    ),
-    within_species_absolute_change_rank =
-      frank(
-        -abs(suitable_area_change_km2),
-        ties.method = "min"
-      )
+    within_species_gain_rank = NA_integer_,
+    within_species_loss_rank = NA_integer_,
+    within_species_absolute_change_rank = frank(
+      -abs(suitable_area_change_km2),
+      ties.method = "min"
+    )
+  ),
+  by = .(
+    Species,
+    method,
+    ssp
+  )
+]
+
+population_change_summary[
+  suitable_area_change_km2 > 0,
+  within_species_gain_rank := frank(
+    -suitable_area_change_km2,
+    ties.method = "min"
+  ),
+  by = .(
+    Species,
+    method,
+    ssp
+  )
+]
+
+population_change_summary[
+  suitable_area_change_km2 < 0,
+  within_species_loss_rank := frank(
+    suitable_area_change_km2,
+    ties.method = "min"
   ),
   by = .(
     Species,
