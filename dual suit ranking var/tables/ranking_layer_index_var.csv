@@ -1,0 +1,365 @@
+method,scenario,raster_type,layer,layer_name,rank,meaning
+mf_var,2011-2040SSP245,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,2011-2040SSP245,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,2011-2040SSP245,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,2011-2040SSP245,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,2011-2040SSP245,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,2011-2040SSP245,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,2011-2040SSP245,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,2011-2040SSP245,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,2011-2040SSP245,ranked_zone,10,rank10_zone,10,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,2011-2040SSP585,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,2011-2040SSP585,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,2011-2040SSP585,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,2011-2040SSP585,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,2011-2040SSP585,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,2011-2040SSP585,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,2011-2040SSP585,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,2011-2040SSP585,ranked_zone,10,rank10_zone,10,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,2041-2070SSP245,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,2041-2070SSP245,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,2041-2070SSP245,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,2041-2070SSP245,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,2041-2070SSP245,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,2041-2070SSP245,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,2041-2070SSP245,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,2041-2070SSP245,ranked_zone,10,rank10_zone,10,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,2041-2070SSP585,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,2041-2070SSP585,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,2041-2070SSP585,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,2041-2070SSP585,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,2041-2070SSP585,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,2041-2070SSP585,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,2041-2070SSP585,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,2041-2070SSP585,ranked_zone,10,rank10_zone,10,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,2071-2100SSP245,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,2071-2100SSP245,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,2071-2100SSP245,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,2071-2100SSP245,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,2071-2100SSP245,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,2071-2100SSP245,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,2071-2100SSP245,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,2071-2100SSP245,ranked_zone,10,rank10_zone,10,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,2071-2100SSP585,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,2071-2100SSP585,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,2071-2100SSP585,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,2071-2100SSP585,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,2071-2100SSP585,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,2071-2100SSP585,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,2071-2100SSP585,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,2071-2100SSP585,ranked_zone,10,rank10_zone,10,zone ID at this rank
+mf_var,normal,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+mf_var,normal,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+mf_var,normal,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+mf_var,normal,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+mf_var,normal,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+mf_var,normal,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+mf_var,normal,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+mf_var,normal,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+mf_var,normal,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+mf_var,normal,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+mf_var,normal,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+mf_var,normal,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+mf_var,normal,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+mf_var,normal,ranked_summary,4,top1_suit,,highest positive dual suitability
+mf_var,normal,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+mf_var,normal,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+mf_var,normal,ranked_zone,1,rank1_zone,1,zone ID at this rank
+mf_var,normal,ranked_zone,2,rank2_zone,2,zone ID at this rank
+mf_var,normal,ranked_zone,3,rank3_zone,3,zone ID at this rank
+mf_var,normal,ranked_zone,4,rank4_zone,4,zone ID at this rank
+mf_var,normal,ranked_zone,5,rank5_zone,5,zone ID at this rank
+mf_var,normal,ranked_zone,6,rank6_zone,6,zone ID at this rank
+mf_var,normal,ranked_zone,7,rank7_zone,7,zone ID at this rank
+mf_var,normal,ranked_zone,8,rank8_zone,8,zone ID at this rank
+mf_var,normal,ranked_zone,9,rank9_zone,9,zone ID at this rank
+mf_var,normal,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,2011-2040SSP245,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,2011-2040SSP245,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,2011-2040SSP245,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,2011-2040SSP245,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,2011-2040SSP245,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,2011-2040SSP245,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,2011-2040SSP245,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,2011-2040SSP245,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,2011-2040SSP585,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,2011-2040SSP585,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,2011-2040SSP585,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,2011-2040SSP585,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,2011-2040SSP585,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,2011-2040SSP585,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,2011-2040SSP585,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,2011-2040SSP585,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,2041-2070SSP245,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,2041-2070SSP245,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,2041-2070SSP245,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,2041-2070SSP245,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,2041-2070SSP245,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,2041-2070SSP245,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,2041-2070SSP245,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,2041-2070SSP245,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,2041-2070SSP585,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,2041-2070SSP585,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,2041-2070SSP585,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,2041-2070SSP585,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,2041-2070SSP585,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,2041-2070SSP585,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,2041-2070SSP585,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,2041-2070SSP585,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,2071-2100SSP245,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,2071-2100SSP245,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,2071-2100SSP245,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,2071-2100SSP245,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,2071-2100SSP245,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,2071-2100SSP245,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,2071-2100SSP245,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,2071-2100SSP245,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,2071-2100SSP585,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,2071-2100SSP585,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,2071-2100SSP585,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,2071-2100SSP585,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,2071-2100SSP585,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,2071-2100SSP585,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,2071-2100SSP585,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,2071-2100SSP585,ranked_zone,10,rank10_zone,10,zone ID at this rank
+rf_var,normal,ranked_suitability,1,rank1_suit,1,dual suitability at this rank
+rf_var,normal,ranked_suitability,2,rank2_suit,2,dual suitability at this rank
+rf_var,normal,ranked_suitability,3,rank3_suit,3,dual suitability at this rank
+rf_var,normal,ranked_suitability,4,rank4_suit,4,dual suitability at this rank
+rf_var,normal,ranked_suitability,5,rank5_suit,5,dual suitability at this rank
+rf_var,normal,ranked_suitability,6,rank6_suit,6,dual suitability at this rank
+rf_var,normal,ranked_suitability,7,rank7_suit,7,dual suitability at this rank
+rf_var,normal,ranked_suitability,8,rank8_suit,8,dual suitability at this rank
+rf_var,normal,ranked_suitability,9,rank9_suit,9,dual suitability at this rank
+rf_var,normal,ranked_suitability,10,rank10_suit,10,dual suitability at this rank
+rf_var,normal,ranked_summary,1,n_zone_ranked,,number of zones with positive dual suitability
+rf_var,normal,ranked_summary,2,n_zone_above_threshold,,number of zones with dual suitability >= 0.4
+rf_var,normal,ranked_summary,3,top1_minus_top2,,rank1 suitability minus rank2 suitability
+rf_var,normal,ranked_summary,4,top1_suit,,highest positive dual suitability
+rf_var,normal,ranked_summary,5,top2_suit,,second-highest positive dual suitability
+rf_var,normal,ranked_summary,6,novel_by_threshold,,"1 when every zone is < 0.4, otherwise 0"
+rf_var,normal,ranked_zone,1,rank1_zone,1,zone ID at this rank
+rf_var,normal,ranked_zone,2,rank2_zone,2,zone ID at this rank
+rf_var,normal,ranked_zone,3,rank3_zone,3,zone ID at this rank
+rf_var,normal,ranked_zone,4,rank4_zone,4,zone ID at this rank
+rf_var,normal,ranked_zone,5,rank5_zone,5,zone ID at this rank
+rf_var,normal,ranked_zone,6,rank6_zone,6,zone ID at this rank
+rf_var,normal,ranked_zone,7,rank7_zone,7,zone ID at this rank
+rf_var,normal,ranked_zone,8,rank8_zone,8,zone ID at this rank
+rf_var,normal,ranked_zone,9,rank9_zone,9,zone ID at this rank
+rf_var,normal,ranked_zone,10,rank10_zone,10,zone ID at this rank
