@@ -211,112 +211,112 @@ rf_var,52,precision,0.425349889945596,Plain RF,Precision,52
 rf_var,53,precision,0.515288355223048,Plain RF,Precision,53
 rf_var,54,precision,0.440148911798396,Plain RF,Precision,54
 rf_var,55,precision,0.248745094460162,Plain RF,Precision,55
-mf_var,1,sensitivity,0.765511367358973,Plain MF RF,Sensitivity,1
-mf_var,2,sensitivity,0.64268438229423,Plain MF RF,Sensitivity,2
-mf_var,3,sensitivity,0.520526890344025,Plain MF RF,Sensitivity,3
-mf_var,4,sensitivity,0.455073573655708,Plain MF RF,Sensitivity,4
-mf_var,5,sensitivity,0.387235316045636,Plain MF RF,Sensitivity,5
-mf_var,6,sensitivity,0.563525815668815,Plain MF RF,Sensitivity,6
-mf_var,7,sensitivity,0.415747219029172,Plain MF RF,Sensitivity,7
-mf_var,9,sensitivity,0.827508196721312,Plain MF RF,Sensitivity,9
-mf_var,10,sensitivity,0.52593256030192,Plain MF RF,Sensitivity,10
-mf_var,11,sensitivity,0.606764723882576,Plain MF RF,Sensitivity,11
-mf_var,12,sensitivity,0.625921600799545,Plain MF RF,Sensitivity,12
-mf_var,13,sensitivity,0.612636133195255,Plain MF RF,Sensitivity,13
-mf_var,14,sensitivity,0.804898209092301,Plain MF RF,Sensitivity,14
-mf_var,15,sensitivity,0.566490230951097,Plain MF RF,Sensitivity,15
-mf_var,16,sensitivity,0.594266981863039,Plain MF RF,Sensitivity,16
-mf_var,17,sensitivity,0.919561243144424,Plain MF RF,Sensitivity,17
-mf_var,18,sensitivity,0.422169894833752,Plain MF RF,Sensitivity,18
-mf_var,19,sensitivity,0.770305023750427,Plain MF RF,Sensitivity,19
-mf_var,20,sensitivity,0.592923032384562,Plain MF RF,Sensitivity,20
-mf_var,21,sensitivity,0.63712888636705,Plain MF RF,Sensitivity,21
-mf_var,22,sensitivity,0.730347784659362,Plain MF RF,Sensitivity,22
-mf_var,23,sensitivity,0.576568361657987,Plain MF RF,Sensitivity,23
-mf_var,24,sensitivity,0.638658523746831,Plain MF RF,Sensitivity,24
-mf_var,25,sensitivity,0.647387690272459,Plain MF RF,Sensitivity,25
-mf_var,26,sensitivity,0.59289417057903,Plain MF RF,Sensitivity,26
-mf_var,27,sensitivity,0.734869022191441,Plain MF RF,Sensitivity,27
-mf_var,28,sensitivity,0.496459754137527,Plain MF RF,Sensitivity,28
-mf_var,29,sensitivity,0.791253392398593,Plain MF RF,Sensitivity,29
-mf_var,30,sensitivity,0.42979792110754,Plain MF RF,Sensitivity,30
-mf_var,31,sensitivity,0.704915032244722,Plain MF RF,Sensitivity,31
-mf_var,32,sensitivity,0.667796442034257,Plain MF RF,Sensitivity,32
-mf_var,33,sensitivity,0.663405610248595,Plain MF RF,Sensitivity,33
-mf_var,34,sensitivity,0.77553789494088,Plain MF RF,Sensitivity,34
-mf_var,35,sensitivity,0.851357108081792,Plain MF RF,Sensitivity,35
-mf_var,36,sensitivity,0.729080841638981,Plain MF RF,Sensitivity,36
-mf_var,37,sensitivity,0.732087584546601,Plain MF RF,Sensitivity,37
-mf_var,38,sensitivity,0.92707778369739,Plain MF RF,Sensitivity,38
-mf_var,39,sensitivity,0.625165200747391,Plain MF RF,Sensitivity,39
-mf_var,40,sensitivity,0.390050668166201,Plain MF RF,Sensitivity,40
-mf_var,41,sensitivity,0.525355369726993,Plain MF RF,Sensitivity,41
-mf_var,42,sensitivity,0.775214651107284,Plain MF RF,Sensitivity,42
-mf_var,43,sensitivity,0.874033731553057,Plain MF RF,Sensitivity,43
-mf_var,44,sensitivity,0.344514483628316,Plain MF RF,Sensitivity,44
-mf_var,45,sensitivity,0.708137762877172,Plain MF RF,Sensitivity,45
-mf_var,46,sensitivity,0.485390014800487,Plain MF RF,Sensitivity,46
-mf_var,47,sensitivity,0.568756400815919,Plain MF RF,Sensitivity,47
-mf_var,48,sensitivity,0.908866995073892,Plain MF RF,Sensitivity,48
-mf_var,49,sensitivity,0.445880585472226,Plain MF RF,Sensitivity,49
-mf_var,50,sensitivity,0.853403141361257,Plain MF RF,Sensitivity,50
-mf_var,52,sensitivity,0.864819124180241,Plain MF RF,Sensitivity,52
-mf_var,53,sensitivity,0.77206965529005,Plain MF RF,Sensitivity,53
-mf_var,54,sensitivity,0.930464149636301,Plain MF RF,Sensitivity,54
-mf_var,55,sensitivity,0.846780510731631,Plain MF RF,Sensitivity,55
-rf_var,1,sensitivity,0.765183777763218,Plain RF,Sensitivity,1
-rf_var,2,sensitivity,0.645036138894463,Plain RF,Sensitivity,2
-rf_var,3,sensitivity,0.520936034165319,Plain RF,Sensitivity,3
-rf_var,4,sensitivity,0.460204583994311,Plain RF,Sensitivity,4
-rf_var,5,sensitivity,0.387492583861432,Plain RF,Sensitivity,5
-rf_var,6,sensitivity,0.560258710434802,Plain RF,Sensitivity,6
-rf_var,7,sensitivity,0.416113791262004,Plain RF,Sensitivity,7
-rf_var,9,sensitivity,0.825770491803279,Plain RF,Sensitivity,9
-rf_var,10,sensitivity,0.527156374774381,Plain RF,Sensitivity,10
-rf_var,11,sensitivity,0.603364681722053,Plain RF,Sensitivity,11
-rf_var,12,sensitivity,0.628179673073891,Plain RF,Sensitivity,12
-rf_var,13,sensitivity,0.606828106647969,Plain RF,Sensitivity,13
-rf_var,14,sensitivity,0.806245216592683,Plain RF,Sensitivity,14
-rf_var,15,sensitivity,0.570263719751603,Plain RF,Sensitivity,15
-rf_var,16,sensitivity,0.596024047990623,Plain RF,Sensitivity,16
-rf_var,17,sensitivity,0.920170627666057,Plain RF,Sensitivity,17
-rf_var,18,sensitivity,0.422559399454694,Plain RF,Sensitivity,18
-rf_var,19,sensitivity,0.769453074826862,Plain RF,Sensitivity,19
-rf_var,20,sensitivity,0.594594238943061,Plain RF,Sensitivity,20
-rf_var,21,sensitivity,0.638040086113383,Plain RF,Sensitivity,21
-rf_var,22,sensitivity,0.725607432110529,Plain RF,Sensitivity,22
-rf_var,23,sensitivity,0.574432537958299,Plain RF,Sensitivity,23
-rf_var,24,sensitivity,0.639215658442128,Plain RF,Sensitivity,24
-rf_var,25,sensitivity,0.647172824058275,Plain RF,Sensitivity,25
-rf_var,26,sensitivity,0.593481025039124,Plain RF,Sensitivity,26
-rf_var,27,sensitivity,0.738925522194351,Plain RF,Sensitivity,27
-rf_var,28,sensitivity,0.490400069501759,Plain RF,Sensitivity,28
-rf_var,29,sensitivity,0.791484623154718,Plain RF,Sensitivity,29
-rf_var,30,sensitivity,0.431116090863523,Plain RF,Sensitivity,30
-rf_var,31,sensitivity,0.705376180503888,Plain RF,Sensitivity,31
-rf_var,32,sensitivity,0.669548971628861,Plain RF,Sensitivity,32
-rf_var,33,sensitivity,0.664680783371948,Plain RF,Sensitivity,33
-rf_var,34,sensitivity,0.766039930219035,Plain RF,Sensitivity,34
-rf_var,35,sensitivity,0.8514788218111,Plain RF,Sensitivity,35
-rf_var,36,sensitivity,0.7259357696567,Plain RF,Sensitivity,36
-rf_var,37,sensitivity,0.730748387231249,Plain RF,Sensitivity,37
-rf_var,38,sensitivity,0.926811401172083,Plain RF,Sensitivity,38
-rf_var,39,sensitivity,0.621291528049948,Plain RF,Sensitivity,39
-rf_var,40,sensitivity,0.386844530281663,Plain RF,Sensitivity,40
-rf_var,41,sensitivity,0.522703111471565,Plain RF,Sensitivity,41
-rf_var,42,sensitivity,0.769615337474761,Plain RF,Sensitivity,42
-rf_var,43,sensitivity,0.867357695010541,Plain RF,Sensitivity,43
-rf_var,44,sensitivity,0.343776216859682,Plain RF,Sensitivity,44
-rf_var,45,sensitivity,0.704967997561719,Plain RF,Sensitivity,45
-rf_var,46,sensitivity,0.483807388520098,Plain RF,Sensitivity,46
-rf_var,47,sensitivity,0.570358897098861,Plain RF,Sensitivity,47
-rf_var,48,sensitivity,0.915024630541872,Plain RF,Sensitivity,48
-rf_var,49,sensitivity,0.444010573491471,Plain RF,Sensitivity,49
-rf_var,50,sensitivity,0.859511343804538,Plain RF,Sensitivity,50
-rf_var,52,sensitivity,0.866680770044426,Plain RF,Sensitivity,52
-rf_var,53,sensitivity,0.773248150847431,Plain RF,Sensitivity,53
-rf_var,54,sensitivity,0.931676480775892,Plain RF,Sensitivity,54
-rf_var,55,sensitivity,0.853987153376155,Plain RF,Sensitivity,55
+mf_var,1,recall,0.765511367358973,Plain MF RF,Recall,1
+mf_var,2,recall,0.64268438229423,Plain MF RF,Recall,2
+mf_var,3,recall,0.520526890344025,Plain MF RF,Recall,3
+mf_var,4,recall,0.455073573655708,Plain MF RF,Recall,4
+mf_var,5,recall,0.387235316045636,Plain MF RF,Recall,5
+mf_var,6,recall,0.563525815668815,Plain MF RF,Recall,6
+mf_var,7,recall,0.415747219029172,Plain MF RF,Recall,7
+mf_var,9,recall,0.827508196721312,Plain MF RF,Recall,9
+mf_var,10,recall,0.52593256030192,Plain MF RF,Recall,10
+mf_var,11,recall,0.606764723882576,Plain MF RF,Recall,11
+mf_var,12,recall,0.625921600799545,Plain MF RF,Recall,12
+mf_var,13,recall,0.612636133195255,Plain MF RF,Recall,13
+mf_var,14,recall,0.804898209092301,Plain MF RF,Recall,14
+mf_var,15,recall,0.566490230951097,Plain MF RF,Recall,15
+mf_var,16,recall,0.594266981863039,Plain MF RF,Recall,16
+mf_var,17,recall,0.919561243144424,Plain MF RF,Recall,17
+mf_var,18,recall,0.422169894833752,Plain MF RF,Recall,18
+mf_var,19,recall,0.770305023750427,Plain MF RF,Recall,19
+mf_var,20,recall,0.592923032384562,Plain MF RF,Recall,20
+mf_var,21,recall,0.63712888636705,Plain MF RF,Recall,21
+mf_var,22,recall,0.730347784659362,Plain MF RF,Recall,22
+mf_var,23,recall,0.576568361657987,Plain MF RF,Recall,23
+mf_var,24,recall,0.638658523746831,Plain MF RF,Recall,24
+mf_var,25,recall,0.647387690272459,Plain MF RF,Recall,25
+mf_var,26,recall,0.59289417057903,Plain MF RF,Recall,26
+mf_var,27,recall,0.734869022191441,Plain MF RF,Recall,27
+mf_var,28,recall,0.496459754137527,Plain MF RF,Recall,28
+mf_var,29,recall,0.791253392398593,Plain MF RF,Recall,29
+mf_var,30,recall,0.42979792110754,Plain MF RF,Recall,30
+mf_var,31,recall,0.704915032244722,Plain MF RF,Recall,31
+mf_var,32,recall,0.667796442034257,Plain MF RF,Recall,32
+mf_var,33,recall,0.663405610248595,Plain MF RF,Recall,33
+mf_var,34,recall,0.77553789494088,Plain MF RF,Recall,34
+mf_var,35,recall,0.851357108081792,Plain MF RF,Recall,35
+mf_var,36,recall,0.729080841638981,Plain MF RF,Recall,36
+mf_var,37,recall,0.732087584546601,Plain MF RF,Recall,37
+mf_var,38,recall,0.92707778369739,Plain MF RF,Recall,38
+mf_var,39,recall,0.625165200747391,Plain MF RF,Recall,39
+mf_var,40,recall,0.390050668166201,Plain MF RF,Recall,40
+mf_var,41,recall,0.525355369726993,Plain MF RF,Recall,41
+mf_var,42,recall,0.775214651107284,Plain MF RF,Recall,42
+mf_var,43,recall,0.874033731553057,Plain MF RF,Recall,43
+mf_var,44,recall,0.344514483628316,Plain MF RF,Recall,44
+mf_var,45,recall,0.708137762877172,Plain MF RF,Recall,45
+mf_var,46,recall,0.485390014800487,Plain MF RF,Recall,46
+mf_var,47,recall,0.568756400815919,Plain MF RF,Recall,47
+mf_var,48,recall,0.908866995073892,Plain MF RF,Recall,48
+mf_var,49,recall,0.445880585472226,Plain MF RF,Recall,49
+mf_var,50,recall,0.853403141361257,Plain MF RF,Recall,50
+mf_var,52,recall,0.864819124180241,Plain MF RF,Recall,52
+mf_var,53,recall,0.77206965529005,Plain MF RF,Recall,53
+mf_var,54,recall,0.930464149636301,Plain MF RF,Recall,54
+mf_var,55,recall,0.846780510731631,Plain MF RF,Recall,55
+rf_var,1,recall,0.765183777763218,Plain RF,Recall,1
+rf_var,2,recall,0.645036138894463,Plain RF,Recall,2
+rf_var,3,recall,0.520936034165319,Plain RF,Recall,3
+rf_var,4,recall,0.460204583994311,Plain RF,Recall,4
+rf_var,5,recall,0.387492583861432,Plain RF,Recall,5
+rf_var,6,recall,0.560258710434802,Plain RF,Recall,6
+rf_var,7,recall,0.416113791262004,Plain RF,Recall,7
+rf_var,9,recall,0.825770491803279,Plain RF,Recall,9
+rf_var,10,recall,0.527156374774381,Plain RF,Recall,10
+rf_var,11,recall,0.603364681722053,Plain RF,Recall,11
+rf_var,12,recall,0.628179673073891,Plain RF,Recall,12
+rf_var,13,recall,0.606828106647969,Plain RF,Recall,13
+rf_var,14,recall,0.806245216592683,Plain RF,Recall,14
+rf_var,15,recall,0.570263719751603,Plain RF,Recall,15
+rf_var,16,recall,0.596024047990623,Plain RF,Recall,16
+rf_var,17,recall,0.920170627666057,Plain RF,Recall,17
+rf_var,18,recall,0.422559399454694,Plain RF,Recall,18
+rf_var,19,recall,0.769453074826862,Plain RF,Recall,19
+rf_var,20,recall,0.594594238943061,Plain RF,Recall,20
+rf_var,21,recall,0.638040086113383,Plain RF,Recall,21
+rf_var,22,recall,0.725607432110529,Plain RF,Recall,22
+rf_var,23,recall,0.574432537958299,Plain RF,Recall,23
+rf_var,24,recall,0.639215658442128,Plain RF,Recall,24
+rf_var,25,recall,0.647172824058275,Plain RF,Recall,25
+rf_var,26,recall,0.593481025039124,Plain RF,Recall,26
+rf_var,27,recall,0.738925522194351,Plain RF,Recall,27
+rf_var,28,recall,0.490400069501759,Plain RF,Recall,28
+rf_var,29,recall,0.791484623154718,Plain RF,Recall,29
+rf_var,30,recall,0.431116090863523,Plain RF,Recall,30
+rf_var,31,recall,0.705376180503888,Plain RF,Recall,31
+rf_var,32,recall,0.669548971628861,Plain RF,Recall,32
+rf_var,33,recall,0.664680783371948,Plain RF,Recall,33
+rf_var,34,recall,0.766039930219035,Plain RF,Recall,34
+rf_var,35,recall,0.8514788218111,Plain RF,Recall,35
+rf_var,36,recall,0.7259357696567,Plain RF,Recall,36
+rf_var,37,recall,0.730748387231249,Plain RF,Recall,37
+rf_var,38,recall,0.926811401172083,Plain RF,Recall,38
+rf_var,39,recall,0.621291528049948,Plain RF,Recall,39
+rf_var,40,recall,0.386844530281663,Plain RF,Recall,40
+rf_var,41,recall,0.522703111471565,Plain RF,Recall,41
+rf_var,42,recall,0.769615337474761,Plain RF,Recall,42
+rf_var,43,recall,0.867357695010541,Plain RF,Recall,43
+rf_var,44,recall,0.343776216859682,Plain RF,Recall,44
+rf_var,45,recall,0.704967997561719,Plain RF,Recall,45
+rf_var,46,recall,0.483807388520098,Plain RF,Recall,46
+rf_var,47,recall,0.570358897098861,Plain RF,Recall,47
+rf_var,48,recall,0.915024630541872,Plain RF,Recall,48
+rf_var,49,recall,0.444010573491471,Plain RF,Recall,49
+rf_var,50,recall,0.859511343804538,Plain RF,Recall,50
+rf_var,52,recall,0.866680770044426,Plain RF,Recall,52
+rf_var,53,recall,0.773248150847431,Plain RF,Recall,53
+rf_var,54,recall,0.931676480775892,Plain RF,Recall,54
+rf_var,55,recall,0.853987153376155,Plain RF,Recall,55
 mf_var,1,tss,0.762862917777224,Plain MF RF,TSS,1
 mf_var,2,tss,0.636286992679569,Plain MF RF,TSS,2
 mf_var,3,tss,0.506187433860095,Plain MF RF,TSS,3
