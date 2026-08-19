@@ -12,7 +12,7 @@
 # Main outputs:
 #   Figure 1    Climate/soil independent-test metrics (parallel dot-range plot)
 #   Figure 2    Normal-map reconstruction metrics
-#   Figure 3    Zone-level climate/soil F1, precision and recall
+#   Figure 3    Zone-level climate/soil F1, precision and sensitivity
 #   Figure 4    Major normal-map confusion Sankey
 #               + zone/category chord PDFs for all normal-map transitions
 #   Figure 5a-b Future assigned ecosystem maps, future only (SSP rows)
@@ -21,9 +21,9 @@
 #   Figure 8    Assigned-zone species suitable area
 #   Figure 9    Continuous dual-suitability species area
 #   Figure 10a  Population suitable area
-#   Figure 10b  Zone-level macro metrics（balanced accuracy, recall, specificity, precision, F1, TSS comparison incl. Multiclass RF
+#   Figure 10b  Zone-level macro metrics (balanced accuracy, sensitivity, specificity, precision, F1, TSS), including Multiclass RF
 #   Figure 10c  Zone-colored zone-level F1 vs Multiclass RF bubble comparison
-#   Figure 11   Pixel-level ranking summaries
+#   Figure 11   Reference Top-k agreement and future rank retention
 #
 # Scientific rules:
 #   soil gate applied upstream = 0.2
@@ -404,11 +404,37 @@ global_mean <- function(raster) {
 
 div <- function(a, b) {
   
-  ifelse(
-    is.finite(b) & b > 0,
-    a / b,
-    NA_real_
+  n <- max(
+    length(a),
+    length(b)
   )
+  
+  a <- rep(
+    a,
+    length.out = n
+  )
+  
+  b <- rep(
+    b,
+    length.out = n
+  )
+  
+  out <- rep(
+    NA_real_,
+    n
+  )
+  
+  valid <- (
+    is.finite(b) &
+      b > 0
+  )
+  
+  out[valid] <- (
+    a[valid] /
+      b[valid]
+  )
+  
+  out
 }
 
 
@@ -1104,7 +1130,7 @@ metric_labels <- c(
   f1 = "F1",
   auc = "AUC",
   precision = "Precision",
-  recall = "Recall",
+  recall = "Sensitivity",
   specificity = "Specificity",
   tss = "TSS"
 )
@@ -1310,7 +1336,7 @@ map_metric_columns <- c(
 map_metric_labels <- c(
   f1 = "F1",
   precision = "Precision",
-  recall = "Recall",
+  recall = "Sensitivity",
   tss = "TSS"
 )
 
@@ -1464,7 +1490,7 @@ zone_metric_long[
   `:=`(
     metric_label = factor(
       metric_labels[metric],
-      levels = c("F1", "Precision", "Recall", "TSS")
+      levels = c("F1", "Precision", "Sensitivity", "TSS")
     ),
     niche_label = factor(
       niche,
@@ -1622,7 +1648,7 @@ for (method in method_order) {
   }
   
   mtext(
-    paste0("Future ecosystem maps | ", method_labels[method]),
+    paste0("Future top-ranked ecotype analogue maps | ", method_labels[method]),
     outer = TRUE,
     line = 0.7,
     cex = 1.2
@@ -1881,7 +1907,7 @@ figure_7 <- ggplot(
     x = "Future period",
     y = "Share of mapped area",
     fill = NULL,
-    title = "Normal-to-future ecosystem transitions"
+    title = "Normal-to-future top-ranked analogue transitions"
   ) +
   theme_bw(base_size = 11) +
   theme(
@@ -2736,7 +2762,7 @@ metric_labels_10b <- c(
   exact_zone_accuracy = "Exact-zone accuracy",
   broad_category_accuracy = "Broad-category accuracy",
   macro_balanced_accuracy = "Macro balanced accuracy",
-  macro_recall = "Macro recall",
+  macro_recall = "Macro sensitivity",
   macro_specificity = "Macro specificity",
   macro_precision = "Macro precision",
   macro_f1 = "Macro F1",
@@ -3088,177 +3114,396 @@ save_plot(
 )
 
 
-# 11. Pixel-level ranking and uncertainty =======================================
+# 11. Reference Top-k agreement and future rank retention =====================
 
-ranking_summary_results <- list()
+topk_analysis_dir <- file.path(
+  assessment_dir,
+  "future_topk_analysis"
+)
 
-valid_ranking_jobs <- if (nrow(ranking_index) > 0) {
-  ranking_index[status %in% c("created", "reused")]
-} else {
-  data.table()
-}
-
-for (row_index in seq_len(nrow(valid_ranking_jobs))) {
-  
-  method <- valid_ranking_jobs$method[row_index]
-  scenario <- valid_ranking_jobs$scenario[row_index]
-  summary_file <- valid_ranking_jobs$ranked_summary_file[row_index]
-  
-  if (!file.exists(summary_file)) {
-    next
-  }
-  
-  summary_raster <- rast(summary_file)
-  
-  if (nlyr(summary_raster) != 6L) {
-    next
-  }
-  
-  names(summary_raster) <- c(
-    "n_zone_ranked",
-    "n_zone_above_threshold",
-    "top1_minus_top2",
-    "top1_suit",
-    "top2_suit",
-    "novel_by_threshold"
+reference_topk <- fread(
+  require_file(
+    file.path(
+      topk_analysis_dir,
+      "reference_map_topk_agreement.csv"
+    )
   )
-  
-  fields <- if (scenario == "normal") {
-    data.table(period = "normal", ssp = "normal")
-  } else {
-    scenario_fields(scenario)
-  }
-  
-  ranking_summary_results[[length(ranking_summary_results) + 1L]] <- data.table(
-    method = method,
-    scenario = scenario,
-    period = fields$period,
-    ssp = fields$ssp,
-    mean_n_zone_ranked = global_mean(summary_raster[["n_zone_ranked"]]),
-    mean_n_zone_above_threshold = global_mean(summary_raster[["n_zone_above_threshold"]]),
-    mean_top1_minus_top2 = global_mean(summary_raster[["top1_minus_top2"]]),
-    mean_top1_suit = global_mean(summary_raster[["top1_suit"]]),
-    novel_share = global_mean(summary_raster[["novel_by_threshold"]]),
-    ranked_summary_file = summary_file
+)[
+  method %in% method_order
+]
+
+future_topk <- fread(
+  require_file(
+    file.path(
+      topk_analysis_dir,
+      "future_topk_retention_overall.csv"
+    )
   )
-}
+)[
+  method %in% method_order
+]
 
-ranking_summary <- if (length(ranking_summary_results) > 0) {
-  rbindlist(ranking_summary_results, fill = TRUE)
-} else {
-  data.table()
-}
+required_rank_cutoffs <- c(
+  1L,
+  2L,
+  3L,
+  5L
+)
 
-if (nrow(ranking_summary) > 0) {
-  
-  fwrite(ranking_summary, file.path(table_dir, "pixel_ranking_summary_var.csv"))
-  
-  ranking_future <- ranking_summary[scenario != "normal"]
-  
-  ranking_future[
+expected_reference_topk <- CJ(
+  method = method_order,
+  rank_cutoff = required_rank_cutoffs,
+  unique = TRUE
+)
+
+observed_reference_topk <- unique(
+  reference_topk[
     ,
-    `:=`(
-      period = factor(period, levels = period_levels),
-      ssp = factor(ssp, levels = ssp_levels),
-      method_label = factor(
-        method_labels[method],
-        levels = method_labels[method_order]
-      )
+    .(
+      method,
+      rank_cutoff
     )
   ]
-  
-  figure_11a <- ggplot(
-    ranking_future,
-    aes(x = period, y = novel_share, group = method_label, shape = method_label, linetype = method_label)
-  ) +
-    geom_line(linewidth = 0.8, color = "black") +
-    geom_point(size = 2.2, fill = "white", color = "black", stroke = 0.55) +
-    scale_shape_manual(values = c(21, 24)) +
-    scale_linetype_manual(values = c("solid", "22")) +
-    facet_wrap(~ ssp, nrow = 1) +
-    scale_y_continuous(labels = function(x) paste0(round(x * 100, 1), "%")) +
-    labs(
-      x = "Future period",
-      y = "Pixels with all zones < 0.4",
-      shape = NULL,
-      linetype = NULL,
-      title = "Pixel-level novel share from ranked dual suitability"
-    ) +
-    theme_bw(base_size = 11) +
-    theme(
-      legend.position = "top",
-      panel.grid.minor = element_blank()
-    )
-  
-  save_plot(
-    figure_11a,
-    file.path(figure_dir, "Figure_var_11a_ranking_novel_share.png"),
-    8.8,
-    4.8
+)
+
+missing_reference_topk <- fsetdiff(
+  expected_reference_topk,
+  observed_reference_topk
+)
+
+if (nrow(missing_reference_topk) > 0) {
+  print(missing_reference_topk)
+  stop(
+    "Incomplete reference Top-k results. Re-run script 8.2."
   )
-  
-  ranking_margin_long <- melt(
-    ranking_future,
-    id.vars = c("method", "method_label", "scenario", "period", "ssp"),
-    measure.vars = c(
-      "mean_top1_suit",
-      "mean_top1_minus_top2",
-      "mean_n_zone_above_threshold"
+}
+
+expected_future_topk <- CJ(
+  method = method_order,
+  scenario = future_order,
+  unique = TRUE
+)
+
+observed_future_topk <- unique(
+  future_topk[
+    ,
+    .(
+      method,
+      scenario
+    )
+  ]
+)
+
+missing_future_topk <- fsetdiff(
+  expected_future_topk,
+  observed_future_topk
+)
+
+if (nrow(missing_future_topk) > 0) {
+  print(missing_future_topk)
+  stop(
+    "Incomplete future Top-k results. Re-run script 8.2."
+  )
+}
+
+# 11a. Reference-period Top-k agreement ----------------------------------------
+
+reference_topk[
+  ,
+  `:=`(
+    method_label = factor(
+      method_labels[method],
+      levels = method_labels[method_order]
     ),
-    variable.name = "metric",
-    value.name = "value"
-  )
-  
-  ranking_margin_long[
-    ,
-    metric_label := factor(
-      metric,
-      levels = c(
-        "mean_top1_suit",
-        "mean_top1_minus_top2",
-        "mean_n_zone_above_threshold"
+    rank_label = factor(
+      paste0(
+        "Top-",
+        rank_cutoff
       ),
-      labels = c(
-        "Mean top suitability",
-        "Mean top1 - top2",
-        "Mean zones >= 0.4"
+      levels = paste0(
+        "Top-",
+        required_rank_cutoffs
       )
     )
-  ]
-  
-  figure_11b <- ggplot(
-    ranking_margin_long,
-    aes(x = period, y = value, group = method_label, shape = method_label, linetype = method_label)
-  ) +
-    geom_line(linewidth = 0.75, color = "black") +
-    geom_point(size = 2.0, fill = "white", color = "black", stroke = 0.55) +
-    scale_shape_manual(values = c(21, 24)) +
-    scale_linetype_manual(values = c("solid", "22")) +
-    facet_grid(metric_label ~ ssp, scales = "free_y") +
-    labs(
-      x = "Future period",
-      y = NULL,
-      shape = NULL,
-      linetype = NULL,
-      title = "Pixel-level ranking strength and uncertainty"
-    ) +
-    theme_bw(base_size = 10) +
-    theme(
-      legend.position = "top",
-      panel.grid.minor = element_blank()
-    )
-  
-  save_plot(
-    figure_11b,
-    file.path(figure_dir, "Figure_var_11b_ranking_uncertainty.png"),
-    9.8,
-    7.0
   )
-  
-  
-} else {
-  cat("[SKIP FIGURE 11] Script 8.1 ranking outputs are not available.\n")
+]
+
+fwrite(
+  reference_topk,
+  file.path(
+    table_dir,
+    "Figure_var_11a_reference_topk_agreement.csv"
+  )
+)
+
+figure_11a <- ggplot(
+  reference_topk,
+  aes(
+    x = rank_cutoff,
+    y = area_share,
+    group = method_label,
+    shape = method_label,
+    linetype = method_label
+  )
+) +
+  geom_line(
+    linewidth = 0.8,
+    color = "black"
+  ) +
+  geom_point(
+    size = 2.5,
+    fill = "white",
+    color = "black",
+    stroke = 0.55
+  ) +
+  scale_shape_manual(
+    values = c(21, 24)
+  ) +
+  scale_linetype_manual(
+    values = c("solid", "22")
+  ) +
+  scale_x_continuous(
+    breaks = required_rank_cutoffs,
+    labels = paste0(
+      "Top-",
+      required_rank_cutoffs
+    )
+  ) +
+  scale_y_continuous(
+    limits = c(0.5, 1),
+    breaks = seq(
+      0.5,
+      1,
+      by = 0.1
+    ),
+    labels = function(x) {
+      paste0(
+        round(
+          100 * x
+        ),
+        "%"
+      )
+    }
+  ) +
+  labs(
+    x = NULL,
+    y = "Share of evaluated mapped area",
+    shape = NULL,
+    linetype = NULL,
+    title = "Reference-period ecotype agreement by rank",
+    subtitle = "Top-1 is exact assigned-zone agreement; higher ranks show whether the observed ecotype remains among the leading environmental analogues."
+  ) +
+  theme_bw(
+    base_size = 11
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank()
+  )
+
+save_plot(
+  figure_11a,
+  file.path(
+    figure_dir,
+    "Figure_var_11a_reference_topk_agreement.png"
+  ),
+  8.5,
+  5.0
+)
+
+
+# 11b. Future displacement severity --------------------------------------------
+
+future_topk[
+  ,
+  `:=`(
+    period = factor(
+      period,
+      levels = period_levels
+    ),
+    ssp = factor(
+      ssp,
+      levels = ssp_levels
+    ),
+    method_label = factor(
+      method_labels[method],
+      levels = method_labels[method_order]
+    ),
+    stable_top1 =
+      stable_top1_area_share,
+    changed_former_top3 =
+      changed_existing_area_share *
+      former_top3_among_changed_area,
+    changed_former_rank4_5 =
+      changed_existing_area_share *
+      (
+        former_top5_among_changed_area -
+        former_top3_among_changed_area
+      ),
+    changed_former_below_top5 =
+      changed_existing_area_share *
+      (
+        1 -
+        former_top5_among_changed_area
+      ),
+    novel = novel_area_share
+  )
+]
+
+future_topk_long <- melt(
+  future_topk,
+  id.vars = c(
+    "method",
+    "method_label",
+    "scenario",
+    "period",
+    "ssp"
+  ),
+  measure.vars = c(
+    "stable_top1",
+    "changed_former_top3",
+    "changed_former_rank4_5",
+    "changed_former_below_top5",
+    "novel"
+  ),
+  variable.name = "retention_class",
+  value.name = "area_share"
+)
+
+future_topk_long[
+  ,
+  retention_label := factor(
+    retention_class,
+    levels = c(
+      "stable_top1",
+      "changed_former_top3",
+      "changed_former_rank4_5",
+      "changed_former_below_top5",
+      "novel"
+    ),
+    labels = c(
+      "Stable Top-1",
+      "Changed; former in Top-3",
+      "Changed; former rank 4-5",
+      "Changed; former below Top-5",
+      "Novel"
+    )
+  )
+]
+
+share_check <- future_topk_long[
+  ,
+  .(
+    total_share = sum(
+      area_share,
+      na.rm = TRUE
+    )
+  ),
+  by = .(
+    method,
+    scenario
+  )
+]
+
+if (any(
+  abs(
+    share_check$total_share -
+      1
+  ) > 1e-6
+)) {
+  print(share_check)
+  stop(
+    "Future Top-k retention classes do not sum to one."
+  )
 }
+
+fwrite(
+  future_topk,
+  file.path(
+    table_dir,
+    "Figure_var_11b_future_topk_retention_overall.csv"
+  )
+)
+
+fwrite(
+  future_topk_long,
+  file.path(
+    table_dir,
+    "Figure_var_11b_future_topk_retention_long.csv"
+  )
+)
+
+figure_11b <- ggplot(
+  future_topk_long,
+  aes(
+    x = period,
+    y = area_share,
+    fill = retention_label
+  )
+) +
+  geom_col(
+    width = 0.58,
+    color = "white",
+    linewidth = 0.15
+  ) +
+  facet_grid(
+    method_label ~ ssp
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Stable Top-1" = "#5B8E7D",
+      "Changed; former in Top-3" = "#D9C27E",
+      "Changed; former rank 4-5" = "#D4A373",
+      "Changed; former below Top-5" = "#B5654D",
+      "Novel" = "#333333"
+    )
+  ) +
+  scale_y_continuous(
+    limits = c(0, 1),
+    breaks = seq(
+      0,
+      1,
+      by = 0.2
+    ),
+    labels = function(x) {
+      paste0(
+        round(
+          100 * x
+        ),
+        "%"
+      )
+    }
+  ) +
+  labs(
+    x = "Future period",
+    y = "Share of mapped area",
+    fill = NULL,
+    title = "Future displacement of normal-period top-ranked analogues",
+    subtitle = "Changed cells are separated by whether the former top-ranked ecotype remains within the future Top-3 or Top-5."
+  ) +
+  theme_bw(
+    base_size = 10.5
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.spacing = grid::unit(
+      1.0,
+      "lines"
+    )
+  )
+
+save_plot(
+  figure_11b,
+  file.path(
+    figure_dir,
+    "Figure_var_11b_future_topk_retention.png"
+  ),
+  10.2,
+  6.2
+)
 
 
 # 12. Multi-page species maps ====================================================

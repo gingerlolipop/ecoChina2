@@ -61,7 +61,7 @@ out_dir <- file.path(
 
 cache_dir <- file.path(
   out_dir,
-  "cache_fast"
+  "cache_fast_v3"
 )
 
 dir.create(
@@ -1148,15 +1148,11 @@ for (method in method_order) {
         ,
         `:=`(
           pixel_share =
-            div(
-              pixel_count,
-              sum(pixel_count)
-            ),
+            pixel_count /
+            sum(pixel_count),
           area_share =
-            div(
-              area_km2,
-              sum(area_km2)
-            )
+            area_km2 /
+            sum(area_km2)
         ),
         by = normal_assigned_zone
       ]
