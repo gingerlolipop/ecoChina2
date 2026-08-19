@@ -1,2 +1,0 @@
-selection_rule,target_predictors,selected_accuracy,best_accuracy_on_path,n_selected,n_climate_selected,n_soil_selected,variables
-fixed_predictor_count,30,0.9998245283,0.9999490566,30,20,10,"MWMT, soil_T_CEC_CLAY, soil_T_REF_BULK_DENSITY, soil_T_CLAY, soil_T_CEC_SOIL, Eref_sp, PAS_wt, AHM, DD_18_sp, soil_T_PH_H2O, MAP, DD5_sm, Tmax_sp, soil_T_GRAVEL, Eref, CMD, PPT_sp, soil_T_OC, DD_18_wt, soil_T_SAND, Tmin_sm, CMD_sp, soil_T_SILT, soil_T_TEB, CMD_at, TD, Eref_at, RH_sp, PPT_wt, PPT_sm"
