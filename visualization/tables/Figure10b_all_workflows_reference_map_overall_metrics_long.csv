@@ -1,0 +1,46 @@
+method_key,method_label,source_file,metric,value,metric_label,model_family
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,individual_coverage,0.981506880504176,Individual map coverage,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,individual_coverage,0.981506880504176,Individual map coverage,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,individual_coverage,0.981506880504176,Individual map coverage,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,individual_coverage,0.981506880504176,Individual map coverage,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,individual_coverage,0.979962137725706,Individual map coverage,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,coverage,0.979962137725706,Common comparison coverage,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,coverage,0.979962137725706,Common comparison coverage,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,coverage,0.979962137725706,Common comparison coverage,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,coverage,0.979962137725706,Common comparison coverage,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,coverage,0.979962137725706,Common comparison coverage,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,exact_zone_accuracy,0.603595106640203,Exact-zone accuracy,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,exact_zone_accuracy,0.604036989507302,Exact-zone accuracy,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,exact_zone_accuracy,0.61370935938298,Exact-zone accuracy,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,exact_zone_accuracy,0.559946728385883,Exact-zone accuracy,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,exact_zone_accuracy,0.579889480795712,Exact-zone accuracy,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,broad_category_accuracy,0.700078873020901,Broad-category accuracy,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,broad_category_accuracy,0.700372141661118,Broad-category accuracy,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,broad_category_accuracy,0.710258018218375,Broad-category accuracy,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,broad_category_accuracy,0.673567193995306,Broad-category accuracy,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,broad_category_accuracy,0.688625799235837,Broad-category accuracy,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_balanced_accuracy,0.825310268954916,Macro balanced accuracy,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_balanced_accuracy,0.825568575522051,Macro balanced accuracy,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_balanced_accuracy,0.813455349514445,Macro balanced accuracy,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_balanced_accuracy,0.803171676941079,Macro balanced accuracy,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,macro_balanced_accuracy,0.857475445411857,Macro balanced accuracy,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_recall,0.65831053518208,Macro recall,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_recall,0.658818896444822,Macro recall,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_recall,0.634435958288782,Macro recall,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_recall,0.614875448649477,Macro recall,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,macro_recall,0.723043520262823,Macro recall,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_specificity,0.992310002727752,Macro specificity,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_specificity,0.992318254599281,Macro specificity,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_specificity,0.992474740740108,Macro specificity,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_specificity,0.991467905232681,Macro specificity,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,macro_specificity,0.991907370560892,Macro specificity,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_precision,0.456296798951211,Macro precision,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_precision,0.456271710513983,Macro precision,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_precision,0.496597124682671,Macro precision,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_precision,0.419425559171323,Macro precision,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,macro_precision,0.445372046786559,Macro precision,Multiclass robustness model
+plain_rf,Plain RF,result maps/plain_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_f1,0.50183313566883,Macro F1,Binary dual-niche workflow
+plain_mf,Plain MF RF,result maps/plain_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_f1,0.501605697746266,Macro F1,Binary dual-niche workflow
+optimized_rf,Optimized RF,result maps/optimized_rf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_f1,0.532750036793147,Macro F1,Binary dual-niche workflow
+optimized_mf,Optimized MF RF,result maps/optimized_mf/assigned_zone_normal_threshold0.2_tol1e-04_novel99_maskNA8_noNovelNormal.tif,macro_f1,0.457718744410393,Macro F1,Binary dual-niche workflow
+multiclass_rf,Multiclass RF,result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,macro_f1,0.482343146951163,Macro F1,Multiclass robustness model

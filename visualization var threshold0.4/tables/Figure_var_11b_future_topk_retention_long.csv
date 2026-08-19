@@ -1,0 +1,61 @@
+method,method_label,scenario,period,ssp,retention_class,area_share,retention_label
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,stable_top1,0.524097109989025,Stable Top-1
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,stable_top1,0.50924301218362,Stable Top-1
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,stable_top1,0.40383077445303,Stable Top-1
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,stable_top1,0.351623379698779,Stable Top-1
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,stable_top1,0.343922114029554,Stable Top-1
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,stable_top1,0.238761136303647,Stable Top-1
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,stable_top1,0.525776465941761,Stable Top-1
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,stable_top1,0.511531671431858,Stable Top-1
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,stable_top1,0.407374593504907,Stable Top-1
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,stable_top1,0.357935594271206,Stable Top-1
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,stable_top1,0.350079135875439,Stable Top-1
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,stable_top1,0.242363118202612,Stable Top-1
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,changed_former_top3,0.334239727292063,Changed; former in Top-3
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,changed_former_top3,0.339789654641139,Changed; former in Top-3
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,changed_former_top3,0.351755056166845,Changed; former in Top-3
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,changed_former_top3,0.339294503079505,Changed; former in Top-3
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,changed_former_top3,0.337718583330675,Changed; former in Top-3
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,changed_former_top3,0.30612865057051,Changed; former in Top-3
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,changed_former_top3,0.332037184355079,Changed; former in Top-3
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,changed_former_top3,0.336443339819842,Changed; former in Top-3
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,changed_former_top3,0.34656047316201,Changed; former in Top-3
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,changed_former_top3,0.330807686740576,Changed; former in Top-3
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,changed_former_top3,0.328052931056632,Changed; former in Top-3
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,changed_former_top3,0.303795489695239,Changed; former in Top-3
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,changed_former_rank4_5,0.0886772443586535,Changed; former rank 4-5
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,changed_former_rank4_5,0.0940280583568029,Changed; former rank 4-5
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,changed_former_rank4_5,0.135145198207871,Changed; former rank 4-5
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,changed_former_rank4_5,0.160053025462793,Changed; former rank 4-5
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,changed_former_rank4_5,0.162714352634598,Changed; former rank 4-5
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,changed_former_rank4_5,0.188237324750485,Changed; former rank 4-5
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,changed_former_rank4_5,0.0887454491625689,Changed; former rank 4-5
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,changed_former_rank4_5,0.0937819501644628,Changed; former rank 4-5
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,changed_former_rank4_5,0.136323662507616,Changed; former rank 4-5
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,changed_former_rank4_5,0.162032117118688,Changed; former rank 4-5
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,changed_former_rank4_5,0.165787991923611,Changed; former rank 4-5
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,changed_former_rank4_5,0.193000126835529,Changed; former rank 4-5
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,changed_former_below_top5,0.0333005009368562,Changed; former below Top-5
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,changed_former_below_top5,0.0364846551032009,Changed; former below Top-5
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,changed_former_below_top5,0.0718505933875751,Changed; former below Top-5
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,changed_former_below_top5,0.0942270304364526,Changed; former below Top-5
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,changed_former_below_top5,0.0994767142593427,Changed; former below Top-5
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,changed_former_below_top5,0.153425534000842,Changed; former below Top-5
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,changed_former_below_top5,0.0339242954094747,Changed; former below Top-5
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,changed_former_below_top5,0.0377753124640797,Changed; former below Top-5
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,changed_former_below_top5,0.0716123957748684,Changed; former below Top-5
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,changed_former_below_top5,0.0937201991887598,Changed; former below Top-5
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,changed_former_below_top5,0.0988681107047293,Changed; former below Top-5
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,changed_former_below_top5,0.153866759363273,Changed; former below Top-5
+mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,novel,0.0196854174234022,Novel
+mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,novel,0.0204546197152362,Novel
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,novel,0.0374183777846788,Novel
+mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,novel,0.0548020613224703,Novel
+mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,novel,0.05616823574583,Novel
+mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,novel,0.113447354374516,Novel
+rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,novel,0.0195166051311162,Novel
+rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,novel,0.0204677261197577,Novel
+rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,novel,0.0381288750505988,Novel
+rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,novel,0.0555044026807707,Novel
+rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,novel,0.0572118304395887,Novel
+rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,novel,0.106974505903347,Novel
