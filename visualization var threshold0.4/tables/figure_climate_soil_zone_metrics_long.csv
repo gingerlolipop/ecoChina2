@@ -847,218 +847,218 @@ soil,rf_var,52,precision,0.910479199578726,Precision,Soil,Plain RF,52
 soil,rf_var,53,precision,0.924660354055167,Precision,Soil,Plain RF,53
 soil,rf_var,54,precision,0.933234421364985,Precision,Soil,Plain RF,54
 soil,rf_var,55,precision,0.909410729991205,Precision,Soil,Plain RF,55
-climate,mf_var,1,recall,0.989991103202847,Sensitivity,Climate,Plain MF RF,1
-climate,mf_var,2,recall,0.96558699691859,Sensitivity,Climate,Plain MF RF,2
-climate,mf_var,3,recall,0.939502592917905,Sensitivity,Climate,Plain MF RF,3
-climate,mf_var,4,recall,0.984733101247462,Sensitivity,Climate,Plain MF RF,4
-climate,mf_var,5,recall,0.952744431337173,Sensitivity,Climate,Plain MF RF,5
-climate,mf_var,6,recall,0.98489581419279,Sensitivity,Climate,Plain MF RF,6
-climate,mf_var,7,recall,0.941597407662996,Sensitivity,Climate,Plain MF RF,7
-climate,mf_var,9,recall,0.998145521981019,Sensitivity,Climate,Plain MF RF,9
-climate,mf_var,10,recall,0.982461705791716,Sensitivity,Climate,Plain MF RF,10
-climate,mf_var,11,recall,0.975206423583468,Sensitivity,Climate,Plain MF RF,11
-climate,mf_var,12,recall,0.974441263801718,Sensitivity,Climate,Plain MF RF,12
-climate,mf_var,13,recall,0.957721563771449,Sensitivity,Climate,Plain MF RF,13
-climate,mf_var,14,recall,0.995540239205352,Sensitivity,Climate,Plain MF RF,14
-climate,mf_var,15,recall,0.959858008755191,Sensitivity,Climate,Plain MF RF,15
-climate,mf_var,16,recall,0.963643299605806,Sensitivity,Climate,Plain MF RF,16
-climate,mf_var,17,recall,1,Sensitivity,Climate,Plain MF RF,17
-climate,mf_var,18,recall,0.973355019961556,Sensitivity,Climate,Plain MF RF,18
-climate,mf_var,19,recall,0.955145273381897,Sensitivity,Climate,Plain MF RF,19
-climate,mf_var,20,recall,0.963759946142803,Sensitivity,Climate,Plain MF RF,20
-climate,mf_var,21,recall,0.963319174092969,Sensitivity,Climate,Plain MF RF,21
-climate,mf_var,22,recall,0.982239261403646,Sensitivity,Climate,Plain MF RF,22
-climate,mf_var,23,recall,0.964423454539962,Sensitivity,Climate,Plain MF RF,23
-climate,mf_var,24,recall,0.961775144203908,Sensitivity,Climate,Plain MF RF,24
-climate,mf_var,25,recall,0.971951989892609,Sensitivity,Climate,Plain MF RF,25
-climate,mf_var,26,recall,0.986105468432599,Sensitivity,Climate,Plain MF RF,26
-climate,mf_var,27,recall,0.968052349443325,Sensitivity,Climate,Plain MF RF,27
-climate,mf_var,28,recall,0.975636050021561,Sensitivity,Climate,Plain MF RF,28
-climate,mf_var,29,recall,0.992044856483543,Sensitivity,Climate,Plain MF RF,29
-climate,mf_var,30,recall,0.950189695968313,Sensitivity,Climate,Plain MF RF,30
-climate,mf_var,31,recall,0.973179865840384,Sensitivity,Climate,Plain MF RF,31
-climate,mf_var,32,recall,0.989747131321717,Sensitivity,Climate,Plain MF RF,32
-climate,mf_var,33,recall,0.978177938980158,Sensitivity,Climate,Plain MF RF,33
-climate,mf_var,34,recall,0.996831432192649,Sensitivity,Climate,Plain MF RF,34
-climate,mf_var,35,recall,0.99461436845849,Sensitivity,Climate,Plain MF RF,35
-climate,mf_var,36,recall,0.992203291943402,Sensitivity,Climate,Plain MF RF,36
-climate,mf_var,37,recall,0.973493516399695,Sensitivity,Climate,Plain MF RF,37
-climate,mf_var,38,recall,0.99944573772309,Sensitivity,Climate,Plain MF RF,38
-climate,mf_var,39,recall,0.99776719261685,Sensitivity,Climate,Plain MF RF,39
-climate,mf_var,40,recall,0.970161977834612,Sensitivity,Climate,Plain MF RF,40
-climate,mf_var,41,recall,0.985971943887776,Sensitivity,Climate,Plain MF RF,41
-climate,mf_var,42,recall,0.991697985009661,Sensitivity,Climate,Plain MF RF,42
-climate,mf_var,43,recall,0.998812351543943,Sensitivity,Climate,Plain MF RF,43
-climate,mf_var,44,recall,0.959117414738407,Sensitivity,Climate,Plain MF RF,44
-climate,mf_var,45,recall,0.993643633381177,Sensitivity,Climate,Plain MF RF,45
-climate,mf_var,46,recall,0.987575529617317,Sensitivity,Climate,Plain MF RF,46
-climate,mf_var,47,recall,0.979316907518495,Sensitivity,Climate,Plain MF RF,47
-climate,mf_var,48,recall,1,Sensitivity,Climate,Plain MF RF,48
-climate,mf_var,49,recall,0.968106580540977,Sensitivity,Climate,Plain MF RF,49
-climate,mf_var,50,recall,0.994750656167979,Sensitivity,Climate,Plain MF RF,50
-climate,mf_var,52,recall,0.998728993080073,Sensitivity,Climate,Plain MF RF,52
-climate,mf_var,53,recall,0.995045712242709,Sensitivity,Climate,Plain MF RF,53
-climate,mf_var,54,recall,0.998556165174704,Sensitivity,Climate,Plain MF RF,54
-climate,mf_var,55,recall,0.999497739829232,Sensitivity,Climate,Plain MF RF,55
-climate,rf_var,1,recall,0.990435943060498,Sensitivity,Climate,Plain RF,1
-climate,rf_var,2,recall,0.964928374850046,Sensitivity,Climate,Plain RF,2
-climate,rf_var,3,recall,0.938907003886369,Sensitivity,Climate,Plain RF,3
-climate,rf_var,4,recall,0.984406730490281,Sensitivity,Climate,Plain RF,4
-climate,rf_var,5,recall,0.952154604121851,Sensitivity,Climate,Plain RF,5
-climate,rf_var,6,recall,0.98489581419279,Sensitivity,Climate,Plain RF,6
-climate,rf_var,7,recall,0.942407512976687,Sensitivity,Climate,Plain RF,7
-climate,rf_var,9,recall,0.997927348096433,Sensitivity,Climate,Plain RF,9
-climate,rf_var,10,recall,0.982620320855615,Sensitivity,Climate,Plain RF,10
-climate,rf_var,11,recall,0.975183677183086,Sensitivity,Climate,Plain RF,11
-climate,rf_var,12,recall,0.974779083619295,Sensitivity,Climate,Plain RF,12
-climate,rf_var,13,recall,0.957651876986743,Sensitivity,Climate,Plain RF,13
-climate,rf_var,14,recall,0.99564159740523,Sensitivity,Climate,Plain RF,14
-climate,rf_var,15,recall,0.959872039510607,Sensitivity,Climate,Plain RF,15
-climate,rf_var,16,recall,0.963508873912333,Sensitivity,Climate,Plain RF,16
-climate,rf_var,17,recall,1,Sensitivity,Climate,Plain RF,17
-climate,rf_var,18,recall,0.973709892059737,Sensitivity,Climate,Plain RF,18
-climate,rf_var,19,recall,0.955329481704764,Sensitivity,Climate,Plain RF,19
-climate,rf_var,20,recall,0.964019498900956,Sensitivity,Climate,Plain RF,20
-climate,rf_var,21,recall,0.963395809156795,Sensitivity,Climate,Plain RF,21
-climate,rf_var,22,recall,0.982317502542837,Sensitivity,Climate,Plain RF,22
-climate,rf_var,23,recall,0.963638011419135,Sensitivity,Climate,Plain RF,23
-climate,rf_var,24,recall,0.962074175499894,Sensitivity,Climate,Plain RF,24
-climate,rf_var,25,recall,0.971909875763319,Sensitivity,Climate,Plain RF,25
-climate,rf_var,26,recall,0.986511741285447,Sensitivity,Climate,Plain RF,26
-climate,rf_var,27,recall,0.967605313560988,Sensitivity,Climate,Plain RF,27
-climate,rf_var,28,recall,0.976067270375162,Sensitivity,Climate,Plain RF,28
-climate,rf_var,29,recall,0.991923403910773,Sensitivity,Climate,Plain RF,29
-climate,rf_var,30,recall,0.950201210139379,Sensitivity,Climate,Plain RF,30
-climate,rf_var,31,recall,0.973258459640119,Sensitivity,Climate,Plain RF,31
-climate,rf_var,32,recall,0.989109647258818,Sensitivity,Climate,Plain RF,32
-climate,rf_var,33,recall,0.977921911670578,Sensitivity,Climate,Plain RF,33
-climate,rf_var,34,recall,0.996831432192649,Sensitivity,Climate,Plain RF,34
-climate,rf_var,35,recall,0.99461436845849,Sensitivity,Climate,Plain RF,35
-climate,rf_var,36,recall,0.992203291943402,Sensitivity,Climate,Plain RF,36
-climate,rf_var,37,recall,0.973042784827682,Sensitivity,Climate,Plain RF,37
-climate,rf_var,38,recall,0.999556590178472,Sensitivity,Climate,Plain RF,38
-climate,rf_var,39,recall,0.99776719261685,Sensitivity,Climate,Plain RF,39
-climate,rf_var,40,recall,0.969907203261115,Sensitivity,Climate,Plain RF,40
-climate,rf_var,41,recall,0.98604481690654,Sensitivity,Climate,Plain RF,41
-climate,rf_var,42,recall,0.991889079983863,Sensitivity,Climate,Plain RF,42
-climate,rf_var,43,recall,0.998812351543943,Sensitivity,Climate,Plain RF,43
-climate,rf_var,44,recall,0.959192918873711,Sensitivity,Climate,Plain RF,44
-climate,rf_var,45,recall,0.993233545212221,Sensitivity,Climate,Plain RF,45
-climate,rf_var,46,recall,0.987405663811303,Sensitivity,Climate,Plain RF,46
-climate,rf_var,47,recall,0.979484835197642,Sensitivity,Climate,Plain RF,47
-climate,rf_var,48,recall,1,Sensitivity,Climate,Plain RF,48
-climate,rf_var,49,recall,0.968021588084058,Sensitivity,Climate,Plain RF,49
-climate,rf_var,50,recall,0.994750656167979,Sensitivity,Climate,Plain RF,50
-climate,rf_var,52,recall,0.998587770088971,Sensitivity,Climate,Plain RF,52
-climate,rf_var,53,recall,0.995096787374228,Sensitivity,Climate,Plain RF,53
-climate,rf_var,54,recall,0.997978631244586,Sensitivity,Climate,Plain RF,54
-climate,rf_var,55,recall,0.999497739829232,Sensitivity,Climate,Plain RF,55
-soil,mf_var,1,recall,0.888055034396498,Sensitivity,Soil,Plain MF RF,1
-soil,mf_var,2,recall,0.908738548273432,Sensitivity,Soil,Plain MF RF,2
-soil,mf_var,3,recall,0.909822326516929,Sensitivity,Soil,Plain MF RF,3
-soil,mf_var,4,recall,0.698083067092652,Sensitivity,Soil,Plain MF RF,4
-soil,mf_var,5,recall,0.818440726237095,Sensitivity,Soil,Plain MF RF,5
-soil,mf_var,6,recall,0.905849358974359,Sensitivity,Soil,Plain MF RF,6
-soil,mf_var,7,recall,0.867911236350828,Sensitivity,Soil,Plain MF RF,7
-soil,mf_var,9,recall,0.980885311871227,Sensitivity,Soil,Plain MF RF,9
-soil,mf_var,10,recall,0.833570919458304,Sensitivity,Soil,Plain MF RF,10
-soil,mf_var,11,recall,0.870226177233964,Sensitivity,Soil,Plain MF RF,11
-soil,mf_var,12,recall,0.849841381741276,Sensitivity,Soil,Plain MF RF,12
-soil,mf_var,13,recall,0.900752908966461,Sensitivity,Soil,Plain MF RF,13
-soil,mf_var,14,recall,0.917,Sensitivity,Soil,Plain MF RF,14
-soil,mf_var,15,recall,0.891614793116075,Sensitivity,Soil,Plain MF RF,15
-soil,mf_var,16,recall,0.92735648476258,Sensitivity,Soil,Plain MF RF,16
-soil,mf_var,17,recall,0.923847695390782,Sensitivity,Soil,Plain MF RF,17
-soil,mf_var,18,recall,0.811082186686501,Sensitivity,Soil,Plain MF RF,18
-soil,mf_var,19,recall,0.882809309922417,Sensitivity,Soil,Plain MF RF,19
-soil,mf_var,20,recall,0.957847196085811,Sensitivity,Soil,Plain MF RF,20
-soil,mf_var,21,recall,0.96455872133426,Sensitivity,Soil,Plain MF RF,21
-soil,mf_var,22,recall,0.880568720379147,Sensitivity,Soil,Plain MF RF,22
-soil,mf_var,23,recall,0.935337294652219,Sensitivity,Soil,Plain MF RF,23
-soil,mf_var,24,recall,0.916666666666667,Sensitivity,Soil,Plain MF RF,24
-soil,mf_var,25,recall,0.884270870655679,Sensitivity,Soil,Plain MF RF,25
-soil,mf_var,26,recall,0.860335195530726,Sensitivity,Soil,Plain MF RF,26
-soil,mf_var,27,recall,0.876869565217391,Sensitivity,Soil,Plain MF RF,27
-soil,mf_var,28,recall,0.801649106733852,Sensitivity,Soil,Plain MF RF,28
-soil,mf_var,29,recall,0.909814323607427,Sensitivity,Soil,Plain MF RF,29
-soil,mf_var,30,recall,0.912439193884642,Sensitivity,Soil,Plain MF RF,30
-soil,mf_var,31,recall,0.933356001360081,Sensitivity,Soil,Plain MF RF,31
-soil,mf_var,32,recall,0.849887640449438,Sensitivity,Soil,Plain MF RF,32
-soil,mf_var,33,recall,0.876496749914472,Sensitivity,Soil,Plain MF RF,33
-soil,mf_var,34,recall,0.9072708113804,Sensitivity,Soil,Plain MF RF,34
-soil,mf_var,35,recall,0.950917203767972,Sensitivity,Soil,Plain MF RF,35
-soil,mf_var,36,recall,0.950195858981533,Sensitivity,Soil,Plain MF RF,36
-soil,mf_var,37,recall,0.857460199925953,Sensitivity,Soil,Plain MF RF,37
-soil,mf_var,38,recall,0.943377148634985,Sensitivity,Soil,Plain MF RF,38
-soil,mf_var,39,recall,0.914093206064009,Sensitivity,Soil,Plain MF RF,39
-soil,mf_var,40,recall,0.876056338028169,Sensitivity,Soil,Plain MF RF,40
-soil,mf_var,41,recall,0.83206106870229,Sensitivity,Soil,Plain MF RF,41
-soil,mf_var,42,recall,0.951353328456474,Sensitivity,Soil,Plain MF RF,42
-soil,mf_var,43,recall,0.924227318045862,Sensitivity,Soil,Plain MF RF,43
-soil,mf_var,44,recall,0.874645892351275,Sensitivity,Soil,Plain MF RF,44
-soil,mf_var,45,recall,0.842398022249691,Sensitivity,Soil,Plain MF RF,45
-soil,mf_var,46,recall,0.904470768055025,Sensitivity,Soil,Plain MF RF,46
-soil,mf_var,47,recall,0.852887758808573,Sensitivity,Soil,Plain MF RF,47
-soil,mf_var,48,recall,0.929515418502203,Sensitivity,Soil,Plain MF RF,48
-soil,mf_var,49,recall,0.936232952451161,Sensitivity,Soil,Plain MF RF,49
-soil,mf_var,50,recall,0.928115015974441,Sensitivity,Soil,Plain MF RF,50
-soil,mf_var,52,recall,0.963231197771588,Sensitivity,Soil,Plain MF RF,52
-soil,mf_var,53,recall,0.945707070707071,Sensitivity,Soil,Plain MF RF,53
-soil,mf_var,54,recall,0.949433962264151,Sensitivity,Soil,Plain MF RF,54
-soil,mf_var,55,recall,0.940855323020928,Sensitivity,Soil,Plain MF RF,55
-soil,rf_var,1,recall,0.889305816135084,Sensitivity,Soil,Plain RF,1
-soil,rf_var,2,recall,0.90169133192389,Sensitivity,Soil,Plain RF,2
-soil,rf_var,3,recall,0.904123365739189,Sensitivity,Soil,Plain RF,3
-soil,rf_var,4,recall,0.698083067092652,Sensitivity,Soil,Plain RF,4
-soil,rf_var,5,recall,0.819152723389107,Sensitivity,Soil,Plain RF,5
-soil,rf_var,6,recall,0.905849358974359,Sensitivity,Soil,Plain RF,6
-soil,rf_var,7,recall,0.868263473053892,Sensitivity,Soil,Plain RF,7
-soil,rf_var,9,recall,0.980885311871227,Sensitivity,Soil,Plain RF,9
-soil,rf_var,10,recall,0.836778332145403,Sensitivity,Soil,Plain RF,10
-soil,rf_var,11,recall,0.870967741935484,Sensitivity,Soil,Plain RF,11
-soil,rf_var,12,recall,0.849841381741276,Sensitivity,Soil,Plain RF,12
-soil,rf_var,13,recall,0.912388774811773,Sensitivity,Soil,Plain RF,13
-soil,rf_var,14,recall,0.917,Sensitivity,Soil,Plain RF,14
-soil,rf_var,15,recall,0.891980959355547,Sensitivity,Soil,Plain RF,15
-soil,rf_var,16,recall,0.925230333097094,Sensitivity,Soil,Plain RF,16
-soil,rf_var,17,recall,0.923847695390782,Sensitivity,Soil,Plain RF,17
-soil,rf_var,18,recall,0.811082186686501,Sensitivity,Soil,Plain RF,18
-soil,rf_var,19,recall,0.882809309922417,Sensitivity,Soil,Plain RF,19
-soil,rf_var,20,recall,0.957847196085811,Sensitivity,Soil,Plain RF,20
-soil,rf_var,21,recall,0.96455872133426,Sensitivity,Soil,Plain RF,21
-soil,rf_var,22,recall,0.880568720379147,Sensitivity,Soil,Plain RF,22
-soil,rf_var,23,recall,0.935337294652219,Sensitivity,Soil,Plain RF,23
-soil,rf_var,24,recall,0.916666666666667,Sensitivity,Soil,Plain RF,24
-soil,rf_var,25,recall,0.884270870655679,Sensitivity,Soil,Plain RF,25
-soil,rf_var,26,recall,0.848696461824953,Sensitivity,Soil,Plain RF,26
-soil,rf_var,27,recall,0.876869565217391,Sensitivity,Soil,Plain RF,27
-soil,rf_var,28,recall,0.801649106733852,Sensitivity,Soil,Plain RF,28
-soil,rf_var,29,recall,0.909814323607427,Sensitivity,Soil,Plain RF,29
-soil,rf_var,30,recall,0.912439193884642,Sensitivity,Soil,Plain RF,30
-soil,rf_var,31,recall,0.933356001360081,Sensitivity,Soil,Plain RF,31
-soil,rf_var,32,recall,0.849887640449438,Sensitivity,Soil,Plain RF,32
-soil,rf_var,33,recall,0.868628121792679,Sensitivity,Soil,Plain RF,33
-soil,rf_var,34,recall,0.9072708113804,Sensitivity,Soil,Plain RF,34
-soil,rf_var,35,recall,0.950917203767972,Sensitivity,Soil,Plain RF,35
-soil,rf_var,36,recall,0.950195858981533,Sensitivity,Soil,Plain RF,36
-soil,rf_var,37,recall,0.857460199925953,Sensitivity,Soil,Plain RF,37
-soil,rf_var,38,recall,0.943377148634985,Sensitivity,Soil,Plain RF,38
-soil,rf_var,39,recall,0.914093206064009,Sensitivity,Soil,Plain RF,39
-soil,rf_var,40,recall,0.876056338028169,Sensitivity,Soil,Plain RF,40
-soil,rf_var,41,recall,0.83206106870229,Sensitivity,Soil,Plain RF,41
-soil,rf_var,42,recall,0.951353328456474,Sensitivity,Soil,Plain RF,42
-soil,rf_var,43,recall,0.924227318045862,Sensitivity,Soil,Plain RF,43
-soil,rf_var,44,recall,0.874645892351275,Sensitivity,Soil,Plain RF,44
-soil,rf_var,45,recall,0.842398022249691,Sensitivity,Soil,Plain RF,45
-soil,rf_var,46,recall,0.904470768055025,Sensitivity,Soil,Plain RF,46
-soil,rf_var,47,recall,0.853614239011987,Sensitivity,Soil,Plain RF,47
-soil,rf_var,48,recall,0.929515418502203,Sensitivity,Soil,Plain RF,48
-soil,rf_var,49,recall,0.937338739402875,Sensitivity,Soil,Plain RF,49
-soil,rf_var,50,recall,0.928115015974441,Sensitivity,Soil,Plain RF,50
-soil,rf_var,52,recall,0.963231197771588,Sensitivity,Soil,Plain RF,52
-soil,rf_var,53,recall,0.945286195286195,Sensitivity,Soil,Plain RF,53
-soil,rf_var,54,recall,0.949433962264151,Sensitivity,Soil,Plain RF,54
-soil,rf_var,55,recall,0.940855323020928,Sensitivity,Soil,Plain RF,55
+climate,mf_var,1,sensitivity,0.989991103202847,Sensitivity,Climate,Plain MF RF,1
+climate,mf_var,2,sensitivity,0.96558699691859,Sensitivity,Climate,Plain MF RF,2
+climate,mf_var,3,sensitivity,0.939502592917905,Sensitivity,Climate,Plain MF RF,3
+climate,mf_var,4,sensitivity,0.984733101247462,Sensitivity,Climate,Plain MF RF,4
+climate,mf_var,5,sensitivity,0.952744431337173,Sensitivity,Climate,Plain MF RF,5
+climate,mf_var,6,sensitivity,0.98489581419279,Sensitivity,Climate,Plain MF RF,6
+climate,mf_var,7,sensitivity,0.941597407662996,Sensitivity,Climate,Plain MF RF,7
+climate,mf_var,9,sensitivity,0.998145521981019,Sensitivity,Climate,Plain MF RF,9
+climate,mf_var,10,sensitivity,0.982461705791716,Sensitivity,Climate,Plain MF RF,10
+climate,mf_var,11,sensitivity,0.975206423583468,Sensitivity,Climate,Plain MF RF,11
+climate,mf_var,12,sensitivity,0.974441263801718,Sensitivity,Climate,Plain MF RF,12
+climate,mf_var,13,sensitivity,0.957721563771449,Sensitivity,Climate,Plain MF RF,13
+climate,mf_var,14,sensitivity,0.995540239205352,Sensitivity,Climate,Plain MF RF,14
+climate,mf_var,15,sensitivity,0.959858008755191,Sensitivity,Climate,Plain MF RF,15
+climate,mf_var,16,sensitivity,0.963643299605806,Sensitivity,Climate,Plain MF RF,16
+climate,mf_var,17,sensitivity,1,Sensitivity,Climate,Plain MF RF,17
+climate,mf_var,18,sensitivity,0.973355019961556,Sensitivity,Climate,Plain MF RF,18
+climate,mf_var,19,sensitivity,0.955145273381897,Sensitivity,Climate,Plain MF RF,19
+climate,mf_var,20,sensitivity,0.963759946142803,Sensitivity,Climate,Plain MF RF,20
+climate,mf_var,21,sensitivity,0.963319174092969,Sensitivity,Climate,Plain MF RF,21
+climate,mf_var,22,sensitivity,0.982239261403646,Sensitivity,Climate,Plain MF RF,22
+climate,mf_var,23,sensitivity,0.964423454539962,Sensitivity,Climate,Plain MF RF,23
+climate,mf_var,24,sensitivity,0.961775144203908,Sensitivity,Climate,Plain MF RF,24
+climate,mf_var,25,sensitivity,0.971951989892609,Sensitivity,Climate,Plain MF RF,25
+climate,mf_var,26,sensitivity,0.986105468432599,Sensitivity,Climate,Plain MF RF,26
+climate,mf_var,27,sensitivity,0.968052349443325,Sensitivity,Climate,Plain MF RF,27
+climate,mf_var,28,sensitivity,0.975636050021561,Sensitivity,Climate,Plain MF RF,28
+climate,mf_var,29,sensitivity,0.992044856483543,Sensitivity,Climate,Plain MF RF,29
+climate,mf_var,30,sensitivity,0.950189695968313,Sensitivity,Climate,Plain MF RF,30
+climate,mf_var,31,sensitivity,0.973179865840384,Sensitivity,Climate,Plain MF RF,31
+climate,mf_var,32,sensitivity,0.989747131321717,Sensitivity,Climate,Plain MF RF,32
+climate,mf_var,33,sensitivity,0.978177938980158,Sensitivity,Climate,Plain MF RF,33
+climate,mf_var,34,sensitivity,0.996831432192649,Sensitivity,Climate,Plain MF RF,34
+climate,mf_var,35,sensitivity,0.99461436845849,Sensitivity,Climate,Plain MF RF,35
+climate,mf_var,36,sensitivity,0.992203291943402,Sensitivity,Climate,Plain MF RF,36
+climate,mf_var,37,sensitivity,0.973493516399695,Sensitivity,Climate,Plain MF RF,37
+climate,mf_var,38,sensitivity,0.99944573772309,Sensitivity,Climate,Plain MF RF,38
+climate,mf_var,39,sensitivity,0.99776719261685,Sensitivity,Climate,Plain MF RF,39
+climate,mf_var,40,sensitivity,0.970161977834612,Sensitivity,Climate,Plain MF RF,40
+climate,mf_var,41,sensitivity,0.985971943887776,Sensitivity,Climate,Plain MF RF,41
+climate,mf_var,42,sensitivity,0.991697985009661,Sensitivity,Climate,Plain MF RF,42
+climate,mf_var,43,sensitivity,0.998812351543943,Sensitivity,Climate,Plain MF RF,43
+climate,mf_var,44,sensitivity,0.959117414738407,Sensitivity,Climate,Plain MF RF,44
+climate,mf_var,45,sensitivity,0.993643633381177,Sensitivity,Climate,Plain MF RF,45
+climate,mf_var,46,sensitivity,0.987575529617317,Sensitivity,Climate,Plain MF RF,46
+climate,mf_var,47,sensitivity,0.979316907518495,Sensitivity,Climate,Plain MF RF,47
+climate,mf_var,48,sensitivity,1,Sensitivity,Climate,Plain MF RF,48
+climate,mf_var,49,sensitivity,0.968106580540977,Sensitivity,Climate,Plain MF RF,49
+climate,mf_var,50,sensitivity,0.994750656167979,Sensitivity,Climate,Plain MF RF,50
+climate,mf_var,52,sensitivity,0.998728993080073,Sensitivity,Climate,Plain MF RF,52
+climate,mf_var,53,sensitivity,0.995045712242709,Sensitivity,Climate,Plain MF RF,53
+climate,mf_var,54,sensitivity,0.998556165174704,Sensitivity,Climate,Plain MF RF,54
+climate,mf_var,55,sensitivity,0.999497739829232,Sensitivity,Climate,Plain MF RF,55
+climate,rf_var,1,sensitivity,0.990435943060498,Sensitivity,Climate,Plain RF,1
+climate,rf_var,2,sensitivity,0.964928374850046,Sensitivity,Climate,Plain RF,2
+climate,rf_var,3,sensitivity,0.938907003886369,Sensitivity,Climate,Plain RF,3
+climate,rf_var,4,sensitivity,0.984406730490281,Sensitivity,Climate,Plain RF,4
+climate,rf_var,5,sensitivity,0.952154604121851,Sensitivity,Climate,Plain RF,5
+climate,rf_var,6,sensitivity,0.98489581419279,Sensitivity,Climate,Plain RF,6
+climate,rf_var,7,sensitivity,0.942407512976687,Sensitivity,Climate,Plain RF,7
+climate,rf_var,9,sensitivity,0.997927348096433,Sensitivity,Climate,Plain RF,9
+climate,rf_var,10,sensitivity,0.982620320855615,Sensitivity,Climate,Plain RF,10
+climate,rf_var,11,sensitivity,0.975183677183086,Sensitivity,Climate,Plain RF,11
+climate,rf_var,12,sensitivity,0.974779083619295,Sensitivity,Climate,Plain RF,12
+climate,rf_var,13,sensitivity,0.957651876986743,Sensitivity,Climate,Plain RF,13
+climate,rf_var,14,sensitivity,0.99564159740523,Sensitivity,Climate,Plain RF,14
+climate,rf_var,15,sensitivity,0.959872039510607,Sensitivity,Climate,Plain RF,15
+climate,rf_var,16,sensitivity,0.963508873912333,Sensitivity,Climate,Plain RF,16
+climate,rf_var,17,sensitivity,1,Sensitivity,Climate,Plain RF,17
+climate,rf_var,18,sensitivity,0.973709892059737,Sensitivity,Climate,Plain RF,18
+climate,rf_var,19,sensitivity,0.955329481704764,Sensitivity,Climate,Plain RF,19
+climate,rf_var,20,sensitivity,0.964019498900956,Sensitivity,Climate,Plain RF,20
+climate,rf_var,21,sensitivity,0.963395809156795,Sensitivity,Climate,Plain RF,21
+climate,rf_var,22,sensitivity,0.982317502542837,Sensitivity,Climate,Plain RF,22
+climate,rf_var,23,sensitivity,0.963638011419135,Sensitivity,Climate,Plain RF,23
+climate,rf_var,24,sensitivity,0.962074175499894,Sensitivity,Climate,Plain RF,24
+climate,rf_var,25,sensitivity,0.971909875763319,Sensitivity,Climate,Plain RF,25
+climate,rf_var,26,sensitivity,0.986511741285447,Sensitivity,Climate,Plain RF,26
+climate,rf_var,27,sensitivity,0.967605313560988,Sensitivity,Climate,Plain RF,27
+climate,rf_var,28,sensitivity,0.976067270375162,Sensitivity,Climate,Plain RF,28
+climate,rf_var,29,sensitivity,0.991923403910773,Sensitivity,Climate,Plain RF,29
+climate,rf_var,30,sensitivity,0.950201210139379,Sensitivity,Climate,Plain RF,30
+climate,rf_var,31,sensitivity,0.973258459640119,Sensitivity,Climate,Plain RF,31
+climate,rf_var,32,sensitivity,0.989109647258818,Sensitivity,Climate,Plain RF,32
+climate,rf_var,33,sensitivity,0.977921911670578,Sensitivity,Climate,Plain RF,33
+climate,rf_var,34,sensitivity,0.996831432192649,Sensitivity,Climate,Plain RF,34
+climate,rf_var,35,sensitivity,0.99461436845849,Sensitivity,Climate,Plain RF,35
+climate,rf_var,36,sensitivity,0.992203291943402,Sensitivity,Climate,Plain RF,36
+climate,rf_var,37,sensitivity,0.973042784827682,Sensitivity,Climate,Plain RF,37
+climate,rf_var,38,sensitivity,0.999556590178472,Sensitivity,Climate,Plain RF,38
+climate,rf_var,39,sensitivity,0.99776719261685,Sensitivity,Climate,Plain RF,39
+climate,rf_var,40,sensitivity,0.969907203261115,Sensitivity,Climate,Plain RF,40
+climate,rf_var,41,sensitivity,0.98604481690654,Sensitivity,Climate,Plain RF,41
+climate,rf_var,42,sensitivity,0.991889079983863,Sensitivity,Climate,Plain RF,42
+climate,rf_var,43,sensitivity,0.998812351543943,Sensitivity,Climate,Plain RF,43
+climate,rf_var,44,sensitivity,0.959192918873711,Sensitivity,Climate,Plain RF,44
+climate,rf_var,45,sensitivity,0.993233545212221,Sensitivity,Climate,Plain RF,45
+climate,rf_var,46,sensitivity,0.987405663811303,Sensitivity,Climate,Plain RF,46
+climate,rf_var,47,sensitivity,0.979484835197642,Sensitivity,Climate,Plain RF,47
+climate,rf_var,48,sensitivity,1,Sensitivity,Climate,Plain RF,48
+climate,rf_var,49,sensitivity,0.968021588084058,Sensitivity,Climate,Plain RF,49
+climate,rf_var,50,sensitivity,0.994750656167979,Sensitivity,Climate,Plain RF,50
+climate,rf_var,52,sensitivity,0.998587770088971,Sensitivity,Climate,Plain RF,52
+climate,rf_var,53,sensitivity,0.995096787374228,Sensitivity,Climate,Plain RF,53
+climate,rf_var,54,sensitivity,0.997978631244586,Sensitivity,Climate,Plain RF,54
+climate,rf_var,55,sensitivity,0.999497739829232,Sensitivity,Climate,Plain RF,55
+soil,mf_var,1,sensitivity,0.888055034396498,Sensitivity,Soil,Plain MF RF,1
+soil,mf_var,2,sensitivity,0.908738548273432,Sensitivity,Soil,Plain MF RF,2
+soil,mf_var,3,sensitivity,0.909822326516929,Sensitivity,Soil,Plain MF RF,3
+soil,mf_var,4,sensitivity,0.698083067092652,Sensitivity,Soil,Plain MF RF,4
+soil,mf_var,5,sensitivity,0.818440726237095,Sensitivity,Soil,Plain MF RF,5
+soil,mf_var,6,sensitivity,0.905849358974359,Sensitivity,Soil,Plain MF RF,6
+soil,mf_var,7,sensitivity,0.867911236350828,Sensitivity,Soil,Plain MF RF,7
+soil,mf_var,9,sensitivity,0.980885311871227,Sensitivity,Soil,Plain MF RF,9
+soil,mf_var,10,sensitivity,0.833570919458304,Sensitivity,Soil,Plain MF RF,10
+soil,mf_var,11,sensitivity,0.870226177233964,Sensitivity,Soil,Plain MF RF,11
+soil,mf_var,12,sensitivity,0.849841381741276,Sensitivity,Soil,Plain MF RF,12
+soil,mf_var,13,sensitivity,0.900752908966461,Sensitivity,Soil,Plain MF RF,13
+soil,mf_var,14,sensitivity,0.917,Sensitivity,Soil,Plain MF RF,14
+soil,mf_var,15,sensitivity,0.891614793116075,Sensitivity,Soil,Plain MF RF,15
+soil,mf_var,16,sensitivity,0.92735648476258,Sensitivity,Soil,Plain MF RF,16
+soil,mf_var,17,sensitivity,0.923847695390782,Sensitivity,Soil,Plain MF RF,17
+soil,mf_var,18,sensitivity,0.811082186686501,Sensitivity,Soil,Plain MF RF,18
+soil,mf_var,19,sensitivity,0.882809309922417,Sensitivity,Soil,Plain MF RF,19
+soil,mf_var,20,sensitivity,0.957847196085811,Sensitivity,Soil,Plain MF RF,20
+soil,mf_var,21,sensitivity,0.96455872133426,Sensitivity,Soil,Plain MF RF,21
+soil,mf_var,22,sensitivity,0.880568720379147,Sensitivity,Soil,Plain MF RF,22
+soil,mf_var,23,sensitivity,0.935337294652219,Sensitivity,Soil,Plain MF RF,23
+soil,mf_var,24,sensitivity,0.916666666666667,Sensitivity,Soil,Plain MF RF,24
+soil,mf_var,25,sensitivity,0.884270870655679,Sensitivity,Soil,Plain MF RF,25
+soil,mf_var,26,sensitivity,0.860335195530726,Sensitivity,Soil,Plain MF RF,26
+soil,mf_var,27,sensitivity,0.876869565217391,Sensitivity,Soil,Plain MF RF,27
+soil,mf_var,28,sensitivity,0.801649106733852,Sensitivity,Soil,Plain MF RF,28
+soil,mf_var,29,sensitivity,0.909814323607427,Sensitivity,Soil,Plain MF RF,29
+soil,mf_var,30,sensitivity,0.912439193884642,Sensitivity,Soil,Plain MF RF,30
+soil,mf_var,31,sensitivity,0.933356001360081,Sensitivity,Soil,Plain MF RF,31
+soil,mf_var,32,sensitivity,0.849887640449438,Sensitivity,Soil,Plain MF RF,32
+soil,mf_var,33,sensitivity,0.876496749914472,Sensitivity,Soil,Plain MF RF,33
+soil,mf_var,34,sensitivity,0.9072708113804,Sensitivity,Soil,Plain MF RF,34
+soil,mf_var,35,sensitivity,0.950917203767972,Sensitivity,Soil,Plain MF RF,35
+soil,mf_var,36,sensitivity,0.950195858981533,Sensitivity,Soil,Plain MF RF,36
+soil,mf_var,37,sensitivity,0.857460199925953,Sensitivity,Soil,Plain MF RF,37
+soil,mf_var,38,sensitivity,0.943377148634985,Sensitivity,Soil,Plain MF RF,38
+soil,mf_var,39,sensitivity,0.914093206064009,Sensitivity,Soil,Plain MF RF,39
+soil,mf_var,40,sensitivity,0.876056338028169,Sensitivity,Soil,Plain MF RF,40
+soil,mf_var,41,sensitivity,0.83206106870229,Sensitivity,Soil,Plain MF RF,41
+soil,mf_var,42,sensitivity,0.951353328456474,Sensitivity,Soil,Plain MF RF,42
+soil,mf_var,43,sensitivity,0.924227318045862,Sensitivity,Soil,Plain MF RF,43
+soil,mf_var,44,sensitivity,0.874645892351275,Sensitivity,Soil,Plain MF RF,44
+soil,mf_var,45,sensitivity,0.842398022249691,Sensitivity,Soil,Plain MF RF,45
+soil,mf_var,46,sensitivity,0.904470768055025,Sensitivity,Soil,Plain MF RF,46
+soil,mf_var,47,sensitivity,0.852887758808573,Sensitivity,Soil,Plain MF RF,47
+soil,mf_var,48,sensitivity,0.929515418502203,Sensitivity,Soil,Plain MF RF,48
+soil,mf_var,49,sensitivity,0.936232952451161,Sensitivity,Soil,Plain MF RF,49
+soil,mf_var,50,sensitivity,0.928115015974441,Sensitivity,Soil,Plain MF RF,50
+soil,mf_var,52,sensitivity,0.963231197771588,Sensitivity,Soil,Plain MF RF,52
+soil,mf_var,53,sensitivity,0.945707070707071,Sensitivity,Soil,Plain MF RF,53
+soil,mf_var,54,sensitivity,0.949433962264151,Sensitivity,Soil,Plain MF RF,54
+soil,mf_var,55,sensitivity,0.940855323020928,Sensitivity,Soil,Plain MF RF,55
+soil,rf_var,1,sensitivity,0.889305816135084,Sensitivity,Soil,Plain RF,1
+soil,rf_var,2,sensitivity,0.90169133192389,Sensitivity,Soil,Plain RF,2
+soil,rf_var,3,sensitivity,0.904123365739189,Sensitivity,Soil,Plain RF,3
+soil,rf_var,4,sensitivity,0.698083067092652,Sensitivity,Soil,Plain RF,4
+soil,rf_var,5,sensitivity,0.819152723389107,Sensitivity,Soil,Plain RF,5
+soil,rf_var,6,sensitivity,0.905849358974359,Sensitivity,Soil,Plain RF,6
+soil,rf_var,7,sensitivity,0.868263473053892,Sensitivity,Soil,Plain RF,7
+soil,rf_var,9,sensitivity,0.980885311871227,Sensitivity,Soil,Plain RF,9
+soil,rf_var,10,sensitivity,0.836778332145403,Sensitivity,Soil,Plain RF,10
+soil,rf_var,11,sensitivity,0.870967741935484,Sensitivity,Soil,Plain RF,11
+soil,rf_var,12,sensitivity,0.849841381741276,Sensitivity,Soil,Plain RF,12
+soil,rf_var,13,sensitivity,0.912388774811773,Sensitivity,Soil,Plain RF,13
+soil,rf_var,14,sensitivity,0.917,Sensitivity,Soil,Plain RF,14
+soil,rf_var,15,sensitivity,0.891980959355547,Sensitivity,Soil,Plain RF,15
+soil,rf_var,16,sensitivity,0.925230333097094,Sensitivity,Soil,Plain RF,16
+soil,rf_var,17,sensitivity,0.923847695390782,Sensitivity,Soil,Plain RF,17
+soil,rf_var,18,sensitivity,0.811082186686501,Sensitivity,Soil,Plain RF,18
+soil,rf_var,19,sensitivity,0.882809309922417,Sensitivity,Soil,Plain RF,19
+soil,rf_var,20,sensitivity,0.957847196085811,Sensitivity,Soil,Plain RF,20
+soil,rf_var,21,sensitivity,0.96455872133426,Sensitivity,Soil,Plain RF,21
+soil,rf_var,22,sensitivity,0.880568720379147,Sensitivity,Soil,Plain RF,22
+soil,rf_var,23,sensitivity,0.935337294652219,Sensitivity,Soil,Plain RF,23
+soil,rf_var,24,sensitivity,0.916666666666667,Sensitivity,Soil,Plain RF,24
+soil,rf_var,25,sensitivity,0.884270870655679,Sensitivity,Soil,Plain RF,25
+soil,rf_var,26,sensitivity,0.848696461824953,Sensitivity,Soil,Plain RF,26
+soil,rf_var,27,sensitivity,0.876869565217391,Sensitivity,Soil,Plain RF,27
+soil,rf_var,28,sensitivity,0.801649106733852,Sensitivity,Soil,Plain RF,28
+soil,rf_var,29,sensitivity,0.909814323607427,Sensitivity,Soil,Plain RF,29
+soil,rf_var,30,sensitivity,0.912439193884642,Sensitivity,Soil,Plain RF,30
+soil,rf_var,31,sensitivity,0.933356001360081,Sensitivity,Soil,Plain RF,31
+soil,rf_var,32,sensitivity,0.849887640449438,Sensitivity,Soil,Plain RF,32
+soil,rf_var,33,sensitivity,0.868628121792679,Sensitivity,Soil,Plain RF,33
+soil,rf_var,34,sensitivity,0.9072708113804,Sensitivity,Soil,Plain RF,34
+soil,rf_var,35,sensitivity,0.950917203767972,Sensitivity,Soil,Plain RF,35
+soil,rf_var,36,sensitivity,0.950195858981533,Sensitivity,Soil,Plain RF,36
+soil,rf_var,37,sensitivity,0.857460199925953,Sensitivity,Soil,Plain RF,37
+soil,rf_var,38,sensitivity,0.943377148634985,Sensitivity,Soil,Plain RF,38
+soil,rf_var,39,sensitivity,0.914093206064009,Sensitivity,Soil,Plain RF,39
+soil,rf_var,40,sensitivity,0.876056338028169,Sensitivity,Soil,Plain RF,40
+soil,rf_var,41,sensitivity,0.83206106870229,Sensitivity,Soil,Plain RF,41
+soil,rf_var,42,sensitivity,0.951353328456474,Sensitivity,Soil,Plain RF,42
+soil,rf_var,43,sensitivity,0.924227318045862,Sensitivity,Soil,Plain RF,43
+soil,rf_var,44,sensitivity,0.874645892351275,Sensitivity,Soil,Plain RF,44
+soil,rf_var,45,sensitivity,0.842398022249691,Sensitivity,Soil,Plain RF,45
+soil,rf_var,46,sensitivity,0.904470768055025,Sensitivity,Soil,Plain RF,46
+soil,rf_var,47,sensitivity,0.853614239011987,Sensitivity,Soil,Plain RF,47
+soil,rf_var,48,sensitivity,0.929515418502203,Sensitivity,Soil,Plain RF,48
+soil,rf_var,49,sensitivity,0.937338739402875,Sensitivity,Soil,Plain RF,49
+soil,rf_var,50,sensitivity,0.928115015974441,Sensitivity,Soil,Plain RF,50
+soil,rf_var,52,sensitivity,0.963231197771588,Sensitivity,Soil,Plain RF,52
+soil,rf_var,53,sensitivity,0.945286195286195,Sensitivity,Soil,Plain RF,53
+soil,rf_var,54,sensitivity,0.949433962264151,Sensitivity,Soil,Plain RF,54
+soil,rf_var,55,sensitivity,0.940855323020928,Sensitivity,Soil,Plain RF,55
 climate,mf_var,1,specificity,0.978870106761566,Specificity,Climate,Plain MF RF,1
 climate,mf_var,2,specificity,0.948192317644015,Specificity,Climate,Plain MF RF,2
 climate,mf_var,3,specificity,0.911630229452178,Specificity,Climate,Plain MF RF,3

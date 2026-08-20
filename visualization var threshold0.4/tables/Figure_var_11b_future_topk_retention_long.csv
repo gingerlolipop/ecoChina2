@@ -1,61 +1,61 @@
-method,method_label,scenario,period,ssp,retention_class,area_share,retention_label
-mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,stable_top1,0.524097109989025,Stable Top-1
-mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,stable_top1,0.50924301218362,Stable Top-1
-mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,stable_top1,0.40383077445303,Stable Top-1
-mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,stable_top1,0.351623379698779,Stable Top-1
-mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,stable_top1,0.343922114029554,Stable Top-1
-mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,stable_top1,0.238761136303647,Stable Top-1
-rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,stable_top1,0.525776465941761,Stable Top-1
-rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,stable_top1,0.511531671431858,Stable Top-1
-rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,stable_top1,0.407374593504907,Stable Top-1
-rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,stable_top1,0.357935594271206,Stable Top-1
-rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,stable_top1,0.350079135875439,Stable Top-1
-rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,stable_top1,0.242363118202612,Stable Top-1
-mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,changed_former_top3,0.334239727292063,Changed; former in Top-3
-mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,changed_former_top3,0.339789654641139,Changed; former in Top-3
-mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,changed_former_top3,0.351755056166845,Changed; former in Top-3
-mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,changed_former_top3,0.339294503079505,Changed; former in Top-3
-mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,changed_former_top3,0.337718583330675,Changed; former in Top-3
-mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,changed_former_top3,0.30612865057051,Changed; former in Top-3
-rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,changed_former_top3,0.332037184355079,Changed; former in Top-3
-rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,changed_former_top3,0.336443339819842,Changed; former in Top-3
-rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,changed_former_top3,0.34656047316201,Changed; former in Top-3
-rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,changed_former_top3,0.330807686740576,Changed; former in Top-3
-rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,changed_former_top3,0.328052931056632,Changed; former in Top-3
-rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,changed_former_top3,0.303795489695239,Changed; former in Top-3
-mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,changed_former_rank4_5,0.0886772443586535,Changed; former rank 4-5
-mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,changed_former_rank4_5,0.0940280583568029,Changed; former rank 4-5
-mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,changed_former_rank4_5,0.135145198207871,Changed; former rank 4-5
-mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,changed_former_rank4_5,0.160053025462793,Changed; former rank 4-5
-mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,changed_former_rank4_5,0.162714352634598,Changed; former rank 4-5
-mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,changed_former_rank4_5,0.188237324750485,Changed; former rank 4-5
-rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,changed_former_rank4_5,0.0887454491625689,Changed; former rank 4-5
-rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,changed_former_rank4_5,0.0937819501644628,Changed; former rank 4-5
-rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,changed_former_rank4_5,0.136323662507616,Changed; former rank 4-5
-rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,changed_former_rank4_5,0.162032117118688,Changed; former rank 4-5
-rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,changed_former_rank4_5,0.165787991923611,Changed; former rank 4-5
-rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,changed_former_rank4_5,0.193000126835529,Changed; former rank 4-5
-mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,changed_former_below_top5,0.0333005009368562,Changed; former below Top-5
-mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,changed_former_below_top5,0.0364846551032009,Changed; former below Top-5
-mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,changed_former_below_top5,0.0718505933875751,Changed; former below Top-5
-mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,changed_former_below_top5,0.0942270304364526,Changed; former below Top-5
-mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,changed_former_below_top5,0.0994767142593427,Changed; former below Top-5
-mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,changed_former_below_top5,0.153425534000842,Changed; former below Top-5
-rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,changed_former_below_top5,0.0339242954094747,Changed; former below Top-5
-rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,changed_former_below_top5,0.0377753124640797,Changed; former below Top-5
-rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,changed_former_below_top5,0.0716123957748684,Changed; former below Top-5
-rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,changed_former_below_top5,0.0937201991887598,Changed; former below Top-5
-rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,changed_former_below_top5,0.0988681107047293,Changed; former below Top-5
-rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,changed_former_below_top5,0.153866759363273,Changed; former below Top-5
-mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,novel,0.0196854174234022,Novel
-mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,novel,0.0204546197152362,Novel
-mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,novel,0.0374183777846788,Novel
-mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,novel,0.0548020613224703,Novel
-mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,novel,0.05616823574583,Novel
-mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,novel,0.113447354374516,Novel
-rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,novel,0.0195166051311162,Novel
-rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,novel,0.0204677261197577,Novel
-rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,novel,0.0381288750505988,Novel
-rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,novel,0.0555044026807707,Novel
-rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,novel,0.0572118304395887,Novel
-rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,novel,0.106974505903347,Novel
+category_index,retention_label,area_km2,pixel_count,area_share,pixel_share,method,method_label,scenario,period,ssp,baseline
+1,Stable Top-1,4469693.04234433,6454236,0.525776465940843,0.520760511691832,rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2822690.60875518,4141293,0.33203718435602,0.334140533712403,rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,754436.423759861,1113233,0.0887454491625356,0.0898212874013645,rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,288394.777972529,436502,0.0339242954094809,0.035219196334703,rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+5,Novel,165913.158567593,248602,0.0195166051311207,0.0200584708596979,rf_var,Plain RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,3463143.56798137,4996503,0.4073745935049,0.403143216168385,rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2946154.94604851,4302260,0.346560473162405,0.347128168079274,rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1158904.90595943,1702720,0.136323662507368,0.13738408983928,rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,608786.143685129,909151,0.0716123957747741,0.0733549160528281,rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+5,Novel,324138.447735807,483232,0.0381288750505518,0.0389896098602325,rf_var,Plain RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,2976067.54820335,4297368,0.350079135875606,0.346733456695433,rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2788819.96143478,4069275,0.328052931057,0.328329756026086,rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1409384.94209476,2051174,0.165787991923264,0.16549912674544,rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,840490.465346628,1247806,0.0988681107046327,0.10067931991519,rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+5,Novel,486365.094333413,728243,0.0572118304394968,0.0587583406178508,rf_var,Plain RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,4348596.22072683,6278154,0.511531671431361,0.506553322425787,rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2860147.90039895,4194393,0.336443339820462,0.338424911161699,rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,797252.36350676,1176068,0.0937819501643802,0.0948911340496985,rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,321132.766927786,484072,0.0377753124640512,0.0390573853227072,rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+5,Novel,173998.759846369,261179,0.0204677261197455,0.0210732470401084,rf_var,Plain RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,3042856.30674411,4393506,0.357935594271545,0.354490358375667,rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2812238.49214332,4099106,0.330807686740788,0.330736672479757,rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1377455.76958348,2008983,0.162032117118337,0.162094942772497,rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,796727.410558072,1184668,0.0937201991886616,0.0955850256893208,rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+5,Novel,471850.032385451,707603,0.0555044026806678,0.0570930006827571,rf_var,Plain RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,2060359.89308538,2968701,0.24236311820276,0.239529860981231,rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2582604.34719102,3753468,0.303795489695684,0.302848844743037,rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1640718.78444552,2357882,0.193000126835404,0.190245884536754,rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,1308041.01804558,1915564,0.153866759363046,0.154557423809488,rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+5,Novel,909403.968639294,1398251,0.106974505903106,0.112817985929491,rf_var,Plain RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,4455416.62241594,6430715,0.524097109988309,0.518862718057465,mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2841414.70821207,4170832,0.334239727292824,0.336523890124357,mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,753856.605990808,1114552,0.088677244358607,0.0899277110144647,mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,283091.821308016,428520,0.0333005009368588,0.0345751680710442,mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+5,Novel,167348.253474198,249247,0.0196854174234012,0.0201105127326695,mf_var,Plain MF RF,2011-2040SSP245,2011-2040,SSP245,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,3433017.10857405,4952848,0.403830774453103,0.399620909246558,mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2990314.76113978,4365382,0.351755056167257,0.352221171343954,mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1148886.63009036,1692350,0.135145198207566,0.136547385618015,mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,610811.092082783,911142,0.0718505933874565,0.0735155600359081,mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+5,Novel,318098.419526464,472144,0.0374183777846177,0.0380949737555659,mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,2923725.91732333,4221299,0.343922114029753,0.340595823772824,mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2870988.9087313,4187170,0.337718583331095,0.33784212286949,mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1383255.541038,2018305,0.16271435263422,0.162847089035818,mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,845664.282072531,1253773,0.0994767142592164,0.101160767753984,mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+5,Novel,477493.36224965,713319,0.0561682357457152,0.0575541965678829,mf_var,Plain MF RF,2071-2100SSP245,2071-2100,SSP245,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,4329140.03548509,6247237,0.509243012183305,0.504058781981345,mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2888595.35106021,4238335,0.339789654641598,0.341970374699872,mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,799344.560754486,1181129,0.0940280583567085,0.0952994812111088,mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,310160.723484093,467565,0.0364846551031685,0.0377255168000041,mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+5,Novel,173887.340623754,259600,0.0204546197152207,0.0209458453076708,mf_var,Plain MF RF,2011-2040SSP585,2011-2040,SSP585,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,2989195.36262582,4314359,0.351623379698818,0.348104376794133,mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2884386.00425241,4205424,0.339294503080011,0.339314948217126,mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1360631.25807046,1988051,0.16005302546245,0.160406042795686,mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,801036.047874937,1189139,0.0942270304363601,0.0959457686568501,mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+5,Novel,465879.338590774,696893,0.0548020613223612,0.0562288635362041,mf_var,Plain MF RF,2041-2070SSP585,2041-2070,SSP585,workflow-specific normal-period Top-1 assigned map
+1,Stable Top-1,2029738.98386784,2924351,0.2387611363038,0.235951477932713,mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+2,Changed; former in Top-3,2602438.84646279,3775371,0.306128650570897,0.304616089927066,mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+3,Changed; former rank 4-5,1600229.59422816,2297693,0.188237324750404,0.185389530595215,mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+4,Changed; former below Top-5,1304290.10475756,1909265,0.15342553400058,0.154049188526002,mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map
+5,Novel,964430.482091655,1487186,0.113447354374319,0.119993713019005,mf_var,Plain MF RF,2071-2100SSP585,2071-2100,SSP585,workflow-specific normal-period Top-1 assigned map

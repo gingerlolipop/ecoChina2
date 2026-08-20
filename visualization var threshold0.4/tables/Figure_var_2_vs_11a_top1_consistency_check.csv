@@ -1,0 +1,3 @@
+method,topk_top1_pixel_share,topk_top1_area_share,reference_map_exact_accuracy,pixel_share_difference
+mf_var,0.602434228139075,0.598568798062484,0.602434228139075,0
+rf_var,0.60266579504989,0.598779886752168,0.60266579504989,0
