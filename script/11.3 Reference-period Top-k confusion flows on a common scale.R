@@ -6,8 +6,9 @@
 #
 # Diagnostic definition inherited from 11.2:
 #   Top-1: the existing assigned map, including the 1e-4 tie rule.
-#   Top-3/Top-5: the observed ecotype is counted as recovered when it occurs
-#                within the first k dual-suitability ranks.
+#   Top-3/Top-5: every Top-1 match is retained; other pixels are added when the
+#                observed ecotype occurs within the first k dual-suitability
+#                ranks.
 #
 # The figure emphasizes cumulative agreement with the reference ecotype. Each
 # 100% bar partitions evaluated pixels by the first rank interval at which the
@@ -727,11 +728,12 @@ figure_topk_agreement <- ggplot() +
       "reference ecotype is recovered."
     ),
     fill = NULL,
-    caption = paste0(
-      "Top-1 uses the assigned map and the 1e-4 tie rule. At Top-3 and ",
-      "Top-5, a pixel agrees when its reference ecotype occurs within the ",
-      "first k dual-suitability ranks. Segment labels are percentages of all ",
-      "evaluated pixels."
+    caption = paste(
+      "Top-1 uses the assigned map and the 1e-4 tie rule.",
+      "Top-3 and Top-5 retain all Top-1 matches and add pixels where the reference ecotype",
+      "occurs within the first k dual-suitability ranks.",
+      "Segment labels are percentages of all evaluated pixels.",
+      sep = "\n"
     )
   ) +
   theme_bw(
@@ -814,7 +816,7 @@ ggsave(
   filename = output_figure,
   plot = figure_topk_agreement,
   width = 9.2,
-  height = 4.5,
+  height = 5.0,
   units = "in",
   dpi = 600,
   bg = "white"

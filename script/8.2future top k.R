@@ -24,7 +24,11 @@
 #   3. The same future categories by normal-period assigned zone.
 #
 # Top-1 uses the existing assigned map, so the original tie-retention rule in
-# script 4.1 is preserved. Top-2/3/5 use the saved ranking order from script 8.1.
+# script 4.1 is preserved. Top-2/3/5 are cumulative: they retain every Top-1
+# match and add pixels where the observed zone occurs within the first k saved
+# ranks from script 8.1. Future retention is a relative-rank diagnostic. Except
+# for Zone 99, which still requires every ecotype to fall below 0.4, membership
+# in Top-3/Top-5 is not an additional threshold-based suitability claim.
 # ==============================================================================
 
 library(terra)
@@ -61,7 +65,7 @@ out_dir <- file.path(
 
 cache_dir <- file.path(
   out_dir,
-  "cache_fast_v3"
+  "cache_fast_v4_tie_aware"
 )
 
 dir.create(
@@ -474,32 +478,50 @@ for (method in method_order) {
           assigned == original
       )
       
-      # Higher-k results use the saved rank order from script 8.1.
+      # Higher-k agreement is cumulative and tie-aware. A pixel that already
+      # agrees at Top-1 under the 1e-4 assignment rule must remain an agreement
+      # at every larger k. Other pixels are added when the observed zone occurs
+      # within the first k saved ranks from script 8.1.
       top2 <- (
-        valid &
-          rowSums(
-            ranks[, 1:2, drop = FALSE] ==
-              original,
-            na.rm = TRUE
-          ) > 0
+        top1 |
+          (
+            valid &
+              rowSums(
+                ranks[, 1:2, drop = FALSE] ==
+                  original,
+                na.rm = TRUE
+              ) > 0
+          )
       )
       
       top3 <- (
-        valid &
-          rowSums(
-            ranks[, 1:3, drop = FALSE] ==
-              original,
-            na.rm = TRUE
-          ) > 0
+        top1 |
+          (
+            valid &
+              rowSums(
+                ranks[, 1:3, drop = FALSE] ==
+                  original,
+                na.rm = TRUE
+              ) > 0
+          )
       )
       
       top5 <- (
-        valid &
-          rowSums(
-            ranks[, 1:5, drop = FALSE] ==
-              original,
-            na.rm = TRUE
-          ) > 0
+        top1 |
+          (
+            valid &
+              rowSums(
+                ranks[, 1:5, drop = FALSE] ==
+                  original,
+                na.rm = TRUE
+              ) > 0
+          )
+      )
+      
+      stopifnot(
+        all(!top1 | top2),
+        all(!top2 | top3),
+        all(!top3 | top5)
       )
       
       compared_pixels <-
@@ -573,6 +595,8 @@ for (method in method_order) {
         3L,
         5L
       ),
+      agreement_definition =
+        "cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks",
       compared_pixels =
         compared_pixels,
       matched_pixels = c(

@@ -420,9 +420,9 @@ build_topk_zone_map <- function(
 # assigned map. That normal map includes the 1e-4 tie rule from script 4.1.
 # The observed vegetation map is not used here.
 # 1 = normal-period Top-1 remains future Top-1
-# 2 = changed Top-1, but the former Top-1 remains within future Top-3
-# 3 = changed Top-1, and the former Top-1 ranks 4-5
-# 4 = changed Top-1, and the former Top-1 falls below future Top-5
+# 2 = changed Top-1, but the former Top-1 remains within future Top-3 ranks
+# 3 = changed Top-1, and the former Top-1 occupies future ranks 4-5
+# 4 = changed Top-1, and the former Top-1 falls below future rank 5
 # 5 = novel according to the existing future assigned map
 build_topk_change_map <- function(
     normal_top1,
@@ -2099,10 +2099,12 @@ for (method in method_order) {
 # Every category uses one baseline: the workflow's own normal-period Top-1
 # assigned map. Only the future-side retention criterion is relaxed. Codes:
 #   1 = former Top-1 remains Top-1
-#   2 = changed Top-1; former analogue remains within future Top-3
-#   3 = changed Top-1; former analogue ranks 4-5
-#   4 = changed Top-1; former analogue falls below future Top-5
+#   2 = changed Top-1; former ecotype remains within future Top-3 ranks
+#   3 = changed Top-1; former ecotype occupies future ranks 4-5
+#   4 = changed Top-1; former ecotype falls below future rank 5
 #   5 = novel (no current ecotype reaches dual suitability 0.4)
+# Categories 2-4 describe relative rank only; they do not impose 0.4 on the
+# former ecotype itself.
 
 topk_retention_labels <- c(
   "Stable Top-1",
@@ -2403,7 +2405,7 @@ for (method in method_order) {
   
   mtext(
     paste0(
-      "Future rank retention of the normal-period Top-1 analogue | ",
+      "Future rank retention of the normal-period Top-1 ecotype | ",
       method_labels[method]
     ),
     outer = TRUE,
@@ -4361,6 +4363,8 @@ required_rank_cutoffs <- c(
 required_reference_topk_columns <- c(
   "method",
   "rank_cutoff",
+  "compared_pixels",
+  "matched_pixels",
   "pixel_share",
   "area_share"
 )
@@ -4377,7 +4381,7 @@ if (length(missing_reference_topk_columns) > 0L) {
       missing_reference_topk_columns,
       collapse = ", "
     ),
-    ". Re-run assessment script 5.1 so it exports both pixel_share and area_share."
+    ". Re-run script 8.2 so it exports tie-aware pixel_share and area_share."
   )
 }
 
@@ -4491,6 +4495,102 @@ fwrite(
   )
 )
 
+# The assessment table and the diagnostic maps must use the same cumulative,
+# tie-aware definition at every reported rank. This catches the small mismatch
+# that occurs when Top-1 tie-retained pixels are omitted from raw Top-3/Top-5
+# rank membership.
+reference_topk_from_diagnostic <- reference_topk_confusion[
+  rank_cutoff %in% required_rank_cutoffs,
+  .(
+    diagnostic_compared_pixels = sum(
+      n,
+      na.rm = TRUE
+    ),
+    diagnostic_matched_pixels = sum(
+      n[
+        original_zone == predicted_zone
+      ],
+      na.rm = TRUE
+    )
+  ),
+  by = .(
+    method,
+    rank_cutoff
+  )
+]
+
+reference_topk_from_diagnostic[
+  ,
+  diagnostic_pixel_share :=
+    diagnostic_matched_pixels /
+    diagnostic_compared_pixels
+]
+
+reference_topk_consistency_check <- merge(
+  reference_topk_table[
+    ,
+    .(
+      method,
+      rank_cutoff,
+      assessment_compared_pixels = compared_pixels,
+      assessment_matched_pixels = matched_pixels,
+      assessment_pixel_share = pixel_share
+    )
+  ],
+  reference_topk_from_diagnostic,
+  by = c(
+    "method",
+    "rank_cutoff"
+  ),
+  all = TRUE,
+  sort = TRUE
+)
+
+reference_topk_consistency_check[
+  ,
+  `:=`(
+    compared_pixel_difference =
+      assessment_compared_pixels -
+      diagnostic_compared_pixels,
+    matched_pixel_difference =
+      assessment_matched_pixels -
+      diagnostic_matched_pixels,
+    pixel_share_difference =
+      assessment_pixel_share -
+      diagnostic_pixel_share
+  )
+]
+
+stopifnot(
+  nrow(reference_topk_consistency_check) ==
+    length(method_order) *
+    length(required_rank_cutoffs),
+  !anyNA(reference_topk_consistency_check),
+  max(
+    abs(
+      reference_topk_consistency_check$compared_pixel_difference
+    )
+  ) == 0,
+  max(
+    abs(
+      reference_topk_consistency_check$matched_pixel_difference
+    )
+  ) == 0,
+  max(
+    abs(
+      reference_topk_consistency_check$pixel_share_difference
+    )
+  ) < 1e-12
+)
+
+fwrite(
+  reference_topk_consistency_check,
+  file.path(
+    table_dir,
+    "Figure_var_4_vs_11a_topk_consistency_check.csv"
+  )
+)
+
 fwrite(
   reference_topk_table,
   file.path(
@@ -4561,8 +4661,9 @@ figure_11a <- ggplot(
     linetype = NULL,
     title = "Reference-period ecotype agreement by rank",
     subtitle = paste(
-      "Pixel-based agreement; Top-1 uses the assigned map and its 1e-4 tie rule.",
-      "Top-3/Top-5 show whether the observed zone remains among the leading analogues."
+      "Pixel-based cumulative agreement; Top-1 uses the assigned map and its 1e-4 tie rule.",
+      "Top-3/Top-5 retain Top-1 matches and add reference zones recovered within the first k ranks.",
+      sep = "\n"
     )
   ) +
   theme_bw(
@@ -4812,10 +4913,10 @@ figure_11b <- ggplot(
     x = "Future period",
     y = "Share of mapped area",
     fill = NULL,
-    title = "Future rank retention of normal-period Top-1 ecotype analogues",
+    title = "Future rank retention of normal-period Top-1 ecotypes",
     subtitle = paste(
       "All classes use each workflow's normal-period assigned map as the baseline;",
-      "the observed vegetation map is not used."
+      "Top-3/Top-5 retention is rank-based, and the observed vegetation map is not used."
     )
   ) +
   theme_bw(

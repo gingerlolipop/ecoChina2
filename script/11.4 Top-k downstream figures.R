@@ -1,6 +1,6 @@
 # 11.4 Top-k downstream figures
 # ==============================================================================
-# Run after scripts 6.1, 8.1 and 11.2.
+# Run after scripts 6.1, 8.1, 8.2 and 11.2.
 #
 # This script adds rank-aware downstream figures without refitting any model.
 # It uses the saved ranked-zone and ranked-suitability rasters and preserves the
@@ -8,10 +8,18 @@
 #
 # Definitions
 # -----------
-# Figure 6:
-#   Top-k area is the area with fewer than k current ecotype analogues reaching
-#   dual suitability 0.4. Top-1 is therefore exactly novel niche space. Top-3
-#   and Top-5 describe limited analogue availability and are not called novel.
+# Figure 6b:
+#   Top-k non-retention is the area where the workflow's normal-period Top-1
+#   ecotype is not retained within the future first k positive-suitability
+#   ranks. Novel cells are included. This is a relative-rank diagnostic, not
+#   novel niche space or a threshold-based suitable-area estimate, and must
+#   decrease or remain unchanged from Top-1 to Top-3 to Top-5.
+#
+# Supplementary analogue scarcity:
+#   Scarcity at minimum count k is the area with fewer than k current ecotype
+#   analogues reaching dual suitability 0.4. The k = 1 case is exactly novel
+#   niche space. Because the minimum required candidate count increases with k,
+#   scarcity must increase or remain unchanged from k = 1 to 3 to 5.
 #
 # Figure 8:
 #   A species is represented within Top-k when at least one of its source
@@ -22,12 +30,13 @@
 #   A population proxy is represented within Top-k when its source ecotype
 #   satisfies the Top-k diagnostic criterion at a cell.
 #
-# Top-k diagnostic criterion
-# --------------------------
+# Species/population Top-k criterion
+# ----------------------------------
 #   Top-1 uses the existing assigned map, preserving the 1e-4 tie rule.
 #   Top-3 and Top-5 include Top-1 plus source ecotypes occurring within the
 #   first k saved ranks with dual suitability >= 0.4. This matches the nested
-#   diagnostic logic used for reference agreement and future rank retention.
+#   diagnostic logic used for reference agreement while retaining the absolute
+#   suitability threshold required for species/population niche area.
 #
 # Regression guards verify that Top-1 areas reproduce the existing novel,
 # assigned-species and assigned-population results from script 6.1.
@@ -78,6 +87,12 @@ reference_file <- file.path(
 population_lookup_file <- file.path(
   assigned_table_dir,
   "population_projection_lookup_var.csv"
+)
+
+future_topk_retention_file <- file.path(
+  assessment_dir,
+  "future_topk_analysis",
+  "future_topk_retention_overall.csv"
 )
 
 output_root <- file.path(
@@ -546,6 +561,166 @@ existing_population <- fread(
 )[
   method %in% method_order
 ]
+
+future_topk_retention <- fread(
+  require_file(
+    future_topk_retention_file
+  )
+)[
+  method %in% method_order &
+    scenario %in% future_order
+]
+
+required_future_retention_columns <- c(
+  "method",
+  "method_label",
+  "scenario",
+  "period",
+  "ssp",
+  "common_valid_pixels",
+  "common_valid_area_km2",
+  "stable_top1_pixels",
+  "stable_top1_area_km2",
+  "changed_existing_pixels",
+  "changed_existing_area_km2",
+  "novel_pixels",
+  "novel_area_km2",
+  "former_top3_among_changed_pixel",
+  "former_top3_among_changed_area",
+  "former_top5_among_changed_pixel",
+  "former_top5_among_changed_area"
+)
+
+missing_future_retention_columns <- setdiff(
+  required_future_retention_columns,
+  names(future_topk_retention)
+)
+
+if (length(missing_future_retention_columns) > 0L) {
+  stop(
+    "Future Top-k retention table is missing columns: ",
+    paste(
+      missing_future_retention_columns,
+      collapse = ", "
+    )
+  )
+}
+
+expected_future_retention_jobs <- CJ(
+  method = method_order,
+  scenario = future_order,
+  unique = TRUE
+)
+
+observed_future_retention_jobs <- unique(
+  future_topk_retention[
+    ,
+    .(
+      method,
+      scenario
+    )
+  ]
+)
+
+missing_future_retention_jobs <- fsetdiff(
+  expected_future_retention_jobs,
+  observed_future_retention_jobs
+)
+
+duplicated_future_retention_jobs <- future_topk_retention[
+  duplicated(
+    future_topk_retention,
+    by = c(
+      "method",
+      "scenario"
+    )
+  ) |
+    duplicated(
+      future_topk_retention,
+      by = c(
+        "method",
+        "scenario"
+      ),
+      fromLast = TRUE
+    )
+]
+
+if (nrow(missing_future_retention_jobs) > 0L) {
+  print(
+    missing_future_retention_jobs
+  )
+  stop(
+    "Future Top-k retention table is incomplete. Re-run script 8.2."
+  )
+}
+
+if (nrow(duplicated_future_retention_jobs) > 0L) {
+  print(
+    duplicated_future_retention_jobs[
+      order(
+        method,
+        scenario
+      )
+    ]
+  )
+  stop(
+    "Future Top-k retention table has duplicated method x scenario rows."
+  )
+}
+
+if (nrow(future_topk_retention) !=
+    nrow(expected_future_retention_jobs)) {
+  stop(
+    "Future Top-k retention table has an unexpected number of rows."
+  )
+}
+
+future_retention_fraction_columns <- c(
+  "former_top3_among_changed_pixel",
+  "former_top3_among_changed_area",
+  "former_top5_among_changed_pixel",
+  "former_top5_among_changed_area"
+)
+
+if (anyNA(
+  future_topk_retention[
+    ,
+    ..future_retention_fraction_columns
+  ]
+) || any(
+  future_topk_retention[
+    ,
+    unlist(
+      lapply(
+        .SD,
+        function(x) {
+          !is.finite(x) |
+            x < 0 |
+            x > 1
+        }
+      )
+    ),
+    .SDcols = future_retention_fraction_columns
+  ]
+)) {
+  stop(
+    "Future Top-k retention fractions must be finite values within [0, 1]."
+  )
+}
+
+if (any(
+  future_topk_retention$former_top3_among_changed_pixel >
+  future_topk_retention$former_top5_among_changed_pixel +
+  1e-12
+) || any(
+  future_topk_retention$former_top3_among_changed_area >
+  future_topk_retention$former_top5_among_changed_area +
+  1e-12
+)) {
+  stop(
+    "Future retention is not nested: expected Top-3 <= Top-5."
+  )
+}
 
 reference_map <- rast(
   require_file(
@@ -1203,8 +1378,315 @@ if (anyNA(
   )
 }
 
+# The scarcity metric asks whether the number of qualifying analogues is below
+# an increasingly demanding minimum. Its direction is therefore the opposite
+# of rank-based non-retention: scarcity must satisfy count-1 <= count-3 <=
+# count-5 for every method and scenario.
+scarcity_area_wide <- dcast(
+  analogue_topk,
+  method + scenario ~ rank_cutoff,
+  value.var = "area_km2"
+)
 
-# 4. Top-1 consistency checks ===================================================
+scarcity_pixel_wide <- dcast(
+  analogue_topk,
+  method + scenario ~ rank_cutoff,
+  value.var = "pixel_count"
+)
+
+required_rank_columns <- as.character(
+  rank_cutoffs
+)
+
+if (!all(
+  required_rank_columns %in%
+  names(scarcity_area_wide)
+) || !all(
+  required_rank_columns %in%
+  names(scarcity_pixel_wide)
+)) {
+  stop(
+    "Failed to construct all minimum-1/minimum-3/minimum-5 scarcity columns."
+  )
+}
+
+if (any(
+  scarcity_area_wide[["1"]] >
+  scarcity_area_wide[["3"]] +
+  1e-6 |
+  scarcity_area_wide[["3"]] >
+  scarcity_area_wide[["5"]] +
+  1e-6
+) || any(
+  scarcity_pixel_wide[["1"]] >
+  scarcity_pixel_wide[["3"]] |
+  scarcity_pixel_wide[["3"]] >
+  scarcity_pixel_wide[["5"]]
+)) {
+  stop(
+    "Analogue scarcity is not monotonic: expected minimum-1 <= minimum-3 <= minimum-5."
+  )
+}
+
+
+# 4. Future rank non-retention of the normal-period Top-1 ecotype ==============
+
+# This is distinct from novel niche space. Top-1 non-retention includes every
+# changed or novel cell. At Top-3 and Top-5, changed cells are removed from the
+# non-retained set when their normal-period Top-1 ecotype remains within the
+# corresponding future rank set. Novel cells remain non-retained at every k.
+# For non-novel cells, this is a relative-rank diagnostic; the former ecotype
+# itself is not additionally required to reach 0.4.
+rank_nonretention <- rbindlist(
+  lapply(
+    rank_cutoffs,
+    function(k) {
+      result <- copy(
+        future_topk_retention
+      )
+      
+      if (k == 1L) {
+        retained_changed_pixel_fraction <- 0
+        retained_changed_area_fraction <- 0
+      } else if (k == 3L) {
+        retained_changed_pixel_fraction <-
+          result$former_top3_among_changed_pixel
+        retained_changed_area_fraction <-
+          result$former_top3_among_changed_area
+      } else if (k == 5L) {
+        retained_changed_pixel_fraction <-
+          result$former_top5_among_changed_pixel
+        retained_changed_area_fraction <-
+          result$former_top5_among_changed_area
+      } else {
+        stop(
+          "Unsupported rank cutoff: ",
+          k
+        )
+      }
+      
+      result[
+        ,
+        `:=`(
+          rank_cutoff = k,
+          rank_label = paste0(
+            "Top-",
+            k
+          ),
+          changed_nonretained_pixels = round(
+            changed_existing_pixels *
+              (
+                1 -
+                  retained_changed_pixel_fraction
+              )
+          ),
+          changed_nonretained_area_km2 =
+            changed_existing_area_km2 *
+            (
+              1 -
+                retained_changed_area_fraction
+            )
+        )
+      ]
+      
+      result[
+        ,
+        `:=`(
+          pixel_count =
+            changed_nonretained_pixels +
+            novel_pixels,
+          area_km2 =
+            changed_nonretained_area_km2 +
+            novel_area_km2,
+          criterion = paste0(
+            "normal_period_top1_not_retained_within_future_top",
+            k,
+            "_including_novel"
+          ),
+          baseline =
+            "workflow-specific normal-period Top-1 assigned map"
+        )
+      ]
+      
+      result[
+        ,
+        `:=`(
+          pixel_share =
+            pixel_count /
+            common_valid_pixels,
+          area_share =
+            area_km2 /
+            common_valid_area_km2,
+          novel_pixel_share =
+            novel_pixels /
+            common_valid_pixels,
+          novel_area_share =
+            novel_area_km2 /
+            common_valid_area_km2
+        )
+      ]
+      
+      result[
+        ,
+        .(
+          method,
+          method_label,
+          scenario,
+          period,
+          ssp,
+          baseline,
+          rank_cutoff,
+          rank_label,
+          criterion,
+          common_valid_pixels,
+          common_valid_area_km2,
+          stable_top1_pixels,
+          stable_top1_area_km2,
+          changed_nonretained_pixels,
+          changed_nonretained_area_km2,
+          novel_pixels,
+          novel_area_km2,
+          pixel_count,
+          pixel_share,
+          area_km2,
+          area_share,
+          novel_pixel_share,
+          novel_area_share
+        )
+      ]
+    }
+  ),
+  fill = TRUE
+)
+
+nonretention_area_wide <- dcast(
+  rank_nonretention,
+  method + scenario ~ rank_cutoff,
+  value.var = "area_km2"
+)
+
+nonretention_pixel_wide <- dcast(
+  rank_nonretention,
+  method + scenario ~ rank_cutoff,
+  value.var = "pixel_count"
+)
+
+if (!all(
+  required_rank_columns %in%
+  names(nonretention_area_wide)
+) || !all(
+  required_rank_columns %in%
+  names(nonretention_pixel_wide)
+)) {
+  stop(
+    "Failed to construct all Top-1/Top-3/Top-5 non-retention columns."
+  )
+}
+
+# Relaxing the retention criterion cannot increase non-retained area or pixels.
+if (any(
+  nonretention_area_wide[["1"]] +
+  1e-6 <
+  nonretention_area_wide[["3"]] |
+  nonretention_area_wide[["3"]] +
+  1e-6 <
+  nonretention_area_wide[["5"]]
+) || any(
+  nonretention_pixel_wide[["1"]] <
+  nonretention_pixel_wide[["3"]] |
+  nonretention_pixel_wide[["3"]] <
+  nonretention_pixel_wide[["5"]]
+)) {
+  stop(
+    "Top-k non-retention is not monotonic: expected Top-1 >= Top-3 >= Top-5."
+  )
+}
+
+top1_nonretention_check <- rank_nonretention[
+  rank_cutoff == 1L
+]
+
+stopifnot(
+  max(
+    abs(
+      top1_nonretention_check$area_km2 -
+        (
+          top1_nonretention_check$common_valid_area_km2 -
+            top1_nonretention_check$stable_top1_area_km2
+        )
+    )
+  ) < 1e-6,
+  max(
+    abs(
+      top1_nonretention_check$pixel_count -
+        (
+          top1_nonretention_check$common_valid_pixels -
+            top1_nonretention_check$stable_top1_pixels
+        )
+    )
+  ) == 0
+)
+
+# Zone 99 is independent of k. Confirm that the novel component imported from
+# script 8.2 exactly matches the direct count of cells with no ecotype reaching
+# dual suitability 0.4 in the ranked-suitability rasters.
+novel_definition_check <- merge(
+  rank_nonretention[
+    rank_cutoff == 1L,
+    .(
+      method,
+      scenario,
+      retention_table_novel_pixels = novel_pixels,
+      retention_table_novel_area_km2 = novel_area_km2
+    )
+  ],
+  analogue_topk[
+    rank_cutoff == 1L,
+    .(
+      method,
+      scenario,
+      threshold_scan_novel_pixels = pixel_count,
+      threshold_scan_novel_area_km2 = area_km2
+    )
+  ],
+  by = c(
+    "method",
+    "scenario"
+  ),
+  all = TRUE,
+  sort = TRUE
+)
+
+novel_definition_check[
+  ,
+  `:=`(
+    pixel_difference =
+      retention_table_novel_pixels -
+      threshold_scan_novel_pixels,
+    area_km2_difference =
+      retention_table_novel_area_km2 -
+      threshold_scan_novel_area_km2
+  )
+]
+
+stopifnot(
+  nrow(novel_definition_check) ==
+    nrow(expected_future_retention_jobs),
+  !anyNA(novel_definition_check),
+  max(
+    abs(
+      novel_definition_check$pixel_difference
+    )
+  ) == 0,
+  max(
+    abs(
+      novel_definition_check$area_km2_difference
+    )
+  ) < 1e-6
+)
+
+
+# 5. Top-1 consistency checks ===================================================
 
 novel_check <- merge(
   analogue_topk[
@@ -1358,13 +1840,29 @@ for (check_name in c(
 }
 
 
-# 5. Save final source tables ===================================================
+# 6. Save final source tables ===================================================
+
+fwrite(
+  rank_nonretention,
+  file.path(
+    table_dir,
+    "Figure_var_6b_normal_top1_rank_nonretention.csv"
+  )
+)
+
+fwrite(
+  novel_definition_check,
+  file.path(
+    table_dir,
+    "Figure_var_6_vs_6b_novel_definition_check.csv"
+  )
+)
 
 fwrite(
   analogue_topk,
   file.path(
     table_dir,
-    "Figure_var_6_topk_analogue_availability.csv"
+    "Figure_S_analogue_scarcity_by_minimum_count.csv"
   )
 )
 
@@ -1393,9 +1891,10 @@ fwrite(
 )
 
 
-# 6. Shared plotting fields =====================================================
+# 7. Shared plotting fields =====================================================
 
 for (table_name in c(
+  "rank_nonretention",
   "analogue_topk",
   "species_topk",
   "population_topk"
@@ -1433,16 +1932,16 @@ for (table_name in c(
 }
 
 
-# 7. Figure 6: availability of current ecotype analogues =======================
+# 8. Figure 6b: rank non-retention of the normal-period Top-1 ecotype ===========
 
-analogue_topk[
+rank_nonretention[
   ,
   area_million_km2 := area_km2 /
     1e6
 ]
 
-figure_6_topk <- ggplot(
-  analogue_topk,
+figure_6b_topk <- ggplot(
+  rank_nonretention,
   aes(
     x = period,
     y = area_million_km2,
@@ -1478,13 +1977,14 @@ figure_6_topk <- ggplot(
   ) +
   labs(
     x = "Future period",
-    y = expression("Area with fewer than k analogues (million km"^2*")"),
+    y = expression("Area without rank retention (million km"^2*")"),
     shape = NULL,
     linetype = NULL,
-    title = "Availability of suitable current ecotype analogues",
+    title = "Future rank non-retention of the normal-period Top-1 ecotype",
     subtitle = paste(
-      "Top-1 is novel niche space; Top-3 and Top-5 indicate fewer than k",
-      "current ecotypes with dual suitability >= 0.4."
+      "A cell is counted when its normal-period Top-1 ecotype is absent from the first k future ranks.",
+      "Novel cells are included at every k; relaxing k can only reduce area without rank retention.",
+      sep = "\n"
     )
   ) +
   theme_bw(
@@ -1504,28 +2004,23 @@ figure_6_topk <- ggplot(
   )
 
 save_plot(
-  figure_6_topk,
+  figure_6b_topk,
   file.path(
     figure_dir,
-    "Figure_var_6_topk_analogue_availability.png"
+    "Figure_var_6b_normal_top1_rank_nonretention_topk.png"
   ),
   9.2,
-  8.4
+  8.6
 )
 
-common_y_max_6 <- max(
-  analogue_topk$area_million_km2,
+common_y_max_6b <- max(
+  rank_nonretention$area_million_km2,
   na.rm = TRUE
 ) * 1.04
 
 for (k in rank_cutoffs) {
-  rank_name <- paste0(
-    "Top-",
-    k
-  )
-  
-  figure_6_k <- ggplot(
-    analogue_topk[
+  figure_6b_k <- ggplot(
+    rank_nonretention[
       rank_cutoff == k
     ],
     aes(
@@ -1565,27 +2060,20 @@ for (k in rank_cutoffs) {
     coord_cartesian(
       ylim = c(
         0,
-        common_y_max_6
+        common_y_max_6b
       )
     ) +
     labs(
       x = "Future period",
-      y = expression("Area (million km"^2*")"),
+      y = expression("Area without rank retention (million km"^2*")"),
       shape = NULL,
       linetype = NULL,
-      title = if (k == 1L) {
-        "Projected novel niche space"
-      } else {
-        paste0(
-          "Projected area with fewer than ",
-          k,
-          " suitable current ecotype analogues"
-        )
-      },
-      subtitle = paste0(
-        rank_name,
-        " criterion; all qualifying analogues have dual suitability >= 0.4."
-      )
+      title = paste0(
+        "Normal-period Top-1 ecotype absent from future Top-",
+        k
+      ),
+      subtitle =
+        "Relative-rank diagnostic; each workflow's normal-period Top-1 map is the baseline and novel cells are included."
     ) +
     theme_bw(
       base_size = 11
@@ -1597,11 +2085,11 @@ for (k in rank_cutoffs) {
     )
   
   save_plot(
-    figure_6_k,
+    figure_6b_k,
     file.path(
       figure_dir,
       paste0(
-        "Figure_var_6_analogue_availability_top",
+        "Figure_var_6b_normal_top1_rank_nonretention_top",
         k,
         ".png"
       )
@@ -1612,7 +2100,107 @@ for (k in rank_cutoffs) {
 }
 
 
-# 8. Figure 8: species area within Top-k ecotype analogues ======================
+# 8b. Supplement: absolute scarcity of suitable current analogues ==============
+
+analogue_topk[
+  ,
+  `:=`(
+    area_million_km2 = area_km2 /
+      1e6,
+    minimum_count_label = factor(
+      fifelse(
+        rank_cutoff == 1L,
+        "No suitable analogue",
+        paste0(
+          "Fewer than ",
+          rank_cutoff,
+          " suitable analogues"
+        )
+      ),
+      levels = c(
+        "No suitable analogue",
+        "Fewer than 3 suitable analogues",
+        "Fewer than 5 suitable analogues"
+      )
+    )
+  )
+]
+
+figure_s_analogue_scarcity <- ggplot(
+  analogue_topk,
+  aes(
+    x = period,
+    y = area_million_km2,
+    group = method_label,
+    shape = method_label,
+    linetype = method_label
+  )
+) +
+  geom_line(
+    linewidth = 0.78,
+    color = "black"
+  ) +
+  geom_point(
+    size = 2.0,
+    fill = "white",
+    color = "black",
+    stroke = 0.5
+  ) +
+  facet_grid(
+    minimum_count_label ~ ssp
+  ) +
+  scale_shape_manual(
+    values = c(
+      21,
+      24
+    )
+  ) +
+  scale_linetype_manual(
+    values = c(
+      "solid",
+      "22"
+    )
+  ) +
+  labs(
+    x = "Future period",
+    y = expression("Area below the minimum analogue count (million km"^2*")"),
+    shape = NULL,
+    linetype = NULL,
+    title = "Scarcity of suitable current-ecotype analogues",
+    subtitle = paste(
+      "A suitable analogue has dual suitability >= 0.4.",
+      "Rows impose increasingly demanding minimum candidate counts, so scarcity increases with the count.",
+      sep = "\n"
+    )
+  ) +
+  theme_bw(
+    base_size = 10.2
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    strip.text = element_text(
+      face = "bold"
+    ),
+    panel.spacing = grid::unit(
+      0.8,
+      "lines"
+    )
+  )
+
+save_plot(
+  figure_s_analogue_scarcity,
+  file.path(
+    figure_dir,
+    "Figure_S_analogue_scarcity_by_minimum_count.png"
+  ),
+  9.2,
+  8.6
+)
+
+
+# 9. Figure 8: species area within Top-k ecotype analogues ======================
 
 species_topk[
   ,
@@ -1818,7 +2406,7 @@ for (k in rank_cutoffs) {
 }
 
 
-# 9. Figure 10a: population source ecotypes within Top-k =======================
+# 10. Figure 10a: population source ecotypes within Top-k =======================
 
 population_topk[
   ,
@@ -2148,7 +2736,46 @@ fwrite(
 )
 
 
-# 10. Completion report =========================================================
+# 11. Completion report =========================================================
+
+obsolete_figure6_outputs <- c(
+  file.path(
+    figure_dir,
+    "Figure_var_6_topk_analogue_availability.png"
+  ),
+  file.path(
+    figure_dir,
+    paste0(
+      "Figure_var_6_analogue_availability_top",
+      rank_cutoffs,
+      ".png"
+    )
+  ),
+  file.path(
+    table_dir,
+    "Figure_var_6_topk_analogue_availability.csv"
+  )
+)
+
+obsolete_figure6_outputs <- obsolete_figure6_outputs[
+  file.exists(
+    obsolete_figure6_outputs
+  )
+]
+
+if (length(obsolete_figure6_outputs) > 0L) {
+  warning(
+    paste(
+      "Superseded Figure 6 files remain on disk and should not be used:",
+      paste(
+        obsolete_figure6_outputs,
+        collapse = "\n"
+      ),
+      sep = "\n"
+    ),
+    call. = FALSE
+  )
+}
 
 cat(
   "\nCOMPLETE\n",
@@ -2161,6 +2788,8 @@ cat(
     collapse = ", "
   ),
   "\n",
+  "Top-k non-retention monotonicity: Top-1 >= Top-3 >= Top-5 PASS\n",
+  "Analogue-scarcity monotonicity: minimum-1 <= minimum-3 <= minimum-5 PASS\n",
   "Top-1 consistency checks: PASS\n",
   "Figures: ",
   figure_dir,
