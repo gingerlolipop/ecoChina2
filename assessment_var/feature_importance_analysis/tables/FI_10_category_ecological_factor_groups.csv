@@ -1,0 +1,137 @@
+category2,category_label,niche,feature_group,n_zones,mean_group_importance_share,sd_group_importance_share,median_group_importance_share,se_group_importance_share,group_rank,inference_scope
+alpine_vegetation,alpine vegetation,climate,Temperature,3,0.314039781761978,0.142612858587568,0.382396280435081,0.0823375722954343,1,within-category pattern
+alpine_vegetation,alpine vegetation,climate,Radiation and evaporative demand,3,0.225243356941627,0.0615160825362261,0.211510341450517,0.0355163268117814,2,within-category pattern
+alpine_vegetation,alpine vegetation,climate,Growing season and degree-days,3,0.152142149046742,0.132653998683783,0.212829523450305,0.0765878218491622,3,within-category pattern
+alpine_vegetation,alpine vegetation,climate,Precipitation,3,0.123407037411702,0.105292124507892,0.136985643737235,0.060790436428179,4,within-category pattern
+alpine_vegetation,alpine vegetation,climate,Humidity,3,0.0742614139837197,0.0351695414644521,0.0547480548185843,0.0203051442317771,5,within-category pattern
+alpine_vegetation,alpine vegetation,climate,Snowfall,3,0.0654814488990063,0.0264556815386452,0.0523116106789352,0.0152741948579318,6,within-category pattern
+alpine_vegetation,alpine vegetation,climate,Climatic moisture balance,3,0.0454248119552252,0.0414175644907171,0.0551813508268879,0.0239124420078942,7,within-category pattern
+cropland,cropland,climate,Growing season and degree-days,7,0.324978163016503,0.0852626682092728,0.29871385850272,0.0322262594570784,1,within-category pattern
+cropland,cropland,climate,Precipitation,7,0.203554342525609,0.0768672716276966,0.222904035922486,0.0290530978124195,2,within-category pattern
+cropland,cropland,climate,Temperature,7,0.191611052147791,0.0699730129535719,0.176817539860829,0.0264473129658646,3,within-category pattern
+cropland,cropland,climate,Climatic moisture balance,7,0.127162349719855,0.0576433070792777,0.102974162474904,0.0217871221827282,4,within-category pattern
+cropland,cropland,climate,Radiation and evaporative demand,7,0.110002236296616,0.0641185260805895,0.0933723524627971,0.0242345249201784,5,within-category pattern
+cropland,cropland,climate,Humidity,7,0.0378317050947295,0.0302956167856808,0.0415030821070659,0.0114506668328893,6,within-category pattern
+cropland,cropland,climate,Snowfall,7,0.00486015119889578,0.0128587514064507,0,0.00486015119889578,7,within-category pattern
+desert,desert,climate,Growing season and degree-days,8,0.246006229667789,0.0969364831331498,0.211400134406151,0.0342722222839128,1,within-category pattern
+desert,desert,climate,Precipitation,8,0.233916979583092,0.0804573886803593,0.255009635202298,0.0284459825662219,2,within-category pattern
+desert,desert,climate,Temperature,8,0.20178149245293,0.0809370953750123,0.203835475935677,0.0286155844946068,3,within-category pattern
+desert,desert,climate,Climatic moisture balance,8,0.147319729122297,0.0942151090037081,0.143466563023499,0.0333100712333759,4,within-category pattern
+desert,desert,climate,Radiation and evaporative demand,8,0.0698773774904835,0.0418818114263549,0.0598229813373773,0.0148074564339759,5,within-category pattern
+desert,desert,climate,Humidity,8,0.0637619239184149,0.0215660407842948,0.0574445782530472,0.00762474684096024,6,within-category pattern
+desert,desert,climate,Snowfall,8,0.0373362677649945,0.0283415216066061,0.029731487990335,0.0100202410585881,7,within-category pattern
+forest,forest,climate,Temperature,15,0.274948885250712,0.11412695834802,0.239139141851404,0.0294674539356793,1,within-category pattern
+forest,forest,climate,Precipitation,15,0.245876600388615,0.079105449325837,0.245787327170615,0.0204249391888814,2,within-category pattern
+forest,forest,climate,Growing season and degree-days,15,0.185967422246777,0.0956917156442251,0.168381753406463,0.02470749473734,3,within-category pattern
+forest,forest,climate,Climatic moisture balance,15,0.124949400500523,0.0586703403689537,0.119715550145586,0.0151486167443519,4,within-category pattern
+forest,forest,climate,Radiation and evaporative demand,15,0.11172488958455,0.0487562532627019,0.108913619588168,0.012588810460661,5,within-category pattern
+forest,forest,climate,Humidity,15,0.0379996809434878,0.0388072226052249,0.0240802748332182,0.01001998179084,6,within-category pattern
+forest,forest,climate,Snowfall,15,0.0185331210853365,0.0412957742253459,0,0.0106625230562338,7,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Temperature,8,0.249115023642532,0.055766735488357,0.252771814932049,0.0197165184142269,1,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Precipitation,8,0.219996291523961,0.0454124613709087,0.222287953597495,0.0160557296928708,2,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Growing season and degree-days,8,0.219521720074986,0.0815498199899962,0.19560517764855,0.0288322153597343,3,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Climatic moisture balance,8,0.147591149527672,0.0548867171651293,0.127191628941944,0.0194053849522655,4,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Radiation and evaporative demand,8,0.0848341366718254,0.0713298890724816,0.0823215137546028,0.025218924132218,5,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Humidity,8,0.0496030133968898,0.0241560418026741,0.0489782530925949,0.00854045048264829,6,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,climate,Snowfall,8,0.029338665162134,0.0412604215008338,0.00726653235742052,0.0145877619189274,7,within-category pattern
+no_vegetation,no vegetation,climate,Precipitation,1,0.273283421469581,,0.273283421469581,,1,descriptive only
+no_vegetation,no vegetation,climate,Growing season and degree-days,1,0.210659438568309,,0.210659438568309,,2,descriptive only
+no_vegetation,no vegetation,climate,Climatic moisture balance,1,0.185127344413935,,0.185127344413935,,3,descriptive only
+no_vegetation,no vegetation,climate,Temperature,1,0.156812101393056,,0.156812101393056,,4,descriptive only
+no_vegetation,no vegetation,climate,Radiation and evaporative demand,1,0.118587490753659,,0.118587490753659,,5,descriptive only
+no_vegetation,no vegetation,climate,Humidity,1,0.055530203401459,,0.055530203401459,,6,descriptive only
+no_vegetation,no vegetation,climate,Snowfall,1,0,,0,,7,descriptive only
+scrub,scrub,climate,Temperature,6,0.366389103716819,0.0523752651233739,0.370823379840948,0.021382112449209,1,within-category pattern
+scrub,scrub,climate,Precipitation,6,0.217723644854848,0.0574421482052345,0.236868382371701,0.0234506588053588,2,within-category pattern
+scrub,scrub,climate,Growing season and degree-days,6,0.139757619582325,0.0653406528221101,0.15710992812448,0.0266752098124192,3,within-category pattern
+scrub,scrub,climate,Climatic moisture balance,6,0.125916028825711,0.0773796952097185,0.129524799365888,0.0315901282859824,4,within-category pattern
+scrub,scrub,climate,Radiation and evaporative demand,6,0.0848822874853206,0.0754067727738778,0.0552202385865264,0.0307846860743326,5,within-category pattern
+scrub,scrub,climate,Humidity,6,0.0578924482466051,0.0368368760926026,0.0630697201020298,0.0150385916908341,6,within-category pattern
+scrub,scrub,climate,Snowfall,6,0.00743886728837047,0.0117101107137265,0,0.00478063268002142,7,within-category pattern
+wetland,wetland,climate,Precipitation,5,0.230477243949202,0.0302550141006413,0.233640208933162,0.0135304536378497,1,within-category pattern
+wetland,wetland,climate,Temperature,5,0.213482976190251,0.107032600934854,0.171047964676723,0.0478664342997882,2,within-category pattern
+wetland,wetland,climate,Growing season and degree-days,5,0.172376922160745,0.13821772824546,0.166768125742847,0.0618128472104882,3,within-category pattern
+wetland,wetland,climate,Climatic moisture balance,5,0.171213824432135,0.0402553199392329,0.185199407104327,0.0180027263680255,4,within-category pattern
+wetland,wetland,climate,Radiation and evaporative demand,5,0.101725719029889,0.0875724246892619,0.108054309333255,0.0391635789119341,5,within-category pattern
+wetland,wetland,climate,Humidity,5,0.0893952603524976,0.105617736014682,0.0341921698462496,0.0472336874716915,6,within-category pattern
+wetland,wetland,climate,Snowfall,5,0.02132805388528,0.0309470575542732,0,0.0138399448789907,7,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Nutrient retention and base status,3,0.258207595936097,0.128473026377118,0.234733670494437,0.074173936362435,1,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Coarse fragments,3,0.218436767494502,0.113506496917253,0.251556657813156,0.0655330065499473,2,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Texture,3,0.18894193396335,0.0422800509786181,0.199272769388646,0.0244103988138562,3,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Organic carbon,3,0.156652964700335,0.0432219290179697,0.166443541494364,0.0249541923534197,4,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Sodicity,3,0.0731763388175005,0.0661199990946317,0.0909025926760243,0.0381743992761034,5,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Bulk density,3,0.0705456443816856,0.0614034595054961,0.0996646967261115,0.0354513038746725,6,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Soil reaction,3,0.0283947115868105,0.0491810831346205,0,0.0283947115868105,7,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Salinity,3,0.00372334361551982,0.00644902031611753,0,0.00372334361551982,8,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Gypsum,3,0.00192069950419971,0.00332674912734625,0,0.00192069950419971,9,within-category pattern
+alpine_vegetation,alpine vegetation,soil,Carbonates,3,0,0,0,0,10,within-category pattern
+cropland,cropland,soil,Nutrient retention and base status,7,0.468180149566586,0.0600024841238299,0.453502700595527,0.0226788072911079,1,within-category pattern
+cropland,cropland,soil,Texture,7,0.20384790865928,0.0404204687363863,0.196587935139755,0.0152775011647342,2,within-category pattern
+cropland,cropland,soil,Soil reaction,7,0.116772173225713,0.0489673960669214,0.11871556410961,0.0185079360490681,3,within-category pattern
+cropland,cropland,soil,Organic carbon,7,0.0962551666730692,0.0496661986863285,0.114971243055751,0.0187720586128497,4,within-category pattern
+cropland,cropland,soil,Bulk density,7,0.0779061321984047,0.0371474811180887,0.0833347617336315,0.0140404281244186,5,within-category pattern
+cropland,cropland,soil,Coarse fragments,7,0.0245654031710083,0.0419842325077744,0,0.0158685483144978,6,within-category pattern
+cropland,cropland,soil,Carbonates,7,0.0124730665059391,0.0330006320610841,0,0.0124730665059391,7,within-category pattern
+cropland,cropland,soil,Gypsum,7,0,0,0,0,8,within-category pattern
+cropland,cropland,soil,Salinity,7,0,0,0,0,8,within-category pattern
+cropland,cropland,soil,Sodicity,7,0,0,0,0,8,within-category pattern
+desert,desert,soil,Nutrient retention and base status,8,0.225909760331188,0.075710856589407,0.209009284293434,0.026767830051906,1,within-category pattern
+desert,desert,soil,Organic carbon,8,0.17872095075219,0.0836259063515213,0.188392320185149,0.0295662227320159,2,within-category pattern
+desert,desert,soil,Texture,8,0.157463657645415,0.0745601906566101,0.191433445899083,0.0263610082099254,3,within-category pattern
+desert,desert,soil,Gypsum,8,0.0807118121831128,0.0886627861172591,0.0665636719606554,0.0313470286512032,4,within-category pattern
+desert,desert,soil,Carbonates,8,0.0771402158197157,0.0793359381818945,0.074023740258636,0.0280494899401072,5,within-category pattern
+desert,desert,soil,Soil reaction,8,0.0710202917980321,0.0653386125185122,0.0840990667975934,0.0231006879925801,6,within-category pattern
+desert,desert,soil,Bulk density,8,0.0620140454762359,0.0385533497107322,0.055549590090922,0.0136306675089576,7,within-category pattern
+desert,desert,soil,Coarse fragments,8,0.0606147899934049,0.068230756008449,0.0380823355899632,0.0241232151295295,8,within-category pattern
+desert,desert,soil,Sodicity,8,0.0591482786730014,0.0643374033352863,0.0489132917008717,0.0227467070911575,9,within-category pattern
+desert,desert,soil,Salinity,8,0.0272561973277033,0.0534211818449377,0,0.0188872399707776,10,within-category pattern
+forest,forest,soil,Nutrient retention and base status,15,0.456815210151482,0.0820309235737985,0.468860337854781,0.021180293391689,1,within-category pattern
+forest,forest,soil,Texture,15,0.205829476835928,0.0707224973797429,0.208644223171859,0.0182604703035961,2,within-category pattern
+forest,forest,soil,Soil reaction,15,0.126834693274979,0.0353620452037269,0.126577282097185,0.00913044081079121,3,within-category pattern
+forest,forest,soil,Organic carbon,15,0.0784207577635745,0.0569051594388774,0.0908051040702816,0.0146928489880033,4,within-category pattern
+forest,forest,soil,Coarse fragments,15,0.0508920695073642,0.0495330750868636,0.0601102624103167,0.0127893849931909,5,within-category pattern
+forest,forest,soil,Bulk density,15,0.0447177591427519,0.0509523027053483,0.0562825890289484,0.0131558279885822,6,within-category pattern
+forest,forest,soil,Carbonates,15,0.0210368914514691,0.0448888417957399,0,0.011590249113696,7,within-category pattern
+forest,forest,soil,Sodicity,15,0.0154531418724521,0.0315223358976634,0,0.00813903213101376,8,within-category pattern
+forest,forest,soil,Gypsum,15,0,0,0,0,9,within-category pattern
+forest,forest,soil,Salinity,15,0,0,0,0,9,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Nutrient retention and base status,8,0.404132011234737,0.0963934543641161,0.408281185030291,0.0340802326214313,1,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Texture,8,0.20076776968909,0.0436452121910899,0.196045845546431,0.0154309127533227,2,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Organic carbon,8,0.153681281357022,0.046878195882225,0.141281630761067,0.0165739450990563,3,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Soil reaction,8,0.0764764721650483,0.059504407716102,0.0825863223629807,0.0210379851032724,4,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Bulk density,8,0.0757701995194431,0.0355734462316382,0.0861128401405679,0.0125771125302832,5,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Coarse fragments,8,0.0539765927915856,0.0875630291985324,0.0173630001396308,0.030958205863759,6,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Sodicity,8,0.0266630744807766,0.0754145630905566,0,0.0266630744807766,7,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Carbonates,8,0.00853259876229713,0.024133833783857,0,0.00853259876229713,8,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Gypsum,8,0,0,0,0,9,within-category pattern
+grassland_meadow_steppe,grassland meadow steppe,soil,Salinity,8,0,0,0,0,9,within-category pattern
+no_vegetation,no vegetation,soil,Texture,1,0.261013030702178,,0.261013030702178,,1,descriptive only
+no_vegetation,no vegetation,soil,Organic carbon,1,0.244693229434255,,0.244693229434255,,2,descriptive only
+no_vegetation,no vegetation,soil,Bulk density,1,0.113786685116651,,0.113786685116651,,3,descriptive only
+no_vegetation,no vegetation,soil,Nutrient retention and base status,1,0.110365914322776,,0.110365914322776,,4,descriptive only
+no_vegetation,no vegetation,soil,Coarse fragments,1,0.0868468747658458,,0.0868468747658458,,5,descriptive only
+no_vegetation,no vegetation,soil,Carbonates,1,0.0817362405407603,,0.0817362405407603,,6,descriptive only
+no_vegetation,no vegetation,soil,Soil reaction,1,0.0669864771948643,,0.0669864771948643,,7,descriptive only
+no_vegetation,no vegetation,soil,Salinity,1,0.0345715479226691,,0.0345715479226691,,8,descriptive only
+no_vegetation,no vegetation,soil,Gypsum,1,0,,0,,9,descriptive only
+no_vegetation,no vegetation,soil,Sodicity,1,0,,0,,9,descriptive only
+scrub,scrub,soil,Nutrient retention and base status,6,0.427899559593131,0.0581394957680653,0.432045516667785,0.0237353497557436,1,within-category pattern
+scrub,scrub,soil,Texture,6,0.235136227556006,0.0602803290931291,0.217349071846469,0.024609341300869,2,within-category pattern
+scrub,scrub,soil,Organic carbon,6,0.119901914096447,0.0766123406233851,0.120123910941925,0.0312768570879321,3,within-category pattern
+scrub,scrub,soil,Bulk density,6,0.088391635084573,0.0490309976942235,0.098876331804405,0.0200168209884043,4,within-category pattern
+scrub,scrub,soil,Soil reaction,6,0.0663764550697367,0.061674478069466,0.0636699806705006,0.0251785002371105,5,within-category pattern
+scrub,scrub,soil,Coarse fragments,6,0.0534660518079652,0.0458569782294506,0.0583909579250949,0.0187210329680118,6,within-category pattern
+scrub,scrub,soil,Sodicity,6,0.00882815679214075,0.0216244795100304,0,0.00882815679214075,7,within-category pattern
+scrub,scrub,soil,Carbonates,6,0,0,0,0,8,within-category pattern
+scrub,scrub,soil,Gypsum,6,0,0,0,0,8,within-category pattern
+scrub,scrub,soil,Salinity,6,0,0,0,0,8,within-category pattern
+wetland,wetland,soil,Nutrient retention and base status,5,0.441567539082464,0.0523342845317991,0.436593648983516,0.0234046035533837,1,within-category pattern
+wetland,wetland,soil,Organic carbon,5,0.156254709082336,0.0577850097674972,0.148539913770937,0.0258422419841226,2,within-category pattern
+wetland,wetland,soil,Texture,5,0.147343150938101,0.0662113968737402,0.140450749950634,0.02961063685898,3,within-category pattern
+wetland,wetland,soil,Coarse fragments,5,0.1380491826847,0.0711964275991452,0.164302438168756,0.0318400103733661,4,within-category pattern
+wetland,wetland,soil,Soil reaction,5,0.0593379682508348,0.0378840998316153,0.0777866235356891,0.016942284497976,5,within-category pattern
+wetland,wetland,soil,Bulk density,5,0.0549066500759962,0.0571782593288937,0.0630859101868913,0.0255708949389035,6,within-category pattern
+wetland,wetland,soil,Gypsum,5,0.0025407998855681,0.00568140126135396,0,0.0025407998855681,7,within-category pattern
+wetland,wetland,soil,Carbonates,5,0,0,0,0,8,within-category pattern
+wetland,wetland,soil,Salinity,5,0,0,0,0,8,within-category pattern
+wetland,wetland,soil,Sodicity,5,0,0,0,0,8,within-category pattern

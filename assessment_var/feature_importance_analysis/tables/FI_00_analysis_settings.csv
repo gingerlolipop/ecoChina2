@@ -1,0 +1,12 @@
+setting,value
+primary_importance,unscaled global MeanDecreaseAccuracy stored by randomForest
+normalization,positive MDA divided by the within-model sum of positive MDA
+negative_MDA_handling,retained raw; set to zero only when calculating normalized shares
+category_mean_denominator,all modeled zones in the category; unselected variables enter as zero
+consensus_definition,arithmetic mean of Plain RF and Plain MF RF normalized shares within zone
+representative_profile_niche_weighting,climate and soil each contribute 0.5 to the joint profile
+representative_zone_definition,zone with the highest mean pairwise cosine similarity within the category's joint climate-soil profiles
+area_definition,cell-specific km2 summed from terra::cellSize on ecosys_ori.tif
+common_selection_frequency,0.5
+common_top5_frequency,0.25
+minimum_zones_for_category_inference,3

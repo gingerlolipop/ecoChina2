@@ -1,0 +1,22 @@
+zoneID,category2,selection_roles,category_profile_similarity,category_n_zones,zone_name,detailed_category,zone_color,reference_area_km2,reference_pixels,category_label,global_area_rank_largest,global_area_rank_smallest,category_area_rank_largest,category_area_rank_smallest
+20,alpine_vegetation,category largest observed area; category profile medoid,0.65905394086378,3,Alpine sparse vegetation,alpine_sparse,#B8C0FF,290572.043152328,411347,alpine vegetation,11,43,1,3
+17,alpine_vegetation,category smallest observed area; global smallest observed area,,,Alpine tundra,alpine_tundra,#A2D2FF,1166.83977455947,2032,alpine vegetation,53,1,3,1
+27,cropland,category largest observed area; global largest observed area,,,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,#FFB703,581987.788488805,866811,cropland,3,51,1,7
+12,cropland,category profile medoid,0.776584121191764,7,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,#F8961E,231554.213781713,375765,cropland,15,39,5,3
+1,cropland,category smallest observed area,,,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,#FFD23F,9762.48864593947,15353,cropland,46,8,7,1
+24,desert,category largest observed area; global largest observed area,,,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,#9C6644,547719.084772723,846694,desert,4,50,1,8
+29,desert,category profile medoid,0.643066987385282,8,Dwarf semi-arboreous deserts,semi_arboreous_desert,#7F5539,102358.514043218,164699,desert,26,28,5,4
+38,desert,category smallest observed area,,,Annual herb deserts,annual_herb_desert,#F4A261,19641.7789199388,30035,desert,40,14,8,1
+30,forest,category largest observed area; category profile medoid,0.746710668175137,15,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,#1B9AAA,440947.400872453,580358,forest,8,46,1,15
+34,forest,category smallest observed area; global smallest observed area,,,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,#2A9D8F,3904.5141748997,5163,forest,50,4,15,1
+16,grassland_meadow_steppe,category largest observed area; global largest observed area,,,Kobresia spp. and forb high-cold meadows,high_cold_meadow,#90BE6D,653919.837866197,917167,grassland meadow steppe,1,53,1,8
+31,grassland_meadow_steppe,global largest observed area,,,Grass and Carex spp. high-cold steppes,high_cold_steppe,#48CAE4,602782.267595032,848105,grassland meadow steppe,2,52,2,7
+41,grassland_meadow_steppe,category profile medoid; category smallest observed area,0.698441963130716,8,Temperate grasslands,temperate_grassland,#70E000,62655.3585233834,91481,grassland meadow steppe,30,24,8,1
+19,no_vegetation,category largest observed area; category profile medoid; category smallest observed area; global largest observed area,1,1,No vegetation,no_vegetation,#E0E0E0,535460.455323413,800196,no vegetation,5,49,1,1
+44,scrub,category largest observed area,,,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,#F72585,441250.860529288,576554,scrub,7,47,1,6
+7,scrub,category profile medoid,0.726805951832863,6,Deciduous scrubs in temperate zone,temperate_scrub,#C77DFF,145723.607727903,221602,scrub,20,34,2,5
+50,scrub,category smallest observed area; global smallest observed area,,,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,#FF006E,1954.02259297092,2515,scrub,51,3,6,1
+6,wetland,category largest observed area,,,Cold-temperate and temperate marshes,marsh,#0077B6,53583.994126283,92003,wetland,32,22,1,5
+4,wetland,category profile medoid,0.778303746541258,5,"Grass, Carex and forb swamp meadows",swamp_meadow,#00B4D8,53482.0093491042,92312,wetland,33,21,2,4
+43,wetland,global smallest observed area,,,High-cold marshes,high_cold_marsh,#4CC9F0,4041.58735428002,5708,wetland,49,5,4,2
+48,wetland,category smallest observed area; global smallest observed area,,,Subtropical and tropical marshes,subtropical_tropical_marsh,#00BFA6,1797.64026241183,2400,wetland,52,2,5,1
