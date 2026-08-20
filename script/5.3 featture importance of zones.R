@@ -1,4 +1,6 @@
 # 5.3 Feature-importance analysis for the final ecotype RF models
+# Compatibility revision v4: fixes terra::freq() compatibility, data.table SE
+# assignment, and grouped result types when category medoid values are absent.
 # ==============================================================================
 # Purpose
 # -------
@@ -1179,8 +1181,7 @@ reference_area <- reference_area[
 reference_frequency <- as.data.table(
   freq(
     reference_zone,
-    bylayer = FALSE,
-    useNA = "no"
+    bylayer = FALSE
   )
 )
 
@@ -1206,6 +1207,14 @@ if (length(frequency_value_column) != 1L ||
     "Could not identify value/count columns returned by terra::freq."
   )
 }
+
+reference_frequency <- reference_frequency[
+  !is.na(
+    get(
+      frequency_value_column
+    )
+  )
+]
 
 reference_frequency <- reference_frequency[
   ,
@@ -2108,7 +2117,7 @@ category_climate_period <- zone_climate_period[
 
 category_climate_period[
   ,
-  se_period_importance_share =
+  se_period_importance_share :=
     sd_period_importance_share /
     sqrt(n_zones)
 ]
@@ -2496,33 +2505,33 @@ zone_selection <- zone_selection_long[
       ),
       collapse = "; "
     ),
-    category_profile_similarity = suppressWarnings(
-      max(
-        category_profile_similarity,
-        na.rm = TRUE
-      )
-    ),
-    category_n_zones = suppressWarnings(
-      max(
-        category_n_zones,
-        na.rm = TRUE
-      )
-    )
+    category_profile_similarity = {
+      values <- category_profile_similarity[
+        is.finite(category_profile_similarity)
+      ]
+      
+      if (length(values) > 0L) {
+        as.numeric(max(values))
+      } else {
+        NA_real_
+      }
+    },
+    category_n_zones = {
+      values <- category_n_zones[
+        !is.na(category_n_zones)
+      ]
+      
+      if (length(values) > 0L) {
+        as.integer(max(values))
+      } else {
+        NA_integer_
+      }
+    }
   ),
   by = .(
     zoneID,
     category2
   )
-]
-
-zone_selection[
-  !is.finite(category_profile_similarity),
-  category_profile_similarity := NA_real_
-]
-
-zone_selection[
-  !is.finite(category_n_zones),
-  category_n_zones := NA_integer_
 ]
 
 zone_selection <- merge(

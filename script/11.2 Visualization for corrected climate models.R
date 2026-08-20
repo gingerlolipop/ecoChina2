@@ -2107,11 +2107,11 @@ for (method in method_order) {
 # former ecotype itself.
 
 topk_retention_labels <- c(
-  "Stable Top-1",
-  "Changed; former in Top-3",
-  "Changed; former rank 4-5",
-  "Changed; former below Top-5",
-  "Novel"
+  "Reference ecotype remains Top-1",
+  "Reference ecotype ranks 2-3",
+  "Reference ecotype ranks 4-5",
+  "Reference ecotype below Top-5",
+  "No-analogue niche space"
 )
 
 topk_retention_colors <- c(
@@ -2405,7 +2405,7 @@ for (method in method_order) {
   
   mtext(
     paste0(
-      "Future rank retention of the normal-period Top-1 ecotype | ",
+      "Future rank of the reference-period ecotype analogue | ",
       method_labels[method]
     ),
     outer = TRUE,
@@ -2943,9 +2943,9 @@ figure_6 <- ggplot(
   facet_wrap(~ ssp, nrow = 1, scales = "free_y") +
   labs(
     x = "Future period",
-    y = expression("Novel area (km"^2*")"),
+    y = expression("Novel niche-space area (km"^2*")"),
     color = NULL,
-    title = "Projected area of novel niche space (threshold 0.4)"
+    title = "Projected novel niche space for the 53 current ecotypes (dual suitability < 0.4)"
   ) +
   theme_bw(base_size = 11) +
   theme(
@@ -3077,9 +3077,9 @@ transition_summary[
       transition_type,
       levels = c("stable", "changed", "novel"),
       labels = c(
-        "Retained Top-1",
-        "Different current Top-1",
-        "Novel"
+        "Reference ecotype remains Top-1",
+        "Different current ecotype is Top-1",
+        "No-analogue niche space"
       )
     )
   )
@@ -3093,9 +3093,9 @@ figure_7 <- ggplot(
   facet_grid(method_label ~ ssp) +
   scale_fill_manual(
     values = c(
-      "Retained Top-1" = "#5B8E7D",
-      "Different current Top-1" = "#D4A373",
-      "Novel" = "#333333"
+      "Reference ecotype remains Top-1" = "#5B8E7D",
+      "Different current ecotype is Top-1" = "#D4A373",
+      "No-analogue niche space" = "#333333"
     )
   ) +
   scale_y_continuous(labels = function(x) paste0(round(x * 100), "%")) +
@@ -3103,7 +3103,7 @@ figure_7 <- ggplot(
     x = "Future period",
     y = "Share of mapped area",
     fill = NULL,
-    title = "Reference-to-future change in the Top-1 ecotype analogue"
+    title = "Future status of the reference-period Top-1 ecotype analogue"
   ) +
   theme_bw(base_size = 11) +
   theme(
@@ -3155,10 +3155,10 @@ figure_8 <- ggplot(
   facet_grid(Species ~ ssp, scales = "free_y") +
   labs(
     x = "Future period",
-    y = expression("Assigned-zone species area (km"^2*")"),
+    y = expression("Species-niche area (km"^2*")"),
     shape = NULL,
     linetype = NULL,
-    title = "Species niches from assigned ecosystem zones"
+    title = "Species-niche area represented by Top-1 ecotype analogues"
   ) +
   theme_bw(base_size = 9.2) +
   theme(
@@ -4913,10 +4913,10 @@ figure_11b <- ggplot(
     x = "Future period",
     y = "Share of mapped area",
     fill = NULL,
-    title = "Future rank retention of normal-period Top-1 ecotypes",
+    title = "Future rank of reference-period ecotype analogues",
     subtitle = paste(
-      "All classes use each workflow's normal-period assigned map as the baseline;",
-      "Top-3/Top-5 retention is rank-based, and the observed vegetation map is not used."
+      "Each class compares a workflow's reference-period Top-1 ecotype with its future rank;",
+      "the observed vegetation map is not used as the baseline."
     )
   ) +
   theme_bw(

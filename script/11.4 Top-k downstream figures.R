@@ -1846,7 +1846,7 @@ fwrite(
   rank_nonretention,
   file.path(
     table_dir,
-    "Figure_var_6b_normal_top1_rank_nonretention.csv"
+    "Figure_var_6b_reference_ecotype_absent_from_future_topk.csv"
   )
 )
 
@@ -1862,7 +1862,7 @@ fwrite(
   analogue_topk,
   file.path(
     table_dir,
-    "Figure_S_analogue_scarcity_by_minimum_count.csv"
+    "Figure_S_suitable_current_ecotype_analogue_availability.csv"
   )
 )
 
@@ -1932,7 +1932,7 @@ for (table_name in c(
 }
 
 
-# 8. Figure 6b: rank non-retention of the normal-period Top-1 ecotype ===========
+# 8. Figure 6b: future rank of the reference-period ecotype analogue ============
 
 rank_nonretention[
   ,
@@ -1977,13 +1977,13 @@ figure_6b_topk <- ggplot(
   ) +
   labs(
     x = "Future period",
-    y = expression("Area without rank retention (million km"^2*")"),
+    y = expression("Area with the reference-period ecotype outside future Top-k (million km"^2*")"),
     shape = NULL,
     linetype = NULL,
-    title = "Future rank non-retention of the normal-period Top-1 ecotype",
+    title = "Projected area with the reference-period ecotype outside future Top-k analogues",
     subtitle = paste(
-      "A cell is counted when its normal-period Top-1 ecotype is absent from the first k future ranks.",
-      "Novel cells are included at every k; relaxing k can only reduce area without rank retention.",
+      "A cell is counted when its reference-period Top-1 ecotype is absent from the first k future ranks.",
+      "No-analogue niche space is included at every k; expanding k can only reduce the counted area.",
       sep = "\n"
     )
   ) +
@@ -2007,7 +2007,7 @@ save_plot(
   figure_6b_topk,
   file.path(
     figure_dir,
-    "Figure_var_6b_normal_top1_rank_nonretention_topk.png"
+    "Figure_var_6b_reference_ecotype_absent_from_future_topk.png"
   ),
   9.2,
   8.6
@@ -2065,15 +2065,15 @@ for (k in rank_cutoffs) {
     ) +
     labs(
       x = "Future period",
-      y = expression("Area without rank retention (million km"^2*")"),
+      y = expression("Area with the reference-period ecotype outside future Top-k (million km"^2*")"),
       shape = NULL,
       linetype = NULL,
       title = paste0(
-        "Normal-period Top-1 ecotype absent from future Top-",
+        "Reference-period ecotype absent from future Top-",
         k
       ),
       subtitle =
-        "Relative-rank diagnostic; each workflow's normal-period Top-1 map is the baseline and novel cells are included."
+        "Each workflow's reference-period Top-1 map is the baseline; no-analogue niche space is included."
     ) +
     theme_bw(
       base_size = 11
@@ -2089,7 +2089,7 @@ for (k in rank_cutoffs) {
     file.path(
       figure_dir,
       paste0(
-        "Figure_var_6b_normal_top1_rank_nonretention_top",
+        "Figure_var_6b_reference_ecotype_absent_from_future_top",
         k,
         ".png"
       )
@@ -2100,7 +2100,7 @@ for (k in rank_cutoffs) {
 }
 
 
-# 8b. Supplement: absolute scarcity of suitable current analogues ==============
+# 8b. Supplement: availability of suitable current-ecotype analogues ============
 
 analogue_topk[
   ,
@@ -2126,7 +2126,7 @@ analogue_topk[
   )
 ]
 
-figure_s_analogue_scarcity <- ggplot(
+figure_s_analogue_availability <- ggplot(
   analogue_topk,
   aes(
     x = period,
@@ -2163,13 +2163,13 @@ figure_s_analogue_scarcity <- ggplot(
   ) +
   labs(
     x = "Future period",
-    y = expression("Area below the minimum analogue count (million km"^2*")"),
+    y = expression("Area below the indicated suitable-analogue count (million km"^2*")"),
     shape = NULL,
     linetype = NULL,
-    title = "Scarcity of suitable current-ecotype analogues",
+    title = "Availability of suitable current-ecotype analogues",
     subtitle = paste(
       "A suitable analogue has dual suitability >= 0.4.",
-      "Rows impose increasingly demanding minimum candidate counts, so scarcity increases with the count.",
+      "Rows show areas with zero, fewer than three, or fewer than five suitable analogues.",
       sep = "\n"
     )
   ) +
@@ -2190,10 +2190,10 @@ figure_s_analogue_scarcity <- ggplot(
   )
 
 save_plot(
-  figure_s_analogue_scarcity,
+  figure_s_analogue_availability,
   file.path(
     figure_dir,
-    "Figure_S_analogue_scarcity_by_minimum_count.png"
+    "Figure_S_suitable_current_ecotype_analogue_availability.png"
   ),
   9.2,
   8.6
@@ -2220,6 +2220,32 @@ species_topk[
   )
 ]
 
+species_panel_levels <- unlist(
+  lapply(
+    ssp_levels,
+    function(ssp_value) {
+      paste(
+        ssp_value,
+        rank_labels,
+        sep = " | "
+      )
+    }
+  ),
+  use.names = FALSE
+)
+
+species_topk[
+  ,
+  figure_panel := factor(
+    paste(
+      as.character(ssp),
+      as.character(rank_label),
+      sep = " | "
+    ),
+    levels = species_panel_levels
+  )
+]
+
 figure_8_topk <- ggplot(
   species_topk,
   aes(
@@ -2241,7 +2267,7 @@ figure_8_topk <- ggplot(
     stroke = 0.45
   ) +
   facet_grid(
-    Species ~ rank_label + ssp,
+    Species ~ figure_panel,
     scales = "free_y"
   ) +
   scale_shape_manual(
@@ -2258,13 +2284,14 @@ figure_8_topk <- ggplot(
   ) +
   labs(
     x = "Future period",
-    y = expression("Species area within Top-k analogues (million km"^2*")"),
+    y = expression("Species-niche area (million km"^2*")"),
     shape = NULL,
     linetype = NULL,
-    title = "Projected species-niche area under Top-k ecotype-analogue criteria",
+    title = "Projected species-niche area represented by Top-k ecotype analogues",
     subtitle = paste(
       "A cell is counted once when at least one source ecotype of the species",
-      "is retained by the Top-k criterion at dual suitability >= 0.4."
+      "occurs among the first k suitable ecotype analogues at dual suitability >= 0.4.",
+      "Columns show Top-1, Top-3 and Top-5 within each SSP."
     )
   ) +
   theme_bw(
@@ -2353,15 +2380,15 @@ for (k in rank_cutoffs) {
     ) +
     labs(
       x = "Future period",
-      y = expression("Species area (million km"^2*")"),
+      y = expression("Species-niche area (million km"^2*")"),
       shape = NULL,
       linetype = NULL,
       title = paste0(
-        "Projected species-niche area under the Top-",
+        "Projected species-niche area represented by Top-",
         k,
-        " ecotype-analogue criterion"
+        " ecotype analogues"
       ),
-      subtitle = "Only ecotype analogues with dual suitability >= 0.4 are retained."
+      subtitle = "Only ecotype analogues with dual suitability >= 0.4 are included."
     ) +
     theme_bw(
       base_size = 9.2
@@ -2533,10 +2560,10 @@ figure_10a_topk <- ggplot(
     )
   ) +
   labs(
-    x = expression("Median population area within Top-k analogues (million km"^2*")"),
+    x = expression("Median population-niche area (million km"^2*")"),
     y = "Species",
     shape = NULL,
-    title = "Projected population-niche area under Top-k ecotype-analogue criteria",
+    title = "Projected population-niche area represented by Top-k ecotype analogues",
     subtitle = paste(
       "Rows are Top-1, Top-3 and Top-5. Points are species medians across source",
       "populations; horizontal bars show interquartile ranges."
@@ -2654,16 +2681,16 @@ for (species_name in sort(
       )
     ) +
     labs(
-      x = expression("Population area within Top-k analogues (million km"^2*")"),
+      x = expression("Population-niche area (million km"^2*")"),
       y = "Population and source ecotype",
       shape = NULL,
       title = paste0(
         species_name,
-        ": population-niche area under Top-k ecotype-analogue criteria"
+        ": population-niche area represented by Top-k ecotype analogues"
       ),
       subtitle = paste(
         "Rows are Top-1, Top-3 and Top-5; only source ecotypes with dual",
-        "suitability >= 0.4 are retained."
+        "suitability >= 0.4 are included."
       )
     ) +
     theme_bw(
@@ -2740,6 +2767,30 @@ fwrite(
 
 obsolete_figure6_outputs <- c(
   file.path(
+    table_dir,
+    "Figure_var_6b_normal_top1_rank_nonretention.csv"
+  ),
+  file.path(
+    figure_dir,
+    "Figure_var_6b_normal_top1_rank_nonretention_topk.png"
+  ),
+  file.path(
+    figure_dir,
+    paste0(
+      "Figure_var_6b_normal_top1_rank_nonretention_top",
+      rank_cutoffs,
+      ".png"
+    )
+  ),
+  file.path(
+    figure_dir,
+    "Figure_S_analogue_scarcity_by_minimum_count.png"
+  ),
+  file.path(
+    table_dir,
+    "Figure_S_analogue_scarcity_by_minimum_count.csv"
+  ),
+  file.path(
     figure_dir,
     "Figure_var_6_topk_analogue_availability.png"
   ),
@@ -2788,9 +2839,12 @@ cat(
     collapse = ", "
   ),
   "\n",
-  "Top-k non-retention monotonicity: Top-1 >= Top-3 >= Top-5 PASS\n",
-  "Analogue-scarcity monotonicity: minimum-1 <= minimum-3 <= minimum-5 PASS\n",
+  "Reference-ecotype absence: Top-1 >= Top-3 >= Top-5 PASS\n",
+  "Areas below minimum suitable-analogue counts: 1 <= 3 <= 5 PASS\n",
   "Top-1 consistency checks: PASS\n",
+  "Actual novel niche-space figure (from 11.2): Figure_var_6_novel_area.png\n",
+  "Reference-ecotype Top-k figure: Figure_var_6b_reference_ecotype_absent_from_future_topk.png\n",
+  "Suitable-analogue availability figure (SI): Figure_S_suitable_current_ecotype_analogue_availability.png\n",
   "Figures: ",
   figure_dir,
   "\n",
