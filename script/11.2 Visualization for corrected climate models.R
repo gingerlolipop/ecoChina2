@@ -1449,10 +1449,10 @@ figure_1 <- ggplot() +
       shape = method_label
     ),
     position = position_dodge(width = 0.52),
-    size = 3.2,
+    size = 2.5,
     fill = "white",
     color = "black",
-    stroke = 0.55
+    stroke = 0.45
   ) +
   facet_wrap(
     ~ niche_label,
@@ -4290,7 +4290,7 @@ figure_10d <- ggplot(
   geom_point(
     shape = 21,
     color = "grey20",
-    alpha = 0.88,
+    alpha = 0.75,
     stroke = 0.22
   ) +
   facet_grid(
