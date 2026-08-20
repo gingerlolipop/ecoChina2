@@ -1,0 +1,121 @@
+rank_cutoff,original_zone,predicted_zone,pixel_count,facet_label,observed_zone,diagnostic_zone
+1,16,20,79731,"Top-1
+All residual errors: 4,924,491 (39.7%)",16,20
+1,16,18,68118,"Top-1
+All residual errors: 4,924,491 (39.7%)",16,18
+1,31,42,67454,"Top-1
+All residual errors: 4,924,491 (39.7%)",31,42
+1,44,30,67443,"Top-1
+All residual errors: 4,924,491 (39.7%)",44,30
+1,24,23,63855,"Top-1
+All residual errors: 4,924,491 (39.7%)",24,23
+1,16,31,62752,"Top-1
+All residual errors: 4,924,491 (39.7%)",16,31
+1,21,30,62467,"Top-1
+All residual errors: 4,924,491 (39.7%)",21,30
+1,30,21,54423,"Top-1
+All residual errors: 4,924,491 (39.7%)",30,21
+1,44,40,53725,"Top-1
+All residual errors: 4,924,491 (39.7%)",44,40
+1,24,25,51551,"Top-1
+All residual errors: 4,924,491 (39.7%)",24,25
+1,20,16,51083,"Top-1
+All residual errors: 4,924,491 (39.7%)",20,16
+1,30,40,49411,"Top-1
+All residual errors: 4,924,491 (39.7%)",30,40
+1,23,24,49216,"Top-1
+All residual errors: 4,924,491 (39.7%)",23,24
+1,31,16,48586,"Top-1
+All residual errors: 4,924,491 (39.7%)",31,16
+1,30,44,47851,"Top-1
+All residual errors: 4,924,491 (39.7%)",30,44
+1,24,29,45922,"Top-1
+All residual errors: 4,924,491 (39.7%)",24,29
+1,16,46,44612,"Top-1
+All residual errors: 4,924,491 (39.7%)",16,46
+1,30,47,44390,"Top-1
+All residual errors: 4,924,491 (39.7%)",30,47
+1,31,20,43131,"Top-1
+All residual errors: 4,924,491 (39.7%)",31,20
+1,44,47,42801,"Top-1
+All residual errors: 4,924,491 (39.7%)",44,47
+3,19,20,37841,"Top-3
+All residual errors: 1,675,314 (13.5%)",19,20
+3,27,3,25911,"Top-3
+All residual errors: 1,675,314 (13.5%)",27,3
+3,21,30,22699,"Top-3
+All residual errors: 1,675,314 (13.5%)",21,30
+3,44,30,22521,"Top-3
+All residual errors: 1,675,314 (13.5%)",44,30
+3,44,36,22372,"Top-3
+All residual errors: 1,675,314 (13.5%)",44,36
+3,24,25,18230,"Top-3
+All residual errors: 1,675,314 (13.5%)",24,25
+3,30,40,17875,"Top-3
+All residual errors: 1,675,314 (13.5%)",30,40
+3,30,44,16591,"Top-3
+All residual errors: 1,675,314 (13.5%)",30,44
+3,44,40,16067,"Top-3
+All residual errors: 1,675,314 (13.5%)",44,40
+3,44,49,15731,"Top-3
+All residual errors: 1,675,314 (13.5%)",44,49
+3,27,7,15156,"Top-3
+All residual errors: 1,675,314 (13.5%)",27,7
+3,30,47,15084,"Top-3
+All residual errors: 1,675,314 (13.5%)",30,47
+3,21,40,14446,"Top-3
+All residual errors: 1,675,314 (13.5%)",21,40
+3,16,46,14112,"Top-3
+All residual errors: 1,675,314 (13.5%)",16,46
+3,16,31,13228,"Top-3
+All residual errors: 1,675,314 (13.5%)",16,31
+3,21,44,13227,"Top-3
+All residual errors: 1,675,314 (13.5%)",21,44
+3,31,16,12561,"Top-3
+All residual errors: 1,675,314 (13.5%)",31,16
+3,44,28,12511,"Top-3
+All residual errors: 1,675,314 (13.5%)",44,28
+3,12,3,12408,"Top-3
+All residual errors: 1,675,314 (13.5%)",12,3
+3,40,49,12399,"Top-3
+All residual errors: 1,675,314 (13.5%)",40,49
+5,19,20,37621,"Top-5
+All residual errors: 1,071,777 (8.6%)",19,20
+5,27,3,22458,"Top-5
+All residual errors: 1,071,777 (8.6%)",27,3
+5,44,36,15967,"Top-5
+All residual errors: 1,071,777 (8.6%)",44,36
+5,24,25,13150,"Top-5
+All residual errors: 1,071,777 (8.6%)",24,25
+5,12,3,10774,"Top-5
+All residual errors: 1,071,777 (8.6%)",12,3
+5,27,7,10178,"Top-5
+All residual errors: 1,071,777 (8.6%)",27,7
+5,44,28,10041,"Top-5
+All residual errors: 1,071,777 (8.6%)",44,28
+5,24,42,9909,"Top-5
+All residual errors: 1,071,777 (8.6%)",24,42
+5,37,3,9193,"Top-5
+All residual errors: 1,071,777 (8.6%)",37,3
+5,27,15,8880,"Top-5
+All residual errors: 1,071,777 (8.6%)",27,15
+5,47,28,8810,"Top-5
+All residual errors: 1,071,777 (8.6%)",47,28
+5,16,31,8805,"Top-5
+All residual errors: 1,071,777 (8.6%)",16,31
+5,40,49,8594,"Top-5
+All residual errors: 1,071,777 (8.6%)",40,49
+5,31,25,8269,"Top-5
+All residual errors: 1,071,777 (8.6%)",31,25
+5,13,15,8258,"Top-5
+All residual errors: 1,071,777 (8.6%)",13,15
+5,40,36,7944,"Top-5
+All residual errors: 1,071,777 (8.6%)",40,36
+5,30,36,7684,"Top-5
+All residual errors: 1,071,777 (8.6%)",30,36
+5,44,49,7678,"Top-5
+All residual errors: 1,071,777 (8.6%)",44,49
+5,27,11,7285,"Top-5
+All residual errors: 1,071,777 (8.6%)",27,11
+5,24,33,6918,"Top-5
+All residual errors: 1,071,777 (8.6%)",24,33
