@@ -1,0 +1,105 @@
+zoneID,zone_name,category2,category_label,niche,reference_area_km2,reference_pixels,n_selected_features,top1_importance_share,top5_importance_share,importance_shannon,effective_number_of_features,selection_roles,selected_for_detail
+17,Alpine tundra,alpine_vegetation,alpine vegetation,climate,1166.83977455947,2032,21,0.10548216825962,0.403621265003195,2.93210614325304,18.7671151348454,category smallest observed area; global smallest observed area,TRUE
+20,Alpine sparse vegetation,alpine_vegetation,alpine vegetation,climate,290572.043152328,411347,21,0.128151262621189,0.529123739048897,2.79992353793342,16.443389427491,category largest observed area; category profile medoid,TRUE
+22,Alpine cushion vegetation,alpine_vegetation,alpine vegetation,climate,29216.0608445185,43164,21,0.084550095198923,0.344220896797699,2.9840690209112,19.7680899885864,"",FALSE
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,9762.48864593947,15353,21,0.0740308103178374,0.3149854197667,3.00868598423172,20.260759468665,category smallest observed area,TRUE
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,231554.213781713,375765,21,0.110478406099997,0.369218909808898,2.96614843307996,19.4169895549702,category profile medoid,TRUE
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland,cropland,climate,460573.91798181,610148,21,0.122567808225546,0.445617942419519,2.89355207062368,18.0573367551742,"",FALSE
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland,cropland,climate,581987.788488805,866811,21,0.0695323627744688,0.332931334876827,3.00504590882368,20.1871428426957,category largest observed area; global largest observed area,TRUE
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland,cropland,climate,264431.973201361,391144,21,0.0655635044802475,0.308196528290002,3.01096869843495,20.3070618194833,"",FALSE
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland,cropland,climate,269180.349462283,359409,21,0.115414679324974,0.43966018351726,2.89629827826319,18.1069941048088,"",FALSE
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,cropland,cropland,climate,53783.411818324,67859,21,0.0830440030629236,0.3785482088175,2.8997938209271,18.1703986272632,"",FALSE
+23,Shrub deserts,desert,desert,climate,215639.769601697,330737,21,0.110631975866687,0.398908408879552,2.94974616864545,19.1011046535666,"",FALSE
+24,Semi-shrub and dwarf semi-shrub deserts,desert,desert,climate,547719.084772723,846694,21,0.112526311353901,0.43369082197386,2.92225659224984,18.5831748289119,category largest observed area; global largest observed area,TRUE
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert,desert,climate,157239.724775428,237969,21,0.126517191948207,0.410344940369218,2.92537327987446,18.6411831298478,"",FALSE
+29,Dwarf semi-arboreous deserts,desert,desert,climate,102358.514043218,164699,21,0.0989570075686378,0.375792614083953,2.97674212257381,19.6237805189075,category profile medoid,TRUE
+32,Succulent halophytic dwarf semi-shrub deserts,desert,desert,climate,41176.9538326962,62847,21,0.0907308621855406,0.369244952505499,2.98560323071207,19.7984416629561,"",FALSE
+35,Steppe shrub deserts,desert,desert,climate,21673.0911747923,32917,21,0.0835660939266068,0.348486700367584,2.98425582532541,19.7717830999908,"",FALSE
+38,Annual herb deserts,desert,desert,climate,19641.7789199388,30035,21,0.106521266928371,0.414913953459295,2.95204254826243,19.1450184430225,category smallest observed area,TRUE
+42,Cushion nano-semi-shrub high-cold deserts,desert,desert,climate,108908.531014594,157267,21,0.107192650827058,0.404650294692405,2.90577222487545,18.2793539751835,"",FALSE
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,forest,forest,climate,160335.840232647,284343,21,0.0799546700042698,0.369038015184065,2.96094323050645,19.3161827784211,"",FALSE
+3,Broadleaf deciduous forests in temperate zone,forest,forest,climate,345904.264996547,553420,21,0.0826220682566726,0.325919537333739,3.00339947361525,20.1539333660896,"",FALSE
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,forest,forest,climate,18681.3387065463,30540,21,0.0799384532784004,0.321552401686153,3.00842578285184,20.2554882769092,"",FALSE
+10,Needleleaf forests on mountains in subtropical and tropical zones,forest,forest,climate,109739.960164066,147373,21,0.112763438546264,0.394483206263277,2.93987710672649,18.9135218248154,"",FALSE
+14,Microphyllous deciduous woodlands in temperate zone,forest,forest,climate,20908.5541959762,33001,21,0.0840538613070051,0.315536742843821,3.01904441082875,20.4717197805936,"",FALSE
+26,Bamboo forests and scrubs in subtropical and tropical zones,forest,forest,climate,30951.3022898633,40966,21,0.0971669864407811,0.40466902876304,2.93950110248331,18.9064115971774,"",FALSE
+28,Broadleaf deciduous forests in subtropical zone,forest,forest,climate,34056.2147908729,46263,21,0.0840707140341118,0.372989608498117,2.97524783106792,19.5944787684954,"",FALSE
+30,Needleleaf forests in subtropical zone,forest,forest,climate,440947.400872453,580358,21,0.0962659480104008,0.416655601238236,2.94286576741636,18.9701324768777,category largest observed area; category profile medoid,TRUE
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",forest,forest,climate,3904.5141748997,5163,21,0.145623931196836,0.449650558068675,2.8739986631494,17.7076838845552,category smallest observed area; global smallest observed area,TRUE
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,forest,forest,climate,16932.3871491317,22763,21,0.0975871579674812,0.38113569415888,2.96918159759828,19.4759738881125,"",FALSE
+37,Needleleaf forests in temperate zone,forest,forest,climate,135761.296395213,193911,21,0.071930015759498,0.330823245385541,2.99923878577061,20.0702533444537,"",FALSE
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,forest,forest,climate,16428.3011178075,22033,21,0.149169995255623,0.410116198324392,2.89466977837294,18.0775308638501,"",FALSE
+49,Broadleaf evergreen forests in subtropical zone,forest,forest,climate,121050.734801791,158047,21,0.101827987234957,0.481538825298619,2.8780793387123,17.7800908316118,"",FALSE
+52,Tropical rain forests,forest,forest,climate,18691.6856141285,24103,21,0.114252805473919,0.468684926600071,2.81512552924707,16.6952713936459,"",FALSE
+55,Tropical monsoon forests,forest,forest,climate,5167.1571874639,6461,21,0.0815095079371798,0.361465396965287,2.96216748032703,19.3398450930588,"",FALSE
+5,Grass and forb meadows,grassland_meadow_steppe,grassland meadow steppe,climate,118048.393013657,191879,21,0.070492177247526,0.32284228299497,3.01059990713746,20.2995741325885,"",FALSE
+11,Temperate grass and forb meadow steppes,grassland_meadow_steppe,grassland meadow steppe,climate,88744.7461983382,147426,21,0.0693943896070322,0.305414193032015,3.02509366235425,20.5959336844955,"",FALSE
+13,Temperate tufted grass steppes,grassland_meadow_steppe,grassland meadow steppe,climate,392778.754746233,620911,21,0.0835351363281877,0.361919498178402,2.97379454140796,19.5660229973561,"",FALSE
+15,Grass and forb halophytic meadows,grassland_meadow_steppe,grassland meadow steppe,climate,155782.486712609,242556,21,0.0788914622176026,0.352658232630922,2.9967946632217,20.0212590840702,"",FALSE
+16,Kobresia spp. and forb high-cold meadows,grassland_meadow_steppe,grassland meadow steppe,climate,653919.837866197,917167,21,0.10547064686279,0.439280721422484,2.90415609519192,18.249836027469,category largest observed area; global largest observed area,TRUE
+31,Grass and Carex spp. high-cold steppes,grassland_meadow_steppe,grassland meadow steppe,climate,602782.267595032,848105,21,0.0906744778432954,0.409790311255288,2.92918466938801,18.712367509275,global largest observed area,TRUE
+40,Subtropical and tropical grasslands,grassland_meadow_steppe,grassland meadow steppe,climate,262130.658259238,341246,21,0.0961173860156887,0.4173329536188,2.94256918479355,18.9645070994686,"",FALSE
+41,Temperate grasslands,grassland_meadow_steppe,grassland meadow steppe,climate,62655.3585233834,91481,21,0.0868781853523944,0.337944878131031,3.00310645582221,20.1480287701317,category profile medoid; category smallest observed area,TRUE
+7,Deciduous scrubs in temperate zone,scrub,scrub,climate,145723.607727903,221602,21,0.0721057950088073,0.324932650990956,3.00915939750127,20.2703534518289,category profile medoid,TRUE
+18,Subalpine broadleaf deciduous scrubs,scrub,scrub,climate,80420.5115528885,113046,21,0.100525225142987,0.388709487397511,2.95944182693125,19.2872031530389,"",FALSE
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,scrub,scrub,climate,441250.860529288,576554,21,0.0859457671342491,0.382519612365068,2.96317320536682,19.3593054437751,category largest observed area,TRUE
+45,Subalpine needleleaf evergreen scrubs,scrub,scrub,climate,12167.9589990281,16418,21,0.110368268988807,0.392527432241749,2.95672865191149,19.2349445207087,"",FALSE
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,scrub,scrub,climate,101463.317627609,136995,21,0.115056143138286,0.425557879768324,2.91707928897938,18.4872127239058,"",FALSE
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,scrub,scrub,climate,1954.02259297092,2515,21,0.154757066815497,0.438703717504187,2.89306045131728,18.0484616015804,category smallest observed area; global smallest observed area,TRUE
+4,"Grass, Carex and forb swamp meadows",wetland,wetland,climate,53482.0093491042,92312,21,0.092144293720657,0.339282970675088,3.00531381440437,20.1925518154361,category profile medoid,TRUE
+6,Cold-temperate and temperate marshes,wetland,wetland,climate,53583.994126283,92003,21,0.0891160554032644,0.352467864534107,2.99201938250749,19.9258798642132,category largest observed area,TRUE
+43,High-cold marshes,wetland,wetland,climate,4041.58735428002,5708,21,0.0677983487962532,0.312503627070137,3.01358822416058,20.360326423874,global smallest observed area,TRUE
+48,Subtropical and tropical marshes,wetland,wetland,climate,1797.64026241183,2400,21,0.0913683915529758,0.377825135091368,2.96712211999234,19.4359048308616,category smallest observed area; global smallest observed area,TRUE
+54,Tropical mangroves,wetland,wetland,climate,9405.78073086598,11883,21,0.103224030435606,0.411686066382372,2.93135103919443,18.7529493590293,"",FALSE
+17,Alpine tundra,alpine_vegetation,alpine vegetation,soil,1166.83977455947,2032,9,0.194139790485656,0.722054242738914,2.05247350576126,7.78713883695653,category smallest observed area; global smallest observed area,TRUE
+20,Alpine sparse vegetation,alpine_vegetation,alpine vegetation,soil,290572.043152328,411347,9,0.311699540801741,0.759968018318245,1.96454942893202,7.13169852910858,category largest observed area; category profile medoid,TRUE
+22,Alpine cushion vegetation,alpine_vegetation,alpine vegetation,soil,29216.0608445185,43164,9,0.251556657813156,0.771725749251258,2.04407001866647,7.72197390605032,"",FALSE
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,9762.48864593947,15353,9,0.200509894570233,0.672860578567811,2.14724280015479,8.56122082865883,category smallest observed area,TRUE
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,231554.213781713,375765,9,0.18549816553043,0.682410991593017,2.14603827609672,8.55091484035579,category profile medoid,TRUE
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland,cropland,soil,460573.91798181,610148,9,0.194789543502027,0.684934780462187,2.13935734277849,8.49397715870836,"",FALSE
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland,cropland,soil,581987.788488805,866811,9,0.212078737565041,0.660553055283792,2.14306297141088,8.52551107407595,category largest observed area; global largest observed area,TRUE
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland,cropland,soil,264431.973201361,391144,9,0.212401776827141,0.720065342144784,2.11191452502734,8.26404787522615,"",FALSE
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland,cropland,soil,269180.349462283,359409,9,0.2074705503107,0.657415879788245,2.14720910676959,8.56093237700716,"",FALSE
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,cropland,cropland,soil,53783.411818324,67859,9,0.206868105423408,0.704052717040791,2.12338458473031,8.35938270060945,"",FALSE
+23,Shrub deserts,desert,desert,soil,215639.769601697,330737,9,0.258011636020353,0.714503033549029,2.0807982474121,8.01086101179067,"",FALSE
+24,Semi-shrub and dwarf semi-shrub deserts,desert,desert,soil,547719.084772723,846694,9,0.202402799570398,0.727310000346119,2.10773684058176,8.22959530704786,category largest observed area; global largest observed area,TRUE
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert,desert,soil,157239.724775428,237969,9,0.173545583910979,0.71117140138635,2.13487066247495,8.45595276412967,"",FALSE
+29,Dwarf semi-arboreous deserts,desert,desert,soil,102358.514043218,164699,9,0.308819538910505,0.756137638013416,2.01195034503268,7.4778875951215,category profile medoid,TRUE
+32,Succulent halophytic dwarf semi-shrub deserts,desert,desert,soil,41176.9538326962,62847,9,0.199869494917965,0.755270527639376,2.08898548591042,8.0767170632055,"",FALSE
+35,Steppe shrub deserts,desert,desert,soil,21673.0911747923,32917,9,0.205952901456033,0.731059666644711,2.10603090364205,8.21556810457798,"",FALSE
+38,Annual herb deserts,desert,desert,soil,19641.7789199388,30035,9,0.19451108594641,0.746070122387547,2.09260920756068,8.10603793093685,category smallest observed area,TRUE
+42,Cushion nano-semi-shrub high-cold deserts,desert,desert,soil,108908.531014594,157267,9,0.145763548123699,0.693474974220936,2.15049881031913,8.58914168131907,"",FALSE
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,forest,forest,soil,160335.840232647,284343,9,0.16521882484929,0.654963188377072,2.16829528416689,8.74336637406963,"",FALSE
+3,Broadleaf deciduous forests in temperate zone,forest,forest,soil,345904.264996547,553420,9,0.190308787413776,0.710260265294689,2.11517122976008,8.29100531143181,"",FALSE
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,forest,forest,soil,18681.3387065463,30540,9,0.214444390931385,0.708125621120201,2.11814179201411,8.31567087601764,"",FALSE
+10,Needleleaf forests on mountains in subtropical and tropical zones,forest,forest,soil,109739.960164066,147373,9,0.150854765726678,0.662477208218249,2.16516068243129,8.71600231278143,"",FALSE
+14,Microphyllous deciduous woodlands in temperate zone,forest,forest,soil,20908.5541959762,33001,9,0.155412267321546,0.65719767798124,2.16628508480507,8.72580811827422,"",FALSE
+26,Bamboo forests and scrubs in subtropical and tropical zones,forest,forest,soil,30951.3022898633,40966,9,0.19372564971856,0.799906613390298,2.04111039356086,7.69915354472789,"",FALSE
+28,Broadleaf deciduous forests in subtropical zone,forest,forest,soil,34056.2147908729,46263,9,0.17721086491311,0.677396708096138,2.15510789830684,8.62882116393559,"",FALSE
+30,Needleleaf forests in subtropical zone,forest,forest,soil,440947.400872453,580358,9,0.198047543583703,0.718006717908835,2.10647934507631,8.21925313191982,category largest observed area; category profile medoid,TRUE
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",forest,forest,soil,3904.5141748997,5163,9,0.168524904720647,0.716751468944418,2.12826690160861,8.40029564958123,category smallest observed area; global smallest observed area,TRUE
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,forest,forest,soil,16932.3871491317,22763,9,0.146895730081641,0.658324953029542,2.16516854895815,8.71607087771746,"",FALSE
+37,Needleleaf forests in temperate zone,forest,forest,soil,135761.296395213,193911,9,0.174954042711631,0.673714844501328,2.14561637635358,8.54730797250287,"",FALSE
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,forest,forest,soil,16428.3011178075,22033,9,0.149732121396159,0.66186887561487,2.16255647454776,8.69333356072851,"",FALSE
+49,Broadleaf evergreen forests in subtropical zone,forest,forest,soil,121050.734801791,158047,9,0.192658353878185,0.788046370875322,2.05283152477437,7.78992727984584,"",FALSE
+52,Tropical rain forests,forest,forest,soil,18691.6856141285,24103,9,0.297399417065958,0.802461348924216,1.96953904459493,7.1673718879565,"",FALSE
+55,Tropical monsoon forests,forest,forest,soil,5167.1571874639,6461,9,0.231433280969995,0.793075156512141,2.0127582463441,7.48393143139914,"",FALSE
+5,Grass and forb meadows,grassland_meadow_steppe,grassland meadow steppe,soil,118048.393013657,191879,9,0.216888654687644,0.70875625002011,2.10410996368192,8.19980163957528,"",FALSE
+11,Temperate grass and forb meadow steppes,grassland_meadow_steppe,grassland meadow steppe,soil,88744.7461983382,147426,9,0.224809952921789,0.697828506587193,2.10428995673661,8.20127767975477,"",FALSE
+13,Temperate tufted grass steppes,grassland_meadow_steppe,grassland meadow steppe,soil,392778.754746233,620911,9,0.170204436055101,0.671242625059333,2.15439110375975,8.62263828816804,"",FALSE
+15,Grass and forb halophytic meadows,grassland_meadow_steppe,grassland meadow steppe,soil,155782.486712609,242556,9,0.213304595846213,0.739812239449235,2.10253501491887,8.18689753644378,"",FALSE
+16,Kobresia spp. and forb high-cold meadows,grassland_meadow_steppe,grassland meadow steppe,soil,653919.837866197,917167,9,0.253498793852038,0.784852813108874,2.04462782507748,7.72628247416245,category largest observed area; global largest observed area,TRUE
+31,Grass and Carex spp. high-cold steppes,grassland_meadow_steppe,grassland meadow steppe,soil,602782.267595032,848105,9,0.255495197665779,0.751660899135337,2.06575324360418,7.89123968538925,global largest observed area,TRUE
+40,Subtropical and tropical grasslands,grassland_meadow_steppe,grassland meadow steppe,soil,262130.658259238,341246,9,0.179690651616494,0.725661395999378,2.1183430922121,8.31734499070555,"",FALSE
+41,Temperate grasslands,grassland_meadow_steppe,grassland meadow steppe,soil,62655.3585233834,91481,9,0.173937302736995,0.677493575131096,2.14339159260498,8.52831319809881,category profile medoid; category smallest observed area,TRUE
+7,Deciduous scrubs in temperate zone,scrub,scrub,soil,145723.607727903,221602,9,0.178857932748959,0.674115535577564,2.15239674864689,8.60545882208389,category profile medoid,TRUE
+18,Subalpine broadleaf deciduous scrubs,scrub,scrub,soil,80420.5115528885,113046,9,0.214437897222363,0.684330019287755,2.12694185622533,8.38917224774618,"",FALSE
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,scrub,scrub,soil,441250.860529288,576554,9,0.225467301075273,0.693768964637677,2.11206537623079,8.26529461082693,category largest observed area,TRUE
+45,Subalpine needleleaf evergreen scrubs,scrub,scrub,soil,12167.9589990281,16418,9,0.188240807968922,0.754102878325289,2.0829562390218,8.02816704906607,"",FALSE
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,scrub,scrub,soil,101463.317627609,136995,9,0.1512325746124,0.640477941434765,2.17720987425401,8.82165835323927,"",FALSE
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,scrub,scrub,soil,1954.02259297092,2515,9,0.144066329480283,0.668898602217758,2.16453617743084,8.7105608250482,category smallest observed area; global smallest observed area,TRUE
+4,"Grass, Carex and forb swamp meadows",wetland,wetland,soil,53482.0093491042,92312,9,0.196557255421987,0.733279554093292,2.10057937175246,8.17090253158128,category profile medoid,TRUE
+6,Cold-temperate and temperate marshes,wetland,wetland,soil,53583.994126283,92003,9,0.203730982377771,0.681007767971303,2.14024799003947,8.50154566613453,category largest observed area,TRUE
+43,High-cold marshes,wetland,wetland,soil,4041.58735428002,5708,9,0.240809698136061,0.761168483418122,2.02723461711133,7.59305958159537,global smallest observed area,TRUE
+48,Subtropical and tropical marshes,wetland,wetland,soil,1797.64026241183,2400,9,0.203397641263106,0.712333345042955,2.12279278610471,8.35443709296258,category smallest observed area; global smallest observed area,TRUE
+54,Tropical mangroves,wetland,wetland,soil,9405.78073086598,11883,9,0.21988573533792,0.785704466948006,2.02537919878438,7.57898434145722,"",FALSE
