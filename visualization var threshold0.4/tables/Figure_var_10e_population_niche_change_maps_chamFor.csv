@@ -1,0 +1,29 @@
+change_code,area_km2,source_zone,zone_name,Species,method,early_scenario,late_scenario,dual_threshold,change_class
+0,8753354.76510742,10,Needleleaf forests on mountains in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,387236.498174892,10,Needleleaf forests on mountains in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,60513.4242779763,10,Needleleaf forests on mountains in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,45896.9451042814,10,Needleleaf forests on mountains in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
+0,7214375.72174991,21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,1407246.49855129,21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,153349.000121566,21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,469533.424968526,21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
+0,8884133.05306598,26,Bamboo forests and scrubs in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,33200.5862421811,26,Bamboo forests and scrubs in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,300039.443341033,26,Bamboo forests and scrubs in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,28621.9226619392,26,Bamboo forests and scrubs in subtropical and tropical zones,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
+0,7857404.50975976,30,Needleleaf forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,580810.424706646,30,Needleleaf forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,761915.065398779,30,Needleleaf forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,43684.1355275316,30,Needleleaf forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
+0,9052671.32539976,34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,96530.0507877929,34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,54344.1936511362,34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,44775.1182253894,34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
+0,8224012.73926764,49,Broadleaf evergreen forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,383440.959555795,49,Broadleaf evergreen forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,499072.190907151,49,Broadleaf evergreen forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,138855.391836271,49,Broadleaf evergreen forests in subtropical zone,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
+0,8866414.50016968,53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Below threshold in both periods
+1,288348.799156247,53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Retained suitable area
+2,1379.5407445903,53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Loss of suitability
+3,89691.894531564,53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,chamFor,rf_var,2011-2040SSP585,2071-2100SSP585,0.4,Gain of suitability
