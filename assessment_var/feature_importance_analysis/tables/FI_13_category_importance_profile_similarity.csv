@@ -1,0 +1,129 @@
+niche,category1,category1_label,category2,category2_label,cosine_similarity,spearman_similarity
+climate,alpine_vegetation,alpine vegetation,alpine_vegetation,alpine vegetation,1,1
+climate,alpine_vegetation,alpine vegetation,cropland,cropland,0.587184159850554,0.229105773547472
+climate,alpine_vegetation,alpine vegetation,desert,desert,0.614516624489082,0.399973266757254
+climate,alpine_vegetation,alpine vegetation,forest,forest,0.667468527351594,0.400494751399278
+climate,alpine_vegetation,alpine vegetation,grassland_meadow_steppe,grassland meadow steppe,0.646057324115844,0.40008340938262
+climate,alpine_vegetation,alpine vegetation,no_vegetation,no vegetation,0.559967426851761,0.373077027316583
+climate,alpine_vegetation,alpine vegetation,scrub,scrub,0.695922865120203,0.495049347475215
+climate,alpine_vegetation,alpine vegetation,wetland,wetland,0.654657415113575,0.327619631142203
+climate,cropland,cropland,alpine_vegetation,alpine vegetation,0.587184159850554,0.229105773547472
+climate,cropland,cropland,cropland,cropland,1,1
+climate,cropland,cropland,desert,desert,0.830321858791215,0.613797787873829
+climate,cropland,cropland,forest,forest,0.885414055817941,0.727446798524019
+climate,cropland,cropland,grassland_meadow_steppe,grassland meadow steppe,0.852586177821675,0.673571556282087
+climate,cropland,cropland,no_vegetation,no vegetation,0.649590500644849,0.413257327525581
+climate,cropland,cropland,scrub,scrub,0.807166127725336,0.560215179284362
+climate,cropland,cropland,wetland,wetland,0.8488947275908,0.69282013511793
+climate,desert,desert,alpine_vegetation,alpine vegetation,0.614516624489082,0.399973266757254
+climate,desert,desert,cropland,cropland,0.830321858791215,0.613797787873829
+climate,desert,desert,desert,desert,1,1
+climate,desert,desert,forest,forest,0.822190637251831,0.682701887842358
+climate,desert,desert,grassland_meadow_steppe,grassland meadow steppe,0.91370492002355,0.802352550287632
+climate,desert,desert,no_vegetation,no vegetation,0.770382312988647,0.586599397950656
+climate,desert,desert,scrub,scrub,0.747068733516248,0.553745751527201
+climate,desert,desert,wetland,wetland,0.805278975669673,0.64083701255594
+climate,forest,forest,alpine_vegetation,alpine vegetation,0.667468527351594,0.400494751399278
+climate,forest,forest,cropland,cropland,0.885414055817941,0.727446798524019
+climate,forest,forest,desert,desert,0.822190637251831,0.682701887842358
+climate,forest,forest,forest,forest,1,1
+climate,forest,forest,grassland_meadow_steppe,grassland meadow steppe,0.925813403413102,0.812365927291467
+climate,forest,forest,no_vegetation,no vegetation,0.691567857353756,0.490601395204797
+climate,forest,forest,scrub,scrub,0.922133254487068,0.803575333144385
+climate,forest,forest,wetland,wetland,0.897179215870568,0.697045531411192
+climate,grassland_meadow_steppe,grassland meadow steppe,alpine_vegetation,alpine vegetation,0.646057324115844,0.40008340938262
+climate,grassland_meadow_steppe,grassland meadow steppe,cropland,cropland,0.852586177821675,0.673571556282087
+climate,grassland_meadow_steppe,grassland meadow steppe,desert,desert,0.91370492002355,0.802352550287632
+climate,grassland_meadow_steppe,grassland meadow steppe,forest,forest,0.925813403413102,0.812365927291467
+climate,grassland_meadow_steppe,grassland meadow steppe,grassland_meadow_steppe,grassland meadow steppe,1,1
+climate,grassland_meadow_steppe,grassland meadow steppe,no_vegetation,no vegetation,0.741828153832082,0.514082610433052
+climate,grassland_meadow_steppe,grassland meadow steppe,scrub,scrub,0.857500799044365,0.731307430702031
+climate,grassland_meadow_steppe,grassland meadow steppe,wetland,wetland,0.86549884126801,0.655292271210017
+climate,no_vegetation,no vegetation,alpine_vegetation,alpine vegetation,0.559967426851761,0.373077027316583
+climate,no_vegetation,no vegetation,cropland,cropland,0.649590500644849,0.413257327525581
+climate,no_vegetation,no vegetation,desert,desert,0.770382312988647,0.586599397950656
+climate,no_vegetation,no vegetation,forest,forest,0.691567857353756,0.490601395204797
+climate,no_vegetation,no vegetation,grassland_meadow_steppe,grassland meadow steppe,0.741828153832082,0.514082610433052
+climate,no_vegetation,no vegetation,no_vegetation,no vegetation,1,1
+climate,no_vegetation,no vegetation,scrub,scrub,0.527358674185155,0.317155012889028
+climate,no_vegetation,no vegetation,wetland,wetland,0.696109065867705,0.498002078887644
+climate,scrub,scrub,alpine_vegetation,alpine vegetation,0.695922865120203,0.495049347475215
+climate,scrub,scrub,cropland,cropland,0.807166127725336,0.560215179284362
+climate,scrub,scrub,desert,desert,0.747068733516248,0.553745751527201
+climate,scrub,scrub,forest,forest,0.922133254487068,0.803575333144385
+climate,scrub,scrub,grassland_meadow_steppe,grassland meadow steppe,0.857500799044365,0.731307430702031
+climate,scrub,scrub,no_vegetation,no vegetation,0.527358674185155,0.317155012889028
+climate,scrub,scrub,scrub,scrub,1,1
+climate,scrub,scrub,wetland,wetland,0.809633367616413,0.566785800429631
+climate,wetland,wetland,alpine_vegetation,alpine vegetation,0.654657415113575,0.327619631142203
+climate,wetland,wetland,cropland,cropland,0.8488947275908,0.69282013511793
+climate,wetland,wetland,desert,desert,0.805278975669673,0.64083701255594
+climate,wetland,wetland,forest,forest,0.897179215870568,0.697045531411192
+climate,wetland,wetland,grassland_meadow_steppe,grassland meadow steppe,0.86549884126801,0.655292271210017
+climate,wetland,wetland,no_vegetation,no vegetation,0.696109065867705,0.498002078887644
+climate,wetland,wetland,scrub,scrub,0.809633367616413,0.566785800429631
+climate,wetland,wetland,wetland,wetland,1,1
+soil,alpine_vegetation,alpine vegetation,alpine_vegetation,alpine vegetation,1,1
+soil,alpine_vegetation,alpine vegetation,cropland,cropland,0.667596168909517,0.279571688265735
+soil,alpine_vegetation,alpine vegetation,desert,desert,0.753726519631775,0.0178571428571429
+soil,alpine_vegetation,alpine vegetation,forest,forest,0.714740800074615,0.394995689450386
+soil,alpine_vegetation,alpine vegetation,grassland_meadow_steppe,grassland meadow steppe,0.800898238362536,0.534405932785816
+soil,alpine_vegetation,alpine vegetation,no_vegetation,no vegetation,0.689584072028242,0.114345222602314
+soil,alpine_vegetation,alpine vegetation,scrub,scrub,0.793099449170533,0.634412677218399
+soil,alpine_vegetation,alpine vegetation,wetland,wetland,0.819152997216851,0.487458328258205
+soil,cropland,cropland,alpine_vegetation,alpine vegetation,0.667596168909517,0.279571688265735
+soil,cropland,cropland,cropland,cropland,1,1
+soil,cropland,cropland,desert,desert,0.770569087134085,0.397852017916623
+soil,cropland,cropland,forest,forest,0.955911921602294,0.825115094230444
+soil,cropland,cropland,grassland_meadow_steppe,grassland meadow steppe,0.957934958540221,0.921976431379236
+soil,cropland,cropland,no_vegetation,no vegetation,0.592879592535008,0.179537298793599
+soil,cropland,cropland,scrub,scrub,0.951146439281025,0.798561151079137
+soil,cropland,cropland,wetland,wetland,0.8423288876667,0.676258992805756
+soil,desert,desert,alpine_vegetation,alpine vegetation,0.753726519631775,0.0178571428571429
+soil,desert,desert,cropland,cropland,0.770569087134085,0.397852017916623
+soil,desert,desert,desert,desert,1,1
+soil,desert,desert,forest,forest,0.733473084390304,0.0911528514116274
+soil,desert,desert,grassland_meadow_steppe,grassland meadow steppe,0.869516345961516,0.47721198680205
+soil,desert,desert,no_vegetation,no vegetation,0.815254966374835,0.223157611852904
+soil,desert,desert,scrub,scrub,0.786762114685692,0.18638112551049
+soil,desert,desert,wetland,wetland,0.770455161106949,0.18638112551049
+soil,forest,forest,alpine_vegetation,alpine vegetation,0.714740800074615,0.394995689450386
+soil,forest,forest,cropland,cropland,0.955911921602294,0.825115094230444
+soil,forest,forest,desert,desert,0.733473084390304,0.0911528514116274
+soil,forest,forest,forest,forest,1,1
+soil,forest,forest,grassland_meadow_steppe,grassland meadow steppe,0.927501864499934,0.728085867620751
+soil,forest,forest,no_vegetation,no vegetation,0.611557303575076,0.11906227016072
+soil,forest,forest,scrub,scrub,0.918908319431838,0.717491386287343
+soil,forest,forest,wetland,wetland,0.829902217666435,0.660092075384355
+soil,grassland_meadow_steppe,grassland meadow steppe,alpine_vegetation,alpine vegetation,0.800898238362536,0.534405932785816
+soil,grassland_meadow_steppe,grassland meadow steppe,cropland,cropland,0.957934958540221,0.921976431379236
+soil,grassland_meadow_steppe,grassland meadow steppe,desert,desert,0.869516345961516,0.47721198680205
+soil,grassland_meadow_steppe,grassland meadow steppe,forest,forest,0.927501864499934,0.728085867620751
+soil,grassland_meadow_steppe,grassland meadow steppe,grassland_meadow_steppe,grassland meadow steppe,1,1
+soil,grassland_meadow_steppe,grassland meadow steppe,no_vegetation,no vegetation,0.738921947154919,0.29627123039993
+soil,grassland_meadow_steppe,grassland meadow steppe,scrub,scrub,0.964030451999859,0.871752034339122
+soil,grassland_meadow_steppe,grassland meadow steppe,wetland,wetland,0.90189392469858,0.645742247658609
+soil,no_vegetation,no vegetation,alpine_vegetation,alpine vegetation,0.689584072028242,0.114345222602314
+soil,no_vegetation,no vegetation,cropland,cropland,0.592879592535008,0.179537298793599
+soil,no_vegetation,no vegetation,desert,desert,0.815254966374835,0.223157611852904
+soil,no_vegetation,no vegetation,forest,forest,0.611557303575076,0.11906227016072
+soil,no_vegetation,no vegetation,grassland_meadow_steppe,grassland meadow steppe,0.738921947154919,0.29627123039993
+soil,no_vegetation,no vegetation,no_vegetation,no vegetation,1,1
+soil,no_vegetation,no vegetation,scrub,scrub,0.62985574195242,-0.0370179997512576
+soil,no_vegetation,no vegetation,wetland,wetland,0.657795720634076,0.227660698470234
+soil,scrub,scrub,alpine_vegetation,alpine vegetation,0.793099449170533,0.634412677218399
+soil,scrub,scrub,cropland,cropland,0.951146439281025,0.798561151079137
+soil,scrub,scrub,desert,desert,0.786762114685692,0.18638112551049
+soil,scrub,scrub,forest,forest,0.918908319431838,0.717491386287343
+soil,scrub,scrub,grassland_meadow_steppe,grassland meadow steppe,0.964030451999859,0.871752034339122
+soil,scrub,scrub,no_vegetation,no vegetation,0.62985574195242,-0.0370179997512576
+soil,scrub,scrub,scrub,scrub,1,1
+soil,scrub,scrub,wetland,wetland,0.876250521749897,0.661870503597122
+soil,wetland,wetland,alpine_vegetation,alpine vegetation,0.819152997216851,0.487458328258205
+soil,wetland,wetland,cropland,cropland,0.8423288876667,0.676258992805756
+soil,wetland,wetland,desert,desert,0.770455161106949,0.18638112551049
+soil,wetland,wetland,forest,forest,0.829902217666435,0.660092075384355
+soil,wetland,wetland,grassland_meadow_steppe,grassland meadow steppe,0.90189392469858,0.645742247658609
+soil,wetland,wetland,no_vegetation,no vegetation,0.657795720634076,0.227660698470234
+soil,wetland,wetland,scrub,scrub,0.876250521749897,0.661870503597122
+soil,wetland,wetland,wetland,wetland,1,1

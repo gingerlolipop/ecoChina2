@@ -1,0 +1,11 @@
+group,n_files,n_missing,n_same_geometry,n_different_geometry
+raw_climate,69,0,0,69
+raw_soil,30,0,0,30
+rf_var_assigned_normal,1,0,1,0
+rf_var_climate_suitability,53,0,53,0
+rf_var_soil_suitability,53,0,53,0
+rf_var_dual_suitability,53,0,53,0
+mf_var_assigned_normal,1,0,1,0
+mf_var_climate_suitability,53,0,53,0
+mf_var_soil_suitability,53,0,53,0
+mf_var_dual_suitability,53,0,53,0

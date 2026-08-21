@@ -1,0 +1,9 @@
+category2,n_unique_zones,figure_file
+alpine_vegetation,2,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_alpine_vegetation.png
+cropland,3,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_cropland.png
+desert,3,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_desert.png
+forest,2,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_forest.png
+grassland_meadow_steppe,2,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_grassland_meadow_steppe.png
+no_vegetation,1,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_no_vegetation.png
+scrub,3,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_scrub.png
+wetland,3,H:/Jing/ecoChina2/assessment_var/feature_importance_analysis/figures/category representative zones/Figure_FI_category_zones_wetland.png

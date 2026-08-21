@@ -1,0 +1,4 @@
+method,method_label,scenario,period,ssp,rank_cutoff,rank_label,criterion,common_valid_pixels,common_valid_area_km2,pixel_count,pixel_share,area_km2,area_share
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,1,Top-1,fewer_than_1_ecotypes_at_or_above_0.4,12393866,8501128.01140083,472144,0.0380949737555659,318098.419526514,0.0374183777846791
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,3,Top-3,fewer_than_3_ecotypes_at_or_above_0.4,12393866,8501128.01140083,5614726,0.453024584903532,3756252.90463033,0.44185346927994
+mf_var,Plain MF RF,2041-2070SSP245,2041-2070,SSP245,5,Top-5,fewer_than_5_ecotypes_at_or_above_0.4,12393866,8501128.01140083,10185449,0.82181371010466,6899292.06896588,0.81157371818343

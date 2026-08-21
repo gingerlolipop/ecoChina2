@@ -67,7 +67,7 @@ metric_labels <- c(
   f1 = "F1",
   auc = "AUC",
   precision = "Precision",
-  recall = "Recall",
+  recall = "Sensitivity",
   specificity = "Specificity",
   tss = "TSS"
 )
@@ -451,13 +451,23 @@ for (method_index in seq_along(method_order)) {
   dev.off()
 }
 
+model_zone_metrics_out <- copy(model_zone_metrics)
+normal_map_zone_metrics_out <- copy(normal_map_zone_metrics)
+
+if ("recall" %in% names(model_zone_metrics_out)) {
+  setnames(model_zone_metrics_out, "recall", "sensitivity")
+}
+if ("recall" %in% names(normal_map_zone_metrics_out)) {
+  setnames(normal_map_zone_metrics_out, "recall", "sensitivity")
+}
+
 fwrite(
-  model_zone_metrics,
+  model_zone_metrics_out,
   file.path(table_dir, "supplement_model_zone_metrics_TSS.csv")
 )
 
 fwrite(
-  normal_map_zone_metrics,
+  normal_map_zone_metrics_out,
   file.path(table_dir, "supplement_normal_map_zone_metrics_TSS.csv")
 )
 

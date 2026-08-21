@@ -1,0 +1,19 @@
+niche,scope,n_zones,area_vs_effective_n_spearman,area_vs_top1_share_spearman,area_vs_top5_share_spearman,category2
+climate,all modeled zones,53,-0.0568456700532172,-0.0691017577810031,0.105870020964361,
+soil,all modeled zones,53,0.0357200451540074,0.187227866473149,-0.0949040477342364,
+climate,within broad category,3,-0.5,0.5,0.5,alpine_vegetation
+climate,within broad category,7,-0.321428571428571,0.142857142857143,0.321428571428571,cropland
+climate,within broad category,8,-0.666666666666667,0.785714285714286,0.428571428571429,desert
+climate,within broad category,15,0.214285714285714,-0.378571428571429,-0.0892857142857143,forest
+climate,within broad category,8,-0.904761904761905,0.666666666666667,0.857142857142857,grassland_meadow_steppe
+climate,within broad category,1,,,,no_vegetation
+climate,within broad category,6,0.771428571428571,-0.771428571428571,-0.771428571428571,scrub
+climate,within broad category,5,0.1,0.1,-0.1,wetland
+soil,within broad category,3,-1,1,0.5,alpine_vegetation
+soil,within broad category,7,-0.214285714285714,0.321428571428571,-0.285714285714286,cropland
+soil,within broad category,8,0.214285714285714,0.0714285714285714,-0.547619047619048,desert
+soil,within broad category,15,0.0571428571428571,0.0785714285714286,-0.0821428571428571,forest
+soil,within broad category,8,-0.5,0.380952380952381,0.619047619047619,grassland_meadow_steppe
+soil,within broad category,1,,,,no_vegetation
+soil,within broad category,6,-0.0857142857142857,0.542857142857143,0.0857142857142857,scrub
+soil,within broad category,5,0.3,-0.2,-0.3,wetland

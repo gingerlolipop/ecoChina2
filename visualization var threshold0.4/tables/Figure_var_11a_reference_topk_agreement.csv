@@ -1,0 +1,7 @@
+method,method_label,rank_cutoff,agreement_definition,compared_pixels,matched_pixels,pixel_share,compared_area_km2,matched_area_km2,area_share,rank_label
+mf_var,Plain MF RF,1,cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks,12393826,7466465,0.602434228139075,8501096.16541904,5088490.91394847,0.598568798062484,Top-1
+mf_var,Plain MF RF,3,cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks,12393826,10718882,0.864856582624284,8501096.16541904,7330338.18681901,0.862281527485542,Top-3
+mf_var,Plain MF RF,5,cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks,12393826,11322228,0.913537756621724,8501096.16541904,7759788.53779285,0.9127985834766,Top-5
+rf_var,Plain RF,1,cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks,12393826,7469335,0.60266579504989,8501096.16541904,5090285.3991989,0.598779886752168,Top-1
+rf_var,Plain RF,3,cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks,12393826,10718512,0.864826729050416,8501096.16541904,7329996.09516619,0.86224128659823,Top-3
+rf_var,Plain RF,5,cumulative tie-aware agreement: assigned-map Top-1 match or observed zone within first k saved ranks,12393826,11322049,0.913523313946799,8501096.16541904,7759645.30515676,0.912781734751058,Top-5

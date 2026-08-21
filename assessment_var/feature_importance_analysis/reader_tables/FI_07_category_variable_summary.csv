@@ -1,0 +1,540 @@
+category2,category_label,niche,feature,feature_group,climate_period,n_zones,mean_importance_share,sd_importance_share,median_importance_share,selected_zones,top5_zones,top10_zones,se_importance_share,selection_frequency,top5_frequency,top10_frequency,category_variable_rank,inference_scope,common_factor
+alpine_vegetation,alpine vegetation,climate,Eref_sm,Radiation and evaporative demand,Summer,3,0.0802879109328276,0.0415669373159704,0.0594602569469762,3,1,3,0.0239986824487638,1,0.333333333333333,1,1,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,Eref_at,Radiation and evaporative demand,Autumn,3,0.0784031123443238,0.0100275745217004,0.0838274560605889,3,2,3,0.00578942284942273,1,0.666666666666667,1,2,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,Tmax_wt,Temperature,Winter,3,0.0667179962193859,0.0367964166266734,0.0624017822646374,3,2,2,0.0212444210446235,1,0.666666666666667,0.666666666666667,3,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,Eref,Radiation and evaporative demand,Annual,3,0.0665523336644758,0.0314144930679452,0.067499989304618,3,2,2,0.0181371660292338,1,0.666666666666667,0.666666666666667,4,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,TD,Temperature,Annual,3,0.0590421143057049,0.0214365623424414,0.0466953994860947,3,1,2,0.0123764050389088,1,0.333333333333333,0.666666666666667,5,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,EXT,Temperature,Annual,3,0.0480879649739446,0.0504549510067179,0.0436475166330274,2,1,1,0.029130179545678,0.666666666666667,0.333333333333333,0.333333333333333,6,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,MWMT,Temperature,Annual,3,0.0457567779754755,0.0476152752444317,0.0422353111192836,2,1,1,0.0274906919799107,0.666666666666667,0.333333333333333,0.333333333333333,7,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,DD_0_wt,Growing season and degree-days,Winter,3,0.0394208905685953,0.0365769002447695,0.0460025631912942,2,1,1,0.0211176832024398,0.666666666666667,0.333333333333333,0.333333333333333,8,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,PAS_sp,Snowfall,Spring,3,0.036387372285072,0.0345157066419421,0.0404990358941333,2,1,2,0.0199276525209954,0.666666666666667,0.333333333333333,0.666666666666667,9,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,climate,Tmax_sm,Temperature,Summer,3,0.0359462661450102,0.0622607593055508,0,1,1,1,0.0359462661450102,0.333333333333333,0.333333333333333,0.333333333333333,10,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_0,Growing season and degree-days,Annual,3,0.0319580921729044,0.0278239310990023,0.0450768235383626,2,0,1,0.0160641541099226,0.666666666666667,0,0.333333333333333,11,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PPT_sm,Precipitation,Summer,3,0.0310297322500058,0.0291564793872139,0.0352323449466795,2,0,2,0.0168335012228297,0.666666666666667,0,0.666666666666667,12,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PAS_wt,Snowfall,Winter,3,0.0290940766139343,0.0182595958987854,0.0272741815979564,3,0,1,0.0105421826074575,1,0,0.333333333333333,13,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,MAP,Precipitation,Annual,3,0.0266352571160537,0.0240280927291678,0.03322447211866,2,0,1,0.0138726258052983,0.666666666666667,0,0.333333333333333,14,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PPT_at,Precipitation,Autumn,3,0.0254125022197224,0.0237547498195417,0.0291777417990871,2,0,1,0.0137148112028446,0.666666666666667,0,0.333333333333333,15,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,RH_at,Humidity,Autumn,3,0.023957543955257,0.00399069925612565,0.0231953821038825,3,0,0,0.00230403128977898,1,0,0,16,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PPT_sp,Precipitation,Spring,3,0.0235639144153821,0.0228892890253212,0.0249788081452555,2,0,0,0.0132151371803283,0.666666666666667,0,0,17,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD5_at,Growing season and degree-days,Autumn,3,0.0203686496894793,0.0352795361437501,0,1,1,1,0.0203686496894793,0.333333333333333,0.333333333333333,0.333333333333333,18,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tave_wt,Temperature,Winter,3,0.019418877169225,0.033634481883037,0,1,1,1,0.019418877169225,0.333333333333333,0.333333333333333,0.333333333333333,19,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,AHM,Climatic moisture balance,Annual,3,0.0193708840322602,0.0171613233516174,0.0254386392135036,2,0,0,0.00990809465670649,0.666666666666667,0,0,20,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_0_at,Growing season and degree-days,Autumn,3,0.0183078527367407,0.0317101311175238,0,1,0,1,0.0183078527367407,0.333333333333333,0,0.333333333333333,21,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_18_wt,Growing season and degree-days,Winter,3,0.0176141526553097,0.0305086073312706,0,1,0,1,0.0176141526553097,0.333333333333333,0,0.333333333333333,22,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,CMD_sm,Climatic moisture balance,Summer,3,0.0171058143355762,0.0153667055116295,0.0215747313933443,2,0,0,0.008871971563697,0.666666666666667,0,0,23,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PPT_wt,Precipitation,Winter,3,0.0167656314105378,0.00632710376347638,0.0143722767275533,3,0,0,0.00365295506103378,1,0,0,24,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_0_sp,Growing season and degree-days,Spring,3,0.0166902087359631,0.028908289519618,0,1,0,1,0.0166902087359631,0.333333333333333,0,0.333333333333333,25,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tmax_sp,Temperature,Spring,3,0.0161680528888987,0.0280038890630334,0,1,0,1,0.0161680528888987,0.333333333333333,0,0.333333333333333,26,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,RH_sm,Humidity,Summer,3,0.014091262967998,0.0127705083483907,0.0173735031022485,2,0,0,0.00737305643263175,0.666666666666667,0,0,27,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,RH_wt,Humidity,Winter,3,0.0137456568862012,0.0238081761103095,0,1,0,0,0.0137456568862012,0.333333333333333,0,0,28,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,EMT,Temperature,Annual,3,0.0136728545490676,0.0236820787634843,0,1,0,0,0.0136728545490676,0.333333333333333,0,0,29,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,RH_sp,Humidity,Spring,3,0.0119225839579153,0.0103654782886172,0.0169716621589461,2,0,0,0.00598451168021233,0.666666666666667,0,0,30,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,RH,Humidity,Annual,3,0.0105443662163482,0.0182633780203279,0,1,0,0,0.0105443662163482,0.333333333333333,0,0,31,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tmin_sm,Temperature,Summer,3,0.00922887753526537,0.0159848847879106,0,1,0,0,0.00922887753526537,0.333333333333333,0,0,32,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,CMD,Climatic moisture balance,Annual,3,0.00894811358738881,0.0154985873652548,0,1,0,0,0.00894811358738881,0.333333333333333,0,0,33,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,NFFD_sm,Growing season and degree-days,Summer,3,0.0077823024877497,0.0134793433086522,0,1,0,0,0.0077823024877497,0.333333333333333,0,0,34,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,CMD_at,Climatic moisture balance,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,CMD_sp,Climatic moisture balance,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,CMD_wt,Climatic moisture balance,Winter,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD18,Growing season and degree-days,Annual,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD18_at,Growing season and degree-days,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD18_sm,Growing season and degree-days,Summer,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD18_sp,Growing season and degree-days,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD5,Growing season and degree-days,Annual,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD5_sm,Growing season and degree-days,Summer,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD5_sp,Growing season and degree-days,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD5_wt,Growing season and degree-days,Winter,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_18,Growing season and degree-days,Annual,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_18_at,Growing season and degree-days,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_18_sm,Growing season and degree-days,Summer,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,DD_18_sp,Growing season and degree-days,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Eref_sp,Radiation and evaporative demand,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Eref_wt,Radiation and evaporative demand,Winter,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,MCMT,Temperature,Annual,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,NFFD,Growing season and degree-days,Annual,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,NFFD_at,Growing season and degree-days,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PAS,Snowfall,Annual,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,PAS_at,Snowfall,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tave_at,Temperature,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tave_sp,Temperature,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tmax_at,Temperature,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tmin_at,Temperature,Autumn,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tmin_sp,Temperature,Spring,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,climate,Tmin_wt,Temperature,Winter,3,0,0,0,0,0,0,0,0,0,0,35,within-category pattern,FALSE
+cropland,cropland,climate,DD_18_wt,Growing season and degree-days,Winter,7,0.0648424723539042,0.0360951517369489,0.0697499179069581,6,5,5,0.013642685004444,0.857142857142857,0.714285714285714,0.714285714285714,1,within-category pattern,TRUE
+cropland,cropland,climate,TD,Temperature,Annual,7,0.0571469871210716,0.0332489346063702,0.0607893407350422,6,2,5,0.012566916046615,0.857142857142857,0.285714285714286,0.714285714285714,2,within-category pattern,TRUE
+cropland,cropland,climate,MAP,Precipitation,Annual,7,0.048333617655574,0.0225056500069964,0.0571637209277832,6,2,5,0.00850633614462452,0.857142857142857,0.285714285714286,0.714285714285714,3,within-category pattern,TRUE
+cropland,cropland,climate,PPT_sm,Precipitation,Summer,7,0.0443245174284272,0.0169716600848212,0.0451473315374721,7,1,3,0.00641468456005118,1,0.142857142857143,0.428571428571429,4,within-category pattern,FALSE
+cropland,cropland,climate,PPT_at,Precipitation,Autumn,7,0.0433497754051018,0.0178877918338348,0.0445515167936028,7,2,3,0.00676094981377414,1,0.285714285714286,0.428571428571429,5,within-category pattern,TRUE
+cropland,cropland,climate,Tmin_sm,Temperature,Summer,7,0.0380875974400332,0.0280288042810931,0.0499784132285827,5,2,4,0.0105938922391821,0.714285714285714,0.285714285714286,0.571428571428571,6,within-category pattern,TRUE
+cropland,cropland,climate,PPT_sp,Precipitation,Spring,7,0.0359635608731328,0.0259570300078846,0.0412065118140857,5,1,3,0.00981083516781479,0.714285714285714,0.142857142857143,0.428571428571429,7,within-category pattern,FALSE
+cropland,cropland,climate,CMD_sp,Climatic moisture balance,Spring,7,0.0334392967765557,0.0171568166915059,0.0378633783200428,6,0,1,0.00648466717932094,0.857142857142857,0,0.142857142857143,8,within-category pattern,FALSE
+cropland,cropland,climate,DD5,Growing season and degree-days,Annual,7,0.0319975687671073,0.0310164148872941,0.0445436504924811,4,2,3,0.0117231029075117,0.571428571428571,0.285714285714286,0.428571428571429,9,within-category pattern,TRUE
+cropland,cropland,climate,PPT_wt,Precipitation,Winter,7,0.0315828711633735,0.0164248566443937,0.0389387375445121,6,0,0,0.00620801228585038,0.857142857142857,0,0,10,within-category pattern,FALSE
+cropland,cropland,climate,DD5_sm,Growing season and degree-days,Summer,7,0.031030381289239,0.0235644582425366,0.0331954910902436,5,2,3,0.00890652804138827,0.714285714285714,0.285714285714286,0.428571428571429,11,within-category pattern,TRUE
+cropland,cropland,climate,Tmin_wt,Temperature,Winter,7,0.030850149064285,0.053355996778211,0,2,2,2,0.0201666712041585,0.285714285714286,0.285714285714286,0.285714285714286,12,within-category pattern,FALSE
+cropland,cropland,climate,Eref_at,Radiation and evaporative demand,Autumn,7,0.0288109249207452,0.0277543433545486,0.0430906474847985,4,1,3,0.0104901557597191,0.571428571428571,0.142857142857143,0.428571428571429,13,within-category pattern,FALSE
+cropland,cropland,climate,AHM,Climatic moisture balance,Annual,7,0.0282158759503047,0.0171486810036078,0.0275450710200426,6,0,0,0.00648159217833196,0.857142857142857,0,0,14,within-category pattern,FALSE
+cropland,cropland,climate,Eref_wt,Radiation and evaporative demand,Winter,7,0.0269864438315209,0.0476506629588027,0,2,2,2,0.0180102577137641,0.285714285714286,0.285714285714286,0.285714285714286,15,within-category pattern,FALSE
+cropland,cropland,climate,Eref_sm,Radiation and evaporative demand,Summer,7,0.026775077592511,0.0264808327778433,0.0221981538344107,5,1,2,0.010008814005723,0.714285714285714,0.142857142857143,0.285714285714286,16,within-category pattern,FALSE
+cropland,cropland,climate,DD18_sm,Growing season and degree-days,Summer,7,0.0248591479676236,0.0267230305370674,0.0281487694987553,4,1,2,0.0101003561541522,0.571428571428571,0.142857142857143,0.285714285714286,17,within-category pattern,FALSE
+cropland,cropland,climate,DD_18_sp,Growing season and degree-days,Spring,7,0.0247595267582339,0.0313501891717277,0,3,2,3,0.0118492577290316,0.428571428571429,0.285714285714286,0.428571428571429,18,within-category pattern,FALSE
+cropland,cropland,climate,Eref,Radiation and evaporative demand,Annual,7,0.0231943241648151,0.0218018001769396,0.0365015523700017,4,0,0,0.00824030591452946,0.571428571428571,0,0,19,within-category pattern,FALSE
+cropland,cropland,climate,CMD_sm,Climatic moisture balance,Summer,7,0.022988197650467,0.0222207503101427,0.0326225981992606,4,0,0,0.0083986541808427,0.571428571428571,0,0,20,within-category pattern,FALSE
+cropland,cropland,climate,CMD,Climatic moisture balance,Annual,7,0.0217790677750088,0.0124271464216365,0.0217740084551797,6,0,0,0.00469701984826235,0.857142857142857,0,0,21,within-category pattern,FALSE
+cropland,cropland,climate,CMD_at,Climatic moisture balance,Autumn,7,0.0207399115675184,0.0129228041318272,0.0186061225671474,6,0,0,0.00488436085348754,0.857142857142857,0,0,22,within-category pattern,FALSE
+cropland,cropland,climate,DD_18,Growing season and degree-days,Annual,7,0.018629607779511,0.0321445332589349,0,2,1,2,0.0121494915733409,0.285714285714286,0.142857142857143,0.285714285714286,23,within-category pattern,FALSE
+cropland,cropland,climate,RH_at,Humidity,Autumn,7,0.0184623244992703,0.030488315583503,0,3,1,1,0.0115235001324577,0.428571428571429,0.142857142857143,0.142857142857143,24,within-category pattern,FALSE
+cropland,cropland,climate,EXT,Temperature,Annual,7,0.0172650192036172,0.0205324949651496,0.0116269781409334,4,0,1,0.0077605536390674,0.571428571428571,0,0.142857142857143,25,within-category pattern,FALSE
+cropland,cropland,climate,DD_18_at,Growing season and degree-days,Autumn,7,0.0172311760975366,0.0294677169959126,0,2,0,2,0.0111377501251451,0.285714285714286,0,0.285714285714286,26,within-category pattern,FALSE
+cropland,cropland,climate,DD_0_at,Growing season and degree-days,Autumn,7,0.0169612180005781,0.029187075395671,0,2,1,2,0.0110316775706054,0.285714285714286,0.142857142857143,0.285714285714286,27,within-category pattern,FALSE
+cropland,cropland,climate,DD5_sp,Growing season and degree-days,Spring,7,0.016441823494876,0.0282288103864659,0,2,0,2,0.010669487441398,0.285714285714286,0,0.285714285714286,28,within-category pattern,FALSE
+cropland,cropland,climate,Tmax_wt,Temperature,Winter,7,0.015363792131797,0.0262909952121466,0,2,0,2,0.00993706215024712,0.285714285714286,0,0.285714285714286,29,within-category pattern,FALSE
+cropland,cropland,climate,DD_0,Growing season and degree-days,Annual,7,0.0150259812925362,0.0260251671185563,0,2,1,1,0.0098365885749422,0.285714285714286,0.142857142857143,0.142857142857143,30,within-category pattern,FALSE
+cropland,cropland,climate,Tmin_at,Temperature,Autumn,7,0.0126085521877107,0.0333590934812618,0,1,1,1,0.0126085521877107,0.142857142857143,0.142857142857143,0.142857142857143,31,within-category pattern,FALSE
+cropland,cropland,climate,RH_sm,Humidity,Summer,7,0.0123213894474754,0.0220807946507708,0,2,0,1,0.00834575591380355,0.285714285714286,0,0.142857142857143,32,within-category pattern,FALSE
+cropland,cropland,climate,DD5_wt,Growing season and degree-days,Winter,7,0.0103033180879443,0.0272600173394942,0,1,1,1,0.0103033180879443,0.142857142857143,0.142857142857143,0.142857142857143,33,within-category pattern,FALSE
+cropland,cropland,climate,MWMT,Temperature,Annual,7,0.00968649886323212,0.025628067067022,0,1,1,1,0.00968649886323212,0.142857142857143,0.142857142857143,0.142857142857143,34,within-category pattern,FALSE
+cropland,cropland,climate,DD18,Growing season and degree-days,Annual,7,0.00898398904673927,0.0153449515073439,0,2,0,0,0.00579984650982537,0.285714285714286,0,0,35,within-category pattern,FALSE
+cropland,cropland,climate,DD5_at,Growing season and degree-days,Autumn,7,0.00820925388821177,0.0217196442375984,0,1,0,1,0.00820925388821177,0.142857142857143,0,0.142857142857143,36,within-category pattern,FALSE
+cropland,cropland,climate,MCMT,Temperature,Annual,7,0.00764033466758634,0.0202144254637388,0,1,0,0,0.00764033466758634,0.142857142857143,0,0,37,within-category pattern,FALSE
+cropland,cropland,climate,DD18_at,Growing season and degree-days,Autumn,7,0.00744868136472825,0.0197073584864322,0,1,0,0,0.00744868136472825,0.142857142857143,0,0,38,within-category pattern,FALSE
+cropland,cropland,climate,DD_18_sm,Growing season and degree-days,Summer,7,0.00739158512926928,0.0195562960466097,0,1,0,1,0.00739158512926928,0.142857142857143,0,0.142857142857143,39,within-category pattern,FALSE
+cropland,cropland,climate,DD18_sp,Growing season and degree-days,Spring,7,0.0071009733716269,0.0187874096078166,0,1,0,1,0.0071009733716269,0.142857142857143,0,0.142857142857143,40,within-category pattern,FALSE
+cropland,cropland,climate,DD_0_sp,Growing season and degree-days,Spring,7,0.00697571413685015,0.0184560048231831,0,1,0,1,0.00697571413685015,0.142857142857143,0,0.142857142857143,41,within-category pattern,FALSE
+cropland,cropland,climate,NFFD_at,Growing season and degree-days,Autumn,7,0.0067857441899875,0.0179533915872083,0,1,0,0,0.0067857441899875,0.142857142857143,0,0,42,within-category pattern,FALSE
+cropland,cropland,climate,PAS_wt,Snowfall,Winter,7,0.00486015119889578,0.0128587514064507,0,1,0,0,0.00486015119889578,0.142857142857143,0,0,43,within-category pattern,FALSE
+cropland,cropland,climate,RH_sp,Humidity,Spring,7,0.00439430418572877,0.0116262360606085,0,1,0,0,0.00439430418572877,0.142857142857143,0,0,44,within-category pattern,FALSE
+cropland,cropland,climate,Eref_sp,Radiation and evaporative demand,Spring,7,0.00423546578702384,0.0112059891589875,0,1,0,0,0.00423546578702384,0.142857142857143,0,0,45,within-category pattern,FALSE
+cropland,cropland,climate,Tmax_sm,Temperature,Summer,7,0.00296212146845816,0.00783703675870574,0,1,0,0,0.00296212146845816,0.142857142857143,0,0,46,within-category pattern,FALSE
+cropland,cropland,climate,RH_wt,Humidity,Winter,7,0.00265368696225498,0.00702099575954112,0,1,0,0,0.00265368696225498,0.142857142857143,0,0,47,within-category pattern,FALSE
+cropland,cropland,climate,CMD_wt,Climatic moisture balance,Winter,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,DD_0_wt,Growing season and degree-days,Winter,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,EMT,Temperature,Annual,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,NFFD,Growing season and degree-days,Annual,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,NFFD_sm,Growing season and degree-days,Summer,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,PAS,Snowfall,Annual,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,PAS_at,Snowfall,Autumn,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,PAS_sp,Snowfall,Spring,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,RH,Humidity,Annual,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,Tave_at,Temperature,Autumn,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,Tave_sp,Temperature,Spring,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,Tave_wt,Temperature,Winter,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,Tmax_at,Temperature,Autumn,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,Tmax_sp,Temperature,Spring,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+cropland,cropland,climate,Tmin_sp,Temperature,Spring,7,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+desert,desert,climate,PPT_sm,Precipitation,Summer,8,0.0907514230922902,0.0389635722044978,0.102739137248504,7,7,7,0.013775703062526,0.875,0.875,0.875,1,within-category pattern,TRUE
+desert,desert,climate,AHM,Climatic moisture balance,Annual,8,0.0603020925848952,0.042945680219509,0.0773960911033789,6,5,5,0.0151835908529419,0.75,0.625,0.625,2,within-category pattern,TRUE
+desert,desert,climate,MAP,Precipitation,Annual,8,0.0523225228664032,0.0440321364650198,0.0726819339602973,5,5,5,0.0155677111422735,0.625,0.625,0.625,3,within-category pattern,TRUE
+desert,desert,climate,PPT_at,Precipitation,Autumn,8,0.0517557106813846,0.032106917332572,0.0679999018788359,6,6,6,0.0113515094844288,0.75,0.75,0.75,4,within-category pattern,TRUE
+desert,desert,climate,TD,Temperature,Annual,8,0.0492646533986792,0.0227394269482803,0.0497501563419802,7,3,7,0.00803960149771255,0.875,0.375,0.875,5,within-category pattern,TRUE
+desert,desert,climate,CMD_sm,Climatic moisture balance,Summer,8,0.0422487417125129,0.0480417507918146,0.024001257785013,4,3,4,0.0169853238824831,0.5,0.375,0.5,6,within-category pattern,TRUE
+desert,desert,climate,DD_18_wt,Growing season and degree-days,Winter,8,0.0348736529896546,0.0215724655977634,0.0454989795649263,6,0,4,0.007627018355546,0.75,0,0.5,7,within-category pattern,FALSE
+desert,desert,climate,Tmin_sm,Temperature,Summer,8,0.0317461262936222,0.0203853584794277,0.0392974497093452,6,0,2,0.00720731260886102,0.75,0,0.25,8,within-category pattern,FALSE
+desert,desert,climate,Tmax_wt,Temperature,Winter,8,0.0309606015368352,0.019837526018165,0.0379312734694421,6,1,1,0.00701362458470451,0.75,0.125,0.125,9,within-category pattern,FALSE
+desert,desert,climate,PPT_sp,Precipitation,Spring,8,0.0299773284767461,0.0252401198183157,0.042506723001883,5,1,4,0.008923729940746,0.625,0.125,0.5,10,within-category pattern,FALSE
+desert,desert,climate,DD5_sm,Growing season and degree-days,Summer,8,0.0283543931916271,0.0256630455677851,0.0349715087611882,5,0,2,0.0090732567734401,0.625,0,0.25,11,within-category pattern,FALSE
+desert,desert,climate,DD_0_wt,Growing season and degree-days,Winter,8,0.0283211723902853,0.0235306389940204,0.0429805583446802,5,0,4,0.0083193371991622,0.625,0,0.5,12,within-category pattern,FALSE
+desert,desert,climate,RH_wt,Humidity,Winter,8,0.0275507572198083,0.00611282534446123,0.0270652128103397,8,0,0,0.00216121012663877,1,0,0,13,within-category pattern,FALSE
+desert,desert,climate,DD5,Growing season and degree-days,Annual,8,0.0273363963919983,0.0255659521861545,0.0343994381300831,5,0,1,0.00903892907916044,0.625,0,0.125,14,within-category pattern,FALSE
+desert,desert,climate,DD_0,Growing season and degree-days,Annual,8,0.0242038664350095,0.0260569352657339,0.0218286321175794,4,1,4,0.00921251781166965,0.5,0.125,0.5,15,within-category pattern,FALSE
+desert,desert,climate,Eref_at,Radiation and evaporative demand,Autumn,8,0.0240472077537806,0.0271423476070922,0.0172839889029154,4,0,3,0.00959626902514866,0.5,0,0.375,16,within-category pattern,FALSE
+desert,desert,climate,CMD,Climatic moisture balance,Annual,8,0.0206733308828041,0.0305291352543204,0,3,2,2,0.0107936792810456,0.375,0.25,0.25,17,within-category pattern,FALSE
+desert,desert,climate,Eref,Radiation and evaporative demand,Annual,8,0.0189734345904922,0.0215659717395455,0.0124946441471779,4,0,1,0.00762472242995502,0.5,0,0.125,18,within-category pattern,FALSE
+desert,desert,climate,RH_sp,Humidity,Spring,8,0.0189411420202174,0.0173158185470913,0.022473014504956,5,0,1,0.00612206635822201,0.625,0,0.125,19,within-category pattern,FALSE
+desert,desert,climate,CMD_at,Climatic moisture balance,Autumn,8,0.0186902542704025,0.0262911265363002,0,3,1,2,0.00929531692942572,0.375,0.125,0.25,20,within-category pattern,FALSE
+desert,desert,climate,Eref_sm,Radiation and evaporative demand,Summer,8,0.0185483088658019,0.0282225652778378,0,3,1,1,0.00997818364521956,0.375,0.125,0.125,21,within-category pattern,FALSE
+desert,desert,climate,Tmin_wt,Temperature,Winter,8,0.0172730581843711,0.0242691230766354,0,3,1,1,0.00858043075046991,0.375,0.125,0.125,22,within-category pattern,FALSE
+desert,desert,climate,PAS_wt,Snowfall,Winter,8,0.0170041045384448,0.0160886651220734,0.0203980940132153,5,0,0,0.00568820210402879,0.625,0,0,23,within-category pattern,FALSE
+desert,desert,climate,DD18,Growing season and degree-days,Annual,8,0.0170037762500544,0.018317087290147,0.0150753586889584,4,0,0,0.00647606831722444,0.5,0,0,24,within-category pattern,FALSE
+desert,desert,climate,Tmin_sp,Temperature,Spring,8,0.0165315727659667,0.0230575790626055,0,3,1,2,0.00815208525645664,0.375,0.125,0.25,25,within-category pattern,FALSE
+desert,desert,climate,DD_18_sm,Growing season and degree-days,Summer,8,0.014807006923598,0.0284828207954132,0,2,1,2,0.0100701978658789,0.25,0.125,0.25,26,within-category pattern,FALSE
+desert,desert,climate,MCMT,Temperature,Annual,8,0.0147093849915995,0.0217026331947658,0,3,0,2,0.00767303955081157,0.375,0,0.25,27,within-category pattern,FALSE
+desert,desert,climate,Tmin_at,Temperature,Autumn,8,0.0131988074570806,0.0183276272209433,0,3,0,0,0.00647979474549409,0.375,0,0,28,within-category pattern,FALSE
+desert,desert,climate,EXT,Temperature,Annual,8,0.0130135174647482,0.0182016937667688,0,3,0,0,0.00643527054578157,0.375,0,0,29,within-category pattern,FALSE
+desert,desert,climate,DD_18_sp,Growing season and degree-days,Spring,8,0.0115896878403234,0.021477699851934,0,2,0,2,0.00759351360479592,0.25,0,0.25,30,within-category pattern,FALSE
+desert,desert,climate,EMT,Temperature,Annual,8,0.0110104711958265,0.0205420481842594,0,2,0,1,0.00726271078527532,0.25,0,0.125,31,within-category pattern,FALSE
+desert,desert,climate,DD5_sp,Growing season and degree-days,Spring,8,0.0107061149779956,0.0199275014189491,0,2,0,1,0.00704543569272174,0.25,0,0.125,32,within-category pattern,FALSE
+desert,desert,climate,PAS,Snowfall,Annual,8,0.0106615978869206,0.0147641859902162,0,3,0,0,0.00521992801619064,0.375,0,0,33,within-category pattern,FALSE
+desert,desert,climate,DD_0_sp,Growing season and degree-days,Spring,8,0.0102485897715947,0.018976956601035,0,2,0,1,0.00670936734943734,0.25,0,0.125,34,within-category pattern,FALSE
+desert,desert,climate,DD_18_at,Growing season and degree-days,Autumn,8,0.00994851596975409,0.018498701210565,0,2,0,1,0.00654027853456716,0.25,0,0.125,35,within-category pattern,FALSE
+desert,desert,climate,PPT_wt,Precipitation,Winter,8,0.00910999446626744,0.0131197739725455,0,3,0,0,0.00463854057181085,0.375,0,0,36,within-category pattern,FALSE
+desert,desert,climate,DD5_at,Growing season and degree-days,Autumn,8,0.00851851646265129,0.0158147441346234,0,2,0,0,0.0055913564101612,0.25,0,0,37,within-category pattern,FALSE
+desert,desert,climate,Eref_sp,Radiation and evaporative demand,Spring,8,0.00830842628040873,0.0154016613641655,0,2,0,0,0.00544530959607015,0.25,0,0,38,within-category pattern,FALSE
+desert,desert,climate,DD18_sm,Growing season and degree-days,Summer,8,0.00804851911602204,0.0149107256011022,0,2,0,0,0.00527173759247561,0.25,0,0,39,within-category pattern,FALSE
+desert,desert,climate,PAS_at,Snowfall,Autumn,8,0.00701213655434302,0.0130532062042813,0,2,0,0,0.0046150053116368,0.25,0,0,40,within-category pattern,FALSE
+desert,desert,climate,DD_18,Growing season and degree-days,Annual,8,0.00686153337516849,0.0194073471156778,0,1,1,1,0.00686153337516849,0.125,0.125,0.125,41,within-category pattern,FALSE
+desert,desert,climate,RH_at,Humidity,Autumn,8,0.00682139215315185,0.0130139730225062,0,2,0,0,0.00460113428719647,0.25,0,0,42,within-category pattern,FALSE
+desert,desert,climate,RH,Humidity,Annual,8,0.00666469436905182,0.0124116368757772,0,2,0,0,0.00438817630024352,0.25,0,0,43,within-category pattern,FALSE
+desert,desert,climate,CMD_sp,Climatic moisture balance,Spring,8,0.00540530967168228,0.0152885244930391,0,1,0,0,0.00540530967168228,0.125,0,0,44,within-category pattern,FALSE
+desert,desert,climate,DD_0_at,Growing season and degree-days,Autumn,8,0.00518448758205233,0.0146639453049866,0,1,0,0,0.00518448758205233,0.125,0,0,45,within-category pattern,FALSE
+desert,desert,climate,MWMT,Temperature,Annual,8,0.00407329916420034,0.0115210298432302,0,1,0,0,0.00407329916420034,0.125,0,0,46,within-category pattern,FALSE
+desert,desert,climate,RH_sm,Humidity,Summer,8,0.00378393815618556,0.00775747437883076,0,2,0,0,0.00274268136907607,0.25,0,0,47,within-category pattern,FALSE
+desert,desert,climate,PAS_sp,Snowfall,Spring,8,0.00265842878528617,0.00751917208550948,0,1,0,0,0.00265842878528617,0.125,0,0,48,within-category pattern,FALSE
+desert,desert,climate,CMD_wt,Climatic moisture balance,Winter,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,DD18_at,Growing season and degree-days,Autumn,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,DD18_sp,Growing season and degree-days,Spring,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,DD5_wt,Growing season and degree-days,Winter,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Eref_wt,Radiation and evaporative demand,Winter,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,NFFD,Growing season and degree-days,Annual,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,NFFD_at,Growing season and degree-days,Autumn,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,NFFD_sm,Growing season and degree-days,Summer,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Tave_at,Temperature,Autumn,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Tave_sp,Temperature,Spring,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Tave_wt,Temperature,Winter,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Tmax_at,Temperature,Autumn,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Tmax_sm,Temperature,Summer,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+desert,desert,climate,Tmax_sp,Temperature,Spring,8,0,0,0,0,0,0,0,0,0,0,49,within-category pattern,FALSE
+forest,forest,climate,TD,Temperature,Annual,15,0.0815059304084321,0.0379538803800509,0.0703437285094725,14,12,14,0.00979964977572572,0.933333333333333,0.8,0.933333333333333,1,within-category pattern,TRUE
+forest,forest,climate,PPT_sp,Precipitation,Spring,15,0.0630177982378983,0.0280356765143135,0.070924608355894,14,9,10,0.00723878054930631,0.933333333333333,0.6,0.666666666666667,2,within-category pattern,TRUE
+forest,forest,climate,MAP,Precipitation,Annual,15,0.0572552561379805,0.0285549162255689,0.0630884646362743,13,8,12,0.00737284766626509,0.866666666666667,0.533333333333333,0.8,3,within-category pattern,TRUE
+forest,forest,climate,PPT_at,Precipitation,Autumn,15,0.0470850409911003,0.0352823636426342,0.0547523058568347,11,7,9,0.00910986712018375,0.733333333333333,0.466666666666667,0.6,4,within-category pattern,TRUE
+forest,forest,climate,PPT_sm,Precipitation,Summer,15,0.0397346217298745,0.0192881265020261,0.0426535723915197,13,1,7,0.00498017284812593,0.866666666666667,0.0666666666666667,0.466666666666667,5,within-category pattern,FALSE
+forest,forest,climate,PPT_wt,Precipitation,Winter,15,0.0387838832917613,0.0293960824268823,0.0413033810886726,12,3,7,0.00759003584553705,0.8,0.2,0.466666666666667,6,within-category pattern,FALSE
+forest,forest,climate,DD5_sm,Growing season and degree-days,Summer,15,0.0371721588641776,0.0188923433562385,0.0376889542128886,13,3,4,0.00487798207930293,0.866666666666667,0.2,0.266666666666667,7,within-category pattern,FALSE
+forest,forest,climate,EXT,Temperature,Annual,15,0.036016185784113,0.0303108598282632,0.0363143747312655,11,4,5,0.00782623035493938,0.733333333333333,0.266666666666667,0.333333333333333,8,within-category pattern,TRUE
+forest,forest,climate,Eref_at,Radiation and evaporative demand,Autumn,15,0.0350318767563976,0.0237212703860376,0.0409646754756411,11,1,7,0.00612480567706712,0.733333333333333,0.0666666666666667,0.466666666666667,9,within-category pattern,FALSE
+forest,forest,climate,CMD_sp,Climatic moisture balance,Spring,15,0.03058362526079,0.0186673287065992,0.0353601168744684,12,1,2,0.00481988354658923,0.8,0.0666666666666667,0.133333333333333,10,within-category pattern,FALSE
+forest,forest,climate,DD_18_wt,Growing season and degree-days,Winter,15,0.0302226927953614,0.035378315337272,0,7,4,7,0.0091346417412086,0.466666666666667,0.266666666666667,0.466666666666667,11,within-category pattern,FALSE
+forest,forest,climate,AHM,Climatic moisture balance,Annual,15,0.0294462682547247,0.0173626258142078,0.0309544333343408,12,0,4,0.00448301070832385,0.8,0,0.266666666666667,12,within-category pattern,FALSE
+forest,forest,climate,Tmax_wt,Temperature,Winter,15,0.0272742369471048,0.0368646269898343,0,6,3,6,0.00951840575971845,0.4,0.2,0.4,13,within-category pattern,FALSE
+forest,forest,climate,CMD,Climatic moisture balance,Annual,15,0.0246203401113276,0.0188681789957595,0.0286491497816107,11,1,1,0.0048717428682558,0.733333333333333,0.0666666666666667,0.0666666666666667,14,within-category pattern,FALSE
+forest,forest,climate,Tmin_wt,Temperature,Winter,15,0.0231120685948575,0.030454425649912,0,6,1,5,0.00786329889069475,0.4,0.0666666666666667,0.333333333333333,15,within-category pattern,FALSE
+forest,forest,climate,Tmin_sm,Temperature,Summer,15,0.0225533116248156,0.0229088474252752,0.0324933928506512,8,1,4,0.00591503897059318,0.533333333333333,0.0666666666666667,0.266666666666667,16,within-category pattern,FALSE
+forest,forest,climate,Eref_sm,Radiation and evaporative demand,Summer,15,0.0224406662648284,0.0147570548736192,0.0262403927537761,12,0,0,0.00381025518430641,0.8,0,0,17,within-category pattern,FALSE
+forest,forest,climate,RH_wt,Humidity,Winter,15,0.0221412574903313,0.0259390117969201,0.0183987706290949,9,2,3,0.00669742404710328,0.6,0.133333333333333,0.2,18,within-category pattern,FALSE
+forest,forest,climate,Eref_sp,Radiation and evaporative demand,Spring,15,0.0218976294393661,0.0244691621452996,0.0213757111709918,8,1,3,0.00631791049895962,0.533333333333333,0.0666666666666667,0.2,19,within-category pattern,FALSE
+forest,forest,climate,EMT,Temperature,Annual,15,0.0214974213475803,0.027670096242389,0,6,0,5,0.00714438812898194,0.4,0,0.333333333333333,20,within-category pattern,FALSE
+forest,forest,climate,MWMT,Temperature,Annual,15,0.0194383615401801,0.0211917185932256,0.0209200884810555,8,1,2,0.00547167821260513,0.533333333333333,0.0666666666666667,0.133333333333333,21,within-category pattern,FALSE
+forest,forest,climate,DD18_sm,Growing season and degree-days,Summer,15,0.018205974974054,0.0205828184775282,0,7,0,1,0.00531446087876512,0.466666666666667,0,0.0666666666666667,22,within-category pattern,FALSE
+forest,forest,climate,MCMT,Temperature,Annual,15,0.0173962854945762,0.0301724644371395,0,4,3,4,0.00779049681860511,0.266666666666667,0.2,0.266666666666667,23,within-category pattern,FALSE
+forest,forest,climate,Eref,Radiation and evaporative demand,Annual,15,0.0173312190382873,0.0243303467919634,0,6,1,2,0.00628206852884835,0.4,0.0666666666666667,0.133333333333333,24,within-category pattern,FALSE
+forest,forest,climate,Eref_wt,Radiation and evaporative demand,Winter,15,0.0150234980856702,0.0316489964827375,0,3,1,3,0.00817173575345462,0.2,0.0666666666666667,0.2,25,within-category pattern,FALSE
+forest,forest,climate,CMD_sm,Climatic moisture balance,Summer,15,0.0140167806419735,0.0196190465298493,0,6,1,1,0.00506561603190499,0.4,0.0666666666666667,0.0666666666666667,26,within-category pattern,FALSE
+forest,forest,climate,CMD_at,Climatic moisture balance,Autumn,15,0.013412202480633,0.0126483621380041,0.0166361068601152,9,0,0,0.00326579306115269,0.6,0,0,27,within-category pattern,FALSE
+forest,forest,climate,CMD_wt,Climatic moisture balance,Winter,15,0.0128701837510739,0.0231372917273797,0,4,1,2,0.0059740230357656,0.266666666666667,0.0666666666666667,0.133333333333333,28,within-category pattern,FALSE
+forest,forest,climate,DD18,Growing season and degree-days,Annual,15,0.0128297270673307,0.0192482245174279,0,5,0,2,0.00496987020000398,0.333333333333333,0,0.133333333333333,29,within-category pattern,FALSE
+forest,forest,climate,DD_18_sp,Growing season and degree-days,Spring,15,0.0115641583207884,0.0207136435055063,0,4,0,1,0.00534823975574023,0.266666666666667,0,0.0666666666666667,30,within-category pattern,FALSE
+forest,forest,climate,DD5_sp,Growing season and degree-days,Spring,15,0.0108404386336263,0.0228530207151456,0,3,0,2,0.00590062457601947,0.2,0,0.133333333333333,31,within-category pattern,FALSE
+forest,forest,climate,DD_0,Growing season and degree-days,Annual,15,0.0101340160752161,0.0212180570049124,0,3,0,1,0.00547847876126035,0.2,0,0.0666666666666667,32,within-category pattern,FALSE
+forest,forest,climate,DD5,Growing season and degree-days,Annual,15,0.0096200839110442,0.0202008139748558,0,3,0,2,0.0052158277402967,0.2,0,0.133333333333333,33,within-category pattern,FALSE
+forest,forest,climate,Tmax_sp,Temperature,Spring,15,0.00934052358171444,0.0163899028557046,0,4,0,0,0.00423185472040675,0.266666666666667,0,0,34,within-category pattern,FALSE
+forest,forest,climate,RH_at,Humidity,Autumn,15,0.00782696239842268,0.0149757866016406,0,4,0,1,0.00386673147363402,0.266666666666667,0,0.0666666666666667,35,within-category pattern,FALSE
+forest,forest,climate,DD_0_at,Growing season and degree-days,Autumn,15,0.00724654221528757,0.0201907409618297,0,2,1,1,0.00521322689951696,0.133333333333333,0.0666666666666667,0.0666666666666667,36,within-category pattern,FALSE
+forest,forest,climate,DD_0_wt,Growing season and degree-days,Winter,15,0.00619396531631307,0.0163473767525169,0,2,0,2,0.00422087452777843,0.133333333333333,0,0.133333333333333,37,within-category pattern,FALSE
+forest,forest,climate,DD5_at,Growing season and degree-days,Autumn,15,0.0061391654890483,0.0162356442444927,0,2,0,1,0.00419202531825791,0.133333333333333,0,0.0666666666666667,38,within-category pattern,FALSE
+forest,forest,climate,DD_0_sp,Growing season and degree-days,Spring,15,0.00583884731064604,0.0156510469710815,0,2,0,1,0.0040410829513139,0.133333333333333,0,0.0666666666666667,39,within-category pattern,FALSE
+forest,forest,climate,DD_18_at,Growing season and degree-days,Autumn,15,0.00533940866257965,0.0141243172745231,0,2,0,0,0.00364688303871851,0.133333333333333,0,0,40,within-category pattern,FALSE
+forest,forest,climate,PAS_sp,Snowfall,Spring,15,0.00533031133361799,0.0206442070252031,0,1,1,1,0.00533031133361799,0.0666666666666667,0.0666666666666667,0.0666666666666667,41,within-category pattern,FALSE
+forest,forest,climate,Tmin_sp,Temperature,Spring,15,0.00477656853611479,0.0184995703923909,0,1,1,1,0.00477656853611479,0.0666666666666667,0.0666666666666667,0.0666666666666667,42,within-category pattern,FALSE
+forest,forest,climate,PAS_at,Snowfall,Autumn,15,0.0047711912679068,0.0184787443221733,0,1,1,1,0.0047711912679068,0.0666666666666667,0.0666666666666667,0.0666666666666667,43,within-category pattern,FALSE
+forest,forest,climate,PAS,Snowfall,Annual,15,0.00458696928418735,0.0177652556472226,0,1,1,1,0.00458696928418735,0.0666666666666667,0.0666666666666667,0.0666666666666667,44,within-category pattern,FALSE
+forest,forest,climate,Tmax_sm,Temperature,Summer,15,0.00454849985459299,0.00963487103992738,0,3,0,0,0.00248771300536633,0.2,0,0,45,within-category pattern,FALSE
+forest,forest,climate,Tmax_at,Temperature,Autumn,15,0.00451021275424007,0.0174679788850241,0,1,0,1,0.00451021275424007,0.0666666666666667,0,0.0666666666666667,46,within-category pattern,FALSE
+forest,forest,climate,RH_sm,Humidity,Summer,15,0.00426723408259586,0.00883413866033674,0,3,0,0,0.00228096479397142,0.2,0,0,47,within-category pattern,FALSE
+forest,forest,climate,DD18_at,Growing season and degree-days,Autumn,15,0.00421266330330378,0.0111221932057446,0,2,0,0,0.00287173793727668,0.133333333333333,0,0,48,within-category pattern,FALSE
+forest,forest,climate,PAS_wt,Snowfall,Winter,15,0.00384464919962432,0.00891250267288559,0,3,0,0,0.00230119829500766,0.2,0,0,49,within-category pattern,FALSE
+forest,forest,climate,RH_sp,Humidity,Spring,15,0.00376422697213796,0.00995844565270533,0,2,0,0,0.00257125961113596,0.133333333333333,0,0,50,within-category pattern,FALSE
+forest,forest,climate,DD_18_sm,Growing season and degree-days,Summer,15,0.00350191251659394,0.0135628488566436,0,1,0,1,0.00350191251659394,0.0666666666666667,0,0.0666666666666667,51,within-category pattern,FALSE
+forest,forest,climate,Tmin_at,Temperature,Autumn,15,0.00297927878239013,0.0115386971079061,0,1,0,0,0.00297927878239013,0.0666666666666667,0,0,52,within-category pattern,FALSE
+forest,forest,climate,DD_18,Growing season and degree-days,Annual,15,0.00282017086086064,0.0109224747775727,0,1,0,0,0.00282017086086064,0.0666666666666667,0,0,53,within-category pattern,FALSE
+forest,forest,climate,NFFD,Growing season and degree-days,Annual,15,0.00229295712428817,0.00888058475593572,0,1,0,0,0.00229295712428817,0.0666666666666667,0,0,54,within-category pattern,FALSE
+forest,forest,climate,DD18_sp,Growing season and degree-days,Spring,15,0.00179253880625678,0.00694247294406303,0,1,0,0,0.00179253880625678,0.0666666666666667,0,0,55,within-category pattern,FALSE
+forest,forest,climate,DD5_wt,Growing season and degree-days,Winter,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+forest,forest,climate,NFFD_at,Growing season and degree-days,Autumn,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+forest,forest,climate,NFFD_sm,Growing season and degree-days,Summer,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+forest,forest,climate,RH,Humidity,Annual,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+forest,forest,climate,Tave_at,Temperature,Autumn,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+forest,forest,climate,Tave_sp,Temperature,Spring,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+forest,forest,climate,Tave_wt,Temperature,Winter,15,0,0,0,0,0,0,0,0,0,0,56,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,TD,Temperature,Annual,8,0.0642273405968316,0.0166438532142861,0.0695536213503122,8,6,7,0.00588449073644761,1,0.75,0.875,1,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,PPT_sm,Precipitation,Summer,8,0.0587154914361349,0.0177179771212892,0.0605323327233481,8,4,5,0.00626425088568585,1,0.5,0.625,2,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,MAP,Precipitation,Annual,8,0.0550922599554522,0.0256669158917049,0.0630253237019393,7,5,6,0.00907462513958463,0.875,0.625,0.75,3,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,PPT_sp,Precipitation,Spring,8,0.0501961244173541,0.00934015189220853,0.0510509370948157,8,0,5,0.00330224237014651,1,0,0.625,4,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD5_sm,Growing season and degree-days,Summer,8,0.0477159379081118,0.0302039121439711,0.0416414690446251,7,2,2,0.0106786955476823,0.875,0.25,0.25,5,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,AHM,Climatic moisture balance,Annual,8,0.0406309814508908,0.0245260709365592,0.0375123027274761,7,2,3,0.00867127553755165,0.875,0.25,0.375,6,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,PPT_at,Precipitation,Autumn,8,0.0363027199436003,0.0229305713257826,0.0457328150785649,6,1,3,0.00810718124047134,0.75,0.125,0.375,7,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,CMD_sm,Climatic moisture balance,Summer,8,0.0342782377224415,0.0257663985335483,0.0337770114745128,6,1,3,0.00910979756491356,0.75,0.125,0.375,8,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,RH_wt,Humidity,Winter,8,0.0295898424410487,0.015676827737808,0.030070025255601,7,0,2,0.00554259560044871,0.875,0,0.25,9,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmin_sm,Temperature,Summer,8,0.0295898284386919,0.0304222353355721,0.0347614853955629,5,1,1,0.010755884452318,0.625,0.125,0.125,10,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmax_wt,Temperature,Winter,8,0.0294549653547589,0.0278103662864539,0.0295875182741469,5,2,3,0.00983244929421664,0.625,0.25,0.375,11,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,CMD,Climatic moisture balance,Annual,8,0.0294283928820647,0.0201238121572769,0.0337866767709453,6,1,2,0.00711484201986741,0.75,0.125,0.25,12,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,EXT,Temperature,Annual,8,0.0290936400731619,0.0260211315784524,0.0344670007856055,5,0,3,0.00919985929663555,0.625,0,0.375,13,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Eref_at,Radiation and evaporative demand,Autumn,8,0.0273181196280088,0.0297856642667847,0.0208021591181554,4,3,3,0.0105308225925947,0.5,0.375,0.375,14,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,climate,MCMT,Temperature,Annual,8,0.0258651862791547,0.0343696617835023,0.0131665239636138,4,1,2,0.0121515104571013,0.5,0.125,0.25,15,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Eref,Radiation and evaporative demand,Annual,8,0.0246832864685075,0.0271870092762549,0.018272345952209,4,1,3,0.0096120593097107,0.5,0.125,0.375,16,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_18_sm,Growing season and degree-days,Summer,8,0.0245061096764092,0.0455462554908879,0,2,2,2,0.0161030330576309,0.25,0.25,0.25,17,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_0_wt,Growing season and degree-days,Winter,8,0.0227144441862726,0.0250424553673179,0.0168118237086195,4,0,2,0.00885384500389598,0.5,0,0.25,18,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,CMD_at,Climatic moisture balance,Autumn,8,0.0223854014358548,0.015570720606527,0.0262136434222401,6,0,0,0.00550508106441818,0.75,0,0,19,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,CMD_sp,Climatic moisture balance,Spring,8,0.0208681360364199,0.0231480167251,0.0176649732682832,4,1,1,0.00818405979866891,0.5,0.125,0.125,20,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,PPT_wt,Precipitation,Winter,8,0.0196896957714199,0.0227879810271486,0.00979824553353574,4,0,1,0.00805676795692356,0.5,0,0.125,21,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,PAS,Snowfall,Annual,8,0.019376353857003,0.0292405063399485,0,3,1,2,0.0103380801591529,0.375,0.125,0.25,22,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_18_wt,Growing season and degree-days,Winter,8,0.0185795041520677,0.0257943286976591,0,3,1,3,0.00911967236913474,0.375,0.125,0.375,23,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_0,Growing season and degree-days,Annual,8,0.017845108638434,0.0246622672693204,0,3,0,2,0.00871942821278574,0.375,0,0.25,24,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmin_wt,Temperature,Winter,8,0.0172948038127553,0.0340960056663181,0,2,1,1,0.0120547584090142,0.25,0.125,0.125,25,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmax_sm,Temperature,Summer,8,0.016874815020826,0.0364109182299347,0,2,1,1,0.0128732035948078,0.25,0.125,0.125,26,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD5,Growing season and degree-days,Annual,8,0.0167049087098901,0.0328032312395731,0,2,1,1,0.0115976936271663,0.25,0.125,0.125,27,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,EMT,Temperature,Annual,8,0.0161169594190578,0.0225887438815344,0,3,0,2,0.00798632698855956,0.375,0,0.25,28,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD18,Growing season and degree-days,Annual,8,0.0138810642866852,0.0192139438457477,0,3,0,0,0.00679315499333287,0.375,0,0,29,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_18_at,Growing season and degree-days,Autumn,8,0.0119024308762737,0.0220412107564882,0,2,0,2,0.00779274479573732,0.25,0,0.25,30,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Eref_wt,Radiation and evaporative demand,Winter,8,0.0116833009024965,0.0330453651791928,0,1,1,1,0.0116833009024965,0.125,0.125,0.125,31,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Eref_sm,Radiation and evaporative demand,Summer,8,0.0112168061954562,0.016146915623029,0,3,0,0,0.0057087967661454,0.375,0,0,32,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,RH_at,Humidity,Autumn,8,0.010008061782018,0.0138431988534766,0,3,0,0,0.00489430989130359,0.375,0,0,33,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,RH_sm,Humidity,Summer,8,0.0100051091738231,0.015009817343112,0,3,0,0,0.00530677181384297,0.375,0,0,34,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Eref_sp,Radiation and evaporative demand,Spring,8,0.00993262347735636,0.0184036144578435,0,2,0,1,0.00650666029074196,0.25,0,0.125,35,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD18_sm,Growing season and degree-days,Summer,8,0.00944631787374581,0.0175302012949922,0,2,0,0,0.00619786210562709,0.25,0,0,36,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,MWMT,Temperature,Annual,8,0.00934092742934941,0.0173499500393603,0,2,0,0,0.00613413366303975,0.25,0,0,37,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD5_at,Growing season and degree-days,Autumn,8,0.00735088520480736,0.0207914431041726,0,1,1,1,0.00735088520480736,0.125,0.125,0.125,38,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmin_sp,Temperature,Spring,8,0.00658643772187023,0.0186292591079893,0,1,0,1,0.00658643772187023,0.125,0,0.125,39,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD5_sp,Growing season and degree-days,Spring,8,0.00637563968746661,0.0180330322296389,0,1,0,1,0.00637563968746661,0.125,0,0.125,40,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_18_sp,Growing season and degree-days,Spring,8,0.00636635694504243,0.0180067766691743,0,1,0,1,0.00636635694504243,0.125,0,0.125,41,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,PAS_wt,Snowfall,Winter,8,0.0060021696129204,0.0084494739246147,0,3,0,0,0.00298734015477698,0.375,0,0,42,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_0_at,Growing season and degree-days,Autumn,8,0.0058899734399835,0.016659360641684,0,1,0,0,0.0058899734399835,0.125,0,0,43,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD18_sp,Growing season and degree-days,Spring,8,0.0051228848729745,0.014489706531673,0,1,0,1,0.0051228848729745,0.125,0,0.125,44,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD18_at,Growing season and degree-days,Autumn,8,0.00512015361682159,0.0144819813726855,0,1,0,0,0.00512015361682159,0.125,0,0,45,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmin_at,Temperature,Autumn,8,0.00467011949607393,0.0132090926585015,0,1,0,0,0.00467011949607393,0.125,0,0,46,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,PAS_sp,Snowfall,Spring,8,0.00396014169221058,0.0112009721800867,0,1,0,0,0.00396014169221058,0.125,0,0,47,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,CMD_wt,Climatic moisture balance,Winter,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD5_wt,Growing season and degree-days,Winter,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_0_sp,Growing season and degree-days,Spring,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,DD_18,Growing season and degree-days,Annual,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,NFFD,Growing season and degree-days,Annual,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,NFFD_at,Growing season and degree-days,Autumn,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,NFFD_sm,Growing season and degree-days,Summer,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,PAS_at,Snowfall,Autumn,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,RH,Humidity,Annual,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,RH_sp,Humidity,Spring,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tave_at,Temperature,Autumn,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tave_sp,Temperature,Spring,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tave_wt,Temperature,Winter,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmax_at,Temperature,Autumn,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,climate,Tmax_sp,Temperature,Spring,8,0,0,0,0,0,0,0,0,0,0,48,within-category pattern,FALSE
+scrub,scrub,climate,TD,Temperature,Annual,6,0.102145790210442,0.0313800886676464,0.0981570180615281,6,6,6,0.0128108675531711,1,1,1,1,within-category pattern,TRUE
+scrub,scrub,climate,EXT,Temperature,Annual,6,0.064811461861186,0.0308179050946528,0.067668917705912,6,3,4,0.0125813570705696,1,0.5,0.666666666666667,2,within-category pattern,TRUE
+scrub,scrub,climate,PPT_at,Precipitation,Autumn,6,0.0560221143476551,0.0132731587553422,0.0586682702949254,6,4,5,0.00541874437092393,1,0.666666666666667,0.833333333333333,3,within-category pattern,TRUE
+scrub,scrub,climate,Tmax_wt,Temperature,Winter,6,0.0500054714684096,0.0120642477950964,0.0469139024271336,6,2,4,0.00492520853808051,1,0.333333333333333,0.666666666666667,4,within-category pattern,TRUE
+scrub,scrub,climate,Eref_at,Radiation and evaporative demand,Autumn,6,0.0457036595646233,0.0173015262658228,0.0435316294422474,6,1,3,0.00706331852043777,1,0.166666666666667,0.5,5,within-category pattern,FALSE
+scrub,scrub,climate,PPT_sp,Precipitation,Spring,6,0.0451961531740107,0.0253228341035563,0.0504473460513841,5,1,4,0.0103380037324769,0.833333333333333,0.166666666666667,0.666666666666667,6,within-category pattern,FALSE
+scrub,scrub,climate,PPT_sm,Precipitation,Summer,6,0.043564100504356,0.0235560312252411,0.0451230127529852,5,1,4,0.00961670947781806,0.833333333333333,0.166666666666667,0.666666666666667,7,within-category pattern,FALSE
+scrub,scrub,climate,Tmin_wt,Temperature,Winter,6,0.0412385718029906,0.0262288722743784,0.0408885195795488,5,1,2,0.01070789226681,0.833333333333333,0.166666666666667,0.333333333333333,8,within-category pattern,FALSE
+scrub,scrub,climate,DD_18_wt,Growing season and degree-days,Winter,6,0.0388665095670176,0.024261526368777,0.0376207088901852,5,1,2,0.00990472666409714,0.833333333333333,0.166666666666667,0.333333333333333,9,within-category pattern,FALSE
+scrub,scrub,climate,MAP,Precipitation,Annual,6,0.036506029203204,0.0287219792013946,0.0508087553251032,4,0,4,0.011725698907708,0.666666666666667,0,0.666666666666667,10,within-category pattern,FALSE
+scrub,scrub,climate,PPT_wt,Precipitation,Winter,6,0.0364352476256228,0.00814273041524119,0.0338910475861873,6,0,1,0.00332425577173032,1,0,0.166666666666667,11,within-category pattern,FALSE
+scrub,scrub,climate,CMD_sp,Climatic moisture balance,Spring,6,0.0353019655247077,0.00824054455561375,0.035610518195405,6,0,0,0.00336418822732061,1,0,0,12,within-category pattern,FALSE
+scrub,scrub,climate,DD5_sm,Growing season and degree-days,Summer,6,0.0339079464699688,0.0316347923043926,0.0327400961274326,4,2,2,0.0129148498774477,0.666666666666667,0.333333333333333,0.333333333333333,13,within-category pattern,TRUE
+scrub,scrub,climate,Tmax_sm,Temperature,Summer,6,0.0276270516170524,0.0430399472078189,0,2,2,2,0.017570984869247,0.333333333333333,0.333333333333333,0.333333333333333,14,within-category pattern,FALSE
+scrub,scrub,climate,CMD_wt,Climatic moisture balance,Winter,6,0.0246033033452287,0.0392770967948119,0,2,1,2,0.0160348076208656,0.333333333333333,0.166666666666667,0.333333333333333,15,within-category pattern,FALSE
+scrub,scrub,climate,RH_wt,Humidity,Winter,6,0.0206039007196667,0.0246938517652895,0.0115187660238969,3,0,2,0.0100812227681475,0.5,0,0.333333333333333,16,within-category pattern,FALSE
+scrub,scrub,climate,EMT,Temperature,Annual,6,0.0194489811328605,0.0214760345211264,0.0177355319402143,3,0,1,0.00876755437919276,0.5,0,0.166666666666667,17,within-category pattern,FALSE
+scrub,scrub,climate,RH_at,Humidity,Autumn,6,0.0192987732115443,0.0183684559638398,0.0195087940875794,4,0,1,0.00749889074569833,0.666666666666667,0,0.166666666666667,18,within-category pattern,FALSE
+scrub,scrub,climate,CMD,Climatic moisture balance,Annual,6,0.0190785526638017,0.0164505338687135,0.0225412901878572,4,0,0,0.00671590232912017,0.666666666666667,0,0,19,within-category pattern,FALSE
+scrub,scrub,climate,DD_0_wt,Growing season and degree-days,Winter,6,0.0182767413893308,0.0202321364967518,0.0169336759303402,3,0,0,0.00825973513723046,0.5,0,0,20,within-category pattern,FALSE
+scrub,scrub,climate,MCMT,Temperature,Annual,6,0.0180116233362157,0.0202618051320323,0.0145661064139918,3,0,0,0.00827184730686411,0.5,0,0,21,within-category pattern,FALSE
+scrub,scrub,climate,RH_sm,Humidity,Summer,6,0.0179897743153941,0.0146847874596436,0.0218229754695673,4,0,0,0.00599503937622469,0.666666666666667,0,0,22,within-category pattern,FALSE
+scrub,scrub,climate,AHM,Climatic moisture balance,Annual,6,0.0168775925229949,0.0203806547323207,0.0106001170948411,3,0,1,0.00832036745300417,0.5,0,0.166666666666667,23,within-category pattern,FALSE
+scrub,scrub,climate,CMD_sm,Climatic moisture balance,Summer,6,0.0159403632933223,0.024714505334579,0,2,0,2,0.0100896545525019,0.333333333333333,0,0.333333333333333,24,within-category pattern,FALSE
+scrub,scrub,climate,Tmin_sm,Temperature,Summer,6,0.0155108006556894,0.0255412283843302,0,2,1,1,0.0104271628242499,0.333333333333333,0.166666666666667,0.166666666666667,25,within-category pattern,FALSE
+scrub,scrub,climate,CMD_at,Climatic moisture balance,Autumn,6,0.0141142514756561,0.0158154166068909,0.0120318609207235,3,0,0,0.00645661679273701,0.5,0,0,26,within-category pattern,FALSE
+scrub,scrub,climate,DD_0_sp,Growing season and degree-days,Spring,6,0.0135713765733737,0.0225811717640633,0,2,0,1,0.0092187247693497,0.333333333333333,0,0.166666666666667,27,within-category pattern,FALSE
+scrub,scrub,climate,Eref_wt,Radiation and evaporative demand,Winter,6,0.0129843594162048,0.0318050552066038,0,1,1,1,0.0129843594162048,0.166666666666667,0.166666666666667,0.166666666666667,28,within-category pattern,FALSE
+scrub,scrub,climate,DD_0,Growing season and degree-days,Annual,6,0.0127841654040732,0.0202429675628415,0,2,0,1,0.00826415690144547,0.333333333333333,0,0.166666666666667,29,within-category pattern,FALSE
+scrub,scrub,climate,Tmax_sp,Temperature,Spring,6,0.01126629341629,0.027596670162388,0,1,1,1,0.01126629341629,0.166666666666667,0.166666666666667,0.166666666666667,30,within-category pattern,FALSE
+scrub,scrub,climate,DD_18_sp,Growing season and degree-days,Spring,6,0.0109197936729856,0.0267479225952868,0,1,1,1,0.0109197936729856,0.166666666666667,0.166666666666667,0.166666666666667,31,within-category pattern,FALSE
+scrub,scrub,climate,Eref,Radiation and evaporative demand,Annual,6,0.0102028574665746,0.0249917947114532,0,1,1,1,0.0102028574665746,0.166666666666667,0.166666666666667,0.166666666666667,32,within-category pattern,FALSE
+scrub,scrub,climate,Eref_sm,Radiation and evaporative demand,Summer,6,0.0101851495177263,0.0159419367298361,0,2,0,0,0.00650826841663866,0.333333333333333,0,0,33,within-category pattern,FALSE
+scrub,scrub,climate,MWMT,Temperature,Annual,6,0.0100435192304369,0.0155679053245689,0,2,0,0,0.00635557073485851,0.333333333333333,0,0,34,within-category pattern,FALSE
+scrub,scrub,climate,PAS_wt,Snowfall,Winter,6,0.00743886728837047,0.0117101107137265,0,2,0,0,0.00478063268002142,0.333333333333333,0,0,35,within-category pattern,FALSE
+scrub,scrub,climate,Tmin_at,Temperature,Autumn,6,0.006279538985246,0.0153816663337672,0,1,0,1,0.006279538985246,0.166666666666667,0,0.166666666666667,36,within-category pattern,FALSE
+scrub,scrub,climate,Eref_sp,Radiation and evaporative demand,Spring,6,0.00580626152019165,0.0142223780376261,0,1,0,0,0.00580626152019165,0.166666666666667,0,0,37,within-category pattern,FALSE
+scrub,scrub,climate,DD18_sp,Growing season and degree-days,Spring,6,0.0057524158480562,0.014090483616037,0,1,0,0,0.0057524158480562,0.166666666666667,0,0,38,within-category pattern,FALSE
+scrub,scrub,climate,DD18,Growing season and degree-days,Annual,6,0.0056786706575197,0.0139098455282383,0,1,0,0,0.0056786706575197,0.166666666666667,0,0,39,within-category pattern,FALSE
+scrub,scrub,climate,DD18_at,Growing season and degree-days,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD18_sm,Growing season and degree-days,Summer,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD5,Growing season and degree-days,Annual,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD5_at,Growing season and degree-days,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD5_sp,Growing season and degree-days,Spring,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD5_wt,Growing season and degree-days,Winter,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD_0_at,Growing season and degree-days,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD_18,Growing season and degree-days,Annual,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD_18_at,Growing season and degree-days,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,DD_18_sm,Growing season and degree-days,Summer,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,NFFD,Growing season and degree-days,Annual,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,NFFD_at,Growing season and degree-days,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,NFFD_sm,Growing season and degree-days,Summer,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,PAS,Snowfall,Annual,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,PAS_at,Snowfall,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,PAS_sp,Snowfall,Spring,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,RH,Humidity,Annual,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,RH_sp,Humidity,Spring,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,Tave_at,Temperature,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,Tave_sp,Temperature,Spring,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,Tave_wt,Temperature,Winter,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,Tmax_at,Temperature,Autumn,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+scrub,scrub,climate,Tmin_sp,Temperature,Spring,6,0,0,0,0,0,0,0,0,0,0,40,within-category pattern,FALSE
+wetland,wetland,climate,TD,Temperature,Annual,5,0.0564424584438467,0.0377220967866524,0.0572837728291682,4,2,3,0.0168698345337562,0.8,0.4,0.6,1,within-category pattern,TRUE
+wetland,wetland,climate,PPT_at,Precipitation,Autumn,5,0.0547700914346873,0.0168805350940875,0.0599337526925273,5,3,3,0.00754920479339007,1,0.6,0.6,2,within-category pattern,TRUE
+wetland,wetland,climate,PPT_wt,Precipitation,Winter,5,0.0518755442030896,0.029264154590712,0.0429265522428408,5,2,2,0.0130873277937789,1,0.4,0.4,3,within-category pattern,TRUE
+wetland,wetland,climate,PPT_sp,Precipitation,Spring,5,0.0512487947504797,0.03740703271207,0.0452043081382236,4,2,2,0.0167289335961494,0.8,0.4,0.4,4,within-category pattern,TRUE
+wetland,wetland,climate,Eref_at,Radiation and evaporative demand,Autumn,5,0.0398595360609685,0.0374845432097182,0.0517394046214333,3,2,3,0.0167635973444916,0.6,0.4,0.6,5,within-category pattern,TRUE
+wetland,wetland,climate,Eref_sm,Radiation and evaporative demand,Summer,5,0.0375223559972056,0.022746257032326,0.0516303040517687,5,0,3,0.0101724353915927,1,0,0.6,6,within-category pattern,FALSE
+wetland,wetland,climate,CMD_sm,Climatic moisture balance,Summer,5,0.0374197344919053,0.0220305493434684,0.0429132897459219,4,0,2,0.00985236118273173,0.8,0,0.4,7,within-category pattern,FALSE
+wetland,wetland,climate,PPT_sm,Precipitation,Summer,5,0.037410310926772,0.0259396515229786,0.0421603086308263,4,2,2,0.0116005648236072,0.8,0.4,0.4,8,within-category pattern,TRUE
+wetland,wetland,climate,MAP,Precipitation,Annual,5,0.0351725026341732,0.0200194294579209,0.0415820165542446,4,0,3,0.00895296102773457,0.8,0,0.6,9,within-category pattern,FALSE
+wetland,wetland,climate,RH_wt,Humidity,Winter,5,0.0340093033988416,0.0223635512075001,0.0341921698462496,4,0,2,0.0100012841436535,0.8,0,0.4,10,within-category pattern,FALSE
+wetland,wetland,climate,CMD,Climatic moisture balance,Annual,5,0.0327144430781306,0.0196040807162576,0.035508307328963,4,0,1,0.00876721142358896,0.8,0,0.2,11,within-category pattern,FALSE
+wetland,wetland,climate,CMD_at,Climatic moisture balance,Autumn,5,0.0312284075497579,0.0205283130662335,0.035837416045857,4,0,1,0.00918054069589903,0.8,0,0.2,12,within-category pattern,FALSE
+wetland,wetland,climate,CMD_sp,Climatic moisture balance,Spring,5,0.0310629891430049,0.018565999692413,0.0342758036500696,4,0,2,0.00830296747649511,0.8,0,0.4,13,within-category pattern,FALSE
+wetland,wetland,climate,DD18_sm,Growing season and degree-days,Summer,5,0.0293728381097115,0.0171039081120823,0.0381619531152851,4,0,0,0.00764910024390523,0.8,0,0,14,within-category pattern,FALSE
+wetland,wetland,climate,Tmin_sm,Temperature,Summer,5,0.0292295900783864,0.0290283628936887,0.0374060079771982,3,1,1,0.0129818785411641,0.6,0.2,0.2,15,within-category pattern,FALSE
+wetland,wetland,climate,DD5_sm,Growing season and degree-days,Summer,5,0.025487484892128,0.0233931467043344,0.0403869704154404,3,0,1,0.0104617332477034,0.6,0,0.2,16,within-category pattern,FALSE
+wetland,wetland,climate,AHM,Climatic moisture balance,Annual,5,0.0250586193951875,0.0148243726334431,0.0299967799224982,4,0,0,0.00662966098643328,0.8,0,0,17,within-category pattern,FALSE
+wetland,wetland,climate,Eref,Radiation and evaporative demand,Annual,5,0.0243438269717151,0.0335792083639379,0,2,2,2,0.0150170785064789,0.4,0.4,0.4,18,within-category pattern,FALSE
+wetland,wetland,climate,EXT,Temperature,Annual,5,0.0224137921968064,0.0205258639756437,0.0349839439076363,3,0,0,0.00917944542929067,0.6,0,0,19,within-category pattern,FALSE
+wetland,wetland,climate,Tmax_wt,Temperature,Winter,5,0.0220750386728139,0.0309899187122229,0,2,1,2,0.0138591129715446,0.4,0.2,0.4,20,within-category pattern,FALSE
+wetland,wetland,climate,RH_sm,Humidity,Summer,5,0.0215909276365321,0.0345548325488413,0,2,1,1,0.0154533909060663,0.4,0.2,0.2,21,within-category pattern,FALSE
+wetland,wetland,climate,DD_18_sp,Growing season and degree-days,Spring,5,0.0178764262179447,0.0399729042180837,0,1,1,1,0.0178764262179447,0.2,0.2,0.2,22,within-category pattern,FALSE
+wetland,wetland,climate,DD5,Growing season and degree-days,Annual,5,0.0170483342182552,0.0236695781436049,0,2,0,1,0.0105853571455688,0.4,0,0.2,23,within-category pattern,FALSE
+wetland,wetland,climate,MCMT,Temperature,Annual,5,0.0169162915884504,0.0238428189395623,0,2,0,1,0.0106628327848161,0.4,0,0.2,24,within-category pattern,FALSE
+wetland,wetland,climate,DD_18,Growing season and degree-days,Annual,5,0.0168310284904746,0.0238759637762543,0,2,0,1,0.0106776556064054,0.4,0,0.2,25,within-category pattern,FALSE
+wetland,wetland,climate,RH_sp,Humidity,Spring,5,0.0151175488609653,0.0338038669062929,0,1,1,1,0.0151175488609653,0.2,0.2,0.2,26,within-category pattern,FALSE
+wetland,wetland,climate,CMD_wt,Climatic moisture balance,Winter,5,0.0137296307741485,0.0307003877169691,0,1,1,1,0.0137296307741485,0.2,0.2,0.2,27,within-category pattern,FALSE
+wetland,wetland,climate,PAS_wt,Snowfall,Winter,5,0.0135596697592506,0.0303203433341326,0,1,1,1,0.0135596697592506,0.2,0.2,0.2,28,within-category pattern,FALSE
+wetland,wetland,climate,DD_18_at,Growing season and degree-days,Autumn,5,0.0127061373240795,0.028411786788089,0,1,0,1,0.0127061373240795,0.2,0,0.2,29,within-category pattern,FALSE
+wetland,wetland,climate,Tmin_at,Temperature,Autumn,5,0.0123465220949624,0.027607662690039,0,1,1,1,0.0123465220949624,0.2,0.2,0.2,30,within-category pattern,FALSE
+wetland,wetland,climate,DD_0_at,Growing season and degree-days,Autumn,5,0.0119880599089579,0.0268061168747698,0,1,1,1,0.0119880599089579,0.2,0.2,0.2,31,within-category pattern,FALSE
+wetland,wetland,climate,MWMT,Temperature,Annual,5,0.0116379321703112,0.0260232074503476,0,1,1,1,0.0116379321703112,0.2,0.2,0.2,32,within-category pattern,FALSE
+wetland,wetland,climate,DD5_at,Growing season and degree-days,Autumn,5,0.0107196906186907,0.0239699569211593,0,1,0,1,0.0107196906186907,0.2,0,0.2,33,within-category pattern,FALSE
+wetland,wetland,climate,RH_at,Humidity,Autumn,5,0.00940184512182887,0.0210231648063342,0,1,0,0,0.00940184512182887,0.2,0,0,34,within-category pattern,FALSE
+wetland,wetland,climate,RH,Humidity,Annual,5,0.00927563533432965,0.0207409511420601,0,1,0,1,0.00927563533432965,0.2,0,0.2,35,within-category pattern,FALSE
+wetland,wetland,climate,DD5_sp,Growing season and degree-days,Spring,5,0.00921054108525407,0.0205953959761828,0,1,0,1,0.00921054108525407,0.2,0,0.2,36,within-category pattern,FALSE
+wetland,wetland,climate,Tmin_sp,Temperature,Spring,5,0.00850361390832321,0.0190146587534234,0,1,0,0,0.00850361390832321,0.2,0,0,37,within-category pattern,FALSE
+wetland,wetland,climate,EMT,Temperature,Annual,5,0.00829441572046713,0.0185468773846074,0,1,0,0,0.00829441572046713,0.2,0,0,38,within-category pattern,FALSE
+wetland,wetland,climate,DD_18_wt,Growing season and degree-days,Winter,5,0.00782028552504259,0.0174866900374529,0,1,0,0,0.00782028552504258,0.2,0,0,39,within-category pattern,FALSE
+wetland,wetland,climate,PAS,Snowfall,Annual,5,0.00776838412602937,0.017370634981132,0,1,0,0,0.00776838412602937,0.2,0,0,40,within-category pattern,FALSE
+wetland,wetland,climate,Tave_at,Temperature,Autumn,5,0.0077043557787008,0.0172274632440183,0,1,0,0,0.0077043557787008,0.2,0,0,41,within-category pattern,FALSE
+wetland,wetland,climate,Tmin_wt,Temperature,Winter,5,0.0075157049838828,0.0168056272427959,0,1,0,0,0.00751570498388279,0.2,0,0,42,within-category pattern,FALSE
+wetland,wetland,climate,DD18,Growing season and degree-days,Annual,5,0.00741988714064068,0.0165913720318491,0,1,0,0,0.00741988714064068,0.2,0,0,43,within-category pattern,FALSE
+wetland,wetland,climate,DD18_sp,Growing season and degree-days,Spring,5,0.00589620862956589,0.0131843233052302,0,1,0,0,0.00589620862956589,0.2,0,0,44,within-category pattern,FALSE
+wetland,wetland,climate,Tave_sp,Temperature,Spring,5,0.0057860664534633,0.0129380379122751,0,1,0,0,0.0057860664534633,0.2,0,0,45,within-category pattern,FALSE
+wetland,wetland,climate,Tmax_sp,Temperature,Spring,5,0.00461719409983694,0.0103243598725463,0,1,0,0,0.00461719409983694,0.2,0,0,46,within-category pattern,FALSE
+wetland,wetland,climate,DD18_at,Growing season and degree-days,Autumn,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,DD5_wt,Growing season and degree-days,Winter,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,DD_0,Growing season and degree-days,Annual,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,DD_0_sp,Growing season and degree-days,Spring,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,DD_0_wt,Growing season and degree-days,Winter,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,DD_18_sm,Growing season and degree-days,Summer,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,Eref_sp,Radiation and evaporative demand,Spring,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,Eref_wt,Radiation and evaporative demand,Winter,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,NFFD,Growing season and degree-days,Annual,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,NFFD_at,Growing season and degree-days,Autumn,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,NFFD_sm,Growing season and degree-days,Summer,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,PAS_at,Snowfall,Autumn,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,PAS_sp,Snowfall,Spring,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,Tave_wt,Temperature,Winter,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,Tmax_at,Temperature,Autumn,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+wetland,wetland,climate,Tmax_sm,Temperature,Summer,5,0,0,0,0,0,0,0,0,0,0,47,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_GRAVEL,Coarse fragments,"",3,0.218436767494502,0.113506496917253,0.251556657813156,3,2,3,0.0655330065499473,1,0.666666666666667,1,1,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_OC,Organic carbon,"",3,0.156652964700335,0.0432219290179697,0.166443541494364,3,3,3,0.0249541923534197,1,1,1,2,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_BS,Nutrient retention and base status,"",3,0.0953107355906803,0.0945874399674922,0.0967743123352664,2,2,2,0.0546100839271892,0.666666666666667,0.666666666666667,0.666666666666667,3,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_CLAY,Texture,"",3,0.0886146338562502,0.0773322259909198,0.123389995234609,2,2,2,0.0446477814928905,0.666666666666667,0.666666666666667,0.666666666666667,4,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_CEC_CLAY,Nutrient retention and base status,"",3,0.0755615443447624,0.0241550067231746,0.0809297807960085,3,0,3,0.0139458996339021,1,0,1,5,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_ESP,Sodicity,"",3,0.0731763388175005,0.0661199990946317,0.0909025926760243,2,1,2,0.0381743992761034,0.666666666666667,0.333333333333333,0.666666666666667,6,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_REF_BULK_DENSITY,Bulk density,"",3,0.0705456443816856,0.0614034595054961,0.0996646967261115,2,2,2,0.0354513038746725,0.666666666666667,0.666666666666667,0.666666666666667,7,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_SILT,Texture,"",3,0.0669696350055068,0.0580109750609894,0.0991997740838685,2,1,2,0.0334926520674149,0.666666666666667,0.333333333333333,0.666666666666667,8,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_TEB,Nutrient retention and base status,"",3,0.0603572305500117,0.0635681668160432,0.0543603655572748,2,1,2,0.0367010982231336,0.666666666666667,0.333333333333333,0.666666666666667,9,within-category pattern,TRUE
+alpine_vegetation,alpine vegetation,soil,T_SAND,Texture,"",3,0.0333576651015927,0.0577771707778257,0,1,1,1,0.0333576651015927,0.333333333333333,0.333333333333333,0.333333333333333,10,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_PH_H2O,Soil reaction,"",3,0.0283947115868105,0.0491810831346205,0,1,0,1,0.0283947115868105,0.333333333333333,0,0.333333333333333,11,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_CEC_SOIL,Nutrient retention and base status,"",3,0.0269780854506428,0.0233814774818315,0.0395557181163554,2,0,2,0.0134993023181866,0.666666666666667,0,0.666666666666667,12,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_ECE,Salinity,"",3,0.00372334361551982,0.00644902031611753,0,1,0,1,0.00372334361551982,0.333333333333333,0,0.333333333333333,13,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_CASO4,Gypsum,"",3,0.00192069950419971,0.00332674912734625,0,1,0,1,0.00192069950419971,0.333333333333333,0,0.333333333333333,14,within-category pattern,FALSE
+alpine_vegetation,alpine vegetation,soil,T_CACO3,Carbonates,"",3,0,0,0,0,0,0,0,0,0,0,15,within-category pattern,FALSE
+cropland,cropland,soil,T_CEC_CLAY,Nutrient retention and base status,"",7,0.18265937865615,0.0498656524715864,0.200509894570233,7,6,7,0.0188474450576844,1,0.857142857142857,1,1,within-category pattern,TRUE
+cropland,cropland,soil,T_PH_H2O,Soil reaction,"",7,0.116772173225713,0.0489673960669214,0.11871556410961,7,4,7,0.0185079360490681,1,0.571428571428571,1,2,within-category pattern,TRUE
+cropland,cropland,soil,T_TEB,Nutrient retention and base status,"",7,0.1154152292235,0.0251487877717621,0.11273447905757,7,5,7,0.00950534831697497,1,0.714285714285714,1,3,within-category pattern,TRUE
+cropland,cropland,soil,T_OC,Organic carbon,"",7,0.0962551666730692,0.0496661986863285,0.114971243055751,6,5,6,0.0187720586128497,0.857142857142857,0.714285714285714,0.857142857142857,4,within-category pattern,TRUE
+cropland,cropland,soil,T_CEC_SOIL,Nutrient retention and base status,"",7,0.0936293445354954,0.052603599199944,0.104349000540173,6,4,6,0.0198822916499954,0.857142857142857,0.571428571428571,0.857142857142857,5,within-category pattern,TRUE
+cropland,cropland,soil,T_CLAY,Texture,"",7,0.088124423041605,0.0199325188140714,0.089908525284767,7,3,7,0.00753378396930699,1,0.428571428571429,1,6,within-category pattern,TRUE
+cropland,cropland,soil,T_SILT,Texture,"",7,0.0824947773633317,0.0388771863992481,0.0945576836662039,6,3,6,0.0146941952694733,0.857142857142857,0.428571428571429,0.857142857142857,7,within-category pattern,TRUE
+cropland,cropland,soil,T_REF_BULK_DENSITY,Bulk density,"",7,0.0779061321984047,0.0371474811180887,0.0833347617336315,6,2,6,0.0140404281244186,0.857142857142857,0.285714285714286,0.857142857142857,8,within-category pattern,TRUE
+cropland,cropland,soil,T_BS,Nutrient retention and base status,"",7,0.0764761971514406,0.0580106608086801,0.0842425848497268,5,3,5,0.0219259688414698,0.714285714285714,0.428571428571429,0.714285714285714,9,within-category pattern,TRUE
+cropland,cropland,soil,T_SAND,Texture,"",7,0.033228708254343,0.0429780988361829,0,3,0,3,0.0162441944775563,0.428571428571429,0,0.428571428571429,10,within-category pattern,FALSE
+cropland,cropland,soil,T_GRAVEL,Coarse fragments,"",7,0.0245654031710083,0.0419842325077744,0,2,0,2,0.0158685483144978,0.285714285714286,0,0.285714285714286,11,within-category pattern,FALSE
+cropland,cropland,soil,T_CACO3,Carbonates,"",7,0.0124730665059391,0.0330006320610841,0,1,0,1,0.0124730665059391,0.142857142857143,0,0.142857142857143,12,within-category pattern,FALSE
+cropland,cropland,soil,T_CASO4,Gypsum,"",7,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+cropland,cropland,soil,T_ECE,Salinity,"",7,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+cropland,cropland,soil,T_ESP,Sodicity,"",7,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+desert,desert,soil,T_OC,Organic carbon,"",8,0.17872095075219,0.0836259063515213,0.188392320185149,8,6,8,0.0295662227320159,1,0.75,1,1,within-category pattern,TRUE
+desert,desert,soil,T_TEB,Nutrient retention and base status,"",8,0.0966597975897765,0.0653056879258277,0.121128838998661,6,5,6,0.0230890473912026,0.75,0.625,0.75,2,within-category pattern,TRUE
+desert,desert,soil,T_CASO4,Gypsum,"",8,0.0807118121831128,0.0886627861172591,0.0665636719606554,4,4,4,0.0313470286512032,0.5,0.5,0.5,3,within-category pattern,TRUE
+desert,desert,soil,T_CEC_CLAY,Nutrient retention and base status,"",8,0.079894317063994,0.04158543596653,0.0778917719953752,7,3,7,0.0147026718852662,0.875,0.375,0.875,4,within-category pattern,TRUE
+desert,desert,soil,T_CACO3,Carbonates,"",8,0.0771402158197157,0.0793359381818945,0.074023740258636,5,2,5,0.0280494899401072,0.625,0.25,0.625,5,within-category pattern,TRUE
+desert,desert,soil,T_PH_H2O,Soil reaction,"",8,0.0710202917980321,0.0653386125185122,0.0840990667975934,5,3,5,0.0231006879925801,0.625,0.375,0.625,6,within-category pattern,TRUE
+desert,desert,soil,T_CLAY,Texture,"",8,0.0688462268515326,0.0460487265857909,0.0582693963323243,7,2,7,0.016280683416909,0.875,0.25,0.875,7,within-category pattern,TRUE
+desert,desert,soil,T_REF_BULK_DENSITY,Bulk density,"",8,0.0620140454762359,0.0385533497107322,0.055549590090922,7,2,7,0.0136306675089576,0.875,0.25,0.875,8,within-category pattern,TRUE
+desert,desert,soil,T_GRAVEL,Coarse fragments,"",8,0.0606147899934049,0.068230756008449,0.0380823355899632,4,3,4,0.0241232151295295,0.5,0.375,0.5,9,within-category pattern,TRUE
+desert,desert,soil,T_ESP,Sodicity,"",8,0.0591482786730014,0.0643374033352863,0.0489132917008717,4,4,4,0.0227467070911575,0.5,0.5,0.5,10,within-category pattern,TRUE
+desert,desert,soil,T_SILT,Texture,"",8,0.0523984658513886,0.0492050548925867,0.0561567548214956,5,1,5,0.0173966139916022,0.625,0.125,0.625,11,within-category pattern,FALSE
+desert,desert,soil,T_CEC_SOIL,Nutrient retention and base status,"",8,0.0493556456774179,0.0549725762086415,0.0334484153837748,4,3,4,0.0194357407082123,0.5,0.375,0.5,12,within-category pattern,TRUE
+desert,desert,soil,T_SAND,Texture,"",8,0.0362189649424942,0.041685988272023,0.0263009360206185,4,1,4,0.0147382224938052,0.5,0.125,0.5,13,within-category pattern,FALSE
+desert,desert,soil,T_ECE,Salinity,"",8,0.0272561973277033,0.0534211818449377,0,2,1,2,0.0188872399707776,0.25,0.125,0.25,14,within-category pattern,FALSE
+desert,desert,soil,T_BS,Nutrient retention and base status,"",8,0,0,0,0,0,0,0,0,0,0,15,within-category pattern,FALSE
+forest,forest,soil,T_CEC_CLAY,Nutrient retention and base status,"",15,0.152180531688636,0.0618587799522522,0.165761735932516,15,12,15,0.0159718683047855,1,0.8,1,1,within-category pattern,TRUE
+forest,forest,soil,T_BS,Nutrient retention and base status,"",15,0.128327026583635,0.069857688656795,0.135933633267618,13,10,13,0.0180371776514873,0.866666666666667,0.666666666666667,0.866666666666667,2,within-category pattern,TRUE
+forest,forest,soil,T_PH_H2O,Soil reaction,"",15,0.126834693274979,0.0353620452037269,0.126577282097185,15,12,15,0.00913044081079121,1,0.8,1,3,within-category pattern,TRUE
+forest,forest,soil,T_TEB,Nutrient retention and base status,"",15,0.118091103387892,0.0426060649911225,0.123856029026351,14,11,14,0.0110008386772032,0.933333333333333,0.733333333333333,0.933333333333333,4,within-category pattern,TRUE
+forest,forest,soil,T_SILT,Texture,"",15,0.0883951138338451,0.0524801019106836,0.0903609136842168,12,8,12,0.0135503040471564,0.8,0.533333333333333,0.8,5,within-category pattern,TRUE
+forest,forest,soil,T_OC,Organic carbon,"",15,0.0784207577635745,0.0569051594388774,0.0908051040702816,11,5,11,0.0146928489880033,0.733333333333333,0.333333333333333,0.733333333333333,6,within-category pattern,TRUE
+forest,forest,soil,T_SAND,Texture,"",15,0.0609461062047892,0.0499837953082197,0.0603795983521918,11,3,11,0.0129057604539317,0.733333333333333,0.2,0.733333333333333,7,within-category pattern,FALSE
+forest,forest,soil,T_CEC_SOIL,Nutrient retention and base status,"",15,0.0582165484913185,0.0524997447390276,0.0578088382313262,10,4,10,0.0135553758036263,0.666666666666667,0.266666666666667,0.666666666666667,8,within-category pattern,TRUE
+forest,forest,soil,T_CLAY,Texture,"",15,0.0564882567972932,0.04689195353708,0.0586405834530797,10,3,10,0.0121074503413495,0.666666666666667,0.2,0.666666666666667,9,within-category pattern,FALSE
+forest,forest,soil,T_GRAVEL,Coarse fragments,"",15,0.0508920695073642,0.0495330750868636,0.0601102624103167,9,3,9,0.0127893849931909,0.6,0.2,0.6,10,within-category pattern,FALSE
+forest,forest,soil,T_REF_BULK_DENSITY,Bulk density,"",15,0.0447177591427519,0.0509523027053483,0.0562825890289484,8,2,8,0.0131558279885822,0.533333333333333,0.133333333333333,0.533333333333333,11,within-category pattern,FALSE
+forest,forest,soil,T_CACO3,Carbonates,"",15,0.0210368914514691,0.0448888417957399,0,3,2,3,0.011590249113696,0.2,0.133333333333333,0.2,12,within-category pattern,FALSE
+forest,forest,soil,T_ESP,Sodicity,"",15,0.0154531418724521,0.0315223358976634,0,4,0,4,0.00813903213101376,0.266666666666667,0,0.266666666666667,13,within-category pattern,FALSE
+forest,forest,soil,T_CASO4,Gypsum,"",15,0,0,0,0,0,0,0,0,0,0,14,within-category pattern,FALSE
+forest,forest,soil,T_ECE,Salinity,"",15,0,0,0,0,0,0,0,0,0,0,14,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_OC,Organic carbon,"",8,0.153681281357022,0.046878195882225,0.141281630761067,8,7,8,0.0165739450990563,1,0.875,1,1,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_CEC_CLAY,Nutrient retention and base status,"",8,0.144669092996963,0.0586732077294901,0.130806209256233,8,6,8,0.0207441115297447,1,0.75,1,2,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_TEB,Nutrient retention and base status,"",8,0.116951833012176,0.0366829305612064,0.124581596164867,8,5,8,0.0129693744768122,1,0.625,1,3,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_CLAY,Texture,"",8,0.076943059620022,0.0415931777953983,0.0745726518631336,7,3,7,0.0147054090351119,0.875,0.375,0.875,4,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_PH_H2O,Soil reaction,"",8,0.0764764721650483,0.059504407716102,0.0825863223629807,6,3,6,0.0210379851032724,0.75,0.375,0.75,5,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_REF_BULK_DENSITY,Bulk density,"",8,0.0757701995194431,0.0355734462316382,0.0861128401405679,7,3,7,0.0125771125302832,0.875,0.375,0.875,6,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_SILT,Texture,"",8,0.0754847336798679,0.0427371259412612,0.0774856770965732,7,4,7,0.0151098557807447,0.875,0.5,0.875,7,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_CEC_SOIL,Nutrient retention and base status,"",8,0.0752462778036547,0.0550454709201164,0.0779112198503218,6,3,6,0.0194615128806106,0.75,0.375,0.75,8,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_BS,Nutrient retention and base status,"",8,0.0672648074219438,0.0783817897326403,0.032129840512873,4,3,4,0.027712147520744,0.5,0.375,0.5,9,within-category pattern,TRUE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_GRAVEL,Coarse fragments,"",8,0.0539765927915856,0.0875630291985324,0.0173630001396308,4,1,4,0.030958205863759,0.5,0.125,0.5,10,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_SAND,Texture,"",8,0.0483399763892002,0.0426532009956054,0.0651918069965817,5,1,5,0.0150801838316527,0.625,0.125,0.625,11,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_ESP,Sodicity,"",8,0.0266630744807766,0.0754145630905566,0,1,1,1,0.0266630744807766,0.125,0.125,0.125,12,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_CACO3,Carbonates,"",8,0.00853259876229713,0.024133833783857,0,1,0,1,0.00853259876229713,0.125,0,0.125,13,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_CASO4,Gypsum,"",8,0,0,0,0,0,0,0,0,0,0,14,within-category pattern,FALSE
+grassland_meadow_steppe,grassland meadow steppe,soil,T_ECE,Salinity,"",8,0,0,0,0,0,0,0,0,0,0,14,within-category pattern,FALSE
+scrub,scrub,soil,T_CEC_CLAY,Nutrient retention and base status,"",6,0.130448033270285,0.0618582296290968,0.114253994518555,6,3,6,0.0252535164971998,1,0.5,1,1,within-category pattern,TRUE
+scrub,scrub,soil,T_CLAY,Texture,"",6,0.123268718352523,0.0397404313462038,0.118699359536546,6,3,6,0.0162239631593842,1,0.5,1,2,within-category pattern,TRUE
+scrub,scrub,soil,T_OC,Organic carbon,"",6,0.119901914096447,0.0766123406233851,0.120123910941925,5,4,5,0.0312768570879321,0.833333333333333,0.666666666666667,0.833333333333333,3,within-category pattern,TRUE
+scrub,scrub,soil,T_BS,Nutrient retention and base status,"",6,0.108698356549257,0.0574267468049042,0.122817646168722,5,5,5,0.0234443712100033,0.833333333333333,0.833333333333333,0.833333333333333,4,within-category pattern,TRUE
+scrub,scrub,soil,T_CEC_SOIL,Nutrient retention and base status,"",6,0.0969043868810507,0.054050606534482,0.108780605357818,5,4,5,0.0220660677162372,0.833333333333333,0.666666666666667,0.833333333333333,5,within-category pattern,TRUE
+scrub,scrub,soil,T_TEB,Nutrient retention and base status,"",6,0.0918487828925391,0.048582469172621,0.105373243016227,5,3,5,0.0198337099862359,0.833333333333333,0.5,0.833333333333333,6,within-category pattern,TRUE
+scrub,scrub,soil,T_REF_BULK_DENSITY,Bulk density,"",6,0.088391635084573,0.0490309976942235,0.098876331804405,5,3,5,0.0200168209884043,0.833333333333333,0.5,0.833333333333333,7,within-category pattern,TRUE
+scrub,scrub,soil,T_SILT,Texture,"",6,0.0678079716005316,0.0413869501719499,0.0772720005631031,5,1,5,0.0168961516552116,0.833333333333333,0.166666666666667,0.833333333333333,8,within-category pattern,FALSE
+scrub,scrub,soil,T_PH_H2O,Soil reaction,"",6,0.0663764550697367,0.061674478069466,0.0636699806705006,4,2,4,0.0251785002371105,0.666666666666667,0.333333333333333,0.666666666666667,9,within-category pattern,TRUE
+scrub,scrub,soil,T_GRAVEL,Coarse fragments,"",6,0.0534660518079652,0.0458569782294506,0.0583909579250949,4,2,4,0.0187210329680118,0.666666666666667,0.333333333333333,0.666666666666667,10,within-category pattern,TRUE
+scrub,scrub,soil,T_SAND,Texture,"",6,0.0440595376029516,0.0488200141123557,0.0384967417304743,3,0,3,0.0199306873017909,0.5,0,0.5,11,within-category pattern,FALSE
+scrub,scrub,soil,T_ESP,Sodicity,"",6,0.00882815679214075,0.0216244795100304,0,1,0,1,0.00882815679214075,0.166666666666667,0,0.166666666666667,12,within-category pattern,FALSE
+scrub,scrub,soil,T_CACO3,Carbonates,"",6,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+scrub,scrub,soil,T_CASO4,Gypsum,"",6,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+scrub,scrub,soil,T_ECE,Salinity,"",6,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+wetland,wetland,soil,T_OC,Organic carbon,"",5,0.156254709082336,0.0577850097674972,0.148539913770937,5,4,5,0.0258422419841226,1,0.8,1,1,within-category pattern,TRUE
+wetland,wetland,soil,T_CEC_CLAY,Nutrient retention and base status,"",5,0.149744992930844,0.0582448594438853,0.128976433371297,5,5,5,0.0260478930112896,1,1,1,2,within-category pattern,TRUE
+wetland,wetland,soil,T_CEC_SOIL,Nutrient retention and base status,"",5,0.149383243559669,0.0486203116814443,0.145629278245033,5,4,5,0.0217436644013873,1,0.8,1,3,within-category pattern,TRUE
+wetland,wetland,soil,T_GRAVEL,Coarse fragments,"",5,0.1380491826847,0.0711964275991452,0.164302438168756,5,3,5,0.0318400103733661,1,0.6,1,4,within-category pattern,TRUE
+wetland,wetland,soil,T_SAND,Texture,"",5,0.0830424459299972,0.0251518630754634,0.0795121145168572,5,2,5,0.0112482551195006,1,0.4,1,5,within-category pattern,TRUE
+wetland,wetland,soil,T_TEB,Nutrient retention and base status,"",5,0.0723822088875449,0.0472281429020083,0.0807395740802977,4,3,4,0.0211210675959929,0.8,0.6,0.8,6,within-category pattern,TRUE
+wetland,wetland,soil,T_BS,Nutrient retention and base status,"",5,0.0700570937044067,0.0491880641470689,0.0601856181790895,4,2,4,0.0219975710228933,0.8,0.4,0.8,7,within-category pattern,TRUE
+wetland,wetland,soil,T_PH_H2O,Soil reaction,"",5,0.0593379682508348,0.0378840998316153,0.0777866235356891,4,0,4,0.016942284497976,0.8,0,0.8,8,within-category pattern,FALSE
+wetland,wetland,soil,T_REF_BULK_DENSITY,Bulk density,"",5,0.0549066500759962,0.0571782593288937,0.0630859101868913,3,1,3,0.0255708949389035,0.6,0.2,0.6,9,within-category pattern,FALSE
+wetland,wetland,soil,T_SILT,Texture,"",5,0.0395668286154207,0.0567212183386844,0,2,1,2,0.0253664999943812,0.4,0.2,0.4,10,within-category pattern,FALSE
+wetland,wetland,soil,T_CLAY,Texture,"",5,0.0247338763926831,0.0349339435373575,0,2,0,2,0.0156229344943342,0.4,0,0.4,11,within-category pattern,FALSE
+wetland,wetland,soil,T_CASO4,Gypsum,"",5,0.0025407998855681,0.00568140126135396,0,1,0,1,0.0025407998855681,0.2,0,0.2,12,within-category pattern,FALSE
+wetland,wetland,soil,T_CACO3,Carbonates,"",5,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+wetland,wetland,soil,T_ECE,Salinity,"",5,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
+wetland,wetland,soil,T_ESP,Sodicity,"",5,0,0,0,0,0,0,0,0,0,0,13,within-category pattern,FALSE
