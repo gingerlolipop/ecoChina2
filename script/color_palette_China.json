@@ -1,0 +1,401 @@
+[
+  {
+    "zoneID": 1,
+    "zone": "One year one ripe fields with cold-tolerant crops of short growth duration",
+    "category": "cropland",
+    "COLOR": "#F2C94C",
+    "count": 15353.0
+  },
+  {
+    "zoneID": 2,
+    "zone": "Needleleaf forests in cold-temperate zone and on mountains in temperate zone",
+    "category": "forest",
+    "COLOR": "#0B5D3B",
+    "count": 284343.0
+  },
+  {
+    "zoneID": 3,
+    "zone": "Broadleaf deciduous forests in temperate zone",
+    "category": "forest",
+    "COLOR": "#4CAF50",
+    "count": 553420.0
+  },
+  {
+    "zoneID": 4,
+    "zone": "Grass,  Carex and forb swamp meadows",
+    "category": "wetland_meadow",
+    "COLOR": "#4DB6AC",
+    "count": 92312.0
+  },
+  {
+    "zoneID": 5,
+    "zone": "Grass and forb meadows",
+    "category": "meadow",
+    "COLOR": "#B8D96B",
+    "count": 191879.0
+  },
+  {
+    "zoneID": 6,
+    "zone": "Cold-temperate and temperate marshes",
+    "category": "marsh",
+    "COLOR": "#219EBC",
+    "count": 92003.0
+  },
+  {
+    "zoneID": 7,
+    "zone": "Deciduous scrubs in temperate zone",
+    "category": "temperate_scrub",
+    "COLOR": "#C77DFF",
+    "count": 221602.0
+  },
+  {
+    "zoneID": 8,
+    "zone": "Rare / original raster odd value",
+    "category": "rare_or_error",
+    "COLOR": "#8E8E8E",
+    "count": NaN
+  },
+  {
+    "zoneID": 9,
+    "zone": "Needleleaf and deciduous broadleaf mixed forests in temperate zone",
+    "category": "mixed_forest",
+    "COLOR": "#2E8B57",
+    "count": 30540.0
+  },
+  {
+    "zoneID": 10,
+    "zone": "Needleleaf forests on mountains in subtropical an tropical zones",
+    "category": "mountain_needleleaf_forest",
+    "COLOR": "#006D77",
+    "count": 147373.0
+  },
+  {
+    "zoneID": 11,
+    "zone": "Temperate grass,  forb meadow steppes",
+    "category": "meadow_steppe",
+    "COLOR": "#C0CA33",
+    "count": 147426.0
+  },
+  {
+    "zoneID": 12,
+    "zone": "One year one ripe grain fields and cold-tolerant economic crop fields",
+    "category": "cropland",
+    "COLOR": "#F6B23A",
+    "count": 375765.0
+  },
+  {
+    "zoneID": 13,
+    "zone": "Temperate tufted grass steppes",
+    "category": "steppe",
+    "COLOR": "#D4A72C",
+    "count": 620911.0
+  },
+  {
+    "zoneID": 14,
+    "zone": "Microphyllous deciduous woodlands in temperate zone",
+    "category": "woodland",
+    "COLOR": "#7CB342",
+    "count": 33001.0
+  },
+  {
+    "zoneID": 15,
+    "zone": "Grass and forb halophytic meadows",
+    "category": "halophytic_meadow",
+    "COLOR": "#F48FB1",
+    "count": 242556.0
+  },
+  {
+    "zoneID": 16,
+    "zone": "Kobresia spp.,  forb high-cold meadows",
+    "category": "alpine_meadow",
+    "COLOR": "#8BC6EC",
+    "count": 917167.0
+  },
+  {
+    "zoneID": 17,
+    "zone": "Alpine tundra",
+    "category": "alpine_tundra",
+    "COLOR": "#B39DDB",
+    "count": 2032.0
+  },
+  {
+    "zoneID": 18,
+    "zone": "Subalpine broadleaf deciduous scrubs",
+    "category": "subalpine_scrub",
+    "COLOR": "#9C27B0",
+    "count": 113046.0
+  },
+  {
+    "zoneID": 19,
+    "zone": "No vegetation",
+    "category": "no_vegetation",
+    "COLOR": "#CFCFCF",
+    "count": 800196.0
+  },
+  {
+    "zoneID": 20,
+    "zone": "Alpine sparse vegetation",
+    "category": "alpine_sparse",
+    "COLOR": "#B0BEC5",
+    "count": 411347.0
+  },
+  {
+    "zoneID": 21,
+    "zone": "One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations",
+    "category": "cropland_orchard_plantation",
+    "COLOR": "#F28E2B",
+    "count": 610148.0
+  },
+  {
+    "zoneID": 22,
+    "zone": "Alpine cushion vegetation",
+    "category": "alpine_cushion",
+    "COLOR": "#CE93D8",
+    "count": 43164.0
+  },
+  {
+    "zoneID": 23,
+    "zone": "Shrub deserts",
+    "category": "shrub_desert",
+    "COLOR": "#A65E2E",
+    "count": 330737.0
+  },
+  {
+    "zoneID": 24,
+    "zone": "Semi-shrub and dwarf semi-shrub deserts",
+    "category": "desert",
+    "COLOR": "#C49A6C",
+    "count": 846694.0
+  },
+  {
+    "zoneID": 25,
+    "zone": "Temperate tufted low grass,  nano-semi-shrub desert steppes",
+    "category": "desert_steppe",
+    "COLOR": "#D6B85A",
+    "count": 237969.0
+  },
+  {
+    "zoneID": 26,
+    "zone": "Bamboo forests and scrubs in subtropical and tropical zones",
+    "category": "bamboo",
+    "COLOR": "#00A86B",
+    "count": 40966.0
+  },
+  {
+    "zoneID": 27,
+    "zone": "Two years three ripes or one year two ripes grain fields and deciduous orchards",
+    "category": "cropland_orchard",
+    "COLOR": "#FFB000",
+    "count": 866811.0
+  },
+  {
+    "zoneID": 28,
+    "zone": "Broadleaf deciduous forests in subtropical zone",
+    "category": "subtropical_deciduous_forest",
+    "COLOR": "#66BB6A",
+    "count": 46263.0
+  },
+  {
+    "zoneID": 29,
+    "zone": "Dwarf semi-arboreous deserts",
+    "category": "arboreous_desert",
+    "COLOR": "#8D6E63",
+    "count": 164699.0
+  },
+  {
+    "zoneID": 30,
+    "zone": "Needleleaf forests in subtropical zone",
+    "category": "subtropical_needleleaf_forest",
+    "COLOR": "#1B7F5A",
+    "count": 580358.0
+  },
+  {
+    "zoneID": 31,
+    "zone": "Grass,  Carex spp. high-cold steppes",
+    "category": "high_cold_steppe",
+    "COLOR": "#90CAF9",
+    "count": 848105.0
+  },
+  {
+    "zoneID": 32,
+    "zone": "Succulent halophytic dwarf semi-shrub deserts",
+    "category": "halophytic_desert",
+    "COLOR": "#E57373",
+    "count": 62847.0
+  },
+  {
+    "zoneID": 33,
+    "zone": "One year one ripe grain fields an cold-tolerant  economic crop fields; deciduous orchards",
+    "category": "cropland_orchard",
+    "COLOR": "#F4A261",
+    "count": 391144.0
+  },
+  {
+    "zoneID": 34,
+    "zone": "Needeleleaf,  evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",
+    "category": "subtropical_mixed_forest",
+    "COLOR": "#2A9D8F",
+    "count": 5163.0
+  },
+  {
+    "zoneID": 35,
+    "zone": "Steppe shrub deserts",
+    "category": "steppe_shrub_desert",
+    "COLOR": "#B55239",
+    "count": 32917.0
+  },
+  {
+    "zoneID": 36,
+    "zone": "Broadleaf evergreen and deciduous mixed forests in subtropical zone",
+    "category": "subtropical_mixed_broadleaf_forest",
+    "COLOR": "#43A047",
+    "count": 22763.0
+  },
+  {
+    "zoneID": 37,
+    "zone": "Needleleaf forests in temperate zone",
+    "category": "temperate_needleleaf_forest",
+    "COLOR": "#1A4D2E",
+    "count": 193911.0
+  },
+  {
+    "zoneID": 38,
+    "zone": "Annual herb deserts",
+    "category": "annual_herb_desert",
+    "COLOR": "#E0A458",
+    "count": 30035.0
+  },
+  {
+    "zoneID": 39,
+    "zone": "Sclerophyllus broadleaf evergreen forests in subtropoical zone",
+    "category": "sclerophyll_broadleaf_forest",
+    "COLOR": "#00897B",
+    "count": 22033.0
+  },
+  {
+    "zoneID": 40,
+    "zone": "Subtropical and tropical grasslands",
+    "category": "subtropical_tropical_grassland",
+    "COLOR": "#9CCC65",
+    "count": 341246.0
+  },
+  {
+    "zoneID": 41,
+    "zone": "Temperate grasslands",
+    "category": "temperate_grassland",
+    "COLOR": "#AED581",
+    "count": 91481.0
+  },
+  {
+    "zoneID": 42,
+    "zone": "Cushion nano-semi-shrub high-cold deserts",
+    "category": "high_cold_desert",
+    "COLOR": "#A1887F",
+    "count": 157267.0
+  },
+  {
+    "zoneID": 43,
+    "zone": "High-cold marshes",
+    "category": "high_cold_marsh",
+    "COLOR": "#5DADE2",
+    "count": 5708.0
+  },
+  {
+    "zoneID": 44,
+    "zone": "Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones",
+    "category": "subtropical_tropical_scrub",
+    "COLOR": "#D81B60",
+    "count": 576554.0
+  },
+  {
+    "zoneID": 45,
+    "zone": "Subalpine needleleaf evergreen scrubs",
+    "category": "subalpine_needleleaf_scrub",
+    "COLOR": "#7E57C2",
+    "count": 16418.0
+  },
+  {
+    "zoneID": 46,
+    "zone": "Subalpine sclerophylla broadleaf evergreen scrubs",
+    "category": "subalpine_sclerophyll_scrub",
+    "COLOR": "#AD1457",
+    "count": 136995.0
+  },
+  {
+    "zoneID": 47,
+    "zone": "One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations",
+    "category": "cropland_orchard_plantation",
+    "COLOR": "#E76F51",
+    "count": 359409.0
+  },
+  {
+    "zoneID": 48,
+    "zone": "Subtropical and tropical marshes",
+    "category": "subtropical_tropical_marsh",
+    "COLOR": "#00ACC1",
+    "count": 2400.0
+  },
+  {
+    "zoneID": 49,
+    "zone": "Broadleaf evergreen forests in subtropical zone",
+    "category": "subtropical_evergreen_forest",
+    "COLOR": "#008000",
+    "count": 158047.0
+  },
+  {
+    "zoneID": 50,
+    "zone": "Evergreen xeromorphic succulent thorny scrubs in subtropical and trpical zones",
+    "category": "xeromorphic_succulent_thorny_scrub",
+    "COLOR": "#C2185B",
+    "count": 2515.0
+  },
+  {
+    "zoneID": 51,
+    "zone": "Needleleaf forests in tropical zone",
+    "category": "tropical_needleleaf_forest",
+    "COLOR": "#004D40",
+    "count": 40.0
+  },
+  {
+    "zoneID": 52,
+    "zone": "Tropical rain forests",
+    "category": "tropical_rain_forest",
+    "COLOR": "#00796B",
+    "count": 24103.0
+  },
+  {
+    "zoneID": 53,
+    "zone": "One year three ripes grain fields; tropical evergreen orchards and economic tree plantations",
+    "category": "tropical_cropland_orchard_plantation",
+    "COLOR": "#FF7043",
+    "count": 67859.0
+  },
+  {
+    "zoneID": 54,
+    "zone": "Tropical mangroves",
+    "category": "mangrove",
+    "COLOR": "#00695C",
+    "count": 11883.0
+  },
+  {
+    "zoneID": 55,
+    "zone": "Tropical monsoon forests",
+    "category": "tropical_monsoon_forest",
+    "COLOR": "#00A152",
+    "count": 6461.0
+  },
+  {
+    "zoneID": 56,
+    "zone": "Broadleaf evergreen succulent scrub and dwarf forest on coral islands in tropical zone",
+    "category": "coral_island_scrub_dwarf_forest",
+    "COLOR": "#EC407A",
+    "count": 3.0
+  },
+  {
+    "zoneID": 99,
+    "zone": "Novel zone / no suitable current zone",
+    "category": "novel",
+    "COLOR": "#1A1A1A",
+    "count": NaN
+  }
+]

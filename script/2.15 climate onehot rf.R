@@ -1,439 +1,348 @@
-# Climate One-Hot RF — no spatial CV + multi-Forest
-# Zone 1 first, then loop over zones 2:55
-# ============================================================
+# Climate one-vs-rest Multi-Forest models.
+# Backward purging selects exactly nine predictors before final training.
+# Existing selected-variable Multi-Forest models are reused by default.
+
 library(CEMT)
-library(ClimateNAr)
 library(data.table)
-library(foreach)
 library(doSNOW)
+library(foreach)
+library(randomForest)
 
-rm(list = ls()); gc()
+rm(list = ls())
+gc()
 
-base_dir <- "H:/Jing/ecoChina2"
-setwd(base_dir)
+find_project_root <- function(path = getwd()) {
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
+  repeat {
+    if (file.exists(file.path(path, "script", "2.15 climate onehot rf.R"))) return(path)
+    parent <- dirname(path)
+    if (parent == path) stop("Run inside the repository or set ECOCHINA2_DIR.")
+    path <- parent
+  }
+}
 
+env_flag <- function(name, default = FALSE) {
+  value <- Sys.getenv(name, unset = if (default) "true" else "false")
+  tolower(trimws(value)) %in% c("1", "true", "yes", "y")
+}
+
+env_root <- Sys.getenv("ECOCHINA2_DIR", unset = "")
+base_dir <- if (nzchar(env_root)) {
+  normalizePath(env_root, winslash = "/", mustWork = TRUE)
+} else {
+  find_project_root()
+}
 source(file.path(base_dir, "functions", "mcRFop_cls3.R"))
 
-# 0. Multi-Forest functions ===================================================
+zoneID <- c(1:7, 9:50, 52:55)
+base_seed <- 49L
+n_selected <- 9L
+n_tree_selection <- 100L
+n_tree_mf <- 100L
+n_forest <- 10L
+absence_ratio <- 1.3
 
-mcmfRF2 <- function(xy_y, xy_n, nr = 1.2, varList, yCol,
-                    reg = FALSE, nTree = 100, nForest = 10) {
-  library(foreach); library(doSNOW); library(randomForest)
-  nCore <- min(max(1L, parallel::detectCores() - 1L), nTree)
-  ntree_vec <- rep(floor(nTree / nCore), nCore)
-  if (nTree %% nCore > 0) {
-    ntree_vec[seq_len(nTree %% nCore)] <- ntree_vec[seq_len(nTree %% nCore)] + 1L
+results_dir <- file.path(base_dir, "results")
+model_dir <- file.path(base_dir, "rf")
+accuracy_dir <- file.path(base_dir, "accuracy_climate_var")
+dir.create(results_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(model_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(accuracy_dir, recursive = TRUE, showWarnings = FALSE)
+
+force_split <- env_flag("ECOCHINA2_FORCE_SPLIT", FALSE)
+force_selection <- env_flag("ECOCHINA2_FORCE_SELECTION", FALSE) || force_split
+force_training <- env_flag("ECOCHINA2_FORCE_CLIMATE_TRAINING", FALSE) ||
+  force_selection
+
+accuracy_summary_file <- file.path(
+  accuracy_dir, "climate_rf_var_accuracy_summary.csv"
+)
+if (file.exists(accuracy_summary_file)) {
+  existing_accuracy <- fread(accuracy_summary_file)
+  if ("model" %in% names(existing_accuracy)) {
+    retained_accuracy <- existing_accuracy[model == "mf_var"]
+    if (nrow(retained_accuracy) != nrow(existing_accuracy)) {
+      fwrite(retained_accuracy, accuracy_summary_file)
+    }
   }
-  ntree_vec <- ntree_vec[ntree_vec > 0]
-  cl <- makeCluster(length(ntree_vec), type = "SOCK")
-  registerDoSNOW(cl)
-  on.exit(stopCluster(cl), add = TRUE)
-  
-  n_prs <- nrow(xy_y)
-  n_abs <- min(nrow(xy_n), floor(n_prs * nr))
-  
-  for (f in 1:nForest) {
-    train_abs <- xy_n[sample(seq_len(nrow(xy_n)), n_abs, replace = FALSE), ]
-    train <- rbind(xy_y, train_abs)
-    x2 <- train[, varList, drop = FALSE]
-    if (!reg) y2 <- factor(train[[yCol]], levels = c(0, 1))
-    if (reg)  y2 <- train[[yCol]]
-    
-    rf2 <- foreach(
-      ntree = ntree_vec,
-      .combine = combine,
-      .packages = "randomForest"
-    ) %dopar% randomForest(x2, y2, ntree = ntree, importance = TRUE)
-    
-    if (f == 1) rfC <- rf2 else rfC <- combine(rfC, rf2)
-  }
-  rfC
 }
 
-mcmfRFop <- function(xy_y, xy_n, nr = 1.2, varList, yCol,
-                     nTree = 100, nForest = 10, nP = 10, thd = 0.8) {
-  library(foreach); library(doSNOW); library(randomForest)
-  nCore <- min(max(1L, parallel::detectCores() - 1L), nTree)
-  ntree_vec <- rep(floor(nTree / nCore), nCore)
-  if (nTree %% nCore > 0) {
-    ntree_vec[seq_len(nTree %% nCore)] <- ntree_vec[seq_len(nTree %% nCore)] + 1L
-  }
-  ntree_vec <- ntree_vec[ntree_vec > 0]
-  cl <- makeCluster(length(ntree_vec), type = "SOCK")
-  registerDoSNOW(cl)
-  on.exit(stopCluster(cl), add = TRUE)
-  
-  n_prs <- nrow(xy_y)
-  n_abs <- min(nrow(xy_n), floor(n_prs * nr))
-  
-  for (f in 1:nForest) {
-    train_abs <- xy_n[sample(seq_len(nrow(xy_n)), n_abs, replace = FALSE), ]
-    train <- rbind(xy_y, train_abs)
-    x2 <- train[, varList, drop = FALSE]
-    y2 <- factor(train[[yCol]], levels = c(0, 1))
-    
-    Op <- classOP(x2, y2, nTree1 = 5, nTree2 = 10, nOP = nP, thd = thd)
-    x3 <- Op$x
-    y3 <- Op$y
-    
-    rf2 <- foreach(
-      ntree = ntree_vec,
-      .combine = combine,
-      .packages = "randomForest"
-    ) %dopar% randomForest(x3, y3, ntree = ntree, importance = TRUE)
-    
-    if (f == 1) rfC <- rf2 else rfC <- combine(rfC, rf2)
-  }
-  rfC
+model_file <- function(zone) {
+  file.path(model_dir, paste0("clm_mfVar_zone", zone, ".Rdata"))
 }
 
-rf_acc <- function(m, x, y, zone, model_name, out_dir) {
-  
-  y <- factor(y, levels = c(0, 1))
-  
-  # OOB accuracy from randomForest object, if available
-  oob_acc <- NA_real_
-  if (!is.null(m$confusion)) {
-    cm_oob <- as.matrix(m$confusion[, c("0", "1"), drop = FALSE])
-    oob_acc <- sum(diag(cm_oob)) / sum(cm_oob)
-    
+valid_model <- function(file, object_name = "clm_mfVar") {
+  if (!file.exists(file) || is.na(file.info(file)$size) || file.info(file)$size <= 0) {
+    return(FALSE)
+  }
+  tryCatch({
+    e <- new.env(parent = emptyenv())
+    load(file, envir = e)
+    if (!exists(object_name, envir = e, inherits = FALSE)) return(FALSE)
+    model <- get(object_name, envir = e, inherits = FALSE)
+    length(model$varlist) == n_selected
+  }, error = function(e) FALSE)
+}
+
+read_n_variables <- function(path, n, available) {
+  selection <- fread(path)
+  variable_col <- intersect(c("variable", "Variable"), names(selection))[1]
+  if (is.na(variable_col)) stop("Invalid selection file: ", path)
+
+  variable_sets <- lapply(selection[[variable_col]], function(value) {
+    if (is.na(value) || !nzchar(value) || value == "0") return(character())
+    trimws(strsplit(value, ",", fixed = TRUE)[[1]])
+  })
+  hit <- which(lengths(variable_sets) == n)
+  if (!length(hit)) stop("No ", n, "-predictor set in ", path)
+
+  vars <- unique(variable_sets[[hit[1]]])
+  if (length(vars) != n || length(setdiff(vars, available))) {
+    stop("Invalid ", n, "-predictor set in ", path)
+  }
+  vars
+}
+
+sample_climate <- function(x, zone_col, predictors, max_presence, seed) {
+  n_presence <- sum(x[[zone_col]] == 1L, na.rm = TRUE)
+  if (n_presence < 2L) stop("Too few presences for ", zone_col)
+
+  pos <- min(max_presence, n_presence)
+  noise <- max(1L, min(as.integer(round(0.10 * pos)), pos - 1L))
+  smpl_pa(
+    x,
+    zone_col,
+    cols = c(zone_col, predictors),
+    pos = pos,
+    noise = noise,
+    pa = 1 / absence_ratio,
+    max_n = 20000L,
+    seed = seed
+  )
+}
+
+multi_forest <- function(xy_y, xy_n, varlist, y_col, seed) {
+  detected_cores <- parallel::detectCores(logical = FALSE)
+  if (is.na(detected_cores)) detected_cores <- 1L
+  n_core <- min(max(1L, detected_cores - 1L), n_tree_mf)
+  ntree_vec <- rep(n_tree_mf %/% n_core, n_core)
+  if (n_tree_mf %% n_core) {
+    ntree_vec[seq_len(n_tree_mf %% n_core)] <-
+      ntree_vec[seq_len(n_tree_mf %% n_core)] + 1L
+  }
+  ntree_vec <- ntree_vec[ntree_vec > 0L]
+
+  cl <- parallel::makeCluster(length(ntree_vec), type = "SOCK")
+  doSNOW::registerDoSNOW(cl)
+  on.exit(parallel::stopCluster(cl), add = TRUE)
+  parallel::clusterSetRNGStream(cl, iseed = seed)
+  set.seed(seed)
+
+  combined <- NULL
+  n_absence <- min(nrow(xy_n), floor(nrow(xy_y) * absence_ratio))
+  for (forest_index in seq_len(n_forest)) {
+    train <- rbind(
+      xy_y,
+      xy_n[sample.int(nrow(xy_n), n_absence), , drop = FALSE]
+    )
+    x <- train[, varlist, drop = FALSE]
+    y <- factor(train[[y_col]], levels = c(0, 1))
+
+    forest <- foreach::foreach(
+      ntree = ntree_vec,
+      .combine = randomForest::combine,
+      .packages = "randomForest"
+    ) %dopar% {
+      randomForest::randomForest(x, y, ntree = ntree, importance = TRUE)
+    }
+    combined <- if (is.null(combined)) forest else randomForest::combine(combined, forest)
+  }
+  combined
+}
+
+save_training_accuracy <- function(model, x, y, zone) {
+  prediction <- factor(predict(model, x, type = "response"), levels = c(0, 1))
+  confusion <- table(observed = factor(y, levels = c(0, 1)), predicted = prediction)
+  fwrite(
+    as.data.table(confusion),
+    file.path(accuracy_dir, paste0("mf_var_zone", zone, "_confusion_train.csv"))
+  )
+
+  oob_accuracy <- NA_real_
+  if (!is.null(model$confusion)) {
+    oob <- as.matrix(model$confusion[, c("0", "1"), drop = FALSE])
+    oob_accuracy <- sum(diag(oob)) / sum(oob)
     fwrite(
-      as.data.table(cm_oob, keep.rownames = "observed"),
-      file.path(out_dir, paste0(model_name, "_zone", zone, "_confusion_oob.csv"))
+      as.data.table(oob, keep.rownames = "observed"),
+      file.path(accuracy_dir, paste0("mf_var_zone", zone, "_confusion_oob.csv"))
     )
   }
-  
-  # Training-set confusion matrix
-  pred <- predict(m, x, type = "response")
-  pred <- factor(pred, levels = c(0, 1))
-  
-  cm_train <- table(
-    observed = y,
-    predicted = pred
-  )
-  
-  train_acc <- sum(diag(cm_train)) / sum(cm_train)
-  
-  fwrite(
-    as.data.table(cm_train),
-    file.path(out_dir, paste0(model_name, "_zone", zone, "_confusion_train.csv"))
-  )
-  
+
   data.table(
     zone = zone,
-    model = model_name,
+    model = "mf_var",
     n = length(y),
-    oob_accuracy = oob_acc,
-    train_accuracy = train_acc
+    oob_accuracy = oob_accuracy,
+    train_accuracy = sum(diag(confusion)) / sum(confusion)
   )
 }
 
+# Avoid reading the multi-million-row climate table when every final model exists.
+all_models_valid <- !force_split && !force_selection && !force_training && all(vapply(
+  zoneID,
+  function(zone) valid_model(model_file(zone)),
+  logical(1)
+))
 
-# ── params ─────────────────────────────────────
-SMPL_POS_OP   <- 5000L
-SMPL_POS_RF   <- 8000L
-SMPL_PA       <- 1 / 1.3
-SMPL_MAXN     <- 20000L
-BASE_SEED     <- 49L
-VAR_ROW       <- 20L
-NTREE_OPLIST  <- 100L
-NTREE_PLAIN   <- 500L
-NTREE_MF      <- 100L
-NFOREST       <- 10L
-MF_NR         <- 1.3
-NTREE1        <- 100L
-NTREE2        <- 500L
-NOP           <- 3L
-THD           <- 0.75
-OUT_DIR       <- "results"
-MOD_DIR       <- "rf"
-ACC_DIR       <- "accuracy_climate"
-# ───────────────────────────────────────────────
-
-dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
-dir.create(MOD_DIR, showWarnings = FALSE, recursive = TRUE)
-dir.create(ACC_DIR, showWarnings = FALSE, recursive = TRUE)
-
-# 1. Import climate dataframe ============================================================
-
-dat <- fRead("data raw/1. zoneID_Clm_800m_Normal_1961_1990SY.csv"); hd(dat); names(dat)
-dat[dat == -9999] <- NA
-print(sort(unique(dat$zoneID)))
-
-dat <- dat[complete.cases(dat$zoneID), ]
-dat <- dat[complete.cases(dat[, 6:ncol(dat)]), ]
-zone_counts <- table(dat$zoneID); print(zone_counts)
-
-# check clim data scale, avoid mismatching between different climAP versions
-summary(dat$AHM)
-summary(dat$Tave_sm)
-
-# data summary
-#agg_data <- aggregate(dat[, 6:ncol(dat)], by = list(zoneID = dat$zoneID), FUN = mean)
-#write.csv(agg_data, file.path(OUT_DIR, "summarize_climstat_by_zoneID.csv"), row.names = FALSE)
-
-# randomly split agg_data into training/testing 7:3
-set.seed(49)
-train_indices <- sample(nrow(dat), size = 0.7 * nrow(dat))
-train_data <- dat[train_indices, ]
-test_data <- dat[-train_indices, ]
-
-fWrite(train_data, file.path(OUT_DIR, "train_data.csv"))
-fWrite(test_data, file.path(OUT_DIR, "test_data.csv"))
-
-zone_counts <- table(train_data$zoneID); print(zone_counts)
-zone_counts <- table(test_data$zoneID); print(zone_counts)
-
-
-# rf vars & labels
-xlist <- colnames(train_data)[6:ncol(train_data)]
-x <- train_data[, xlist]; hd(x)
-
-y <- as.factor(train_data$zoneID); levels(y)
-
-rm(); gc()
-
-# 2. One-hot encoding ====================================================================
-
-# training data
-train_data <- fRead(file.path(OUT_DIR, "train_data.csv"))
-train_data$zoneID <- as.factor(train_data$zoneID)
-one_hot <- model.matrix(~zoneID - 1, data = train_data); hd(one_hot)
-colnames(one_hot) <- gsub("zoneID", "zone", colnames(one_hot))
-one_hot_df <- as.data.frame(one_hot)
-combined_data <- cbind(train_data, one_hot_df)
-head(combined_data)
-fWrite(combined_data, file.path(OUT_DIR, "train_combined_data_onehot.csv"))
-# rm();gc()
-#combined_data <- fRead(file.path(OUT_DIR, "train_combined_data_onehot.csv"))
-
-# one-hot encoding for testing data
-
-
-# 3. Variable selection: zone 1 first ====================================================
-library(randomForest)
-library(caret)
-
-i <- 1
-colname <- paste0("zone", i)
-opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
-
-n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-pos_i <- min(SMPL_POS_OP, as.integer(n1_all))
-noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
-cols <- c(colname, xlist)
-
-cat("[OPLIST] zone", i, "n1 =", n1_all, "\n")
-
-if (!file.exists(opfile)) {
-  dt_s <- smpl_pa(combined_data, colname,
-                  cols = cols, pos = pos_i, noise = noise_i,
-                  pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
-  print(dt_s[, .N, by = get(colname)])
-  
-  x_df <- na.omit(as.data.frame(dt_s[, ..xlist]))
-  y_fac <- factor(dt_s[[colname]][as.numeric(rownames(x_df))], levels = c(0, 1))
-  
-  clmopList <- mcRFop_cls(x_df, y_fac, nTree = NTREE_OPLIST)
-  write.csv(as.data.frame(clmopList), opfile, row.names = FALSE)
-  rm(dt_s, x_df, y_fac, clmopList); gc()
+if (all_models_valid) {
+  cat(
+    "[USE EXISTING] All 53 climate Multi-Forest models are valid.\n",
+    "Model pattern: rf/clm_mfVar_zone<ID>.Rdata\n",
+    "Set ECOCHINA2_FORCE_CLIMATE_TRAINING=true to rebuild them.\n",
+    sep = ""
+  )
 } else {
-  cat("[SKIP] opList already exists: zone", i, "\n")
-}
+  climate_file <- file.path(
+    base_dir,
+    "data raw",
+    "1. zoneID_Clm_800m_Normal_1961_1990SY.csv"
+  )
+  train_file <- file.path(results_dir, "train_data.csv")
+  test_file <- file.path(results_dir, "test_data.csv")
+  onehot_file <- file.path(results_dir, "train_combined_data_onehot.csv")
 
-# 4. Variable selection: zones 2:55 ======================================================
+  split_complete <- all(file.exists(c(train_file, test_file, onehot_file)))
+  if (force_split || !split_complete) {
+    if (!file.exists(climate_file)) stop("Run script/1. data.R first.")
 
-for (i in 2:55) {
-  colname <- paste0("zone", i)
-  
-  if (!(colname %in% names(combined_data))) {
-    cat("[SKIP] no col:", colname, "\n"); next
-  }
-  
-  n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-  if (is.na(n1_all) || n1_all == 0) {
-    cat("[SKIP] no presence:", colname, "\n"); next
-  }
-  
-  opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
-  if (file.exists(opfile)) {
-    cat("[SKIP] opList already exists:", colname, "\n"); next
-  }
-  
-  tryCatch({
-    pos_i <- min(SMPL_POS_OP, as.integer(n1_all))
-    noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
-    cols <- c(colname, xlist)
-    
-    cat("[OPLIST] zone", i, "n1 =", n1_all, "\n")
-    
-    dt_s <- smpl_pa(combined_data, colname,
-                    cols = cols, pos = pos_i, noise = noise_i,
-                    pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
-    print(dt_s[, .N, by = get(colname)])
-    
-    x_df <- na.omit(as.data.frame(dt_s[, ..xlist]))
-    y_fac <- factor(dt_s[[colname]][as.numeric(rownames(x_df))], levels = c(0, 1))
-    
-    if (anyNA(y_fac) || length(unique(y_fac)) < 2) {
-      cat("[SKIP] invalid y:", colname, "\n"); next
+    climate <- fread(climate_file)
+    climate[climate == -9999] <- NA
+    if (!"zoneID" %in% names(climate)) stop("Climate table lacks zoneID.")
+
+    predictors <- names(climate)[6:ncol(climate)]
+    climate <- climate[complete.cases(climate[, c("zoneID", predictors), with = FALSE])]
+    set.seed(base_seed)
+    train_id <- sample.int(nrow(climate), floor(0.70 * nrow(climate)))
+    climate_train <- climate[train_id]
+    climate_test <- climate[-train_id]
+    fwrite(climate_train, train_file)
+    fwrite(climate_test, test_file)
+
+    for (zone in sort(unique(climate_train$zoneID))) {
+      climate_train[, (paste0("zone", zone)) := as.integer(zoneID == zone)]
     }
-    
-    clmopList <- mcRFop_cls(x_df, y_fac, nTree = NTREE_OPLIST)
-    write.csv(as.data.frame(clmopList), opfile, row.names = FALSE)
-    rm(dt_s, x_df, y_fac, clmopList); gc()
-    
-  }, error = function(e) {
-    cat("[ERROR] opList", colname, ":", conditionMessage(e), "\n"); gc()
-  })
-}
-
-# 5. RF training: zone 1 first ===========================================================
-
-acc_all <- list()
-
-i <- 1
-colname <- paste0("zone", i)
-opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
-
-n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-pos_i <- min(SMPL_POS_RF, as.integer(n1_all))
-noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
-cols <- c(colname, xlist)
-
-cat("[RF] zone", i, "\n")
-
-dt_s <- smpl_pa(combined_data, colname,
-                cols = cols, pos = pos_i, noise = noise_i,
-                pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
-print(dt_s[, .N, by = get(colname)])
-
-dt_s <- as.data.frame(dt_s)
-xy_y <- dt_s[dt_s[[colname]] == 1, ]
-xy_n <- dt_s[dt_s[[colname]] == 0, ]
-clm_y <- factor(dt_s[[colname]], levels = c(0, 1))
-clm_x0 <- dt_s[, xlist, drop = FALSE]
-
-# 5.1 Plain single RF
-clm_plain <- randomForest(clm_x0, clm_y, ntree = NTREE_PLAIN, importance = TRUE)
-clm_plain$varlist <- xlist
-acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_plain, clm_x0, clm_y, i, "plain_rf", ACC_DIR)
-save(clm_plain, file = file.path(MOD_DIR, paste0("clm_plain_zone", i, ".Rdata")))
-
-# 5.2 Plain multi-Forest RF
-clm_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
-                  reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
-clm_mf$varlist <- xlist
-acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_mf, clm_x0, clm_y, i, "plain_mf_rf", ACC_DIR)
-save(clm_mf, file = file.path(MOD_DIR, paste0("clm_mf_zone", i, ".Rdata")))
-
-# 5.3 Optimized single RF
-clmList <- read.csv(opfile)
-
-varlist <- trimws(unlist(strsplit(clmList[VAR_ROW + 1, 2], ",")))
-varlist <- intersect(varlist, names(dt_s))
-
-clm_x <- dt_s[, varlist, drop = FALSE]
-clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
-clim_zOp$varlist <- varlist
-acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_zOp, clm_x, clm_y, i, "optimized_rf", ACC_DIR)
-save(clim_zOp, file = file.path(MOD_DIR, paste0("clm_zOp_zone", i, ".Rdata")))
-
-# 5.4 Optimized multi-Forest RF
-clim_mfOp <- mcmfRFop(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
-                      nTree = NTREE_MF, nForest = NFOREST, nP = NOP, thd = THD)
-clim_mfOp$varlist <- varlist
-acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_mfOp, clm_x, clm_y, i, "optimized_mf_rf", ACC_DIR)
-save(clim_mfOp, file = file.path(MOD_DIR, paste0("clm_mfOp_zone", i, ".Rdata")))
-
-rm(dt_s, xy_y, xy_n, clm_y, clm_x0, clm_plain, clm_mf,
-   clm_x, clim_zOp, clim_mfOp, clmList, varlist); gc()
-
-# 6. RF training: zones 2:55 =============================================================
-
-for (i in 2:55) {
-  colname <- paste0("zone", i)
-  
-  if (!(colname %in% names(combined_data))) {
-    cat("[SKIP] no col:", colname, "\n"); next
+    fwrite(climate_train, onehot_file)
+    rm(climate, climate_test)
+    gc()
+  } else {
+    cat("[USE EXISTING] Climate train/test split and one-hot table.\n")
+    climate_train <- fread(onehot_file)
+    train_header <- fread(train_file, nrows = 0)
+    predictors <- names(train_header)[6:ncol(train_header)]
   }
-  
-  n1_all <- sum(combined_data[[colname]] == 1, na.rm = TRUE)
-  if (is.na(n1_all) || n1_all == 0) {
-    cat("[SKIP] no presence:", colname, "\n"); next
-  }
-  
-  opfile <- file.path(OUT_DIR, paste0("clmhot_opList_zone", i, ".csv"))
-  if (!file.exists(opfile)) {
-    cat("[SKIP] no opList:", colname, "\n"); next
-  }
-  
-  tryCatch({
-    pos_i <- min(SMPL_POS_RF, as.integer(n1_all))
-    noise_i <- max(1L, min(as.integer(round(0.10 * pos_i)), pos_i - 1L))
-    cols <- c(colname, xlist)
-    
-    cat("[RF] zone", i, "\n")
-    
-    dt_s <- smpl_pa(combined_data, colname,
-                    cols = cols, pos = pos_i, noise = noise_i,
-                    pa = SMPL_PA, max_n = SMPL_MAXN, seed = BASE_SEED + i)
-    print(dt_s[, .N, by = get(colname)])
-    
-    dt_s <- as.data.frame(dt_s)
-    xy_y <- dt_s[dt_s[[colname]] == 1, ]
-    xy_n <- dt_s[dt_s[[colname]] == 0, ]
-    if (nrow(xy_y) < 2 || nrow(xy_n) < 2) {
-      cat("[SKIP] too few pres/abs:", colname, "\n"); next
-    }
-    
-    clm_y <- factor(dt_s[[colname]], levels = c(0, 1))
-    clm_x0 <- dt_s[, xlist, drop = FALSE]
-    
-    clm_plain <- randomForest(clm_x0, clm_y, ntree = NTREE_PLAIN, importance = TRUE)
-    clm_plain$varlist <- xlist
-    acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_plain, clm_x0, clm_y, i, "plain_rf", ACC_DIR)
-    save(clm_plain, file = file.path(MOD_DIR, paste0("clm_plain_zone", i, ".Rdata")))
-    
-    clm_mf <- mcmfRF2(xy_y, xy_n, nr = MF_NR, varList = xlist, yCol = colname,
-                      reg = FALSE, nTree = NTREE_MF, nForest = NFOREST)
-    clm_mf$varlist <- xlist
-    acc_all[[length(acc_all) + 1L]] <- rf_acc(clm_mf, clm_x0, clm_y, i, "plain_mf_rf", ACC_DIR)
-    save(clm_mf, file = file.path(MOD_DIR, paste0("clm_mf_zone", i, ".Rdata")))
-    
-    clmList <- read.csv(opfile)
-    if (nrow(clmList) < VAR_ROW + 1 || clmList[VAR_ROW + 1, 2] == "0") {
-      cat("[SKIP] no valid varset:", colname, "\n"); next
-    }
-    varlist <- trimws(unlist(strsplit(clmList[VAR_ROW + 1, 2], ",")))
-    varlist <- intersect(varlist, names(dt_s))
-    if (length(varlist) < 2) {
-      cat("[SKIP] too few vars:", colname, "\n"); next
-    }
-    
-    clm_x <- dt_s[, varlist, drop = FALSE]
-    clim_zOp <- classOP(clm_x, clm_y, nTree1 = NTREE1, nTree2 = NTREE2, nOP = NOP, thd = THD)
-    clim_zOp$varlist <- varlist
-    acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_zOp, clm_x, clm_y, i, "optimized_rf", ACC_DIR)
-    save(clim_zOp, file = file.path(MOD_DIR, paste0("clm_zOp_zone", i, ".Rdata")))
-    
-    clim_mfOp <- mcmfRFop(xy_y, xy_n, nr = MF_NR, varList = varlist, yCol = colname,
-                          nTree = NTREE_MF, nForest = NFOREST, nP = NOP, thd = THD)
-    clim_mfOp$varlist <- varlist
-    acc_all[[length(acc_all) + 1L]] <- rf_acc(clim_mfOp, clm_x, clm_y, i, "optimized_mf_rf", ACC_DIR)
-    save(clim_mfOp, file = file.path(MOD_DIR, paste0("clm_mfOp_zone", i, ".Rdata")))
-    
-    cat("[DONE]", colname, "\n")
-    rm(dt_s, xy_y, xy_n, clm_y, clm_x0, clm_plain, clm_mf,
-       clm_x, clim_zOp, clim_mfOp, clmList, varlist); gc()
-    
-  }, error = function(e) {
-    cat("[ERROR] RF", colname, ":", conditionMessage(e), "\n"); gc()
-  })
-}
 
-if (length(acc_all) > 0) {
-  acc_all <- rbindlist(acc_all, fill = TRUE)
-  fwrite(acc_all, file.path(ACC_DIR, "climate_rf_accuracy_summary.csv"))
-  print(acc_all)
+  if (!exists("predictors")) {
+    train_header <- fread(train_file, nrows = 0)
+    predictors <- names(train_header)[6:ncol(train_header)]
+  }
+
+  for (zone in zoneID) {
+    zone_col <- paste0("zone", zone)
+    if (!zone_col %in% names(climate_train)) {
+      climate_train[, (zone_col) := as.integer(zoneID == zone)]
+    }
+
+    selection_file <- file.path(results_dir, paste0("clmhot_opList_zone", zone, ".csv"))
+    if (!force_selection && file.exists(selection_file)) {
+      read_n_variables(selection_file, n_selected, predictors)
+      cat("[USE SELECTION] zone", zone, "\n")
+    } else {
+      cat("[SELECT] zone", zone, "\n")
+      sampled <- as.data.frame(sample_climate(
+        climate_train,
+        zone_col,
+        predictors,
+        max_presence = 5000L,
+        seed = base_seed + zone
+      ))
+      selection <- mcRFop_cls(
+        sampled[, predictors, drop = FALSE],
+        factor(sampled[[zone_col]], levels = c(0, 1)),
+        nTree = n_tree_selection,
+        seed = base_seed + zone
+      )
+      fwrite(selection, selection_file)
+      read_n_variables(selection_file, n_selected, predictors)
+      rm(sampled, selection)
+      gc()
+    }
+  }
+
+  accuracy_rows <- list()
+  for (zone in zoneID) {
+    output_file <- model_file(zone)
+    if (!force_training && valid_model(output_file)) {
+      cat("[USE MODEL] zone", zone, "\n")
+      next
+    }
+
+    zone_col <- paste0("zone", zone)
+    selection_file <- file.path(results_dir, paste0("clmhot_opList_zone", zone, ".csv"))
+    varlist <- read_n_variables(selection_file, n_selected, predictors)
+    cat("[TRAIN] zone", zone, "|", paste(varlist, collapse = ", "), "\n")
+
+    sampled <- as.data.frame(sample_climate(
+      climate_train,
+      zone_col,
+      predictors,
+      max_presence = 8000L,
+      seed = base_seed + zone
+    ))
+    sampled <- sampled[complete.cases(sampled[, c(zone_col, varlist)]), , drop = FALSE]
+    xy_y <- sampled[sampled[[zone_col]] == 1L, , drop = FALSE]
+    xy_n <- sampled[sampled[[zone_col]] == 0L, , drop = FALSE]
+    if (nrow(xy_y) < 2L || nrow(xy_n) < 2L) stop("Too few rows for zone ", zone)
+
+    clm_mfVar <- multi_forest(
+      xy_y,
+      xy_n,
+      varlist = varlist,
+      y_col = zone_col,
+      seed = base_seed + zone
+    )
+    clm_mfVar$varlist <- varlist
+    clm_mfVar$zoneID <- zone
+    clm_mfVar$model <- "mf_var"
+    clm_mfVar$nForest <- n_forest
+    clm_mfVar$nTree_per_forest <- n_tree_mf
+    save(clm_mfVar, file = output_file)
+
+    accuracy_rows[[length(accuracy_rows) + 1L]] <- save_training_accuracy(
+      clm_mfVar,
+      sampled[, varlist, drop = FALSE],
+      factor(sampled[[zone_col]], levels = c(0, 1)),
+      zone
+    )
+    rm(sampled, xy_y, xy_n, clm_mfVar)
+    gc()
+  }
+
+  if (length(accuracy_rows)) {
+    updated <- rbindlist(accuracy_rows)
+    if (file.exists(accuracy_summary_file) && !force_training) {
+      previous <- fread(accuracy_summary_file)
+      if ("model" %in% names(previous) && "zone" %in% names(previous)) {
+        previous <- previous[
+          model == "mf_var" & !(zone %in% updated$zone)
+        ]
+      } else {
+        previous <- data.table()
+      }
+      updated <- rbind(previous, updated, fill = TRUE)
+    }
+    setorder(updated, model, zone)
+    fwrite(updated, accuracy_summary_file)
+  }
+
+  cat("COMPLETE: selected-variable climate Multi-Forest workflow.\n")
 }

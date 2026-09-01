@@ -1,9 +1,9 @@
 # China vegetation-zone color palette using terra
 #
-# This script creates:
-#   1. color_palette_China.json
-#   2. color_palette_China.csv
-#   3. map and legend examples in "result maps/"
+# The established root files color_palette_China.csv/json remain canonical.
+# Lightweight aliases in data/ are maintained for clean-branch consumers. An
+# existing valid root palette is reused, so rerunning this script never changes
+# an already published colour assignment.
 #
 # Important:
 #   - Colors are matched by the real raster value zoneID.
@@ -15,7 +15,22 @@
 library(terra)
 library(jsonlite)
 
-setwd("H:/Jing/ecoChina2")
+find_project_root <- function() {
+  configured <- Sys.getenv("ECOCHINA2_DIR", unset = "")
+  if (nzchar(configured)) return(normalizePath(configured, mustWork = TRUE))
+  current <- normalizePath(getwd(), mustWork = TRUE)
+  if (dir.exists(file.path(current, "script"))) return(current)
+  if (basename(current) == "script") return(dirname(current))
+  stop("Run from the repository root or set ECOCHINA2_DIR.")
+}
+
+base_dir <- find_project_root()
+palette_dir <- file.path(base_dir, "data")
+dir.create(palette_dir, recursive = TRUE, showWarnings = FALSE)
+legacy_csv <- file.path(base_dir, "color_palette_China.csv")
+legacy_json <- file.path(base_dir, "color_palette_China.json")
+alias_csv <- file.path(palette_dir, "zone_palette.csv")
+alias_json <- file.path(palette_dir, "zone_palette.json")
 
 # ------------------------------------------------------------
 # 1. Hard-coded palette table
@@ -144,18 +159,70 @@ color_df <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# Save files used by later mapping scripts.
-writeLines(
-  toJSON(color_df, dataframe = "rows", pretty = TRUE, auto_unbox = TRUE, na = "null"),
-  "color_palette_China.json"
-)
-write.csv(color_df, "color_palette_China.csv", row.names = FALSE, na = "")
+# Reuse the established root palette when possible. This protects customized
+# colours while the hard-coded table above remains the reproducible fallback.
+palette_valid <- function(x) {
+  required <- c("zoneID", "zone", "category", "category2", "COLOR", "count")
+  is.data.frame(x) && all(required %in% names(x)) &&
+    !anyDuplicated(as.integer(x$zoneID)) &&
+    all(c(1:56, 99) %in% as.integer(x$zoneID)) &&
+    !anyNA(x$COLOR) &&
+    all(grepl("^#[0-9A-Fa-f]{6}$", x$COLOR))
+}
+
+read_palette_file <- function(file) {
+  tryCatch({
+    if (tolower(tools::file_ext(file)) == "json") {
+      as.data.frame(fromJSON(file), stringsAsFactors = FALSE)
+    } else {
+      read.csv(file, stringsAsFactors = FALSE, check.names = FALSE)
+    }
+  }, error = function(e) NULL)
+}
+
+existing_palette <- NULL
+for (file in c(legacy_csv, legacy_json, alias_csv, alias_json)) {
+  if (!file.exists(file)) next
+  candidate <- read_palette_file(file)
+  if (palette_valid(candidate)) {
+    existing_palette <- candidate
+    cat("[REUSE PALETTE]", file, "\n")
+    break
+  }
+}
+if (!is.null(existing_palette)) {
+  existing_palette$zoneID <- as.integer(existing_palette$zoneID)
+  existing_palette$count <- as.integer(existing_palette$count)
+  color_df <- existing_palette[, names(color_df), drop = FALSE]
+}
+
+write_palette_csv <- function(file) {
+  current <- if (file.exists(file)) read_palette_file(file) else NULL
+  if (palette_valid(current)) return(invisible(FALSE))
+  write.csv(color_df, file, row.names = FALSE, na = "")
+  invisible(TRUE)
+}
+
+write_palette_json <- function(file) {
+  current <- if (file.exists(file)) read_palette_file(file) else NULL
+  if (palette_valid(current)) return(invisible(FALSE))
+  writeLines(
+    toJSON(color_df, dataframe = "rows", pretty = TRUE, auto_unbox = TRUE, na = "null"),
+    file
+  )
+  invisible(TRUE)
+}
+
+write_palette_csv(legacy_csv)
+write_palette_json(legacy_json)
+write_palette_csv(alias_csv)
+write_palette_json(alias_json)
 
 # ------------------------------------------------------------
 # 2. Helper functions
 # ------------------------------------------------------------
 
-read_zone_palette <- function(json_file = "color_palette_China.json") {
+read_zone_palette <- function(json_file = legacy_json) {
   pal <- fromJSON(json_file)
   pal$zoneID <- as.integer(pal$zoneID)
   pal$zone <- as.character(pal$zone)
@@ -337,68 +404,4 @@ plot_zone_legend <- function(pal, out_file, type = c("ID", "name"),
   }
 }
 
-# ------------------------------------------------------------
-# 5. Example use
-# ------------------------------------------------------------
-
-pal <- read_zone_palette()
-
-dir.create("result maps", showWarnings = FALSE, recursive = TRUE)
-
-r <- rast("raster/veg_3")
-plot_zone_raster(
-  r, pal,
-  "result maps/veg_3_color.tif",
-  "Vegetation Types of China"
-)
-
-plot_zone_legend(pal, "result maps/legend_ID.png", type = "ID", r = r)
-plot_zone_legend(pal, "result maps/legend_names.png", type = "name", r = r)
-
-# Future predicted map example:
-# pred <- rast("path/to/predicted_zone_map.tif")
-# plot_zone_raster(pred, pal,
-#                  "result maps/pred_zone_color.tif",
-#                  "Predicted Vegetation Zones")
-# plot_zone_legend(pal, "result maps/pred_legend_ID.png", type = "ID", r = pred)
-# plot_zone_legend(pal, "result maps/pred_legend_names.png", type = "name", r = pred)
-
-# ------------------------------------------------------------
-# Plot original map and predicted normal-period map
-# ------------------------------------------------------------
-
-dir.create("result maps", showWarnings = FALSE, recursive = TRUE)
-
-# Original vegetation raster
-r_ori <- rast("raster/veg_3")
-
-plot_zone_raster(
-  r_ori, pal,
-  "result maps/veg_3_original_color.tif",
-  "Original Vegetation Types of China"
-)
-
-plot_zone_legend(
-  pal,
-  "result maps/legend_original_ID.png",
-  type = "ID",
-  r = r_ori
-)
-
-plot_zone_legend(
-  pal,
-  "result maps/legend_original_names.png",
-  type = "name",
-  r = r_ori
-)
-
-
-# Predicted normal-period vegetation raster
-r_pred <- rast("result maps/assigned_zone_normal_threshold0.1_novel99_originalTie.tif")
-
-plot_zone_raster(
-  r_pred, pal,
-  "result maps/pred_normal_color.tif",
-  "Predicted Vegetation Zones: Normal Period"
-)
-
+# Figure generation is intentionally centralized in script/11. visualization.R.

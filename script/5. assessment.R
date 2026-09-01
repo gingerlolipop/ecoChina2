@@ -1,1057 +1,683 @@
-library(CEMT)
-library(terra)
+# Assessment of the selected-variable Multi-Forest workflow
+# ==============================================================================
+# Run after script 4. This script writes analysis
+# tables only; all manuscript figures are created by script 11.
+
 library(data.table)
+library(terra)
 library(randomForest)
 
-# Outputs:
-#   1. rf_test_zone_metrics.csv
-#   2. rf_test_model_summary.csv
-#   3. normal_map_confusion_long.csv
-#   4. normal_map_zone_metrics.csv
-#   5. normal_map_overall_metrics.csv
-#   6. Four normal_map_confusion_matrix_[method].csv files
-#   7. normal_map_errors_from_original_zone.csv
-#   8. normal_map_errors_into_assigned_zone.csv
+rm(list = ls())
+gc()
 
-base_dir <- "H:/Jing/ecoChina2"
-result_dir <- file.path(base_dir, "results")
-result_root <- file.path(base_dir, "result maps")
-assess_dir <- file.path(base_dir, "assessment")
-dir.create(assess_dir, recursive = TRUE, showWarnings = FALSE)
+
+# 0. Paths and parameters =====================================================
+
+find_project_root <- function(path = getwd()) {
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
+  repeat {
+    if (file.exists(file.path(path, "script", "1. data.R"))) return(path)
+    parent <- dirname(path)
+    if (parent == path) stop("Run inside the repository or set ECOCHINA2_DIR.")
+    path <- parent
+  }
+}
+
+env_root <- Sys.getenv("ECOCHINA2_DIR", unset = "")
+project_dir <- if (nzchar(env_root)) {
+  normalizePath(env_root, winslash = "/", mustWork = TRUE)
+} else {
+  find_project_root()
+}
+
+climate_test_file <- file.path(project_dir, "results", "test_data.csv")
+soil_test_file <- file.path(project_dir, "results", "soil_test_data.csv")
+climate_model_dir <- file.path(project_dir, "rf")
+soil_model_dir <- file.path(project_dir, "rf_soil")
+
+reference_candidates <- c(
+  file.path(project_dir, "raster", "ecosys_ori.tif"),
+  file.path(project_dir, "data", "ecosys_ori.tif")
+)
+reference_file <- reference_candidates[file.exists(reference_candidates)][1]
+
+normal_map_file <- file.path(
+  project_dir,
+  "result maps",
+  "mf_var",
+  "assigned_zone_normal_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif"
+)
+assessment_dir <- file.path(project_dir, "assessment")
+legacy_assessment_dir <- file.path(project_dir, "assessment_var")
+dir.create(assessment_dir, recursive = TRUE, showWarnings = FALSE)
+
+palette_candidates <- c(
+  file.path(project_dir, "color_palette_China.csv"),
+  file.path(project_dir, "data", "zone_palette.csv")
+)
+palette_file <- palette_candidates[file.exists(palette_candidates)][1]
 
 zoneID <- c(1:7, 9:50, 52:55)
-prob_threshold <- 0.5
-map_threshold <- 0.2
-tie_tol <- 1e-4
+prob_threshold <- 0.50
 base_seed <- 49L
+method_name <- "mf_var"
+force_assessment <- tolower(trimws(
+  Sys.getenv("ECOCHINA2_FORCE_ASSESSMENT", "false")
+)) %in% c("1", "true", "yes", "y")
 
-method_order <- c(
-  "optimized_mf",
-  "optimized_rf",
-  "plain_mf",
-  "plain_rf"
+canonical_names <- c(
+  "rf_test_zone_metrics.csv",
+  "rf_test_summary.csv",
+  "climate_test_zone_metrics.csv",
+  "soil_test_zone_metrics.csv",
+  "climate_test_model_summary.csv",
+  "soil_test_model_summary.csv",
+  "normal_map_confusion_long.csv",
+  "normal_map_confusion_matrix.csv",
+  "normal_map_zone_metrics.csv",
+  "normal_map_category_confusion_long.csv",
+  "normal_map_category_confusion_matrix.csv",
+  "normal_map_category_metrics.csv",
+  "normal_map_overall_metrics.csv",
+  "normal_map_errors_from_original_zone.csv",
+  "normal_map_errors_into_assigned_zone.csv"
 )
+canonical_files <- file.path(assessment_dir, canonical_names)
+assessment_sources <- c(
+  climate_test_file,
+  soil_test_file,
+  reference_file,
+  normal_map_file,
+  palette_file,
+  file.path(climate_model_dir, paste0("clm_mfVar_zone", zoneID, ".Rdata")),
+  file.path(soil_model_dir, paste0("soil_mf_zone", zoneID, ".Rdata"))
+)
+assessment_sources <- assessment_sources[
+  !is.na(assessment_sources) & file.exists(assessment_sources)
+]
 
-model_set <- data.frame(
-  method = method_order,
-  clm_prefix = c(
-    "clm_mfOp_zone", "clm_zOp_zone",
-    "clm_mf_zone", "clm_plain_zone"
+files_are_current <- function(outputs, inputs) {
+  if (!all(file.exists(outputs))) return(FALSE)
+  if (!length(inputs)) return(TRUE)
+  min(file.info(outputs)$mtime) >= max(file.info(inputs)$mtime)
+}
+
+map_sources <- c(reference_file, normal_map_file)
+map_sources <- map_sources[!is.na(map_sources) & file.exists(map_sources)]
+map_cache_pairs <- list(
+  c(
+    file.path(assessment_dir, "normal_map_confusion_long.csv"),
+    file.path(assessment_dir, "normal_map_overall_metrics.csv")
   ),
-  clm_object = c(
-    "clim_mfOp", "clim_zOp",
-    "clm_mf", "clm_plain"
-  ),
-  soil_prefix = c(
-    "soil_mfOp_zone", "soil_zOp_zone",
-    "soil_mf_zone", "soil_plain_zone"
-  ),
-  soil_object = c(
-    "soil_mfOp", "soil_zOp",
-    "soil_mf", "soil_plain"
+  c(
+    file.path(legacy_assessment_dir, "normal_map_confusion_long_var.csv"),
+    file.path(legacy_assessment_dir, "normal_map_overall_metrics_var.csv")
   )
 )
 
-div <- function(a, b) {
-  ifelse(is.finite(b) & b > 0, a / b, NA_real_)
+valid_map_count_cache <- function(files) {
+  if (force_assessment || !files_are_current(files, map_sources)) return(FALSE)
+  tryCatch({
+    confusion_names <- names(fread(files[1], nrows = 0))
+    overall_names <- names(fread(files[2], nrows = 0))
+    all(c("original_zone") %in% confusion_names) &&
+      any(c("assigned_zone", "predicted_zone") %in% confusion_names) &&
+      any(c("pixels", "n") %in% confusion_names) &&
+      all(c("valid_original_pixels", "compared_pixels") %in% overall_names)
+  }, error = function(e) FALSE)
+}
+
+map_cache_pair <- NULL
+for (candidate in map_cache_pairs) {
+  if (valid_map_count_cache(candidate)) {
+    map_cache_pair <- candidate
+    break
+  }
+}
+
+# Assessment tables are small but their map confusion table requires a full
+# raster pass. Reuse current short outputs before loading models or rasters.
+assessment_ready <- !force_assessment &&
+  files_are_current(canonical_files, assessment_sources)
+
+if (assessment_ready) {
+  cat(
+    "[USE EXISTING] Assessment tables are complete.\n",
+    "Tables: ", assessment_dir, "\n",
+    sep = ""
+  )
+} else {
+
+required_files <- c(
+  climate_test_file,
+  soil_test_file,
+  reference_file,
+  normal_map_file
+)
+required_files <- required_files[!is.na(required_files)]
+missing_files <- required_files[!file.exists(required_files)]
+
+if (length(missing_files)) {
+  stop("Missing required file(s):\n", paste(missing_files, collapse = "\n"))
+}
+
+if (is.na(reference_file)) {
+  stop("Missing raster/ecosys_ori.tif.")
+}
+
+if (is.na(palette_file)) {
+  stop("Missing zone palette. Run script/color_palette.R first.")
+}
+
+
+# 1. Metric helpers ===========================================================
+
+safe_divide <- function(numerator, denominator) {
+  ifelse(is.finite(denominator) & denominator > 0,
+         numerator / denominator, NA_real_)
 }
 
 mean_na <- function(x) {
   if (all(is.na(x))) NA_real_ else mean(x, na.rm = TRUE)
 }
 
-auc_rank <- function(y, p) {
-  n1 <- as.numeric(sum(y == 1))
-  n0 <- as.numeric(sum(y == 0))
-  
-  if (n1 == 0 || n0 == 0) return(NA_real_)
-  
-  (sum(rank(p, ties.method = "average")[y == 1]) -
-      n1 * (n1 + 1) / 2) / (n1 * n0)
+sd_na <- function(x) {
+  if (sum(!is.na(x)) < 2L) NA_real_ else sd(x, na.rm = TRUE)
 }
 
-load_rf <- function(file, object) {
-  if (!file.exists(file)) return(NULL)
-  
-  e <- new.env()
-  load(file, envir = e)
-  
-  if (!exists(object, envir = e)) return(NULL)
-  get(object, envir = e)
-}
+auc_rank <- function(observed, probability) {
+  n_presence <- sum(observed == 1)
+  n_absence <- sum(observed == 0)
 
-get_vars <- function(m) {
-  if (!is.null(m$varlist)) return(m$varlist)
-  rownames(m$importance)
-}
+  if (!n_presence || !n_absence) return(NA_real_)
 
-balance_test <- function(test, zone, seed) {
-  pos <- which(test$zoneID == zone)
-  
-  # Absence is sampled only from modeled zones.
-  neg <- which(
-    test$zoneID %in% zoneID &
-      test$zoneID != zone
+  rank_sum <- sum(
+    rank(probability, ties.method = "average")[observed == 1]
   )
-  
-  if (!length(pos) || !length(neg)) return(integer())
-  
-  set.seed(seed)
-  
-  if (length(neg) > length(pos)) {
-    neg <- neg[sample.int(length(neg), length(pos))]
+
+  (rank_sum - n_presence * (n_presence + 1) / 2) /
+    (n_presence * n_absence)
+}
+
+metrics_from_counts <- function(TP, TN, FP, FN, auc = NA_real_) {
+  sensitivity <- safe_divide(TP, TP + FN)
+  specificity <- safe_divide(TN, TN + FP)
+  precision <- safe_divide(TP, TP + FP)
+
+  data.table(
+    TP = TP,
+    TN = TN,
+    FP = FP,
+    FN = FN,
+    accuracy = safe_divide(TP + TN, TP + TN + FP + FN),
+    balanced_accuracy = (sensitivity + specificity) / 2,
+    sensitivity = sensitivity,
+    specificity = specificity,
+    precision = precision,
+    f1 = safe_divide(2 * TP, 2 * TP + FP + FN),
+    tss = sensitivity + specificity - 1,
+    auc = auc
+  )
+}
+
+binary_metrics <- function(observed, predicted, probability = NULL) {
+  metrics_from_counts(
+    TP = sum(observed == 1 & predicted == 1),
+    TN = sum(observed == 0 & predicted == 0),
+    FP = sum(observed == 0 & predicted == 1),
+    FN = sum(observed == 1 & predicted == 0),
+    auc = if (is.null(probability)) NA_real_ else
+      auc_rank(observed, probability)
+  )
+}
+
+get_varlist <- function(model, model_file) {
+  vars <- model$varlist
+
+  if (is.null(vars) || !length(vars)) {
+    vars <- rownames(model$importance)
   }
-  
-  c(pos, neg)
+
+  if (is.null(vars) || !length(vars)) {
+    stop("No predictor names found in: ", model_file)
+  }
+
+  if (length(vars) != 9L) {
+    stop("Expected 9 selected predictors in ", model_file,
+         "; found ", length(vars), ".")
+  }
+
+  as.character(vars)
+}
+
+load_model <- function(model_file, object_name) {
+  environment <- new.env(parent = emptyenv())
+  load(model_file, envir = environment)
+
+  if (!exists(object_name, envir = environment, inherits = FALSE)) {
+    stop("Object '", object_name, "' not found in: ", model_file)
+  }
+
+  get(object_name, envir = environment, inherits = FALSE)
+}
+
+balanced_rows <- function(data, zone, seed) {
+  presence <- which(data$zoneID == zone)
+  absence <- which(data$zoneID %in% zoneID & data$zoneID != zone)
+
+  if (!length(presence) || !length(absence)) return(integer())
+
+  set.seed(seed)
+  n_each <- min(length(presence), length(absence))
+
+  if (length(presence) > n_each) {
+    presence <- sample(presence, n_each)
+  }
+
+  if (length(absence) > n_each) {
+    absence <- sample(absence, n_each)
+  }
+
+  c(presence, absence)
 }
 
 
-# 1. Independent climate and soil RF assessment ===============================
+# 2. Balanced held-out binary assessment =====================================
 
-clm_test_file <- file.path(result_dir, "test_data.csv")
-soil_test_file <- file.path(result_dir, "soil_test_data.csv")
-
-if (!file.exists(clm_test_file)) {
-  stop("Missing climate test data: ", clm_test_file)
-}
-
-if (!file.exists(soil_test_file)) {
-  stop("Missing soil test data: ", soil_test_file)
-}
-
-clm_test <- as.data.frame(fread(clm_test_file))
+climate_test <- as.data.frame(fread(climate_test_file))
 soil_test <- as.data.frame(fread(soil_test_file))
+climate_test$zoneID <- as.integer(as.character(climate_test$zoneID))
+soil_test$zoneID <- as.integer(as.character(soil_test$zoneID))
 
-clm_test$zoneID <- as.numeric(as.character(clm_test$zoneID))
-soil_test$zoneID <- as.numeric(as.character(soil_test$zoneID))
-
-# All four models use the same balanced test observations.
-test_index <- list(
-  climate = setNames(
-    lapply(
-      zoneID,
-      function(z) balance_test(clm_test, z, base_seed + z)
-    ),
-    zoneID
-  ),
-  soil = setNames(
-    lapply(
-      zoneID,
-      function(z) balance_test(soil_test, z, base_seed + 1000L + z)
-    ),
-    zoneID
-  )
+model_table <- data.table(
+  niche = c("climate", "soil"),
+  model_dir = c(climate_model_dir, soil_model_dir),
+  model_prefix = c("clm_mfVar_zone", "soil_mf_zone"),
+  object_name = c("clm_mfVar", "soil_mf")
 )
 
-assess_rf <- function(method, niche, zone) {
-  cfg <- model_set[model_set$method == method, , drop = FALSE]
-  is_clm <- niche == "climate"
-  
-  prefix <- if (is_clm) cfg$clm_prefix else cfg$soil_prefix
-  object <- if (is_clm) cfg$clm_object else cfg$soil_object
-  test <- if (is_clm) clm_test else soil_test
-  model_dir <- if (is_clm) "rf" else "rf_soil"
-  
-  file <- file.path(
-    base_dir,
-    model_dir,
-    paste0(prefix, zone, ".Rdata")
-  )
-  
-  m <- load_rf(file, object)
-  
-  if (is.null(m)) {
-    cat("[SKIP MODEL]", method, "|", niche, "| zone", zone, "\n")
-    return(NULL)
-  }
-  
-  vars <- get_vars(m)
-  
-  if (is.null(vars) || !all(vars %in% names(test))) {
-    cat("[SKIP VARS]", method, "|", niche, "| zone", zone, "\n")
-    return(NULL)
-  }
-  
-  idx <- test_index[[niche]][[as.character(zone)]]
-  
-  if (!length(idx)) {
-    cat("[SKIP TEST]", method, "|", niche, "| zone", zone, "\n")
-    return(NULL)
-  }
-  
-  x <- test[idx, vars, drop = FALSE]
-  y <- as.integer(test$zoneID[idx] == zone)
-  
-  keep <- complete.cases(x)
-  x <- x[keep, , drop = FALSE]
-  y <- y[keep]
-  
-  if (!nrow(x) || length(unique(y)) < 2) return(NULL)
-  
-  prob <- predict(m, x, type = "prob")
-  
-  if (!("1" %in% colnames(prob))) {
-    cat("[SKIP PROB]", method, "|", niche, "| zone", zone, "\n")
-    return(NULL)
-  }
-  
-  prob <- as.numeric(prob[, "1"])
-  keep <- is.finite(prob)
-  
-  prob <- prob[keep]
-  y <- y[keep]
-  
-  pred <- as.integer(prob >= prob_threshold)
-  
-  TP <- sum(y == 1 & pred == 1)
-  TN <- sum(y == 0 & pred == 0)
-  FP <- sum(y == 0 & pred == 1)
-  FN <- sum(y == 1 & pred == 0)
-  
-  recall <- div(TP, TP + FN)
-  specificity <- div(TN, TN + FP)
-  precision <- div(TP, TP + FP)
-  balanced_accuracy <- div(recall + specificity, 2)
-  tss <- recall + specificity - 1
-  
-  data.table(
-    method,
-    niche,
-    zone,
-    threshold = prob_threshold,
-    sampling = "all presence + equal absence",
-    n_test = length(y),
-    presence = sum(y == 1),
-    absence = sum(y == 0),
-    TP, TN, FP, FN,
-    accuracy = div(TP + TN, length(y)),
-    balanced_accuracy,
-    recall,
-    specificity,
-    precision,
-    f1 = div(2 * precision * recall, precision + recall),
-    tss,
-    auc = auc_rank(y, prob)
-  )
-}
+zone_results <- list()
 
-rf_list <- list()
+for (model_row in seq_len(nrow(model_table))) {
+  niche <- model_table$niche[model_row]
+  test_data <- if (niche == "climate") climate_test else soil_test
 
-for (method in method_order) {
-  for (niche in c("climate", "soil")) {
-    for (zone in zoneID) {
-      out <- assess_rf(method, niche, zone)
-      
-      if (!is.null(out)) {
-        rf_list[[length(rf_list) + 1L]] <- out
-      }
+  for (zone in zoneID) {
+    model_file <- file.path(
+      model_table$model_dir[model_row],
+      paste0(model_table$model_prefix[model_row], zone, ".Rdata")
+    )
+
+    if (!file.exists(model_file)) {
+      stop("Missing model: ", model_file)
     }
+
+    model <- load_model(model_file, model_table$object_name[model_row])
+    varlist <- get_varlist(model, model_file)
+    missing_vars <- setdiff(varlist, names(test_data))
+
+    if (length(missing_vars)) {
+      stop(
+        "Held-out ", niche, " data lack predictor(s) for Zone ", zone, ": ",
+        paste(missing_vars, collapse = ", ")
+      )
+    }
+
+    complete <- complete.cases(test_data[, varlist, drop = FALSE]) &
+      test_data$zoneID %in% zoneID
+    test_complete <- test_data[complete, , drop = FALSE]
+    seed_offset <- if (niche == "climate") zone else 1000L + zone
+    rows <- balanced_rows(
+      test_complete,
+      zone,
+      base_seed + seed_offset
+    )
+
+    if (!length(rows)) {
+      stop("No balanced held-out sample for ", niche, " Zone ", zone, ".")
+    }
+
+    x <- test_complete[rows, varlist, drop = FALSE]
+    observed <- as.integer(test_complete$zoneID[rows] == zone)
+    probability_matrix <- predict(model, x, type = "prob")
+
+    if (!("1" %in% colnames(probability_matrix))) {
+      stop("Model lacks class '1': ", model_file)
+    }
+
+    probability <- as.numeric(probability_matrix[, "1"])
+    finite_probability <- is.finite(probability)
+    probability <- probability[finite_probability]
+    observed <- observed[finite_probability]
+
+    if (length(unique(observed)) != 2L) {
+      stop("Held-out probabilities do not retain both classes for ",
+           niche, " Zone ", zone, ".")
+    }
+
+    predicted <- as.integer(probability >= prob_threshold)
+    metrics <- binary_metrics(observed, predicted, probability)
+
+    zone_results[[length(zone_results) + 1L]] <- cbind(
+      data.table(
+        method = method_name,
+        niche = niche,
+        zone = zone,
+        threshold = prob_threshold,
+        sampling = "equal presence and absence",
+        n_test = length(observed),
+        presence = sum(observed == 1),
+        absence = sum(observed == 0),
+        n_predictors = length(varlist)
+      ),
+      metrics
+    )
+
+    rm(model, x, probability_matrix)
   }
 }
 
-if (!length(rf_list)) {
-  stop("No RF models could be assessed.")
-}
-
-rf_test <- rbindlist(rf_list)
+rf_test <- rbindlist(zone_results, use.names = TRUE)
+setorder(rf_test, niche, zone)
 
 rf_summary <- rf_test[, .(
   zones_assessed = .N,
-  zones_with_presence = sum(presence > 0),
   mean_accuracy = mean_na(accuracy),
+  sd_accuracy = sd_na(accuracy),
   mean_balanced_accuracy = mean_na(balanced_accuracy),
-  mean_recall = mean_na(recall),
+  sd_balanced_accuracy = sd_na(balanced_accuracy),
+  mean_sensitivity = mean_na(sensitivity),
+  sd_sensitivity = sd_na(sensitivity),
   mean_specificity = mean_na(specificity),
+  sd_specificity = sd_na(specificity),
   mean_precision = mean_na(precision),
+  sd_precision = sd_na(precision),
   mean_f1 = mean_na(f1),
+  sd_f1 = sd_na(f1),
   mean_tss = mean_na(tss),
-  mean_auc = mean_na(auc)
+  sd_tss = sd_na(tss),
+  mean_auc = mean_na(auc),
+  sd_auc = sd_na(auc)
 ), by = .(method, niche)]
 
+fwrite(rf_test, file.path(assessment_dir, "rf_test_zone_metrics.csv"))
+fwrite(rf_summary, file.path(assessment_dir, "rf_test_summary.csv"))
 fwrite(
-  rf_test,
-  file.path(assess_dir, "rf_test_zone_metrics.csv")
+  rf_test[niche == "climate"],
+  file.path(assessment_dir, "climate_test_zone_metrics.csv")
 )
-
 fwrite(
-  rf_summary,
-  file.path(assess_dir, "rf_test_model_summary.csv")
+  rf_test[niche == "soil"],
+  file.path(assessment_dir, "soil_test_zone_metrics.csv")
+)
+fwrite(
+  rf_summary[niche == "climate"],
+  file.path(assessment_dir, "climate_test_model_summary.csv")
+)
+fwrite(
+  rf_summary[niche == "soil"],
+  file.path(assessment_dir, "soil_test_model_summary.csv")
 )
 
-cat("\n[RF ASSESSMENT COMPLETE]\n")
-print(rf_summary[order(niche, -mean_auc)])
 
+# 3. Normal assigned-map assessment ==========================================
 
-# 2. Completed normal-map assessment ==========================================
-
-r <- rast(file.path(base_dir, "raster/ecosys_ori.tif"))
-
-# Keep only modeled original zones. Zones 8 and 51 are excluded.
-ori <- subst(
-  r,
-  from = zoneID,
-  to = zoneID,
-  others = NA
-)
-names(ori) <- "ori"
-
-normal_files <- file.path(
-  result_root,
-  method_order,
-  paste0(
-    "assigned_zone_normal",
-    "_threshold", map_threshold,
-    "_tol", tie_tol,
-    "_novel99_maskNA8_noNovelNormal.tif"
-  )
-)
-
-names(normal_files) <- method_order
-normal_files <- normal_files[file.exists(normal_files)]
-
-if (!length(normal_files)) {
-  cat("\n[SKIP MAP ASSESSMENT] No completed normal maps found.\n")
-  
-} else {
-  map_ct <- list()
-  map_zone <- list()
-  map_overall <- list()
-  
-  valid_original <- global(
-    !is.na(ori),
-    "sum",
-    na.rm = TRUE
-  )[1, 1]
-  
-  for (method in names(normal_files)) {
-    cat("[ASSESS MAP]", method, "\n")
-    
-    p <- rast(normal_files[[method]])
-    
-    if (!compareGeom(ori, p, stopOnError = FALSE)) {
-      cat("[SKIP GEOMETRY]", method, "\n")
-      next
-    }
-    
-    # Keep only valid modeled predictions.
-    pred <- subst(
-      p,
-      from = zoneID,
-      to = zoneID,
-      others = NA
-    )
-    names(pred) <- "pred"
-    
-    compared <- global(
-      !is.na(ori) & !is.na(pred),
-      "sum",
-      na.rm = TRUE
-    )[1, 1]
-    
-    # Pixels with NA in either raster are excluded.
-    ct <- as.data.table(
-      crosstab(
-        c(ori, pred),
-        long = TRUE,
-        useNA = FALSE
-      )
-    )
-    
-    setnames(ct, c("ori", "pred", "n"))
-    
-    ct[, `:=`(
-      method = method,
-      ori = as.integer(ori),
-      pred = as.integer(pred),
-      n = as.numeric(n)
-    )]
-    
-    total <- sum(ct$n, na.rm = TRUE)
-    correct <- ct[ori == pred, sum(n, na.rm = TRUE)]
-    
-    map_overall[[method]] <- data.table(
-      method,
-      valid_original_pixels = valid_original,
-      compared_pixels = compared,
-      missing_predictions = valid_original - compared,
-      coverage = div(compared, valid_original),
-      accuracy = div(correct, compared)
-    )
-    
-    map_zone[[method]] <- rbindlist(
-      lapply(sort(unique(ct$ori)), function(z) {
-        TP <- ct[ori == z & pred == z, sum(n, na.rm = TRUE)]
-        FN <- ct[ori == z & pred != z, sum(n, na.rm = TRUE)]
-        FP <- ct[ori != z & pred == z, sum(n, na.rm = TRUE)]
-        TN <- total - TP - FN - FP
-        
-        recall <- div(TP, TP + FN)
-        specificity <- div(TN, TN + FP)
-        precision <- div(TP, TP + FP)
-        
-        data.table(
-          method,
-          zone = z,
-          original_pixels = TP + FN,
-          predicted_pixels = TP + FP,
-          TP, TN, FP, FN,
-          accuracy = div(TP + TN, total),
-          recall,
-          specificity,
-          
-          precision,
-          f1 = div(2 * precision * recall, precision + recall),
-          tss = recall + specificity - 1
-        )
-      })
-    )
-    
-    map_ct[[method]] <- ct
+if (!is.null(map_cache_pair)) {
+  confusion <- fread(map_cache_pair[1])
+  if ("method" %in% names(confusion)) confusion <- confusion[method == method_name]
+  if ("predicted_zone" %in% names(confusion) &&
+      !"assigned_zone" %in% names(confusion)) {
+    setnames(confusion, "predicted_zone", "assigned_zone")
   }
-  
-  if (length(map_overall)) {
-    map_overall <- rbindlist(map_overall)
-    
-    fwrite(
-      rbindlist(map_ct, fill = TRUE),
-      file.path(assess_dir, "normal_map_confusion_long.csv")
-    )
-    
-    fwrite(
-      rbindlist(map_zone, fill = TRUE),
-      file.path(assess_dir, "normal_map_zone_metrics.csv")
-    )
-    
-    fwrite(
-      map_overall,
-      file.path(assess_dir, "normal_map_overall_metrics.csv")
-    )
-    
-    cat("\n[MAP ASSESSMENT COMPLETE]\n")
-    print(map_overall[order(-accuracy)])
-    
-  } else {
-    cat("\n[SKIP MAP ASSESSMENT] No aligned normal maps found.\n")
+  if ("n" %in% names(confusion) && !"pixels" %in% names(confusion)) {
+    setnames(confusion, "n", "pixels")
   }
-}
-
-
-# 3. Confusion matrices and error directions ==================================
-
-ct_file <- file.path(
-  assess_dir,
-  "normal_map_confusion_long.csv"
-)
-
-if (!file.exists(ct_file)) {
-  cat("\n[SKIP CONFUSION TABLES] Map assessment file not found.\n")
-  
-} else {
-  ct <- fread(ct_file)
-  
-  ct[, `:=`(
-    ori = as.integer(ori),
-    pred = as.integer(pred),
-    n = as.numeric(n)
+  confusion <- confusion[, .(
+    pixels = sum(as.numeric(pixels))
+  ), by = .(
+    original_zone = as.integer(original_zone),
+    assigned_zone = as.integer(assigned_zone)
   )]
-  
-  # Rows are original zones; columns are predicted zones.
-  for (m in unique(ct$method)) {
-    ct_m <- ct[
-      method == m &
-        !is.na(ori) &
-        !is.na(pred)
-    ]
-    
-    mat <- dcast(
-      ct_m,
-      ori ~ pred,
-      value.var = "n",
-      fill = 0
-    )
-    
-    fwrite(
-      mat,
-      file.path(
-        assess_dir,
-        paste0(
-          "normal_map_confusion_matrix_",
-          m,
-          ".csv"
-        )
-      )
-    )
+  confusion[, method := method_name]
+  setcolorder(confusion, c("method", "original_zone", "assigned_zone", "pixels"))
+
+  cached_overall <- fread(map_cache_pair[2])
+  if ("method" %in% names(cached_overall)) {
+    cached_overall <- cached_overall[method == method_name]
   }
-  
-  # Where pixels from each original zone were assigned.
-  error_out <- ct[
-    ori != pred,
-    .(pixels = sum(n)),
-    by = .(method, ori, pred)
-  ]
-  
-  ori_total <- ct[
-    ,
-    .(original_pixels = sum(n)),
-    by = .(method, ori)
-  ]
-  
-  error_out <- merge(
-    error_out,
-    ori_total,
-    by = c("method", "ori")
+  if (!nrow(cached_overall)) stop("Map cache lacks mf_var overall metrics.")
+  valid_original_pixels <- as.numeric(cached_overall$valid_original_pixels[[1]])
+  compared_pixels <- as.numeric(cached_overall$compared_pixels[[1]])
+  cat("[REUSE MAP COUNTS]", map_cache_pair[1], "\n")
+} else {
+  reference_map <- rast(reference_file)
+  assigned_map <- rast(normal_map_file)
+
+  if (!compareGeom(reference_map, assigned_map, stopOnError = FALSE)) {
+    stop("The normal assigned map does not match the reference-map geometry.")
+  }
+
+  # Only modeled original zones and valid modeled predictions enter agreement.
+  # Thus missing climate/soil cells and all unmodeled values (8, 51 and 56) do
+  # not inflate accuracy.
+  original <- subst(reference_map, from = zoneID, to = zoneID, others = NA)
+  assigned <- subst(assigned_map, from = zoneID, to = zoneID, others = NA)
+  names(original) <- "original_zone"
+  names(assigned) <- "assigned_zone"
+
+  valid_original_pixels <- as.numeric(
+    global(!is.na(original), "sum", na.rm = TRUE)[1, 1]
   )
-  
-  error_out[
-    ,
-    percent_of_original :=
-      100 * pixels / original_pixels
-  ]
-  
-  setorder(error_out, method, ori, -pixels)
-  
-  setnames(
-    error_out,
-    c("ori", "pred"),
-    c("original_zone", "assigned_zone")
+  compared_pixels <- as.numeric(
+    global(!is.na(original) & !is.na(assigned), "sum", na.rm = TRUE)[1, 1]
   )
-  
-  fwrite(
-    error_out,
-    file.path(
-      assess_dir,
-      "normal_map_errors_from_original_zone.csv"
-    )
+
+  confusion <- as.data.table(
+    crosstab(c(original, assigned), long = TRUE, useNA = FALSE)
   )
-  
-  # Where incorrectly assigned pixels in each predicted zone came from.
-  error_in <- ct[
-    ori != pred,
-    .(pixels = sum(n)),
-    by = .(method, pred, ori)
-  ]
-  
-  pred_total <- ct[
-    ,
-    .(predicted_pixels = sum(n)),
-    by = .(method, pred)
-  ]
-  
-  error_in <- merge(
-    error_in,
-    pred_total,
-    by = c("method", "pred")
-  )
-  
-  error_in[
-    ,
-    percent_of_predicted :=
-      100 * pixels / predicted_pixels
-  ]
-  
-  setorder(error_in, method, pred, -pixels)
-  
-  setnames(
-    error_in,
-    c("pred", "ori"),
-    c("assigned_zone", "original_source_zone")
-  )
-  
-  fwrite(
-    error_in,
-    file.path(
-      assess_dir,
-      "normal_map_errors_into_assigned_zone.csv"
-    )
-  )
-  
-  cat(
-    "\n[CONFUSION TABLES COMPLETE]\n",
-    "Results saved to: ", assess_dir, "\n",
-    sep = ""
-  )
+  if (ncol(confusion) != 3L) {
+    stop("Unexpected terra::crosstab output for the normal map.")
+  }
+  setnames(confusion, names(confusion), c("original_zone", "assigned_zone", "pixels"))
+  confusion[, `:=`(
+    original_zone = as.integer(original_zone),
+    assigned_zone = as.integer(assigned_zone),
+    pixels = as.numeric(pixels),
+    method = method_name
+  )]
+  setcolorder(confusion, c("method", "original_zone", "assigned_zone", "pixels"))
 }
 
-# ------------------------------------------------------------
-# Chord diagrams: original zone/category2 -> assigned zone/category2
-#
-# Only pixels with non-missing original and predicted values are used.
-# Zone 8 is excluded because it was not modelled.
-#
-# Outputs:
-#   assessment/chord diagrams/normal_map_zone_chord_*.pdf
-#   assessment/chord diagrams/normal_map_category_chord_*.pdf
-#   assessment/chord diagrams/normal_map_category_confusion_long.csv
-#   assessment/chord diagrams/category_chord_legend.csv
-# ------------------------------------------------------------
-
-if (!requireNamespace("circlize", quietly = TRUE)) {
-  stop("Package 'circlize' is required. Run install.packages('circlize').")
+if (sum(confusion$pixels) != compared_pixels) {
+  stop("Crosstab total does not equal the common-mask pixel count.")
 }
 
-if (!exists("out_dir")) {
-  out_dir <- file.path(base_dir, "assessment")
+total <- sum(confusion$pixels)
+exact_pixels <- confusion[
+  original_zone == assigned_zone,
+  sum(pixels)
+]
+
+map_zone_metrics <- rbindlist(lapply(zoneID, function(zone) {
+  TP <- confusion[
+    original_zone == zone & assigned_zone == zone,
+    sum(pixels)
+  ]
+  FN <- confusion[
+    original_zone == zone & assigned_zone != zone,
+    sum(pixels)
+  ]
+  FP <- confusion[
+    original_zone != zone & assigned_zone == zone,
+    sum(pixels)
+  ]
+  TN <- total - TP - FN - FP
+
+  cbind(
+    data.table(
+      method = method_name,
+      zone = zone,
+      original_pixels = TP + FN,
+      assigned_pixels = TP + FP
+    ),
+    metrics_from_counts(TP, TN, FP, FN)
+  )
+}))
+map_zone_metrics[, auc := NULL]
+
+# Category agreement uses the same common pixel mask as exact-zone agreement.
+palette <- fread(palette_file)
+
+if (!all(c("zoneID", "category2") %in% names(palette))) {
+  stop("The zone palette must contain zoneID and category2 columns.")
 }
 
-chord_dir <- file.path(out_dir, "chord diagrams")
-dir.create(chord_dir, recursive = TRUE, showWarnings = FALSE)
-
-
-# ------------------------------------------------------------
-# 1. Read valid pixel transitions
-# ------------------------------------------------------------
-
-chord_dt <- fread(
-  file.path(out_dir, "normal_map_confusion_long.csv")
+zone_category <- setNames(
+  as.character(palette$category2),
+  as.character(as.integer(palette$zoneID))
 )
 
-required_cols <- c("ori", "pred", "n", "method")
-
-if (!all(required_cols %in% names(chord_dt))) {
-  stop(
-    "normal_map_confusion_long.csv must contain: ",
-    paste(required_cols, collapse = ", ")
-  )
-}
-
-chord_dt[, `:=`(
-  ori = as.integer(ori),
-  pred = as.integer(pred),
-  n = as.numeric(n),
-  method = as.character(method)
+confusion[, `:=`(
+  original_category = unname(zone_category[as.character(original_zone)]),
+  assigned_category = unname(zone_category[as.character(assigned_zone)])
 )]
 
-# Exclude missing predictions and unmodelled zone 8.
-chord_dt <- chord_dt[
-  !is.na(ori) &
-    !is.na(pred) &
-    ori != 8L &
-    pred != 8L &
-    n > 0
+if (confusion[, anyNA(original_category) || anyNA(assigned_category)]) {
+  stop("At least one modeled zone lacks a category2 palette entry.")
+}
+
+category_confusion <- confusion[, .(
+  pixels = sum(pixels)
+), by = .(method, original_category, assigned_category)]
+setorder(category_confusion, original_category, assigned_category)
+
+category_pixels <- category_confusion[
+  original_category == assigned_category,
+  sum(pixels)
 ]
 
+categories <- sort(unique(c(
+  category_confusion$original_category,
+  category_confusion$assigned_category
+)))
 
-# ------------------------------------------------------------
-# 2. Read zone/category2 palette
-# ------------------------------------------------------------
+map_category_metrics <- rbindlist(lapply(categories, function(category) {
+  TP <- category_confusion[
+    original_category == category & assigned_category == category,
+    sum(pixels)
+  ]
+  FN <- category_confusion[
+    original_category == category & assigned_category != category,
+    sum(pixels)
+  ]
+  FP <- category_confusion[
+    original_category != category & assigned_category == category,
+    sum(pixels)
+  ]
+  TN <- total - TP - FN - FP
 
-if (!exists("color_df")) {
-  palette_file <- file.path(base_dir, "color_palette_China.csv")
-  
-  if (!file.exists(palette_file)) {
-    stop(
-      "Cannot find color_palette_China.csv. ",
-      "Run script/color_palette.R first."
-    )
-  }
-  
-  color_df <- fread(palette_file)
-}
-
-pal <- as.data.table(copy(color_df))
-
-if (!("category2" %in% names(pal))) {
-  stop(
-    "The palette does not contain category2. ",
-    "Run the updated script/color_palette.R first."
+  cbind(
+    data.table(
+      method = method_name,
+      category = category,
+      original_pixels = TP + FN,
+      assigned_pixels = TP + FP
+    ),
+    metrics_from_counts(TP, TN, FP, FN)
   )
-}
+}))
+map_category_metrics[, auc := NULL]
 
-pal[, `:=`(
-  zoneID = as.integer(zoneID),
-  category2 = as.character(category2),
-  COLOR = as.character(COLOR),
-  count = as.numeric(count)
-)]
-
-# Zone 8 was not modelled and should not appear in these figures.
-pal <- pal[zoneID != 8L]
-
-used_zones <- sort(unique(c(chord_dt$ori, chord_dt$pred)))
-missing_colors <- setdiff(used_zones, pal$zoneID)
-
-if (length(missing_colors) > 0) {
-  stop(
-    "No palette entry for zone(s): ",
-    paste(missing_colors, collapse = ", ")
-  )
-}
-
-
-# ------------------------------------------------------------
-# 3. Category2 colours and display names
-# ------------------------------------------------------------
-
-# Use the colour of the first zone in each broad category2.
-# This preserves the intended palette families: forests are green,
-# wetlands are blue, grasslands are light green, and deserts are brown.
-category_pal <- pal[, {
-  i <- which.min(zoneID)
-  
-  .(
-    first_zone = zoneID[i],
-    zoneIDs = paste(zoneID, collapse = ","),
-    color_zoneID = zoneID[i],
-    COLOR = COLOR[i]
-  )
-}, by = category2][order(first_zone)]
-
-# Readable names shown directly in the category chord diagrams.
-category_names <- c(
-  cropland = "Cropland",
-  orchard = "Orchard",
-  plantation = "Tree\nplantation",
-  forest = "Forest",
-  grassland_meadow_steppe = "Grassland,\nmeadow & steppe",
-  wetland = "Wetland",
-  scrub = "Scrub",
-  alpine_vegetation = "Alpine\nvegetation",
-  desert = "Desert",
-  no_vegetation = "No\nvegetation",
-  rare_or_error = "Rare / error",
-  novel = "Novel"
+map_overall <- data.table(
+  method = method_name,
+  valid_original_pixels = valid_original_pixels,
+  compared_pixels = compared_pixels,
+  missing_predictions = valid_original_pixels - compared_pixels,
+  coverage = safe_divide(compared_pixels, valid_original_pixels),
+  accuracy = safe_divide(exact_pixels, compared_pixels),
+  exact_zone_agreement = safe_divide(exact_pixels, compared_pixels),
+  category_agreement = safe_divide(category_pixels, compared_pixels)
 )
 
-category_pal[, display_label :=
-               unname(category_names[category2])
-]
 
-# Use a readable fallback for any future category2 not listed above.
-category_pal[
-  is.na(display_label),
-  display_label := tools::toTitleCase(
-    gsub("_", " ", category2, fixed = TRUE)
-  )
-]
+# 4. Confusion and error-direction tables ====================================
 
+zone_matrix <- dcast(
+  confusion,
+  original_zone ~ assigned_zone,
+  value.var = "pixels",
+  fill = 0
+)
+category_matrix <- dcast(
+  category_confusion,
+  original_category ~ assigned_category,
+  value.var = "pixels",
+  fill = 0
+)
+
+errors_from <- confusion[
+  original_zone != assigned_zone,
+  .(pixels = sum(pixels)),
+  by = .(method, original_zone, assigned_zone)
+]
+original_totals <- confusion[, .(
+  original_pixels = sum(pixels)
+), by = .(method, original_zone)]
+errors_from <- merge(
+  errors_from,
+  original_totals,
+  by = c("method", "original_zone")
+)
+errors_from[, percent_of_original := 100 * pixels / original_pixels]
+setorder(errors_from, original_zone, -pixels)
+
+errors_into <- confusion[
+  original_zone != assigned_zone,
+  .(pixels = sum(pixels)),
+  by = .(method, assigned_zone, original_zone)
+]
+assigned_totals <- confusion[, .(
+  assigned_pixels = sum(pixels)
+), by = .(method, assigned_zone)]
+errors_into <- merge(
+  errors_into,
+  assigned_totals,
+  by = c("method", "assigned_zone")
+)
+errors_into[, percent_of_assigned := 100 * pixels / assigned_pixels]
+setorder(errors_into, assigned_zone, -pixels)
+
+fwrite(confusion, file.path(assessment_dir, "normal_map_confusion_long.csv"))
 fwrite(
-  category_pal[
-    ,
-    .(
-      display_label,
-      category2,
-      zoneIDs,
-      color_zoneID,
-      COLOR
-    )
-  ],
-  file.path(chord_dir, "category_chord_legend.csv")
+  zone_matrix,
+  file.path(assessment_dir, "normal_map_confusion_matrix.csv")
 )
-
-
-# ------------------------------------------------------------
-# 4. Chord-diagram function
-# ------------------------------------------------------------
-
-plot_chord <- function(
-    flow,
-    item_order,
-    item_color,
-    item_label,
-    out_file,
-    main,
-    label_cex = 0.65,
-    label_track_height = 0.13) {
-  
-  flow <- as.data.table(copy(flow))
-  
-  flow[, `:=`(
-    from = as.character(from),
-    to = as.character(to),
-    n = as.numeric(n)
-  )]
-  
-  flow <- flow[n > 0]
-  
-  item_order <- as.character(item_order)
-  
-  # Original sectors run from top to bottom on the left.
-  from_id <- item_order[item_order %in% unique(flow$from)]
-  
-  # Reverse target order so corresponding classes appear opposite each other.
-  to_id <- rev(item_order[item_order %in% unique(flow$to)])
-  
-  from_sector <- paste0("O_", from_id)
-  to_sector <- paste0("P_", to_id)
-  sector_order <- c(from_sector, to_sector)
-  
-  flow[, `:=`(
-    from_sector = paste0("O_", from),
-    to_sector = paste0("P_", to)
-  )]
-  
-  sector_color <- c(
-    setNames(unname(item_color[from_id]), from_sector),
-    setNames(unname(item_color[to_id]), to_sector)
-  )
-  
-  sector_label <- c(
-    setNames(unname(item_label[from_id]), from_sector),
-    setNames(unname(item_label[to_id]), to_sector)
-  )
-  
-  link_color <- unname(item_color[flow$from])
-  
-  if (anyNA(sector_color) || anyNA(link_color)) {
-    stop("Missing colour while plotting: ", main)
-  }
-  
-  circlize::circos.clear()
-  
-  pdf(
-    out_file,
-    width = 16,
-    height = 16,
-    useDingbats = FALSE
-  )
-  
-  on.exit({
-    circlize::circos.clear()
-    dev.off()
-  }, add = TRUE)
-  
-  par(
-    mar = c(0.5, 0.5, 2.8, 0.5),
-    xpd = NA
-  )
-  
-  # Starting at the top and drawing counter-clockwise places
-  # original classes on the left and assigned classes on the right.
-  circlize::circos.par(
-    start.degree = 90,
-    clock.wise = FALSE,
-    cell.padding = c(0, 0, 0, 0),
-    track.margin = c(0.002, 0.002),
-    canvas.xlim = c(-1.38, 1.38),
-    canvas.ylim = c(-1.28, 1.28),
-    points.overflow.warning = FALSE
-  )
-  
-  circlize::chordDiagram(
-    x = as.data.frame(
-      flow[, .(from_sector, to_sector, n)]
-    ),
-    order = sector_order,
-    grid.col = sector_color,
-    grid.border = NA,
-    
-    # Link colour represents the original zone/category2.
-    col = link_color,
-    transparency = 0.72,
-    
-    directional = 1,
-    direction.type = "diffHeight",
-    diffHeight = circlize::mm_h(1),
-    link.target.prop = FALSE,
-    
-    link.sort = "default",
-    link.decreasing = TRUE,
-    link.largest.ontop = TRUE,
-    
-    annotationTrack = "grid",
-    annotationTrackHeight = circlize::mm_h(2),
-    preAllocateTracks = list(track.height = label_track_height),
-    
-    big.gap = 14,
-    small.gap = 0.15,
-    
-    # Keep zones/categories with very few pixels.
-    reduce = -1
-  )
-  
-  # Replace internal O_/P_ sector names with zone IDs or category names.
-  circlize::circos.trackPlotRegion(
-    track.index = 1,
-    bg.border = NA,
-    panel.fun = function(x, y) {
-      sector <- circlize::get.cell.meta.data("sector.index")
-      xlim <- circlize::get.cell.meta.data("xlim")
-      ylim <- circlize::get.cell.meta.data("ylim")
-      
-      circlize::circos.text(
-        x = mean(xlim),
-        y = mean(ylim),
-        labels = unname(sector_label[sector]),
-        facing = "clockwise",
-        niceFacing = TRUE,
-        adj = c(0.5, 0.5),
-        cex = label_cex
-      )
-    }
-  )
-  
-  mtext(
-    main,
-    side = 3,
-    line = 0.5,
-    font = 2,
-    cex = 1.25
-  )
-  
-  text(
-    -1.27, 0,
-    labels = "Original",
-    srt = 90,
-    font = 2,
-    cex = 1.15
-  )
-  
-  text(
-    1.27, 0,
-    labels = "Assigned",
-    srt = 270,
-    font = 2,
-    cex = 1.15
-  )
-}
-
-
-# ------------------------------------------------------------
-# 5. Draw four zone-level and four category2-level figures
-# ------------------------------------------------------------
-
-preferred_method_order <- c(
-  "optimized_mf",
-  "optimized_rf",
-  "plain_mf",
-  "plain_rf"
-)
-
-methods <- c(
-  intersect(preferred_method_order, unique(chord_dt$method)),
-  setdiff(unique(chord_dt$method), preferred_method_order)
-)
-
-method_labels <- c(
-  optimized_mf = "Optimized MF",
-  optimized_rf = "Optimized RF",
-  plain_mf = "Plain MF",
-  plain_rf = "Plain RF"
-)
-
-zone_order <- as.character(pal$zoneID)
-
-zone_color <- setNames(
-  pal$COLOR,
-  as.character(pal$zoneID)
-)
-
-zone_label <- setNames(
-  as.character(pal$zoneID),
-  as.character(pal$zoneID)
-)
-
-category_order <- category_pal$category2
-
-category_color <- setNames(
-  category_pal$COLOR,
-  category_pal$category2
-)
-
-category_label <- setNames(
-  category_pal$display_label,
-  category_pal$category2
-)
-
-zone_to_category <- setNames(
-  pal$category2,
-  as.character(pal$zoneID)
-)
-
-category_flow_list <- vector("list", length(methods))
-names(category_flow_list) <- methods
-
-for (m in methods) {
-  
-  model_label <- unname(method_labels[m])
-  
-  if (is.na(model_label)) {
-    model_label <- gsub("_", " ", m)
-  }
-  
-  # Zone-level transitions.
-  zone_flow <- chord_dt[
-    method == m,
-    .(n = sum(n)),
-    by = .(
-      from = as.character(ori),
-      to = as.character(pred)
-    )
-  ]
-  
-  plot_chord(
-    flow = zone_flow,
-    item_order = zone_order,
-    item_color = zone_color,
-    item_label = zone_label,
-    out_file = file.path(
-      chord_dir,
-      paste0("normal_map_zone_chord_", m, ".pdf")
-    ),
-    main = paste0(
-      model_label,
-      ": Original zone to assigned zone"
-    ),
-    label_cex = 0.62,
-    label_track_height = 0.13
-  )
-  
-  # Convert zones to category2 and aggregate pixel counts.
-  category_flow <- copy(zone_flow)
-  
-  category_flow[, from :=
-                  unname(zone_to_category[from])
-  ]
-  
-  category_flow[, to :=
-                  unname(zone_to_category[to])
-  ]
-  
-  category_flow <- category_flow[
-    ,
-    .(n = sum(n)),
-    by = .(from, to)
-  ]
-  
-  category_flow_list[[m]] <- category_flow[
-    ,
-    .(
-      method = m,
-      original_category2 = from,
-      assigned_category2 = to,
-      n
-    )
-  ]
-  
-  plot_chord(
-    flow = category_flow,
-    item_order = category_order,
-    item_color = category_color,
-    item_label = category_label,
-    out_file = file.path(
-      chord_dir,
-      paste0("normal_map_category_chord_", m, ".pdf")
-    ),
-    main = paste0(
-      model_label,
-      ": Original category to assigned category"
-    ),
-    label_cex = 0.90,
-    label_track_height = 0.18
-  )
-}
-
-
-# Save category2-level transition counts used in the figures.
-category_flow_all <- rbindlist(
-  category_flow_list,
-  use.names = TRUE
-)
-
+fwrite(map_zone_metrics, file.path(assessment_dir, "normal_map_zone_metrics.csv"))
 fwrite(
-  category_flow_all,
-  file.path(
-    chord_dir,
-    "normal_map_category_confusion_long.csv"
-  )
+  category_confusion,
+  file.path(assessment_dir, "normal_map_category_confusion_long.csv")
 )
+fwrite(
+  category_matrix,
+  file.path(assessment_dir, "normal_map_category_confusion_matrix.csv")
+)
+fwrite(
+  map_category_metrics,
+  file.path(assessment_dir, "normal_map_category_metrics.csv")
+)
+fwrite(map_overall, file.path(assessment_dir, "normal_map_overall_metrics.csv"))
+fwrite(
+  errors_from,
+  file.path(assessment_dir, "normal_map_errors_from_original_zone.csv")
+)
+fwrite(
+  errors_into,
+  file.path(assessment_dir, "normal_map_errors_into_assigned_zone.csv")
+)
+
+cat("\nBINARY MODEL SUMMARY\n")
+print(rf_summary)
+cat("\nNORMAL MAP SUMMARY\n")
+print(map_overall)
+cat("\nCOMPLETE\nTables: ", assessment_dir, "\n", sep = "")
+}

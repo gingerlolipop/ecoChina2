@@ -1,94 +1,166 @@
-install.packages("H:/Jing/CEMT.zip", repos = NULL, type = "source", dependencies = TRUE)
-library(CEMT)
+# Prepare the reference ecotype raster and reference-period climate table.
+# Existing legacy outputs are reused by default because raster extraction is slow.
+
+library(data.table)
 library(terra)
-library(ClimateNAr)
-# library(rgdal)  # rgdal is retired; terra now handles CRS operations
 
-setwd("H:/Jing/ecoChina2")
+rm(list = ls())
+gc()
 
-## 1. convert veg type data to table---------
-r <- rast('raster/veg_3');r 
-#r2 <- rast('H:/Jing/ecoChina2/raster/veg_chn_poly2ras/veg_chn_poly2ras.tif');r2 #new raster I downloaded: 1:1million
-crs(r) <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0" 
-
-
-writeRaster(r,'raster/ecosys_ori.tif',filetype="GTiff",overwrite=TRUE)
-
-xyv <- as.data.frame(r, xy = TRUE, na.rm = TRUE);hd(xyv)
-#Q:x = longitude, y = latitude, v = ?some row has v value == ecosys name, but others are empty
-#Removed NAs, so for r the number of cells should be 4249*7396 = 31425604, but actually we only have 13845898
-
-id <- as.data.frame(r, cells = TRUE, xy = TRUE, na.rm = TRUE);hd(id)
-print(sort(unique(id$veg_3))) #levels = 1:56
-
-xyv1 <- id
-names(xyv1)[4] <- 'zoneID';hd(xyv1)
-xyv1$zoneID <- as.factor(xyv1$zoneID);str(xyv1)
-xyv1 <- xyv1[complete.cases(xyv1[, 2:4]), ];hd(xyv1) #nothing deleted
-#revision: not remoging "" zone #xyv2 <- droplevels(xyv1[xyv1$zone!="",]);hd(xyv2) #remove "" zone
-xyv1 <- xyv1[, c("cell", "zoneID", "y", "x")] #reorder columns
-
-#zone and zoneID ---
-lvl <- data.frame(cats(r)[[1]]);lvl
-# revision: no removing lvl2 <- droplevels(lvl[lvl$VEGETATI_3!="",]);hd(lvl2) #remove "" zone
-fWrite(lvl,'data raw/1. zoneID_zone_count.csv')
-
-rm(lvl,xyv,id,r2);gc()
-
-
-# 2. get DEM----------------
-dem <- fRead('data raw/1. coord.csv');hd(dem) #read dem, got before using the getDEM function from CEMT. now cannot use coz permission denied.
-dem <- cbind(xyv1, china_90m = dem$china_90m); hd(dem)
-
-fWrite(dem,'data raw/1. zoneID_dem.csv')
-
-
-# 3. get Climate (clim data was downloaded using ClimateNAr::rasterDownload in 2024)-----------
-varList_Y=c("MAT","MWMT","MCMT","TD","MAP","MSP","AHM","SHM","bFFP","eFFP","FFP","CMD","CMI","DD_0","DD5","DD_18","DD18","DD1040","EMT","EXT",
-            "Eref", "rsds","NFFD", "PAS","RH")
-varList_S=c("Tmax_wt","Tmax_sp","Tmax_sm","Tmax_at","Tmin_wt","Tmin_sp","Tmin_sm","Tmin_at","Tave_wt","Tave_sp","Tave_sm","Tave_at",
-            "PPT_wt","PPT_sp","PPT_sm","PPT_at","rsds_wt","rsds_sp","rsds_sm","rsds_at",
-            "DD_0_wt","DD_0_sp","DD_0_sm","DD_0_at","DD5_wt","DD5_sp","DD5_sm","DD5_at","DD_18_wt",
-            "DD_18_sp","DD_18_sm","DD_18_at","DD18_wt","DD18_sp","DD18_sm","DD18_at","NFFD_wt","NFFD_sp",
-            "NFFD_sm","NFFD_at","PAS_wt","PAS_sp","PAS_sm","PAS_at","Eref_wt","Eref_sp","Eref_sm","Eref_at","CMD_wt",
-            "CMD_sp","CMD_sm","CMD_at","RH_wt","RH_sp","RH_sm","RH_at","CMI_wt","CMI_sp","CMI_sm","CMI_at")
-
-
-clm_vars <- c(varList_Y, varList_S); clm_vars
-
-rm(id,r,xyv,xyv1);gc()
-
-#create the path to outDir if not existing
-if (!dir.exists(outDir)) {
-  dir.create(outDir, recursive = TRUE)
+find_project_root <- function(path = getwd()) {
+  path <- normalizePath(path, winslash = "/", mustWork = TRUE)
+  repeat {
+    if (file.exists(file.path(path, "script", "1. data.R"))) return(path)
+    parent <- dirname(path)
+    if (parent == path) stop("Run inside the repository or set ECOCHINA2_DIR.")
+    path <- parent
+  }
 }
 
-# extact climate data for each row from the climate rasters
-inputFile <- 'data raw/1. zoneID_dem.csv'
-resolution <- '800m'
-periodList <- '/Normal_1961_1990.nrm'
-outDir <- 'data raw/'
+env_flag <- function(name, default = FALSE) {
+  value <- Sys.getenv(name, unset = if (default) "true" else "false")
+  tolower(trimws(value)) %in% c("1", "true", "yes", "y")
+}
 
-dem <- fRead(inputFile);hd(dem)
+first_existing <- function(paths) {
+  hit <- paths[file.exists(paths)]
+  if (length(hit)) hit[1] else NA_character_
+}
 
-ClmDir <- paste0(
-  "H:/Jing/ecoChina/play/China/ClimateData/CN/",
-  resolution,
-  substring(periodList, 1, regexpr("\\.", periodList) - 1)
+env_root <- Sys.getenv("ECOCHINA2_DIR", unset = "")
+base_dir <- if (nzchar(env_root)) {
+  normalizePath(env_root, winslash = "/", mustWork = TRUE)
+} else {
+  find_project_root()
+}
+
+raw_dir <- file.path(base_dir, "data raw")
+raster_dir <- file.path(base_dir, "raster")
+dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(raster_dir, recursive = TRUE, showWarnings = FALSE)
+
+force_data <- env_flag("ECOCHINA2_FORCE_DATA", FALSE)
+
+reference_file <- file.path(raster_dir, "ecosys_ori.tif")
+zone_lookup_file <- file.path(raw_dir, "1. zoneID_zone_count.csv")
+dem_file <- file.path(raw_dir, "1. zoneID_dem.csv")
+climate_file <- file.path(
+  raw_dir,
+  "1. zoneID_Clm_800m_Normal_1961_1990SY.csv"
 )
 
-clm_files <- list.files(ClmDir, pattern = "\\.tif$", full.names = TRUE)
-clm_names <- tools::file_path_sans_ext(basename(clm_files))
-clm_stack <- rast(clm_files)
-names(clm_stack) <- clm_names
-coords <- dem[, c("x", "y")]
-clm_vals <- terra::extract(clm_stack, coords)
+# 1. Reference raster ---------------------------------------------------------
 
-# terra::extract returns a column "ID" — remove it
-clm_vals$ID <- NULL
+if (!force_data && file.exists(reference_file)) {
+  cat("[USE EXISTING]", reference_file, "\n")
+  r <- rast(reference_file)
+} else {
+  veg_file <- first_existing(c(
+    file.path(raster_dir, "veg_3"),
+    file.path(raster_dir, "veg_3.tif"),
+    file.path(base_dir, "data", "raw", "veg_3.tif")
+  ))
+  if (is.na(veg_file)) stop("Missing reference vegetation raster: raster/veg_3")
 
-# 6. Combine DEM + climate data
-clm_6190 <- cbind(dem, clm_vals) #13806550 non-
-fWrite(clm_6190, paste0(outDir, "1. zoneID_Clm_800m_Normal_1961_1990SY.csv"))
+  r <- rast(veg_file)
+  if (!nzchar(crs(r))) crs(r) <- "EPSG:4326"
+  writeRaster(r, reference_file, filetype = "GTiff", overwrite = TRUE)
+  cat("[SAVED]", reference_file, "\n")
+}
 
+if (!force_data && file.exists(zone_lookup_file)) {
+  cat("[USE EXISTING]", zone_lookup_file, "\n")
+} else {
+  zone_lookup <- tryCatch(as.data.frame(cats(r)[[1]]), error = function(e) NULL)
+  if (is.null(zone_lookup) || !nrow(zone_lookup)) {
+    zone_lookup <- as.data.frame(freq(r))
+  }
+  fwrite(zone_lookup, zone_lookup_file)
+  cat("[SAVED]", zone_lookup_file, "\n")
+}
 
+# 2. Coordinates and DEM ------------------------------------------------------
+
+if (!force_data && file.exists(dem_file)) {
+  cat("[USE EXISTING]", dem_file, "\n")
+} else {
+  coord_file <- first_existing(c(
+    file.path(raw_dir, "1. coord.csv"),
+    file.path(base_dir, "data", "raw", "coord.csv")
+  ))
+  if (is.na(coord_file)) stop("Missing DEM coordinates: data raw/1. coord.csv")
+
+  id <- as.data.table(as.data.frame(
+    r,
+    cells = TRUE,
+    xy = TRUE,
+    na.rm = TRUE
+  ))
+  setnames(id, names(id)[4], "zoneID")
+  id <- id[complete.cases(id[, .(cell, x, y, zoneID)])]
+  setcolorder(id, c("cell", "zoneID", "y", "x"))
+
+  coord <- fread(coord_file)
+  dem_col <- intersect(c("china_90m", "elevation", "dem"), names(coord))[1]
+  if (is.na(dem_col)) stop("No elevation column found in: ", coord_file)
+  if (nrow(coord) != nrow(id)) {
+    stop("DEM row count does not match the non-NA reference raster cells.")
+  }
+
+  id[, china_90m := coord[[dem_col]]]
+  fwrite(id, dem_file)
+  cat("[SAVED]", dem_file, "\n")
+  rm(id, coord)
+  gc()
+}
+
+# 3. Reference-period climate -------------------------------------------------
+
+if (!force_data && file.exists(climate_file)) {
+  cat("[USE EXISTING]", climate_file, "\n")
+} else {
+  # Accept the short-lived clean-layout table as a fallback, but always restore
+  # the established filename used by the analysis.
+  fallback_table <- file.path(base_dir, "data", "climate_reference.csv")
+  if (!force_data && file.exists(fallback_table)) {
+    fwrite(fread(fallback_table), climate_file)
+    cat("[RESTORED LEGACY NAME]", climate_file, "\n")
+  } else {
+    env_climate <- Sys.getenv("ECOCHINA2_CLIMATE_DIR", unset = "")
+    climate_root <- if (nzchar(env_climate)) {
+      env_climate
+    } else {
+      file.path(base_dir, "data", "rasters", "climate")
+    }
+    climate_dir <- if (basename(climate_root) == "Normal_1961_1990") {
+      climate_root
+    } else {
+      file.path(climate_root, "Normal_1961_1990")
+    }
+    if (!dir.exists(climate_dir)) {
+      stop("Missing reference climate raster directory. Set ECOCHINA2_CLIMATE_DIR.")
+    }
+
+    dem <- fread(dem_file)
+    climate_files <- list.files(climate_dir, pattern = "\\.tif$", full.names = TRUE)
+    if (!length(climate_files)) stop("No climate .tif files found in: ", climate_dir)
+
+    climate_stack <- rast(climate_files)
+    names(climate_stack) <- tools::file_path_sans_ext(basename(climate_files))
+    climate_values <- as.data.table(terra::extract(
+      climate_stack,
+      dem[, .(x, y)]
+    ))
+    climate_values[, ID := NULL]
+    fwrite(cbind(dem, climate_values), climate_file)
+    cat("[SAVED]", climate_file, "\n")
+  }
+}
+
+cat(
+  "\nCOMPLETE\n",
+  "Reference raster: ", reference_file, "\n",
+  "Reference climate table: ", climate_file, "\n",
+  "Set ECOCHINA2_FORCE_DATA=true only to rebuild existing outputs.\n",
+  sep = ""
+)
