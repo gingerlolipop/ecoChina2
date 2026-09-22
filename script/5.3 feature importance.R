@@ -176,10 +176,10 @@ annotate_variables <- function(niche, variable) {
   variable <- as.character(variable)
   standard <- toupper(gsub("-", "_", variable, fixed = TRUE))
   group <- rep("Other", length(variable))
-
+  
   climate <- niche == "climate"
   soil <- niche == "soil"
-
+  
   group[climate & grepl("^(MAT|MWMT|MCMT|TD$|EMT|EXT|TMAX|TMIN|TAVE)", standard)] <-
     "Temperature"
   group[climate & grepl("^(MAP|MSP|PPT)", standard)] <- "Precipitation"
@@ -191,7 +191,7 @@ annotate_variables <- function(niche, variable) {
     "Radiation and evaporative demand"
   group[climate & grepl("^RH", standard)] <- "Humidity"
   group[climate & grepl("^PAS", standard)] <- "Snowfall"
-
+  
   group[soil & grepl("CEC|TEB|BASE|(^|_)BS($|_)", standard)] <-
     "Nutrient retention and base status"
   group[soil & grepl("BLD|BULK|DENS", standard)] <- "Bulk density"
@@ -204,7 +204,7 @@ annotate_variables <- function(niche, variable) {
   group[soil & grepl("GY|CASO4", standard)] <- "Gypsum"
   group[soil & grepl("ESP|SOD", standard)] <- "Sodicity"
   group[soil & grepl("(^|_)ECE($|_)|SALIN|ELECTRICAL", standard)] <- "Salinity"
-
+  
   suffix <- tolower(sub("^.*_(wt|sp|sm|at)$", "\\1", variable))
   seasonal <- grepl("_(wt|sp|sm|at)$", tolower(variable))
   period <- rep(NA_character_, length(variable))
@@ -213,7 +213,7 @@ annotate_variables <- function(niche, variable) {
   period[climate & seasonal & suffix == "sp"] <- "Spring"
   period[climate & seasonal & suffix == "sm"] <- "Summer"
   period[climate & seasonal & suffix == "at"] <- "Autumn"
-
+  
   data.table(
     niche = niche,
     variable = variable,
@@ -267,7 +267,7 @@ extract_binary <- function(specification) {
       )
     ))
   }
-
+  
   tryCatch({
     model <- read_rf(file)
     imp <- importance_matrix(model)
@@ -358,11 +358,11 @@ if (file.exists(multiclass_model_file)) {
       stop("Missing class-specific importance for Zones: ",
            paste(missing_classes, collapse = ", "))
     }
-
+    
     model_variable <- rownames(imp)
     niche <- ifelse(grepl("^soil_", model_variable), "soil", "climate")
     variable <- sub("^soil_", "", model_variable)
-
+    
     global_mda <- as.numeric(imp[, "MeanDecreaseAccuracy"])
     global <- data.table(
       workflow = "multiclass_rf", scope = "global", zoneID = NA_integer_,
@@ -375,9 +375,9 @@ if (file.exists(multiclass_model_file)) {
       model_file = multiclass_model_file
     )
     global[, importance_share_within_niche :=
-      normalize_positive(mda_unscaled), by = niche]
+             normalize_positive(mda_unscaled), by = niche]
     global[, importance_rank := frank(-mda_unscaled, ties.method = "min")]
-
+    
     class_specific <- rbindlist(lapply(zones, function(z) {
       class_mda <- as.numeric(imp[, as.character(z)])
       data.table(
@@ -391,10 +391,10 @@ if (file.exists(multiclass_model_file)) {
       )
     }))
     class_specific[, importance_share_within_niche :=
-      normalize_positive(mda_unscaled), by = .(zoneID, niche)]
+                     normalize_positive(mda_unscaled), by = .(zoneID, niche)]
     class_specific[, importance_rank :=
-      frank(-mda_unscaled, ties.method = "min"), by = zoneID]
-
+                     frank(-mda_unscaled, ties.method = "min"), by = zoneID]
+    
     list(
       importance = rbindlist(list(global, class_specific), fill = TRUE),
       audit = data.table(
@@ -519,8 +519,8 @@ for (column in c("binary_selected", "multiclass_selected")) {
 }
 # Consensus gives the two workflows equal weight within each niche; raw MDA is
 # never averaged across model types because its scale is model-dependent.
+aligned[, consensus_share := (binary_share + multiclass_share) / 2]
 aligned[, `:=`(
-  consensus_share = (binary_share + multiclass_share) / 2,
   binary_rank = frank(-binary_share, ties.method = "min"),
   multiclass_rank = frank(-multiclass_share, ties.method = "min"),
   consensus_rank = frank(-consensus_share, ties.method = "min")
@@ -600,7 +600,7 @@ category_variable <- aligned[, .(
   multiclass_selection_frequency = mean(multiclass_selected)
 ), by = .(category2, niche, variable, variable_group, climate_period)]
 category_variable[, consensus_rank :=
-  frank(-consensus_mean, ties.method = "min"), by = .(category2, niche)]
+                    frank(-consensus_mean, ties.method = "min"), by = .(category2, niche)]
 
 zone_period <- aligned[
   niche == "climate" & !is.na(climate_period),
@@ -728,7 +728,7 @@ for (niche_value in c("climate", "soil")) {
   plot_data[, category_label := factor(
     category_label, levels = rev(sort(unique(category_label)))
   )]
-
+  
   group_plot <- ggplot(
     plot_data,
     aes(x = consensus_mean, y = category_label, fill = variable_group)
@@ -752,7 +752,7 @@ for (niche_value in c("climate", "soil")) {
       plot.title = element_text(face = "bold")
     ) +
     guides(fill = guide_legend(nrow = 2, byrow = TRUE))
-
+  
   group_file <- file.path(
     figure_dir,
     paste0("Figure_FI_2_category_variable_groups_", niche_value, ".png")

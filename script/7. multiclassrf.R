@@ -42,6 +42,15 @@ find_project_root <- function(path = getwd()) {
 
 project_root <- find_project_root()
 
+first_existing_dir <- function(paths, label) {
+  paths <- unique(paths[nzchar(paths)])
+  hit <- paths[dir.exists(paths)]
+  if (!length(hit)) {
+    stop(label, " not found. Checked:\n", paste(paths, collapse = "\n"))
+  }
+  normalizePath(hit[[1]], winslash = "/", mustWork = TRUE)
+}
+
 processed_dir <- file.path(project_root, "data", "processed")
 binary_climate_dir <- file.path(project_root, "rf")
 binary_soil_dir <- file.path(project_root, "rf_soil")
@@ -60,16 +69,39 @@ for (d in c(model_dir, map_dir, table_dir, probability_dir, temp_dir)) {
   dir.create(d, recursive = TRUE, showWarnings = FALSE)
 }
 
-# ECOCHINA2_CLIMATE_DIR and ECOCHINA2_SOIL_RASTER_DIR keep machine-specific
-# raw-data locations out of the public code; defaults follow the README layout.
-climate_root <- Sys.getenv(
-  "ECOCHINA2_CLIMATE_DIR",
-  unset = file.path(project_root, "data", "rasters", "climate")
+# Prefer an explicitly configured location. Otherwise reuse the raw-raster
+# locations used by the original scripts before trying the temporary clean layout.
+env_climate <- Sys.getenv("ECOCHINA2_CLIMATE_DIR", unset = "")
+if (nzchar(env_climate) &&
+    identical(tolower(basename(env_climate)), "normal_1961_1990")) {
+  env_climate <- dirname(env_climate)
+}
+climate_root <- first_existing_dir(
+  c(
+    env_climate,
+    file.path(
+      dirname(project_root), "ecoChina", "play", "China",
+      "ClimateData", "CN", "800m"
+    ),
+    "H:/Jing/ecoChina/play/China/ClimateData/CN/800m",
+    file.path(project_root, "data", "rasters", "climate")
+  ),
+  "Climate raster root"
 )
-soil_raster_dir <- Sys.getenv(
-  "ECOCHINA2_SOIL_RASTER_DIR",
-  unset = file.path(project_root, "data", "rasters", "soil")
+
+env_soil <- Sys.getenv("ECOCHINA2_SOIL_RASTER_DIR", unset = "")
+soil_raster_dir <- first_existing_dir(
+  c(
+    env_soil,
+    file.path(dirname(project_root), "soil rasters", "tif2"),
+    "H:/Jing/soil rasters/tif2",
+    file.path(project_root, "data", "rasters", "soil")
+  ),
+  "Soil raster directory"
 )
+
+cat("[CLIMATE DATA]", climate_root, "\n")
+cat("[SOIL DATA]", soil_raster_dir, "\n")
 
 zones <- c(1:7, 9:50, 52:55)
 base_seed <- 49L
@@ -160,7 +192,7 @@ model_variables <- function(model) {
 read_table_variables <- function(files) {
   file <- files[file.exists(files)][1]
   if (is.na(file)) return(character())
-
+  
   variables <- names(fread(file, nrows = 0))
   metadata <- c(
     "cell", "zoneid", "zone", "x", "y", "lon", "lat", "longitude",
@@ -170,7 +202,7 @@ read_table_variables <- function(files) {
     !grepl("^zone[0-9]+$", tolower(variables)) &
     !grepl("^v[0-9]+$", tolower(variables))
   variables <- variables[keep]
-
+  
   # A leading row-name column is a common legacy CSV artifact.
   setdiff(unique(variables), c("row", "X", "V1"))
 }
@@ -229,7 +261,7 @@ rank_auc <- function(y, probability) {
   n0 <- sum(y == 0)
   if (!n1 || !n0) return(NA_real_)
   (sum(rank(probability, ties.method = "average")[y == 1]) -
-     n1 * (n1 + 1) / 2) / (n1 * n0)
+      n1 * (n1 + 1) / 2) / (n1 * n0)
 }
 
 mean_or_na <- function(x) {
@@ -309,7 +341,7 @@ if (length(all_variables) < target_predictors) {
 normal_climate_dir <- file.path(climate_root, "Normal_1961_1990")
 if (!dir.exists(normal_climate_dir) &&
     basename(normalizePath(climate_root, winslash = "/", mustWork = FALSE)) ==
-      "Normal_1961_1990") {
+    "Normal_1961_1990") {
   normal_climate_dir <- climate_root
 }
 
@@ -339,13 +371,13 @@ if (!cache_ok) {
     zoneID = as.integer(as.character(zoneID))
   )]
   cells <- cells[zoneID %in% zones & !is.na(cell)]
-
+  
   missing_zones <- setdiff(zones, unique(cells$zoneID))
   if (length(missing_zones)) {
     stop("Zones absent from the reference cell table: ",
          paste(missing_zones, collapse = ", "))
   }
-
+  
   set.seed(base_seed)
   sampled_cells <- cells[
     , .SD[sample.int(.N, min(.N, candidate_per_zone))],
@@ -353,7 +385,7 @@ if (!cache_ok) {
   ]
   rm(cells)
   gc()
-
+  
   sample_data <- extract_predictors(
     sampled_cells[, .(cell, zoneID)],
     reference,
@@ -361,13 +393,13 @@ if (!cache_ok) {
     soil_normal
   )
   sample_data <- sample_data[complete.cases(sample_data[, ..all_variables])]
-
+  
   missing_zones <- setdiff(zones, unique(sample_data$zoneID))
   if (length(missing_zones)) {
     stop("Zones without complete climate and soil data: ",
          paste(missing_zones, collapse = ", "))
   }
-
+  
   train_list <- vector("list", length(zones))
   test_list <- vector("list", length(zones))
   for (j in seq_along(zones)) {
@@ -444,12 +476,12 @@ backward_select <- function(x, y, target, ntree, repeats, seed) {
   current <- names(x)
   path <- list()
   step <- 0L
-
+  
   while (length(current) >= target) {
     step <- step + 1L
     importance_sum <- setNames(numeric(length(current)), current)
     oob_accuracy <- numeric(repeats)
-
+    
     for (repeat_id in seq_len(repeats)) {
       set.seed(seed + step * 100L + repeat_id)
       fit <- fit_balanced_rf(x[, current, drop = FALSE], y, ntree)
@@ -457,7 +489,7 @@ backward_select <- function(x, y, target, ntree, repeats, seed) {
       importance_sum <- importance_sum + imp[current, "MeanDecreaseAccuracy"]
       oob_accuracy[repeat_id] <- 1 - tail(fit$err.rate[, "OOB"], 1)
     }
-
+    
     importance_mean <- importance_sum / repeats
     path[[step]] <- data.table(
       step = step,
@@ -465,13 +497,13 @@ backward_select <- function(x, y, target, ntree, repeats, seed) {
       mean_oob_accuracy = mean(oob_accuracy),
       variables = paste(current, collapse = ",")
     )
-
+    
     if (length(current) == target) break
     n_remove <- min(2L, length(current) - target)
     remove <- names(sort(importance_mean, decreasing = FALSE))[seq_len(n_remove)]
     current <- setdiff(current, remove)
   }
-
+  
   list(variables = current, path = rbindlist(path))
 }
 
@@ -719,14 +751,14 @@ project_scenario <- function(scenario, climate_subdir) {
     probability_dir,
     paste0("class_probability_", scenario, ".tif")
   )
-
+  
   if (!force_rebuild && length(reusable)) {
     map_file <- reusable[[1]]
     cat("[REUSE MULTICLASS MAP]", map_file, "\n")
     scenario_value <- scenario
     area <- if (nrow(cached_area) && files_current(area_cache_file, map_file) &&
-      all(c("scenario", "zoneID", "area_km2") %in% names(cached_area)) &&
-      scenario %in% cached_area$scenario) {
+                all(c("scenario", "zoneID", "area_km2") %in% names(cached_area)) &&
+                scenario %in% cached_area$scenario) {
       cached_area[scenario == scenario_value, .(scenario, zoneID, area_km2)]
     } else {
       projection_area(rast(map_file), scenario)
@@ -742,7 +774,7 @@ project_scenario <- function(scenario, climate_subdir) {
       area = area
     ))
   }
-
+  
   scenario_climate_dir <- file.path(climate_root, climate_subdir)
   if (scenario == "normal" && identical(normal_climate_dir, climate_root)) {
     scenario_climate_dir <- normal_climate_dir
@@ -750,11 +782,11 @@ project_scenario <- function(scenario, climate_subdir) {
   if (!dir.exists(scenario_climate_dir)) {
     stop("Climate directory not found: ", scenario_climate_dir)
   }
-
+  
   selected_climate <- intersect(selected_variables, climate_variables)
   selected_soil_model <- intersect(selected_variables, soil_model_variables)
   selected_soil_raw <- sub("^soil_", "", selected_soil_model)
-
+  
   climate <- read_stack(selected_climate, scenario_climate_dir)
   soil <- read_stack(
     selected_soil_raw,
@@ -765,7 +797,7 @@ project_scenario <- function(scenario, climate_subdir) {
     soil <- resample(soil, climate[[1]], method = "bilinear")
     names(soil) <- selected_soil_model
   }
-
+  
   predictors <- c(climate, soil)[[selected_variables]]
   probability <- terra::predict(
     predictors,
@@ -782,7 +814,7 @@ project_scenario <- function(scenario, climate_subdir) {
     )
   )
   names(probability) <- paste0("zone_", zones)
-
+  
   index_map <- app(probability, argmax_first)
   climate_grid_map <- subst(
     index_map,
@@ -791,7 +823,7 @@ project_scenario <- function(scenario, climate_subdir) {
     others = NA
   )
   names(climate_grid_map) <- "zoneID"
-
+  
   if (!compareGeom(climate_grid_map, reference, stopOnError = FALSE)) {
     climate_grid_map <- resample(climate_grid_map, reference, method = "near")
   }
@@ -804,14 +836,14 @@ project_scenario <- function(scenario, climate_subdir) {
     overwrite = TRUE,
     wopt = list(datatype = "INT2S", gdal = "COMPRESS=LZW")
   )
-
+  
   assigned_values <- as.integer(freq(assigned)$value)
   assigned_values <- assigned_values[!is.na(assigned_values)]
   bad_values <- setdiff(assigned_values, zones)
   if (length(bad_values)) {
     stop("Unexpected multiclass map values: ", paste(bad_values, collapse = ", "))
   }
-
+  
   list(
     scenario = scenario,
     map_file = map_file,
@@ -863,7 +895,7 @@ assess_reference_map <- function(original, predicted) {
   predicted <- subst(predicted, zones, zones, others = NA)
   names(original) <- "reference_zone"
   names(predicted) <- "predicted_zone"
-
+  
   valid_reference <- global(!is.na(original), "sum", na.rm = TRUE)[1, 1]
   confusion <- as.data.table(
     crosstab(c(original, predicted), long = TRUE, useNA = FALSE)
@@ -878,7 +910,7 @@ assess_reference_map <- function(original, predicted) {
     pixels = as.numeric(pixels)
   )]
   n_common <- sum(confusion$pixels)
-
+  
   by_zone <- rbindlist(lapply(zones, function(z) {
     tp <- confusion[reference_zone == z & predicted_zone == z, sum(pixels)]
     fn <- confusion[reference_zone == z & predicted_zone != z, sum(pixels)]
@@ -901,7 +933,7 @@ assess_reference_map <- function(original, predicted) {
       tss = sensitivity + specificity - 1
     )
   }))
-
+  
   overall <- data.table(
     model = "multiclass_rf",
     valid_reference_pixels = valid_reference,
@@ -951,7 +983,7 @@ compare_assigned_maps <- function(binary_file, multiclass_file, scenario) {
   }
   names(binary) <- "binary_zone"
   names(multiclass) <- "multiclass_zone"
-
+  
   confusion <- as.data.table(crosstab(c(binary, multiclass), long = TRUE, useNA = FALSE))
   setnames(confusion, names(confusion)[1:3], c("binary_zone", "multiclass_zone", "pixels"))
   confusion[, `:=`(
@@ -960,7 +992,7 @@ compare_assigned_maps <- function(binary_file, multiclass_file, scenario) {
     multiclass_zone = as.integer(multiclass_zone),
     pixels = as.numeric(pixels)
   )]
-
+  
   n_common <- sum(confusion$pixels)
   n_current <- confusion[binary_zone != 99, sum(pixels)]
   summary <- data.table(

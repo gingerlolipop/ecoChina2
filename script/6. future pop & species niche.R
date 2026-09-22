@@ -19,7 +19,7 @@ gc()
 find_project_root <- function() {
   configured <- Sys.getenv("ECOCHINA2_DIR", unset = "")
   if (nzchar(configured)) return(normalizePath(configured, mustWork = TRUE))
-
+  
   current <- normalizePath(getwd(), mustWork = TRUE)
   if (file.exists(file.path(current, "data", "ecosys_ori.tif")) ||
       file.exists(file.path(current, "raster", "ecosys_ori.tif"))) return(current)
@@ -185,19 +185,19 @@ population_rank_cell <- function(values, source_zones) {
   ranked_zone <- rep(NA_real_, n_population)
   ranked_suitability <- rep(NA_real_, n_population)
   valid <- which(is.finite(values) & values > 0)
-
+  
   if (length(valid)) {
     ordered <- valid[order(-values[valid], source_zones[valid])]
     ranked_zone[seq_along(ordered)] <- source_zones[ordered]
     ranked_suitability[seq_along(ordered)] <- values[ordered]
   }
-
+  
   margin <- if (length(valid) >= 2L) {
     ranked_suitability[1] - ranked_suitability[2]
   } else {
     NA_real_
   }
-
+  
   c(
     ranked_zone,
     ranked_suitability,
@@ -211,7 +211,7 @@ species_output_paths <- function(scenario, species_name) {
   safe_species <- gsub("[^A-Za-z0-9_]", "_", species_name)
   safe_species <- gsub("^_+|_+$", "", safe_species)
   scenario_dir <- file.path(raster_root, scenario)
-
+  
   list(
     species = file.path(
       scenario_dir, "species niche",
@@ -396,18 +396,18 @@ if (reuse_existing && files_current(ecosystem_area_file, assigned_files)) {
   cat("[REUSE TABLE]", ecosystem_area_file, "\n")
 } else {
   ecosystem_area_results <- list()
-
+  
   for (scenario in scenarios) {
     map_file <- assigned_map_file(scenario, required = FALSE)
     if (is.na(map_file)) next
-
+    
     assigned <- rast(map_file)
     check_geometry(assigned, reference, paste("Assigned map", scenario))
     ecosystem_area_results[[length(ecosystem_area_results) + 1L]] <-
       zone_area_table(assigned, get_cell_area(), scenario)
     rm(assigned)
   }
-
+  
   ecosystem_area <- rbindlist(ecosystem_area_results, fill = TRUE)
   ecosystem_area[, method := "mf_var"]
   fwrite(ecosystem_area, ecosystem_area_file)
@@ -429,15 +429,15 @@ if (reuse_existing && files_current(transition_file, assigned_files)) {
 } else {
   transition_results <- list()
   normal_file <- assigned_map_file("normal", required = FALSE)
-
+  
   if (!is.na(normal_file)) {
     normal_map <- rast(normal_file)
     check_geometry(normal_map, reference, "Normal assigned map")
-
+    
     for (scenario in future_scenarios) {
       future_file <- assigned_map_file(scenario, required = FALSE)
       if (is.na(future_file)) next
-
+      
       future_map <- rast(future_file)
       check_geometry(future_map, reference, paste("Future assigned map", scenario))
       transition_code <- ifel(
@@ -448,7 +448,7 @@ if (reuse_existing && files_current(transition_file, assigned_files)) {
       transition <- as.data.table(
         zonal(get_cell_area(), transition_code, fun = "sum", na.rm = TRUE)
       )
-
+      
       if (nrow(transition)) {
         setnames(transition, names(transition)[1:2], c("transition_code", "area_km2"))
         fields <- scenario_fields(scenario)
@@ -466,12 +466,12 @@ if (reuse_existing && files_current(transition_file, assigned_files)) {
         )]
         transition_results[[length(transition_results) + 1L]] <- transition
       }
-
+      
       rm(future_map, transition_code, transition)
     }
     rm(normal_map)
   }
-
+  
   transitions <- rbindlist(transition_results, fill = TRUE)
   transitions[, method := "mf_var"]
   fwrite(transitions, transition_file)
@@ -507,6 +507,41 @@ read_mf_cache <- function(file) {
   result
 }
 
+# Use explicit column vectors for filters involving loop/function arguments.
+# The data.table `..name` shortcut belongs in j; in i it can be looked up as
+# a literal missing object instead of the surrounding scenario/species value.
+dual_cache_rows <- function(cache, scenario_value, species_value = NULL) {
+  if (!all(c("method", "scenario", "Species") %in% names(cache))) {
+    return(cache[0L])
+  }
+  keep <- cache$method == "mf_var" & cache$scenario == scenario_value
+  if (!is.null(species_value)) keep <- keep & cache$Species == species_value
+  row_index <- which(keep)
+  cache[row_index]
+}
+
+dual_cache_identity_valid <- function(population_rows, species_rows,
+                                      expected_population) {
+  population_columns <- c(
+    "PopulationID", "source_zone", "suitable_area_km2",
+    "suitability_weighted_area_km2", "mean_dual_suitability"
+  )
+  species_columns <- c(
+    "suitable_area_km2", "suitability_weighted_area_km2", "mean_dual_suitability"
+  )
+  if (!all(population_columns %in% names(population_rows)) ||
+      !all(species_columns %in% names(species_rows)) ||
+      nrow(population_rows) != nrow(expected_population) ||
+      nrow(species_rows) != 1L ||
+      anyDuplicated(population_rows$PopulationID) ||
+      !setequal(population_rows$PopulationID, expected_population$PopulationID)) {
+    return(FALSE)
+  }
+  expected_order <- match(population_rows$PopulationID, expected_population$PopulationID)
+  isTRUE(all(population_rows$source_zone ==
+               expected_population$source_zone[expected_order]))
+}
+
 cached_assigned_population <- read_mf_cache(assigned_population_file)
 cached_assigned_species <- read_mf_cache(assigned_species_file)
 expected_assigned_population_rows <-
@@ -530,7 +565,7 @@ assigned_scenario_cache_valid <- function(population_rows, species_rows,
       anyDuplicated(species_rows$Species)) {
     return(FALSE)
   }
-
+  
   population_rasters <- unique(as.character(population_rows$population_raster))
   species_rasters <- unique(as.character(species_rows$species_raster))
   if (anyNA(c(population_rasters, species_rasters)) ||
@@ -549,7 +584,7 @@ assigned_scenario_cache_valid <- function(population_rows, species_rows,
       ))) {
     return(FALSE)
   }
-
+  
   all(vapply(species_names, function(species_name) {
     species_raster <- unique(as.character(
       species_rows[Species == species_name]$species_raster
@@ -590,7 +625,7 @@ if (assigned_tables_complete) {
   assigned_population_results <- list()
   assigned_species_results <- list()
   species_names <- sort(unique(projected_population$Species))
-
+  
   for (scenario in future_scenarios) {
     scenario_key <- scenario
     cached_scenario_population <- cached_assigned_population[scenario == scenario_key]
@@ -605,7 +640,7 @@ if (assigned_tables_complete) {
         cached_scenario_species,
         assigned_files[[scenario]]
       )
-
+    
     if (reuse_existing && scenario_complete) {
       assigned_population_results[[length(assigned_population_results) + 1L]] <-
         cached_scenario_population
@@ -614,7 +649,7 @@ if (assigned_tables_complete) {
       cat("[REUSE ASSIGNED SCENARIO]", scenario, "\n")
       next
     }
-
+    
     future_map <- rast(assigned_map_file(scenario))
     check_geometry(future_map, reference, paste("Assigned map", scenario))
     fields <- scenario_fields(scenario)
@@ -622,7 +657,7 @@ if (assigned_tables_complete) {
     species_dir <- file.path(map_output_root, "mf_var", scenario, "species niche")
     dir.create(population_dir, recursive = TRUE, showWarnings = FALSE)
     dir.create(species_dir, recursive = TRUE, showWarnings = FALSE)
-
+    
     for (species_name in species_names) {
       species_population <- projected_population[
         Species == species_name
@@ -633,7 +668,7 @@ if (assigned_tables_complete) {
       species_output <- file.path(
         species_dir, paste0(species_name, "_species_niche.tif")
       )
-
+      
       cached_population_rows <- cached_scenario_population[Species == species_name]
       cached_species_rows <- cached_scenario_species[Species == species_name]
       species_checkpoint <-
@@ -668,7 +703,7 @@ if (assigned_tables_complete) {
         cat("[REUSE ASSIGNED]", species_name, "|", scenario, "\n")
         next
       }
-
+      
       population_output_current <-
         raster_valid(population_output, reference, 1L) &&
         files_current(
@@ -691,7 +726,7 @@ if (assigned_tables_complete) {
           wopt = list(gdal = "COMPRESS=LZW")
         )
       }
-
+      
       species_output_current <-
         raster_valid(species_output, reference, 1L) &&
         files_current(
@@ -711,7 +746,7 @@ if (assigned_tables_complete) {
           datatype = "INT1U", wopt = list(gdal = "COMPRESS=LZW")
         )
       }
-
+      
       population_area <- as.data.table(
         zonal(get_cell_area(), population_map, fun = "sum", na.rm = TRUE)
       )
@@ -745,7 +780,7 @@ if (assigned_tables_complete) {
       )]
       assigned_population_results[[length(assigned_population_results) + 1L]] <-
         population_area
-
+      
       assigned_species_results[[length(assigned_species_results) + 1L]] <- data.table(
         Species = species_name,
         method = "mf_var",
@@ -756,15 +791,15 @@ if (assigned_tables_complete) {
         future_area_km2 = global_sum(get_cell_area() * species_map),
         species_raster = species_output
       )
-
+      
       rm(population_map, species_map, population_area)
       gc()
     }
-
+    
     rm(future_map)
     gc()
   }
-
+  
   assigned_population_area <- rbindlist(assigned_population_results, fill = TRUE)
   assigned_species_area <- rbindlist(assigned_species_results, fill = TRUE)
   if (nrow(assigned_population_area)) {
@@ -813,37 +848,69 @@ if (nrow(cached_species) && !"method" %in% names(cached_species)) {
   cached_species[, method := "mf_var"]
 }
 
+dual_checkpoint_dir <- file.path(table_dir, "cache", "dual_scenarios")
+dir.create(dual_checkpoint_dir, recursive = TRUE, showWarnings = FALSE)
+
 for (scenario in scenarios) {
   cat("\n[POPULATION/SPECIES]", scenario, "\n")
-
+  
   dual_files <- vapply(modeled_zones, function(z) dual_file(scenario, z), character(1))
   species_names <- sort(unique(projected_population$Species))
-
+  scenario_cached_population <- cached_population
+  scenario_cached_species <- cached_species
+  summary_cache_files <- c(population_table_file, species_table_file)
+  checkpoint_file <- file.path(dual_checkpoint_dir, paste0(scenario, ".rds"))
+  
+  # Preserve completed scenario summaries even if a later scenario fails before
+  # the canonical combined CSV files can be written. Only this small checkpoint
+  # is new; all model and raster output paths remain the established paths.
+  if (reuse_existing &&
+      files_current(checkpoint_file, c(dual_files, dual_population_dependency)) &&
+      !files_current(summary_cache_files, checkpoint_file)) {
+    checkpoint <- tryCatch(readRDS(checkpoint_file), error = function(e) NULL)
+    if (is.list(checkpoint) &&
+        identical(checkpoint$scenario, scenario) &&
+        identical(checkpoint$dual_threshold, dual_threshold) &&
+        is.data.frame(checkpoint$population) &&
+        is.data.frame(checkpoint$species)) {
+      scenario_cached_population <- as.data.table(checkpoint$population)
+      scenario_cached_species <- as.data.table(checkpoint$species)
+      summary_cache_files <- checkpoint_file
+      cat("[RESUME SUMMARY CHECKPOINT]", scenario, "\n")
+    }
+  }
+  
   scenario_reusable <- reuse_existing && all(vapply(
     species_names,
     function(species_name) {
       species_population <- projected_population[Species == species_name]
       paths <- species_output_paths(scenario, species_name)
-      cached_population_rows <- cached_population[
-        method == "mf_var" & scenario == ..scenario & Species == ..species_name
-      ]
-      cached_species_rows <- cached_species[
-        method == "mf_var" & scenario == ..scenario & Species == ..species_name
-      ]
-
-      nrow(cached_population_rows) == nrow(species_population) &&
-        nrow(cached_species_rows) == 1L &&
+      cached_population_rows <- dual_cache_rows(
+        scenario_cached_population, scenario, species_name
+      )
+      cached_species_rows <- dual_cache_rows(
+        scenario_cached_species, scenario, species_name
+      )
+      
+      dual_cache_identity_valid(
+        cached_population_rows, cached_species_rows, species_population
+      ) &&
         raster_valid(paths$species, reference, 1L) &&
         raster_valid(paths$binary, reference, 1L) &&
         raster_valid(paths$rank_zone, reference, nrow(species_population)) &&
         raster_valid(paths$rank_suitability, reference, nrow(species_population)) &&
         raster_valid(paths$rank_summary, reference, 3L) &&
         files_current(
-          c(population_table_file, species_table_file),
+          summary_cache_files,
           c(
             dual_files[match(species_population$source_zone, modeled_zones)],
-            dual_population_dependency
+            dual_population_dependency, paths$species
           )
+        ) &&
+        files_current(
+          paths$binary,
+          c(paths$species, dual_files[match(species_population$source_zone, modeled_zones)],
+            dual_population_dependency)
         ) &&
         files_current(
           unlist(paths[c(
@@ -857,19 +924,19 @@ for (scenario in scenarios) {
     },
     logical(1)
   ))
-
+  
   if (scenario_reusable) {
     cat("[REUSE COMPLETE SCENARIO]", scenario, "\n")
     for (species_name in species_names) {
       species_population <- projected_population[Species == species_name]
       paths <- species_output_paths(scenario, species_name)
       source_zones <- species_population$source_zone
-      population_results[[length(population_results) + 1L]] <- cached_population[
-        method == "mf_var" & scenario == ..scenario & Species == ..species_name
-      ]
-      species_results[[length(species_results) + 1L]] <- cached_species[
-        method == "mf_var" & scenario == ..scenario & Species == ..species_name
-      ]
+      population_results[[length(population_results) + 1L]] <- dual_cache_rows(
+        scenario_cached_population, scenario, species_name
+      )
+      species_results[[length(species_results) + 1L]] <- dual_cache_rows(
+        scenario_cached_species, scenario, species_name
+      )
       population_layer_index[[length(population_layer_index) + 1L]] <- data.table(
         Species = species_name,
         PopulationID = species_population$PopulationID,
@@ -903,11 +970,11 @@ for (scenario in scenarios) {
     }
     next
   }
-
+  
   dual_stack <- rast(dual_files)
   names(dual_stack) <- paste0("zone", modeled_zones)
   check_geometry(dual_stack, reference, paste("Dual suitability", scenario))
-
+  
   fields <- scenario_fields(scenario)
   scenario_dir <- file.path(raster_root, scenario)
   species_dir <- file.path(scenario_dir, "species niche")
@@ -916,14 +983,14 @@ for (scenario in scenarios) {
   for (directory in c(species_dir, species_binary_dir, rank_dir)) {
     dir.create(directory, recursive = TRUE, showWarnings = FALSE)
   }
-
+  
   for (species_name in species_names) {
     species_population <- projected_population[Species == species_name]
     source_zones <- species_population$source_zone
     layer_index <- match(source_zones, modeled_zones)
     population_stack <- dual_stack[[layer_index]]
     names(population_stack) <- species_population$PopulationID
-
+    
     paths <- species_output_paths(scenario, species_name)
     species_file <- paths$species
     species_binary_file <- paths$binary
@@ -931,21 +998,22 @@ for (scenario in scenarios) {
     rank_suitability_file <- paths$rank_suitability
     rank_summary_file <- paths$rank_summary
     rank_index_file <- paths$rank_index
-
-    cached_population_rows <- cached_population[
-      method == "mf_var" & scenario == ..scenario & Species == ..species_name
-    ]
-    cached_species_rows <- cached_species[
-      method == "mf_var" & scenario == ..scenario & Species == ..species_name
-    ]
+    
+    cached_population_rows <- dual_cache_rows(
+      scenario_cached_population, scenario, species_name
+    )
+    cached_species_rows <- dual_cache_rows(
+      scenario_cached_species, scenario, species_name
+    )
     cached_tables_valid <-
-      nrow(cached_population_rows) == nrow(species_population) &&
-      nrow(cached_species_rows) == 1L &&
+      dual_cache_identity_valid(
+        cached_population_rows, cached_species_rows, species_population
+      ) &&
       files_current(
-        c(population_table_file, species_table_file),
+        summary_cache_files,
         c(dual_files[layer_index], dual_population_dependency)
       )
-
+    
     species_file_current <-
       raster_valid(species_file, reference, 1L) &&
       files_current(species_file, c(dual_files[layer_index], dual_population_dependency))
@@ -965,8 +1033,9 @@ for (scenario in scenarios) {
       )
     species_rasters_valid <-
       species_file_current && binary_file_current && rank_valid
-
-    if (reuse_existing && cached_tables_valid && species_rasters_valid && rank_valid) {
+    
+    if (reuse_existing && cached_tables_valid && species_rasters_valid &&
+        files_current(summary_cache_files, species_file)) {
       cat("[REUSE]", species_name, "|", scenario, "\n")
       population_results[[length(population_results) + 1L]] <- cached_population_rows
       species_results[[length(species_results) + 1L]] <- cached_species_rows
@@ -1003,18 +1072,29 @@ for (scenario in scenarios) {
       rm(population_stack)
       next
     }
-
-    for (population_index in seq_len(nrow(species_population))) {
+    
+    # A missing rank/binary file does not invalidate unchanged population areas.
+    # Preserve those summaries while repairing only the missing raster product.
+    if (reuse_existing && cached_tables_valid) {
+      population_results[[length(population_results) + 1L]] <- cached_population_rows
+      cat("[REUSE POPULATION SUMMARY]", species_name, "|", scenario, "\n")
+    }
+    population_indices <- if (reuse_existing && cached_tables_valid) {
+      integer()
+    } else {
+      seq_len(nrow(species_population))
+    }
+    for (population_index in population_indices) {
       suitability <- population_stack[[population_index]]
       suitable <- ifel(is.na(suitability), NA, suitability >= dual_threshold)
-
+      
       area_km2 <- global_sum(ifel(suitable, get_cell_area(), 0))
       weighted_area_km2 <- global_sum(ifel(
         is.na(suitability),
         NA,
         get_cell_area() * suitability
       ))
-
+      
       population_results[[length(population_results) + 1L]] <- data.table(
         PopulationID = species_population$PopulationID[[population_index]],
         Species = species_name,
@@ -1030,7 +1110,7 @@ for (scenario in scenarios) {
         dual_raster = dual_files[[layer_index[[population_index]]]]
       )
     }
-
+    
     if (reuse_existing && species_file_current) {
       species_suitability <- rast(species_file)
       names(species_suitability) <- "species_dual_suitability"
@@ -1044,28 +1124,39 @@ for (scenario in scenarios) {
       )
       names(species_suitability) <- "species_dual_suitability"
     }
-
-    species_suitable <- ifel(
-      is.na(species_suitability),
-      NA,
-      species_suitability >= dual_threshold
-    )
-
-    species_area_km2 <- global_sum(ifel(species_suitable, get_cell_area(), 0))
-    species_weighted_area_km2 <- global_sum(ifel(
-      is.na(species_suitability),
-      NA,
-      get_cell_area() * species_suitability
-    ))
-
+    
+    species_summary_current <- reuse_existing && cached_tables_valid &&
+      species_file_current && files_current(summary_cache_files, species_file)
     binary_file_current <-
       raster_valid(species_binary_file, reference, 1L) &&
       files_current(
         species_binary_file,
         c(species_file, dual_files[layer_index], dual_population_dependency)
       )
-    if (write_species_rasters &&
-        !(reuse_existing && binary_file_current)) {
+    write_species_binary <- write_species_rasters &&
+      !(reuse_existing && binary_file_current)
+    species_suitable <- if (!species_summary_current || write_species_binary) {
+      ifel(is.na(species_suitability), NA, species_suitability >= dual_threshold)
+    } else {
+      NULL
+    }
+    
+    if (species_summary_current) {
+      species_area_km2 <- cached_species_rows$suitable_area_km2[[1]]
+      species_weighted_area_km2 <- cached_species_rows$suitability_weighted_area_km2[[1]]
+      species_mean_suitability <- cached_species_rows$mean_dual_suitability[[1]]
+      cat("[REUSE SPECIES SUMMARY]", species_name, "|", scenario, "\n")
+    } else {
+      species_area_km2 <- global_sum(ifel(species_suitable, get_cell_area(), 0))
+      species_weighted_area_km2 <- global_sum(ifel(
+        is.na(species_suitability),
+        NA,
+        get_cell_area() * species_suitability
+      ))
+      species_mean_suitability <- global_mean(species_suitability)
+    }
+    
+    if (write_species_binary) {
       writeRaster(
         species_suitable,
         species_binary_file,
@@ -1074,7 +1165,7 @@ for (scenario in scenarios) {
         wopt = list(gdal = "COMPRESS=LZW")
       )
     }
-
+    
     if (!(reuse_existing && rank_valid)) {
       rank_all <- app(
         population_stack,
@@ -1110,7 +1201,7 @@ for (scenario in scenarios) {
       )
       rm(rank_all, rank_zone, rank_suitability, rank_summary)
     }
-
+    
     rank_index <- data.table(
       Species = species_name,
       PopulationID = species_population$PopulationID,
@@ -1143,7 +1234,7 @@ for (scenario in scenarios) {
       ranked_suitability_raster = rank_suitability_file,
       ranked_summary_raster = rank_summary_file
     )
-
+    
     species_results[[length(species_results) + 1L]] <- data.table(
       Species = species_name,
       n_populations = nrow(species_population),
@@ -1153,18 +1244,29 @@ for (scenario in scenarios) {
       ssp = fields$ssp,
       suitable_area_km2 = species_area_km2,
       suitability_weighted_area_km2 = species_weighted_area_km2,
-      mean_dual_suitability = global_mean(species_suitability),
+      mean_dual_suitability = species_mean_suitability,
       species_raster = if (write_species_rasters) species_file else NA_character_,
       species_binary_raster = if (write_species_rasters) species_binary_file else NA_character_,
       ranked_zone_raster = rank_zone_file,
       ranked_suitability_raster = rank_suitability_file,
       ranked_summary_raster = rank_summary_file
     )
-
+    
     rm(population_stack, species_suitability, species_suitable)
     gc()
   }
-
+  
+  saveRDS(
+    list(
+      scenario = scenario,
+      dual_threshold = dual_threshold,
+      population = dual_cache_rows(rbindlist(population_results, fill = TRUE), scenario),
+      species = dual_cache_rows(rbindlist(species_results, fill = TRUE), scenario)
+    ),
+    checkpoint_file
+  )
+  cat("[SAVED SUMMARY CHECKPOINT]", scenario, "\n")
+  
   rm(dual_stack)
   gc()
 }
