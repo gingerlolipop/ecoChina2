@@ -20,7 +20,7 @@ library(patchwork)
 rm(list = ls())
 gc()
 
-script_revision <- "2026-10-05-topk-shared-legend-v2"
+script_revision <- "2026-11-01-detailed-climate-stacks-v3"
 
 
 # 0. Paths, constants and palette ==============================================
@@ -1076,34 +1076,22 @@ importance_category_order <- c(
   "forest", "scrub", "grassland_meadow_steppe", "desert",
   "cropland", "wetland", "alpine_vegetation"
 )
-importance_group_order <- c(
-  "Temperature", "Precipitation", "Climatic moisture balance",
-  "Growing season and degree-days", "Radiation and evaporative demand",
-  "Humidity", "Snowfall",
-  "Nutrient retention and base status", "Bulk density", "Coarse fragments",
-  "Texture", "Organic carbon", "Soil reaction", "Carbonates", "Gypsum",
-  "Sodicity", "Salinity", "Other"
-)
-importance_group_colours <- c(
-  "Temperature" = "#D55E00",
-  "Precipitation" = "#0072B2",
-  "Climatic moisture balance" = "#009E73",
-  "Growing season and degree-days" = "#6A994E",
-  "Radiation and evaporative demand" = "#E69F00",
-  "Humidity" = "#56B4E9",
-  "Snowfall" = "#9FBAD0",
-  "Nutrient retention and base status" = "#2E8B57",
-  "Bulk density" = "#6B4C3B",
-  "Coarse fragments" = "#7A7F87",
-  "Texture" = "#C17C2C",
-  "Organic carbon" = "#4E342E",
-  "Soil reaction" = "#7B3294",
-  "Carbonates" = "#C9A227",
-  "Gypsum" = "#CC79A7",
-  "Sodicity" = "#E76F51",
-  "Salinity" = "#008C95",
-  "Other" = "#BDBDBD"
-)
+grouping_helper <- file.path(base_dir, "functions", "importance_variable_groups.R")
+if (!file.exists(grouping_helper)) stop("Missing helper: ", grouping_helper)
+source(grouping_helper, local = TRUE)
+importance_group_order <- c(importance_climate_groups, importance_soil_groups)
+importance_group_colours <- importance_semantic_colours
+if ("importance" %in% selected_sections || "all" %in% section_setting) {
+  grouping_file <- file.path(importance_table_dir, "FI_grouping_settings.csv")
+  if (!file.exists(grouping_file)) {
+    stop("Grouping completion marker missing. Run script 5.31 or revised script 5.3 first.")
+  }
+  grouping_settings <- fread(grouping_file)
+  if (!"grouping_version" %in% names(grouping_settings) ||
+      !identical(unique(grouping_settings$grouping_version), importance_grouping_version)) {
+    stop("Importance tables use an old taxonomy. Run script 5.31 or revised script 5.3 first.")
+  }
+}
 
 importance_category_factor <- function(x, reverse = FALSE) {
   values <- as.character(x)
@@ -1119,6 +1107,9 @@ importance_category_factor <- function(x, reverse = FALSE) {
 
 importance_group_style <- function(x) {
   present <- unique(as.character(x))
+  if ("Temperature" %in% present) {
+    stop("Old broad Temperature group detected. Run script 5.31 or revised script 5.3 first.")
+  }
   levels <- c(
     intersect(importance_group_order, present),
     sort(setdiff(present, importance_group_order))
@@ -1219,7 +1210,7 @@ run_figure("importance_zone_variables", {
       geom_tile() +
       facet_grid(
         category_label ~ variable_group,
-        scales = "free", space = "free", switch = "y",
+        scales = "free", space = "free", `switch` = "y",
         labeller = labeller(
           category_label = label_wrap_gen(18),
           variable_group = label_wrap_gen(18)
@@ -1299,7 +1290,7 @@ run_figure("importance_zone_groups", {
         width = 0.74, colour = "white", linewidth = 0.08
       ) +
       facet_grid(
-        category_label ~ ., scales = "free_y", space = "free_y", switch = "y",
+        category_label ~ ., scales = "free_y", space = "free_y", `switch` = "y",
         labeller = labeller(category_label = label_wrap_gen(18))
       ) +
       scale_x_continuous(
@@ -1350,65 +1341,16 @@ run_figure("importance_category_groups", {
   grouped <- read_required(
     file.path(importance_table_dir, "FI_reader_06_category_grouped_importance.csv")
   )
-  group_plots <- list()
-  for (niche_value in c("climate", "soil")) {
-    plot_data <- copy(grouped[niche == niche_value])
-    plot_data[, category_label := importance_category_factor(category2, reverse = TRUE)]
-    group_style <- importance_group_style(plot_data$variable_group)
-    plot_data[, variable_group := factor(
-      variable_group, levels = group_style$levels
-    )]
-    
-    group_plot <- ggplot(
-      plot_data,
-      aes(x = consensus_mean, y = category_label, fill = variable_group)
-    ) +
-      geom_col(
-        position = position_stack(reverse = TRUE),
-        width = 0.72, colour = "white", linewidth = 0.15
-      ) +
-      scale_x_continuous(
-        breaks = seq(0, 1, by = 0.2),
-        labels = scales::percent,
-        expand = expansion(mult = c(0, 0))
-      ) +
-      scale_fill_manual(values = group_style$colours, drop = FALSE) +
-      labs(
-        x = "Normalized MeanDecreaseAccuracy (consensus share)", y = NULL,
-        fill = "Variable category",
-        title = paste(
-          if (niche_value == "climate") "Climatic" else "Topsoil",
-          "importance by vegetation category"
-        ),
-        subtitle = paste(
-          "Each horizontal bar is partitioned by the summed importance",
-          "of its variable categories."
-        )
-      ) +
-      theme_bw(base_size = 10) +
-      theme(
-        panel.grid.minor = element_blank(),
-        panel.grid.major.y = element_blank(),
-        legend.position = "right",
-        plot.title = element_text(face = "bold")
-      ) +
-      coord_cartesian(xlim = c(0, 1))
-    
-    group_plots[[niche_value]] <- group_plot
-    save_gg(
-      group_plot,
-      file.path(
-        figure_dir, "importance",
-        paste0("category_variable_groups_", niche_value, ".png")
-      ),
-      11, 6.5
-    )
-  }
+  category_plot_helper <- file.path(base_dir, "functions", "plot_importance_category_groups.R")
+  if (!file.exists(category_plot_helper)) stop("Missing helper: ", category_plot_helper)
+  source(category_plot_helper, local = TRUE)
+  group_plots <- importance_category_group_plots(grouped)
+  write_importance_category_group_plots(group_plots, base_dir)
   combined_groups <- wrap_plots(group_plots, ncol = 1)
   save_gg(
     combined_groups,
     file.path(figure_dir, "importance", "category_predictor_groups.png"),
-    11, 12
+    12, 15
   )
   
   p_compare <- ggplot(grouped, aes(binary_mean, multiclass_mean, colour = category2)) +
@@ -1520,10 +1462,46 @@ run_figure("importance_climate_period", {
     scale_fill_brewer(palette = "Spectral", direction = -1, na.translate = FALSE) +
     labs(
       x = "Vegetation category", y = "Climate consensus importance",
-      fill = "Climate period"
+      fill = "Climate period",
+      caption = "Annual includes annual-scale indices; MWMT and MCMT are monthly-temperature indices, not annual means."
     ) + theme_manuscript +
     theme(axis.text.x = element_text(angle = 40, hjust = 1), legend.position = "top")
   save_gg(p, file.path(figure_dir, "importance", "climate_period.png"), 10.5, 6)
+})
+
+run_figure("importance_climate_group_period", {
+  climate_period <- read_required(file.path(
+    importance_table_dir, "FI_reader_11_category_climate_group_period.csv"
+  ))
+  climate_period[, category_label := importance_category_factor(category2)]
+  observed_groups <- intersect(importance_climate_groups, unique(climate_period$variable_group))
+  climate_period[, variable_group := factor(variable_group, levels = rev(observed_groups))]
+  climate_period[, climate_period := factor(climate_period, levels = importance_climate_periods)]
+  # Shares retain the original whole-climate denominator. Do not normalize each
+  # season column independently; that would erase seasonal contributions.
+  p <- ggplot(climate_period, aes(climate_period, variable_group, fill = consensus_mean)) +
+    geom_tile(colour = "white", linewidth = 0.25, width = 0.95, height = 0.95) +
+    facet_wrap(~ category_label, ncol = 3, drop = TRUE) +
+    scale_fill_viridis_c(labels = scales::percent, limits = c(0, NA),
+                        option = "C", na.value = "grey95") +
+    scale_x_discrete(drop = FALSE, labels = c(
+      Annual = "Annual indices", Winter = "Winter", Spring = "Spring",
+      Summer = "Summer", Autumn = "Autumn"
+    )) +
+    scale_y_discrete(drop = FALSE) +
+    labs(x = NULL, y = NULL, fill = "Importance share",
+         title = "Climatic importance by variable statistic and period",
+         subtitle = "Equal-weight Multi-Forest and multiclass consensus; common whole-climate denominator",
+         caption = paste(
+           "Blank cells have no predictor for that statistic-period combination in the aligned model inventory.",
+           "Annual indices include MWMT/MCMT; these are not annual mean temperatures."
+         )) +
+    theme_bw(base_size = 10) +
+    theme(panel.grid = element_blank(),
+          axis.text.x = element_text(angle = 45, hjust = 1),
+          strip.text = element_text(face = "bold"), legend.position = "bottom")
+  save_gg(p, file.path(figure_dir, "importance", "category_climate_group_period.png"),
+          18, 13)
 })
 
 run_figure("importance_category_similarity", {
@@ -3125,3 +3103,4 @@ cat(
   "Output: ", figure_dir, "\n",
   sep = ""
 )
+
