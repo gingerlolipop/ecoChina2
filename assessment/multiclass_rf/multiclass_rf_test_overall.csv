@@ -1,0 +1,2 @@
+model,n_test,n_predictors,n_trees,oob_accuracy,overall_accuracy,macro_balanced_accuracy,macro_sensitivity,macro_specificity,macro_precision,macro_f1,macro_tss,macro_auc
+multiclass_rf,100793,30,500,0.701199555100202,0.702538866786384,0.855312119691858,0.716349036474295,0.994275202909421,0.701033145788144,0.703987167825314,0.710624239383717,0.990163685007529

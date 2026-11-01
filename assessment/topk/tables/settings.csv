@@ -1,0 +1,8 @@
+setting,value
+workflow,selected-variable Multi-Forest
+k_values,"1,2,3,4,5"
+dual_threshold,0.4
+novel_value,99
+ranking_rule,"finite dual suitability > 0; descending, zone ID breaks exact ties"
+top1_rule,"assigned map from script 4, including the 1e-4 tie rule"
+matched_rule,same k on reference and future sides; observed reference ecotype restored when within first k ranks

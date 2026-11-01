@@ -1,0 +1,266 @@
+zoneID,zone,category,category2,climate_period,binary_share,multiclass_share,consensus_share
+17,Alpine tundra,alpine_tundra,alpine_vegetation,Annual,0.28250838402533,0.290892183016527,0.286700283520929
+17,Alpine tundra,alpine_tundra,alpine_vegetation,Autumn,0.105823946122209,0.130654909940144,0.118239428031176
+17,Alpine tundra,alpine_tundra,alpine_vegetation,Spring,0.113227395971524,0.27294007871592,0.193083737343722
+17,Alpine tundra,alpine_tundra,alpine_vegetation,Summer,0.105184214427341,0.102975715839028,0.104079965133184
+17,Alpine tundra,alpine_tundra,alpine_vegetation,Winter,0.393256059453596,0.202537112488381,0.297896585970988
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,Annual,0.432664404217317,0.366639952519372,0.399652178368345
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,Autumn,0.115982554237843,0.0915954508021412,0.103789002519992
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,Spring,0.0824838688840593,0.244251186531486,0.163367527707773
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,Summer,0.309845262520109,0.205863984478871,0.25785462349949
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,Winter,0.0590239101406714,0.0916494256681291,0.0753366679044002
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,Annual,0.277235426562883,0.315871213255738,0.296553319909311
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,Autumn,0.274471075267152,0.103106477213581,0.188788776240367
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,Spring,0.115179833699648,0.263943858315666,0.189561846007657
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,Summer,0.171560936852434,0.186808395001125,0.17918466592678
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,Winter,0.161552727617883,0.13027005621389,0.145911391915886
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,Annual,0.236546255002412,0.347699413091981,0.292122834047196
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,Autumn,0.236866594351127,0.104776543765226,0.170821569058176
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,Spring,0.124323821062064,0.247468108216769,0.185895964639416
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,Summer,0.324593048168947,0.165505287476242,0.245049167822595
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,Winter,0.0776702814154507,0.134550647449783,0.106110464432617
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,Annual,0.291149222093462,0.378988597763796,0.335068909928629
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,Autumn,0.149875792336634,0.091696334071775,0.120786063204204
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,Spring,0.223425858266527,0.235056911438413,0.22924138485247
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,Summer,0.22486667894953,0.177162141045112,0.201014409997321
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,Winter,0.110682448353847,0.117096015680905,0.113889232017376
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,Annual,0.276351327159028,0.293863161550539,0.285107244354784
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,Autumn,0.177148569786063,0.0521233719301842,0.114635970858123
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,Spring,0.0777670214416951,0.287706287667731,0.182736654554713
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,Summer,0.204779227448428,0.195369057174899,0.200074142311664
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,Winter,0.263953854164786,0.170938121676646,0.217445987920716
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,Annual,0.410666589101243,0.371109667750097,0.39088812842567
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,Autumn,0.0622064526385868,0.0896188778748825,0.0759126652567347
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,Spring,0.142358301230588,0.225573877588603,0.183966089409596
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,Summer,0.316528753982648,0.20808896693655,0.262308860459599
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,Winter,0.0682399030469343,0.105608609849867,0.0869242564484008
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,Annual,0.289548104501663,0.358150719204739,0.323849411853201
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,Autumn,0.216011164625495,0.0800803122264643,0.148045738425979
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,Spring,0.113182159594936,0.253487345885558,0.183334752740247
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,Summer,0.224873394000818,0.167020149773931,0.195946771887374
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,Winter,0.156385177277088,0.141261472909307,0.148823325093198
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,Annual,0.231094858556514,0.303391131625811,0.267242995091162
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,Autumn,0.130132650718846,0.0774524222520328,0.103792536485439
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,Spring,0.161780784171272,0.28583516773065,0.223807975950961
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,Summer,0.126757479570116,0.160660037078665,0.143708758324391
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,Winter,0.350234226983253,0.172661241312841,0.261447734148047
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,Annual,0.284768757378408,0.276906607022417,0.280837682200413
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,Autumn,0.2929489947992,0.0664612364672907,0.179705115633245
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,Spring,0.0902688427907972,0.319016820053063,0.20464283142193
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,Summer,0.0522232728622747,0.166459014577328,0.109341143719801
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,Winter,0.27979013216932,0.171156321879901,0.225473227024611
+23,Shrub deserts,shrub_desert,desert,Annual,0.432398803774487,0.410987671280194,0.42169323752734
+23,Shrub deserts,shrub_desert,desert,Autumn,0.119612051710226,0.0912859158517972,0.105448983781011
+23,Shrub deserts,shrub_desert,desert,Spring,0.0696131644576751,0.224730786279645,0.14717197536866
+23,Shrub deserts,shrub_desert,desert,Summer,0.194629008705009,0.14970096461222,0.172164986658614
+23,Shrub deserts,shrub_desert,desert,Winter,0.183746971352604,0.123294661976144,0.153520816664374
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,Annual,0.392911837994178,0.418953072269755,0.405932455131966
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,Autumn,0,0.082214237947422,0.041107118973711
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,Spring,0.236390870369691,0.211267127527903,0.223828998948797
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,Summer,0.286474424265978,0.163522827299928,0.224998625782953
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,Winter,0.0842228673701519,0.124042734954993,0.104132801162572
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,Annual,0.149945841313846,0.377466829498771,0.263706335406308
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,Autumn,0.155611864196239,0.0837838502603068,0.119697857228273
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,Spring,0.103654503289558,0.241592405440682,0.17262345436512
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,Summer,0.405898903809045,0.179991583614213,0.292945243711629
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,Winter,0.184888887391312,0.117165331186028,0.15102710928867
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,Annual,0.266536209208484,0.425874868416668,0.346205538812576
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,Autumn,0.178476896164214,0.0762128504861731,0.127344873325193
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,Spring,0.167292672019654,0.20711114117591,0.187201906597782
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,Summer,0.179735777486936,0.164223399034362,0.171979588260649
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,Winter,0.207958445120713,0.126577740886887,0.1672680930038
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,Annual,0.324409589603497,0.392576922396414,0.358493255999955
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,Autumn,0.179856792688394,0.0868913741441213,0.133374083416257
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,Spring,0.128453689523538,0.224070127718148,0.176261908620843
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,Summer,0.172955477128133,0.170868657373175,0.171912067250654
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,Winter,0.194324451056439,0.125592918368141,0.15995868471229
+35,Steppe shrub deserts,steppe_shrub_desert,desert,Annual,0.393998703236224,0.372244093169899,0.383121398203061
+35,Steppe shrub deserts,steppe_shrub_desert,desert,Autumn,0.151042613323752,0.0767955173379413,0.113919065330847
+35,Steppe shrub deserts,steppe_shrub_desert,desert,Spring,0.0878845052362595,0.218297509874795,0.153091007555527
+35,Steppe shrub deserts,steppe_shrub_desert,desert,Summer,0.149666378301954,0.161241694507737,0.155454036404845
+35,Steppe shrub deserts,steppe_shrub_desert,desert,Winter,0.217407799901811,0.171421185109628,0.194414492505719
+38,Annual herb deserts,annual_herb_desert,desert,Annual,0.403814295980989,0.411075701202947,0.407444998591968
+38,Annual herb deserts,annual_herb_desert,desert,Autumn,0.176855259474101,0.0904805846957387,0.13366792208492
+38,Annual herb deserts,annual_herb_desert,desert,Spring,0.093143573535932,0.206654146059333,0.149898859797632
+38,Annual herb deserts,annual_herb_desert,desert,Summer,0.138843215821296,0.179260519062404,0.15905186744185
+38,Annual herb deserts,annual_herb_desert,desert,Winter,0.187343655187683,0.112529048979577,0.14993635208363
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,Annual,0.339200625396191,0.330142878379798,0.334671751887994
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,Autumn,0.202444802711019,0.0909806628857534,0.146712732798386
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,Spring,0.0212838009732473,0.256574659181361,0.138929230077304
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,Summer,0.379734041114081,0.199294017335284,0.289514029224682
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,Winter,0.0573367298054626,0.123007782217804,0.0901722560116333
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,Annual,0.352224201524902,0.368220906280965,0.360222553902934
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,Autumn,0.239351429227736,0.114271649588789,0.176811539408263
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,Spring,0.204004140989851,0.255434892267778,0.229719516628814
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,Summer,0.185421554448135,0.135786610970907,0.160604082709521
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,Winter,0.018998673809375,0.12628594089156,0.0726423073504676
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,Annual,0.335838675901445,0.383834756937224,0.359836716419335
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,Autumn,0.129979405418626,0.095627294844725,0.112803350131676
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,Spring,0.123917232185555,0.229009899525544,0.17646356585555
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,Summer,0.265301930347258,0.179516795484613,0.222409362915935
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,Winter,0.144962756147115,0.112011253207894,0.128487004677505
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,Annual,0.495056295839394,0.345448410125986,0.42025235298269
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,Autumn,0.154683468153209,0.0876565561679126,0.121170012160561
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,Spring,0.0605803553673224,0.252855434284086,0.156717894825704
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,Summer,0.261539101522575,0.168581413854629,0.215060257688602
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,Winter,0.0281407791174993,0.145458185567386,0.0867994823424429
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,Annual,0.485975725479394,0.392174251260166,0.43907498836978
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,Autumn,0.0890670302535908,0.0717352075001087,0.0804011188768498
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,Spring,0.190268301734508,0.23796260099654,0.214115451365524
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,Summer,0.111085411339826,0.158488644487007,0.134787027913416
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,Winter,0.123603531192682,0.139639295756179,0.13162141347443
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,Annual,0.499278994332751,0.382340118124486,0.440809556228619
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,Autumn,0.0932601169820209,0.0943528107003537,0.0938064638411873
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,Spring,0.085099091760039,0.253497030445674,0.169298061102857
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,Summer,0.183401564489676,0.154198341653186,0.168799953071431
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,Winter,0.138960232435513,0.1156116990763,0.127285965755907
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,Annual,0.275652613715925,0.317063921058597,0.296358267387261
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,Autumn,0.156023831313264,0.0763636550213624,0.116193743167313
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,Spring,0.106241674678308,0.273351943660225,0.189796809169267
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,Summer,0.174028565801575,0.132491344230395,0.153259955015985
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,Winter,0.288053314490929,0.200729136029421,0.244391225260175
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,Annual,0.269385656952957,0.323747644184771,0.296566650568864
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,Autumn,0.199211895307121,0.0885427979234445,0.143877346615283
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,Spring,0.161461569963362,0.276895588036933,0.219178579000148
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,Summer,0.173658296354257,0.155467184523221,0.164562740438739
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,Winter,0.196282581422304,0.15534678533163,0.175814683376967
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,Annual,0.267468600863632,0.305178313145894,0.286323457004763
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,Autumn,0.109648413274531,0.065311403955331,0.0874799086149311
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,Spring,0.175526467283529,0.289744145168515,0.232635306226022
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,Summer,0.195423603990893,0.142098946430875,0.168761275210884
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,Winter,0.251932914587415,0.197667191299384,0.2248000529434
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,Annual,0.448740528801689,0.378824016002774,0.413782272402231
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,Autumn,0.0192863006339167,0.0782214131198225,0.0487538568768696
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,Spring,0.209135060780753,0.246012757866259,0.227573909323506
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,Summer,0.136622323351819,0.141106577763946,0.138864450557883
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,Winter,0.186215786431822,0.155835235247199,0.17102551083951
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,Annual,0.214162971414096,0.321168339016544,0.26766565521532
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,Autumn,0.149626856402596,0.0816416968943582,0.115634276648477
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,Spring,0.203524716935239,0.284722190843802,0.244123453889521
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,Summer,0.167975048201075,0.149584321799879,0.158779685000477
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,Winter,0.264710407046993,0.162883451445418,0.213796929246205
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,Annual,0.29695878666698,0.319539484172275,0.308249135419628
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,Autumn,0.126677148427665,0.0844296563480209,0.105553402387843
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,Spring,0.227151941151006,0.215558302122643,0.221355121636824
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,Summer,0.187643845350466,0.207586371322342,0.197615108336404
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,Winter,0.161568278403883,0.172886186034719,0.167227232219301
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,Annual,0.369942060859821,0.356213734826051,0.363077897842936
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,Autumn,0.203484121143686,0.0885522546483934,0.14601818789604
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,Spring,0.106421880684139,0.238275035754351,0.172348458219245
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,Summer,0.128448125701326,0.17870889972211,0.153578512711718
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,Winter,0.191703811611029,0.138250075049095,0.164976943330062
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,Annual,0.366263828884364,0.360443475150897,0.36335365201763
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,Autumn,0.0413068326993242,0.0703606340142794,0.0558337333568018
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,Spring,0.121397823410018,0.254087346081266,0.187742584745642
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,Summer,0.198974063306443,0.138569031612125,0.168771547459284
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,Winter,0.272057451699852,0.176539513141434,0.224298482420643
+52,Tropical rain forests,tropical_rain_forest,forest,Annual,0.249656537015091,0.303220122022103,0.276438329518597
+52,Tropical rain forests,tropical_rain_forest,forest,Autumn,0.256122598407052,0.058466659947347,0.1572946291772
+52,Tropical rain forests,tropical_rain_forest,forest,Spring,0.213136830907121,0.363290656746964,0.288213743827042
+52,Tropical rain forests,tropical_rain_forest,forest,Summer,0.069589960757073,0.135223315356804,0.102406638056939
+52,Tropical rain forests,tropical_rain_forest,forest,Winter,0.211494072913663,0.139799245926782,0.175646659420223
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,Annual,0.286991459506717,0.313941501117985,0.300466480312351
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,Autumn,0.111406443827443,0.089017519676792,0.100211981752117
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,Spring,0.338326333925529,0.334962465109427,0.336644399517478
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,Summer,0.0580185385641273,0.121181143465509,0.0895998410148182
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,Winter,0.205257224176184,0.140897370630287,0.173077297403236
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,Annual,0.399187853013004,0.353945982994423,0.376566918003713
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,Autumn,0.22417603694515,0.102690286685744,0.163433161815447
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,Spring,0.0898416504145204,0.253386438424027,0.171614044419274
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,Summer,0.140680276966817,0.158863875540716,0.149772076253767
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,Winter,0.146114182660509,0.13111341635509,0.1386137995078
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,Annual,0.398374720800152,0.367330923470267,0.382852822135209
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,Autumn,0.191447085234532,0.10012427513158,0.145785680183056
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,Spring,0.0847822506353978,0.267421295074927,0.176101772855163
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,Summer,0.181030649448919,0.155072600796143,0.168051625122531
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,Winter,0.144365293880999,0.110050905527083,0.127208099704041
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,Annual,0.380142856405634,0.385002433025518,0.382572644715576
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,Autumn,0.0755057268280916,0.088915559311013,0.0822106430695523
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,Spring,0.194346259054544,0.238314716953723,0.216330488004133
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,Summer,0.268207954237794,0.171192774946794,0.219700364592294
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,Winter,0.0817972034739363,0.116574515762952,0.0991858596184442
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,Annual,0.385043068597911,0.403528472882822,0.394285770740366
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,Autumn,0.152732103870885,0.0877564224450635,0.120244263157974
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,Spring,0.145159916506193,0.234641103139156,0.189900509822674
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,Summer,0.18309369831395,0.167361428132811,0.175227563223381
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,Winter,0.133971212711062,0.106712573400147,0.120341893055604
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,Annual,0.339692575986162,0.360718148146094,0.350205362066128
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,Autumn,0.0662516022748029,0.0562404069922166,0.0612460046335098
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,Spring,0.039860751547714,0.268920607917136,0.154390679732425
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,Summer,0.400446305363903,0.202165130674156,0.301305718019029
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,Winter,0.153748764827419,0.111955706270398,0.132852235548908
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,Annual,0.393113148337066,0.299029814033541,0.346071481185304
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,Autumn,0.0691530635442962,0.0465366462587992,0.0578448549015477
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,Spring,0.0996967746325152,0.343363621149558,0.221530197891037
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,Summer,0.31101119213334,0.191574896131666,0.251293044132503
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,Winter,0.127025821352783,0.119495022426435,0.123260421889609
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,Annual,0.32872961178253,0.307743685884203,0.318236648833367
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,Autumn,0.0791920018942323,0.0751515126495512,0.0771717572718917
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,Spring,0.169835251163276,0.292749080051509,0.231292165607392
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,Summer,0.139860324176768,0.147402330067348,0.143631327122058
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,Winter,0.282382810983193,0.176953391347389,0.229668101165291
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,Annual,0.28081240504376,0.369680891548062,0.325246648295911
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,Autumn,0.183501826003377,0.0918496878935954,0.137675756948486
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,Spring,0.0526196788055946,0.246293680346794,0.149456679576194
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,Summer,0.30963191311928,0.156861620187658,0.233246766653469
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,Winter,0.173434177027988,0.13531412002389,0.154374148525939
+19,No vegetation,no_vegetation,no_vegetation,Annual,0.482282158345473,0.446347448120186,0.464314803232829
+19,No vegetation,no_vegetation,no_vegetation,Autumn,0.155068330909646,0.0807426582518546,0.117905494580751
+19,No vegetation,no_vegetation,no_vegetation,Spring,0.0871237090565085,0.239195397768816,0.163159553412662
+19,No vegetation,no_vegetation,no_vegetation,Summer,0.216556949206582,0.137417438868314,0.176987194037448
+19,No vegetation,no_vegetation,no_vegetation,Winter,0.0589688524817901,0.0962970569908294,0.0776329547363097
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,Annual,0.312194648633933,0.372128655387892,0.342161652010912
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,Autumn,0.170940056488421,0.0880667257816533,0.129503391135037
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,Spring,0.0463507067156078,0.23644277052679,0.141396738621199
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,Summer,0.262011060298095,0.179626708679894,0.220818884488994
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,Winter,0.208503527863943,0.123735139623772,0.166119333743858
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,Annual,0.3451701430456,0.362116391297606,0.353643267171603
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,Autumn,0.114628562258402,0.0827029887338269,0.0986657754961146
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,Spring,0.163036456405246,0.232262470874669,0.197649463639958
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,Summer,0.200794296254385,0.198580264589776,0.19968728042208
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,Winter,0.176370542036366,0.124337884504122,0.150354213270244
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,Annual,0.240405353262141,0.310794073995183,0.275599713628662
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,Autumn,0.158097172544721,0.0860336075412077,0.122065390042964
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,Spring,0.162184707404785,0.294322289985908,0.228253498695347
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,Summer,0.107223088758671,0.146070666264881,0.126646877511776
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,Winter,0.332089678029682,0.16277936221282,0.247434520121251
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,Annual,0.344542218861972,0.362741438064587,0.35364182846328
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,Autumn,0.090494542763692,0.0634076971702841,0.0769511199669881
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,Spring,0.233221016843566,0.287514392321815,0.26036770458269
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,Summer,0.0801066286938201,0.165869154908829,0.122987891801325
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,Winter,0.25163559283695,0.120467317534485,0.186051455185718
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,Annual,0.333867138666503,0.404400664472155,0.369133901569329
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,Autumn,0.147950854383816,0.0523556555521256,0.100153254967971
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,Spring,0.0931406799320945,0.225343024271286,0.15924185210169
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,Summer,0.244790146375944,0.217335564061871,0.231062855218908
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,Winter,0.180251180641643,0.100565091642563,0.140408136142103
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,Annual,0.31820778357201,0.314874573805833,0.316541178688921
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,Autumn,0.161261110189535,0.0738359941378877,0.117548552163711
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,Spring,0.0698976282238413,0.329539130592298,0.199718379408069
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,Summer,0.0949071119754336,0.125945356944731,0.110426234460083
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,Winter,0.355726366039181,0.15580494451925,0.255765655279216
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,Annual,0.358611374439657,0.354783080478865,0.356697227459261
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,Autumn,0.208251120623857,0.115982921894752,0.162117021259304
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,Spring,0.0912465837443539,0.259370829496572,0.175308706620463
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,Summer,0.278132812480882,0.156638925072093,0.217385868776487
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,Winter,0.0637581087112504,0.113224243057719,0.0884911758844848
+6,Cold-temperate and temperate marshes,marsh,wetland,Annual,0.39917758003056,0.35793574695377,0.378556663492165
+6,Cold-temperate and temperate marshes,marsh,wetland,Autumn,0.189470631855036,0.111024222352436,0.150247427103736
+6,Cold-temperate and temperate marshes,marsh,wetland,Spring,0.0769019417592821,0.254743275036785,0.165822608398033
+6,Cold-temperate and temperate marshes,marsh,wetland,Summer,0.283366580611318,0.164211044362113,0.223788812486716
+6,Cold-temperate and temperate marshes,marsh,wetland,Winter,0.051083265743804,0.112085711294896,0.08158448851935
+43,High-cold marshes,high_cold_marsh,wetland,Annual,0.257926413425668,0.346049237864163,0.301987825644916
+43,High-cold marshes,high_cold_marsh,wetland,Autumn,0.22327911547596,0.0888512988857845,0.156065207180872
+43,High-cold marshes,high_cold_marsh,wetland,Spring,0.0743788923949688,0.225457179786036,0.149918036090503
+43,High-cold marshes,high_cold_marsh,wetland,Summer,0.182219237071419,0.195866015284008,0.189042626177713
+43,High-cold marshes,high_cold_marsh,wetland,Winter,0.262196341631984,0.143776268180008,0.202986304905996
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,Annual,0.299122651903682,0.311079263066948,0.305100957485315
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,Autumn,0.0631444883024896,0.094665714722821,0.0789051015126553
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,Spring,0.139342112521766,0.228885279712958,0.184113696117362
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,Summer,0.312532624447838,0.209941998146496,0.261237311297167
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,Winter,0.185858122824224,0.155427744350778,0.170642933587501
+54,Tropical mangroves,mangrove,wetland,Annual,0.142829682288421,0.2628511367044,0.20284040949641
+54,Tropical mangroves,mangrove,wetland,Autumn,0.267896157105479,0.0784349202630113,0.173165538684245
+54,Tropical mangroves,mangrove,wetland,Spring,0.364735069390741,0.384408103351114,0.374571586370928
+54,Tropical mangroves,mangrove,wetland,Summer,0.0368616605443728,0.104327254806671,0.0705944576755218
+54,Tropical mangroves,mangrove,wetland,Winter,0.187677430670987,0.169978584874804,0.178828007772896

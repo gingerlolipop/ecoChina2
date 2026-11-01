@@ -14,8 +14,64 @@
 library(terra)
 library(data.table)
 
-rm(list = ls())
+# Input signatures allow pending scans to be reused only while their inputs
+# keep the same file sizes and modification timestamps.
+analogue_input_signature <- function(input_files) {
+  paths <- sort(unique(normalizePath(input_files, winslash = "/", mustWork = TRUE)))
+  info <- file.info(paths)
+  if (anyNA(info$size) || anyNA(info$mtime)) stop("Cannot inspect analogue input files.")
+  paste(paste(paths, info$size, sprintf("%.9f", as.numeric(info$mtime)), sep = "|"),
+        collapse = "\n")
+}
+
+# Preserve a finished analogue scan left in this R session by an interrupted
+# older revision. It is only a pending result, not a validated cache. The
+# corrected scenario-specific cross-check below must pass before promotion.
+if (exists("scenario_analogue", inherits = FALSE) &&
+    exists("scenario_analogue_file", inherits = FALSE) &&
+    exists("scenario", inherits = FALSE) &&
+    exists("need_analogue", inherits = FALSE) &&
+    isTRUE(get("need_analogue", inherits = FALSE)) &&
+    exists("analogue_rows_valid", mode = "function", inherits = FALSE)) {
+  tryCatch({
+    interrupted_rows <- get("scenario_analogue", inherits = FALSE)
+    interrupted_scenario <- as.character(get("scenario", inherits = FALSE))
+    interrupted_file <- as.character(get("scenario_analogue_file", inherits = FALSE))
+    if (length(interrupted_scenario) == 1L && length(interrupted_file) == 1L &&
+        isTRUE(analogue_rows_valid(interrupted_rows, interrupted_scenario))) {
+      # The old revision did not capture input signatures before reading.
+      # Its matched CSV was written before the area pass. Conservatively reuse
+      # the interrupted result only if all inputs predate that checkpoint.
+      checkpoint <- if (exists("table_dir", inherits = FALSE)) {
+        file.path(get("table_dir", inherits = FALSE), "matched_change.csv")
+      } else NA_character_
+      old_inputs <- if (exists("analogue_inputs", inherits = FALSE)) {
+        get("analogue_inputs", inherits = FALSE)
+      } else character()
+      stable_inputs <- length(old_inputs) > 0L && !is.na(checkpoint) &&
+        file.exists(checkpoint) && all(file.exists(old_inputs)) &&
+        isTRUE(max(file.info(old_inputs)$mtime) <= file.info(checkpoint)$mtime)
+      if (stable_inputs) {
+        pending_file <- paste0(interrupted_file, ".pending.csv")
+        dir.create(dirname(pending_file), recursive = TRUE, showWarnings = FALSE)
+        interrupted_rows <- copy(interrupted_rows)
+        interrupted_rows[, pending_input_signature := analogue_input_signature(old_inputs)]
+        fwrite(interrupted_rows, pending_file)
+        cat("[PRESERVE PENDING ANALOGUE]", interrupted_scenario, "\n")
+      } else {
+        cat("[PENDING REQUIRES FRESH SCAN]", interrupted_scenario,
+            "| input timestamps do not establish unchanged inputs\n")
+      }
+    }
+  }, error = function(e) {
+    cat("[PENDING PRESERVATION UNAVAILABLE]", conditionMessage(e), "\n")
+  })
+}
+
+rm(list = setdiff(ls(), "analogue_input_signature"))
 gc()
+script_revision <- "2026-10-05-analogue-scenario-v2"
+cat("[SCRIPT 8 REVISION]", script_revision, "\n")
 
 
 # 0. Paths and settings =========================================================
@@ -616,6 +672,183 @@ recover_matched_bundle <- function(table, scenario, fields,
     result
   }, error = function(e) NULL)
 }
+
+# Explicit indexing avoids data.table columns masking loop variables.
+matched_top1_for_scenario <- function(table, scenario_value) {
+  required <- c("scenario", "k", "code", "pixels", "area_km2")
+  if (!all(required %in% names(table)) || length(scenario_value) != 1L ||
+      is.na(scenario_value)) stop("Invalid matched Top-1 lookup request.")
+  # Compute the indices OUTSIDE [.data.table evaluation.
+  row_index <- which(as.character(table[["scenario"]]) == as.character(scenario_value) &
+                       as.integer(table[["k"]]) == 1L)
+  rows <- table[row_index]
+  if (nrow(rows) != 3L || anyDuplicated(rows$code) ||
+      !setequal(rows$code, 1:3) ||
+      any(as.character(rows$scenario) != as.character(scenario_value)) ||
+      any(!is.finite(rows$pixels) | rows$pixels < 0 | rows$pixels != floor(rows$pixels)) ||
+      any(!is.finite(rows$area_km2) | rows$area_km2 < 0)) {
+    stop("Expected exactly three valid matched Top-1 rows for: ", scenario_value)
+  }
+  rows
+}
+
+# A small runtime regression check runs before any expensive raster work.
+check_matched_scenario_filter <- function() {
+  fixture <- data.table(
+    scenario = rep(future_scenarios, each = 6L),
+    k = rep(rep(1:2, each = 3L), length(future_scenarios)),
+    code = rep(1:3, 2L * length(future_scenarios)),
+    pixels = seq_len(6L * length(future_scenarios)),
+    area_km2 = seq_len(6L * length(future_scenarios)) / 2
+  )
+  for (scenario_value in future_scenarios) {
+    rows <- matched_top1_for_scenario(fixture, scenario_value)
+    stopifnot(nrow(rows) == 3L, sum(rows$code == 3L) == 1L,
+              all(rows$scenario == scenario_value), all(rows$k == 1L))
+  }
+  cat("[CHECK] Matched Top-1 scenario filter passed (six separate scenarios).\n")
+  invisible(TRUE)
+}
+check_matched_scenario_filter()
+
+# BEGIN ANALOGUE DOMAIN AUDIT REPAIR
+# Audit repair: count scarcity from existing first-five suitability ranks.
+# For k <= 5, fewer than k ecotypes meet the threshold exactly when rank k
+# is missing or below threshold. No new ranking or model prediction is needed.
+analogue_domain_version <- "observed_modeled_common_v1"
+
+analogue_block_stats <- function(suitability, observed, normal, assigned,
+                                 cell_area, is_future) {
+  suitability <- as.matrix(suitability)
+  if (ncol(suitability) != length(k_values) ||
+      any(c(length(observed), length(normal), length(assigned),
+            length(cell_area)) != nrow(suitability))) {
+    stop("Analogue audit received incompatible block dimensions.")
+  }
+  inside <- observed %in% modeled_zones & is.finite(normal) &
+    is.finite(assigned)
+  if (!any(inside)) return(list(
+    total_pixels = 0, total_area_km2 = 0,
+    pixels_below = numeric(length(k_values)),
+    area_below_km2 = numeric(length(k_values))
+  ))
+  if (any(!normal[inside] %in% modeled_zones) ||
+      any(!assigned[inside] %in% c(modeled_zones, if (is_future) novel_value))) {
+    stop("Assigned maps have unexpected labels in the analogue analysis domain.")
+  }
+  weights <- as.numeric(cell_area[inside])
+  if (any(!is.finite(weights) | weights <= 0)) {
+    stop("Invalid cell area inside the analogue analysis domain.")
+  }
+  ranks <- suitability[inside, , drop = FALSE]
+  finite <- is.finite(ranks)
+  if (any(is.infinite(ranks)) || any(ranks[finite] <= 0 | ranks[finite] > 1)) {
+    stop("Cached suitability ranks must be positive probabilities or missing.")
+  }
+  for (j in seq.int(2L, ncol(ranks))) {
+    if (any(finite[, j] & !finite[, j - 1L]) ||
+        any(finite[, j] & finite[, j - 1L] &
+            ranks[, j] > ranks[, j - 1L], na.rm = TRUE)) {
+      stop("Cached suitability ranks contain holes or are not in descending order.")
+    }
+  }
+  below <- !finite | ranks < dual_threshold
+  if (is_future && any(
+    below[, 1L] != (as.integer(assigned[inside]) == novel_value)
+  )) {
+    stop("Cached rank-1 suitability and assigned Zone 99 disagree; projection files were not changed.")
+  }
+  list(
+    total_pixels = sum(inside), total_area_km2 = sum(weights),
+    pixels_below = as.numeric(colSums(below)),
+    area_below_km2 = as.numeric(colSums(below * weights))
+  )
+}
+
+analogue_rows_valid <- function(rows, scenario_value = NULL) {
+  required <- c(
+    "scenario", "period", "ssp", "minimum_analogues", "pixels_below",
+    "area_below_km2", "total_pixels", "total_area_km2",
+    "analysis_domain", "domain_version", "dual_threshold"
+  )
+  if (is.null(rows) || nrow(rows) != length(k_values) ||
+      !all(required %in% names(rows))) return(FALSE)
+  if (anyNA(rows[, ..required]) ||
+      !all(rows$domain_version == analogue_domain_version) ||
+      !all(rows$dual_threshold == dual_threshold) ||
+      !setequal(rows$minimum_analogues, k_values) ||
+      anyDuplicated(rows$minimum_analogues) ||
+      length(unique(rows$scenario)) != 1L ||
+      length(unique(rows$total_pixels)) != 1L ||
+      length(unique(rows$total_area_km2)) != 1L) return(FALSE)
+  if (!is.null(scenario_value) && !all(rows$scenario == scenario_value)) return(FALSE)
+  numeric_columns <- c("pixels_below", "area_below_km2", "total_pixels", "total_area_km2")
+  if (any(vapply(numeric_columns, function(column) {
+    x <- as.numeric(rows[[column]])
+    any(!is.finite(x) | x < 0)
+  }, logical(1))) || any(rows$total_pixels <= 0 | rows$total_area_km2 <= 0) ||
+  any(rows$pixels_below != floor(rows$pixels_below)) ||
+  any(rows$total_pixels != floor(rows$total_pixels)) ||
+  any(rows$pixels_below > rows$total_pixels) ||
+  any(rows$area_below_km2 > rows$total_area_km2 + 1e-6) ||
+  any((rows$pixels_below == 0) != (rows$area_below_km2 == 0))) return(FALSE)
+  ordered <- rows[order(minimum_analogues)]
+  !any(diff(ordered$pixels_below) < 0) &&
+    !any(diff(ordered$area_below_km2) < -1e-6)
+}
+
+summarize_analogue_ranks <- function(ranked_suitability, reference,
+                                     normal_assigned, scenario_assigned,
+                                     cell_area, scenario_value, fields) {
+  if (nlyr(ranked_suitability) < length(k_values)) {
+    stop("Analogue audit requires five existing suitability ranks.")
+  }
+  ranks <- ranked_suitability[[seq_along(k_values)]]
+  rasters <- list(ranks, reference, normal_assigned, scenario_assigned, cell_area)
+  if (!all(vapply(rasters, function(x) {
+    compareGeom(reference, x, stopOnError = FALSE)
+  }, logical(1)))) stop("Analogue audit raster geometries differ.")
+  inputs <- c(ranks, reference, normal_assigned, scenario_assigned, cell_area)
+  rows_per_block <- max(1L, floor(250000 / ncol(inputs)))
+  starts <- seq.int(1L, nrow(inputs), by = rows_per_block)
+  pixels <- areas <- numeric(length(k_values))
+  total_pixels <- total_area <- 0
+  reading <- FALSE
+  readStart(inputs)
+  reading <- TRUE
+  on.exit(if (reading) try(readStop(inputs), silent = TRUE), add = TRUE)
+  for (index in seq_along(starts)) {
+    first <- starts[[index]]
+    count <- min(rows_per_block, nrow(inputs) - first + 1L)
+    values <- as.matrix(readValues(inputs, row = first, nrows = count, mat = TRUE))
+    nk <- length(k_values)
+    result <- analogue_block_stats(
+      values[, seq_len(nk), drop = FALSE],
+      values[, nk + 1L], values[, nk + 2L], values[, nk + 3L],
+      values[, nk + 4L], scenario_value != "normal"
+    )
+    pixels <- pixels + result$pixels_below
+    areas <- areas + result$area_below_km2
+    total_pixels <- total_pixels + result$total_pixels
+    total_area <- total_area + result$total_area_km2
+  }
+  readStop(inputs)
+  reading <- FALSE
+  rows <- data.table(
+    scenario = scenario_value, period = fields$period, ssp = fields$ssp,
+    minimum_analogues = k_values, pixels_below = pixels, area_below_km2 = areas,
+    total_pixels = total_pixels, total_area_km2 = total_area,
+    analysis_domain = "modeled observed ecotypes with valid normal and scenario assignments",
+    domain_version = analogue_domain_version, dual_threshold = dual_threshold,
+    definition = paste0("fewer than k current ecotypes have dual suitability >= ", dual_threshold)
+  )
+  if (!analogue_rows_valid(rows, scenario_value)) {
+    stop("Repaired analogue rows failed bounds or monotonicity checks.")
+  }
+  rows
+}
+
+# END ANALOGUE DOMAIN AUDIT REPAIR
 
 mask_stats <- function(mask, cell_area) {
   pixels <- global(mask, "sum", na.rm = TRUE)[1, 1]
@@ -1754,6 +1987,32 @@ if (nrow(reference_totals) != length(k_values) ||
     )) {
   stop("Reference confusion totals do not match reference agreement totals.")
 }
+# Independently derive agreement from the existing confusion diagonal. A cache
+# with correct denominators but corrupted matched counts must not be reused.
+reference_diagonal <- reference_confusion[observed_zone == assigned_zone, .(
+  matched_pixels = sum(pixels), matched_area_km2 = sum(area_km2)
+), by = k]
+reference_from_confusion <- merge(
+  reference_agreement[, .(k, total_pixels, total_area_km2)],
+  reference_diagonal, by = "k", all.x = TRUE
+)
+reference_from_confusion[is.na(matched_pixels), matched_pixels := 0]
+reference_from_confusion[is.na(matched_area_km2), matched_area_km2 := 0]
+if (any(reference_from_confusion$total_pixels <= 0 |
+        reference_from_confusion$total_area_km2 <= 0)) {
+  stop("Reference agreement has an empty valid domain.")
+}
+reference_from_confusion[, `:=`(
+  pixel_agreement = matched_pixels / total_pixels,
+  area_agreement = matched_area_km2 / total_area_km2
+)]
+setcolorder(reference_from_confusion, c(
+  "k", "total_pixels", "matched_pixels", "pixel_agreement",
+  "total_area_km2", "matched_area_km2", "area_agreement"
+))
+setorder(reference_from_confusion, k)
+reference_agreement <- reference_from_confusion
+rm(reference_diagonal, reference_from_confusion)
 fwrite(reference_agreement, reference_agreement_file)
 fwrite(reference_confusion, reference_confusion_file)
 
@@ -2419,7 +2678,10 @@ population_topk_area <- list()
 for (scenario in scenarios) {
   fields <- scenario_fields(scenario)
   paths <- rank_paths(scenario)
-  analogue_inputs <- c(reference_file, paths$summary)
+  analogue_assigned_file <- assigned_map_file(scenario)
+  analogue_inputs <- c(
+    reference_file, paths$suitability, normal_assigned_file, analogue_assigned_file
+  )
   zone_inputs <- c(reference_file, paths$zone, paths$suitability)
   population_inputs <- c(zone_inputs, population_file)
   
@@ -2433,6 +2695,24 @@ for (scenario in scenarios) {
     "minimum_analogues", length(k_values), "minimum_analogues",
     c("pixels_below", "area_below_km2")
   )
+  if (!analogue_rows_valid(scenario_analogue, scenario)) {
+    # Legacy tables used a broader summary-raster domain. Only analogue
+    # statistics are refreshed; expensive ranks and other tables are reused.
+    scenario_analogue <- NULL
+  }
+  analogue_pending_file <- paste0(scenario_analogue_file, ".pending.csv")
+  pending_analogue <- NULL
+  if (is.null(scenario_analogue) && files_current(analogue_pending_file, analogue_inputs)) {
+    candidate <- tryCatch(fread(analogue_pending_file), error = function(e) NULL)
+    if (analogue_rows_valid(candidate, scenario) &&
+        "pending_input_signature" %in% names(candidate) &&
+        !anyNA(candidate$pending_input_signature) &&
+        all(candidate$pending_input_signature == analogue_input_signature(analogue_inputs))) {
+      pending_analogue <- copy(candidate)
+      pending_analogue[, pending_input_signature := NULL]
+      cat("[REUSE PENDING ANALOGUE]", scenario, "| awaiting corrected matched check\n")
+    }
+  }
   scenario_zone <- read_area_cache(
     scenario_zone_file, zone_area_file, scenario, zone_inputs,
     "k", length(modeled_zones) * length(k_values), c("source_zone", "k"),
@@ -2505,30 +2785,54 @@ for (scenario in scenarios) {
     )
     
     if (need_analogue) {
-      rank_summary <- rast(paths$summary)
-      summary_names <- names(rank_summary)
-      suitable_name <- if ("n_zone_above_threshold" %in% summary_names) {
-        "n_zone_above_threshold"
-      } else if ("n_suitable" %in% summary_names) {
-        "n_suitable"
+      # Validate the small scenario-specific matched slice before any scan.
+      expected_rows <- if (scenario == "normal") NULL else
+        matched_top1_for_scenario(matched_change, scenario)
+      if (!is.null(pending_analogue)) {
+        scenario_analogue <- copy(pending_analogue)
       } else {
-        stop("Rank summary lacks the number-above-threshold layer: ", paths$summary)
-      }
-      n_suitable <- rank_summary[[suitable_name]]
-      scenario_analogue <- rbindlist(lapply(k_values, function(k) {
-        scarce <- !is.na(n_suitable) & n_suitable < k
-        stats <- mask_stats(scarce, get_cell_area())
-        data.table(
-          scenario = scenario, period = fields$period, ssp = fields$ssp,
-          minimum_analogues = k, pixels_below = stats$pixels,
-          area_below_km2 = stats$area_km2,
-          definition = paste0(
-            "number of ecotypes with dual suitability >= ", dual_threshold, " is < k"
-          )
+        signature_before <- analogue_input_signature(analogue_inputs)
+        scenario_analogue <- summarize_analogue_ranks(
+          rast(paths$suitability), reference, rast(normal_assigned_file),
+          rast(analogue_assigned_file), get_cell_area(), scenario, fields
         )
-      }))
+        # A later failed cross-check must not discard the completed raster scan.
+        pending_rows <- copy(scenario_analogue)
+        pending_rows[, pending_input_signature := signature_before]
+        fwrite(pending_rows, analogue_pending_file)
+        if (!identical(signature_before, analogue_input_signature(analogue_inputs))) {
+          stop("Analogue inputs changed during the scan: ", scenario,
+               ". The pending result cannot be reused for these changed inputs.")
+        }
+      }
+      if (scenario != "normal") {
+        expected_total_pixels <- sum(expected_rows$pixels)
+        expected_total_area <- sum(expected_rows$area_km2)
+        novel_row <- expected_rows[code == 3L]
+        first_row <- scenario_analogue[minimum_analogues == 1L]
+        comparison <- data.table(
+          metric = c("domain_pixels", "domain_area_km2", "novel_pixels", "novel_area_km2"),
+          scanned = c(first_row$total_pixels, first_row$total_area_km2,
+                      first_row$pixels_below, first_row$area_below_km2),
+          matched = c(expected_total_pixels, expected_total_area,
+                      novel_row$pixels, novel_row$area_km2),
+          tolerance = c(0, max(1e-6, abs(expected_total_area) * 1e-8),
+                        0, max(1e-6, abs(novel_row$area_km2) * 1e-8))
+        )
+        comparison[, difference := scanned - matched]
+        if (any(!is.finite(comparison$difference)) ||
+            any(abs(comparison$difference) > comparison$tolerance)) {
+          check_file <- paste0(scenario_analogue_file, ".comparison.csv")
+          fwrite(comparison, check_file)
+          print(comparison)
+          stop("Analogue common-domain totals disagree with matched Top-1: ", scenario,
+               ". Completed scan preserved in ", analogue_pending_file,
+               "; differences saved to ", check_file, ".")
+        }
+      }
       fwrite(scenario_analogue, scenario_analogue_file)
-      rm(rank_summary, n_suitable)
+      if (file.exists(analogue_pending_file)) unlink(analogue_pending_file)
+      cat("[REPAIRED ANALOGUE DOMAIN]", scenario, "|", scenario_analogue$total_area_km2[[1]], "km2\n")
     }
     
     if (need_zone || need_species || repair_zone_cache || repair_species_cache) {
@@ -2829,3 +3133,4 @@ cat(
   "Future matched rows:", nrow(matched_change), "\n",
   "Output:", output_root, "\n"
 )
+

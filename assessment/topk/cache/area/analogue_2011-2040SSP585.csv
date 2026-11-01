@@ -1,0 +1,6 @@
+scenario,period,ssp,minimum_analogues,pixels_below,area_below_km2,total_pixels,total_area_km2,analysis_domain,domain_version,dual_threshold,definition
+2011-2040SSP585,2011-2040,SSP585,1,259598,173885.830804964,12393826,8501096.16541903,modeled observed ecotypes with valid normal and scenario assignments,observed_modeled_common_v1,0.4,fewer than k current ecotypes have dual suitability >= 0.4
+2011-2040SSP585,2011-2040,SSP585,2,1739024,1176770.92139875,12393826,8501096.16541903,modeled observed ecotypes with valid normal and scenario assignments,observed_modeled_common_v1,0.4,fewer than k current ecotypes have dual suitability >= 0.4
+2011-2040SSP585,2011-2040,SSP585,3,4704074,3178624.46732083,12393826,8501096.16541903,modeled observed ecotypes with valid normal and scenario assignments,observed_modeled_common_v1,0.4,fewer than k current ecotypes have dual suitability >= 0.4
+2011-2040SSP585,2011-2040,SSP585,4,7563686,5101713.04640459,12393826,8501096.16541903,modeled observed ecotypes with valid normal and scenario assignments,observed_modeled_common_v1,0.4,fewer than k current ecotypes have dual suitability >= 0.4
+2011-2040SSP585,2011-2040,SSP585,5,9732740,6589254.97480987,12393826,8501096.16541903,modeled observed ecotypes with valid normal and scenario assignments,observed_modeled_common_v1,0.4,fewer than k current ecotypes have dual suitability >= 0.4

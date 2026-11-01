@@ -1,0 +1,2 @@
+model,valid_reference_pixels,common_pixels,coverage,exact_agreement,macro_balanced_accuracy,macro_sensitivity,macro_specificity,macro_precision,macro_f1,macro_tss
+multiclass_rf,12627345,12374320,0.979962137725706,0.579889480795712,0.857475445411857,0.723043520262823,0.991907370560892,0.445372046786559,0.482343146951163,0.714950890823715

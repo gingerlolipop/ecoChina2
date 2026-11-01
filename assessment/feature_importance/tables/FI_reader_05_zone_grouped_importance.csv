@@ -1,0 +1,885 @@
+zoneID,zone,category,category2,niche,variable_group,n_variables,n_binary_selected,n_multiclass_selected,binary_share,multiclass_share,consensus_share
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Temperature,16,7,4,0.411798686994458,0.233563240732132,0.322680963863295
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Growing season and degree-days,21,5,3,0.249306043064161,0.225233730005584,0.237269886534873
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Radiation and evaporative demand,5,3,3,0.166896280917436,0.212481741448547,0.189689011182992
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Climatic moisture balance,6,0,4,0,0.149322055864132,0.0746610279320658
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Precipitation,5,1,4,0.0111652665550606,0.117102825710318,0.0641340461326893
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Humidity,5,4,1,0.114147363788773,0.0119082699568538,0.0630278168728136
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,Snowfall,4,1,1,0.0466863586801104,0.0503881362824336,0.048537247481272
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Temperature,16,5,4,0.3863750372682,0.300572187414673,0.343473612341437
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Radiation and evaporative demand,5,3,3,0.288549071847259,0.215312118351059,0.251930595099159
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Precipitation,5,5,4,0.135701803576903,0.120379253595356,0.128040528586129
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Growing season and degree-days,21,0,3,0,0.224879992262982,0.112439996131491
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Climatic moisture balance,6,3,4,0.0821065088782084,0.115137019228034,0.0986217640531215
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Snowfall,4,2,1,0.0532312230489684,0.0125078569599379,0.0328695400044531
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,Humidity,5,3,1,0.0540363553804613,0.0112115721879574,0.0326239637842094
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Precipitation,5,5,4,0.222881273399004,0.222135955768444,0.222508614583724
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Growing season and degree-days,21,4,3,0.20924484869715,0.180110775930796,0.194677812313973
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Temperature,16,3,4,0.152240881157772,0.226381461220951,0.189311171189361
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Radiation and evaporative demand,5,3,3,0.211393081158758,0.158180230252331,0.184786655705545
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Climatic moisture balance,6,2,4,0.0543546526424209,0.130005987807132,0.0921803202247766
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Snowfall,4,2,1,0.0962650873032076,0.0268125845521757,0.0615388359276917
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,Humidity,5,2,1,0.0536201756416882,0.0563730044681707,0.0549965900549294
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Precipitation,5,5,4,0.276221629789695,0.217670513016587,0.246946071403141
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Growing season and degree-days,21,5,3,0.265605911251486,0.177824961901309,0.221715436576397
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Temperature,16,2,4,0.108031478637057,0.221713927930062,0.16487270328356
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Radiation and evaporative demand,5,3,3,0.158920725163768,0.152212090288072,0.15556640772592
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Climatic moisture balance,6,3,4,0.102694211220304,0.168236784171965,0.135465497696135
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Humidity,5,2,1,0.053885989436259,0.0361196065070887,0.0450027979716738
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,Snowfall,4,1,1,0.0346400545014315,0.0262221161849161,0.0304310853431738
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Precipitation,5,5,4,0.239870886180658,0.216845896483608,0.228358391332133
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Growing season and degree-days,21,5,3,0.270145943835254,0.175733852087782,0.222939897961518
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Temperature,16,2,4,0.161341320750567,0.240801945191073,0.20107163297082
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Climatic moisture balance,6,5,4,0.192671633854197,0.180910254006913,0.186790943930555
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Radiation and evaporative demand,5,2,3,0.0950577979364475,0.141053293222519,0.118055545579483
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Humidity,5,2,1,0.0409124174428762,0.0221325068160858,0.031522462129481
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,Snowfall,4,0,1,0,0.0225222521920188,0.0112611260960094
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Temperature,16,5,4,0.337336797785169,0.277799763152711,0.30756828046894
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Growing season and degree-days,21,5,3,0.316214368953026,0.267416354272975,0.291815361613
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Precipitation,5,4,4,0.153719375054353,0.170209526375009,0.161964450714681
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Radiation and evaporative demand,5,4,3,0.133785044961759,0.0932919973811579,0.113538521171458
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Climatic moisture balance,6,3,4,0.0589444132456926,0.104446109688058,0.0816952614668752
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Humidity,5,0,1,0,0.0566067208173225,0.0283033604086613
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,Snowfall,4,0,1,0,0.0302295283127673,0.0151147641563836
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Temperature,16,3,4,0.191686268020594,0.29921525414419,0.245450761082392
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Growing season and degree-days,21,5,3,0.274694444434279,0.172640356501443,0.223667400467861
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Precipitation,5,5,4,0.207504849944646,0.177329874908712,0.192417362426679
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Climatic moisture balance,6,5,4,0.182349369712414,0.185207280633974,0.183778325173194
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Radiation and evaporative demand,5,2,3,0.0888370904741881,0.128099069328884,0.108468079901536
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Humidity,5,1,1,0.0549279774138786,0.0182810908800598,0.0366045341469692
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,Snowfall,4,0,1,0,0.019227073602737,0.00961353680136848
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Growing season and degree-days,21,7,3,0.336574436289544,0.170203618522433,0.253389027405989
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Precipitation,5,5,4,0.27016695613715,0.236535095696941,0.253351025917045
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Temperature,16,4,4,0.177561412183751,0.208886936721178,0.193224174452464
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Climatic moisture balance,6,4,4,0.184150939242568,0.198731558407462,0.191441248825015
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Radiation and evaporative demand,5,0,3,0,0.134534988675739,0.0672674943378694
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Humidity,5,1,1,0.0315462561469865,0.0225375973593634,0.027041926753175
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,Snowfall,4,0,1,0,0.0285702046168851,0.0142851023084426
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Growing season and degree-days,21,6,3,0.301840979320579,0.230118927768136,0.265979953544357
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Precipitation,5,5,4,0.225380272305646,0.202938338493871,0.214159305399759
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Temperature,16,3,4,0.173464513909936,0.244733253681821,0.209098883795879
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Radiation and evaporative demand,5,3,3,0.19798595898981,0.134480862127342,0.166233410558576
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Climatic moisture balance,6,4,4,0.101328275474029,0.127105707259358,0.114216991366693
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Humidity,5,0,1,0,0.0368025187653328,0.0184012593826664
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,Snowfall,4,0,1,0,0.0238203919041388,0.0119101959520694
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Growing season and degree-days,21,8,3,0.505669946727995,0.263013965201971,0.384341955964983
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Temperature,16,4,4,0.194633008907936,0.251249084140052,0.222941046523994
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Precipitation,5,2,4,0.0556529941918111,0.191092694972513,0.123372844582162
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Radiation and evaporative demand,5,2,3,0.0937173180245661,0.100637957912884,0.0971776379687252
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Climatic moisture balance,6,4,4,0.0673190290916858,0.120716220499623,0.0940176247956543
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Humidity,5,1,1,0.0830077030560059,0.0517535968032117,0.0673806499296088
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,Snowfall,4,0,1,0,0.0215364804697456,0.0107682402348728
+23,Shrub deserts,shrub_desert,desert,climate,Growing season and degree-days,21,11,3,0.467590795290188,0.136973142499799,0.302281968894993
+23,Shrub deserts,shrub_desert,desert,climate,Climatic moisture balance,6,2,4,0.202146664180961,0.289822413382496,0.245984538781729
+23,Shrub deserts,shrub_desert,desert,climate,Precipitation,5,1,4,0.0899688795178405,0.2465632119232,0.16826604572052
+23,Shrub deserts,shrub_desert,desert,climate,Temperature,16,3,4,0.113240240176547,0.175636685918035,0.144438463047291
+23,Shrub deserts,shrub_desert,desert,climate,Radiation and evaporative demand,5,1,3,0.052731664014723,0.0964888453845645,0.0746102546996437
+23,Shrub deserts,shrub_desert,desert,climate,Humidity,5,2,1,0.0487402083135085,0.0265444366883994,0.037642322500954
+23,Shrub deserts,shrub_desert,desert,climate,Snowfall,4,1,1,0.0255815485062326,0.0279712642035061,0.0267764063548694
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Climatic moisture balance,6,3,4,0.274071752618974,0.266779505940458,0.270425629279716
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Growing season and degree-days,21,7,3,0.27971215118133,0.138419833443541,0.209065992312436
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Precipitation,5,2,4,0.134301913975205,0.258967240684538,0.196634577329872
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Temperature,16,5,4,0.195182631558195,0.178917325115542,0.187049978336869
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Radiation and evaporative demand,5,1,3,0.0341842578319474,0.094274822893253,0.0642295403626002
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Humidity,5,2,1,0.0523960203587878,0.0298466059594602,0.041121313159124
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,Snowfall,4,1,1,0.0301512724755608,0.0327946659632072,0.031472969219384
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Precipitation,5,4,4,0.251839108845273,0.250543456009954,0.251191282427614
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Climatic moisture balance,6,4,4,0.259075833611208,0.203501649972292,0.23128874179175
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Temperature,16,4,4,0.173236017727044,0.212020677006862,0.192628347366953
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Growing season and degree-days,21,4,3,0.18571542022949,0.165540910831998,0.175628165530744
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Radiation and evaporative demand,5,1,3,0.0384481893902009,0.119501319326125,0.0789747543581628
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Snowfall,4,2,1,0.0494020174814792,0.0241712554209039,0.0367866364511916
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,Humidity,5,2,1,0.0422834127153047,0.024720731431866,0.0335020720735854
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Precipitation,5,4,4,0.245462163676987,0.248587059749561,0.247024611713274
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Temperature,16,5,4,0.259088070084648,0.20400750800194,0.231547789043294
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Growing season and degree-days,21,6,3,0.250481161537535,0.15261378726349,0.201547474400513
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Climatic moisture balance,6,1,4,0.0832119810454512,0.243128170096551,0.163170075571001
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Radiation and evaporative demand,5,2,3,0.0794013257129442,0.0964651626627681,0.0879332441878561
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Humidity,5,2,1,0.0517988512827687,0.0235405431562753,0.037669697219522
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,Snowfall,4,1,1,0.0305564466596659,0.0316577690694142,0.0311071078645401
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Precipitation,5,4,4,0.306841647490643,0.228102203460124,0.267471925475383
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Temperature,16,7,4,0.302755463531571,0.202478844228158,0.252617153879865
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Growing season and degree-days,21,5,3,0.20941745358294,0.157975061091354,0.183696257337147
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Climatic moisture balance,6,0,4,0,0.243012139736225,0.121506069868113
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Radiation and evaporative demand,5,3,3,0.119379207888177,0.106560967339353,0.112970087613765
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Humidity,5,2,1,0.0616062275066686,0.0312553543058844,0.0464307909062765
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,Snowfall,4,0,1,0,0.0306154298389014,0.0153077149194507
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Precipitation,5,4,4,0.264977809168551,0.238647720553742,0.251812764861146
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Temperature,16,6,4,0.282846022479323,0.197193340952938,0.240019681716131
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Climatic moisture balance,6,2,4,0.133696362994532,0.241317175454001,0.187506769224267
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Growing season and degree-days,21,4,3,0.172998918940164,0.162824156239548,0.167911537589856
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Radiation and evaporative demand,5,1,3,0.0251497777114721,0.0931799475396849,0.0591648626255785
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Humidity,5,3,1,0.0757845092952652,0.0200298327578173,0.0479071710265412
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,Snowfall,4,1,1,0.0445465994106922,0.0468078265022686,0.0456772129564804
+38,Annual herb deserts,annual_herb_desert,desert,climate,Precipitation,5,4,4,0.319707227464623,0.304645533309348,0.312176380386986
+38,Annual herb deserts,annual_herb_desert,desert,climate,Temperature,16,5,4,0.215682024168905,0.163864771570397,0.189773397869651
+38,Annual herb deserts,annual_herb_desert,desert,climate,Climatic moisture balance,6,1,4,0.0761976843622547,0.24564428069787,0.160920982530062
+38,Annual herb deserts,annual_herb_desert,desert,climate,Growing season and degree-days,21,5,3,0.185261121335693,0.131542872974227,0.15840199715496
+38,Annual herb deserts,annual_herb_desert,desert,climate,Radiation and evaporative demand,5,2,3,0.0692932967268193,0.0898457401503045,0.0795695184385619
+38,Annual herb deserts,annual_herb_desert,desert,climate,Humidity,5,3,1,0.111032511907093,0.0412911830757446,0.0761618474914187
+38,Annual herb deserts,annual_herb_desert,desert,climate,Snowfall,4,1,1,0.0228261340346119,0.0231656182221083,0.0229958761283601
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Precipitation,5,3,4,0.253550856775692,0.290986182090277,0.272268519432985
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Growing season and degree-days,21,3,3,0.213565468544311,0.162452883418675,0.188009175981493
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Radiation and evaporative demand,5,2,3,0.14185096830589,0.141577328756412,0.141714148531151
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Temperature,16,2,4,0.0718057025081938,0.207947991051509,0.139876846779851
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Climatic moisture balance,6,4,4,0.155579149998032,0.123290851764526,0.139435000881279
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Snowfall,4,4,1,0.097161928726968,0.0272315684017797,0.0621967485643738
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,Humidity,5,3,1,0.0664859251409122,0.0465131945168219,0.056499559828867
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Growing season and degree-days,21,4,3,0.248096641538526,0.206035907186892,0.227066274362709
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Temperature,16,4,4,0.207189976028644,0.221961185232455,0.21457558063055
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Radiation and evaporative demand,5,3,3,0.177048538082737,0.191107134487139,0.184077836284938
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Climatic moisture balance,6,3,4,0.08536843585258,0.19821012095405,0.141789278403315
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Precipitation,5,4,4,0.112229444971334,0.141823256248934,0.127026350610134
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Snowfall,4,2,1,0.151068289716803,0.0202277592222252,0.0856480244695143
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,Humidity,5,1,1,0.018998673809375,0.0206346366683053,0.0198166552388401
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Growing season and degree-days,21,7,3,0.332624236196855,0.17824387208297,0.255434054139912
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Precipitation,5,5,4,0.281811213440948,0.196194942471668,0.239003077956308
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Temperature,16,4,4,0.19748866925451,0.252517525571968,0.225003097413239
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Climatic moisture balance,6,3,4,0.140464990309789,0.193983908164761,0.167224449237275
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Radiation and evaporative demand,5,1,3,0.0295620300873132,0.136499640626894,0.0830308353571035
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Humidity,5,1,1,0.0180488607105855,0.0208919939748544,0.01947042734272
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,Snowfall,4,0,1,0,0.0216681171068861,0.010834058553443
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Temperature,16,4,4,0.242531186605654,0.229472570592794,0.236001878599224
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Precipitation,5,5,4,0.245895828302531,0.202865481934433,0.224380655118482
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Growing season and degree-days,21,6,3,0.258800530269328,0.181804201594516,0.220302365931922
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Radiation and evaporative demand,5,2,3,0.0902511959333574,0.149623212204843,0.1199372040691
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Climatic moisture balance,6,2,4,0.0695567560333203,0.170210805391668,0.119883780712494
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Snowfall,4,1,1,0.0687709877124211,0.041273064430836,0.0550220260716286
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,Humidity,5,1,1,0.0241935151433878,0.0247506638509094,0.0244720894971486
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Temperature,16,7,4,0.471064067135948,0.327310777365482,0.399187422250715
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Precipitation,5,5,4,0.207766084113072,0.182844953221526,0.195305518667299
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Growing season and degree-days,21,4,3,0.187428215907547,0.18978151055591,0.188604863231728
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Climatic moisture balance,6,2,4,0.0528188463007795,0.130334139418136,0.0915764928594579
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Radiation and evaporative demand,5,2,3,0.0601454064947136,0.110075393752648,0.0851104001236806
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Humidity,5,1,1,0.0207773800479408,0.0322295733116202,0.0265034766797805
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,Snowfall,4,0,1,0,0.0274236523746778,0.0137118261873389
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Growing season and degree-days,21,9,3,0.386361935684919,0.189027180503452,0.287694558094185
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Climatic moisture balance,6,4,4,0.224982966518262,0.216346908397726,0.220664937457994
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Temperature,16,3,4,0.169927672807815,0.205801773266331,0.187864723037073
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Radiation and evaporative demand,5,3,3,0.139760226944733,0.148021061367224,0.143890644155978
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Precipitation,5,1,4,0.0528192729563572,0.202403827637211,0.127611550296784
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Humidity,5,1,1,0.026147925087915,0.0204232349970492,0.0232855800424821
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,Snowfall,4,0,1,0,0.0179760138310076,0.00898800691550378
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Precipitation,5,4,4,0.311445861727435,0.298484378083455,0.304965119905445
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Temperature,16,5,4,0.185593870466134,0.195643500285583,0.190618685375859
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Climatic moisture balance,6,5,4,0.19104835511274,0.151947396530319,0.17149787582153
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Growing season and degree-days,21,3,3,0.123076923265292,0.171784850667153,0.147430886966222
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Radiation and evaporative demand,5,3,3,0.105880323518953,0.116962270518182,0.111421297018568
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Humidity,5,1,1,0.0829546659094465,0.044154646608475,0.0635546562589607
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,Snowfall,4,0,1,0,0.0210229573068327,0.0105114786534163
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Temperature,16,6,4,0.310986938863197,0.223989184227805,0.267488061545501
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Precipitation,5,4,4,0.262189352589851,0.239159752145199,0.250674552367525
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Growing season and degree-days,21,4,3,0.170725622757746,0.182521511613629,0.176623567185688
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Climatic moisture balance,6,4,4,0.130318864023875,0.146943824321089,0.138631344172482
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Radiation and evaporative demand,5,3,3,0.125779221765332,0.142700859090395,0.134240040427863
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Humidity,5,0,1,0,0.0361456960674945,0.0180728480337472
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,Snowfall,4,0,1,0,0.028539172534387,0.0142695862671935
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Precipitation,5,5,4,0.359994546673789,0.247081295099278,0.303537920886533
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Growing season and degree-days,21,4,3,0.213293155658379,0.222657198132026,0.217975176895202
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Climatic moisture balance,6,6,4,0.197419369760339,0.129213079733515,0.163316224746927
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Temperature,16,3,4,0.103686410612997,0.222001444409662,0.16284392751133
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Radiation and evaporative demand,5,2,3,0.0785782408793806,0.126267894412669,0.102423067646025
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Humidity,5,1,1,0.0470282764151154,0.0341182222482481,0.0405732493316818
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,Snowfall,4,0,1,0,0.0186608659646022,0.0093304329823011
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Temperature,16,8,4,0.491832260084304,0.265442534248803,0.378637397166553
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Precipitation,5,4,4,0.245522844626859,0.241883198773011,0.243703021699935
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Growing season and degree-days,21,3,3,0.119401541559957,0.168543034276148,0.143972287918052
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Climatic moisture balance,6,2,4,0.0553148811219357,0.142771303215121,0.0990430921685283
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Radiation and evaporative demand,5,2,3,0.0400310755128727,0.104880067768837,0.0724555716408546
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Humidity,5,1,1,0.0377605005381888,0.0560274049422347,0.0468939527402118
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,Snowfall,4,1,1,0.0101368965558833,0.0204524567758469,0.0152946766658651
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Precipitation,5,4,4,0.241930997607048,0.255575381497802,0.248753189552425
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Growing season and degree-days,21,5,3,0.236128284956676,0.172237677490398,0.204182981223537
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Temperature,16,3,4,0.180635041631422,0.219930277062765,0.200282659347093
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Climatic moisture balance,6,3,4,0.0958981739245252,0.14185103497076,0.118874604447643
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Radiation and evaporative demand,5,3,3,0.110473950268473,0.124021603348603,0.117247776808538
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Humidity,5,3,1,0.134933551611856,0.0594317933647777,0.097182672488317
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,Snowfall,4,0,1,0,0.0269522322648951,0.0134761161324476
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Precipitation,5,5,4,0.310461922147626,0.246223997989952,0.278342960068789
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Temperature,16,4,4,0.225344264025454,0.251651899942191,0.238498081983823
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Climatic moisture balance,6,5,4,0.176546191516282,0.160381291494758,0.16846374150552
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Radiation and evaporative demand,5,4,3,0.147728065244163,0.121754722435948,0.134741393840055
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Growing season and degree-days,21,2,3,0.108699719916891,0.160533596829373,0.134616658373132
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Snowfall,4,1,1,0.0312198371495849,0.0399551729502982,0.0355875050499416
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,Humidity,5,0,1,0,0.0194993183574807,0.00974965917874034
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Temperature,16,5,4,0.390325338208359,0.279497547773629,0.334911442990994
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Precipitation,5,5,4,0.246137623928911,0.219613287760949,0.23287545584493
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Growing season and degree-days,21,2,3,0.106643002801336,0.17406378344824,0.140353393124788
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Radiation and evaporative demand,5,2,3,0.0935099398526916,0.125196548901217,0.109353244376954
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Climatic moisture balance,6,2,4,0.0541829568002513,0.137475292610156,0.0958291247052035
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Humidity,5,4,1,0.0920164199475205,0.037844922389748,0.0649306711686342
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,Snowfall,4,1,1,0.0171847184609311,0.0263086171160612,0.0217466677884961
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Precipitation,5,4,4,0.301130840720967,0.293122658378077,0.297126749549522
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Temperature,16,6,4,0.319458248691533,0.22237397262462,0.270916110658077
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Growing season and degree-days,21,4,3,0.120157429071286,0.179056384470379,0.149606906770833
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Radiation and evaporative demand,5,2,3,0.113208312623833,0.133177527103467,0.12319291986365
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Climatic moisture balance,6,3,4,0.0935274497896235,0.127217658968283,0.110372554378953
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Humidity,5,2,1,0.0525177191027574,0.0257847946318014,0.0391512568672794
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,Snowfall,4,0,1,0,0.0192670038233729,0.00963350191168645
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Temperature,16,6,4,0.349259388701542,0.215755726182753,0.282507557442147
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Precipitation,5,4,4,0.298461828029707,0.261050969955429,0.279756398992568
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Radiation and evaporative demand,5,4,3,0.186510717879312,0.157961991548764,0.172236354714038
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Growing season and degree-days,21,1,3,0.0310904011234116,0.210290583509927,0.120690492316669
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Climatic moisture balance,6,5,4,0.122891595032054,0.114712052640852,0.118801823836453
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Humidity,5,1,1,0.0117860692339742,0.0236669884722317,0.0177265288531029
+52,Tropical rain forests,tropical_rain_forest,forest,climate,Snowfall,4,0,1,0,0.0165616876900431,0.00828084384502152
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Temperature,16,5,4,0.283486214360651,0.23714708368692,0.260316649023786
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Growing season and degree-days,21,3,3,0.134524502160733,0.240063391210966,0.187293946685849
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Precipitation,5,4,4,0.207242901541838,0.153909944254424,0.180576422898131
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Radiation and evaporative demand,5,4,3,0.184599129223477,0.161479291705138,0.173039210464307
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Climatic moisture balance,6,5,4,0.190147252713301,0.142041369961573,0.166094311337437
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Humidity,5,0,1,0,0.046632371022406,0.023316185511203
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,Snowfall,4,0,1,0,0.0187265481585732,0.00936327407928658
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Temperature,16,4,4,0.240190328723323,0.232481226776622,0.236335777749973
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Precipitation,5,5,4,0.231262267667405,0.204620543741395,0.2179414057044
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Growing season and degree-days,21,3,3,0.178381052859026,0.174304934130614,0.17634299349482
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Climatic moisture balance,6,5,4,0.173864566247168,0.175252810636071,0.174558688441619
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,2,3,0.114029343392412,0.153936174888121,0.133982759140266
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Humidity,5,2,1,0.0622724411106668,0.0304474957928975,0.0463599684517822
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,Snowfall,4,0,1,0,0.02895681403428,0.01447840701714
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Growing season and degree-days,21,6,3,0.275274049317517,0.186503086335743,0.23088856782663
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Precipitation,5,4,4,0.215050078490437,0.200674416225531,0.207862247357984
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Climatic moisture balance,6,5,4,0.214600430046859,0.188613400980441,0.20160691551365
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Temperature,16,3,4,0.169400998886809,0.229338232803139,0.199369615844974
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,1,3,0.0599371994912328,0.149220045125748,0.10457862230849
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Humidity,5,1,1,0.0319257989771451,0.030754028452886,0.0313399137150155
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,Snowfall,4,1,1,0.0338114447899999,0.0148967900765125,0.0243541174332562
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Temperature,16,6,4,0.275022523764079,0.221763962957667,0.248393243360873
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Precipitation,5,4,4,0.247139172774748,0.237263928182973,0.24220155047886
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Climatic moisture balance,6,4,4,0.232852815537935,0.205573348706532,0.219213082122234
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Growing season and degree-days,21,3,3,0.147684698900752,0.17437710217445,0.161030900537601
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,2,3,0.062766368000649,0.121754105692631,0.0922602368466402
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Humidity,5,1,1,0.0199774511219674,0.0215136151428084,0.0207455331323879
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,Snowfall,4,1,1,0.0145569698998692,0.0177539371429379,0.0161554535214035
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Growing season and degree-days,21,7,3,0.306993836351965,0.149903152014312,0.228448494183139
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Precipitation,5,3,4,0.200728686203953,0.243464927490614,0.222096806847283
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Climatic moisture balance,6,2,4,0.132958542987434,0.245061096411315,0.189009819699374
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Temperature,16,4,4,0.175877734862018,0.197037921936146,0.186457828399082
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,3,3,0.126653560619708,0.114728030199288,0.120690795409498
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Humidity,5,2,1,0.0567876389749218,0.0279114430562609,0.0423495410155913
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,Snowfall,4,0,1,0,0.021893428892065,0.0109467144460325
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Growing season and degree-days,21,5,3,0.341487771887626,0.211493230482775,0.276490501185201
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Temperature,16,5,4,0.264255260785613,0.284332927667556,0.274294094226584
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Precipitation,5,5,4,0.186830505077578,0.186823925229898,0.186827215153738
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Climatic moisture balance,6,2,4,0.0744119091380093,0.161919179706721,0.118165544422365
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Snowfall,4,2,1,0.0914784254349238,0.0196330746669362,0.05555575005093
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,0,3,0,0.0927199216818248,0.0463599608409124
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,Humidity,5,2,1,0.0415361276762494,0.0430777405642891,0.0423069341202692
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Precipitation,5,4,4,0.258585560619185,0.273324497061463,0.265955028840324
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Temperature,16,5,4,0.244655901134036,0.2679196246114,0.256287762872718
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Growing season and degree-days,21,3,3,0.210859049261108,0.201951977949865,0.206405513605487
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Climatic moisture balance,6,4,4,0.117987999420041,0.0961649465558553,0.107076472987948
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Snowfall,4,3,1,0.0964411717626995,0.0233759485826202,0.0599085601726599
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,0,3,0,0.107549169252667,0.0537745846263334
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,Humidity,5,2,1,0.0714703178029303,0.0297138359861297,0.05059207689453
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Temperature,16,5,4,0.328312943585128,0.240879061571699,0.284596002578414
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Precipitation,5,3,4,0.141257055654009,0.222795007957085,0.182026031805547
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,4,3,0.217711320837077,0.125426734014275,0.171569027425676
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Growing season and degree-days,21,3,3,0.114886430820418,0.216086945944296,0.165486688382357
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Climatic moisture balance,6,4,4,0.110191447475183,0.123306507195934,0.116748977335558
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Humidity,5,2,1,0.087640801628185,0.0521350533458144,0.0698879274869997
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,Snowfall,4,0,1,0,0.019370689970896,0.00968534498544802
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Temperature,16,6,4,0.294811296839214,0.237707416601891,0.266259356720553
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Precipitation,5,5,4,0.284420714155317,0.219232442969584,0.25182657856245
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Growing season and degree-days,21,4,3,0.173181758360647,0.160802365657746,0.166992062009197
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Climatic moisture balance,6,3,4,0.119857823210258,0.18657745123922,0.153217637224739
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Radiation and evaporative demand,5,2,3,0.103585456707697,0.142196692064648,0.122891074386173
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Humidity,5,1,1,0.0241429507268679,0.0240585016342267,0.0241007261805473
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,Snowfall,4,0,1,0,0.0294251298326826,0.0147125649163413
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Temperature,16,6,4,0.317434691755936,0.244182062796603,0.28080837727627
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Precipitation,5,4,4,0.202716245844485,0.223920801257244,0.213318523550864
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Climatic moisture balance,6,5,4,0.219623672926508,0.185866292345541,0.202744982636025
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Growing season and degree-days,21,2,3,0.107636834110558,0.166378388004467,0.137007611057512
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Radiation and evaporative demand,5,1,3,0.0704566780527158,0.129673909131117,0.100065293591917
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Humidity,5,3,1,0.0821318773097978,0.0232027329629712,0.0526673051363845
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,Snowfall,4,0,1,0,0.0267758135020562,0.0133879067510281
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Temperature,16,6,4,0.384743127325464,0.256548911848891,0.320646019587178
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Precipitation,5,5,4,0.24649164577169,0.22533853495963,0.23591509036566
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Growing season and degree-days,21,4,3,0.181176199264714,0.176427773097602,0.178801986181158
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Climatic moisture balance,6,2,4,0.086608020006989,0.157844692690697,0.122226356348843
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Radiation and evaporative demand,5,1,3,0.0395851193598332,0.125519131045333,0.0825521252025829
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Humidity,5,2,1,0.0422742270187528,0.0325457759016287,0.0374100014601907
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,Snowfall,4,1,1,0.0191216612525562,0.0257751804562194,0.0224484208543878
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Temperature,16,5,4,0.296017617506628,0.237834931698205,0.266926274602417
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Precipitation,5,4,4,0.228288756954393,0.210365356786067,0.21932705687023
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Growing season and degree-days,21,4,3,0.178237438565253,0.216246166489957,0.197241802527605
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Climatic moisture balance,6,5,4,0.17475491890175,0.119024716727547,0.146889817814648
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Radiation and evaporative demand,5,3,3,0.122701268071976,0.137430133305633,0.130065700688805
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Humidity,5,0,1,0,0.0546063910349085,0.0273031955174542
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,Snowfall,4,0,1,0,0.0244923039576823,0.0122461519788412
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Temperature,16,7,4,0.403505700967432,0.288981400413732,0.346243550690582
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Precipitation,5,5,4,0.256359719800923,0.213156122101535,0.234757920951229
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Growing season and degree-days,21,3,3,0.135326253008782,0.178457423535395,0.156891838272089
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Climatic moisture balance,6,2,4,0.0672857213150325,0.127914937729019,0.0976003295220257
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Radiation and evaporative demand,5,1,3,0.02817275503761,0.134274551855395,0.0812236534465026
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Humidity,5,2,1,0.0838502007642083,0.0261469820968856,0.0549985914305469
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,Snowfall,4,1,1,0.0254996491060125,0.0310685822680386,0.0282841156870255
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Temperature,16,7,4,0.437426612134811,0.310309279542883,0.373867945838847
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Precipitation,5,5,4,0.264019970395501,0.219928036342575,0.241974003369038
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Growing season and degree-days,21,5,3,0.209158252084243,0.192312591246163,0.200735421665203
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Climatic moisture balance,6,1,4,0.0236390983983581,0.146005422362079,0.0848222603802183
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Radiation and evaporative demand,5,1,3,0.0263944597554434,0.0887614612140103,0.0575779604847268
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Humidity,5,2,1,0.0393616072316432,0.0277995825942703,0.0335805949129567
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,Snowfall,4,0,1,0,0.0148836266980201,0.00744181334901004
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Temperature,16,6,4,0.353314843675026,0.233942050329893,0.29362844700246
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Radiation and evaporative demand,5,4,3,0.221927858466862,0.159019843046426,0.190473850756644
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Precipitation,5,3,4,0.109480042488717,0.230147199914059,0.169813621201388
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Climatic moisture balance,6,5,4,0.188093868003024,0.115781026895515,0.151937447449269
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Growing season and degree-days,21,1,3,0.0288210871192191,0.201754265238024,0.115287676178622
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Humidity,5,2,1,0.0983623002471515,0.0393829452077368,0.0688726227274441
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,Snowfall,4,0,1,0,0.0199726693683452,0.00998633468417259
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Precipitation,5,5,4,0.220635974191664,0.198887881876784,0.209761928034224
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Temperature,16,3,4,0.171076763827408,0.217583563956047,0.194330163891728
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Climatic moisture balance,6,5,4,0.201076615771611,0.181642348293483,0.191359482032547
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Growing season and degree-days,21,4,3,0.192430573515249,0.175537155093697,0.183983864304473
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Radiation and evaporative demand,5,3,3,0.180614979033767,0.176710021066919,0.178662500050343
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Humidity,5,1,1,0.0341650936603008,0.0296071152847562,0.0318861044725285
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,Snowfall,4,0,1,0,0.0200319144283137,0.0100159572141568
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Precipitation,5,5,4,0.233686003634711,0.21127219095534,0.222479097295026
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Climatic moisture balance,6,5,4,0.207308718015847,0.191824436327646,0.199566577171746
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Temperature,16,2,4,0.131164020445476,0.216338316650326,0.173751168547901
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Radiation and evaporative demand,5,3,3,0.193843625725347,0.1532907608401,0.173567193282724
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Growing season and degree-days,21,4,3,0.166568740789401,0.173879997293412,0.170224369041407
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Humidity,5,1,1,0.0280602438752573,0.032752549554714,0.0304063967149857
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,Snowfall,4,1,1,0.0393686475139609,0.0206417483784619,0.0300051979462114
+43,High-cold marshes,high_cold_marsh,wetland,climate,Temperature,16,8,4,0.403004652027154,0.235243889455759,0.319124270741456
+43,High-cold marshes,high_cold_marsh,wetland,climate,Precipitation,5,4,4,0.18591031463194,0.228149836168274,0.207030075400107
+43,High-cold marshes,high_cold_marsh,wetland,climate,Climatic moisture balance,6,3,4,0.114132066776139,0.170229593910773,0.142180830343456
+43,High-cold marshes,high_cold_marsh,wetland,climate,Radiation and evaporative demand,5,2,3,0.105271046823794,0.121548028942847,0.11340953788332
+43,High-cold marshes,high_cold_marsh,wetland,climate,Growing season and degree-days,21,0,3,0,0.176133718345719,0.0880668591728595
+43,High-cold marshes,high_cold_marsh,wetland,climate,Humidity,5,3,1,0.126218975550015,0.0229788498406502,0.0745989126953326
+43,High-cold marshes,high_cold_marsh,wetland,climate,Snowfall,4,1,1,0.0654629441909583,0.0457160833359789,0.0555895137634686
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Precipitation,5,5,4,0.257105387137987,0.247102204119099,0.252103795628543
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Temperature,16,4,4,0.200405895667391,0.226894231036931,0.213650063352161
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Growing season and degree-days,21,3,3,0.123804573210733,0.191296929682309,0.157550751446521
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Climatic moisture balance,6,4,4,0.145380640507782,0.165407640720732,0.155394140614257
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Humidity,5,4,1,0.256344202397458,0.0429036999448861,0.149623951171172
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Radiation and evaporative demand,5,1,3,0.0169593010786489,0.115958844872769,0.066459072975709
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,Snowfall,4,0,1,0,0.0104364496232735,0.00521822481163673
+54,Tropical mangroves,mangrove,wetland,climate,Growing season and degree-days,21,8,3,0.374175025588615,0.209562336424973,0.291868681006794
+54,Tropical mangroves,mangrove,wetland,climate,Precipitation,5,3,4,0.253854405025862,0.253472683498927,0.253663544262394
+54,Tropical mangroves,mangrove,wetland,climate,Temperature,16,5,4,0.175196106231649,0.197603327830761,0.186399717031205
+54,Tropical mangroves,mangrove,wetland,climate,Climatic moisture balance,6,4,4,0.186967855402079,0.158588618461924,0.172778236932002
+54,Tropical mangroves,mangrove,wetland,climate,Radiation and evaporative demand,5,1,3,0.00980660775179379,0.133988256285898,0.0718974320188459
+54,Tropical mangroves,mangrove,wetland,climate,Humidity,5,0,1,0,0.033844075627038,0.016922037813519
+54,Tropical mangroves,mangrove,wetland,climate,Snowfall,4,0,1,0,0.0129407018704794,0.00647035093523971
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Nutrient retention and base status,4,3,3,0.400395213662953,0.350754437011315,0.375574825337134
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Texture,3,2,3,0.201832781726377,0.272176745447002,0.237004763586689
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Bulk density,1,1,1,0.110480039109582,0.157181402732372,0.133830720920977
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Organic carbon,1,1,1,0.196004461494351,0.0411533089610707,0.118578885227711
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Coarse fragments,1,1,1,0.0850144238118679,0.0566428873245797,0.0708286555682238
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Soil reaction,1,0,1,0,0.122091218523661,0.0610456092618304
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Gypsum,1,1,0,0.00627308019486969,0,0.00313654009743484
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Carbonates,1,0,0,0,0,0
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Salinity,1,0,0,0,0,0
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,Sodicity,1,0,0,0,0,0
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Nutrient retention and base status,4,3,3,0.245579202104541,0.240244342947396,0.242911772525968
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Texture,3,1,3,0.141571918052936,0.329723808076254,0.235647863064595
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Coarse fragments,1,1,1,0.300396453400815,0.111865585975784,0.2061310196883
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Organic carbon,1,1,1,0.110695948515348,0.106001886285338,0.108348917400343
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Bulk density,1,1,1,0.0937277849033863,0.105166580219739,0.0994471825615625
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Soil reaction,1,0,1,0,0.106997796495489,0.0534988982477444
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Sodicity,1,1,0,0.096898195714334,0,0.048449097857167
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Salinity,1,1,0,0.0111304973086393,0,0.00556524865431963
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Carbonates,1,0,0,0,0,0
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,Gypsum,1,0,0,0,0,0
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Texture,3,2,3,0.230370397753317,0.333227896625998,0.281799147189657
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Nutrient retention and base status,4,3,3,0.142051776503802,0.255283709313246,0.198667742908524
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Coarse fragments,1,1,1,0.249425421567094,0.0992906550213923,0.174358038294243
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Organic carbon,1,1,1,0.171278629409266,0.0698251028657525,0.120551866137509
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Soil reaction,1,1,1,0.0846984472644865,0.11769014850945,0.101194297886968
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Bulk density,1,0,1,0,0.124682487664162,0.0623412438320809
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Sodicity,1,1,0,0.122175327502035,0,0.0610876637510175
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Carbonates,1,0,0,0,0,0
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Gypsum,1,0,0,0,0,0
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,Salinity,1,0,0,0,0,0
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Nutrient retention and base status,4,3,3,0.418568377443568,0.351732148556575,0.385150263000071
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Texture,3,3,3,0.249837159585639,0.186530780447032,0.218183970016336
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Organic carbon,1,1,1,0.134391625401417,0.202017723995963,0.16820467469869
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Soil reaction,1,1,1,0.117688696419072,0.119958700265842,0.118823698342457
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Bulk density,1,1,1,0.0795141411503034,0.0828994209945445,0.0812067810724239
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Coarse fragments,1,0,1,0,0.0568612257400439,0.0284306128700219
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Carbonates,1,0,0,0,0,0
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Gypsum,1,0,0,0,0,0
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Salinity,1,0,0,0,0,0
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,Sodicity,1,0,0,0,0,0
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Nutrient retention and base status,4,4,3,0.48240559433005,0.316824762094593,0.399615178212321
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Texture,3,2,3,0.16762901278007,0.246978634998932,0.207303823889501
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Organic carbon,1,1,1,0.116335603029193,0.138141855768196,0.127238729398694
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Soil reaction,1,1,1,0.134359680210481,0.118313040467833,0.126336360339157
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Bulk density,1,1,1,0.0992701096502059,0.0993855090057228,0.0993278093279643
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Coarse fragments,1,0,1,0,0.0803561976647239,0.0401780988323619
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Carbonates,1,0,0,0,0,0
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Gypsum,1,0,0,0,0,0
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Salinity,1,0,0,0,0,0
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,Sodicity,1,0,0,0,0,0
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Nutrient retention and base status,4,3,3,0.452456206988322,0.299100348514568,0.375778277751445
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Texture,3,2,3,0.163990394560218,0.323743330871628,0.243866862715923
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Organic carbon,1,1,1,0.140356072831004,0.108267983763576,0.12431202829729
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Soil reaction,1,1,1,0.0735903162021342,0.0921213382942597,0.0828558272481969
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Bulk density,1,1,1,0.0821125693880816,0.0550152804035347,0.0685639248958081
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Coarse fragments,1,0,1,0,0.121751718152433,0.0608758590762166
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Carbonates,1,1,0,0.0874944400302413,0,0.0437472200151206
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Gypsum,1,0,0,0,0,0
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Salinity,1,0,0,0,0,0
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,Sodicity,1,0,0,0,0,0
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Nutrient retention and base status,4,4,3,0.460275565382821,0.386529138284847,0.423402351833834
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Texture,3,2,3,0.219004724169792,0.203997243149769,0.21150098365978
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Soil reaction,1,1,1,0.127331283937474,0.14775977683232,0.137545530384897
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Organic carbon,1,1,1,0.104933366681684,0.135341510460438,0.120137438571061
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Coarse fragments,1,1,1,0.0884550598282296,0.0635174890659881,0.0759862744471088
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Bulk density,1,0,1,0,0.0628548422066384,0.0314274211033192
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Carbonates,1,0,0,0,0,0
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Gypsum,1,0,0,0,0,0
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Salinity,1,0,0,0,0,0
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,Sodicity,1,0,0,0,0,0
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Nutrient retention and base status,4,4,3,0.437590003479774,0.250934201948413,0.344262102714094
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Texture,3,2,3,0.171224987805572,0.325577588834857,0.248401288320214
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Soil reaction,1,1,1,0.207100786949386,0.120185386431004,0.163643086690195
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Organic carbon,1,0,1,0,0.165818999269836,0.0829094996349181
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Coarse fragments,1,1,1,0.0864223529011444,0.0755285387070353,0.0809754458040899
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Bulk density,1,1,1,0.097661868864123,0.0619552848088545,0.0798085768364887
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Carbonates,1,0,0,0,0,0
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Gypsum,1,0,0,0,0,0
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Salinity,1,0,0,0,0,0
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,Sodicity,1,0,0,0,0,0
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Nutrient retention and base status,4,3,3,0.431466560792391,0.348061657020384,0.389764108906387
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Texture,3,3,3,0.259405987943294,0.256453101700551,0.257929544821923
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Organic carbon,1,1,1,0.116037840293773,0.180868341967665,0.148453091130719
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Soil reaction,1,1,1,0.079442510909097,0.0868542821630477,0.0831483965360724
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Bulk density,1,1,1,0.113647100061445,0.0455718973755323,0.0796094987184887
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Coarse fragments,1,0,1,0,0.0821907197728196,0.0410953598864098
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Carbonates,1,0,0,0,0,0
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Gypsum,1,0,0,0,0,0
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Salinity,1,0,0,0,0,0
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,Sodicity,1,0,0,0,0,0
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Nutrient retention and base status,4,4,3,0.605067466281053,0.33159022837473,0.468328847327891
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Texture,3,2,3,0.190880825796366,0.257674438650572,0.224277632223469
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Organic carbon,1,1,1,0.0599384249136841,0.120070759382269,0.0900045921479763
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Bulk density,1,1,1,0.0694431769188377,0.0873787146700857,0.0784109457944617
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Soil reaction,1,1,1,0.074670106090059,0.0814475093736211,0.07805880773184
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Coarse fragments,1,0,1,0,0.121838349548723,0.0609191747743615
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Carbonates,1,0,0,0,0,0
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Gypsum,1,0,0,0,0,0
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Salinity,1,0,0,0,0,0
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,Sodicity,1,0,0,0,0,0
+23,Shrub deserts,shrub_desert,desert,soil,Nutrient retention and base status,4,2,3,0.20007592241929,0.304751588149092,0.252413755284191
+23,Shrub deserts,shrub_desert,desert,soil,Organic carbon,1,1,1,0.259064967078261,0.117622347661943,0.188343657370102
+23,Shrub deserts,shrub_desert,desert,soil,Texture,3,1,3,0.0431012751366747,0.306272782222513,0.174687028679594
+23,Shrub deserts,shrub_desert,desert,soil,Coarse fragments,1,1,1,0.0752859748701281,0.128796079508251,0.10204102718919
+23,Shrub deserts,shrub_desert,desert,soil,Soil reaction,1,1,1,0.0819864875775964,0.0840660383987856,0.083026262988191
+23,Shrub deserts,shrub_desert,desert,soil,Gypsum,1,1,0,0.140653183084671,0,0.0703265915423356
+23,Shrub deserts,shrub_desert,desert,soil,Sodicity,1,1,0,0.11651565702972,0,0.05825782851486
+23,Shrub deserts,shrub_desert,desert,soil,Carbonates,1,1,0,0.0833165328036588,0,0.0416582664018294
+23,Shrub deserts,shrub_desert,desert,soil,Bulk density,1,0,1,0,0.0584911640594152,0.0292455820297076
+23,Shrub deserts,shrub_desert,desert,soil,Salinity,1,0,0,0,0,0
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Texture,3,3,3,0.208527043521698,0.328429411389296,0.268478227455497
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Nutrient retention and base status,4,2,3,0.188747793359142,0.271197266706962,0.229972530033052
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Organic carbon,1,1,1,0.204591579371238,0.145628462089789,0.175110020730514
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Soil reaction,1,1,1,0.126300121688264,0.08199679579047,0.104148458739367
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Gypsum,1,1,0,0.171064935821569,0,0.0855324679107846
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Bulk density,1,1,1,0.100768526238088,0.0654251566633771,0.0830968414507326
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Coarse fragments,1,0,1,0,0.107322907360107,0.0536614536800533
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Carbonates,1,0,0,0,0,0
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Salinity,1,0,0,0,0,0
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,Sodicity,1,0,0,0,0,0
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Nutrient retention and base status,4,3,3,0.34452582136308,0.315590956715231,0.330058389039156
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Texture,3,2,3,0.175285035764493,0.256859564407858,0.216072300086175
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Soil reaction,1,1,1,0.178500722283693,0.154436090230567,0.16646840625713
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Coarse fragments,1,1,1,0.146691777352895,0.118793848721545,0.13274281303722
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Organic carbon,1,1,1,0.0743588991050555,0.0861585139084754,0.0802587065067655
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Bulk density,1,1,1,0.0806377441307833,0.0681610260163236,0.0743993850735535
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Carbonates,1,0,0,0,0,0
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Gypsum,1,0,0,0,0,0
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Salinity,1,0,0,0,0,0
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,Sodicity,1,0,0,0,0,0
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Nutrient retention and base status,4,3,3,0.326389674728667,0.291212008307464,0.308800841518065
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Organic carbon,1,1,1,0.309191271021415,0.250957323216748,0.280074297119082
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Texture,3,1,3,0.0654870248371624,0.263598032542523,0.164542528689843
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Soil reaction,1,1,1,0.0884771857136644,0.0624392997794312,0.0754582427465478
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Sodicity,1,1,0,0.0987975188210313,0,0.0493987594105157
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Bulk density,1,1,1,0.0484520640133991,0.0465063389086284,0.0474792014610137
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Coarse fragments,1,0,1,0,0.0852869972452055,0.0426434986226028
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Carbonates,1,1,0,0.063205260864661,0,0.0316026304323305
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Gypsum,1,0,0,0,0,0
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,Salinity,1,0,0,0,0,0
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Nutrient retention and base status,4,2,3,0.189333887147667,0.348645524985767,0.268989706066717
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Texture,3,2,3,0.110257640183402,0.289715356152424,0.199986498167913
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Organic carbon,1,1,1,0.130497900352296,0.0922392787641795,0.111368589558238
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Gypsum,1,1,0,0.200821167986272,0,0.100410583993136
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Carbonates,1,1,0,0.189434980019788,0,0.0947174900098939
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Bulk density,1,1,1,0.0614261056054605,0.0622120827920092,0.0618190941987349
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Sodicity,1,1,0,0.118228318705115,0,0.0591141593525575
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Soil reaction,1,0,1,0,0.108346725972406,0.054173362986203
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Coarse fragments,1,0,1,0,0.0988410313332141,0.0494205156666071
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,Salinity,1,0,0,0,0,0
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Texture,3,2,3,0.238532906131161,0.369065097741616,0.303799001936389
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Nutrient retention and base status,4,2,3,0.214076761389951,0.357149532787236,0.285613147088593
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Organic carbon,1,1,1,0.208556363161275,0.133653341748934,0.171104852455104
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Gypsum,1,1,0,0.137679119940639,0,0.0688395599703195
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Bulk density,1,1,1,0.0439850877172316,0.0408444326742621,0.0424147601957469
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Carbonates,1,1,0,0.0826232904351226,0,0.0413116452175613
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Salinity,1,1,0,0.0745464712246196,0,0.0372732356123098
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Soil reaction,1,0,1,0,0.0618730811076105,0.0309365405538052
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Coarse fragments,1,0,1,0,0.037414513940342,0.018707256970171
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,Sodicity,1,0,0,0,0,0
+38,Annual herb deserts,annual_herb_desert,desert,soil,Texture,3,3,3,0.217791829652647,0.245141279759841,0.231466554706244
+38,Annual herb deserts,annual_herb_desert,desert,soil,Nutrient retention and base status,4,1,3,0.11419319132619,0.328728676423964,0.221460933875077
+38,Annual herb deserts,annual_herb_desert,desert,soil,Coarse fragments,1,1,1,0.119219513119208,0.193311907257174,0.156265710188191
+38,Annual herb deserts,annual_herb_desert,desert,soil,Organic carbon,1,1,1,0.170202517320838,0.101561305763308,0.135881911542073
+38,Annual herb deserts,annual_herb_desert,desert,soil,Carbonates,1,1,0,0.1937319570301,0,0.0968659785150498
+38,Annual herb deserts,annual_herb_desert,desert,soil,Salinity,1,1,0,0.145826925073883,0,0.0729134625369415
+38,Annual herb deserts,annual_herb_desert,desert,soil,Soil reaction,1,0,1,0,0.09355043001836,0.04677521500918
+38,Annual herb deserts,annual_herb_desert,desert,soil,Bulk density,1,1,1,0.0390340664771343,0.0377064007773536,0.0383702336272439
+38,Annual herb deserts,annual_herb_desert,desert,soil,Gypsum,1,0,0,0,0,0
+38,Annual herb deserts,annual_herb_desert,desert,soil,Sodicity,1,0,0,0,0,0
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Texture,3,2,3,0.206740423368883,0.308532768468007,0.257636595918445
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Nutrient retention and base status,4,2,3,0.216914501465932,0.28017443057426,0.248544466020096
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Coarse fragments,1,1,1,0.134537572498203,0.130232528092624,0.132385050295414
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Bulk density,1,1,1,0.124634267445898,0.0971050281502214,0.11086964779806
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Soil reaction,1,1,1,0.0992765713762949,0.0913419240386976,0.0953092477074962
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Organic carbon,1,1,1,0.0675420587922266,0.0926133206761894,0.080077689734208
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Sodicity,1,1,0,0.150354605052562,0,0.0751773025262811
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Carbonates,1,0,0,0,0,0
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Gypsum,1,0,0,0,0,0
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,Salinity,1,0,0,0,0,0
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Nutrient retention and base status,4,4,3,0.474239605949518,0.31196895022292,0.393104278086219
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Texture,3,1,3,0.08321489907636,0.248540057144093,0.165877478110226
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Organic carbon,1,1,1,0.113575956501797,0.156581683204053,0.135078819852925
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Soil reaction,1,1,1,0.133372167389573,0.13007036041112,0.131721263900346
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Coarse fragments,1,1,1,0.121229248977442,0.0323159921774159,0.0767726205774288
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Bulk density,1,0,1,0,0.120522956840399,0.0602614784201997
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Carbonates,1,1,0,0.0743681221053099,0,0.0371840610526549
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Gypsum,1,0,0,0,0,0
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Salinity,1,0,0,0,0,0
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,Sodicity,1,0,0,0,0,0
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Nutrient retention and base status,4,3,3,0.413006180246121,0.271429117169852,0.342217648707986
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Texture,3,2,3,0.135769451141618,0.255513785002798,0.195641618072208
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Soil reaction,1,1,1,0.192513998955462,0.186493543482398,0.18950377121893
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Organic carbon,1,1,1,0.0952354368980248,0.136493428628361,0.115864432763193
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Bulk density,1,1,1,0.0615234763807199,0.0865051277379036,0.0740143020593118
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Carbonates,1,1,0,0.101951456378055,0,0.0509757281890276
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Coarse fragments,1,0,1,0,0.0635649979786869,0.0317824989893435
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Gypsum,1,0,0,0,0,0
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Salinity,1,0,0,0,0,0
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,Sodicity,1,0,0,0,0,0
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Nutrient retention and base status,4,4,3,0.474173011164007,0.335842909957146,0.405007960560577
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Texture,3,1,3,0.0877120942367844,0.23173183755796,0.159721965897372
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Soil reaction,1,1,1,0.141469392304852,0.173497502138621,0.157483447221737
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Coarse fragments,1,1,1,0.109181039261744,0.111419089204235,0.11030006423299
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Carbonates,1,1,0,0.129100702223395,0,0.0645503511116974
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Bulk density,1,1,1,0.0583637608092174,0.0619358408656795,0.0601498008374485
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Organic carbon,1,0,1,0,0.0855728202763581,0.042786410138179
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Gypsum,1,0,0,0,0,0
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Salinity,1,0,0,0,0,0
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,Sodicity,1,0,0,0,0,0
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Nutrient retention and base status,4,4,3,0.496997719630015,0.303702737129833,0.400350228379924
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Texture,3,2,3,0.173539797446091,0.245697626376524,0.209618711911307
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Bulk density,1,1,1,0.15109964549245,0.120255986942977,0.135677816217713
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Soil reaction,1,1,1,0.0892315400838245,0.129917692347347,0.109574616215586
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Organic carbon,1,1,1,0.0891312973476197,0.128341968889468,0.108736633118544
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Coarse fragments,1,0,1,0,0.0720839883138501,0.0360419941569251
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Carbonates,1,0,0,0,0,0
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Gypsum,1,0,0,0,0,0
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Salinity,1,0,0,0,0,0
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,Sodicity,1,0,0,0,0,0
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Texture,3,2,3,0.270724315034167,0.387286597717951,0.329005456376059
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Nutrient retention and base status,4,3,3,0.355160600365631,0.243116190821489,0.29913839559356
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Organic carbon,1,1,1,0.141591006212499,0.103388713919485,0.122489860065992
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Coarse fragments,1,1,1,0.0745566947233122,0.0904622132749196,0.0825094539991159
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Soil reaction,1,1,1,0.0855701806156335,0.0703270269916543,0.0779486038036439
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Bulk density,1,0,1,0,0.105419257274501,0.0527096286372507
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Sodicity,1,1,0,0.0723972030487569,0,0.0361986015243785
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Carbonates,1,0,0,0,0,0
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Gypsum,1,0,0,0,0,0
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,Salinity,1,0,0,0,0,0
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Nutrient retention and base status,4,4,3,0.575882335540343,0.426753930714207,0.501318133127275
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Texture,3,3,3,0.19572701286181,0.215070633670213,0.205398823266012
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Soil reaction,1,1,1,0.172646098859314,0.193296763048811,0.182971430954062
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Organic carbon,1,1,1,0.0557445527385338,0.0869451766252923,0.0713448646819131
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Coarse fragments,1,0,1,0,0.0460390768620803,0.0230195384310401
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Bulk density,1,0,1,0,0.0318944190793964,0.0159472095396982
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Carbonates,1,0,0,0,0,0
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Gypsum,1,0,0,0,0,0
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Salinity,1,0,0,0,0,0
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,Sodicity,1,0,0,0,0,0
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Nutrient retention and base status,4,4,3,0.453248244509455,0.352149843599359,0.402699044054407
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Texture,3,2,3,0.242311626152487,0.275534027737478,0.258922826944982
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Soil reaction,1,1,1,0.134337855758374,0.139731545564913,0.137034700661644
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Organic carbon,1,1,1,0.0874197577405029,0.101593047273643,0.0945064025070728
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Coarse fragments,1,1,1,0.0826825158391803,0.0647416413844775,0.0737120786118289
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Bulk density,1,0,1,0,0.0662498944401305,0.0331249472200652
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Carbonates,1,0,0,0,0,0
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Gypsum,1,0,0,0,0,0
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Salinity,1,0,0,0,0,0
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,Sodicity,1,0,0,0,0,0
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Nutrient retention and base status,4,3,3,0.523557000107044,0.40475791627955,0.464157458193297
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Texture,3,3,3,0.229915570578596,0.219953786991156,0.224934678784876
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Soil reaction,1,1,1,0.105882641064106,0.16818375474436,0.137033197904233
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Organic carbon,1,1,1,0.0754789548151858,0.120205859918567,0.0978424073668763
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Bulk density,1,1,1,0.065165833435069,0.0477597324302504,0.0564627829326597
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Coarse fragments,1,0,1,0,0.0391389496361171,0.0195694748180585
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Carbonates,1,0,0,0,0,0
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Gypsum,1,0,0,0,0,0
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Salinity,1,0,0,0,0,0
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,Sodicity,1,0,0,0,0,0
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Nutrient retention and base status,4,4,3,0.438154775766429,0.312638470136061,0.375396622951245
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Texture,3,2,3,0.258740623265579,0.264244172925889,0.261492398095734
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Organic carbon,1,1,1,0.10074839684875,0.151218039997203,0.125983218422976
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Soil reaction,1,1,1,0.135339160603934,0.10551399870371,0.120426579653822
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Coarse fragments,1,1,1,0.067017043515309,0.089110116420296,0.0780635799678025
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Bulk density,1,0,1,0,0.0772752018168407,0.0386376009084203
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Carbonates,1,0,0,0,0,0
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Gypsum,1,0,0,0,0,0
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Salinity,1,0,0,0,0,0
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,Sodicity,1,0,0,0,0,0
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Nutrient retention and base status,4,3,3,0.397409074409852,0.365058808160746,0.381233941285299
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Texture,3,2,3,0.240620052819898,0.266205568661444,0.253412810740671
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Soil reaction,1,1,1,0.126062556653122,0.136105115211689,0.131083835932405
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Organic carbon,1,1,1,0.0973173189742666,0.107307719386235,0.102312519180251
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Bulk density,1,1,1,0.0781700671047474,0.0555452817265957,0.0668576744156716
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Coarse fragments,1,1,1,0.060420930038114,0.0697775068532908,0.0650992184457024
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Carbonates,1,0,0,0,0,0
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Gypsum,1,0,0,0,0,0
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Salinity,1,0,0,0,0,0
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,Sodicity,1,0,0,0,0,0
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Nutrient retention and base status,4,4,3,0.455396932184892,0.473031054294789,0.464213993239841
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Texture,3,2,3,0.180455258905595,0.203260681540592,0.191857970223093
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Organic carbon,1,1,1,0.170194198166923,0.118915677443663,0.144554937805293
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Soil reaction,1,1,1,0.109994272598301,0.0940410881439016,0.102017680371101
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Coarse fragments,1,1,1,0.0839593381442897,0.0578422700279571,0.0709008040861234
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Bulk density,1,0,1,0,0.0529092285490975,0.0264546142745487
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Carbonates,1,0,0,0,0,0
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Gypsum,1,0,0,0,0,0
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Salinity,1,0,0,0,0,0
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,Sodicity,1,0,0,0,0,0
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Nutrient retention and base status,4,2,3,0.236145672685948,0.277414966747077,0.256780319716513
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Texture,3,2,3,0.166295774548028,0.267019058468724,0.216657416508376
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Organic carbon,1,1,1,0.153419681671982,0.169691072621464,0.161555377146723
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Bulk density,1,1,1,0.137305839778634,0.109301460845563,0.123303650312099
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Coarse fragments,1,1,1,0.126595977724819,0.0771145677262699,0.101855272725544
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Soil reaction,1,1,1,0.0729627225902976,0.0994588735909016,0.0862107980905996
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Sodicity,1,1,0,0.107274331000292,0,0.0536371655001458
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Carbonates,1,0,0,0,0,0
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Gypsum,1,0,0,0,0,0
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,Salinity,1,0,0,0,0,0
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Nutrient retention and base status,4,3,3,0.514079347320512,0.397996137647229,0.45603774248387
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Texture,3,3,3,0.203621197569096,0.279484882710259,0.241553040139677
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Soil reaction,1,1,1,0.181167151649614,0.134701976756724,0.157934564203169
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Bulk density,1,1,1,0.064207121127459,0.0462872662949052,0.0552471937111821
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Organic carbon,1,0,1,0,0.0749795908309314,0.0374897954154657
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Coarse fragments,1,0,1,0,0.0665501457599516,0.0332750728799758
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Sodicity,1,1,0,0.03692518233332,0,0.01846259116666
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Carbonates,1,0,0,0,0,0
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Gypsum,1,0,0,0,0,0
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,Salinity,1,0,0,0,0,0
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Nutrient retention and base status,4,4,3,0.549849842748292,0.42939696858731,0.489623405667801
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Texture,3,3,3,0.279033925519317,0.306396475686905,0.292715200603111
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Soil reaction,1,1,1,0.114396669452841,0.133892459789438,0.12414456462114
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Bulk density,1,1,1,0.0567195622795494,0.0224067532788217,0.0395631577791856
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Coarse fragments,1,0,1,0,0.0767988273146516,0.0383994136573258
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Organic carbon,1,0,1,0,0.0311085153428735,0.0155542576714367
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Carbonates,1,0,0,0,0,0
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Gypsum,1,0,0,0,0,0
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Salinity,1,0,0,0,0,0
+52,Tropical rain forests,tropical_rain_forest,forest,soil,Sodicity,1,0,0,0,0,0
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Nutrient retention and base status,4,3,3,0.502448037090011,0.365933920082148,0.43419097858608
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Texture,3,3,3,0.342984359736078,0.286207322077521,0.3145958409068
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Soil reaction,1,1,1,0.101801498034777,0.113316878863217,0.107559188448997
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Coarse fragments,1,1,1,0.0310786703787933,0.0927898546033624,0.0619342624910779
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Organic carbon,1,0,1,0,0.0878074348755476,0.0439037174377738
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Bulk density,1,0,1,0,0.0539445894982036,0.0269722947491018
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Sodicity,1,1,0,0.0216874347603402,0,0.0108437173801701
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Carbonates,1,0,0,0,0,0
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Gypsum,1,0,0,0,0,0
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,Salinity,1,0,0,0,0,0
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Nutrient retention and base status,4,3,3,0.405295392143494,0.300932218917285,0.35311380553039
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Texture,3,2,3,0.158868785879386,0.236303333509504,0.197586059694445
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.178990504640982,0.190584841222698,0.18478767293184
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Soil reaction,1,1,1,0.0843118090353766,0.111185067292622,0.0977484381639993
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.101429737884601,0.0709750220116394,0.0862023799481202
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Coarse fragments,1,0,1,0,0.0900195170462508,0.0450097585231254
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Carbonates,1,1,0,0.0711037704161609,0,0.0355518852080804
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Nutrient retention and base status,4,3,3,0.461755587342607,0.349358060553372,0.40555682394799
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Texture,3,2,3,0.207617171130791,0.262804644546352,0.235210907838571
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.127415244967924,0.0992541648781229,0.113334704923024
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Soil reaction,1,1,1,0.0784462160879115,0.125796017032869,0.10212111656039
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.0893041748839232,0.089856431731454,0.0895803033076886
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Coarse fragments,1,1,1,0.0354616055868431,0.0729306812578302,0.0541961434223366
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Nutrient retention and base status,4,4,3,0.543583729970224,0.23040968507464,0.386996707522432
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Texture,3,2,3,0.142265615394342,0.298124614119908,0.220195114757125
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.113264592031333,0.128835831766508,0.121050211898921
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Soil reaction,1,1,1,0.12879262711856,0.10125467002732,0.11502364857294
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.0720934354855407,0.111042167367314,0.0915678014264271
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Coarse fragments,1,0,1,0,0.13033303164431,0.0651665158221551
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Texture,3,3,3,0.254172916433704,0.331674559109294,0.292923737771499
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Nutrient retention and base status,4,2,3,0.26056027036815,0.301069809436888,0.280815039902519
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.134555041849425,0.0827308579716794,0.108642949910552
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Sodicity,1,1,0,0.210182568050146,0,0.105091284025073
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Coarse fragments,1,1,1,0.0851708539307908,0.098695018722436,0.0919329363266134
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.0553583493677844,0.0960390073297604,0.0756986783487724
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Soil reaction,1,0,1,0,0.089790747429942,0.044895373714971
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Nutrient retention and base status,4,4,3,0.402425443902108,0.243937447655602,0.323181445778855
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Texture,3,2,3,0.184322074934234,0.309808414999171,0.247065244966703
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.25741672566154,0.164458672025598,0.210937698843569
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.104806321032617,0.118276894117983,0.1115416075753
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Soil reaction,1,1,1,0.0510294344695006,0.124834236022417,0.0879318352459591
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Coarse fragments,1,0,1,0,0.038684335179229,0.0193421675896145
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Nutrient retention and base status,4,4,3,0.328551439205878,0.292449692930643,0.310500566068261
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Texture,3,2,3,0.171678827421939,0.277750103168954,0.224714465295447
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Coarse fragments,1,1,1,0.258813100848015,0.105169400573732,0.181991250710874
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Soil reaction,1,1,1,0.0959282771578331,0.15851895063767,0.127223613897752
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.145028355366335,0.108457797992088,0.126743076679212
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Bulk density,1,0,1,0,0.0576540546969116,0.0288270273484558
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Nutrient retention and base status,4,3,3,0.506523783696395,0.339665464574357,0.423094624135376
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Texture,3,3,3,0.249233105707472,0.267322567657818,0.258277836682645
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.109439930142423,0.110817213387477,0.11012857176495
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Soil reaction,1,0,1,0,0.16447612045441,0.082238060227205
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.0806554507210682,0.0531667174597073,0.0669110840903878
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Coarse fragments,1,1,1,0.0541477297326424,0.0645519164662308,0.0593498230994366
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Nutrient retention and base status,4,3,3,0.331052060451753,0.311863472654703,0.321457766553228
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Texture,3,3,3,0.232660164751135,0.230059201963464,0.231359683357299
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Soil reaction,1,1,1,0.171412423318,0.152960870237585,0.162186646777792
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Organic carbon,1,1,1,0.162255950843954,0.134583606097386,0.14841977847067
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Bulk density,1,1,1,0.102619400635159,0.0855838711987318,0.0941016359169453
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Coarse fragments,1,0,1,0,0.0849489778481292,0.0424744889240646
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Carbonates,1,0,0,0,0,0
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Gypsum,1,0,0,0,0,0
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Salinity,1,0,0,0,0,0
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,Sodicity,1,0,0,0,0,0
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Nutrient retention and base status,4,4,3,0.443437306213368,0.279847043765882,0.361642174989625
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Texture,3,2,3,0.166408724169339,0.282909359062324,0.224659041615832
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Organic carbon,1,1,1,0.132588789227319,0.139402229116925,0.135995509172122
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Soil reaction,1,1,1,0.15154336492868,0.100695374766637,0.126119369847659
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Bulk density,1,1,1,0.106021815461295,0.107199733488588,0.106610774474941
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Coarse fragments,1,0,1,0,0.0899462597996448,0.0449731298998224
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Carbonates,1,0,0,0,0,0
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Gypsum,1,0,0,0,0,0
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Salinity,1,0,0,0,0,0
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,Sodicity,1,0,0,0,0,0
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Nutrient retention and base status,4,4,3,0.417894265174686,0.228252979837265,0.323073622505976
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Texture,3,2,3,0.210562813482922,0.355896854341361,0.283229833912142
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Organic carbon,1,1,1,0.210363051623762,0.14046181061048,0.175412431117121
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Coarse fragments,1,1,1,0.103229292186388,0.0902303842464831,0.0967298382164357
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Soil reaction,1,1,1,0.0579505775322414,0.0714278765066872,0.0646892270194643
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Bulk density,1,0,1,0,0.113730094457723,0.0568650472288615
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Carbonates,1,0,0,0,0,0
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Gypsum,1,0,0,0,0,0
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Salinity,1,0,0,0,0,0
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,Sodicity,1,0,0,0,0,0
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Nutrient retention and base status,4,3,3,0.474966321433672,0.323553053863538,0.399259687648605
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Texture,3,2,3,0.199249711861343,0.331000621096257,0.2651251664788
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Organic carbon,1,1,1,0.107549758707485,0.116793962114593,0.112171860411039
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Bulk density,1,1,1,0.109325123687578,0.0633241480911997,0.0863246358893889
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Coarse fragments,1,1,1,0.0569831278200812,0.0854476156570754,0.0712153717385783
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Soil reaction,1,0,1,0,0.0798805991773373,0.0399402995886687
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Sodicity,1,1,0,0.0519259564898408,0,0.0259629782449204
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Carbonates,1,0,0,0,0,0
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Gypsum,1,0,0,0,0,0
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,Salinity,1,0,0,0,0,0
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Nutrient retention and base status,4,3,3,0.350368602797612,0.245854910973692,0.298111756885652
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Texture,3,2,3,0.229949852630009,0.347797357873106,0.288873605251557
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Organic carbon,1,1,1,0.1791613445309,0.105032151133369,0.142096747832134
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Bulk density,1,1,1,0.071290877409809,0.13162144728116,0.101456162345485
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Coarse fragments,1,1,1,0.0991634772131605,0.0882444828869907,0.0937039800500756
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Soil reaction,1,1,1,0.0700658454185096,0.0814496498516838,0.0757577476350967
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Carbonates,1,0,0,0,0,0
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Gypsum,1,0,0,0,0,0
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Salinity,1,0,0,0,0,0
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,Sodicity,1,0,0,0,0,0
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Nutrient retention and base status,4,4,3,0.495799237173131,0.23555591638508,0.365677576779106
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Texture,3,3,3,0.286196669637251,0.362584354296266,0.324390511966759
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Bulk density,1,1,1,0.095622641581086,0.117515628720493,0.10656913515079
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Soil reaction,1,1,1,0.122381451608532,0.0871100986884414,0.104745775148487
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Organic carbon,1,0,1,0,0.109160087522051,0.0545800437610258
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Coarse fragments,1,0,1,0,0.0880739143876682,0.0440369571938341
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Carbonates,1,0,0,0,0,0
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Gypsum,1,0,0,0,0,0
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Salinity,1,0,0,0,0,0
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,Sodicity,1,0,0,0,0,0
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Nutrient retention and base status,4,3,3,0.391308796247103,0.386103641818159,0.388706219032631
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Texture,3,3,3,0.320132108011547,0.294427016492098,0.307279562251822
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Bulk density,1,1,1,0.14589964050698,0.0552746442493515,0.100587142378166
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Organic carbon,1,1,1,0.0821207283674307,0.113340118484115,0.0977304234257729
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Coarse fragments,1,1,1,0.0605387268669393,0.0544606868447718,0.0574997068558555
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Soil reaction,1,0,1,0,0.0963938921115054,0.0481969460557527
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Carbonates,1,0,0,0,0,0
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Gypsum,1,0,0,0,0,0
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Salinity,1,0,0,0,0,0
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,Sodicity,1,0,0,0,0,0
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Nutrient retention and base status,4,4,3,0.421590360653021,0.299143031120897,0.360366695886959
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Organic carbon,1,1,1,0.176664758304075,0.150227202332811,0.163445980318443
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Coarse fragments,1,1,1,0.196916895749112,0.108648897751966,0.152782896750539
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Texture,3,1,3,0.0538775922634304,0.23269849189092,0.143288042077175
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Soil reaction,1,1,1,0.0776550683328739,0.111780708444579,0.0947178883887262
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Bulk density,1,1,1,0.0732953246974881,0.0975016684588281,0.0853984965781581
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Carbonates,1,0,0,0,0,0
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Gypsum,1,0,0,0,0,0
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Salinity,1,0,0,0,0,0
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,Sodicity,1,0,0,0,0,0
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Nutrient retention and base status,4,4,3,0.441882923336537,0.28435493307673,0.363118928206633
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Texture,3,2,3,0.13735388915414,0.24214752018263,0.189750704668385
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Coarse fragments,1,1,1,0.200136857401188,0.103981164948025,0.152059011174607
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Organic carbon,1,1,1,0.131978730575874,0.142798363224716,0.137388546900295
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Soil reaction,1,1,1,0.0886475995322599,0.136606266220739,0.112626932876499
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Bulk density,1,0,1,0,0.0901117523471608,0.0450558761735804
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Carbonates,1,0,0,0,0,0
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Gypsum,1,0,0,0,0,0
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Salinity,1,0,0,0,0,0
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,Sodicity,1,0,0,0,0,0
+43,High-cold marshes,high_cold_marsh,wetland,soil,Nutrient retention and base status,4,4,3,0.521668974181002,0.281152723652069,0.401410848916535
+43,High-cold marshes,high_cold_marsh,wetland,soil,Organic carbon,1,1,1,0.242454996023411,0.288299300539415,0.265377148281413
+43,High-cold marshes,high_cold_marsh,wetland,soil,Texture,3,2,3,0.127975897832512,0.229718989017456,0.178847443424984
+43,High-cold marshes,high_cold_marsh,wetland,soil,Bulk density,1,1,1,0.0621754019756758,0.100184140856163,0.0811797714159195
+43,High-cold marshes,high_cold_marsh,wetland,soil,Coarse fragments,1,1,1,0.0457247299873999,0.0470659158422993,0.0463953229148496
+43,High-cold marshes,high_cold_marsh,wetland,soil,Soil reaction,1,0,1,0,0.0535789300925975,0.0267894650462988
+43,High-cold marshes,high_cold_marsh,wetland,soil,Carbonates,1,0,0,0,0,0
+43,High-cold marshes,high_cold_marsh,wetland,soil,Gypsum,1,0,0,0,0,0
+43,High-cold marshes,high_cold_marsh,wetland,soil,Salinity,1,0,0,0,0,0
+43,High-cold marshes,high_cold_marsh,wetland,soil,Sodicity,1,0,0,0,0,0
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Nutrient retention and base status,4,4,3,0.451586653986261,0.279279464552278,0.36543305926927
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Texture,3,2,3,0.23155864026402,0.314987540010458,0.273273090137239
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Organic carbon,1,1,1,0.152042210233264,0.131816015051559,0.141929112642411
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Coarse fragments,1,1,1,0.0801747659566648,0.111034378324161,0.0956045721404128
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Soil reaction,1,1,1,0.0846377295597899,0.0907564622566244,0.0876970959082072
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Bulk density,1,0,1,0,0.0721261398049199,0.03606306990246
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Carbonates,1,0,0,0,0,0
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Gypsum,1,0,0,0,0,0
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Salinity,1,0,0,0,0,0
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,Sodicity,1,0,0,0,0,0
+54,Tropical mangroves,mangrove,wetland,soil,Nutrient retention and base status,4,2,3,0.371406426248812,0.214641379347647,0.29302390279823
+54,Tropical mangroves,mangrove,wetland,soil,Coarse fragments,1,1,1,0.164694412979433,0.342939674945229,0.253817043962331
+54,Tropical mangroves,mangrove,wetland,soil,Texture,3,2,3,0.181899349541495,0.171678351465133,0.176788850503314
+54,Tropical mangroves,mangrove,wetland,soil,Organic carbon,1,1,1,0.0852686715810385,0.187269588126139,0.136269129853589
+54,Tropical mangroves,mangrove,wetland,soil,Bulk density,1,1,1,0.138239721405115,0.0589472482532459,0.0985934848291803
+54,Tropical mangroves,mangrove,wetland,soil,Soil reaction,1,1,1,0.0460242772920243,0.024523757862606,0.0352740175773152
+54,Tropical mangroves,mangrove,wetland,soil,Gypsum,1,1,0,0.0124671409520826,0,0.00623357047604132
+54,Tropical mangroves,mangrove,wetland,soil,Carbonates,1,0,0,0,0,0
+54,Tropical mangroves,mangrove,wetland,soil,Salinity,1,0,0,0,0,0
+54,Tropical mangroves,mangrove,wetland,soil,Sodicity,1,0,0,0,0,0

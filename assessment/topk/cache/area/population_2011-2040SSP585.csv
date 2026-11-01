@@ -1,0 +1,411 @@
+source_zone,PopulationID,Species,Zone,Population,reference_abundance,zone_name,COLOR,projected,projection_eligible,k,pixels,area_km2,scenario,period,ssp
+2,lariGme-Zone2,lariGme,Zone2,53291,53291,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,1,92632,52094.4930403555,2011-2040SSP585,2011-2040,SSP585
+2,lariGme-Zone2,lariGme,Zone2,53291,53291,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,2,229988,132347.838982236,2011-2040SSP585,2011-2040,SSP585
+2,lariGme-Zone2,lariGme,Zone2,53291,53291,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,3,489769,283930.138866847,2011-2040SSP585,2011-2040,SSP585
+2,lariGme-Zone2,lariGme,Zone2,53291,53291,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,4,593589,346492.592882959,2011-2040SSP585,2011-2040,SSP585
+2,lariGme-Zone2,lariGme,Zone2,53291,53291,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,5,632925,371073.553121276,2011-2040SSP585,2011-2040,SSP585
+2,lariOlg-Zone2,lariOlg,Zone2,6784,6784,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,1,92632,52094.4930403555,2011-2040SSP585,2011-2040,SSP585
+2,lariOlg-Zone2,lariOlg,Zone2,6784,6784,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,2,229988,132347.838982236,2011-2040SSP585,2011-2040,SSP585
+2,lariOlg-Zone2,lariOlg,Zone2,6784,6784,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,3,489769,283930.138866847,2011-2040SSP585,2011-2040,SSP585
+2,lariOlg-Zone2,lariOlg,Zone2,6784,6784,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,4,593589,346492.592882959,2011-2040SSP585,2011-2040,SSP585
+2,lariOlg-Zone2,lariOlg,Zone2,6784,6784,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,5,632925,371073.553121276,2011-2040SSP585,2011-2040,SSP585
+2,pinuSyl-Zone2,pinuSyl,Zone2,1696,1696,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,1,92632,52094.4930403555,2011-2040SSP585,2011-2040,SSP585
+2,pinuSyl-Zone2,pinuSyl,Zone2,1696,1696,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,2,229988,132347.838982236,2011-2040SSP585,2011-2040,SSP585
+2,pinuSyl-Zone2,pinuSyl,Zone2,1696,1696,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,3,489769,283930.138866847,2011-2040SSP585,2011-2040,SSP585
+2,pinuSyl-Zone2,pinuSyl,Zone2,1696,1696,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,4,593589,346492.592882959,2011-2040SSP585,2011-2040,SSP585
+2,pinuSyl-Zone2,pinuSyl,Zone2,1696,1696,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,#005A32,TRUE,TRUE,5,632925,371073.553121276,2011-2040SSP585,2011-2040,SSP585
+3,lariGme-Zone3,lariGme,Zone3,354,354,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,1,462007,283082.713959935,2011-2040SSP585,2011-2040,SSP585
+3,lariGme-Zone3,lariGme,Zone3,354,354,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,2,788846,489914.875466758,2011-2040SSP585,2011-2040,SSP585
+3,lariGme-Zone3,lariGme,Zone3,354,354,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,3,1042368,648030.6499226,2011-2040SSP585,2011-2040,SSP585
+3,lariGme-Zone3,lariGme,Zone3,354,354,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,4,1238704,770033.455667048,2011-2040SSP585,2011-2040,SSP585
+3,lariGme-Zone3,lariGme,Zone3,354,354,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,5,1358536,849716.610984573,2011-2040SSP585,2011-2040,SSP585
+3,lariOlg-Zone3,lariOlg,Zone3,135,135,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,1,462007,283082.713959935,2011-2040SSP585,2011-2040,SSP585
+3,lariOlg-Zone3,lariOlg,Zone3,135,135,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,2,788846,489914.875466758,2011-2040SSP585,2011-2040,SSP585
+3,lariOlg-Zone3,lariOlg,Zone3,135,135,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,3,1042368,648030.6499226,2011-2040SSP585,2011-2040,SSP585
+3,lariOlg-Zone3,lariOlg,Zone3,135,135,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,4,1238704,770033.455667048,2011-2040SSP585,2011-2040,SSP585
+3,lariOlg-Zone3,lariOlg,Zone3,135,135,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,5,1358536,849716.610984573,2011-2040SSP585,2011-2040,SSP585
+3,pinuSyl-Zone3,pinuSyl,Zone3,33,33,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,1,462007,283082.713959935,2011-2040SSP585,2011-2040,SSP585
+3,pinuSyl-Zone3,pinuSyl,Zone3,33,33,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,2,788846,489914.875466758,2011-2040SSP585,2011-2040,SSP585
+3,pinuSyl-Zone3,pinuSyl,Zone3,33,33,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,3,1042368,648030.6499226,2011-2040SSP585,2011-2040,SSP585
+3,pinuSyl-Zone3,pinuSyl,Zone3,33,33,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,4,1238704,770033.455667048,2011-2040SSP585,2011-2040,SSP585
+3,pinuSyl-Zone3,pinuSyl,Zone3,33,33,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,5,1358536,849716.610984573,2011-2040SSP585,2011-2040,SSP585
+3,querVar-Zone3,querVar,Zone3,20658,20658,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,1,462007,283082.713959935,2011-2040SSP585,2011-2040,SSP585
+3,querVar-Zone3,querVar,Zone3,20658,20658,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,2,788846,489914.875466758,2011-2040SSP585,2011-2040,SSP585
+3,querVar-Zone3,querVar,Zone3,20658,20658,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,3,1042368,648030.6499226,2011-2040SSP585,2011-2040,SSP585
+3,querVar-Zone3,querVar,Zone3,20658,20658,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,4,1238704,770033.455667048,2011-2040SSP585,2011-2040,SSP585
+3,querVar-Zone3,querVar,Zone3,20658,20658,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,5,1358536,849716.610984573,2011-2040SSP585,2011-2040,SSP585
+3,robiPse-Zone3,robiPse,Zone3,11620,11620,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,1,462007,283082.713959935,2011-2040SSP585,2011-2040,SSP585
+3,robiPse-Zone3,robiPse,Zone3,11620,11620,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,2,788846,489914.875466758,2011-2040SSP585,2011-2040,SSP585
+3,robiPse-Zone3,robiPse,Zone3,11620,11620,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,3,1042368,648030.6499226,2011-2040SSP585,2011-2040,SSP585
+3,robiPse-Zone3,robiPse,Zone3,11620,11620,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,4,1238704,770033.455667048,2011-2040SSP585,2011-2040,SSP585
+3,robiPse-Zone3,robiPse,Zone3,11620,11620,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,5,1358536,849716.610984573,2011-2040SSP585,2011-2040,SSP585
+3,saliMat-Zone3,saliMat,Zone3,3066,3066,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,1,462007,283082.713959935,2011-2040SSP585,2011-2040,SSP585
+3,saliMat-Zone3,saliMat,Zone3,3066,3066,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,2,788846,489914.875466758,2011-2040SSP585,2011-2040,SSP585
+3,saliMat-Zone3,saliMat,Zone3,3066,3066,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,3,1042368,648030.6499226,2011-2040SSP585,2011-2040,SSP585
+3,saliMat-Zone3,saliMat,Zone3,3066,3066,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,4,1238704,770033.455667048,2011-2040SSP585,2011-2040,SSP585
+3,saliMat-Zone3,saliMat,Zone3,3066,3066,Broadleaf deciduous forests in temperate zone,#33A02C,TRUE,TRUE,5,1358536,849716.610984573,2011-2040SSP585,2011-2040,SSP585
+4,lariGme-Zone4,lariGme,Zone4,439,439,"Grass, Carex and forb swamp meadows",#00B4D8,TRUE,TRUE,1,58263,33097.4894076674,2011-2040SSP585,2011-2040,SSP585
+4,lariGme-Zone4,lariGme,Zone4,439,439,"Grass, Carex and forb swamp meadows",#00B4D8,TRUE,TRUE,2,118846,67682.8653639018,2011-2040SSP585,2011-2040,SSP585
+4,lariGme-Zone4,lariGme,Zone4,439,439,"Grass, Carex and forb swamp meadows",#00B4D8,TRUE,TRUE,3,231607,133306.779125962,2011-2040SSP585,2011-2040,SSP585
+4,lariGme-Zone4,lariGme,Zone4,439,439,"Grass, Carex and forb swamp meadows",#00B4D8,TRUE,TRUE,4,341523,196500.924293005,2011-2040SSP585,2011-2040,SSP585
+4,lariGme-Zone4,lariGme,Zone4,439,439,"Grass, Carex and forb swamp meadows",#00B4D8,TRUE,TRUE,5,391858,226490.373164092,2011-2040SSP585,2011-2040,SSP585
+5,lariGme-Zone5,lariGme,Zone5,313,313,Grass and forb meadows,#B8DE29,TRUE,TRUE,1,220164,126267.283671207,2011-2040SSP585,2011-2040,SSP585
+5,lariGme-Zone5,lariGme,Zone5,313,313,Grass and forb meadows,#B8DE29,TRUE,TRUE,2,596890,340061.722920433,2011-2040SSP585,2011-2040,SSP585
+5,lariGme-Zone5,lariGme,Zone5,313,313,Grass and forb meadows,#B8DE29,TRUE,TRUE,3,832234,481138.401157792,2011-2040SSP585,2011-2040,SSP585
+5,lariGme-Zone5,lariGme,Zone5,313,313,Grass and forb meadows,#B8DE29,TRUE,TRUE,4,963123,566709.315862026,2011-2040SSP585,2011-2040,SSP585
+5,lariGme-Zone5,lariGme,Zone5,313,313,Grass and forb meadows,#B8DE29,TRUE,TRUE,5,1020417,605843.159344734,2011-2040SSP585,2011-2040,SSP585
+5,pinuSyl-Zone5,pinuSyl,Zone5,10,10,Grass and forb meadows,#B8DE29,TRUE,TRUE,1,220164,126267.283671207,2011-2040SSP585,2011-2040,SSP585
+5,pinuSyl-Zone5,pinuSyl,Zone5,10,10,Grass and forb meadows,#B8DE29,TRUE,TRUE,2,596890,340061.722920433,2011-2040SSP585,2011-2040,SSP585
+5,pinuSyl-Zone5,pinuSyl,Zone5,10,10,Grass and forb meadows,#B8DE29,TRUE,TRUE,3,832234,481138.401157792,2011-2040SSP585,2011-2040,SSP585
+5,pinuSyl-Zone5,pinuSyl,Zone5,10,10,Grass and forb meadows,#B8DE29,TRUE,TRUE,4,963123,566709.315862026,2011-2040SSP585,2011-2040,SSP585
+5,pinuSyl-Zone5,pinuSyl,Zone5,10,10,Grass and forb meadows,#B8DE29,TRUE,TRUE,5,1020417,605843.159344734,2011-2040SSP585,2011-2040,SSP585
+5,querVar-Zone5,querVar,Zone5,26,26,Grass and forb meadows,#B8DE29,TRUE,TRUE,1,220164,126267.283671207,2011-2040SSP585,2011-2040,SSP585
+5,querVar-Zone5,querVar,Zone5,26,26,Grass and forb meadows,#B8DE29,TRUE,TRUE,2,596890,340061.722920433,2011-2040SSP585,2011-2040,SSP585
+5,querVar-Zone5,querVar,Zone5,26,26,Grass and forb meadows,#B8DE29,TRUE,TRUE,3,832234,481138.401157792,2011-2040SSP585,2011-2040,SSP585
+5,querVar-Zone5,querVar,Zone5,26,26,Grass and forb meadows,#B8DE29,TRUE,TRUE,4,963123,566709.315862026,2011-2040SSP585,2011-2040,SSP585
+5,querVar-Zone5,querVar,Zone5,26,26,Grass and forb meadows,#B8DE29,TRUE,TRUE,5,1020417,605843.159344734,2011-2040SSP585,2011-2040,SSP585
+5,pinuYun-Zone5,pinuYun,Zone5,186,186,Grass and forb meadows,#B8DE29,TRUE,TRUE,1,220164,126267.283671207,2011-2040SSP585,2011-2040,SSP585
+5,pinuYun-Zone5,pinuYun,Zone5,186,186,Grass and forb meadows,#B8DE29,TRUE,TRUE,2,596890,340061.722920433,2011-2040SSP585,2011-2040,SSP585
+5,pinuYun-Zone5,pinuYun,Zone5,186,186,Grass and forb meadows,#B8DE29,TRUE,TRUE,3,832234,481138.401157792,2011-2040SSP585,2011-2040,SSP585
+5,pinuYun-Zone5,pinuYun,Zone5,186,186,Grass and forb meadows,#B8DE29,TRUE,TRUE,4,963123,566709.315862026,2011-2040SSP585,2011-2040,SSP585
+5,pinuYun-Zone5,pinuYun,Zone5,186,186,Grass and forb meadows,#B8DE29,TRUE,TRUE,5,1020417,605843.159344734,2011-2040SSP585,2011-2040,SSP585
+6,lariGme-Zone6,lariGme,Zone6,446,446,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,1,74622,40689.4904418568,2011-2040SSP585,2011-2040,SSP585
+6,lariGme-Zone6,lariGme,Zone6,446,446,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,2,125771,69653.6384626177,2011-2040SSP585,2011-2040,SSP585
+6,lariGme-Zone6,lariGme,Zone6,446,446,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,3,179008,99257.977960972,2011-2040SSP585,2011-2040,SSP585
+6,lariGme-Zone6,lariGme,Zone6,446,446,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,4,238393,132014.100404255,2011-2040SSP585,2011-2040,SSP585
+6,lariGme-Zone6,lariGme,Zone6,446,446,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,5,257031,142226.295946978,2011-2040SSP585,2011-2040,SSP585
+6,lariOlg-Zone6,lariOlg,Zone6,108,108,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,1,74622,40689.4904418568,2011-2040SSP585,2011-2040,SSP585
+6,lariOlg-Zone6,lariOlg,Zone6,108,108,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,2,125771,69653.6384626177,2011-2040SSP585,2011-2040,SSP585
+6,lariOlg-Zone6,lariOlg,Zone6,108,108,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,3,179008,99257.977960972,2011-2040SSP585,2011-2040,SSP585
+6,lariOlg-Zone6,lariOlg,Zone6,108,108,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,4,238393,132014.100404255,2011-2040SSP585,2011-2040,SSP585
+6,lariOlg-Zone6,lariOlg,Zone6,108,108,Cold-temperate and temperate marshes,#0077B6,TRUE,TRUE,5,257031,142226.295946978,2011-2040SSP585,2011-2040,SSP585
+7,lariGme-Zone7,lariGme,Zone7,47,47,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,1,243043,159222.81154448,2011-2040SSP585,2011-2040,SSP585
+7,lariGme-Zone7,lariGme,Zone7,47,47,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,2,545199,358119.171384715,2011-2040SSP585,2011-2040,SSP585
+7,lariGme-Zone7,lariGme,Zone7,47,47,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,3,846707,556889.36439538,2011-2040SSP585,2011-2040,SSP585
+7,lariGme-Zone7,lariGme,Zone7,47,47,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,4,1070943,705831.891748342,2011-2040SSP585,2011-2040,SSP585
+7,lariGme-Zone7,lariGme,Zone7,47,47,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,5,1157323,763731.049524265,2011-2040SSP585,2011-2040,SSP585
+7,lariOlg-Zone7,lariOlg,Zone7,39,39,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,1,243043,159222.81154448,2011-2040SSP585,2011-2040,SSP585
+7,lariOlg-Zone7,lariOlg,Zone7,39,39,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,2,545199,358119.171384715,2011-2040SSP585,2011-2040,SSP585
+7,lariOlg-Zone7,lariOlg,Zone7,39,39,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,3,846707,556889.36439538,2011-2040SSP585,2011-2040,SSP585
+7,lariOlg-Zone7,lariOlg,Zone7,39,39,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,4,1070943,705831.891748342,2011-2040SSP585,2011-2040,SSP585
+7,lariOlg-Zone7,lariOlg,Zone7,39,39,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,5,1157323,763731.049524265,2011-2040SSP585,2011-2040,SSP585
+7,querVar-Zone7,querVar,Zone7,368,368,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,1,243043,159222.81154448,2011-2040SSP585,2011-2040,SSP585
+7,querVar-Zone7,querVar,Zone7,368,368,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,2,545199,358119.171384715,2011-2040SSP585,2011-2040,SSP585
+7,querVar-Zone7,querVar,Zone7,368,368,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,3,846707,556889.36439538,2011-2040SSP585,2011-2040,SSP585
+7,querVar-Zone7,querVar,Zone7,368,368,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,4,1070943,705831.891748342,2011-2040SSP585,2011-2040,SSP585
+7,querVar-Zone7,querVar,Zone7,368,368,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,5,1157323,763731.049524265,2011-2040SSP585,2011-2040,SSP585
+7,robiPse-Zone7,robiPse,Zone7,51,51,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,1,243043,159222.81154448,2011-2040SSP585,2011-2040,SSP585
+7,robiPse-Zone7,robiPse,Zone7,51,51,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,2,545199,358119.171384715,2011-2040SSP585,2011-2040,SSP585
+7,robiPse-Zone7,robiPse,Zone7,51,51,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,3,846707,556889.36439538,2011-2040SSP585,2011-2040,SSP585
+7,robiPse-Zone7,robiPse,Zone7,51,51,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,4,1070943,705831.891748342,2011-2040SSP585,2011-2040,SSP585
+7,robiPse-Zone7,robiPse,Zone7,51,51,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,5,1157323,763731.049524265,2011-2040SSP585,2011-2040,SSP585
+7,pinuYun-Zone7,pinuYun,Zone7,19,19,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,1,243043,159222.81154448,2011-2040SSP585,2011-2040,SSP585
+7,pinuYun-Zone7,pinuYun,Zone7,19,19,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,2,545199,358119.171384715,2011-2040SSP585,2011-2040,SSP585
+7,pinuYun-Zone7,pinuYun,Zone7,19,19,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,3,846707,556889.36439538,2011-2040SSP585,2011-2040,SSP585
+7,pinuYun-Zone7,pinuYun,Zone7,19,19,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,4,1070943,705831.891748342,2011-2040SSP585,2011-2040,SSP585
+7,pinuYun-Zone7,pinuYun,Zone7,19,19,Deciduous scrubs in temperate zone,#C77DFF,TRUE,TRUE,5,1157323,763731.049524265,2011-2040SSP585,2011-2040,SSP585
+9,lariGme-Zone9,lariGme,Zone9,10,10,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,1,7778,4888.74448617441,2011-2040SSP585,2011-2040,SSP585
+9,lariGme-Zone9,lariGme,Zone9,10,10,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,2,36349,21665.9876410646,2011-2040SSP585,2011-2040,SSP585
+9,lariGme-Zone9,lariGme,Zone9,10,10,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,3,55874,33064.5859851882,2011-2040SSP585,2011-2040,SSP585
+9,lariGme-Zone9,lariGme,Zone9,10,10,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,4,64687,38207.8717794784,2011-2040SSP585,2011-2040,SSP585
+9,lariGme-Zone9,lariGme,Zone9,10,10,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,5,65981,38992.022635397,2011-2040SSP585,2011-2040,SSP585
+9,lariOlg-Zone9,lariOlg,Zone9,28,28,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,1,7778,4888.74448617441,2011-2040SSP585,2011-2040,SSP585
+9,lariOlg-Zone9,lariOlg,Zone9,28,28,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,2,36349,21665.9876410646,2011-2040SSP585,2011-2040,SSP585
+9,lariOlg-Zone9,lariOlg,Zone9,28,28,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,3,55874,33064.5859851882,2011-2040SSP585,2011-2040,SSP585
+9,lariOlg-Zone9,lariOlg,Zone9,28,28,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,4,64687,38207.8717794784,2011-2040SSP585,2011-2040,SSP585
+9,lariOlg-Zone9,lariOlg,Zone9,28,28,Needleleaf and deciduous broadleaf mixed forests in temperate zone,#2CA25F,TRUE,TRUE,5,65981,38992.022635397,2011-2040SSP585,2011-2040,SSP585
+10,querVar-Zone10,querVar,Zone10,22,22,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,1,178816,133027.220756402,2011-2040SSP585,2011-2040,SSP585
+10,querVar-Zone10,querVar,Zone10,22,22,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,2,301162,223923.569302463,2011-2040SSP585,2011-2040,SSP585
+10,querVar-Zone10,querVar,Zone10,22,22,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,3,373892,277735.601329963,2011-2040SSP585,2011-2040,SSP585
+10,querVar-Zone10,querVar,Zone10,22,22,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,4,433007,321089.988352878,2011-2040SSP585,2011-2040,SSP585
+10,querVar-Zone10,querVar,Zone10,22,22,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,5,478976,354692.951579156,2011-2040SSP585,2011-2040,SSP585
+10,pinuYun-Zone10,pinuYun,Zone10,138,138,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,1,178816,133027.220756402,2011-2040SSP585,2011-2040,SSP585
+10,pinuYun-Zone10,pinuYun,Zone10,138,138,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,2,301162,223923.569302463,2011-2040SSP585,2011-2040,SSP585
+10,pinuYun-Zone10,pinuYun,Zone10,138,138,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,3,373892,277735.601329963,2011-2040SSP585,2011-2040,SSP585
+10,pinuYun-Zone10,pinuYun,Zone10,138,138,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,4,433007,321089.988352878,2011-2040SSP585,2011-2040,SSP585
+10,pinuYun-Zone10,pinuYun,Zone10,138,138,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,5,478976,354692.951579156,2011-2040SSP585,2011-2040,SSP585
+10,chamFor-Zone10,chamFor,Zone10,27,27,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,1,178816,133027.220756402,2011-2040SSP585,2011-2040,SSP585
+10,chamFor-Zone10,chamFor,Zone10,27,27,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,2,301162,223923.569302463,2011-2040SSP585,2011-2040,SSP585
+10,chamFor-Zone10,chamFor,Zone10,27,27,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,3,373892,277735.601329963,2011-2040SSP585,2011-2040,SSP585
+10,chamFor-Zone10,chamFor,Zone10,27,27,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,4,433007,321089.988352878,2011-2040SSP585,2011-2040,SSP585
+10,chamFor-Zone10,chamFor,Zone10,27,27,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,5,478976,354692.951579156,2011-2040SSP585,2011-2040,SSP585
+10,cyclLon-Zone10,cyclLon,Zone10,25,25,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,1,178816,133027.220756402,2011-2040SSP585,2011-2040,SSP585
+10,cyclLon-Zone10,cyclLon,Zone10,25,25,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,2,301162,223923.569302463,2011-2040SSP585,2011-2040,SSP585
+10,cyclLon-Zone10,cyclLon,Zone10,25,25,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,3,373892,277735.601329963,2011-2040SSP585,2011-2040,SSP585
+10,cyclLon-Zone10,cyclLon,Zone10,25,25,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,4,433007,321089.988352878,2011-2040SSP585,2011-2040,SSP585
+10,cyclLon-Zone10,cyclLon,Zone10,25,25,Needleleaf forests on mountains in subtropical and tropical zones,#006D77,TRUE,TRUE,5,478976,354692.951579156,2011-2040SSP585,2011-2040,SSP585
+12,lariGme-Zone12,lariGme,Zone12,27,27,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,1,404848,245719.603566898,2011-2040SSP585,2011-2040,SSP585
+12,lariGme-Zone12,lariGme,Zone12,27,27,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,2,732508,445970.924065259,2011-2040SSP585,2011-2040,SSP585
+12,lariGme-Zone12,lariGme,Zone12,27,27,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,3,877310,534633.749241567,2011-2040SSP585,2011-2040,SSP585
+12,lariGme-Zone12,lariGme,Zone12,27,27,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,4,957715,584375.350350413,2011-2040SSP585,2011-2040,SSP585
+12,lariGme-Zone12,lariGme,Zone12,27,27,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,5,997702,609408.422270235,2011-2040SSP585,2011-2040,SSP585
+12,lariOlg-Zone12,lariOlg,Zone12,54,54,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,1,404848,245719.603566898,2011-2040SSP585,2011-2040,SSP585
+12,lariOlg-Zone12,lariOlg,Zone12,54,54,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,2,732508,445970.924065259,2011-2040SSP585,2011-2040,SSP585
+12,lariOlg-Zone12,lariOlg,Zone12,54,54,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,3,877310,534633.749241567,2011-2040SSP585,2011-2040,SSP585
+12,lariOlg-Zone12,lariOlg,Zone12,54,54,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,4,957715,584375.350350413,2011-2040SSP585,2011-2040,SSP585
+12,lariOlg-Zone12,lariOlg,Zone12,54,54,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,5,997702,609408.422270235,2011-2040SSP585,2011-2040,SSP585
+12,robiPse-Zone12,robiPse,Zone12,13,13,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,1,404848,245719.603566898,2011-2040SSP585,2011-2040,SSP585
+12,robiPse-Zone12,robiPse,Zone12,13,13,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,2,732508,445970.924065259,2011-2040SSP585,2011-2040,SSP585
+12,robiPse-Zone12,robiPse,Zone12,13,13,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,3,877310,534633.749241567,2011-2040SSP585,2011-2040,SSP585
+12,robiPse-Zone12,robiPse,Zone12,13,13,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,4,957715,584375.350350413,2011-2040SSP585,2011-2040,SSP585
+12,robiPse-Zone12,robiPse,Zone12,13,13,One year one ripe grain fields and cold-tolerant economic crop fields,#F8961E,TRUE,TRUE,5,997702,609408.422270235,2011-2040SSP585,2011-2040,SSP585
+18,pinuYun-Zone18,pinuYun,Zone18,10,10,Subalpine broadleaf deciduous scrubs,#9D4EDD,TRUE,TRUE,1,198145,139763.312550977,2011-2040SSP585,2011-2040,SSP585
+18,pinuYun-Zone18,pinuYun,Zone18,10,10,Subalpine broadleaf deciduous scrubs,#9D4EDD,TRUE,TRUE,2,614924,435660.439695926,2011-2040SSP585,2011-2040,SSP585
+18,pinuYun-Zone18,pinuYun,Zone18,10,10,Subalpine broadleaf deciduous scrubs,#9D4EDD,TRUE,TRUE,3,895760,636204.184499572,2011-2040SSP585,2011-2040,SSP585
+18,pinuYun-Zone18,pinuYun,Zone18,10,10,Subalpine broadleaf deciduous scrubs,#9D4EDD,TRUE,TRUE,4,1100121,780954.060089393,2011-2040SSP585,2011-2040,SSP585
+18,pinuYun-Zone18,pinuYun,Zone18,10,10,Subalpine broadleaf deciduous scrubs,#9D4EDD,TRUE,TRUE,5,1204779,855094.947435675,2011-2040SSP585,2011-2040,SSP585
+21,querVar-Zone21,querVar,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,1,919431,692160.691595066,2011-2040SSP585,2011-2040,SSP585
+21,querVar-Zone21,querVar,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,2,1266502,957648.275095588,2011-2040SSP585,2011-2040,SSP585
+21,querVar-Zone21,querVar,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,3,1436538,1088517.40972621,2011-2040SSP585,2011-2040,SSP585
+21,querVar-Zone21,querVar,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,4,1603248,1217094.71148837,2011-2040SSP585,2011-2040,SSP585
+21,querVar-Zone21,querVar,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,5,1785387,1357513.40025218,2011-2040SSP585,2011-2040,SSP585
+21,phylPub-Zone21,phylPub,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,1,919431,692160.691595066,2011-2040SSP585,2011-2040,SSP585
+21,phylPub-Zone21,phylPub,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,2,1266502,957648.275095588,2011-2040SSP585,2011-2040,SSP585
+21,phylPub-Zone21,phylPub,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,3,1436538,1088517.40972621,2011-2040SSP585,2011-2040,SSP585
+21,phylPub-Zone21,phylPub,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,4,1603248,1217094.71148837,2011-2040SSP585,2011-2040,SSP585
+21,phylPub-Zone21,phylPub,Zone21,274,274,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,5,1785387,1357513.40025218,2011-2040SSP585,2011-2040,SSP585
+21,pinuYun-Zone21,pinuYun,Zone21,271,271,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,1,919431,692160.691595066,2011-2040SSP585,2011-2040,SSP585
+21,pinuYun-Zone21,pinuYun,Zone21,271,271,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,2,1266502,957648.275095588,2011-2040SSP585,2011-2040,SSP585
+21,pinuYun-Zone21,pinuYun,Zone21,271,271,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,3,1436538,1088517.40972621,2011-2040SSP585,2011-2040,SSP585
+21,pinuYun-Zone21,pinuYun,Zone21,271,271,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,4,1603248,1217094.71148837,2011-2040SSP585,2011-2040,SSP585
+21,pinuYun-Zone21,pinuYun,Zone21,271,271,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,5,1785387,1357513.40025218,2011-2040SSP585,2011-2040,SSP585
+21,chamFor-Zone21,chamFor,Zone21,36,36,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,1,919431,692160.691595066,2011-2040SSP585,2011-2040,SSP585
+21,chamFor-Zone21,chamFor,Zone21,36,36,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,2,1266502,957648.275095588,2011-2040SSP585,2011-2040,SSP585
+21,chamFor-Zone21,chamFor,Zone21,36,36,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,3,1436538,1088517.40972621,2011-2040SSP585,2011-2040,SSP585
+21,chamFor-Zone21,chamFor,Zone21,36,36,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,4,1603248,1217094.71148837,2011-2040SSP585,2011-2040,SSP585
+21,chamFor-Zone21,chamFor,Zone21,36,36,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,5,1785387,1357513.40025218,2011-2040SSP585,2011-2040,SSP585
+21,cyclLon-Zone21,cyclLon,Zone21,73,73,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,1,919431,692160.691595066,2011-2040SSP585,2011-2040,SSP585
+21,cyclLon-Zone21,cyclLon,Zone21,73,73,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,2,1266502,957648.275095588,2011-2040SSP585,2011-2040,SSP585
+21,cyclLon-Zone21,cyclLon,Zone21,73,73,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,3,1436538,1088517.40972621,2011-2040SSP585,2011-2040,SSP585
+21,cyclLon-Zone21,cyclLon,Zone21,73,73,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,4,1603248,1217094.71148837,2011-2040SSP585,2011-2040,SSP585
+21,cyclLon-Zone21,cyclLon,Zone21,73,73,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,#F3722C,TRUE,TRUE,5,1785387,1357513.40025218,2011-2040SSP585,2011-2040,SSP585
+26,querVar-Zone26,querVar,Zone26,38,38,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,1,32840,24733.5092379322,2011-2040SSP585,2011-2040,SSP585
+26,querVar-Zone26,querVar,Zone26,38,38,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,2,86327,65355.139845387,2011-2040SSP585,2011-2040,SSP585
+26,querVar-Zone26,querVar,Zone26,38,38,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,3,165933,126012.626949886,2011-2040SSP585,2011-2040,SSP585
+26,querVar-Zone26,querVar,Zone26,38,38,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,4,241202,183214.556402379,2011-2040SSP585,2011-2040,SSP585
+26,querVar-Zone26,querVar,Zone26,38,38,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,5,313539,238215.417424343,2011-2040SSP585,2011-2040,SSP585
+26,phylPub-Zone26,phylPub,Zone26,18383,18383,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,1,32840,24733.5092379322,2011-2040SSP585,2011-2040,SSP585
+26,phylPub-Zone26,phylPub,Zone26,18383,18383,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,2,86327,65355.139845387,2011-2040SSP585,2011-2040,SSP585
+26,phylPub-Zone26,phylPub,Zone26,18383,18383,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,3,165933,126012.626949886,2011-2040SSP585,2011-2040,SSP585
+26,phylPub-Zone26,phylPub,Zone26,18383,18383,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,4,241202,183214.556402379,2011-2040SSP585,2011-2040,SSP585
+26,phylPub-Zone26,phylPub,Zone26,18383,18383,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,5,313539,238215.417424343,2011-2040SSP585,2011-2040,SSP585
+26,chamFor-Zone26,chamFor,Zone26,10,10,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,1,32840,24733.5092379322,2011-2040SSP585,2011-2040,SSP585
+26,chamFor-Zone26,chamFor,Zone26,10,10,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,2,86327,65355.139845387,2011-2040SSP585,2011-2040,SSP585
+26,chamFor-Zone26,chamFor,Zone26,10,10,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,3,165933,126012.626949886,2011-2040SSP585,2011-2040,SSP585
+26,chamFor-Zone26,chamFor,Zone26,10,10,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,4,241202,183214.556402379,2011-2040SSP585,2011-2040,SSP585
+26,chamFor-Zone26,chamFor,Zone26,10,10,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,5,313539,238215.417424343,2011-2040SSP585,2011-2040,SSP585
+26,cyclLon-Zone26,cyclLon,Zone26,17,17,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,1,32840,24733.5092379322,2011-2040SSP585,2011-2040,SSP585
+26,cyclLon-Zone26,cyclLon,Zone26,17,17,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,2,86327,65355.139845387,2011-2040SSP585,2011-2040,SSP585
+26,cyclLon-Zone26,cyclLon,Zone26,17,17,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,3,165933,126012.626949886,2011-2040SSP585,2011-2040,SSP585
+26,cyclLon-Zone26,cyclLon,Zone26,17,17,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,4,241202,183214.556402379,2011-2040SSP585,2011-2040,SSP585
+26,cyclLon-Zone26,cyclLon,Zone26,17,17,Bamboo forests and scrubs in subtropical and tropical zones,#00A878,TRUE,TRUE,5,313539,238215.417424343,2011-2040SSP585,2011-2040,SSP585
+27,lariOlg-Zone27,lariOlg,Zone27,135,135,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,1,947212,627087.559506633,2011-2040SSP585,2011-2040,SSP585
+27,lariOlg-Zone27,lariOlg,Zone27,135,135,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,2,1273004,841529.698557619,2011-2040SSP585,2011-2040,SSP585
+27,lariOlg-Zone27,lariOlg,Zone27,135,135,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,3,1404599,928636.292151512,2011-2040SSP585,2011-2040,SSP585
+27,lariOlg-Zone27,lariOlg,Zone27,135,135,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,4,1480197,978806.589967045,2011-2040SSP585,2011-2040,SSP585
+27,lariOlg-Zone27,lariOlg,Zone27,135,135,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,5,1521544,1006509.4130558,2011-2040SSP585,2011-2040,SSP585
+27,pinuSyl-Zone27,pinuSyl,Zone27,10,10,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,1,947212,627087.559506633,2011-2040SSP585,2011-2040,SSP585
+27,pinuSyl-Zone27,pinuSyl,Zone27,10,10,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,2,1273004,841529.698557619,2011-2040SSP585,2011-2040,SSP585
+27,pinuSyl-Zone27,pinuSyl,Zone27,10,10,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,3,1404599,928636.292151512,2011-2040SSP585,2011-2040,SSP585
+27,pinuSyl-Zone27,pinuSyl,Zone27,10,10,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,4,1480197,978806.589967045,2011-2040SSP585,2011-2040,SSP585
+27,pinuSyl-Zone27,pinuSyl,Zone27,10,10,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,5,1521544,1006509.4130558,2011-2040SSP585,2011-2040,SSP585
+27,querVar-Zone27,querVar,Zone27,339,339,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,1,947212,627087.559506633,2011-2040SSP585,2011-2040,SSP585
+27,querVar-Zone27,querVar,Zone27,339,339,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,2,1273004,841529.698557619,2011-2040SSP585,2011-2040,SSP585
+27,querVar-Zone27,querVar,Zone27,339,339,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,3,1404599,928636.292151512,2011-2040SSP585,2011-2040,SSP585
+27,querVar-Zone27,querVar,Zone27,339,339,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,4,1480197,978806.589967045,2011-2040SSP585,2011-2040,SSP585
+27,querVar-Zone27,querVar,Zone27,339,339,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,5,1521544,1006509.4130558,2011-2040SSP585,2011-2040,SSP585
+27,robiPse-Zone27,robiPse,Zone27,493,493,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,1,947212,627087.559506633,2011-2040SSP585,2011-2040,SSP585
+27,robiPse-Zone27,robiPse,Zone27,493,493,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,2,1273004,841529.698557619,2011-2040SSP585,2011-2040,SSP585
+27,robiPse-Zone27,robiPse,Zone27,493,493,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,3,1404599,928636.292151512,2011-2040SSP585,2011-2040,SSP585
+27,robiPse-Zone27,robiPse,Zone27,493,493,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,4,1480197,978806.589967045,2011-2040SSP585,2011-2040,SSP585
+27,robiPse-Zone27,robiPse,Zone27,493,493,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,5,1521544,1006509.4130558,2011-2040SSP585,2011-2040,SSP585
+27,saliMat-Zone27,saliMat,Zone27,203,203,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,1,947212,627087.559506633,2011-2040SSP585,2011-2040,SSP585
+27,saliMat-Zone27,saliMat,Zone27,203,203,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,2,1273004,841529.698557619,2011-2040SSP585,2011-2040,SSP585
+27,saliMat-Zone27,saliMat,Zone27,203,203,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,3,1404599,928636.292151512,2011-2040SSP585,2011-2040,SSP585
+27,saliMat-Zone27,saliMat,Zone27,203,203,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,4,1480197,978806.589967045,2011-2040SSP585,2011-2040,SSP585
+27,saliMat-Zone27,saliMat,Zone27,203,203,Two years three ripes or one year two ripes grain fields and deciduous orchards,#FFB703,TRUE,TRUE,5,1521544,1006509.4130558,2011-2040SSP585,2011-2040,SSP585
+28,querVar-Zone28,querVar,Zone28,17394,17394,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,1,88414,64904.4889965294,2011-2040SSP585,2011-2040,SSP585
+28,querVar-Zone28,querVar,Zone28,17394,17394,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,2,194853,143216.687773907,2011-2040SSP585,2011-2040,SSP585
+28,querVar-Zone28,querVar,Zone28,17394,17394,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,3,308745,227771.090238827,2011-2040SSP585,2011-2040,SSP585
+28,querVar-Zone28,querVar,Zone28,17394,17394,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,4,416871,307941.148182387,2011-2040SSP585,2011-2040,SSP585
+28,querVar-Zone28,querVar,Zone28,17394,17394,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,5,530053,392487.850346925,2011-2040SSP585,2011-2040,SSP585
+28,phylPub-Zone28,phylPub,Zone28,17,17,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,1,88414,64904.4889965294,2011-2040SSP585,2011-2040,SSP585
+28,phylPub-Zone28,phylPub,Zone28,17,17,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,2,194853,143216.687773907,2011-2040SSP585,2011-2040,SSP585
+28,phylPub-Zone28,phylPub,Zone28,17,17,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,3,308745,227771.090238827,2011-2040SSP585,2011-2040,SSP585
+28,phylPub-Zone28,phylPub,Zone28,17,17,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,4,416871,307941.148182387,2011-2040SSP585,2011-2040,SSP585
+28,phylPub-Zone28,phylPub,Zone28,17,17,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,5,530053,392487.850346925,2011-2040SSP585,2011-2040,SSP585
+28,pinuYun-Zone28,pinuYun,Zone28,33,33,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,1,88414,64904.4889965294,2011-2040SSP585,2011-2040,SSP585
+28,pinuYun-Zone28,pinuYun,Zone28,33,33,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,2,194853,143216.687773907,2011-2040SSP585,2011-2040,SSP585
+28,pinuYun-Zone28,pinuYun,Zone28,33,33,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,3,308745,227771.090238827,2011-2040SSP585,2011-2040,SSP585
+28,pinuYun-Zone28,pinuYun,Zone28,33,33,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,4,416871,307941.148182387,2011-2040SSP585,2011-2040,SSP585
+28,pinuYun-Zone28,pinuYun,Zone28,33,33,Broadleaf deciduous forests in subtropical zone,#52B788,TRUE,TRUE,5,530053,392487.850346925,2011-2040SSP585,2011-2040,SSP585
+30,querVar-Zone30,querVar,Zone30,1037,1037,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,1,301947,230606.022576266,2011-2040SSP585,2011-2040,SSP585
+30,querVar-Zone30,querVar,Zone30,1037,1037,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,2,651156,494510.001110954,2011-2040SSP585,2011-2040,SSP585
+30,querVar-Zone30,querVar,Zone30,1037,1037,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,3,1102590,836594.583426425,2011-2040SSP585,2011-2040,SSP585
+30,querVar-Zone30,querVar,Zone30,1037,1037,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,4,1418660,1077598.72353441,2011-2040SSP585,2011-2040,SSP585
+30,querVar-Zone30,querVar,Zone30,1037,1037,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,5,1572730,1195167.55923909,2011-2040SSP585,2011-2040,SSP585
+30,phylPub-Zone30,phylPub,Zone30,759,759,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,1,301947,230606.022576266,2011-2040SSP585,2011-2040,SSP585
+30,phylPub-Zone30,phylPub,Zone30,759,759,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,2,651156,494510.001110954,2011-2040SSP585,2011-2040,SSP585
+30,phylPub-Zone30,phylPub,Zone30,759,759,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,3,1102590,836594.583426425,2011-2040SSP585,2011-2040,SSP585
+30,phylPub-Zone30,phylPub,Zone30,759,759,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,4,1418660,1077598.72353441,2011-2040SSP585,2011-2040,SSP585
+30,phylPub-Zone30,phylPub,Zone30,759,759,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,5,1572730,1195167.55923909,2011-2040SSP585,2011-2040,SSP585
+30,pinuYun-Zone30,pinuYun,Zone30,59235,59235,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,1,301947,230606.022576266,2011-2040SSP585,2011-2040,SSP585
+30,pinuYun-Zone30,pinuYun,Zone30,59235,59235,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,2,651156,494510.001110954,2011-2040SSP585,2011-2040,SSP585
+30,pinuYun-Zone30,pinuYun,Zone30,59235,59235,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,3,1102590,836594.583426425,2011-2040SSP585,2011-2040,SSP585
+30,pinuYun-Zone30,pinuYun,Zone30,59235,59235,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,4,1418660,1077598.72353441,2011-2040SSP585,2011-2040,SSP585
+30,pinuYun-Zone30,pinuYun,Zone30,59235,59235,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,5,1572730,1195167.55923909,2011-2040SSP585,2011-2040,SSP585
+30,chamFor-Zone30,chamFor,Zone30,10,10,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,1,301947,230606.022576266,2011-2040SSP585,2011-2040,SSP585
+30,chamFor-Zone30,chamFor,Zone30,10,10,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,2,651156,494510.001110954,2011-2040SSP585,2011-2040,SSP585
+30,chamFor-Zone30,chamFor,Zone30,10,10,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,3,1102590,836594.583426425,2011-2040SSP585,2011-2040,SSP585
+30,chamFor-Zone30,chamFor,Zone30,10,10,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,4,1418660,1077598.72353441,2011-2040SSP585,2011-2040,SSP585
+30,chamFor-Zone30,chamFor,Zone30,10,10,Needleleaf forests in subtropical zone,#1B9AAA,TRUE,TRUE,5,1572730,1195167.55923909,2011-2040SSP585,2011-2040,SSP585
+33,querVar-Zone33,querVar,Zone33,58,58,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,1,477175,324707.158992763,2011-2040SSP585,2011-2040,SSP585
+33,querVar-Zone33,querVar,Zone33,58,58,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,2,695207,470632.656619755,2011-2040SSP585,2011-2040,SSP585
+33,querVar-Zone33,querVar,Zone33,58,58,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,3,849977,573442.315434047,2011-2040SSP585,2011-2040,SSP585
+33,querVar-Zone33,querVar,Zone33,58,58,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,4,931351,627384.03030067,2011-2040SSP585,2011-2040,SSP585
+33,querVar-Zone33,querVar,Zone33,58,58,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,5,985158,663050.211262098,2011-2040SSP585,2011-2040,SSP585
+33,robiPse-Zone33,robiPse,Zone33,200,200,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,1,477175,324707.158992763,2011-2040SSP585,2011-2040,SSP585
+33,robiPse-Zone33,robiPse,Zone33,200,200,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,2,695207,470632.656619755,2011-2040SSP585,2011-2040,SSP585
+33,robiPse-Zone33,robiPse,Zone33,200,200,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,3,849977,573442.315434047,2011-2040SSP585,2011-2040,SSP585
+33,robiPse-Zone33,robiPse,Zone33,200,200,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,4,931351,627384.03030067,2011-2040SSP585,2011-2040,SSP585
+33,robiPse-Zone33,robiPse,Zone33,200,200,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,#FDB833,TRUE,TRUE,5,985158,663050.211262098,2011-2040SSP585,2011-2040,SSP585
+34,chamFor-Zone34,chamFor,Zone34,32,32,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,1,18277,13817.5762535529,2011-2040SSP585,2011-2040,SSP585
+34,chamFor-Zone34,chamFor,Zone34,32,32,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,2,46043,34644.027943105,2011-2040SSP585,2011-2040,SSP585
+34,chamFor-Zone34,chamFor,Zone34,32,32,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,3,76599,57359.4043690258,2011-2040SSP585,2011-2040,SSP585
+34,chamFor-Zone34,chamFor,Zone34,32,32,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,4,119689,89475.1807141461,2011-2040SSP585,2011-2040,SSP585
+34,chamFor-Zone34,chamFor,Zone34,32,32,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,5,154086,115085.116476151,2011-2040SSP585,2011-2040,SSP585
+34,cyclLon-Zone34,cyclLon,Zone34,26,26,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,1,18277,13817.5762535529,2011-2040SSP585,2011-2040,SSP585
+34,cyclLon-Zone34,cyclLon,Zone34,26,26,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,2,46043,34644.027943105,2011-2040SSP585,2011-2040,SSP585
+34,cyclLon-Zone34,cyclLon,Zone34,26,26,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,3,76599,57359.4043690258,2011-2040SSP585,2011-2040,SSP585
+34,cyclLon-Zone34,cyclLon,Zone34,26,26,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,4,119689,89475.1807141461,2011-2040SSP585,2011-2040,SSP585
+34,cyclLon-Zone34,cyclLon,Zone34,26,26,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",#2A9D8F,TRUE,TRUE,5,154086,115085.116476151,2011-2040SSP585,2011-2040,SSP585
+36,querVar-Zone36,querVar,Zone36,975,975,Broadleaf evergreen and deciduous mixed forests in subtropical zone,#40916C,TRUE,TRUE,1,75254,55212.0621510807,2011-2040SSP585,2011-2040,SSP585
+36,querVar-Zone36,querVar,Zone36,975,975,Broadleaf evergreen and deciduous mixed forests in subtropical zone,#40916C,TRUE,TRUE,2,146127,107522.26014893,2011-2040SSP585,2011-2040,SSP585
+36,querVar-Zone36,querVar,Zone36,975,975,Broadleaf evergreen and deciduous mixed forests in subtropical zone,#40916C,TRUE,TRUE,3,199819,147093.984365487,2011-2040SSP585,2011-2040,SSP585
+36,querVar-Zone36,querVar,Zone36,975,975,Broadleaf evergreen and deciduous mixed forests in subtropical zone,#40916C,TRUE,TRUE,4,265165,195673.823832021,2011-2040SSP585,2011-2040,SSP585
+36,querVar-Zone36,querVar,Zone36,975,975,Broadleaf evergreen and deciduous mixed forests in subtropical zone,#40916C,TRUE,TRUE,5,330300,244430.400379281,2011-2040SSP585,2011-2040,SSP585
+37,querVar-Zone37,querVar,Zone37,58,58,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,1,107535,74491.6881358207,2011-2040SSP585,2011-2040,SSP585
+37,querVar-Zone37,querVar,Zone37,58,58,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,2,177637,121685.081132933,2011-2040SSP585,2011-2040,SSP585
+37,querVar-Zone37,querVar,Zone37,58,58,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,3,241202,164489.621446816,2011-2040SSP585,2011-2040,SSP585
+37,querVar-Zone37,querVar,Zone37,58,58,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,4,352365,239280.454928627,2011-2040SSP585,2011-2040,SSP585
+37,querVar-Zone37,querVar,Zone37,58,58,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,5,432193,293148.167694653,2011-2040SSP585,2011-2040,SSP585
+37,robiPse-Zone37,robiPse,Zone37,432,432,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,1,107535,74491.6881358207,2011-2040SSP585,2011-2040,SSP585
+37,robiPse-Zone37,robiPse,Zone37,432,432,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,2,177637,121685.081132933,2011-2040SSP585,2011-2040,SSP585
+37,robiPse-Zone37,robiPse,Zone37,432,432,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,3,241202,164489.621446816,2011-2040SSP585,2011-2040,SSP585
+37,robiPse-Zone37,robiPse,Zone37,432,432,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,4,352365,239280.454928627,2011-2040SSP585,2011-2040,SSP585
+37,robiPse-Zone37,robiPse,Zone37,432,432,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,5,432193,293148.167694653,2011-2040SSP585,2011-2040,SSP585
+37,saliMat-Zone37,saliMat,Zone37,159,159,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,1,107535,74491.6881358207,2011-2040SSP585,2011-2040,SSP585
+37,saliMat-Zone37,saliMat,Zone37,159,159,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,2,177637,121685.081132933,2011-2040SSP585,2011-2040,SSP585
+37,saliMat-Zone37,saliMat,Zone37,159,159,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,3,241202,164489.621446816,2011-2040SSP585,2011-2040,SSP585
+37,saliMat-Zone37,saliMat,Zone37,159,159,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,4,352365,239280.454928627,2011-2040SSP585,2011-2040,SSP585
+37,saliMat-Zone37,saliMat,Zone37,159,159,Needleleaf forests in temperate zone,#0B3D2E,TRUE,TRUE,5,432193,293148.167694653,2011-2040SSP585,2011-2040,SSP585
+39,pinuYun-Zone39,pinuYun,Zone39,138,138,Sclerophyllous broadleaf evergreen forests in subtropical zone,#118AB2,TRUE,TRUE,1,77202,57589.9781885774,2011-2040SSP585,2011-2040,SSP585
+39,pinuYun-Zone39,pinuYun,Zone39,138,138,Sclerophyllous broadleaf evergreen forests in subtropical zone,#118AB2,TRUE,TRUE,2,144951,108186.214200323,2011-2040SSP585,2011-2040,SSP585
+39,pinuYun-Zone39,pinuYun,Zone39,138,138,Sclerophyllous broadleaf evergreen forests in subtropical zone,#118AB2,TRUE,TRUE,3,219613,163724.825855849,2011-2040SSP585,2011-2040,SSP585
+39,pinuYun-Zone39,pinuYun,Zone39,138,138,Sclerophyllous broadleaf evergreen forests in subtropical zone,#118AB2,TRUE,TRUE,4,271137,201868.734907452,2011-2040SSP585,2011-2040,SSP585
+39,pinuYun-Zone39,pinuYun,Zone39,138,138,Sclerophyllous broadleaf evergreen forests in subtropical zone,#118AB2,TRUE,TRUE,5,317987,236589.529710005,2011-2040SSP585,2011-2040,SSP585
+40,querVar-Zone40,querVar,Zone40,354,354,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,1,331043,255332.916910194,2011-2040SSP585,2011-2040,SSP585
+40,querVar-Zone40,querVar,Zone40,354,354,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,2,961545,734707.287317271,2011-2040SSP585,2011-2040,SSP585
+40,querVar-Zone40,querVar,Zone40,354,354,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,3,1383029,1057580.62974988,2011-2040SSP585,2011-2040,SSP585
+40,querVar-Zone40,querVar,Zone40,354,354,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,4,1708033,1307366.42820212,2011-2040SSP585,2011-2040,SSP585
+40,querVar-Zone40,querVar,Zone40,354,354,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,5,1874980,1434702.59721659,2011-2040SSP585,2011-2040,SSP585
+40,phylPub-Zone40,phylPub,Zone40,136,136,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,1,331043,255332.916910194,2011-2040SSP585,2011-2040,SSP585
+40,phylPub-Zone40,phylPub,Zone40,136,136,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,2,961545,734707.287317271,2011-2040SSP585,2011-2040,SSP585
+40,phylPub-Zone40,phylPub,Zone40,136,136,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,3,1383029,1057580.62974988,2011-2040SSP585,2011-2040,SSP585
+40,phylPub-Zone40,phylPub,Zone40,136,136,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,4,1708033,1307366.42820212,2011-2040SSP585,2011-2040,SSP585
+40,phylPub-Zone40,phylPub,Zone40,136,136,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,5,1874980,1434702.59721659,2011-2040SSP585,2011-2040,SSP585
+40,pinuYun-Zone40,pinuYun,Zone40,940,940,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,1,331043,255332.916910194,2011-2040SSP585,2011-2040,SSP585
+40,pinuYun-Zone40,pinuYun,Zone40,940,940,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,2,961545,734707.287317271,2011-2040SSP585,2011-2040,SSP585
+40,pinuYun-Zone40,pinuYun,Zone40,940,940,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,3,1383029,1057580.62974988,2011-2040SSP585,2011-2040,SSP585
+40,pinuYun-Zone40,pinuYun,Zone40,940,940,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,4,1708033,1307366.42820212,2011-2040SSP585,2011-2040,SSP585
+40,pinuYun-Zone40,pinuYun,Zone40,940,940,Subtropical and tropical grasslands,#AACC00,TRUE,TRUE,5,1874980,1434702.59721659,2011-2040SSP585,2011-2040,SSP585
+41,querVar-Zone41,querVar,Zone41,92,92,Temperate grasslands,#70E000,TRUE,TRUE,1,123417,83436.647890058,2011-2040SSP585,2011-2040,SSP585
+41,querVar-Zone41,querVar,Zone41,92,92,Temperate grasslands,#70E000,TRUE,TRUE,2,322276,218319.451685622,2011-2040SSP585,2011-2040,SSP585
+41,querVar-Zone41,querVar,Zone41,92,92,Temperate grasslands,#70E000,TRUE,TRUE,3,493380,334624.26835674,2011-2040SSP585,2011-2040,SSP585
+41,querVar-Zone41,querVar,Zone41,92,92,Temperate grasslands,#70E000,TRUE,TRUE,4,557808,378548.841691615,2011-2040SSP585,2011-2040,SSP585
+41,querVar-Zone41,querVar,Zone41,92,92,Temperate grasslands,#70E000,TRUE,TRUE,5,585273,397383.707998844,2011-2040SSP585,2011-2040,SSP585
+41,robiPse-Zone41,robiPse,Zone41,66,66,Temperate grasslands,#70E000,TRUE,TRUE,1,123417,83436.647890058,2011-2040SSP585,2011-2040,SSP585
+41,robiPse-Zone41,robiPse,Zone41,66,66,Temperate grasslands,#70E000,TRUE,TRUE,2,322276,218319.451685622,2011-2040SSP585,2011-2040,SSP585
+41,robiPse-Zone41,robiPse,Zone41,66,66,Temperate grasslands,#70E000,TRUE,TRUE,3,493380,334624.26835674,2011-2040SSP585,2011-2040,SSP585
+41,robiPse-Zone41,robiPse,Zone41,66,66,Temperate grasslands,#70E000,TRUE,TRUE,4,557808,378548.841691615,2011-2040SSP585,2011-2040,SSP585
+41,robiPse-Zone41,robiPse,Zone41,66,66,Temperate grasslands,#70E000,TRUE,TRUE,5,585273,397383.707998844,2011-2040SSP585,2011-2040,SSP585
+44,querVar-Zone44,querVar,Zone44,25385,25385,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,1,305464,233286.317360014,2011-2040SSP585,2011-2040,SSP585
+44,querVar-Zone44,querVar,Zone44,25385,25385,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,2,782493,597681.795133945,2011-2040SSP585,2011-2040,SSP585
+44,querVar-Zone44,querVar,Zone44,25385,25385,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,3,1324289,1013216.67673239,2011-2040SSP585,2011-2040,SSP585
+44,querVar-Zone44,querVar,Zone44,25385,25385,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,4,1750279,1339281.42995049,2011-2040SSP585,2011-2040,SSP585
+44,querVar-Zone44,querVar,Zone44,25385,25385,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,5,1922038,1470385.47171931,2011-2040SSP585,2011-2040,SSP585
+44,phylPub-Zone44,phylPub,Zone44,221,221,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,1,305464,233286.317360014,2011-2040SSP585,2011-2040,SSP585
+44,phylPub-Zone44,phylPub,Zone44,221,221,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,2,782493,597681.795133945,2011-2040SSP585,2011-2040,SSP585
+44,phylPub-Zone44,phylPub,Zone44,221,221,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,3,1324289,1013216.67673239,2011-2040SSP585,2011-2040,SSP585
+44,phylPub-Zone44,phylPub,Zone44,221,221,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,4,1750279,1339281.42995049,2011-2040SSP585,2011-2040,SSP585
+44,phylPub-Zone44,phylPub,Zone44,221,221,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,5,1922038,1470385.47171931,2011-2040SSP585,2011-2040,SSP585
+44,pinuYun-Zone44,pinuYun,Zone44,781,781,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,1,305464,233286.317360014,2011-2040SSP585,2011-2040,SSP585
+44,pinuYun-Zone44,pinuYun,Zone44,781,781,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,2,782493,597681.795133945,2011-2040SSP585,2011-2040,SSP585
+44,pinuYun-Zone44,pinuYun,Zone44,781,781,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,3,1324289,1013216.67673239,2011-2040SSP585,2011-2040,SSP585
+44,pinuYun-Zone44,pinuYun,Zone44,781,781,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,4,1750279,1339281.42995049,2011-2040SSP585,2011-2040,SSP585
+44,pinuYun-Zone44,pinuYun,Zone44,781,781,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,#F72585,TRUE,TRUE,5,1922038,1470385.47171931,2011-2040SSP585,2011-2040,SSP585
+45,pinuYun-Zone45,pinuYun,Zone45,16,16,Subalpine needleleaf evergreen scrubs,#7209B7,TRUE,TRUE,1,104283,77194.7171318555,2011-2040SSP585,2011-2040,SSP585
+45,pinuYun-Zone45,pinuYun,Zone45,16,16,Subalpine needleleaf evergreen scrubs,#7209B7,TRUE,TRUE,2,211915,156771.262126639,2011-2040SSP585,2011-2040,SSP585
+45,pinuYun-Zone45,pinuYun,Zone45,16,16,Subalpine needleleaf evergreen scrubs,#7209B7,TRUE,TRUE,3,328831,243064.359967004,2011-2040SSP585,2011-2040,SSP585
+45,pinuYun-Zone45,pinuYun,Zone45,16,16,Subalpine needleleaf evergreen scrubs,#7209B7,TRUE,TRUE,4,418651,308995.753129448,2011-2040SSP585,2011-2040,SSP585
+45,pinuYun-Zone45,pinuYun,Zone45,16,16,Subalpine needleleaf evergreen scrubs,#7209B7,TRUE,TRUE,5,458132,338099.751714959,2011-2040SSP585,2011-2040,SSP585
+46,pinuYun-Zone46,pinuYun,Zone46,160,160,Subalpine sclerophyllous broadleaf evergreen scrubs,#B5179E,TRUE,TRUE,1,208443,153732.145515636,2011-2040SSP585,2011-2040,SSP585
+46,pinuYun-Zone46,pinuYun,Zone46,160,160,Subalpine sclerophyllous broadleaf evergreen scrubs,#B5179E,TRUE,TRUE,2,393398,290476.04282318,2011-2040SSP585,2011-2040,SSP585
+46,pinuYun-Zone46,pinuYun,Zone46,160,160,Subalpine sclerophyllous broadleaf evergreen scrubs,#B5179E,TRUE,TRUE,3,690496,506846.320639457,2011-2040SSP585,2011-2040,SSP585
+46,pinuYun-Zone46,pinuYun,Zone46,160,160,Subalpine sclerophyllous broadleaf evergreen scrubs,#B5179E,TRUE,TRUE,4,814590,597474.806497836,2011-2040SSP585,2011-2040,SSP585
+46,pinuYun-Zone46,pinuYun,Zone46,160,160,Subalpine sclerophyllous broadleaf evergreen scrubs,#B5179E,TRUE,TRUE,5,865071,634476.746204864,2011-2040SSP585,2011-2040,SSP585
+47,querVar-Zone47,querVar,Zone47,455,455,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,1,393216,293528.736355816,2011-2040SSP585,2011-2040,SSP585
+47,querVar-Zone47,querVar,Zone47,455,455,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,2,674255,506713.315192715,2011-2040SSP585,2011-2040,SSP585
+47,querVar-Zone47,querVar,Zone47,455,455,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,3,871707,656233.083428156,2011-2040SSP585,2011-2040,SSP585
+47,querVar-Zone47,querVar,Zone47,455,455,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,4,997134,751172.787580578,2011-2040SSP585,2011-2040,SSP585
+47,querVar-Zone47,querVar,Zone47,455,455,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,5,1060004,798758.571031388,2011-2040SSP585,2011-2040,SSP585
+47,phylPub-Zone47,phylPub,Zone47,25,25,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,1,393216,293528.736355816,2011-2040SSP585,2011-2040,SSP585
+47,phylPub-Zone47,phylPub,Zone47,25,25,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,2,674255,506713.315192715,2011-2040SSP585,2011-2040,SSP585
+47,phylPub-Zone47,phylPub,Zone47,25,25,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,3,871707,656233.083428156,2011-2040SSP585,2011-2040,SSP585
+47,phylPub-Zone47,phylPub,Zone47,25,25,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,4,997134,751172.787580578,2011-2040SSP585,2011-2040,SSP585
+47,phylPub-Zone47,phylPub,Zone47,25,25,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,5,1060004,798758.571031388,2011-2040SSP585,2011-2040,SSP585
+47,pinuYun-Zone47,pinuYun,Zone47,1222,1222,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,1,393216,293528.736355816,2011-2040SSP585,2011-2040,SSP585
+47,pinuYun-Zone47,pinuYun,Zone47,1222,1222,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,2,674255,506713.315192715,2011-2040SSP585,2011-2040,SSP585
+47,pinuYun-Zone47,pinuYun,Zone47,1222,1222,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,3,871707,656233.083428156,2011-2040SSP585,2011-2040,SSP585
+47,pinuYun-Zone47,pinuYun,Zone47,1222,1222,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,4,997134,751172.787580578,2011-2040SSP585,2011-2040,SSP585
+47,pinuYun-Zone47,pinuYun,Zone47,1222,1222,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,#FF6D00,TRUE,TRUE,5,1060004,798758.571031388,2011-2040SSP585,2011-2040,SSP585
+49,querVar-Zone49,querVar,Zone49,176,176,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,1,169288,129704.245978764,2011-2040SSP585,2011-2040,SSP585
+49,querVar-Zone49,querVar,Zone49,176,176,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,2,384887,294586.082002234,2011-2040SSP585,2011-2040,SSP585
+49,querVar-Zone49,querVar,Zone49,176,176,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,3,565835,433077.598578887,2011-2040SSP585,2011-2040,SSP585
+49,querVar-Zone49,querVar,Zone49,176,176,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,4,753752,577156.815991991,2011-2040SSP585,2011-2040,SSP585
+49,querVar-Zone49,querVar,Zone49,176,176,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,5,936822,717757.011565274,2011-2040SSP585,2011-2040,SSP585
+49,phylPub-Zone49,phylPub,Zone49,204,204,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,1,169288,129704.245978764,2011-2040SSP585,2011-2040,SSP585
+49,phylPub-Zone49,phylPub,Zone49,204,204,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,2,384887,294586.082002234,2011-2040SSP585,2011-2040,SSP585
+49,phylPub-Zone49,phylPub,Zone49,204,204,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,3,565835,433077.598578887,2011-2040SSP585,2011-2040,SSP585
+49,phylPub-Zone49,phylPub,Zone49,204,204,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,4,753752,577156.815991991,2011-2040SSP585,2011-2040,SSP585
+49,phylPub-Zone49,phylPub,Zone49,204,204,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,5,936822,717757.011565274,2011-2040SSP585,2011-2040,SSP585
+49,pinuYun-Zone49,pinuYun,Zone49,113,113,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,1,169288,129704.245978764,2011-2040SSP585,2011-2040,SSP585
+49,pinuYun-Zone49,pinuYun,Zone49,113,113,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,2,384887,294586.082002234,2011-2040SSP585,2011-2040,SSP585
+49,pinuYun-Zone49,pinuYun,Zone49,113,113,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,3,565835,433077.598578887,2011-2040SSP585,2011-2040,SSP585
+49,pinuYun-Zone49,pinuYun,Zone49,113,113,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,4,753752,577156.815991991,2011-2040SSP585,2011-2040,SSP585
+49,pinuYun-Zone49,pinuYun,Zone49,113,113,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,5,936822,717757.011565274,2011-2040SSP585,2011-2040,SSP585
+49,chamFor-Zone49,chamFor,Zone49,45,45,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,1,169288,129704.245978764,2011-2040SSP585,2011-2040,SSP585
+49,chamFor-Zone49,chamFor,Zone49,45,45,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,2,384887,294586.082002234,2011-2040SSP585,2011-2040,SSP585
+49,chamFor-Zone49,chamFor,Zone49,45,45,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,3,565835,433077.598578887,2011-2040SSP585,2011-2040,SSP585
+49,chamFor-Zone49,chamFor,Zone49,45,45,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,4,753752,577156.815991991,2011-2040SSP585,2011-2040,SSP585
+49,chamFor-Zone49,chamFor,Zone49,45,45,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,5,936822,717757.011565274,2011-2040SSP585,2011-2040,SSP585
+49,cyclLon-Zone49,cyclLon,Zone49,319,319,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,1,169288,129704.245978764,2011-2040SSP585,2011-2040,SSP585
+49,cyclLon-Zone49,cyclLon,Zone49,319,319,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,2,384887,294586.082002234,2011-2040SSP585,2011-2040,SSP585
+49,cyclLon-Zone49,cyclLon,Zone49,319,319,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,3,565835,433077.598578887,2011-2040SSP585,2011-2040,SSP585
+49,cyclLon-Zone49,cyclLon,Zone49,319,319,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,4,753752,577156.815991991,2011-2040SSP585,2011-2040,SSP585
+49,cyclLon-Zone49,cyclLon,Zone49,319,319,Broadleaf evergreen forests in subtropical zone,#006400,TRUE,TRUE,5,936822,717757.011565274,2011-2040SSP585,2011-2040,SSP585
+50,pinuYun-Zone50,pinuYun,Zone50,14,14,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,#FF006E,TRUE,TRUE,1,17839,13833.1611958959,2011-2040SSP585,2011-2040,SSP585
+50,pinuYun-Zone50,pinuYun,Zone50,14,14,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,#FF006E,TRUE,TRUE,2,42255,32788.2418390294,2011-2040SSP585,2011-2040,SSP585
+50,pinuYun-Zone50,pinuYun,Zone50,14,14,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,#FF006E,TRUE,TRUE,3,68527,53321.5320943835,2011-2040SSP585,2011-2040,SSP585
+50,pinuYun-Zone50,pinuYun,Zone50,14,14,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,#FF006E,TRUE,TRUE,4,88957,69251.5152489684,2011-2040SSP585,2011-2040,SSP585
+50,pinuYun-Zone50,pinuYun,Zone50,14,14,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,#FF006E,TRUE,TRUE,5,104089,80969.3328853192,2011-2040SSP585,2011-2040,SSP585
+53,chamFor-Zone53,chamFor,Zone53,17,17,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,1,177381,140399.851438673,2011-2040SSP585,2011-2040,SSP585
+53,chamFor-Zone53,chamFor,Zone53,17,17,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,2,245630,194182.737161778,2011-2040SSP585,2011-2040,SSP585
+53,chamFor-Zone53,chamFor,Zone53,17,17,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,3,275189,217400.737564797,2011-2040SSP585,2011-2040,SSP585
+53,chamFor-Zone53,chamFor,Zone53,17,17,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,4,292388,230919.191811476,2011-2040SSP585,2011-2040,SSP585
+53,chamFor-Zone53,chamFor,Zone53,17,17,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,5,305577,241296.496002931,2011-2040SSP585,2011-2040,SSP585
+53,cyclLon-Zone53,cyclLon,Zone53,29,29,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,1,177381,140399.851438673,2011-2040SSP585,2011-2040,SSP585
+53,cyclLon-Zone53,cyclLon,Zone53,29,29,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,2,245630,194182.737161778,2011-2040SSP585,2011-2040,SSP585
+53,cyclLon-Zone53,cyclLon,Zone53,29,29,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,3,275189,217400.737564797,2011-2040SSP585,2011-2040,SSP585
+53,cyclLon-Zone53,cyclLon,Zone53,29,29,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,4,292388,230919.191811476,2011-2040SSP585,2011-2040,SSP585
+53,cyclLon-Zone53,cyclLon,Zone53,29,29,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,#FF9F1C,TRUE,TRUE,5,305577,241296.496002931,2011-2040SSP585,2011-2040,SSP585

@@ -1,0 +1,8 @@
+scenario,assigned_map,class_probability
+normal,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_normal_multiclass_rf.tif,
+2011-2040SSP245,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_2011-2040SSP245_multiclass_rf.tif,H:/Jing/ecoChina2/result maps/multiclass_rf/probability/class_probability_2011-2040SSP245.tif
+2041-2070SSP245,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_2041-2070SSP245_multiclass_rf.tif,H:/Jing/ecoChina2/result maps/multiclass_rf/probability/class_probability_2041-2070SSP245.tif
+2071-2100SSP245,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_2071-2100SSP245_multiclass_rf.tif,H:/Jing/ecoChina2/result maps/multiclass_rf/probability/class_probability_2071-2100SSP245.tif
+2011-2040SSP585,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_2011-2040SSP585_multiclass_rf.tif,H:/Jing/ecoChina2/result maps/multiclass_rf/probability/class_probability_2011-2040SSP585.tif
+2041-2070SSP585,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_2041-2070SSP585_multiclass_rf.tif,H:/Jing/ecoChina2/result maps/multiclass_rf/probability/class_probability_2041-2070SSP585.tif
+2071-2100SSP585,H:/Jing/ecoChina2/result maps/multiclass_rf/assigned_zone_2071-2100SSP585_multiclass_rf.tif,H:/Jing/ecoChina2/result maps/multiclass_rf/probability/class_probability_2071-2100SSP585.tif

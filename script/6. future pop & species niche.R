@@ -534,12 +534,165 @@ dual_cache_identity_valid <- function(population_rows, species_rows,
       nrow(population_rows) != nrow(expected_population) ||
       nrow(species_rows) != 1L ||
       anyDuplicated(population_rows$PopulationID) ||
-      !setequal(population_rows$PopulationID, expected_population$PopulationID)) {
+      !setequal(population_rows$PopulationID, expected_population$PopulationID) ||
+      !dual_summary_values_valid(population_rows) ||
+      !dual_summary_values_valid(species_rows)) {
     return(FALSE)
   }
   expected_order <- match(population_rows$PopulationID, expected_population$PopulationID)
   isTRUE(all(population_rows$source_zone ==
                expected_population$source_zone[expected_order]))
+}
+
+# Validate the small summary tables before treating them as a checkpoint.
+# A missing/invalid metric is not evidence of zero suitable habitat.
+dual_summary_values_valid <- function(rows) {
+  metrics <- c("suitable_area_km2", "suitability_weighted_area_km2",
+               "mean_dual_suitability")
+  if (!all(metrics %in% names(rows)) || !nrow(rows)) return(FALSE)
+  if (!all(vapply(rows[, ..metrics], function(x) {
+    is.numeric(x) && all(is.finite(x))
+  }, logical(1)))) return(FALSE)
+  all(rows$suitable_area_km2 >= 0) &&
+    all(rows$suitability_weighted_area_km2 >= 0) &&
+    all(rows$mean_dual_suitability >= -1e-8 &
+          rows$mean_dual_suitability <= 1 + 1e-8)
+}
+
+# Legacy future caches and newly computed reference summaries have different
+# metadata columns. Repair those columns from their keys and recorded paths;
+# never recompute raster values merely to repair period/SSP/path metadata.
+normalize_dual_summary_metadata <- function(population_rows, species_rows) {
+  population_rows <- copy(population_rows)
+  species_rows <- copy(species_rows)
+  normalize_period <- function(rows) {
+    if (!nrow(rows) || !"scenario" %in% names(rows)) return(rows)
+    known <- rows$scenario %in% scenarios
+    if (any(!known)) stop("Unknown scenario in dual niche summary metadata.")
+    rows[, period := ifelse(scenario == "normal", "1961-1990",
+                            sub("SSP.*$", "", scenario))]
+    rows[, ssp := ifelse(scenario == "normal", "Reference",
+                         sub("^.*(SSP[0-9]+)$", "\\1", scenario))]
+    rows
+  }
+  population_rows <- normalize_period(population_rows)
+  species_rows <- normalize_period(species_rows)
+
+  if (nrow(species_rows) && "Species" %in% names(species_rows)) {
+    population_counts <- projected_population[, .N, by = Species]
+    count <- population_counts$N[match(species_rows$Species,
+                                      population_counts$Species)]
+    if (anyNA(count)) stop("Unknown species in dual niche summary metadata.")
+    species_rows[, `:=`(n_populations = as.integer(count),
+                        populations_projected = as.integer(count))]
+    if (!"dual_threshold" %in% names(species_rows)) {
+      species_rows[, dual_threshold := NA_real_]
+    }
+    if (!"dual_threshold_provenance" %in% names(species_rows)) {
+      species_rows[, dual_threshold_provenance := fifelse(
+        is.finite(dual_threshold), "existing_summary_column", NA_character_
+      )]
+    }
+    if ("species_binary_raster" %in% names(species_rows)) {
+      binary_paths <- as.character(species_rows$species_binary_raster)
+      recorded <- grepl("_threshold[0-9.]+\\.tif$", binary_paths)
+      recorded[is.na(recorded)] <- FALSE
+      binary_threshold <- rep(NA_real_, nrow(species_rows))
+      binary_threshold[recorded] <- as.numeric(sub(
+        "^.*_threshold([0-9.]+)\\.tif$", "\\1", binary_paths[recorded]
+      ))
+      comparable <- is.finite(species_rows$dual_threshold) &
+        is.finite(binary_threshold)
+      if (any(abs(species_rows$dual_threshold[comparable] -
+                    binary_threshold[comparable]) > 1e-8)) {
+        stop("Dual niche summary threshold conflicts with its recorded binary filename.")
+      }
+      fill <- which(!is.finite(species_rows$dual_threshold) &
+                      is.finite(binary_threshold))
+      if (length(fill)) species_rows[fill, `:=`(
+        dual_threshold = binary_threshold[fill],
+        dual_threshold_provenance = "paired_binary_filename"
+      )]
+    }
+  }
+
+  if (nrow(population_rows) && "PopulationID" %in% names(population_rows)) {
+    lookup_index <- match(population_rows$PopulationID,
+                          projected_population$PopulationID)
+    if (anyNA(lookup_index)) stop("Unknown PopulationID in dual niche metadata.")
+    for (column in c("zone_name", "COLOR", "reference_abundance")) {
+      if (!column %in% names(population_rows)) {
+        population_rows[, (column) := projected_population[[column]][lookup_index]]
+      } else {
+        empty <- is.na(population_rows[[column]])
+        if (is.character(population_rows[[column]])) {
+          empty <- empty | !nzchar(trimws(population_rows[[column]]))
+        }
+        missing <- which(empty)
+        if (length(missing)) population_rows[missing,
+          (column) := projected_population[[column]][lookup_index[missing]]]
+      }
+    }
+    for (column in c("dual_raster", "source_dual_raster")) {
+      if (!column %in% names(population_rows)) {
+        population_rows[, (column) := NA_character_]
+      }
+    }
+    missing <- which(is.na(population_rows$dual_raster) |
+                       !nzchar(population_rows$dual_raster))
+    if (length(missing)) population_rows[missing,
+      dual_raster := source_dual_raster]
+    missing <- which(is.na(population_rows$source_dual_raster) |
+                       !nzchar(population_rows$source_dual_raster))
+    if (length(missing)) population_rows[missing,
+      source_dual_raster := dual_raster]
+    if (!"dual_threshold" %in% names(population_rows)) {
+      population_rows[, dual_threshold := NA_real_]
+    }
+    if (!"dual_threshold_provenance" %in% names(population_rows)) {
+      population_rows[, dual_threshold_provenance := fifelse(
+        is.finite(dual_threshold), "existing_summary_column", NA_character_
+      )]
+    }
+    if (nrow(species_rows)) {
+      key <- function(rows) paste(rows$method, rows$scenario, rows$Species, sep = "|")
+      species_index <- match(key(population_rows), key(species_rows))
+      paired_threshold <- species_rows$dual_threshold[species_index]
+      fill <- which(!is.finite(population_rows$dual_threshold) &
+                      is.finite(paired_threshold))
+      if (length(fill)) population_rows[fill, `:=`(
+        dual_threshold = paired_threshold[fill],
+        dual_threshold_provenance = "paired_species_summary_or_binary_filename"
+      )]
+    }
+  }
+  list(population = population_rows, species = species_rows)
+}
+
+validate_dual_niche_summaries <- function(population_rows, species_rows) {
+  if (!dual_summary_values_valid(population_rows) ||
+      !dual_summary_values_valid(species_rows)) {
+    stop("Dual niche summary contains missing, nonfinite or out-of-range metrics.")
+  }
+  if (anyDuplicated(population_rows[, .(method, scenario, PopulationID)]) ||
+      anyDuplicated(species_rows[, .(method, scenario, Species)])) {
+    stop("Duplicated keys in dual niche summaries.")
+  }
+  for (rows in list(population_rows, species_rows)) {
+    threshold <- rows$dual_threshold
+    known <- is.finite(threshold)
+    tolerance <- pmax(1e-5, rows$suitable_area_km2 * 1e-8)
+    if (any(threshold[known] < 0 | threshold[known] > 1) ||
+        any(abs(threshold[known] - dual_threshold) > 1e-8)) {
+      stop("Cached dual niche threshold differs from the current setting; ",
+           "the cached numeric results cannot be silently relabeled.")
+    }
+    if (any(rows$suitability_weighted_area_km2[known] + tolerance[known] <
+              threshold[known] * rows$suitable_area_km2[known])) {
+      stop("Weighted suitability area is inconsistent with thresholded area.")
+    }
+  }
+  invisible(TRUE)
 }
 
 cached_assigned_population <- read_mf_cache(assigned_population_file)
@@ -847,6 +1000,10 @@ if (nrow(cached_population) && !"method" %in% names(cached_population)) {
 if (nrow(cached_species) && !"method" %in% names(cached_species)) {
   cached_species[, method := "mf_var"]
 }
+normalized_cache <- normalize_dual_summary_metadata(cached_population, cached_species)
+cached_population <- normalized_cache$population
+cached_species <- normalized_cache$species
+rm(normalized_cache)
 
 dual_checkpoint_dir <- file.path(table_dir, "cache", "dual_scenarios")
 dir.create(dual_checkpoint_dir, recursive = TRUE, showWarnings = FALSE)
@@ -875,6 +1032,12 @@ for (scenario in scenarios) {
         is.data.frame(checkpoint$species)) {
       scenario_cached_population <- as.data.table(checkpoint$population)
       scenario_cached_species <- as.data.table(checkpoint$species)
+      normalized_checkpoint <- normalize_dual_summary_metadata(
+        scenario_cached_population, scenario_cached_species
+      )
+      scenario_cached_population <- normalized_checkpoint$population
+      scenario_cached_species <- normalized_checkpoint$species
+      rm(normalized_checkpoint)
       summary_cache_files <- checkpoint_file
       cat("[RESUME SUMMARY CHECKPOINT]", scenario, "\n")
     }
@@ -1107,6 +1270,8 @@ for (scenario in scenarios) {
         suitable_area_km2 = area_km2,
         suitability_weighted_area_km2 = weighted_area_km2,
         mean_dual_suitability = global_mean(suitability),
+        dual_threshold = dual_threshold,
+        dual_threshold_provenance = "current_script_settings",
         dual_raster = dual_files[[layer_index[[population_index]]]]
       )
     }
@@ -1245,6 +1410,8 @@ for (scenario in scenarios) {
       suitable_area_km2 = species_area_km2,
       suitability_weighted_area_km2 = species_weighted_area_km2,
       mean_dual_suitability = species_mean_suitability,
+      dual_threshold = dual_threshold,
+      dual_threshold_provenance = "current_script_settings",
       species_raster = if (write_species_rasters) species_file else NA_character_,
       species_binary_raster = if (write_species_rasters) species_binary_file else NA_character_,
       ranked_zone_raster = rank_zone_file,
@@ -1273,6 +1440,11 @@ for (scenario in scenarios) {
 
 population_area <- rbindlist(population_results, fill = TRUE)
 species_area <- rbindlist(species_results, fill = TRUE)
+normalized_summaries <- normalize_dual_summary_metadata(population_area, species_area)
+population_area <- normalized_summaries$population
+species_area <- normalized_summaries$species
+rm(normalized_summaries)
+validate_dual_niche_summaries(population_area, species_area)
 population_layers <- rbindlist(population_layer_index, fill = TRUE)
 species_index <- rbindlist(species_raster_index, fill = TRUE)
 population_rank_index_all <- rbindlist(population_rank_index, fill = TRUE)

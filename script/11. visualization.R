@@ -6,6 +6,8 @@
 # choosing the detailed Top-k raster-stack figures. Set ECOCHINA2_FIGURE_IDS
 # to a comma-separated list of figure-family IDs to redraw only selected
 # outputs (for example, importance_category_variables,topk_exploded_stack).
+# For topk_future_maps, ECOCHINA2_TOPK_MAP_K selects 1:5 (default "all");
+# set it to "3" to redraw only the existing Top-3 map figure.
 # Bivariate suitability figures are opt-in: set ECOCHINA2_BIVARIATE_SCENARIOS
 # and, for zone-level pages, ECOCHINA2_BIVARIATE_ZONES. They read existing
 # climate and soil suitability rasters and never refit or predict models.
@@ -18,7 +20,7 @@ library(patchwork)
 rm(list = ls())
 gc()
 
-script_revision <- "2026-09-15-assessment-compat-v2"
+script_revision <- "2026-10-05-topk-shared-legend-v2"
 
 
 # 0. Paths, constants and palette ==============================================
@@ -1841,6 +1843,34 @@ run_figure("multiclass_area_change", {
 
 # 5. Population and species niche figures ======================================
 
+# Keep each SSP on its own time axis. The reference estimate is duplicated only
+# for plotting, so both SSP trajectories start from the same reference period.
+# These copies never change the input tables or any reported area totals.
+niche_trajectory_data <- function(x) {
+  x <- copy(x[scenario %in% scenarios])
+  future <- copy(x[scenario != "normal"])
+  future[, ssp := sub("^.*(SSP[0-9]+)$", "\\1", scenario)]
+  reference <- x[scenario == "normal"]
+  reference_245 <- copy(reference)
+  reference_585 <- copy(reference)
+  reference_245[, ssp := "SSP245"]
+  reference_585[, ssp := "SSP585"]
+  result <- rbindlist(
+    list(reference_245, reference_585, future),
+    use.names = TRUE, fill = TRUE
+  )
+  result[, time_period := factor(
+    fifelse(scenario == "normal", "1961-1990", sub("SSP.*$", "", scenario)),
+    levels = c("1961-1990", "2011-2040", "2041-2070", "2071-2100"),
+    labels = c("1961\u20131990", "2011\u20132040", "2041\u20132070", "2071\u20132100")
+  )]
+  result[, ssp := factor(ssp, levels = c("SSP245", "SSP585"))]
+  if (anyNA(result[, .(time_period, ssp)])) {
+    stop("Niche trajectory table contains an unrecognized period or SSP.")
+  }
+  result
+}
+
 run_figure("species_population_reference", {
   populations <- read_required(first_existing(
     c(
@@ -1882,14 +1912,15 @@ run_figure("species_population_reference", {
 })
 
 run_figure("species_niche_area", {
-  species <- keep_multiforest(read_required(niche_table_file("species")))
+  species <- niche_trajectory_data(
+    keep_multiforest(read_required(niche_table_file("species")))
+  )
   if (!"n_populations" %in% names(species) && "populations_projected" %in% names(species)) {
     setnames(species, "populations_projected", "n_populations")
   }
-  species[, scenario_label := factor(scenario_label(scenario), levels = scenario_label(scenarios))]
   long <- melt(
     species,
-    id.vars = c("Species", "scenario_label"),
+    id.vars = c("Species", "time_period", "ssp"),
     measure.vars = c("suitable_area_km2", "suitability_weighted_area_km2"),
     variable.name = "area_type", value.name = "area_km2"
   )
@@ -1898,9 +1929,9 @@ run_figure("species_niche_area", {
     levels = c("suitable_area_km2", "suitability_weighted_area_km2"),
     labels = c("Thresholded area", "Suitability-weighted area")
   )]
-  p <- ggplot(long, aes(scenario_label, area_km2 / 1e6, group = Species, colour = Species)) +
+  p <- ggplot(long, aes(time_period, area_km2 / 1e6, group = Species, colour = Species)) +
     geom_line(linewidth = 0.55) + geom_point(size = 1) +
-    facet_wrap(~ area_type, scales = "free_y", ncol = 1) +
+    facet_grid(area_type ~ ssp, scales = "free_y") +
     labs(x = NULL, y = expression("Niche area (10"^6*" km"^2*")"), colour = "Species") +
     theme_manuscript +
     theme(axis.text.x = element_text(angle = 35, hjust = 1), legend.position = "bottom")
@@ -1908,34 +1939,37 @@ run_figure("species_niche_area", {
 })
 
 run_figure("population_niche_summary", {
-  population <- keep_multiforest(read_required(niche_table_file("population")))
-  population[, scenario_label := factor(scenario_label(scenario), levels = scenario_label(scenarios))]
+  population <- niche_trajectory_data(
+    keep_multiforest(read_required(niche_table_file("population")))
+  )
   summary <- population[, .(
     mean_area_km2 = mean(suitable_area_km2, na.rm = TRUE),
     se_area_km2 = sd(suitable_area_km2, na.rm = TRUE) / sqrt(.N),
     mean_suitability = mean(mean_dual_suitability, na.rm = TRUE),
     se_suitability = sd(mean_dual_suitability, na.rm = TRUE) / sqrt(.N)
-  ), by = .(Species, scenario_label)]
+  ), by = .(Species, time_period, ssp)]
   p_area <- ggplot(
     summary,
-    aes(scenario_label, mean_area_km2 / 1e6, group = Species, colour = Species)
+    aes(time_period, mean_area_km2 / 1e6, group = Species, colour = Species)
   ) +
     geom_line() + geom_point(size = 1) +
     geom_errorbar(aes(
       ymin = pmax(0, mean_area_km2 - se_area_km2) / 1e6,
       ymax = (mean_area_km2 + se_area_km2) / 1e6
     ), width = 0.08, linewidth = 0.3) +
+    facet_wrap(~ ssp, nrow = 1) +
     labs(x = NULL, y = expression("Mean population area (10"^6*" km"^2*")")) +
     theme_manuscript + theme(axis.text.x = element_text(angle = 35, hjust = 1))
   p_suit <- ggplot(
     summary,
-    aes(scenario_label, mean_suitability, group = Species, colour = Species)
+    aes(time_period, mean_suitability, group = Species, colour = Species)
   ) +
     geom_line() + geom_point(size = 1) +
     geom_errorbar(aes(
       ymin = pmax(0, mean_suitability - se_suitability),
       ymax = pmin(1, mean_suitability + se_suitability)
     ), width = 0.08, linewidth = 0.3) +
+    facet_wrap(~ ssp, nrow = 1) +
     labs(x = NULL, y = "Mean dual suitability", colour = "Species") +
     theme_manuscript + theme(axis.text.x = element_text(angle = 35, hjust = 1))
   combined <- p_area / p_suit + plot_layout(guides = "collect") &
@@ -1946,10 +1980,11 @@ run_figure("population_niche_summary", {
     detail <- population[Species == species_name]
     p_detail <- ggplot(
       detail,
-      aes(scenario_label, suitable_area_km2 / 1e6, group = factor(source_zone), colour = factor(source_zone))
+      aes(time_period, suitable_area_km2 / 1e6, group = factor(source_zone), colour = factor(source_zone))
     ) +
       geom_line() + geom_point(size = 1) +
       scale_colour_manual(values = zone_colors, name = "Source zone") +
+      facet_wrap(~ ssp, nrow = 1) +
       labs(
         title = species_name, x = NULL,
         y = expression("Population niche area (10"^6*" km"^2*")")
@@ -2498,6 +2533,74 @@ run_figure("topk_matched_change", {
 
 run_figure("topk_analogue_availability", {
   analogue <- read_required(topk_table_file("analogue_availability.csv"))
+  # Old analogue caches counted cells outside the observed modeled domain.
+  # Reject them explicitly; a plausible-looking curve is not sufficient QA.
+  analogue_required <- c(
+    "scenario", "minimum_analogues", "pixels_below", "area_below_km2",
+    "analysis_domain", "total_pixels", "total_area_km2", "domain_version"
+  )
+  invalid_analogue <- function(reason) {
+    stop(
+      "Invalid analogue_availability.csv: ", reason,
+      ". Run the corrected script/8. future top k.R to repair the analogue ",
+      "statistics, then redraw topk_analogue_availability. Existing models, ",
+      "suitability rasters and rankings can be reused.",
+      call. = FALSE
+    )
+  }
+  missing_analogue_columns <- setdiff(analogue_required, names(analogue))
+  if (length(missing_analogue_columns)) {
+    invalid_analogue(paste0(
+      "old schema; missing ", paste(missing_analogue_columns, collapse = ", ")
+    ))
+  }
+  if (anyNA(analogue[, ..analogue_required]) ||
+      any(!nzchar(trimws(as.character(analogue$analysis_domain)))) ||
+      any(analogue$domain_version != "observed_modeled_common_v1")) {
+    invalid_analogue("missing domain metadata or unsupported domain version")
+  }
+  expected_analogue_keys <- CJ(
+    scenario = scenarios, minimum_analogues = k_values
+  )
+  if (nrow(analogue) != nrow(expected_analogue_keys) ||
+      anyDuplicated(analogue[, .(scenario, minimum_analogues)]) ||
+      !setequal(
+        paste(analogue$scenario, analogue$minimum_analogues, sep = "|"),
+        paste(
+          expected_analogue_keys$scenario,
+          expected_analogue_keys$minimum_analogues, sep = "|"
+        )
+      )) {
+    invalid_analogue("scenario x minimum-analogue keys are incomplete or duplicated")
+  }
+  analogue_numeric_columns <- c(
+    "minimum_analogues", "pixels_below", "area_below_km2",
+    "total_pixels", "total_area_km2"
+  )
+  if (any(!vapply(analogue_numeric_columns, function(column) {
+    values <- analogue[[column]]
+    is.numeric(values) && all(is.finite(values)) && all(values >= 0)
+  }, logical(1)))) {
+    invalid_analogue("non-finite, negative or non-numeric counts/areas")
+  }
+  if (any(analogue$total_pixels <= 0 | analogue$total_area_km2 <= 0) ||
+      any(analogue$pixels_below != floor(analogue$pixels_below)) ||
+      any(analogue$total_pixels != floor(analogue$total_pixels)) ||
+      any(analogue$pixels_below > analogue$total_pixels) ||
+      any(analogue$area_below_km2 > analogue$total_area_km2 +
+          pmax(1e-6, analogue$total_area_km2 * 1e-9))) {
+    invalid_analogue("counts/areas exceed the stated valid analysis domain")
+  }
+  setorder(analogue, scenario, minimum_analogues)
+  analogue_domain_check <- analogue[, .(
+    valid = uniqueN(total_pixels) == 1L &&
+      uniqueN(total_area_km2) == 1L && uniqueN(analysis_domain) == 1L &&
+      all(diff(pixels_below) >= 0) &&
+      all(diff(area_below_km2) >= -max(1e-6, total_area_km2[1L] * 1e-9))
+  ), by = scenario]
+  if (any(!analogue_domain_check$valid)) {
+    invalid_analogue("inconsistent per-scenario totals or non-monotone scarcity")
+  }
   analogue[, scenario_label := factor(scenario_label(scenario), levels = scenario_label(scenarios))]
   analogue[, area_million_km2 := area_below_km2 / 1e6]
   p <- ggplot(
@@ -2604,6 +2707,25 @@ run_figure("topk_reference_maps", {
 })
 
 run_figure("topk_future_maps", {
+  # Redraw selected k values without reading the other cached Top-k maps.
+  # Default "all" preserves the complete five-figure workflow.
+  projection_k_setting <- tolower(trimws(Sys.getenv(
+    "ECOCHINA2_TOPK_MAP_K", unset = "all"
+  )))
+  if (projection_k_setting == "all") {
+    projection_k_values <- k_values
+  } else {
+    projection_k_tokens <- trimws(strsplit(
+      projection_k_setting, ",", fixed = TRUE
+    )[[1]])
+    if (!length(projection_k_tokens) ||
+        any(!projection_k_tokens %in% as.character(k_values))) {
+      stop("ECOCHINA2_TOPK_MAP_K must be 'all' or k values from 1 to 5, e.g. '3' or '3,5'.")
+    }
+    projection_k_values <- sort(unique(as.integer(projection_k_tokens)))
+  }
+  cat("[TOP-K MAP SELECTION]", paste(projection_k_values, collapse = ", "), "\n")
+  
   display_zone_ids <- c(modeled_zones, 99L)
   missing_palette_ids <- setdiff(display_zone_ids, zone_palette$zoneID)
   if (length(missing_palette_ids)) {
@@ -2616,16 +2738,17 @@ run_figure("topk_future_maps", {
   display_zone_labels <- zone_labels[as.character(display_zone_ids)]
   display_zone_labels[["99"]] <- "Novel ecosystem (99)"
   
-  # Use fixed factor levels and a fixed legend in every panel. Each map has its
-  # own full plotting area; no pixels are hidden by an exploded-stack offset.
-  topk_projection_panel <- function(file, title) {
+  # Keep identical colors and factor levels in all eight panels, but expose
+  # exactly one legend. Collecting eight guides can retain duplicate legends
+  # when absent ecotypes produce different guide glyphs in different maps.
+  topk_projection_panel <- function(file, title, show_legend = FALSE) {
     raster <- if (inherits(file, "SpatRaster")) file else rast(required_file(file))
     x <- raster_points(raster, TRUE, maximum_map_cells)
     x[, zoneID := as.integer(value)]
     x <- x[zoneID %in% display_zone_ids]
     x[, zone := factor(zoneID, levels = display_zone_ids)]
     ggplot(x, aes(x, y, fill = zone)) +
-      geom_raster() +
+      geom_raster(show.legend = show_legend) +
       scale_fill_manual(
         values = display_zone_colors,
         labels = display_zone_labels,
@@ -2633,10 +2756,10 @@ run_figure("topk_future_maps", {
         drop = FALSE,
         na.value = "transparent",
         name = "Ecotype",
-        guide = guide_legend(
+        guide = if (show_legend) guide_legend(
           ncol = 3, byrow = FALSE,
           override.aes = list(alpha = 1)
-        )
+        ) else "none"
       ) +
       coord_equal(expand = FALSE) +
       labs(title = title, x = NULL, y = NULL) +
@@ -2644,7 +2767,9 @@ run_figure("topk_future_maps", {
       theme(
         plot.title = element_text(hjust = 0.5, size = 9),
         legend.text = element_text(size = 6),
-        legend.title = element_text(size = 8)
+        legend.title = element_text(size = 8),
+        legend.key.height = grid::unit(3, "mm"),
+        legend.key.width = grid::unit(3, "mm")
       )
   }
   
@@ -2675,11 +2800,14 @@ run_figure("topk_future_maps", {
     "Observed ecotypes\n1961\u20131990"
   )
   
-  projection_outputs <- file.path(
-    figure_dir, "topk", paste0("future_topk_k", k_values, ".png")
+  projection_outputs <- setNames(
+    file.path(
+      figure_dir, "topk", paste0("future_topk_k", projection_k_values, ".png")
+    ),
+    as.character(projection_k_values)
   )
   
-  for (k in k_values) {
+  for (k in projection_k_values) {
     future_panels <- setNames(lapply(future_scenarios, function(scenario) {
       topk_projection_panel(
         future_topk_map_file(scenario, k),
@@ -2692,7 +2820,8 @@ run_figure("topk_future_maps", {
         "Reference-period\nTop-1 assignment"
       } else {
         paste0("Reference diagnostic\nTop-", k)
-      }
+      },
+      show_legend = TRUE
     )
     panels <- c(
       list(observed_panel),
@@ -2729,13 +2858,18 @@ run_figure("topk_future_maps", {
     combined <- wrap_plots(panels, ncol = 4, guides = "collect") +
       plot_annotation(
         title = figure_title,
-        subtitle = figure_subtitle,
-        caption = figure_caption
+        subtitle = paste(strwrap(figure_subtitle, width = 130L), collapse = "\n"),
+        caption = paste(strwrap(figure_caption, width = 140L), collapse = "\n"),
+        theme = theme(
+          plot.title = element_text(size = 14, face = "bold"),
+          plot.subtitle = element_text(size = 9),
+          plot.caption = element_text(size = 8, hjust = 0)
+        )
       ) &
       theme(legend.position = "right")
     save_gg(
       combined,
-      projection_outputs[[k]],
+      projection_outputs[[as.character(k)]],
       22, 10.5
     )
     rm(future_panels, reference_panel, panels, combined)
@@ -2750,10 +2884,11 @@ run_figure("topk_future_maps", {
     )
   }
   projection_manifest <- data.table(
-    k = k_values,
-    figure_type = c(
+    k = projection_k_values,
+    figure_type = ifelse(
+      projection_k_values == 1L,
       "unconditional_top1_projection",
-      rep("reference_conditioned_topk_diagnostic", 4L)
+      "reference_conditioned_topk_diagnostic"
     ),
     file = normalizePath(
       projection_outputs, winslash = "/", mustWork = TRUE
@@ -2762,13 +2897,31 @@ run_figure("topk_future_maps", {
     modified = as.character(projection_info$mtime),
     script_revision = script_revision
   )
-  fwrite(
-    projection_manifest,
-    file.path(figure_dir, "topk", "future_topk_manifest.csv")
+  projection_manifest_file <- file.path(
+    figure_dir, "topk", "future_topk_manifest.csv"
   )
+  # Preserve the provenance of existing figures that were not redrawn.
+  if (file.exists(projection_manifest_file)) {
+    previous_projection_manifest <- tryCatch(
+      fread(projection_manifest_file),
+      error = function(e) NULL
+    )
+    if (!is.null(previous_projection_manifest) &&
+        all(names(projection_manifest) %in% names(previous_projection_manifest))) {
+      previous_projection_manifest <- previous_projection_manifest[
+        k %in% k_values & !k %in% projection_k_values
+      ]
+      projection_manifest <- rbindlist(
+        list(previous_projection_manifest, projection_manifest),
+        use.names = TRUE, fill = TRUE
+      )
+      setorder(projection_manifest, k)
+    }
+  }
+  fwrite(projection_manifest, projection_manifest_file)
   cat(
     "[TOP-K FUTURE FIGURES COMPLETE]\n",
-    paste(projection_manifest$file, collapse = "\n"), "\n",
+    paste(normalizePath(projection_outputs, winslash = "/", mustWork = TRUE), collapse = "\n"), "\n",
     sep = ""
   )
   rm(reference, normal_assigned, observed_common, observed_panel)

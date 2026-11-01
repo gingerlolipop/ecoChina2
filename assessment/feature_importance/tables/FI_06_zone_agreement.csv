@@ -1,0 +1,107 @@
+zoneID,zone,category,category2,niche,n_variables_aligned,n_binary_selected,n_multiclass_selected,pearson,spearman,cosine,top5_jaccard
+17,Alpine tundra,alpine_tundra,alpine_vegetation,climate,62,21,20,0.393970083244454,0.278697470013137,0.552794286825952,0.428571428571429
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,climate,62,21,20,0.292765278825988,0.340178556401733,0.45737695832001,0.25
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,climate,62,21,20,0.218574518202005,0.177895829251964,0.452668409507924,0.111111111111111
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,climate,62,21,20,0.289174842307818,0.337444464789367,0.505957712522059,0
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,climate,62,21,20,0.788520896419277,0.685213722904379,0.848229437119142,0.666666666666667
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,climate,62,21,20,0.364957199219377,0.414646577949067,0.528088156844318,0.25
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,climate,62,21,20,0.582042671280355,0.55883393561173,0.704642292875038,0.428571428571429
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,climate,62,21,20,0.453754567054674,0.399141400515781,0.619863046033082,0.25
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,climate,62,21,20,0.492315009703807,0.478106283267664,0.628874774707165,0.25
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,climate,62,21,20,0.0472092938341679,-0.0149655540887395,0.301749312656918,0.111111111111111
+23,Shrub deserts,shrub_desert,desert,climate,62,21,20,0.288806792852828,0.168722232394684,0.483074166865546,0.25
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,climate,62,21,20,0.448297552775848,0.269020224700947,0.592409784183232,0.428571428571429
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,climate,62,21,20,0.383658830301634,0.389715979431046,0.553930617535197,0.111111111111111
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,climate,62,21,20,0.476278667410599,0.331436658220089,0.621760088853608,0.428571428571429
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,climate,62,21,20,0.379236915109052,0.278913319350956,0.559762569380758,0.428571428571429
+35,Steppe shrub deserts,steppe_shrub_desert,desert,climate,62,21,20,0.48754147831373,0.371512685275031,0.638136214457159,0.428571428571429
+38,Annual herb deserts,annual_herb_desert,desert,climate,62,21,20,0.652625805823339,0.424143948813074,0.743263691222739,0.666666666666667
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,climate,62,21,20,0.355588906042207,0.231822188816917,0.532462490329212,0.25
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,climate,62,21,20,0.167348642495878,0.208222661215443,0.40473411246139,0.111111111111111
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,climate,62,21,20,0.552112183276723,0.476091689448026,0.684400194401713,0.428571428571429
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,climate,62,21,20,0.282007738590493,0.228872247866733,0.502043246569367,0.111111111111111
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,climate,62,21,20,0.578511898690167,0.475839865220571,0.686413586437464,0.666666666666667
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,climate,62,21,20,0.437743501423356,0.374786400231943,0.607485882703674,0.428571428571429
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,climate,62,21,20,0.555091103782387,0.501741785758774,0.678845162299245,0.428571428571429
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,climate,62,21,20,0.56104595017869,0.549948137871541,0.690764805441674,0.428571428571429
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,climate,62,21,20,0.56442203187777,0.470911305340385,0.684788693962242,0.428571428571429
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,climate,62,21,20,0.688446537761923,0.597399017301944,0.765401029940392,0.428571428571429
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,climate,62,21,20,0.564548464461132,0.531169245481344,0.69116894388113,0.428571428571429
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,climate,62,21,20,0.6128533401391,0.591103411615575,0.728069210777786,0.428571428571429
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,climate,62,21,20,0.551280127696526,0.387557486052863,0.667840175791712,0.25
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,climate,62,21,20,0.51631974195483,0.394176865745959,0.636243422085155,0.428571428571429
+52,Tropical rain forests,tropical_rain_forest,forest,climate,62,21,20,0.432373946948243,0.403818136168512,0.57113177254727,0.25
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,climate,62,21,20,0.401117050569882,0.42468357215762,0.569228829406481,0.111111111111111
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,climate,62,21,20,0.442145525695055,0.425834768625985,0.612175025100009,0.25
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,climate,62,21,20,0.419578143337418,0.363130535989752,0.595247803437738,0.25
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,climate,62,21,20,0.564088344622785,0.505519149170596,0.688930485813124,0.428571428571429
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,climate,62,21,20,0.632656951869471,0.5220316235137,0.739497317855895,0.666666666666667
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,climate,62,21,20,0.214758778066091,0.196638746752525,0.424264099597295,0.25
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,climate,62,21,20,0.235329371431472,0.167067387471409,0.440057923583007,0
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,climate,62,21,20,0.275825137887689,0.34280472334519,0.474825515386365,0.111111111111111
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,climate,62,21,20,0.54695575587784,0.433533395008173,0.681258011665357,1
+19,No vegetation,no_vegetation,no_vegetation,climate,62,21,20,0.609577374173623,0.454974429231463,0.714910484400974,0.666666666666667
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,climate,62,21,20,0.597936214367721,0.521599924838063,0.719045033439071,0.428571428571429
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,climate,62,21,20,0.208083763213292,0.186637727433607,0.434128977045488,0.25
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,climate,62,21,20,0.47918592193626,0.447707501524912,0.62690596608821,0.25
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,climate,62,21,20,0.4939839219424,0.397234731365052,0.636018224825163,0.25
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,climate,62,21,20,0.430307562336499,0.235959301125102,0.577972889952827,0.25
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,climate,62,21,20,0.378319107086212,0.311722418699346,0.53936210965749,0.111111111111111
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,climate,62,21,20,0.587825661096864,0.516887214295696,0.71134079949569,0.428571428571429
+6,Cold-temperate and temperate marshes,marsh,wetland,climate,62,21,20,0.56359567211232,0.521420050389881,0.693929715754134,0.428571428571429
+43,High-cold marshes,high_cold_marsh,wetland,climate,62,21,20,0.148278687446555,0.15030308890085,0.410031823561956,0.111111111111111
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,climate,62,21,20,0.550921940874532,0.483394592044214,0.67692793261472,0.428571428571429
+54,Tropical mangroves,mangrove,wetland,climate,62,21,20,0.361142664456572,0.124365193473011,0.533258625805958,0.428571428571429
+17,Alpine tundra,alpine_tundra,alpine_vegetation,soil,15,9,10,0.192023174025901,0.298621170004076,0.55841976512034,0.428571428571429
+20,Alpine sparse vegetation,alpine_sparse,alpine_vegetation,soil,15,9,10,0.395361150752089,0.415064645100005,0.690357511736828,0.428571428571429
+22,Alpine cushion vegetation,alpine_cushion,alpine_vegetation,soil,15,9,10,0.338059635385626,0.309889893400456,0.678792300654297,0.111111111111111
+1,One year one ripe fields with cold-tolerant crops of short growth duration,cropland,cropland,soil,15,9,10,0.903578749887381,0.959719609258382,0.955829363234736,1
+12,One year one ripe grain fields and cold-tolerant economic crop fields,cropland,cropland,soil,15,9,10,0.709423762708133,0.693026488877384,0.876763549794585,0.428571428571429
+21,One year two ripes or three ripes grain fields; evergreen orchards and subtropical economic tree plantations,cropland_orchard_plantation,cropland,soil,15,9,10,0.515858909639083,0.371867872080547,0.796077517006289,0.428571428571429
+27,Two years three ripes or one year two ripes grain fields and deciduous orchards,cropland_orchard,cropland,soil,15,9,10,0.844725400729772,0.85830109869096,0.924675707224923,0.666666666666667
+33,One year one ripe grain fields and cold-tolerant economic crop fields; deciduous orchards,cropland_orchard,cropland,soil,15,9,10,0.205179287088972,0.163396489247513,0.648413845835037,0.111111111111111
+47,One year two ripes grain fields; evergreen and deciduous orchards; economic tree plantations,cropland_orchard_plantation,cropland,soil,15,9,10,0.549614831313757,0.424455247930322,0.797739757211331,0.25
+53,One year three ripes grain fields; tropical evergreen orchards and economic tree plantations,tropical_cropland_orchard_plantation,cropland,soil,15,9,10,0.528819038839398,0.289230567173759,0.791656244838601,0.25
+23,Shrub deserts,shrub_desert,desert,soil,15,9,10,0.0424922625448996,-0.157762127549323,0.561801813433326,0.111111111111111
+24,Semi-shrub and dwarf semi-shrub deserts,semi_shrub_desert,desert,soil,15,9,10,0.432615070042854,0.454505176987336,0.746293815744156,0.111111111111111
+25,Temperate tufted low grass and nano-semi-shrub desert steppes,desert_steppe,desert,soil,15,9,10,0.867951041356192,0.892107268880101,0.940661948733272,0.666666666666667
+29,Dwarf semi-arboreous deserts,semi_arboreous_desert,desert,soil,15,9,10,0.686105755592886,0.35684290755204,0.825351402058025,0.428571428571429
+32,Succulent halophytic dwarf semi-shrub deserts,halophytic_desert,desert,soil,15,9,10,-0.305149123569192,-0.244155673588238,0.415187921811086,0.111111111111111
+35,Steppe shrub deserts,steppe_shrub_desert,desert,soil,15,9,10,0.550952705265849,0.394405318873308,0.78010425196348,0.666666666666667
+38,Annual herb deserts,annual_herb_desert,desert,soil,15,9,10,0.0806403955904272,0.185933936040274,0.570509297982547,0.428571428571429
+42,Cushion nano-semi-shrub high-cold deserts,high_cold_desert,desert,soil,15,9,10,0.540760775687198,0.546533084724441,0.810173375834426,0.666666666666667
+2,Needleleaf forests in cold-temperate zone and on mountains in temperate zone,cold_temperate_needleleaf_forest,forest,soil,15,9,10,0.418054689497491,0.50145819113892,0.749043423108895,0.428571428571429
+3,Broadleaf deciduous forests in temperate zone,temperate_deciduous_forest,forest,soil,15,9,10,0.598276129058268,0.508970673403173,0.814443549858701,0.428571428571429
+9,Needleleaf and deciduous broadleaf mixed forests in temperate zone,mixed_forest,forest,soil,15,9,10,0.589858256495265,0.514605035101363,0.809613631887184,0.666666666666667
+10,Needleleaf forests on mountains in subtropical and tropical zones,mountain_needleleaf_forest,forest,soil,15,9,10,0.504188220352529,0.462017659251589,0.799756915506855,0.25
+14,Microphyllous deciduous woodlands in temperate zone,temperate_woodland,forest,soil,15,9,10,0.489344614029684,0.433845850760638,0.793994074038592,0.428571428571429
+26,Bamboo forests and scrubs in subtropical and tropical zones,bamboo,forest,soil,15,9,10,0.641588350330891,0.625414148499102,0.812614453046616,0.666666666666667
+28,Broadleaf deciduous forests in subtropical zone,subtropical_deciduous_forest,forest,soil,15,9,10,0.467649406895721,0.478920744346159,0.779514677208511,0.428571428571429
+30,Needleleaf forests in subtropical zone,subtropical_needleleaf_forest,forest,soil,15,9,10,0.534098387036465,0.550289325856567,0.77458303968175,0.428571428571429
+34,"Needleleaf, evergreen and deciduous broadleaf mixed forests on mountains in subtropical zone",subtropical_mixed_forest,forest,soil,15,9,10,0.422343011748815,0.394405318873308,0.754958773566862,0.25
+36,Broadleaf evergreen and deciduous mixed forests in subtropical zone,subtropical_mixed_broadleaf_forest,forest,soil,15,9,10,0.529144464488236,0.439480212458829,0.805260010821553,0.428571428571429
+37,Needleleaf forests in temperate zone,temperate_needleleaf_forest,forest,soil,15,9,10,0.759812508062272,0.724954538500461,0.874926712520826,0.666666666666667
+39,Sclerophyllous broadleaf evergreen forests in subtropical zone,sclerophyll_broadleaf_forest,forest,soil,15,9,10,0.650761653510964,0.632926630763356,0.857049642032887,0.428571428571429
+49,Broadleaf evergreen forests in subtropical zone,subtropical_evergreen_forest,forest,soil,15,9,10,0.40336420536504,0.381258474910864,0.716596555599641,0.666666666666667
+52,Tropical rain forests,tropical_rain_forest,forest,soil,15,9,10,0.882078104139277,0.651707836423989,0.928376853234371,0.666666666666667
+55,Tropical monsoon forests,tropical_monsoon_forest,forest,soil,15,9,10,0.421007495794708,0.554045566988694,0.715619424659365,0.666666666666667
+5,Grass and forb meadows,meadow,grassland_meadow_steppe,soil,15,9,10,0.734255337867918,0.617901666234849,0.874112607613889,0.25
+11,Temperate grass and forb meadow steppes,meadow_steppe,grassland_meadow_steppe,soil,15,9,10,0.813778433460494,0.832007410766073,0.910985262281636,0.666666666666667
+13,Temperate tufted grass steppes,tufted_grass_steppe,grassland_meadow_steppe,soil,15,9,10,0.285429619965312,0.185933936040274,0.710147656092106,0.111111111111111
+15,Grass and forb halophytic meadows,halophytic_meadow,grassland_meadow_steppe,soil,15,9,10,0.27816082709725,0.401917801137561,0.692106826632953,0.428571428571429
+16,Kobresia spp. and forb high-cold meadows,high_cold_meadow,grassland_meadow_steppe,soil,15,9,10,0.635737331026695,0.578461134347518,0.816793151721058,0.666666666666667
+31,Grass and Carex spp. high-cold steppes,high_cold_steppe,grassland_meadow_steppe,soil,15,9,10,0.678809169756843,0.798201240576932,0.840936381697426,0.666666666666667
+40,Subtropical and tropical grasslands,subtropical_tropical_grassland,grassland_meadow_steppe,soil,15,9,10,0.428958926967885,0.465773900383716,0.744359608259166,0.666666666666667
+41,Temperate grasslands,temperate_grassland,grassland_meadow_steppe,soil,15,9,10,0.917163062435865,0.901497871710417,0.962439760796196,0.666666666666667
+19,No vegetation,no_vegetation,no_vegetation,soil,15,9,10,0.536149580871086,0.591607978309962,0.779682804006654,0.666666666666667
+7,Deciduous scrubs in temperate zone,temperate_scrub,scrub,soil,15,9,10,0.622895698226138,0.67424528321675,0.844771048629755,0.666666666666667
+18,Subalpine broadleaf deciduous scrubs,subalpine_scrub,scrub,soil,15,9,10,0.622442864255241,0.557801808120821,0.826571156215643,0.428571428571429
+44,Broadleaf evergreen and deciduous scrubs in subtropical and tropical zones,subtropical_tropical_scrub,scrub,soil,15,9,10,0.178165729239042,0.114565354529866,0.636015993167147,0.111111111111111
+45,Subalpine needleleaf evergreen scrubs,subalpine_needleleaf_scrub,scrub,soil,15,9,10,0.562533711537873,0.67424528321675,0.789989771164062,0.666666666666667
+46,Subalpine sclerophyllous broadleaf evergreen scrubs,subalpine_sclerophyll_scrub,scrub,soil,15,9,10,0.433436340575126,0.313646134532583,0.765102450412987,0.25
+50,Evergreen xeromorphic succulent thorny scrubs in subtropical and tropical zones,xeromorphic_succulent_thorny_scrub,scrub,soil,15,9,10,0.714883957011521,0.66861092151856,0.878815053768362,0.25
+4,"Grass, Carex and forb swamp meadows",swamp_meadow,wetland,soil,15,9,10,0.762633973807783,0.794444999444806,0.88910803302365,0.428571428571429
+6,Cold-temperate and temperate marshes,marsh,wetland,soil,15,9,10,0.587767897924464,0.646073474725799,0.824769667192535,0.428571428571429
+43,High-cold marshes,high_cold_marsh,wetland,soil,15,9,10,0.830164041139519,0.52399563793168,0.902859871141418,0.25
+48,Subtropical and tropical marshes,subtropical_tropical_marsh,wetland,soil,15,9,10,0.713984315276362,0.773785673218108,0.87278296965076,0.666666666666667
+54,Tropical mangroves,mangrove,wetland,soil,15,9,10,0.684332196139506,0.860179219257024,0.807458549797954,0.666666666666667
