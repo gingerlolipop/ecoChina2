@@ -1,0 +1,78 @@
+niche,variable,variable_group,climate_period,climate_statistic,climate_period_detail
+climate,TD,Annual temperature range,Annual,Annual temperature range,Warmest-month minus coldest-month mean temperature
+climate,AHM,Climatic moisture balance,Annual,Climatic moisture balance,Annual-scale variable or index; not necessarily an annual mean
+climate,CMD,Climatic moisture balance,Annual,Climatic moisture balance,Annual-scale variable or index; not necessarily an annual mean
+climate,CMD_at,Climatic moisture balance,Autumn,Climatic moisture balance,Autumn seasonal variable
+climate,CMD_sp,Climatic moisture balance,Spring,Climatic moisture balance,Spring seasonal variable
+climate,CMD_sm,Climatic moisture balance,Summer,Climatic moisture balance,Summer seasonal variable
+climate,CMD_wt,Climatic moisture balance,Winter,Climatic moisture balance,Winter seasonal variable
+climate,MCMT,Coldest-month mean temperature,Annual,Coldest-month mean temperature,Mean temperature of the coldest month
+climate,EXT,Extreme maximum temperature,Annual,Extreme maximum temperature,Annual-scale variable or index; not necessarily an annual mean
+climate,EMT,Extreme minimum temperature,Annual,Extreme minimum temperature,Annual-scale variable or index; not necessarily an annual mean
+climate,DD18,Growing season and degree-days,Annual,Growing season and degree-days,Annual-scale variable or index; not necessarily an annual mean
+climate,DD5,Growing season and degree-days,Annual,Growing season and degree-days,Annual-scale variable or index; not necessarily an annual mean
+climate,DD_0,Growing season and degree-days,Annual,Growing season and degree-days,Annual-scale variable or index; not necessarily an annual mean
+climate,DD_18,Growing season and degree-days,Annual,Growing season and degree-days,Annual-scale variable or index; not necessarily an annual mean
+climate,NFFD,Growing season and degree-days,Annual,Growing season and degree-days,Annual-scale variable or index; not necessarily an annual mean
+climate,DD18_at,Growing season and degree-days,Autumn,Growing season and degree-days,Autumn seasonal variable
+climate,DD5_at,Growing season and degree-days,Autumn,Growing season and degree-days,Autumn seasonal variable
+climate,DD_0_at,Growing season and degree-days,Autumn,Growing season and degree-days,Autumn seasonal variable
+climate,DD_18_at,Growing season and degree-days,Autumn,Growing season and degree-days,Autumn seasonal variable
+climate,NFFD_at,Growing season and degree-days,Autumn,Growing season and degree-days,Autumn seasonal variable
+climate,DD18_sp,Growing season and degree-days,Spring,Growing season and degree-days,Spring seasonal variable
+climate,DD5_sp,Growing season and degree-days,Spring,Growing season and degree-days,Spring seasonal variable
+climate,DD_0_sp,Growing season and degree-days,Spring,Growing season and degree-days,Spring seasonal variable
+climate,DD_18_sp,Growing season and degree-days,Spring,Growing season and degree-days,Spring seasonal variable
+climate,DD18_sm,Growing season and degree-days,Summer,Growing season and degree-days,Summer seasonal variable
+climate,DD5_sm,Growing season and degree-days,Summer,Growing season and degree-days,Summer seasonal variable
+climate,DD_18_sm,Growing season and degree-days,Summer,Growing season and degree-days,Summer seasonal variable
+climate,NFFD_sm,Growing season and degree-days,Summer,Growing season and degree-days,Summer seasonal variable
+climate,DD5_wt,Growing season and degree-days,Winter,Growing season and degree-days,Winter seasonal variable
+climate,DD_0_wt,Growing season and degree-days,Winter,Growing season and degree-days,Winter seasonal variable
+climate,DD_18_wt,Growing season and degree-days,Winter,Growing season and degree-days,Winter seasonal variable
+climate,RH,Humidity,Annual,Humidity,Annual-scale variable or index; not necessarily an annual mean
+climate,RH_at,Humidity,Autumn,Humidity,Autumn seasonal variable
+climate,RH_sp,Humidity,Spring,Humidity,Spring seasonal variable
+climate,RH_sm,Humidity,Summer,Humidity,Summer seasonal variable
+climate,RH_wt,Humidity,Winter,Humidity,Winter seasonal variable
+climate,Tmax_at,Mean maximum temperature,Autumn,Mean maximum temperature,Autumn seasonal variable
+climate,Tmax_sp,Mean maximum temperature,Spring,Mean maximum temperature,Spring seasonal variable
+climate,Tmax_sm,Mean maximum temperature,Summer,Mean maximum temperature,Summer seasonal variable
+climate,Tmax_wt,Mean maximum temperature,Winter,Mean maximum temperature,Winter seasonal variable
+climate,Tmin_at,Mean minimum temperature,Autumn,Mean minimum temperature,Autumn seasonal variable
+climate,Tmin_sp,Mean minimum temperature,Spring,Mean minimum temperature,Spring seasonal variable
+climate,Tmin_sm,Mean minimum temperature,Summer,Mean minimum temperature,Summer seasonal variable
+climate,Tmin_wt,Mean minimum temperature,Winter,Mean minimum temperature,Winter seasonal variable
+climate,Tave_at,Mean temperature,Autumn,Mean temperature,Autumn seasonal variable
+climate,Tave_sp,Mean temperature,Spring,Mean temperature,Spring seasonal variable
+climate,Tave_wt,Mean temperature,Winter,Mean temperature,Winter seasonal variable
+climate,MAP,Precipitation,Annual,Precipitation,Annual-scale variable or index; not necessarily an annual mean
+climate,PPT_at,Precipitation,Autumn,Precipitation,Autumn seasonal variable
+climate,PPT_sp,Precipitation,Spring,Precipitation,Spring seasonal variable
+climate,PPT_sm,Precipitation,Summer,Precipitation,Summer seasonal variable
+climate,PPT_wt,Precipitation,Winter,Precipitation,Winter seasonal variable
+climate,Eref,Radiation and evaporative demand,Annual,Radiation and evaporative demand,Annual-scale variable or index; not necessarily an annual mean
+climate,Eref_at,Radiation and evaporative demand,Autumn,Radiation and evaporative demand,Autumn seasonal variable
+climate,Eref_sp,Radiation and evaporative demand,Spring,Radiation and evaporative demand,Spring seasonal variable
+climate,Eref_sm,Radiation and evaporative demand,Summer,Radiation and evaporative demand,Summer seasonal variable
+climate,Eref_wt,Radiation and evaporative demand,Winter,Radiation and evaporative demand,Winter seasonal variable
+climate,PAS,Snowfall,Annual,Snowfall,Annual-scale variable or index; not necessarily an annual mean
+climate,PAS_at,Snowfall,Autumn,Snowfall,Autumn seasonal variable
+climate,PAS_sp,Snowfall,Spring,Snowfall,Spring seasonal variable
+climate,PAS_wt,Snowfall,Winter,Snowfall,Winter seasonal variable
+climate,MWMT,Warmest-month mean temperature,Annual,Warmest-month mean temperature,Mean temperature of the warmest month
+soil,T_REF_BULK_DENSITY,Bulk density,,,
+soil,T_CACO3,Carbonates,,,
+soil,T_GRAVEL,Coarse fragments,,,
+soil,T_CASO4,Gypsum,,,
+soil,T_BS,Nutrient retention and base status,,,
+soil,T_CEC_CLAY,Nutrient retention and base status,,,
+soil,T_CEC_SOIL,Nutrient retention and base status,,,
+soil,T_TEB,Nutrient retention and base status,,,
+soil,T_OC,Organic carbon,,,
+soil,T_ECE,Salinity,,,
+soil,T_ESP,Sodicity,,,
+soil,T_PH_H2O,Soil reaction,,,
+soil,T_CLAY,Texture,,,
+soil,T_SAND,Texture,,,
+soil,T_SILT,Texture,,,
