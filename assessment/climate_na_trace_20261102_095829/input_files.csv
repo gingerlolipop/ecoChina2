@@ -1,0 +1,51 @@
+model_zone,source_id,kind,path,exists,size_bytes,modified
+15,,model_or_saved_surface,H:/Jing/ecoChina2/rf/clm_mfVar_zone15.Rdata,TRUE,14591220,2026-07-17 17:54:43.887827
+15,,model_or_saved_surface,H:/Jing/ecoChina2/clim suitability/mf_var/normal/clim_suit_zone15.tif,TRUE,46264433,2026-07-19 12:29:08.837366
+15,,model_or_saved_surface,H:/Jing/ecoChina2/soil suitability/plain_mf/normal/soil_suit_zone15.tif,TRUE,21371639,2026-06-26 14:23:12.649567
+15,,model_or_saved_surface,H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone15.tif,TRUE,21769631,2026-07-19 12:29:25.10194
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_sp.tif,TRUE,19271882,2024-01-15 10:22:08.202711
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_at.tif,TRUE,17969712,2024-01-15 10:22:08.97677
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_sp.tif,TRUE,19620361,2024-01-15 10:22:09.63401
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_sp.tif,TRUE,20623800,2024-01-15 10:21:58.637688
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/AHM.tif,TRUE,30856959,2024-01-15 10:22:14.07408
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/EMT.tif,TRUE,22068510,2024-01-15 10:22:18.11072
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref.tif,TRUE,26038730,2024-01-15 10:22:19.107353
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_18_at.tif,TRUE,29190778,2024-01-15 10:22:04.486143
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/RH_at.tif,TRUE,10663123,2024-01-15 10:22:11.083942
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_0_wt.tif,TRUE,25236263,2024-01-15 10:21:59.904354
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_18_wt.tif,TRUE,28979094,2024-01-15 10:22:02.997404
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_0.tif,TRUE,27628942,2024-01-15 10:22:14.658676
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Tmin_at.tif,TRUE,21380479,2024-01-15 10:21:56.24398
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD18_sm.tif,TRUE,23637218,2024-01-15 10:22:05.376488
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD5_sm.tif,TRUE,30229404,2024-01-15 10:22:01.627159
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/MAP.tif,TRUE,28314602,2024-01-15 10:22:13.367628
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD18.tif,TRUE,24612508,2024-01-15 10:22:16.910431
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Tmin_sm.tif,TRUE,21921183,2024-01-15 10:21:55.843805
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/RH_wt.tif,TRUE,11698784,2024-01-15 10:22:10.578995
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_sm.tif,TRUE,25231249,2024-01-15 10:21:58.941933
+15,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/TD.tif,TRUE,19190077,2024-01-15 10:22:12.68615
+30,,model_or_saved_surface,H:/Jing/ecoChina2/rf/clm_mfVar_zone30.Rdata,TRUE,16473991,2026-07-17 18:20:21.421326
+30,,model_or_saved_surface,H:/Jing/ecoChina2/clim suitability/mf_var/normal/clim_suit_zone30.tif,TRUE,27114385,2026-07-19 16:16:51.237375
+30,,model_or_saved_surface,H:/Jing/ecoChina2/soil suitability/plain_mf/normal/soil_suit_zone30.tif,TRUE,18899293,2026-06-27 04:17:42.237223
+30,,model_or_saved_surface,H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone30.tif,TRUE,16229047,2026-07-19 16:17:04.672235
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD18_sm.tif,TRUE,23637218,2024-01-15 10:22:05.376488
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_18_wt.tif,TRUE,28979094,2024-01-15 10:22:02.997404
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD18.tif,TRUE,24612508,2024-01-15 10:22:16.910431
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/MAP.tif,TRUE,28314602,2024-01-15 10:22:13.367628
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/RH_wt.tif,TRUE,11698784,2024-01-15 10:22:10.578995
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Tmax_sm.tif,TRUE,22332357,2024-01-15 10:21:53.89473
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_sp.tif,TRUE,20623800,2024-01-15 10:21:58.637688
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_sp.tif,TRUE,19271882,2024-01-15 10:22:08.202711
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_sm.tif,TRUE,25231249,2024-01-15 10:21:58.941933
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_sp.tif,TRUE,19620361,2024-01-15 10:22:09.63401
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_at.tif,TRUE,20694361,2024-01-15 10:21:59.455734
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/AHM.tif,TRUE,30856959,2024-01-15 10:22:14.07408
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD5_sm.tif,TRUE,30229404,2024-01-15 10:22:01.627159
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_sm.tif,TRUE,20320346,2024-01-15 10:22:09.985209
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_wt.tif,TRUE,8577793,2024-01-15 10:22:09.204533
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/EXT.tif,TRUE,21425536,2024-01-15 10:22:18.651384
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD.tif,TRUE,27622241,2024-01-15 10:22:19.790829
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_at.tif,TRUE,17889879,2024-01-15 10:22:10.295546
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_wt.tif,TRUE,13996450,2024-01-15 10:21:58.363577
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_sm.tif,TRUE,22366860,2024-01-15 10:22:08.733709
+30,1,raw_climate,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/TD.tif,TRUE,19190077,2024-01-15 10:22:12.68615

@@ -1,0 +1,5 @@
+model_zone,directory,exists,contains_all_selected_variables
+15,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990,TRUE,TRUE
+15,H:/Jing/ecoChina2/data/rasters/climate/Normal_1961_1990,FALSE,FALSE
+30,H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990,TRUE,TRUE
+30,H:/Jing/ecoChina2/data/rasters/climate/Normal_1961_1990,FALSE,FALSE
