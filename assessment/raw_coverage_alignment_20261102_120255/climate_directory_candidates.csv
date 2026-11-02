@@ -1,0 +1,3 @@
+directory,exists,contains_all_inspected_climate_variables
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990,TRUE,TRUE
+H:/Jing/ecoChina2/data/rasters/climate/Normal_1961_1990,FALSE,FALSE

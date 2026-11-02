@@ -1,0 +1,69 @@
+path,size_bytes,modified
+H:/Jing/ecoChina2/raster/ecosys_ori.tif,3071739,2026-02-04 21:20:18.082523
+H:/Jing/ecoChina2/assessment/climate_na_trace_20261102_095829/sample_points.csv,1796,2026-11-02 09:58:31.655626
+H:/Jing/ecoChina2/assessment/climate_na_trace_20261102_095829/model_zone15_variables.csv,167,2026-11-02 09:58:36.868031
+H:/Jing/ecoChina2/assessment/climate_na_trace_20261102_095829/model_zone30_variables.csv,165,2026-11-02 09:59:43.633713
+H:/Jing/soil rasters/tif2/S_BS.tif,16279207,2023-02-20 11:25:28.33083
+H:/Jing/soil rasters/tif2/S_CACO3.tif,14827371,2023-02-20 00:21:18.274698
+H:/Jing/soil rasters/tif2/S_CASO4.tif,8071596,2023-02-20 00:21:56.761108
+H:/Jing/soil rasters/tif2/S_CEC_CLAY.tif,19224435,2023-02-20 00:16:21.032539
+H:/Jing/soil rasters/tif2/S_CEC_SOIL.tif,18008188,2023-02-20 00:19:32.046322
+H:/Jing/soil rasters/tif2/S_CLAY.tif,18622075,2023-02-20 00:14:12.201815
+H:/Jing/soil rasters/tif2/S_ECE.tif,11607881,2023-02-20 00:23:05.485823
+H:/Jing/soil rasters/tif2/S_ESP.tif,13896182,2023-02-20 00:22:27.540579
+H:/Jing/soil rasters/tif2/S_GRAVEL.tif,15510818,2023-02-20 00:12:22.035324
+H:/Jing/soil rasters/tif2/S_OC.tif,20211645,2023-02-20 00:15:17.528385
+H:/Jing/soil rasters/tif2/S_PH_H2O.tif,18503084,2023-02-20 00:15:50.446371
+H:/Jing/soil rasters/tif2/S_REF_BULK_DENSITY.tif,18684180,2023-02-20 00:14:40.728174
+H:/Jing/soil rasters/tif2/S_SAND.tif,18690342,2023-02-20 00:13:04.308079
+H:/Jing/soil rasters/tif2/S_SILT.tif,18665987,2023-02-20 00:13:30.794233
+H:/Jing/soil rasters/tif2/S_TEB.tif,20556704,2023-02-20 00:20:54.541849
+H:/Jing/soil rasters/tif2/T_BS.tif,17691835,2023-02-20 11:25:52.840517
+H:/Jing/soil rasters/tif2/T_CACO3.tif,14757591,2023-02-20 00:10:10.952539
+H:/Jing/soil rasters/tif2/T_CASO4.tif,7012659,2023-02-20 00:10:44.252693
+H:/Jing/soil rasters/tif2/T_CEC_CLAY.tif,20098355,2023-02-20 00:08:02.479809
+H:/Jing/soil rasters/tif2/T_CEC_SOIL.tif,18113408,2023-02-20 00:08:29.176052
+H:/Jing/soil rasters/tif2/T_CLAY.tif,18094756,2023-02-20 00:05:41.948162
+H:/Jing/soil rasters/tif2/T_ECE.tif,11291403,2023-02-20 00:11:55.623737
+H:/Jing/soil rasters/tif2/T_ESP.tif,13681157,2023-02-20 00:11:18.806761
+H:/Jing/soil rasters/tif2/T_GRAVEL.tif,16268330,2023-02-20 00:03:54.863306
+H:/Jing/soil rasters/tif2/T_OC.tif,22118523,2023-02-20 00:06:49.087898
+H:/Jing/soil rasters/tif2/T_PH_H2O.tif,19142961,2023-02-20 00:07:23.544411
+H:/Jing/soil rasters/tif2/T_REF_BULK_DENSITY.tif,18532348,2023-02-20 00:06:16.877131
+H:/Jing/soil rasters/tif2/T_SAND.tif,19977754,2023-02-20 00:04:34.489553
+H:/Jing/soil rasters/tif2/T_SILT.tif,19274853,2023-02-20 00:05:10.373486
+H:/Jing/soil rasters/tif2/T_TEB.tif,21417112,2023-02-20 00:09:43.439243
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/AHM.tif,30856959,2024-01-15 10:22:14.07408
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD.tif,27622241,2024-01-15 10:22:19.790829
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_at.tif,17889879,2024-01-15 10:22:10.295546
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_sm.tif,20320346,2024-01-15 10:22:09.985209
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_sp.tif,19620361,2024-01-15 10:22:09.63401
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/CMD_wt.tif,8577793,2024-01-15 10:22:09.204533
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_0.tif,27628942,2024-01-15 10:22:14.658676
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_0_wt.tif,25236263,2024-01-15 10:21:59.904354
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_18_at.tif,29190778,2024-01-15 10:22:04.486143
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD_18_wt.tif,28979094,2024-01-15 10:22:02.997404
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD18.tif,24612508,2024-01-15 10:22:16.910431
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD18_sm.tif,23637218,2024-01-15 10:22:05.376488
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/DD5_sm.tif,30229404,2024-01-15 10:22:01.627159
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/EMT.tif,22068510,2024-01-15 10:22:18.11072
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref.tif,26038730,2024-01-15 10:22:19.107353
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_at.tif,17969712,2024-01-15 10:22:08.97677
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_sm.tif,22366860,2024-01-15 10:22:08.733709
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Eref_sp.tif,19271882,2024-01-15 10:22:08.202711
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/EXT.tif,21425536,2024-01-15 10:22:18.651384
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/MAP.tif,28314602,2024-01-15 10:22:13.367628
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_at.tif,20694361,2024-01-15 10:21:59.455734
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_sm.tif,25231249,2024-01-15 10:21:58.941933
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_sp.tif,20623800,2024-01-15 10:21:58.637688
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/PPT_wt.tif,13996450,2024-01-15 10:21:58.363577
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/RH_at.tif,10663123,2024-01-15 10:22:11.083942
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/RH_wt.tif,11698784,2024-01-15 10:22:10.578995
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/TD.tif,19190077,2024-01-15 10:22:12.68615
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Tmax_sm.tif,22332357,2024-01-15 10:21:53.89473
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Tmin_at.tif,21380479,2024-01-15 10:21:56.24398
+H:/Jing/ecoChina/play/China/ClimateData/CN/800m/Normal_1961_1990/Tmin_sm.tif,21921183,2024-01-15 10:21:55.843805
+H:/Jing/ecoChina2/clim suitability/mf_var/normal/clim_suit_zone15.tif,46264433,2026-07-19 12:29:08.837366
+H:/Jing/ecoChina2/soil suitability/plain_mf/normal/soil_suit_zone15.tif,21371639,2026-06-26 14:23:12.649567
+H:/Jing/ecoChina2/clim suitability/mf_var/normal/clim_suit_zone30.tif,27114385,2026-07-19 16:16:51.237375
+H:/Jing/ecoChina2/soil suitability/plain_mf/normal/soil_suit_zone30.tif,18899293,2026-06-27 04:17:42.237223

@@ -1,0 +1,5 @@
+source_id,model_zone,point_type,support_comparison,N
+1,15,gate020_only_problem,raw_window_has_no_bilinear_complete_input_support,8
+1,15,nearby_common_valid_control,raw_inputs_and_saved_surface_available,8
+1,30,gate020_only_problem,raw_window_has_no_bilinear_complete_input_support,8
+1,30,nearby_common_valid_control,raw_inputs_and_saved_surface_available,8

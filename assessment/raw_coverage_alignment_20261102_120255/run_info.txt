@@ -1,0 +1,50 @@
+READ-ONLY RAW COVERAGE AND ALIGNMENT CHECK
+Run: 2026-11-02 12:05:39.919908
+Previous trace: H:/Jing/ecoChina2/assessment/climate_na_trace_20261102_095829
+Saved sample points: 16
+Native window radius: 16 cells; maximum width: 33
+Soil input layers: 30
+Climate source copies inspected: 1
+No model was loaded, trained, or used to predict suitability.
+No raw data, cached suitability, assigned map, existing CSV, or manuscript was modified.
+Only this NEW report folder contains new output.
+
+INTERPRETATION:
+Climate completeness uses each model's own selected variables. The union is only an I/O list.
+Soil finite-layer counts describe every listed soil TIFF, not a model-specific input requirement.
+same_lattice compares CRS, resolution and origin; extents may differ without a lattice mismatch.
+The nearest complete native cell is searched ONLY within the stated window. Distance is approximate great-circle km.
+Native-cell reference zones are sampled at cell centers, not exact overlap areas.
+A bilinear 0/1 mask is a local coverage indicator, NOT suitability or a model prediction.
+The finite/NA dummy tests local interpolation support, NOT whether a cached prediction is definitively wrong.
+Mismatch flags require checking source version, native masks and cache provenance.
+No missing value is filled; nearest cells are diagnostic only.
+These sampled windows do not estimate national frequencies, areas, or the cause of all 19,506 legacy cells.
+No water/coastal explanation is asserted without independent source masks.
+
+R version 4.6.1 (2026-06-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8  LC_CTYPE=English_United States.utf8    LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                           LC_TIME=English_United States.utf8    
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] patchwork_1.3.2      ggplot2_4.0.3        terra_1.9-11         randomForest_4.7-1.2 data.table_1.18.2.1 
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.7.3         cli_3.6.6           rlang_1.2.0         circlize_0.4.18     generics_0.1.4      S7_0.2.2            labeling_0.4.3     
+ [8] glue_1.8.1          colorspace_2.1-2    GlobalOptions_0.1.4 scales_1.4.0        grid_4.6.1          tibble_3.3.1        lifecycle_1.0.5    
+[15] compiler_4.6.1      dplyr_1.2.1         codetools_0.2-20    RColorBrewer_1.1-3  Rcpp_1.1.1-1.1      pkgconfig_2.0.3     farver_2.1.2       
+[22] viridisLite_0.4.3   R6_2.6.1            tidyselect_1.2.1    pillar_1.11.1       parallel_4.6.1      shape_1.4.6.1       magrittr_2.0.5     
+[29] ggalluvial_0.12.6   withr_3.0.3         tools_4.6.1         gtable_0.3.6       
