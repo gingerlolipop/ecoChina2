@@ -1,0 +1,5 @@
+domain_code,domain_group
+1,common_valid
+2,climate_only_valid_only
+3,gate_020_valid_only
+4,invalid_both
