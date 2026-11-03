@@ -1,0 +1,3128 @@
+original_zone,predicted_zone,n,method,method_label
+1,1,11675,mf_var,Plain MF RF
+1,2,354,mf_var,Plain MF RF
+1,3,438,mf_var,Plain MF RF
+1,4,169,mf_var,Plain MF RF
+1,5,124,mf_var,Plain MF RF
+1,6,8,mf_var,Plain MF RF
+1,7,77,mf_var,Plain MF RF
+1,10,300,mf_var,Plain MF RF
+1,12,5,mf_var,Plain MF RF
+1,13,236,mf_var,Plain MF RF
+1,16,33,mf_var,Plain MF RF
+1,17,49,mf_var,Plain MF RF
+1,18,214,mf_var,Plain MF RF
+1,20,18,mf_var,Plain MF RF
+1,21,96,mf_var,Plain MF RF
+1,25,196,mf_var,Plain MF RF
+1,28,33,mf_var,Plain MF RF
+1,30,6,mf_var,Plain MF RF
+1,31,129,mf_var,Plain MF RF
+1,32,8,mf_var,Plain MF RF
+1,33,81,mf_var,Plain MF RF
+1,37,5,mf_var,Plain MF RF
+1,39,361,mf_var,Plain MF RF
+1,40,30,mf_var,Plain MF RF
+1,42,28,mf_var,Plain MF RF
+1,43,1,mf_var,Plain MF RF
+1,44,14,mf_var,Plain MF RF
+1,45,225,mf_var,Plain MF RF
+1,46,78,mf_var,Plain MF RF
+1,47,44,mf_var,Plain MF RF
+1,48,2,mf_var,Plain MF RF
+1,50,133,mf_var,Plain MF RF
+2,1,2232,mf_var,Plain MF RF
+2,2,182432,mf_var,Plain MF RF
+2,3,19948,mf_var,Plain MF RF
+2,4,13622,mf_var,Plain MF RF
+2,5,14193,mf_var,Plain MF RF
+2,6,10793,mf_var,Plain MF RF
+2,7,2923,mf_var,Plain MF RF
+2,9,9157,mf_var,Plain MF RF
+2,10,880,mf_var,Plain MF RF
+2,11,4888,mf_var,Plain MF RF
+2,12,2121,mf_var,Plain MF RF
+2,13,4000,mf_var,Plain MF RF
+2,14,299,mf_var,Plain MF RF
+2,15,6,mf_var,Plain MF RF
+2,16,4684,mf_var,Plain MF RF
+2,17,462,mf_var,Plain MF RF
+2,18,4980,mf_var,Plain MF RF
+2,20,335,mf_var,Plain MF RF
+2,21,7,mf_var,Plain MF RF
+2,22,193,mf_var,Plain MF RF
+2,23,3,mf_var,Plain MF RF
+2,24,100,mf_var,Plain MF RF
+2,25,835,mf_var,Plain MF RF
+2,26,19,mf_var,Plain MF RF
+2,27,1738,mf_var,Plain MF RF
+2,28,191,mf_var,Plain MF RF
+2,30,136,mf_var,Plain MF RF
+2,31,321,mf_var,Plain MF RF
+2,32,84,mf_var,Plain MF RF
+2,33,99,mf_var,Plain MF RF
+2,34,152,mf_var,Plain MF RF
+2,36,74,mf_var,Plain MF RF
+2,37,47,mf_var,Plain MF RF
+2,39,42,mf_var,Plain MF RF
+2,40,24,mf_var,Plain MF RF
+2,41,173,mf_var,Plain MF RF
+2,42,63,mf_var,Plain MF RF
+2,44,214,mf_var,Plain MF RF
+2,45,35,mf_var,Plain MF RF
+2,46,62,mf_var,Plain MF RF
+2,47,1,mf_var,Plain MF RF
+2,48,2,mf_var,Plain MF RF
+2,49,5,mf_var,Plain MF RF
+2,50,90,mf_var,Plain MF RF
+2,52,11,mf_var,Plain MF RF
+2,53,586,mf_var,Plain MF RF
+2,55,251,mf_var,Plain MF RF
+3,1,4918,mf_var,Plain MF RF
+3,2,20631,mf_var,Plain MF RF
+3,3,287330,mf_var,Plain MF RF
+3,4,5677,mf_var,Plain MF RF
+3,5,22624,mf_var,Plain MF RF
+3,6,18972,mf_var,Plain MF RF
+3,7,41795,mf_var,Plain MF RF
+3,9,28687,mf_var,Plain MF RF
+3,10,3171,mf_var,Plain MF RF
+3,11,7189,mf_var,Plain MF RF
+3,12,19319,mf_var,Plain MF RF
+3,13,3817,mf_var,Plain MF RF
+3,14,1296,mf_var,Plain MF RF
+3,15,2088,mf_var,Plain MF RF
+3,16,32,mf_var,Plain MF RF
+3,17,8,mf_var,Plain MF RF
+3,18,1534,mf_var,Plain MF RF
+3,19,25,mf_var,Plain MF RF
+3,21,291,mf_var,Plain MF RF
+3,22,558,mf_var,Plain MF RF
+3,23,152,mf_var,Plain MF RF
+3,24,1526,mf_var,Plain MF RF
+3,25,276,mf_var,Plain MF RF
+3,26,344,mf_var,Plain MF RF
+3,27,19992,mf_var,Plain MF RF
+3,28,7589,mf_var,Plain MF RF
+3,29,3,mf_var,Plain MF RF
+3,30,572,mf_var,Plain MF RF
+3,31,1,mf_var,Plain MF RF
+3,32,254,mf_var,Plain MF RF
+3,33,11657,mf_var,Plain MF RF
+3,34,546,mf_var,Plain MF RF
+3,36,3978,mf_var,Plain MF RF
+3,37,11396,mf_var,Plain MF RF
+3,39,1027,mf_var,Plain MF RF
+3,40,266,mf_var,Plain MF RF
+3,41,18393,mf_var,Plain MF RF
+3,44,910,mf_var,Plain MF RF
+3,45,67,mf_var,Plain MF RF
+3,46,622,mf_var,Plain MF RF
+3,47,2065,mf_var,Plain MF RF
+3,49,120,mf_var,Plain MF RF
+3,50,17,mf_var,Plain MF RF
+4,1,1127,mf_var,Plain MF RF
+4,2,14645,mf_var,Plain MF RF
+4,3,3665,mf_var,Plain MF RF
+4,4,41570,mf_var,Plain MF RF
+4,5,3182,mf_var,Plain MF RF
+4,6,1985,mf_var,Plain MF RF
+4,7,880,mf_var,Plain MF RF
+4,9,259,mf_var,Plain MF RF
+4,10,6,mf_var,Plain MF RF
+4,11,6100,mf_var,Plain MF RF
+4,12,3540,mf_var,Plain MF RF
+4,13,6615,mf_var,Plain MF RF
+4,14,1928,mf_var,Plain MF RF
+4,15,1383,mf_var,Plain MF RF
+4,16,697,mf_var,Plain MF RF
+4,17,325,mf_var,Plain MF RF
+4,18,101,mf_var,Plain MF RF
+4,19,17,mf_var,Plain MF RF
+4,20,209,mf_var,Plain MF RF
+4,21,178,mf_var,Plain MF RF
+4,22,273,mf_var,Plain MF RF
+4,23,115,mf_var,Plain MF RF
+4,25,311,mf_var,Plain MF RF
+4,26,18,mf_var,Plain MF RF
+4,27,1516,mf_var,Plain MF RF
+4,30,100,mf_var,Plain MF RF
+4,31,5,mf_var,Plain MF RF
+4,32,6,mf_var,Plain MF RF
+4,33,108,mf_var,Plain MF RF
+4,35,8,mf_var,Plain MF RF
+4,39,52,mf_var,Plain MF RF
+4,48,151,mf_var,Plain MF RF
+4,50,46,mf_var,Plain MF RF
+5,1,2676,mf_var,Plain MF RF
+5,2,14337,mf_var,Plain MF RF
+5,3,16751,mf_var,Plain MF RF
+5,4,3937,mf_var,Plain MF RF
+5,5,73716,mf_var,Plain MF RF
+5,6,4503,mf_var,Plain MF RF
+5,7,4330,mf_var,Plain MF RF
+5,9,531,mf_var,Plain MF RF
+5,10,3762,mf_var,Plain MF RF
+5,11,9529,mf_var,Plain MF RF
+5,12,13291,mf_var,Plain MF RF
+5,13,7165,mf_var,Plain MF RF
+5,14,2432,mf_var,Plain MF RF
+5,15,2042,mf_var,Plain MF RF
+5,16,3051,mf_var,Plain MF RF
+5,17,583,mf_var,Plain MF RF
+5,18,578,mf_var,Plain MF RF
+5,20,750,mf_var,Plain MF RF
+5,21,1200,mf_var,Plain MF RF
+5,22,683,mf_var,Plain MF RF
+5,23,107,mf_var,Plain MF RF
+5,24,1044,mf_var,Plain MF RF
+5,25,1146,mf_var,Plain MF RF
+5,26,1121,mf_var,Plain MF RF
+5,27,3015,mf_var,Plain MF RF
+5,28,363,mf_var,Plain MF RF
+5,29,60,mf_var,Plain MF RF
+5,30,296,mf_var,Plain MF RF
+5,31,67,mf_var,Plain MF RF
+5,32,61,mf_var,Plain MF RF
+5,33,2546,mf_var,Plain MF RF
+5,34,378,mf_var,Plain MF RF
+5,35,115,mf_var,Plain MF RF
+5,36,1337,mf_var,Plain MF RF
+5,37,370,mf_var,Plain MF RF
+5,39,1926,mf_var,Plain MF RF
+5,40,943,mf_var,Plain MF RF
+5,41,2229,mf_var,Plain MF RF
+5,42,204,mf_var,Plain MF RF
+5,43,1,mf_var,Plain MF RF
+5,44,1460,mf_var,Plain MF RF
+5,45,328,mf_var,Plain MF RF
+5,46,2600,mf_var,Plain MF RF
+5,47,1676,mf_var,Plain MF RF
+5,48,7,mf_var,Plain MF RF
+5,49,841,mf_var,Plain MF RF
+5,50,23,mf_var,Plain MF RF
+6,1,218,mf_var,Plain MF RF
+6,2,11976,mf_var,Plain MF RF
+6,3,4506,mf_var,Plain MF RF
+6,4,2901,mf_var,Plain MF RF
+6,5,1351,mf_var,Plain MF RF
+6,6,50876,mf_var,Plain MF RF
+6,7,460,mf_var,Plain MF RF
+6,9,303,mf_var,Plain MF RF
+6,10,100,mf_var,Plain MF RF
+6,11,2835,mf_var,Plain MF RF
+6,12,4886,mf_var,Plain MF RF
+6,13,162,mf_var,Plain MF RF
+6,14,33,mf_var,Plain MF RF
+6,15,1309,mf_var,Plain MF RF
+6,16,38,mf_var,Plain MF RF
+6,18,71,mf_var,Plain MF RF
+6,19,15,mf_var,Plain MF RF
+6,21,1611,mf_var,Plain MF RF
+6,22,91,mf_var,Plain MF RF
+6,23,302,mf_var,Plain MF RF
+6,24,1060,mf_var,Plain MF RF
+6,25,710,mf_var,Plain MF RF
+6,26,37,mf_var,Plain MF RF
+6,27,2319,mf_var,Plain MF RF
+6,28,25,mf_var,Plain MF RF
+6,29,47,mf_var,Plain MF RF
+6,30,307,mf_var,Plain MF RF
+6,31,201,mf_var,Plain MF RF
+6,32,1,mf_var,Plain MF RF
+6,33,123,mf_var,Plain MF RF
+6,36,19,mf_var,Plain MF RF
+6,37,252,mf_var,Plain MF RF
+6,42,86,mf_var,Plain MF RF
+6,43,57,mf_var,Plain MF RF
+6,47,231,mf_var,Plain MF RF
+6,49,146,mf_var,Plain MF RF
+7,1,983,mf_var,Plain MF RF
+7,2,3340,mf_var,Plain MF RF
+7,3,21699,mf_var,Plain MF RF
+7,4,2078,mf_var,Plain MF RF
+7,5,2451,mf_var,Plain MF RF
+7,6,1332,mf_var,Plain MF RF
+7,7,91830,mf_var,Plain MF RF
+7,9,2664,mf_var,Plain MF RF
+7,10,961,mf_var,Plain MF RF
+7,11,4270,mf_var,Plain MF RF
+7,12,6493,mf_var,Plain MF RF
+7,13,8117,mf_var,Plain MF RF
+7,14,4537,mf_var,Plain MF RF
+7,15,3521,mf_var,Plain MF RF
+7,16,237,mf_var,Plain MF RF
+7,18,1049,mf_var,Plain MF RF
+7,19,422,mf_var,Plain MF RF
+7,20,206,mf_var,Plain MF RF
+7,21,767,mf_var,Plain MF RF
+7,22,21,mf_var,Plain MF RF
+7,23,1951,mf_var,Plain MF RF
+7,24,2734,mf_var,Plain MF RF
+7,25,3573,mf_var,Plain MF RF
+7,26,686,mf_var,Plain MF RF
+7,27,5477,mf_var,Plain MF RF
+7,28,2196,mf_var,Plain MF RF
+7,29,142,mf_var,Plain MF RF
+7,30,149,mf_var,Plain MF RF
+7,31,543,mf_var,Plain MF RF
+7,32,1028,mf_var,Plain MF RF
+7,33,15076,mf_var,Plain MF RF
+7,34,544,mf_var,Plain MF RF
+7,35,358,mf_var,Plain MF RF
+7,36,2873,mf_var,Plain MF RF
+7,37,2279,mf_var,Plain MF RF
+7,38,4,mf_var,Plain MF RF
+7,39,1111,mf_var,Plain MF RF
+7,40,991,mf_var,Plain MF RF
+7,41,18337,mf_var,Plain MF RF
+7,42,227,mf_var,Plain MF RF
+7,43,4,mf_var,Plain MF RF
+7,44,1013,mf_var,Plain MF RF
+7,45,120,mf_var,Plain MF RF
+7,46,386,mf_var,Plain MF RF
+7,47,621,mf_var,Plain MF RF
+7,49,1321,mf_var,Plain MF RF
+7,50,89,mf_var,Plain MF RF
+7,55,5,mf_var,Plain MF RF
+9,2,588,mf_var,Plain MF RF
+9,3,3789,mf_var,Plain MF RF
+9,4,20,mf_var,Plain MF RF
+9,5,29,mf_var,Plain MF RF
+9,6,10,mf_var,Plain MF RF
+9,7,172,mf_var,Plain MF RF
+9,9,25233,mf_var,Plain MF RF
+9,10,7,mf_var,Plain MF RF
+9,11,210,mf_var,Plain MF RF
+9,12,255,mf_var,Plain MF RF
+9,13,42,mf_var,Plain MF RF
+9,14,45,mf_var,Plain MF RF
+9,15,1,mf_var,Plain MF RF
+9,18,3,mf_var,Plain MF RF
+9,27,26,mf_var,Plain MF RF
+9,36,4,mf_var,Plain MF RF
+10,1,1546,mf_var,Plain MF RF
+10,2,3,mf_var,Plain MF RF
+10,3,738,mf_var,Plain MF RF
+10,5,418,mf_var,Plain MF RF
+10,7,107,mf_var,Plain MF RF
+10,9,228,mf_var,Plain MF RF
+10,10,76893,mf_var,Plain MF RF
+10,11,5,mf_var,Plain MF RF
+10,12,18,mf_var,Plain MF RF
+10,13,61,mf_var,Plain MF RF
+10,15,16,mf_var,Plain MF RF
+10,16,2367,mf_var,Plain MF RF
+10,18,6017,mf_var,Plain MF RF
+10,20,1774,mf_var,Plain MF RF
+10,21,17,mf_var,Plain MF RF
+10,22,2,mf_var,Plain MF RF
+10,26,180,mf_var,Plain MF RF
+10,28,845,mf_var,Plain MF RF
+10,30,620,mf_var,Plain MF RF
+10,31,33,mf_var,Plain MF RF
+10,33,166,mf_var,Plain MF RF
+10,34,4662,mf_var,Plain MF RF
+10,36,1689,mf_var,Plain MF RF
+10,37,11,mf_var,Plain MF RF
+10,39,12708,mf_var,Plain MF RF
+10,40,762,mf_var,Plain MF RF
+10,43,202,mf_var,Plain MF RF
+10,44,195,mf_var,Plain MF RF
+10,45,771,mf_var,Plain MF RF
+10,46,25321,mf_var,Plain MF RF
+10,47,716,mf_var,Plain MF RF
+10,49,6324,mf_var,Plain MF RF
+10,50,269,mf_var,Plain MF RF
+10,52,15,mf_var,Plain MF RF
+10,53,14,mf_var,Plain MF RF
+11,1,9,mf_var,Plain MF RF
+11,2,1594,mf_var,Plain MF RF
+11,3,1807,mf_var,Plain MF RF
+11,4,5071,mf_var,Plain MF RF
+11,5,7382,mf_var,Plain MF RF
+11,6,2586,mf_var,Plain MF RF
+11,7,4463,mf_var,Plain MF RF
+11,9,14,mf_var,Plain MF RF
+11,10,8,mf_var,Plain MF RF
+11,11,89190,mf_var,Plain MF RF
+11,12,6167,mf_var,Plain MF RF
+11,13,12422,mf_var,Plain MF RF
+11,14,3323,mf_var,Plain MF RF
+11,15,1352,mf_var,Plain MF RF
+11,16,567,mf_var,Plain MF RF
+11,17,22,mf_var,Plain MF RF
+11,18,146,mf_var,Plain MF RF
+11,20,342,mf_var,Plain MF RF
+11,22,93,mf_var,Plain MF RF
+11,23,21,mf_var,Plain MF RF
+11,24,408,mf_var,Plain MF RF
+11,25,1544,mf_var,Plain MF RF
+11,26,15,mf_var,Plain MF RF
+11,27,4624,mf_var,Plain MF RF
+11,28,13,mf_var,Plain MF RF
+11,31,119,mf_var,Plain MF RF
+11,32,24,mf_var,Plain MF RF
+11,33,2716,mf_var,Plain MF RF
+11,34,26,mf_var,Plain MF RF
+11,35,1,mf_var,Plain MF RF
+11,37,44,mf_var,Plain MF RF
+11,39,2,mf_var,Plain MF RF
+11,41,559,mf_var,Plain MF RF
+11,42,20,mf_var,Plain MF RF
+11,43,3,mf_var,Plain MF RF
+11,45,20,mf_var,Plain MF RF
+11,46,119,mf_var,Plain MF RF
+11,47,4,mf_var,Plain MF RF
+12,1,402,mf_var,Plain MF RF
+12,2,1684,mf_var,Plain MF RF
+12,3,22615,mf_var,Plain MF RF
+12,4,7614,mf_var,Plain MF RF
+12,5,9417,mf_var,Plain MF RF
+12,6,7816,mf_var,Plain MF RF
+12,7,12078,mf_var,Plain MF RF
+12,9,5732,mf_var,Plain MF RF
+12,10,8,mf_var,Plain MF RF
+12,11,10928,mf_var,Plain MF RF
+12,12,234204,mf_var,Plain MF RF
+12,13,20942,mf_var,Plain MF RF
+12,14,6254,mf_var,Plain MF RF
+12,15,7329,mf_var,Plain MF RF
+12,18,2,mf_var,Plain MF RF
+12,19,127,mf_var,Plain MF RF
+12,22,1304,mf_var,Plain MF RF
+12,23,804,mf_var,Plain MF RF
+12,24,3161,mf_var,Plain MF RF
+12,25,2592,mf_var,Plain MF RF
+12,26,289,mf_var,Plain MF RF
+12,27,10789,mf_var,Plain MF RF
+12,29,72,mf_var,Plain MF RF
+12,32,27,mf_var,Plain MF RF
+12,33,4977,mf_var,Plain MF RF
+12,34,24,mf_var,Plain MF RF
+12,37,26,mf_var,Plain MF RF
+12,39,1,mf_var,Plain MF RF
+12,41,2525,mf_var,Plain MF RF
+12,44,8,mf_var,Plain MF RF
+12,45,31,mf_var,Plain MF RF
+12,46,17,mf_var,Plain MF RF
+13,1,2664,mf_var,Plain MF RF
+13,2,1931,mf_var,Plain MF RF
+13,3,1894,mf_var,Plain MF RF
+13,4,11042,mf_var,Plain MF RF
+13,5,9262,mf_var,Plain MF RF
+13,6,722,mf_var,Plain MF RF
+13,7,12712,mf_var,Plain MF RF
+13,9,48,mf_var,Plain MF RF
+13,10,17,mf_var,Plain MF RF
+13,11,26522,mf_var,Plain MF RF
+13,12,32397,mf_var,Plain MF RF
+13,13,379135,mf_var,Plain MF RF
+13,14,16633,mf_var,Plain MF RF
+13,15,16815,mf_var,Plain MF RF
+13,16,7491,mf_var,Plain MF RF
+13,17,44,mf_var,Plain MF RF
+13,18,6434,mf_var,Plain MF RF
+13,19,256,mf_var,Plain MF RF
+13,20,1988,mf_var,Plain MF RF
+13,22,2048,mf_var,Plain MF RF
+13,23,164,mf_var,Plain MF RF
+13,24,8413,mf_var,Plain MF RF
+13,25,34637,mf_var,Plain MF RF
+13,27,2426,mf_var,Plain MF RF
+13,28,83,mf_var,Plain MF RF
+13,29,92,mf_var,Plain MF RF
+13,30,41,mf_var,Plain MF RF
+13,31,3854,mf_var,Plain MF RF
+13,32,4353,mf_var,Plain MF RF
+13,33,30986,mf_var,Plain MF RF
+13,35,1203,mf_var,Plain MF RF
+13,37,206,mf_var,Plain MF RF
+13,39,3,mf_var,Plain MF RF
+13,41,1121,mf_var,Plain MF RF
+13,42,817,mf_var,Plain MF RF
+13,43,4,mf_var,Plain MF RF
+13,46,27,mf_var,Plain MF RF
+14,2,38,mf_var,Plain MF RF
+14,3,39,mf_var,Plain MF RF
+14,4,331,mf_var,Plain MF RF
+14,5,133,mf_var,Plain MF RF
+14,7,439,mf_var,Plain MF RF
+14,11,755,mf_var,Plain MF RF
+14,12,437,mf_var,Plain MF RF
+14,13,824,mf_var,Plain MF RF
+14,14,26292,mf_var,Plain MF RF
+14,15,611,mf_var,Plain MF RF
+14,19,488,mf_var,Plain MF RF
+14,23,869,mf_var,Plain MF RF
+14,24,481,mf_var,Plain MF RF
+14,25,26,mf_var,Plain MF RF
+14,27,705,mf_var,Plain MF RF
+14,29,4,mf_var,Plain MF RF
+14,32,8,mf_var,Plain MF RF
+14,33,182,mf_var,Plain MF RF
+14,37,3,mf_var,Plain MF RF
+15,2,26,mf_var,Plain MF RF
+15,3,444,mf_var,Plain MF RF
+15,4,2368,mf_var,Plain MF RF
+15,5,1659,mf_var,Plain MF RF
+15,6,1808,mf_var,Plain MF RF
+15,7,1129,mf_var,Plain MF RF
+15,9,89,mf_var,Plain MF RF
+15,10,38,mf_var,Plain MF RF
+15,11,5143,mf_var,Plain MF RF
+15,12,6822,mf_var,Plain MF RF
+15,13,17095,mf_var,Plain MF RF
+15,14,6765,mf_var,Plain MF RF
+15,15,133307,mf_var,Plain MF RF
+15,16,59,mf_var,Plain MF RF
+15,18,26,mf_var,Plain MF RF
+15,19,6872,mf_var,Plain MF RF
+15,20,66,mf_var,Plain MF RF
+15,21,16,mf_var,Plain MF RF
+15,23,13026,mf_var,Plain MF RF
+15,24,5484,mf_var,Plain MF RF
+15,25,4632,mf_var,Plain MF RF
+15,27,10636,mf_var,Plain MF RF
+15,28,43,mf_var,Plain MF RF
+15,29,3183,mf_var,Plain MF RF
+15,30,28,mf_var,Plain MF RF
+15,31,164,mf_var,Plain MF RF
+15,32,4329,mf_var,Plain MF RF
+15,33,3916,mf_var,Plain MF RF
+15,35,197,mf_var,Plain MF RF
+15,37,171,mf_var,Plain MF RF
+15,38,1269,mf_var,Plain MF RF
+15,40,6,mf_var,Plain MF RF
+15,41,47,mf_var,Plain MF RF
+15,42,431,mf_var,Plain MF RF
+15,43,79,mf_var,Plain MF RF
+15,46,25,mf_var,Plain MF RF
+16,1,3735,mf_var,Plain MF RF
+16,2,2590,mf_var,Plain MF RF
+16,3,66,mf_var,Plain MF RF
+16,4,1405,mf_var,Plain MF RF
+16,5,5372,mf_var,Plain MF RF
+16,6,142,mf_var,Plain MF RF
+16,7,333,mf_var,Plain MF RF
+16,10,12098,mf_var,Plain MF RF
+16,11,115,mf_var,Plain MF RF
+16,13,4941,mf_var,Plain MF RF
+16,15,541,mf_var,Plain MF RF
+16,16,541455,mf_var,Plain MF RF
+16,17,5462,mf_var,Plain MF RF
+16,18,67340,mf_var,Plain MF RF
+16,19,409,mf_var,Plain MF RF
+16,20,79584,mf_var,Plain MF RF
+16,22,23608,mf_var,Plain MF RF
+16,23,193,mf_var,Plain MF RF
+16,24,429,mf_var,Plain MF RF
+16,25,2858,mf_var,Plain MF RF
+16,26,35,mf_var,Plain MF RF
+16,28,454,mf_var,Plain MF RF
+16,29,35,mf_var,Plain MF RF
+16,30,49,mf_var,Plain MF RF
+16,31,63092,mf_var,Plain MF RF
+16,32,524,mf_var,Plain MF RF
+16,33,320,mf_var,Plain MF RF
+16,34,480,mf_var,Plain MF RF
+16,36,388,mf_var,Plain MF RF
+16,39,2893,mf_var,Plain MF RF
+16,40,56,mf_var,Plain MF RF
+16,42,7386,mf_var,Plain MF RF
+16,43,13449,mf_var,Plain MF RF
+16,44,56,mf_var,Plain MF RF
+16,45,23548,mf_var,Plain MF RF
+16,46,44926,mf_var,Plain MF RF
+16,47,40,mf_var,Plain MF RF
+16,48,37,mf_var,Plain MF RF
+16,49,244,mf_var,Plain MF RF
+16,50,142,mf_var,Plain MF RF
+17,2,52,mf_var,Plain MF RF
+17,4,8,mf_var,Plain MF RF
+17,5,12,mf_var,Plain MF RF
+17,16,1,mf_var,Plain MF RF
+17,17,1496,mf_var,Plain MF RF
+18,1,2010,mf_var,Plain MF RF
+18,2,728,mf_var,Plain MF RF
+18,3,112,mf_var,Plain MF RF
+18,4,152,mf_var,Plain MF RF
+18,5,1063,mf_var,Plain MF RF
+18,7,212,mf_var,Plain MF RF
+18,10,6612,mf_var,Plain MF RF
+18,11,194,mf_var,Plain MF RF
+18,13,2863,mf_var,Plain MF RF
+18,16,23022,mf_var,Plain MF RF
+18,17,117,mf_var,Plain MF RF
+18,18,47690,mf_var,Plain MF RF
+18,19,2,mf_var,Plain MF RF
+18,20,1362,mf_var,Plain MF RF
+18,21,4,mf_var,Plain MF RF
+18,22,604,mf_var,Plain MF RF
+18,23,12,mf_var,Plain MF RF
+18,24,233,mf_var,Plain MF RF
+18,25,1416,mf_var,Plain MF RF
+18,26,36,mf_var,Plain MF RF
+18,28,474,mf_var,Plain MF RF
+18,30,16,mf_var,Plain MF RF
+18,31,3004,mf_var,Plain MF RF
+18,32,36,mf_var,Plain MF RF
+18,33,234,mf_var,Plain MF RF
+18,34,505,mf_var,Plain MF RF
+18,36,524,mf_var,Plain MF RF
+18,37,10,mf_var,Plain MF RF
+18,39,5074,mf_var,Plain MF RF
+18,41,5,mf_var,Plain MF RF
+18,42,1297,mf_var,Plain MF RF
+18,43,699,mf_var,Plain MF RF
+18,44,260,mf_var,Plain MF RF
+18,45,2230,mf_var,Plain MF RF
+18,46,9866,mf_var,Plain MF RF
+18,47,9,mf_var,Plain MF RF
+18,49,61,mf_var,Plain MF RF
+18,50,214,mf_var,Plain MF RF
+19,1,59,mf_var,Plain MF RF
+19,2,6,mf_var,Plain MF RF
+19,3,14,mf_var,Plain MF RF
+19,4,18,mf_var,Plain MF RF
+19,5,3,mf_var,Plain MF RF
+19,6,45,mf_var,Plain MF RF
+19,7,178,mf_var,Plain MF RF
+19,10,409,mf_var,Plain MF RF
+19,12,54,mf_var,Plain MF RF
+19,13,283,mf_var,Plain MF RF
+19,14,4102,mf_var,Plain MF RF
+19,15,18206,mf_var,Plain MF RF
+19,16,3787,mf_var,Plain MF RF
+19,17,9,mf_var,Plain MF RF
+19,18,408,mf_var,Plain MF RF
+19,19,532388,mf_var,Plain MF RF
+19,20,38729,mf_var,Plain MF RF
+19,22,3932,mf_var,Plain MF RF
+19,23,35021,mf_var,Plain MF RF
+19,24,19265,mf_var,Plain MF RF
+19,25,869,mf_var,Plain MF RF
+19,27,777,mf_var,Plain MF RF
+19,28,104,mf_var,Plain MF RF
+19,29,3340,mf_var,Plain MF RF
+19,31,6932,mf_var,Plain MF RF
+19,32,2723,mf_var,Plain MF RF
+19,33,111,mf_var,Plain MF RF
+19,34,1,mf_var,Plain MF RF
+19,35,79,mf_var,Plain MF RF
+19,37,17,mf_var,Plain MF RF
+19,38,13155,mf_var,Plain MF RF
+19,39,1,mf_var,Plain MF RF
+19,42,3005,mf_var,Plain MF RF
+19,43,503,mf_var,Plain MF RF
+19,45,1083,mf_var,Plain MF RF
+19,46,607,mf_var,Plain MF RF
+19,48,1,mf_var,Plain MF RF
+19,50,6,mf_var,Plain MF RF
+20,1,262,mf_var,Plain MF RF
+20,2,72,mf_var,Plain MF RF
+20,3,15,mf_var,Plain MF RF
+20,4,27,mf_var,Plain MF RF
+20,5,189,mf_var,Plain MF RF
+20,7,8,mf_var,Plain MF RF
+20,10,2557,mf_var,Plain MF RF
+20,11,1,mf_var,Plain MF RF
+20,13,485,mf_var,Plain MF RF
+20,15,25,mf_var,Plain MF RF
+20,16,50520,mf_var,Plain MF RF
+20,17,1149,mf_var,Plain MF RF
+20,18,2393,mf_var,Plain MF RF
+20,19,428,mf_var,Plain MF RF
+20,20,225258,mf_var,Plain MF RF
+20,21,1,mf_var,Plain MF RF
+20,22,11452,mf_var,Plain MF RF
+20,23,4,mf_var,Plain MF RF
+20,24,584,mf_var,Plain MF RF
+20,25,1140,mf_var,Plain MF RF
+20,28,168,mf_var,Plain MF RF
+20,30,2,mf_var,Plain MF RF
+20,31,30307,mf_var,Plain MF RF
+20,32,34,mf_var,Plain MF RF
+20,33,23,mf_var,Plain MF RF
+20,34,129,mf_var,Plain MF RF
+20,39,194,mf_var,Plain MF RF
+20,40,12,mf_var,Plain MF RF
+20,42,35553,mf_var,Plain MF RF
+20,43,190,mf_var,Plain MF RF
+20,44,6,mf_var,Plain MF RF
+20,45,5855,mf_var,Plain MF RF
+20,46,9498,mf_var,Plain MF RF
+20,48,83,mf_var,Plain MF RF
+20,49,3,mf_var,Plain MF RF
+20,50,26,mf_var,Plain MF RF
+21,1,166,mf_var,Plain MF RF
+21,2,47,mf_var,Plain MF RF
+21,3,291,mf_var,Plain MF RF
+21,4,121,mf_var,Plain MF RF
+21,5,660,mf_var,Plain MF RF
+21,6,23,mf_var,Plain MF RF
+21,7,256,mf_var,Plain MF RF
+21,9,106,mf_var,Plain MF RF
+21,10,154,mf_var,Plain MF RF
+21,21,381721,mf_var,Plain MF RF
+21,26,12645,mf_var,Plain MF RF
+21,27,5,mf_var,Plain MF RF
+21,28,2605,mf_var,Plain MF RF
+21,30,62052,mf_var,Plain MF RF
+21,34,594,mf_var,Plain MF RF
+21,36,13096,mf_var,Plain MF RF
+21,37,485,mf_var,Plain MF RF
+21,39,450,mf_var,Plain MF RF
+21,40,41376,mf_var,Plain MF RF
+21,41,400,mf_var,Plain MF RF
+21,44,33159,mf_var,Plain MF RF
+21,45,19,mf_var,Plain MF RF
+21,46,74,mf_var,Plain MF RF
+21,47,10175,mf_var,Plain MF RF
+21,48,6323,mf_var,Plain MF RF
+21,49,14037,mf_var,Plain MF RF
+21,50,1176,mf_var,Plain MF RF
+21,52,2109,mf_var,Plain MF RF
+21,53,11790,mf_var,Plain MF RF
+21,54,584,mf_var,Plain MF RF
+21,55,1419,mf_var,Plain MF RF
+22,1,1,mf_var,Plain MF RF
+22,2,27,mf_var,Plain MF RF
+22,3,378,mf_var,Plain MF RF
+22,4,22,mf_var,Plain MF RF
+22,5,556,mf_var,Plain MF RF
+22,6,10,mf_var,Plain MF RF
+22,12,484,mf_var,Plain MF RF
+22,13,269,mf_var,Plain MF RF
+22,16,3253,mf_var,Plain MF RF
+22,17,46,mf_var,Plain MF RF
+22,18,98,mf_var,Plain MF RF
+22,19,295,mf_var,Plain MF RF
+22,20,1702,mf_var,Plain MF RF
+22,22,30660,mf_var,Plain MF RF
+22,23,36,mf_var,Plain MF RF
+22,24,191,mf_var,Plain MF RF
+22,25,259,mf_var,Plain MF RF
+22,27,243,mf_var,Plain MF RF
+22,31,1674,mf_var,Plain MF RF
+22,32,44,mf_var,Plain MF RF
+22,42,1642,mf_var,Plain MF RF
+22,43,7,mf_var,Plain MF RF
+22,44,4,mf_var,Plain MF RF
+22,45,28,mf_var,Plain MF RF
+22,53,1,mf_var,Plain MF RF
+22,55,20,mf_var,Plain MF RF
+23,2,6,mf_var,Plain MF RF
+23,4,115,mf_var,Plain MF RF
+23,5,5,mf_var,Plain MF RF
+23,6,57,mf_var,Plain MF RF
+23,7,788,mf_var,Plain MF RF
+23,12,83,mf_var,Plain MF RF
+23,13,1232,mf_var,Plain MF RF
+23,14,6699,mf_var,Plain MF RF
+23,15,17421,mf_var,Plain MF RF
+23,16,84,mf_var,Plain MF RF
+23,17,11,mf_var,Plain MF RF
+23,18,1263,mf_var,Plain MF RF
+23,19,20447,mf_var,Plain MF RF
+23,20,402,mf_var,Plain MF RF
+23,21,1,mf_var,Plain MF RF
+23,22,91,mf_var,Plain MF RF
+23,23,188426,mf_var,Plain MF RF
+23,24,49143,mf_var,Plain MF RF
+23,25,1703,mf_var,Plain MF RF
+23,26,4,mf_var,Plain MF RF
+23,27,543,mf_var,Plain MF RF
+23,28,208,mf_var,Plain MF RF
+23,29,13251,mf_var,Plain MF RF
+23,31,1473,mf_var,Plain MF RF
+23,32,7272,mf_var,Plain MF RF
+23,33,1832,mf_var,Plain MF RF
+23,35,9800,mf_var,Plain MF RF
+23,36,3,mf_var,Plain MF RF
+23,38,3669,mf_var,Plain MF RF
+23,40,52,mf_var,Plain MF RF
+23,41,7,mf_var,Plain MF RF
+23,42,558,mf_var,Plain MF RF
+23,43,52,mf_var,Plain MF RF
+23,44,3,mf_var,Plain MF RF
+23,45,10,mf_var,Plain MF RF
+23,46,2,mf_var,Plain MF RF
+23,49,15,mf_var,Plain MF RF
+23,52,9,mf_var,Plain MF RF
+24,1,61,mf_var,Plain MF RF
+24,2,47,mf_var,Plain MF RF
+24,3,86,mf_var,Plain MF RF
+24,4,102,mf_var,Plain MF RF
+24,5,573,mf_var,Plain MF RF
+24,6,159,mf_var,Plain MF RF
+24,7,1032,mf_var,Plain MF RF
+24,10,5,mf_var,Plain MF RF
+24,11,302,mf_var,Plain MF RF
+24,12,1743,mf_var,Plain MF RF
+24,13,11681,mf_var,Plain MF RF
+24,14,1265,mf_var,Plain MF RF
+24,15,11104,mf_var,Plain MF RF
+24,16,710,mf_var,Plain MF RF
+24,18,1364,mf_var,Plain MF RF
+24,19,13059,mf_var,Plain MF RF
+24,20,1867,mf_var,Plain MF RF
+24,22,709,mf_var,Plain MF RF
+24,23,64142,mf_var,Plain MF RF
+24,24,539834,mf_var,Plain MF RF
+24,25,50979,mf_var,Plain MF RF
+24,26,3,mf_var,Plain MF RF
+24,27,2480,mf_var,Plain MF RF
+24,28,7,mf_var,Plain MF RF
+24,29,45552,mf_var,Plain MF RF
+24,31,5073,mf_var,Plain MF RF
+24,32,33017,mf_var,Plain MF RF
+24,33,12516,mf_var,Plain MF RF
+24,35,26985,mf_var,Plain MF RF
+24,38,5000,mf_var,Plain MF RF
+24,42,12515,mf_var,Plain MF RF
+24,43,985,mf_var,Plain MF RF
+24,44,3,mf_var,Plain MF RF
+24,45,112,mf_var,Plain MF RF
+24,46,4,mf_var,Plain MF RF
+25,1,663,mf_var,Plain MF RF
+25,2,115,mf_var,Plain MF RF
+25,4,263,mf_var,Plain MF RF
+25,5,942,mf_var,Plain MF RF
+25,7,844,mf_var,Plain MF RF
+25,11,1298,mf_var,Plain MF RF
+25,12,1206,mf_var,Plain MF RF
+25,13,19151,mf_var,Plain MF RF
+25,14,80,mf_var,Plain MF RF
+25,15,3281,mf_var,Plain MF RF
+25,16,2892,mf_var,Plain MF RF
+25,18,1027,mf_var,Plain MF RF
+25,19,68,mf_var,Plain MF RF
+25,20,2438,mf_var,Plain MF RF
+25,22,426,mf_var,Plain MF RF
+25,23,1545,mf_var,Plain MF RF
+25,24,16599,mf_var,Plain MF RF
+25,25,153638,mf_var,Plain MF RF
+25,27,297,mf_var,Plain MF RF
+25,29,1539,mf_var,Plain MF RF
+25,31,9047,mf_var,Plain MF RF
+25,32,6934,mf_var,Plain MF RF
+25,33,4135,mf_var,Plain MF RF
+25,35,2799,mf_var,Plain MF RF
+25,37,15,mf_var,Plain MF RF
+25,39,5,mf_var,Plain MF RF
+25,42,5505,mf_var,Plain MF RF
+25,43,322,mf_var,Plain MF RF
+25,45,121,mf_var,Plain MF RF
+25,46,4,mf_var,Plain MF RF
+25,50,2,mf_var,Plain MF RF
+26,1,19,mf_var,Plain MF RF
+26,3,78,mf_var,Plain MF RF
+26,4,2,mf_var,Plain MF RF
+26,5,290,mf_var,Plain MF RF
+26,7,145,mf_var,Plain MF RF
+26,10,626,mf_var,Plain MF RF
+26,12,11,mf_var,Plain MF RF
+26,15,3,mf_var,Plain MF RF
+26,21,1672,mf_var,Plain MF RF
+26,23,86,mf_var,Plain MF RF
+26,24,2,mf_var,Plain MF RF
+26,26,24247,mf_var,Plain MF RF
+26,27,9,mf_var,Plain MF RF
+26,28,272,mf_var,Plain MF RF
+26,30,5104,mf_var,Plain MF RF
+26,33,11,mf_var,Plain MF RF
+26,34,1168,mf_var,Plain MF RF
+26,36,2203,mf_var,Plain MF RF
+26,39,355,mf_var,Plain MF RF
+26,40,774,mf_var,Plain MF RF
+26,41,39,mf_var,Plain MF RF
+26,44,417,mf_var,Plain MF RF
+26,46,123,mf_var,Plain MF RF
+26,47,331,mf_var,Plain MF RF
+26,48,8,mf_var,Plain MF RF
+26,49,2215,mf_var,Plain MF RF
+26,50,17,mf_var,Plain MF RF
+26,52,337,mf_var,Plain MF RF
+26,53,317,mf_var,Plain MF RF
+26,55,2,mf_var,Plain MF RF
+27,1,5,mf_var,Plain MF RF
+27,2,1586,mf_var,Plain MF RF
+27,3,35998,mf_var,Plain MF RF
+27,4,3704,mf_var,Plain MF RF
+27,5,4234,mf_var,Plain MF RF
+27,6,3681,mf_var,Plain MF RF
+27,7,26164,mf_var,Plain MF RF
+27,9,661,mf_var,Plain MF RF
+27,10,128,mf_var,Plain MF RF
+27,11,14020,mf_var,Plain MF RF
+27,12,5956,mf_var,Plain MF RF
+27,13,4595,mf_var,Plain MF RF
+27,14,6456,mf_var,Plain MF RF
+27,15,21848,mf_var,Plain MF RF
+27,16,4,mf_var,Plain MF RF
+27,18,7,mf_var,Plain MF RF
+27,19,1762,mf_var,Plain MF RF
+27,20,15,mf_var,Plain MF RF
+27,21,84,mf_var,Plain MF RF
+27,23,4541,mf_var,Plain MF RF
+27,24,4678,mf_var,Plain MF RF
+27,25,362,mf_var,Plain MF RF
+27,26,369,mf_var,Plain MF RF
+27,27,630608,mf_var,Plain MF RF
+27,28,5105,mf_var,Plain MF RF
+27,29,18,mf_var,Plain MF RF
+27,30,129,mf_var,Plain MF RF
+27,32,2178,mf_var,Plain MF RF
+27,33,16569,mf_var,Plain MF RF
+27,34,28,mf_var,Plain MF RF
+27,35,5,mf_var,Plain MF RF
+27,36,1643,mf_var,Plain MF RF
+27,37,30534,mf_var,Plain MF RF
+27,38,1717,mf_var,Plain MF RF
+27,39,139,mf_var,Plain MF RF
+27,40,261,mf_var,Plain MF RF
+27,41,17360,mf_var,Plain MF RF
+27,44,548,mf_var,Plain MF RF
+27,45,35,mf_var,Plain MF RF
+27,46,171,mf_var,Plain MF RF
+27,47,9232,mf_var,Plain MF RF
+27,48,25,mf_var,Plain MF RF
+27,49,38,mf_var,Plain MF RF
+28,1,631,mf_var,Plain MF RF
+28,2,48,mf_var,Plain MF RF
+28,3,1086,mf_var,Plain MF RF
+28,5,230,mf_var,Plain MF RF
+28,7,491,mf_var,Plain MF RF
+28,10,1202,mf_var,Plain MF RF
+28,11,1,mf_var,Plain MF RF
+28,13,24,mf_var,Plain MF RF
+28,15,52,mf_var,Plain MF RF
+28,16,52,mf_var,Plain MF RF
+28,18,720,mf_var,Plain MF RF
+28,19,7,mf_var,Plain MF RF
+28,20,34,mf_var,Plain MF RF
+28,21,626,mf_var,Plain MF RF
+28,23,131,mf_var,Plain MF RF
+28,24,29,mf_var,Plain MF RF
+28,25,23,mf_var,Plain MF RF
+28,26,806,mf_var,Plain MF RF
+28,27,1287,mf_var,Plain MF RF
+28,28,22858,mf_var,Plain MF RF
+28,30,1766,mf_var,Plain MF RF
+28,31,8,mf_var,Plain MF RF
+28,33,373,mf_var,Plain MF RF
+28,34,240,mf_var,Plain MF RF
+28,36,2599,mf_var,Plain MF RF
+28,37,3,mf_var,Plain MF RF
+28,39,1165,mf_var,Plain MF RF
+28,40,908,mf_var,Plain MF RF
+28,41,262,mf_var,Plain MF RF
+28,44,3353,mf_var,Plain MF RF
+28,45,235,mf_var,Plain MF RF
+28,46,737,mf_var,Plain MF RF
+28,47,2859,mf_var,Plain MF RF
+28,49,424,mf_var,Plain MF RF
+28,50,417,mf_var,Plain MF RF
+28,53,1,mf_var,Plain MF RF
+28,55,354,mf_var,Plain MF RF
+29,7,612,mf_var,Plain MF RF
+29,12,57,mf_var,Plain MF RF
+29,13,55,mf_var,Plain MF RF
+29,15,3641,mf_var,Plain MF RF
+29,19,1899,mf_var,Plain MF RF
+29,20,28,mf_var,Plain MF RF
+29,22,12,mf_var,Plain MF RF
+29,23,6855,mf_var,Plain MF RF
+29,24,14747,mf_var,Plain MF RF
+29,25,773,mf_var,Plain MF RF
+29,27,20,mf_var,Plain MF RF
+29,29,130033,mf_var,Plain MF RF
+29,31,2,mf_var,Plain MF RF
+29,32,1290,mf_var,Plain MF RF
+29,33,1536,mf_var,Plain MF RF
+29,35,1541,mf_var,Plain MF RF
+29,38,1098,mf_var,Plain MF RF
+29,40,13,mf_var,Plain MF RF
+29,49,5,mf_var,Plain MF RF
+30,1,221,mf_var,Plain MF RF
+30,3,5769,mf_var,Plain MF RF
+30,4,170,mf_var,Plain MF RF
+30,5,3205,mf_var,Plain MF RF
+30,7,2251,mf_var,Plain MF RF
+30,10,3957,mf_var,Plain MF RF
+30,11,47,mf_var,Plain MF RF
+30,13,1,mf_var,Plain MF RF
+30,18,28,mf_var,Plain MF RF
+30,21,54682,mf_var,Plain MF RF
+30,26,34308,mf_var,Plain MF RF
+30,27,674,mf_var,Plain MF RF
+30,28,10445,mf_var,Plain MF RF
+30,30,247772,mf_var,Plain MF RF
+30,33,492,mf_var,Plain MF RF
+30,34,1370,mf_var,Plain MF RF
+30,36,20118,mf_var,Plain MF RF
+30,37,390,mf_var,Plain MF RF
+30,39,7665,mf_var,Plain MF RF
+30,40,49778,mf_var,Plain MF RF
+30,41,1891,mf_var,Plain MF RF
+30,44,47744,mf_var,Plain MF RF
+30,45,342,mf_var,Plain MF RF
+30,46,2443,mf_var,Plain MF RF
+30,47,43862,mf_var,Plain MF RF
+30,48,856,mf_var,Plain MF RF
+30,49,29333,mf_var,Plain MF RF
+30,50,1862,mf_var,Plain MF RF
+30,52,216,mf_var,Plain MF RF
+30,53,2729,mf_var,Plain MF RF
+30,54,999,mf_var,Plain MF RF
+30,55,615,mf_var,Plain MF RF
+31,1,4578,mf_var,Plain MF RF
+31,2,186,mf_var,Plain MF RF
+31,3,2,mf_var,Plain MF RF
+31,4,13,mf_var,Plain MF RF
+31,5,67,mf_var,Plain MF RF
+31,6,251,mf_var,Plain MF RF
+31,7,1169,mf_var,Plain MF RF
+31,10,21,mf_var,Plain MF RF
+31,11,28,mf_var,Plain MF RF
+31,12,3,mf_var,Plain MF RF
+31,13,9719,mf_var,Plain MF RF
+31,14,81,mf_var,Plain MF RF
+31,15,334,mf_var,Plain MF RF
+31,16,48728,mf_var,Plain MF RF
+31,17,10,mf_var,Plain MF RF
+31,18,9941,mf_var,Plain MF RF
+31,19,1796,mf_var,Plain MF RF
+31,20,42931,mf_var,Plain MF RF
+31,21,2,mf_var,Plain MF RF
+31,22,21838,mf_var,Plain MF RF
+31,23,705,mf_var,Plain MF RF
+31,24,3859,mf_var,Plain MF RF
+31,25,24167,mf_var,Plain MF RF
+31,27,10,mf_var,Plain MF RF
+31,29,47,mf_var,Plain MF RF
+31,30,13,mf_var,Plain MF RF
+31,31,593076,mf_var,Plain MF RF
+31,32,1340,mf_var,Plain MF RF
+31,33,1824,mf_var,Plain MF RF
+31,35,167,mf_var,Plain MF RF
+31,36,48,mf_var,Plain MF RF
+31,37,1,mf_var,Plain MF RF
+31,38,4,mf_var,Plain MF RF
+31,39,145,mf_var,Plain MF RF
+31,40,2,mf_var,Plain MF RF
+31,42,68466,mf_var,Plain MF RF
+31,43,543,mf_var,Plain MF RF
+31,44,2,mf_var,Plain MF RF
+31,45,4572,mf_var,Plain MF RF
+31,46,55,mf_var,Plain MF RF
+31,47,2,mf_var,Plain MF RF
+31,48,12,mf_var,Plain MF RF
+31,50,551,mf_var,Plain MF RF
+32,6,1,mf_var,Plain MF RF
+32,7,802,mf_var,Plain MF RF
+32,12,6,mf_var,Plain MF RF
+32,13,1609,mf_var,Plain MF RF
+32,14,293,mf_var,Plain MF RF
+32,15,1607,mf_var,Plain MF RF
+32,16,18,mf_var,Plain MF RF
+32,18,110,mf_var,Plain MF RF
+32,19,515,mf_var,Plain MF RF
+32,20,94,mf_var,Plain MF RF
+32,23,2549,mf_var,Plain MF RF
+32,24,5031,mf_var,Plain MF RF
+32,25,2920,mf_var,Plain MF RF
+32,27,143,mf_var,Plain MF RF
+32,29,849,mf_var,Plain MF RF
+32,31,303,mf_var,Plain MF RF
+32,32,40391,mf_var,Plain MF RF
+32,33,1970,mf_var,Plain MF RF
+32,35,665,mf_var,Plain MF RF
+32,38,207,mf_var,Plain MF RF
+32,42,398,mf_var,Plain MF RF
+32,43,1,mf_var,Plain MF RF
+33,1,1402,mf_var,Plain MF RF
+33,2,196,mf_var,Plain MF RF
+33,3,5911,mf_var,Plain MF RF
+33,4,2,mf_var,Plain MF RF
+33,5,2410,mf_var,Plain MF RF
+33,6,1,mf_var,Plain MF RF
+33,7,23272,mf_var,Plain MF RF
+33,10,377,mf_var,Plain MF RF
+33,11,3200,mf_var,Plain MF RF
+33,12,2917,mf_var,Plain MF RF
+33,13,22660,mf_var,Plain MF RF
+33,14,628,mf_var,Plain MF RF
+33,15,4242,mf_var,Plain MF RF
+33,16,420,mf_var,Plain MF RF
+33,18,502,mf_var,Plain MF RF
+33,19,31,mf_var,Plain MF RF
+33,20,375,mf_var,Plain MF RF
+33,21,3,mf_var,Plain MF RF
+33,23,3388,mf_var,Plain MF RF
+33,24,9853,mf_var,Plain MF RF
+33,25,6055,mf_var,Plain MF RF
+33,26,36,mf_var,Plain MF RF
+33,27,3406,mf_var,Plain MF RF
+33,28,477,mf_var,Plain MF RF
+33,29,2995,mf_var,Plain MF RF
+33,30,22,mf_var,Plain MF RF
+33,31,80,mf_var,Plain MF RF
+33,32,4738,mf_var,Plain MF RF
+33,33,258558,mf_var,Plain MF RF
+33,34,12,mf_var,Plain MF RF
+33,35,881,mf_var,Plain MF RF
+33,36,138,mf_var,Plain MF RF
+33,37,3261,mf_var,Plain MF RF
+33,39,30,mf_var,Plain MF RF
+33,40,103,mf_var,Plain MF RF
+33,41,24891,mf_var,Plain MF RF
+33,44,1281,mf_var,Plain MF RF
+33,45,648,mf_var,Plain MF RF
+33,46,21,mf_var,Plain MF RF
+33,47,207,mf_var,Plain MF RF
+33,49,73,mf_var,Plain MF RF
+33,50,2,mf_var,Plain MF RF
+33,52,41,mf_var,Plain MF RF
+34,3,51,mf_var,Plain MF RF
+34,7,8,mf_var,Plain MF RF
+34,10,399,mf_var,Plain MF RF
+34,18,5,mf_var,Plain MF RF
+34,21,2,mf_var,Plain MF RF
+34,26,16,mf_var,Plain MF RF
+34,27,23,mf_var,Plain MF RF
+34,28,3,mf_var,Plain MF RF
+34,30,29,mf_var,Plain MF RF
+34,34,4001,mf_var,Plain MF RF
+34,36,94,mf_var,Plain MF RF
+34,39,209,mf_var,Plain MF RF
+34,40,20,mf_var,Plain MF RF
+34,44,5,mf_var,Plain MF RF
+34,46,96,mf_var,Plain MF RF
+34,49,149,mf_var,Plain MF RF
+34,50,7,mf_var,Plain MF RF
+35,7,1,mf_var,Plain MF RF
+35,13,122,mf_var,Plain MF RF
+35,14,83,mf_var,Plain MF RF
+35,15,43,mf_var,Plain MF RF
+35,16,31,mf_var,Plain MF RF
+35,18,6,mf_var,Plain MF RF
+35,19,29,mf_var,Plain MF RF
+35,23,570,mf_var,Plain MF RF
+35,24,2142,mf_var,Plain MF RF
+35,25,727,mf_var,Plain MF RF
+35,29,531,mf_var,Plain MF RF
+35,32,332,mf_var,Plain MF RF
+35,33,264,mf_var,Plain MF RF
+35,35,27979,mf_var,Plain MF RF
+35,38,4,mf_var,Plain MF RF
+36,1,6,mf_var,Plain MF RF
+36,3,231,mf_var,Plain MF RF
+36,5,11,mf_var,Plain MF RF
+36,7,89,mf_var,Plain MF RF
+36,9,23,mf_var,Plain MF RF
+36,10,310,mf_var,Plain MF RF
+36,12,37,mf_var,Plain MF RF
+36,13,25,mf_var,Plain MF RF
+36,16,2,mf_var,Plain MF RF
+36,21,287,mf_var,Plain MF RF
+36,26,521,mf_var,Plain MF RF
+36,27,2,mf_var,Plain MF RF
+36,28,1011,mf_var,Plain MF RF
+36,30,795,mf_var,Plain MF RF
+36,33,31,mf_var,Plain MF RF
+36,34,366,mf_var,Plain MF RF
+36,36,16459,mf_var,Plain MF RF
+36,39,149,mf_var,Plain MF RF
+36,40,357,mf_var,Plain MF RF
+36,41,153,mf_var,Plain MF RF
+36,44,952,mf_var,Plain MF RF
+36,46,106,mf_var,Plain MF RF
+36,47,317,mf_var,Plain MF RF
+36,48,7,mf_var,Plain MF RF
+36,49,236,mf_var,Plain MF RF
+36,50,35,mf_var,Plain MF RF
+36,53,34,mf_var,Plain MF RF
+36,55,23,mf_var,Plain MF RF
+37,1,240,mf_var,Plain MF RF
+37,2,120,mf_var,Plain MF RF
+37,3,11965,mf_var,Plain MF RF
+37,4,7,mf_var,Plain MF RF
+37,5,428,mf_var,Plain MF RF
+37,6,187,mf_var,Plain MF RF
+37,7,7070,mf_var,Plain MF RF
+37,9,79,mf_var,Plain MF RF
+37,10,839,mf_var,Plain MF RF
+37,11,335,mf_var,Plain MF RF
+37,12,443,mf_var,Plain MF RF
+37,13,1390,mf_var,Plain MF RF
+37,14,568,mf_var,Plain MF RF
+37,15,50,mf_var,Plain MF RF
+37,16,53,mf_var,Plain MF RF
+37,18,163,mf_var,Plain MF RF
+37,19,4,mf_var,Plain MF RF
+37,20,6,mf_var,Plain MF RF
+37,21,855,mf_var,Plain MF RF
+37,25,558,mf_var,Plain MF RF
+37,26,81,mf_var,Plain MF RF
+37,27,11258,mf_var,Plain MF RF
+37,28,243,mf_var,Plain MF RF
+37,30,567,mf_var,Plain MF RF
+37,32,1,mf_var,Plain MF RF
+37,33,5038,mf_var,Plain MF RF
+37,34,100,mf_var,Plain MF RF
+37,36,20,mf_var,Plain MF RF
+37,37,140359,mf_var,Plain MF RF
+37,39,263,mf_var,Plain MF RF
+37,40,34,mf_var,Plain MF RF
+37,41,7499,mf_var,Plain MF RF
+37,44,47,mf_var,Plain MF RF
+37,45,19,mf_var,Plain MF RF
+37,46,165,mf_var,Plain MF RF
+37,47,569,mf_var,Plain MF RF
+37,49,11,mf_var,Plain MF RF
+38,13,39,mf_var,Plain MF RF
+38,15,225,mf_var,Plain MF RF
+38,19,346,mf_var,Plain MF RF
+38,23,679,mf_var,Plain MF RF
+38,24,294,mf_var,Plain MF RF
+38,25,42,mf_var,Plain MF RF
+38,27,415,mf_var,Plain MF RF
+38,29,82,mf_var,Plain MF RF
+38,32,67,mf_var,Plain MF RF
+38,38,27842,mf_var,Plain MF RF
+39,1,27,mf_var,Plain MF RF
+39,5,60,mf_var,Plain MF RF
+39,7,22,mf_var,Plain MF RF
+39,10,3748,mf_var,Plain MF RF
+39,13,2,mf_var,Plain MF RF
+39,16,108,mf_var,Plain MF RF
+39,18,234,mf_var,Plain MF RF
+39,20,11,mf_var,Plain MF RF
+39,23,78,mf_var,Plain MF RF
+39,24,4,mf_var,Plain MF RF
+39,26,12,mf_var,Plain MF RF
+39,28,18,mf_var,Plain MF RF
+39,30,259,mf_var,Plain MF RF
+39,34,655,mf_var,Plain MF RF
+39,36,62,mf_var,Plain MF RF
+39,39,13718,mf_var,Plain MF RF
+39,40,58,mf_var,Plain MF RF
+39,43,1,mf_var,Plain MF RF
+39,44,67,mf_var,Plain MF RF
+39,45,85,mf_var,Plain MF RF
+39,46,2435,mf_var,Plain MF RF
+39,47,90,mf_var,Plain MF RF
+39,49,59,mf_var,Plain MF RF
+39,50,130,mf_var,Plain MF RF
+40,1,145,mf_var,Plain MF RF
+40,3,846,mf_var,Plain MF RF
+40,4,7,mf_var,Plain MF RF
+40,5,2262,mf_var,Plain MF RF
+40,7,1511,mf_var,Plain MF RF
+40,10,3370,mf_var,Plain MF RF
+40,11,6,mf_var,Plain MF RF
+40,13,5,mf_var,Plain MF RF
+40,18,5,mf_var,Plain MF RF
+40,20,27,mf_var,Plain MF RF
+40,21,27136,mf_var,Plain MF RF
+40,25,20,mf_var,Plain MF RF
+40,26,7243,mf_var,Plain MF RF
+40,27,111,mf_var,Plain MF RF
+40,28,6898,mf_var,Plain MF RF
+40,30,32834,mf_var,Plain MF RF
+40,31,89,mf_var,Plain MF RF
+40,33,28,mf_var,Plain MF RF
+40,34,665,mf_var,Plain MF RF
+40,36,14908,mf_var,Plain MF RF
+40,37,5,mf_var,Plain MF RF
+40,39,2285,mf_var,Plain MF RF
+40,40,132444,mf_var,Plain MF RF
+40,41,999,mf_var,Plain MF RF
+40,44,28786,mf_var,Plain MF RF
+40,45,191,mf_var,Plain MF RF
+40,46,2724,mf_var,Plain MF RF
+40,47,30124,mf_var,Plain MF RF
+40,48,543,mf_var,Plain MF RF
+40,49,26403,mf_var,Plain MF RF
+40,50,1444,mf_var,Plain MF RF
+40,52,4122,mf_var,Plain MF RF
+40,53,7236,mf_var,Plain MF RF
+40,54,1237,mf_var,Plain MF RF
+40,55,2636,mf_var,Plain MF RF
+41,1,2,mf_var,Plain MF RF
+41,2,24,mf_var,Plain MF RF
+41,3,3808,mf_var,Plain MF RF
+41,5,161,mf_var,Plain MF RF
+41,6,14,mf_var,Plain MF RF
+41,7,8578,mf_var,Plain MF RF
+41,10,130,mf_var,Plain MF RF
+41,11,14,mf_var,Plain MF RF
+41,12,312,mf_var,Plain MF RF
+41,13,524,mf_var,Plain MF RF
+41,15,32,mf_var,Plain MF RF
+41,16,10,mf_var,Plain MF RF
+41,18,5,mf_var,Plain MF RF
+41,21,393,mf_var,Plain MF RF
+41,25,3,mf_var,Plain MF RF
+41,26,435,mf_var,Plain MF RF
+41,27,3556,mf_var,Plain MF RF
+41,28,1456,mf_var,Plain MF RF
+41,30,1982,mf_var,Plain MF RF
+41,32,6,mf_var,Plain MF RF
+41,33,11991,mf_var,Plain MF RF
+41,34,4,mf_var,Plain MF RF
+41,36,2018,mf_var,Plain MF RF
+41,37,5567,mf_var,Plain MF RF
+41,39,14,mf_var,Plain MF RF
+41,40,233,mf_var,Plain MF RF
+41,41,47923,mf_var,Plain MF RF
+41,44,266,mf_var,Plain MF RF
+41,45,18,mf_var,Plain MF RF
+41,46,6,mf_var,Plain MF RF
+41,47,1646,mf_var,Plain MF RF
+41,49,80,mf_var,Plain MF RF
+42,7,80,mf_var,Plain MF RF
+42,13,373,mf_var,Plain MF RF
+42,14,2,mf_var,Plain MF RF
+42,15,34,mf_var,Plain MF RF
+42,16,390,mf_var,Plain MF RF
+42,18,41,mf_var,Plain MF RF
+42,19,645,mf_var,Plain MF RF
+42,20,11243,mf_var,Plain MF RF
+42,22,1292,mf_var,Plain MF RF
+42,23,13,mf_var,Plain MF RF
+42,24,1523,mf_var,Plain MF RF
+42,25,1660,mf_var,Plain MF RF
+42,31,15682,mf_var,Plain MF RF
+42,32,156,mf_var,Plain MF RF
+42,33,4,mf_var,Plain MF RF
+42,37,2,mf_var,Plain MF RF
+42,42,120156,mf_var,Plain MF RF
+42,43,1640,mf_var,Plain MF RF
+43,10,4,mf_var,Plain MF RF
+43,16,292,mf_var,Plain MF RF
+43,18,28,mf_var,Plain MF RF
+43,19,4,mf_var,Plain MF RF
+43,20,34,mf_var,Plain MF RF
+43,24,39,mf_var,Plain MF RF
+43,25,42,mf_var,Plain MF RF
+43,31,3,mf_var,Plain MF RF
+43,39,5,mf_var,Plain MF RF
+43,42,156,mf_var,Plain MF RF
+43,43,4975,mf_var,Plain MF RF
+43,46,110,mf_var,Plain MF RF
+44,1,564,mf_var,Plain MF RF
+44,2,20,mf_var,Plain MF RF
+44,3,2436,mf_var,Plain MF RF
+44,4,15,mf_var,Plain MF RF
+44,5,2355,mf_var,Plain MF RF
+44,7,2984,mf_var,Plain MF RF
+44,10,2193,mf_var,Plain MF RF
+44,13,638,mf_var,Plain MF RF
+44,15,3,mf_var,Plain MF RF
+44,16,116,mf_var,Plain MF RF
+44,18,1029,mf_var,Plain MF RF
+44,19,50,mf_var,Plain MF RF
+44,20,37,mf_var,Plain MF RF
+44,21,31206,mf_var,Plain MF RF
+44,24,12,mf_var,Plain MF RF
+44,26,13534,mf_var,Plain MF RF
+44,27,107,mf_var,Plain MF RF
+44,28,23814,mf_var,Plain MF RF
+44,30,67591,mf_var,Plain MF RF
+44,31,27,mf_var,Plain MF RF
+44,33,2024,mf_var,Plain MF RF
+44,34,940,mf_var,Plain MF RF
+44,36,36200,mf_var,Plain MF RF
+44,37,37,mf_var,Plain MF RF
+44,39,6191,mf_var,Plain MF RF
+44,40,53961,mf_var,Plain MF RF
+44,41,1281,mf_var,Plain MF RF
+44,44,195034,mf_var,Plain MF RF
+44,45,1198,mf_var,Plain MF RF
+44,46,1531,mf_var,Plain MF RF
+44,47,42437,mf_var,Plain MF RF
+44,48,84,mf_var,Plain MF RF
+44,49,28193,mf_var,Plain MF RF
+44,50,4714,mf_var,Plain MF RF
+44,52,4745,mf_var,Plain MF RF
+44,53,21604,mf_var,Plain MF RF
+44,54,8812,mf_var,Plain MF RF
+44,55,7784,mf_var,Plain MF RF
+45,1,115,mf_var,Plain MF RF
+45,2,1,mf_var,Plain MF RF
+45,5,179,mf_var,Plain MF RF
+45,7,1,mf_var,Plain MF RF
+45,10,141,mf_var,Plain MF RF
+45,13,141,mf_var,Plain MF RF
+45,15,5,mf_var,Plain MF RF
+45,16,1148,mf_var,Plain MF RF
+45,18,105,mf_var,Plain MF RF
+45,20,263,mf_var,Plain MF RF
+45,22,1,mf_var,Plain MF RF
+45,23,7,mf_var,Plain MF RF
+45,24,299,mf_var,Plain MF RF
+45,25,42,mf_var,Plain MF RF
+45,28,14,mf_var,Plain MF RF
+45,29,132,mf_var,Plain MF RF
+45,30,101,mf_var,Plain MF RF
+45,31,138,mf_var,Plain MF RF
+45,32,1,mf_var,Plain MF RF
+45,33,6,mf_var,Plain MF RF
+45,34,81,mf_var,Plain MF RF
+45,39,444,mf_var,Plain MF RF
+45,40,41,mf_var,Plain MF RF
+45,44,71,mf_var,Plain MF RF
+45,45,11614,mf_var,Plain MF RF
+45,46,1251,mf_var,Plain MF RF
+45,47,7,mf_var,Plain MF RF
+45,49,26,mf_var,Plain MF RF
+45,50,2,mf_var,Plain MF RF
+46,1,626,mf_var,Plain MF RF
+46,2,64,mf_var,Plain MF RF
+46,3,94,mf_var,Plain MF RF
+46,5,279,mf_var,Plain MF RF
+46,7,175,mf_var,Plain MF RF
+46,10,22597,mf_var,Plain MF RF
+46,11,5,mf_var,Plain MF RF
+46,13,265,mf_var,Plain MF RF
+46,16,8998,mf_var,Plain MF RF
+46,18,8218,mf_var,Plain MF RF
+46,20,1902,mf_var,Plain MF RF
+46,21,20,mf_var,Plain MF RF
+46,22,7,mf_var,Plain MF RF
+46,25,20,mf_var,Plain MF RF
+46,26,351,mf_var,Plain MF RF
+46,28,316,mf_var,Plain MF RF
+46,30,524,mf_var,Plain MF RF
+46,31,19,mf_var,Plain MF RF
+46,33,33,mf_var,Plain MF RF
+46,34,2008,mf_var,Plain MF RF
+46,36,674,mf_var,Plain MF RF
+46,37,17,mf_var,Plain MF RF
+46,39,9468,mf_var,Plain MF RF
+46,40,1085,mf_var,Plain MF RF
+46,43,203,mf_var,Plain MF RF
+46,44,658,mf_var,Plain MF RF
+46,45,8196,mf_var,Plain MF RF
+46,46,66247,mf_var,Plain MF RF
+46,47,1172,mf_var,Plain MF RF
+46,49,1838,mf_var,Plain MF RF
+46,50,196,mf_var,Plain MF RF
+47,1,100,mf_var,Plain MF RF
+47,3,1835,mf_var,Plain MF RF
+47,4,34,mf_var,Plain MF RF
+47,5,2861,mf_var,Plain MF RF
+47,6,53,mf_var,Plain MF RF
+47,7,2026,mf_var,Plain MF RF
+47,10,2742,mf_var,Plain MF RF
+47,11,56,mf_var,Plain MF RF
+47,13,2,mf_var,Plain MF RF
+47,15,6,mf_var,Plain MF RF
+47,21,7355,mf_var,Plain MF RF
+47,26,1611,mf_var,Plain MF RF
+47,27,2070,mf_var,Plain MF RF
+47,28,14280,mf_var,Plain MF RF
+47,30,15007,mf_var,Plain MF RF
+47,33,798,mf_var,Plain MF RF
+47,34,496,mf_var,Plain MF RF
+47,36,8967,mf_var,Plain MF RF
+47,37,160,mf_var,Plain MF RF
+47,39,1234,mf_var,Plain MF RF
+47,40,36765,mf_var,Plain MF RF
+47,41,700,mf_var,Plain MF RF
+47,44,31218,mf_var,Plain MF RF
+47,45,50,mf_var,Plain MF RF
+47,46,2076,mf_var,Plain MF RF
+47,47,201545,mf_var,Plain MF RF
+47,48,489,mf_var,Plain MF RF
+47,49,13030,mf_var,Plain MF RF
+47,50,2154,mf_var,Plain MF RF
+47,52,3857,mf_var,Plain MF RF
+47,53,17,mf_var,Plain MF RF
+47,55,196,mf_var,Plain MF RF
+48,4,7,mf_var,Plain MF RF
+48,21,34,mf_var,Plain MF RF
+48,26,6,mf_var,Plain MF RF
+48,27,8,mf_var,Plain MF RF
+48,28,3,mf_var,Plain MF RF
+48,30,12,mf_var,Plain MF RF
+48,40,4,mf_var,Plain MF RF
+48,43,9,mf_var,Plain MF RF
+48,47,6,mf_var,Plain MF RF
+48,48,1472,mf_var,Plain MF RF
+48,49,23,mf_var,Plain MF RF
+48,53,28,mf_var,Plain MF RF
+49,1,110,mf_var,Plain MF RF
+49,3,77,mf_var,Plain MF RF
+49,4,25,mf_var,Plain MF RF
+49,5,473,mf_var,Plain MF RF
+49,7,72,mf_var,Plain MF RF
+49,10,7719,mf_var,Plain MF RF
+49,20,21,mf_var,Plain MF RF
+49,21,3513,mf_var,Plain MF RF
+49,26,9165,mf_var,Plain MF RF
+49,28,1489,mf_var,Plain MF RF
+49,30,20213,mf_var,Plain MF RF
+49,34,2494,mf_var,Plain MF RF
+49,36,5007,mf_var,Plain MF RF
+49,37,8,mf_var,Plain MF RF
+49,39,1164,mf_var,Plain MF RF
+49,40,11773,mf_var,Plain MF RF
+49,41,8,mf_var,Plain MF RF
+49,44,7407,mf_var,Plain MF RF
+49,45,119,mf_var,Plain MF RF
+49,46,1174,mf_var,Plain MF RF
+49,47,3113,mf_var,Plain MF RF
+49,48,47,mf_var,Plain MF RF
+49,49,70327,mf_var,Plain MF RF
+49,50,415,mf_var,Plain MF RF
+49,52,9742,mf_var,Plain MF RF
+49,53,1427,mf_var,Plain MF RF
+49,54,41,mf_var,Plain MF RF
+49,55,360,mf_var,Plain MF RF
+50,2,3,mf_var,Plain MF RF
+50,7,3,mf_var,Plain MF RF
+50,10,25,mf_var,Plain MF RF
+50,21,12,mf_var,Plain MF RF
+50,26,1,mf_var,Plain MF RF
+50,28,35,mf_var,Plain MF RF
+50,30,5,mf_var,Plain MF RF
+50,34,5,mf_var,Plain MF RF
+50,39,57,mf_var,Plain MF RF
+50,40,35,mf_var,Plain MF RF
+50,44,36,mf_var,Plain MF RF
+50,46,16,mf_var,Plain MF RF
+50,47,18,mf_var,Plain MF RF
+50,50,1954,mf_var,Plain MF RF
+50,53,54,mf_var,Plain MF RF
+50,54,3,mf_var,Plain MF RF
+50,55,4,mf_var,Plain MF RF
+52,10,10,mf_var,Plain MF RF
+52,21,27,mf_var,Plain MF RF
+52,26,50,mf_var,Plain MF RF
+52,28,8,mf_var,Plain MF RF
+52,30,1,mf_var,Plain MF RF
+52,40,302,mf_var,Plain MF RF
+52,44,183,mf_var,Plain MF RF
+52,47,42,mf_var,Plain MF RF
+52,49,1156,mf_var,Plain MF RF
+52,50,2,mf_var,Plain MF RF
+52,52,20429,mf_var,Plain MF RF
+52,53,630,mf_var,Plain MF RF
+52,54,5,mf_var,Plain MF RF
+52,55,491,mf_var,Plain MF RF
+53,2,64,mf_var,Plain MF RF
+53,5,2,mf_var,Plain MF RF
+53,10,2,mf_var,Plain MF RF
+53,19,6,mf_var,Plain MF RF
+53,21,1976,mf_var,Plain MF RF
+53,26,453,mf_var,Plain MF RF
+53,28,55,mf_var,Plain MF RF
+53,29,6,mf_var,Plain MF RF
+53,30,364,mf_var,Plain MF RF
+53,34,200,mf_var,Plain MF RF
+53,36,28,mf_var,Plain MF RF
+53,39,29,mf_var,Plain MF RF
+53,40,1068,mf_var,Plain MF RF
+53,44,2359,mf_var,Plain MF RF
+53,46,9,mf_var,Plain MF RF
+53,47,29,mf_var,Plain MF RF
+53,48,22,mf_var,Plain MF RF
+53,49,1186,mf_var,Plain MF RF
+53,50,470,mf_var,Plain MF RF
+53,52,1907,mf_var,Plain MF RF
+53,53,49733,mf_var,Plain MF RF
+53,54,1771,mf_var,Plain MF RF
+53,55,1963,mf_var,Plain MF RF
+54,21,169,mf_var,Plain MF RF
+54,30,5,mf_var,Plain MF RF
+54,34,14,mf_var,Plain MF RF
+54,36,13,mf_var,Plain MF RF
+54,40,57,mf_var,Plain MF RF
+54,44,198,mf_var,Plain MF RF
+54,48,1,mf_var,Plain MF RF
+54,49,3,mf_var,Plain MF RF
+54,50,27,mf_var,Plain MF RF
+54,53,157,mf_var,Plain MF RF
+54,54,10727,mf_var,Plain MF RF
+55,21,11,mf_var,Plain MF RF
+55,28,48,mf_var,Plain MF RF
+55,36,6,mf_var,Plain MF RF
+55,40,89,mf_var,Plain MF RF
+55,44,185,mf_var,Plain MF RF
+55,49,4,mf_var,Plain MF RF
+55,50,6,mf_var,Plain MF RF
+55,52,398,mf_var,Plain MF RF
+55,53,229,mf_var,Plain MF RF
+55,55,5404,mf_var,Plain MF RF
+1,1,11670,rf_var,Plain RF
+1,2,349,rf_var,Plain RF
+1,3,425,rf_var,Plain RF
+1,4,172,rf_var,Plain RF
+1,5,129,rf_var,Plain RF
+1,6,10,rf_var,Plain RF
+1,7,77,rf_var,Plain RF
+1,10,296,rf_var,Plain RF
+1,12,8,rf_var,Plain RF
+1,13,238,rf_var,Plain RF
+1,16,40,rf_var,Plain RF
+1,17,49,rf_var,Plain RF
+1,18,213,rf_var,Plain RF
+1,20,18,rf_var,Plain RF
+1,21,92,rf_var,Plain RF
+1,25,196,rf_var,Plain RF
+1,28,29,rf_var,Plain RF
+1,30,6,rf_var,Plain RF
+1,31,117,rf_var,Plain RF
+1,32,15,rf_var,Plain RF
+1,33,84,rf_var,Plain RF
+1,37,5,rf_var,Plain RF
+1,39,359,rf_var,Plain RF
+1,40,31,rf_var,Plain RF
+1,42,34,rf_var,Plain RF
+1,43,1,rf_var,Plain RF
+1,44,15,rf_var,Plain RF
+1,45,223,rf_var,Plain RF
+1,46,85,rf_var,Plain RF
+1,47,46,rf_var,Plain RF
+1,48,2,rf_var,Plain RF
+1,50,136,rf_var,Plain RF
+2,1,2203,rf_var,Plain RF
+2,2,183100,rf_var,Plain RF
+2,3,19505,rf_var,Plain RF
+2,4,13480,rf_var,Plain RF
+2,5,14381,rf_var,Plain RF
+2,6,10775,rf_var,Plain RF
+2,7,2935,rf_var,Plain RF
+2,9,9164,rf_var,Plain RF
+2,10,889,rf_var,Plain RF
+2,11,4982,rf_var,Plain RF
+2,12,2033,rf_var,Plain RF
+2,13,4028,rf_var,Plain RF
+2,14,295,rf_var,Plain RF
+2,15,8,rf_var,Plain RF
+2,16,4339,rf_var,Plain RF
+2,17,453,rf_var,Plain RF
+2,18,5016,rf_var,Plain RF
+2,20,335,rf_var,Plain RF
+2,21,13,rf_var,Plain RF
+2,22,200,rf_var,Plain RF
+2,23,4,rf_var,Plain RF
+2,24,114,rf_var,Plain RF
+2,25,951,rf_var,Plain RF
+2,26,5,rf_var,Plain RF
+2,27,1705,rf_var,Plain RF
+2,28,195,rf_var,Plain RF
+2,30,135,rf_var,Plain RF
+2,31,309,rf_var,Plain RF
+2,32,90,rf_var,Plain RF
+2,33,106,rf_var,Plain RF
+2,34,140,rf_var,Plain RF
+2,36,58,rf_var,Plain RF
+2,37,40,rf_var,Plain RF
+2,39,50,rf_var,Plain RF
+2,40,17,rf_var,Plain RF
+2,41,172,rf_var,Plain RF
+2,42,13,rf_var,Plain RF
+2,44,217,rf_var,Plain RF
+2,45,29,rf_var,Plain RF
+2,46,69,rf_var,Plain RF
+2,47,1,rf_var,Plain RF
+2,48,2,rf_var,Plain RF
+2,49,6,rf_var,Plain RF
+2,50,90,rf_var,Plain RF
+2,52,13,rf_var,Plain RF
+2,53,587,rf_var,Plain RF
+2,55,261,rf_var,Plain RF
+3,1,4916,rf_var,Plain RF
+3,2,20798,rf_var,Plain RF
+3,3,287559,rf_var,Plain RF
+3,4,5583,rf_var,Plain RF
+3,5,22712,rf_var,Plain RF
+3,6,18455,rf_var,Plain RF
+3,7,42265,rf_var,Plain RF
+3,9,28576,rf_var,Plain RF
+3,10,3019,rf_var,Plain RF
+3,11,7138,rf_var,Plain RF
+3,12,19231,rf_var,Plain RF
+3,13,3573,rf_var,Plain RF
+3,14,1325,rf_var,Plain RF
+3,15,2017,rf_var,Plain RF
+3,16,27,rf_var,Plain RF
+3,17,8,rf_var,Plain RF
+3,18,1483,rf_var,Plain RF
+3,19,25,rf_var,Plain RF
+3,21,333,rf_var,Plain RF
+3,22,543,rf_var,Plain RF
+3,23,137,rf_var,Plain RF
+3,24,1497,rf_var,Plain RF
+3,25,280,rf_var,Plain RF
+3,26,381,rf_var,Plain RF
+3,27,20040,rf_var,Plain RF
+3,28,7595,rf_var,Plain RF
+3,29,4,rf_var,Plain RF
+3,30,582,rf_var,Plain RF
+3,31,2,rf_var,Plain RF
+3,32,291,rf_var,Plain RF
+3,33,11785,rf_var,Plain RF
+3,34,544,rf_var,Plain RF
+3,36,4053,rf_var,Plain RF
+3,37,11323,rf_var,Plain RF
+3,39,1090,rf_var,Plain RF
+3,40,247,rf_var,Plain RF
+3,41,18470,rf_var,Plain RF
+3,43,4,rf_var,Plain RF
+3,44,922,rf_var,Plain RF
+3,45,54,rf_var,Plain RF
+3,46,660,rf_var,Plain RF
+3,47,2076,rf_var,Plain RF
+3,48,2,rf_var,Plain RF
+3,49,90,rf_var,Plain RF
+3,50,20,rf_var,Plain RF
+4,1,1061,rf_var,Plain RF
+4,2,14629,rf_var,Plain RF
+4,3,3676,rf_var,Plain RF
+4,4,42035,rf_var,Plain RF
+4,5,3153,rf_var,Plain RF
+4,6,1874,rf_var,Plain RF
+4,7,908,rf_var,Plain RF
+4,9,260,rf_var,Plain RF
+4,10,7,rf_var,Plain RF
+4,11,5995,rf_var,Plain RF
+4,12,3543,rf_var,Plain RF
+4,13,6322,rf_var,Plain RF
+4,14,1954,rf_var,Plain RF
+4,15,1576,rf_var,Plain RF
+4,16,715,rf_var,Plain RF
+4,17,316,rf_var,Plain RF
+4,18,86,rf_var,Plain RF
+4,19,30,rf_var,Plain RF
+4,20,200,rf_var,Plain RF
+4,21,153,rf_var,Plain RF
+4,22,272,rf_var,Plain RF
+4,23,105,rf_var,Plain RF
+4,25,293,rf_var,Plain RF
+4,26,18,rf_var,Plain RF
+4,27,1474,rf_var,Plain RF
+4,30,100,rf_var,Plain RF
+4,31,3,rf_var,Plain RF
+4,32,1,rf_var,Plain RF
+4,33,114,rf_var,Plain RF
+4,35,8,rf_var,Plain RF
+4,37,1,rf_var,Plain RF
+4,39,44,rf_var,Plain RF
+4,48,142,rf_var,Plain RF
+4,50,53,rf_var,Plain RF
+5,1,2760,rf_var,Plain RF
+5,2,14320,rf_var,Plain RF
+5,3,16547,rf_var,Plain RF
+5,4,3968,rf_var,Plain RF
+5,5,73763,rf_var,Plain RF
+5,6,4469,rf_var,Plain RF
+5,7,4408,rf_var,Plain RF
+5,9,518,rf_var,Plain RF
+5,10,3801,rf_var,Plain RF
+5,11,9420,rf_var,Plain RF
+5,12,13421,rf_var,Plain RF
+5,13,6898,rf_var,Plain RF
+5,14,2526,rf_var,Plain RF
+5,15,2073,rf_var,Plain RF
+5,16,3033,rf_var,Plain RF
+5,17,590,rf_var,Plain RF
+5,18,602,rf_var,Plain RF
+5,20,772,rf_var,Plain RF
+5,21,1270,rf_var,Plain RF
+5,22,683,rf_var,Plain RF
+5,23,108,rf_var,Plain RF
+5,24,1050,rf_var,Plain RF
+5,25,1162,rf_var,Plain RF
+5,26,1105,rf_var,Plain RF
+5,27,2994,rf_var,Plain RF
+5,28,336,rf_var,Plain RF
+5,29,67,rf_var,Plain RF
+5,30,266,rf_var,Plain RF
+5,31,63,rf_var,Plain RF
+5,32,63,rf_var,Plain RF
+5,33,2570,rf_var,Plain RF
+5,34,354,rf_var,Plain RF
+5,35,114,rf_var,Plain RF
+5,36,1329,rf_var,Plain RF
+5,37,357,rf_var,Plain RF
+5,39,1970,rf_var,Plain RF
+5,40,952,rf_var,Plain RF
+5,41,2203,rf_var,Plain RF
+5,42,195,rf_var,Plain RF
+5,43,1,rf_var,Plain RF
+5,44,1471,rf_var,Plain RF
+5,45,360,rf_var,Plain RF
+5,46,2534,rf_var,Plain RF
+5,47,1765,rf_var,Plain RF
+5,48,7,rf_var,Plain RF
+5,49,843,rf_var,Plain RF
+5,50,30,rf_var,Plain RF
+6,1,203,rf_var,Plain RF
+6,2,12007,rf_var,Plain RF
+6,3,4729,rf_var,Plain RF
+6,4,2842,rf_var,Plain RF
+6,5,1340,rf_var,Plain RF
+6,6,50569,rf_var,Plain RF
+6,7,442,rf_var,Plain RF
+6,9,325,rf_var,Plain RF
+6,10,95,rf_var,Plain RF
+6,11,2790,rf_var,Plain RF
+6,12,5017,rf_var,Plain RF
+6,13,164,rf_var,Plain RF
+6,14,37,rf_var,Plain RF
+6,15,1253,rf_var,Plain RF
+6,16,35,rf_var,Plain RF
+6,18,73,rf_var,Plain RF
+6,19,14,rf_var,Plain RF
+6,21,1617,rf_var,Plain RF
+6,22,99,rf_var,Plain RF
+6,23,319,rf_var,Plain RF
+6,24,1045,rf_var,Plain RF
+6,25,726,rf_var,Plain RF
+6,26,37,rf_var,Plain RF
+6,27,2357,rf_var,Plain RF
+6,28,51,rf_var,Plain RF
+6,29,53,rf_var,Plain RF
+6,30,304,rf_var,Plain RF
+6,31,186,rf_var,Plain RF
+6,33,127,rf_var,Plain RF
+6,36,2,rf_var,Plain RF
+6,37,263,rf_var,Plain RF
+6,39,5,rf_var,Plain RF
+6,42,99,rf_var,Plain RF
+6,43,63,rf_var,Plain RF
+6,47,231,rf_var,Plain RF
+6,48,8,rf_var,Plain RF
+6,49,138,rf_var,Plain RF
+7,1,1005,rf_var,Plain RF
+7,2,3327,rf_var,Plain RF
+7,3,21424,rf_var,Plain RF
+7,4,2092,rf_var,Plain RF
+7,5,2439,rf_var,Plain RF
+7,6,1353,rf_var,Plain RF
+7,7,91911,rf_var,Plain RF
+7,9,2617,rf_var,Plain RF
+7,10,991,rf_var,Plain RF
+7,11,4350,rf_var,Plain RF
+7,12,6521,rf_var,Plain RF
+7,13,7935,rf_var,Plain RF
+7,14,4510,rf_var,Plain RF
+7,15,3433,rf_var,Plain RF
+7,16,229,rf_var,Plain RF
+7,18,1049,rf_var,Plain RF
+7,19,432,rf_var,Plain RF
+7,20,217,rf_var,Plain RF
+7,21,742,rf_var,Plain RF
+7,22,19,rf_var,Plain RF
+7,23,1971,rf_var,Plain RF
+7,24,2728,rf_var,Plain RF
+7,25,3614,rf_var,Plain RF
+7,26,728,rf_var,Plain RF
+7,27,5630,rf_var,Plain RF
+7,28,2090,rf_var,Plain RF
+7,29,139,rf_var,Plain RF
+7,30,148,rf_var,Plain RF
+7,31,532,rf_var,Plain RF
+7,32,1049,rf_var,Plain RF
+7,33,15242,rf_var,Plain RF
+7,34,530,rf_var,Plain RF
+7,35,364,rf_var,Plain RF
+7,36,2890,rf_var,Plain RF
+7,37,2213,rf_var,Plain RF
+7,38,4,rf_var,Plain RF
+7,39,1124,rf_var,Plain RF
+7,40,992,rf_var,Plain RF
+7,41,18469,rf_var,Plain RF
+7,42,165,rf_var,Plain RF
+7,43,3,rf_var,Plain RF
+7,44,1038,rf_var,Plain RF
+7,45,111,rf_var,Plain RF
+7,46,434,rf_var,Plain RF
+7,47,645,rf_var,Plain RF
+7,49,1264,rf_var,Plain RF
+7,50,100,rf_var,Plain RF
+7,55,3,rf_var,Plain RF
+9,2,657,rf_var,Plain RF
+9,3,3766,rf_var,Plain RF
+9,4,6,rf_var,Plain RF
+9,5,20,rf_var,Plain RF
+9,6,13,rf_var,Plain RF
+9,7,176,rf_var,Plain RF
+9,9,25180,rf_var,Plain RF
+9,10,9,rf_var,Plain RF
+9,11,229,rf_var,Plain RF
+9,12,263,rf_var,Plain RF
+9,13,38,rf_var,Plain RF
+9,14,45,rf_var,Plain RF
+9,15,1,rf_var,Plain RF
+9,18,1,rf_var,Plain RF
+9,26,1,rf_var,Plain RF
+9,27,26,rf_var,Plain RF
+9,36,3,rf_var,Plain RF
+10,1,1571,rf_var,Plain RF
+10,2,1,rf_var,Plain RF
+10,3,761,rf_var,Plain RF
+10,5,431,rf_var,Plain RF
+10,7,108,rf_var,Plain RF
+10,9,221,rf_var,Plain RF
+10,10,77072,rf_var,Plain RF
+10,11,5,rf_var,Plain RF
+10,12,18,rf_var,Plain RF
+10,13,55,rf_var,Plain RF
+10,15,16,rf_var,Plain RF
+10,16,2364,rf_var,Plain RF
+10,18,6110,rf_var,Plain RF
+10,20,1813,rf_var,Plain RF
+10,21,17,rf_var,Plain RF
+10,26,202,rf_var,Plain RF
+10,28,869,rf_var,Plain RF
+10,30,618,rf_var,Plain RF
+10,31,30,rf_var,Plain RF
+10,33,177,rf_var,Plain RF
+10,34,4666,rf_var,Plain RF
+10,36,1636,rf_var,Plain RF
+10,37,9,rf_var,Plain RF
+10,39,12536,rf_var,Plain RF
+10,40,762,rf_var,Plain RF
+10,43,195,rf_var,Plain RF
+10,44,188,rf_var,Plain RF
+10,45,779,rf_var,Plain RF
+10,46,25128,rf_var,Plain RF
+10,47,748,rf_var,Plain RF
+10,49,6281,rf_var,Plain RF
+10,50,295,rf_var,Plain RF
+10,52,15,rf_var,Plain RF
+10,53,16,rf_var,Plain RF
+11,1,8,rf_var,Plain RF
+11,2,1624,rf_var,Plain RF
+11,3,1830,rf_var,Plain RF
+11,4,5212,rf_var,Plain RF
+11,5,7255,rf_var,Plain RF
+11,6,2567,rf_var,Plain RF
+11,7,4665,rf_var,Plain RF
+11,9,20,rf_var,Plain RF
+11,10,29,rf_var,Plain RF
+11,11,88690,rf_var,Plain RF
+11,12,6396,rf_var,Plain RF
+11,13,12159,rf_var,Plain RF
+11,14,3391,rf_var,Plain RF
+11,15,1422,rf_var,Plain RF
+11,16,527,rf_var,Plain RF
+11,17,22,rf_var,Plain RF
+11,18,152,rf_var,Plain RF
+11,20,346,rf_var,Plain RF
+11,22,99,rf_var,Plain RF
+11,23,21,rf_var,Plain RF
+11,24,405,rf_var,Plain RF
+11,25,1550,rf_var,Plain RF
+11,27,4785,rf_var,Plain RF
+11,28,17,rf_var,Plain RF
+11,31,107,rf_var,Plain RF
+11,32,33,rf_var,Plain RF
+11,33,2704,rf_var,Plain RF
+11,34,23,rf_var,Plain RF
+11,35,2,rf_var,Plain RF
+11,37,74,rf_var,Plain RF
+11,39,30,rf_var,Plain RF
+11,41,574,rf_var,Plain RF
+11,42,20,rf_var,Plain RF
+11,43,3,rf_var,Plain RF
+11,44,2,rf_var,Plain RF
+11,45,21,rf_var,Plain RF
+11,46,51,rf_var,Plain RF
+11,47,4,rf_var,Plain RF
+12,1,384,rf_var,Plain RF
+12,2,1717,rf_var,Plain RF
+12,3,22701,rf_var,Plain RF
+12,4,7649,rf_var,Plain RF
+12,5,9543,rf_var,Plain RF
+12,6,7518,rf_var,Plain RF
+12,7,12530,rf_var,Plain RF
+12,9,5658,rf_var,Plain RF
+12,10,6,rf_var,Plain RF
+12,11,10728,rf_var,Plain RF
+12,12,235049,rf_var,Plain RF
+12,13,20466,rf_var,Plain RF
+12,14,6256,rf_var,Plain RF
+12,15,7162,rf_var,Plain RF
+12,18,5,rf_var,Plain RF
+12,19,141,rf_var,Plain RF
+12,22,1346,rf_var,Plain RF
+12,23,809,rf_var,Plain RF
+12,24,3033,rf_var,Plain RF
+12,25,2571,rf_var,Plain RF
+12,26,290,rf_var,Plain RF
+12,27,10711,rf_var,Plain RF
+12,29,71,rf_var,Plain RF
+12,32,26,rf_var,Plain RF
+12,33,4868,rf_var,Plain RF
+12,34,24,rf_var,Plain RF
+12,36,2,rf_var,Plain RF
+12,37,22,rf_var,Plain RF
+12,39,5,rf_var,Plain RF
+12,41,2477,rf_var,Plain RF
+12,45,25,rf_var,Plain RF
+12,46,5,rf_var,Plain RF
+12,50,1,rf_var,Plain RF
+13,1,2648,rf_var,Plain RF
+13,2,2031,rf_var,Plain RF
+13,3,1767,rf_var,Plain RF
+13,4,10853,rf_var,Plain RF
+13,5,9434,rf_var,Plain RF
+13,6,687,rf_var,Plain RF
+13,7,13231,rf_var,Plain RF
+13,9,47,rf_var,Plain RF
+13,10,17,rf_var,Plain RF
+13,11,26793,rf_var,Plain RF
+13,12,32909,rf_var,Plain RF
+13,13,375539,rf_var,Plain RF
+13,14,16790,rf_var,Plain RF
+13,15,19017,rf_var,Plain RF
+13,16,7320,rf_var,Plain RF
+13,17,52,rf_var,Plain RF
+13,18,6390,rf_var,Plain RF
+13,19,211,rf_var,Plain RF
+13,20,2072,rf_var,Plain RF
+13,21,4,rf_var,Plain RF
+13,22,2080,rf_var,Plain RF
+13,23,171,rf_var,Plain RF
+13,24,8345,rf_var,Plain RF
+13,25,34728,rf_var,Plain RF
+13,27,2630,rf_var,Plain RF
+13,28,80,rf_var,Plain RF
+13,29,79,rf_var,Plain RF
+13,30,36,rf_var,Plain RF
+13,31,3855,rf_var,Plain RF
+13,32,4294,rf_var,Plain RF
+13,33,31056,rf_var,Plain RF
+13,35,1160,rf_var,Plain RF
+13,37,232,rf_var,Plain RF
+13,38,1,rf_var,Plain RF
+13,39,3,rf_var,Plain RF
+13,40,2,rf_var,Plain RF
+13,41,1060,rf_var,Plain RF
+13,42,819,rf_var,Plain RF
+13,43,4,rf_var,Plain RF
+13,46,36,rf_var,Plain RF
+13,48,1,rf_var,Plain RF
+13,50,1,rf_var,Plain RF
+14,2,41,rf_var,Plain RF
+14,3,37,rf_var,Plain RF
+14,4,327,rf_var,Plain RF
+14,5,139,rf_var,Plain RF
+14,7,456,rf_var,Plain RF
+14,11,774,rf_var,Plain RF
+14,12,437,rf_var,Plain RF
+14,13,792,rf_var,Plain RF
+14,14,26336,rf_var,Plain RF
+14,15,584,rf_var,Plain RF
+14,19,474,rf_var,Plain RF
+14,23,842,rf_var,Plain RF
+14,24,487,rf_var,Plain RF
+14,25,26,rf_var,Plain RF
+14,27,700,rf_var,Plain RF
+14,29,4,rf_var,Plain RF
+14,32,11,rf_var,Plain RF
+14,33,194,rf_var,Plain RF
+14,37,3,rf_var,Plain RF
+14,38,1,rf_var,Plain RF
+15,2,26,rf_var,Plain RF
+15,3,430,rf_var,Plain RF
+15,4,2427,rf_var,Plain RF
+15,5,1605,rf_var,Plain RF
+15,6,1932,rf_var,Plain RF
+15,7,1122,rf_var,Plain RF
+15,9,95,rf_var,Plain RF
+15,10,39,rf_var,Plain RF
+15,11,4930,rf_var,Plain RF
+15,12,6846,rf_var,Plain RF
+15,13,16547,rf_var,Plain RF
+15,14,6691,rf_var,Plain RF
+15,15,134196,rf_var,Plain RF
+15,16,62,rf_var,Plain RF
+15,18,25,rf_var,Plain RF
+15,19,6650,rf_var,Plain RF
+15,20,74,rf_var,Plain RF
+15,21,16,rf_var,Plain RF
+15,22,1,rf_var,Plain RF
+15,23,13089,rf_var,Plain RF
+15,24,5510,rf_var,Plain RF
+15,25,4611,rf_var,Plain RF
+15,26,3,rf_var,Plain RF
+15,27,10639,rf_var,Plain RF
+15,28,45,rf_var,Plain RF
+15,29,3124,rf_var,Plain RF
+15,30,28,rf_var,Plain RF
+15,31,151,rf_var,Plain RF
+15,32,4333,rf_var,Plain RF
+15,33,3939,rf_var,Plain RF
+15,35,178,rf_var,Plain RF
+15,37,178,rf_var,Plain RF
+15,38,1276,rf_var,Plain RF
+15,40,6,rf_var,Plain RF
+15,41,47,rf_var,Plain RF
+15,42,431,rf_var,Plain RF
+15,43,72,rf_var,Plain RF
+15,46,24,rf_var,Plain RF
+16,1,3734,rf_var,Plain RF
+16,2,2595,rf_var,Plain RF
+16,3,63,rf_var,Plain RF
+16,4,1425,rf_var,Plain RF
+16,5,5364,rf_var,Plain RF
+16,6,135,rf_var,Plain RF
+16,7,349,rf_var,Plain RF
+16,10,12210,rf_var,Plain RF
+16,11,128,rf_var,Plain RF
+16,13,4794,rf_var,Plain RF
+16,15,678,rf_var,Plain RF
+16,16,543056,rf_var,Plain RF
+16,17,5473,rf_var,Plain RF
+16,18,68117,rf_var,Plain RF
+16,19,389,rf_var,Plain RF
+16,20,79729,rf_var,Plain RF
+16,22,22307,rf_var,Plain RF
+16,23,195,rf_var,Plain RF
+16,24,449,rf_var,Plain RF
+16,25,3132,rf_var,Plain RF
+16,26,36,rf_var,Plain RF
+16,28,437,rf_var,Plain RF
+16,29,35,rf_var,Plain RF
+16,30,51,rf_var,Plain RF
+16,31,62750,rf_var,Plain RF
+16,32,533,rf_var,Plain RF
+16,33,310,rf_var,Plain RF
+16,34,476,rf_var,Plain RF
+16,36,370,rf_var,Plain RF
+16,39,2968,rf_var,Plain RF
+16,40,73,rf_var,Plain RF
+16,42,7282,rf_var,Plain RF
+16,43,13009,rf_var,Plain RF
+16,44,61,rf_var,Plain RF
+16,45,23055,rf_var,Plain RF
+16,46,44611,rf_var,Plain RF
+16,47,36,rf_var,Plain RF
+16,48,14,rf_var,Plain RF
+16,49,255,rf_var,Plain RF
+16,50,146,rf_var,Plain RF
+17,2,52,rf_var,Plain RF
+17,4,8,rf_var,Plain RF
+17,5,11,rf_var,Plain RF
+17,16,1,rf_var,Plain RF
+17,17,1497,rf_var,Plain RF
+18,1,2004,rf_var,Plain RF
+18,2,723,rf_var,Plain RF
+18,3,121,rf_var,Plain RF
+18,4,139,rf_var,Plain RF
+18,5,1064,rf_var,Plain RF
+18,7,256,rf_var,Plain RF
+18,10,6540,rf_var,Plain RF
+18,11,203,rf_var,Plain RF
+18,13,2734,rf_var,Plain RF
+18,15,3,rf_var,Plain RF
+18,16,23199,rf_var,Plain RF
+18,17,117,rf_var,Plain RF
+18,18,47734,rf_var,Plain RF
+18,19,2,rf_var,Plain RF
+18,20,1463,rf_var,Plain RF
+18,21,5,rf_var,Plain RF
+18,22,487,rf_var,Plain RF
+18,23,14,rf_var,Plain RF
+18,24,226,rf_var,Plain RF
+18,25,1449,rf_var,Plain RF
+18,26,44,rf_var,Plain RF
+18,28,480,rf_var,Plain RF
+18,30,12,rf_var,Plain RF
+18,31,2988,rf_var,Plain RF
+18,32,35,rf_var,Plain RF
+18,33,246,rf_var,Plain RF
+18,34,500,rf_var,Plain RF
+18,36,521,rf_var,Plain RF
+18,37,13,rf_var,Plain RF
+18,39,5127,rf_var,Plain RF
+18,41,4,rf_var,Plain RF
+18,42,1281,rf_var,Plain RF
+18,43,667,rf_var,Plain RF
+18,44,272,rf_var,Plain RF
+18,45,2190,rf_var,Plain RF
+18,46,9824,rf_var,Plain RF
+18,47,9,rf_var,Plain RF
+18,49,52,rf_var,Plain RF
+18,50,214,rf_var,Plain RF
+19,1,50,rf_var,Plain RF
+19,2,2,rf_var,Plain RF
+19,3,19,rf_var,Plain RF
+19,4,19,rf_var,Plain RF
+19,5,3,rf_var,Plain RF
+19,6,6,rf_var,Plain RF
+19,7,183,rf_var,Plain RF
+19,10,415,rf_var,Plain RF
+19,12,38,rf_var,Plain RF
+19,13,260,rf_var,Plain RF
+19,14,4153,rf_var,Plain RF
+19,15,18675,rf_var,Plain RF
+19,16,3850,rf_var,Plain RF
+19,17,9,rf_var,Plain RF
+19,18,441,rf_var,Plain RF
+19,19,531810,rf_var,Plain RF
+19,20,38535,rf_var,Plain RF
+19,22,3987,rf_var,Plain RF
+19,23,35038,rf_var,Plain RF
+19,24,19307,rf_var,Plain RF
+19,25,914,rf_var,Plain RF
+19,27,784,rf_var,Plain RF
+19,28,101,rf_var,Plain RF
+19,29,3348,rf_var,Plain RF
+19,31,6931,rf_var,Plain RF
+19,32,2794,rf_var,Plain RF
+19,33,103,rf_var,Plain RF
+19,34,1,rf_var,Plain RF
+19,35,63,rf_var,Plain RF
+19,37,17,rf_var,Plain RF
+19,38,13186,rf_var,Plain RF
+19,39,2,rf_var,Plain RF
+19,42,3006,rf_var,Plain RF
+19,43,511,rf_var,Plain RF
+19,45,1060,rf_var,Plain RF
+19,46,599,rf_var,Plain RF
+19,50,10,rf_var,Plain RF
+20,1,277,rf_var,Plain RF
+20,2,62,rf_var,Plain RF
+20,3,4,rf_var,Plain RF
+20,4,24,rf_var,Plain RF
+20,5,186,rf_var,Plain RF
+20,7,9,rf_var,Plain RF
+20,10,2581,rf_var,Plain RF
+20,11,6,rf_var,Plain RF
+20,13,452,rf_var,Plain RF
+20,15,28,rf_var,Plain RF
+20,16,51079,rf_var,Plain RF
+20,17,1181,rf_var,Plain RF
+20,18,2416,rf_var,Plain RF
+20,19,437,rf_var,Plain RF
+20,20,225893,rf_var,Plain RF
+20,21,1,rf_var,Plain RF
+20,22,11311,rf_var,Plain RF
+20,24,588,rf_var,Plain RF
+20,25,1238,rf_var,Plain RF
+20,28,73,rf_var,Plain RF
+20,30,8,rf_var,Plain RF
+20,31,29781,rf_var,Plain RF
+20,32,49,rf_var,Plain RF
+20,33,18,rf_var,Plain RF
+20,34,69,rf_var,Plain RF
+20,36,2,rf_var,Plain RF
+20,39,196,rf_var,Plain RF
+20,40,45,rf_var,Plain RF
+20,42,35164,rf_var,Plain RF
+20,43,188,rf_var,Plain RF
+20,44,31,rf_var,Plain RF
+20,45,5785,rf_var,Plain RF
+20,46,9436,rf_var,Plain RF
+20,48,23,rf_var,Plain RF
+20,49,2,rf_var,Plain RF
+20,50,10,rf_var,Plain RF
+21,1,165,rf_var,Plain RF
+21,2,47,rf_var,Plain RF
+21,3,297,rf_var,Plain RF
+21,4,119,rf_var,Plain RF
+21,5,645,rf_var,Plain RF
+21,6,70,rf_var,Plain RF
+21,7,252,rf_var,Plain RF
+21,9,105,rf_var,Plain RF
+21,10,174,rf_var,Plain RF
+21,21,382265,rf_var,Plain RF
+21,26,12473,rf_var,Plain RF
+21,27,1,rf_var,Plain RF
+21,28,2553,rf_var,Plain RF
+21,30,62465,rf_var,Plain RF
+21,34,565,rf_var,Plain RF
+21,36,13049,rf_var,Plain RF
+21,37,439,rf_var,Plain RF
+21,39,454,rf_var,Plain RF
+21,40,41167,rf_var,Plain RF
+21,41,417,rf_var,Plain RF
+21,44,33394,rf_var,Plain RF
+21,45,18,rf_var,Plain RF
+21,46,100,rf_var,Plain RF
+21,47,9973,rf_var,Plain RF
+21,48,6177,rf_var,Plain RF
+21,49,14063,rf_var,Plain RF
+21,50,1120,rf_var,Plain RF
+21,52,2084,rf_var,Plain RF
+21,53,11465,rf_var,Plain RF
+21,54,564,rf_var,Plain RF
+21,55,1438,rf_var,Plain RF
+22,1,1,rf_var,Plain RF
+22,2,29,rf_var,Plain RF
+22,3,380,rf_var,Plain RF
+22,4,22,rf_var,Plain RF
+22,5,558,rf_var,Plain RF
+22,6,10,rf_var,Plain RF
+22,12,480,rf_var,Plain RF
+22,13,74,rf_var,Plain RF
+22,16,3351,rf_var,Plain RF
+22,17,43,rf_var,Plain RF
+22,18,92,rf_var,Plain RF
+22,19,450,rf_var,Plain RF
+22,20,1732,rf_var,Plain RF
+22,22,30461,rf_var,Plain RF
+22,23,72,rf_var,Plain RF
+22,24,199,rf_var,Plain RF
+22,25,315,rf_var,Plain RF
+22,27,243,rf_var,Plain RF
+22,31,1731,rf_var,Plain RF
+22,32,49,rf_var,Plain RF
+22,42,1597,rf_var,Plain RF
+22,43,7,rf_var,Plain RF
+22,44,3,rf_var,Plain RF
+22,45,29,rf_var,Plain RF
+22,55,22,rf_var,Plain RF
+23,2,3,rf_var,Plain RF
+23,4,133,rf_var,Plain RF
+23,5,5,rf_var,Plain RF
+23,6,55,rf_var,Plain RF
+23,7,877,rf_var,Plain RF
+23,12,89,rf_var,Plain RF
+23,13,1181,rf_var,Plain RF
+23,14,6817,rf_var,Plain RF
+23,15,17452,rf_var,Plain RF
+23,16,77,rf_var,Plain RF
+23,17,8,rf_var,Plain RF
+23,18,1272,rf_var,Plain RF
+23,19,20715,rf_var,Plain RF
+23,20,380,rf_var,Plain RF
+23,22,91,rf_var,Plain RF
+23,23,187728,rf_var,Plain RF
+23,24,49216,rf_var,Plain RF
+23,25,1734,rf_var,Plain RF
+23,26,1,rf_var,Plain RF
+23,27,547,rf_var,Plain RF
+23,28,222,rf_var,Plain RF
+23,29,13010,rf_var,Plain RF
+23,31,1435,rf_var,Plain RF
+23,32,7395,rf_var,Plain RF
+23,33,1867,rf_var,Plain RF
+23,35,9903,rf_var,Plain RF
+23,36,3,rf_var,Plain RF
+23,38,3808,rf_var,Plain RF
+23,40,51,rf_var,Plain RF
+23,41,7,rf_var,Plain RF
+23,42,575,rf_var,Plain RF
+23,43,46,rf_var,Plain RF
+23,44,2,rf_var,Plain RF
+23,45,9,rf_var,Plain RF
+23,46,2,rf_var,Plain RF
+23,47,1,rf_var,Plain RF
+23,49,11,rf_var,Plain RF
+23,52,12,rf_var,Plain RF
+24,1,62,rf_var,Plain RF
+24,2,46,rf_var,Plain RF
+24,3,123,rf_var,Plain RF
+24,4,104,rf_var,Plain RF
+24,5,580,rf_var,Plain RF
+24,6,149,rf_var,Plain RF
+24,7,984,rf_var,Plain RF
+24,10,1,rf_var,Plain RF
+24,11,292,rf_var,Plain RF
+24,12,2004,rf_var,Plain RF
+24,13,11350,rf_var,Plain RF
+24,14,1218,rf_var,Plain RF
+24,15,11094,rf_var,Plain RF
+24,16,742,rf_var,Plain RF
+24,18,1421,rf_var,Plain RF
+24,19,13097,rf_var,Plain RF
+24,20,1791,rf_var,Plain RF
+24,22,698,rf_var,Plain RF
+24,23,63854,rf_var,Plain RF
+24,24,540305,rf_var,Plain RF
+24,25,51550,rf_var,Plain RF
+24,27,2491,rf_var,Plain RF
+24,28,7,rf_var,Plain RF
+24,29,45918,rf_var,Plain RF
+24,31,5104,rf_var,Plain RF
+24,32,33392,rf_var,Plain RF
+24,33,12512,rf_var,Plain RF
+24,35,26729,rf_var,Plain RF
+24,38,5100,rf_var,Plain RF
+24,42,11278,rf_var,Plain RF
+24,43,952,rf_var,Plain RF
+24,44,7,rf_var,Plain RF
+24,45,117,rf_var,Plain RF
+24,46,4,rf_var,Plain RF
+25,1,658,rf_var,Plain RF
+25,2,107,rf_var,Plain RF
+25,4,246,rf_var,Plain RF
+25,5,928,rf_var,Plain RF
+25,7,869,rf_var,Plain RF
+25,11,1227,rf_var,Plain RF
+25,12,1247,rf_var,Plain RF
+25,13,18824,rf_var,Plain RF
+25,14,83,rf_var,Plain RF
+25,15,3310,rf_var,Plain RF
+25,16,2820,rf_var,Plain RF
+25,18,1058,rf_var,Plain RF
+25,19,65,rf_var,Plain RF
+25,20,2469,rf_var,Plain RF
+25,22,373,rf_var,Plain RF
+25,23,1487,rf_var,Plain RF
+25,24,16563,rf_var,Plain RF
+25,25,153587,rf_var,Plain RF
+25,27,383,rf_var,Plain RF
+25,29,1578,rf_var,Plain RF
+25,31,9466,rf_var,Plain RF
+25,32,7032,rf_var,Plain RF
+25,33,4334,rf_var,Plain RF
+25,35,2856,rf_var,Plain RF
+25,37,12,rf_var,Plain RF
+25,39,9,rf_var,Plain RF
+25,42,5156,rf_var,Plain RF
+25,43,313,rf_var,Plain RF
+25,45,138,rf_var,Plain RF
+25,46,2,rf_var,Plain RF
+25,50,1,rf_var,Plain RF
+26,1,16,rf_var,Plain RF
+26,3,81,rf_var,Plain RF
+26,4,2,rf_var,Plain RF
+26,5,282,rf_var,Plain RF
+26,7,148,rf_var,Plain RF
+26,10,647,rf_var,Plain RF
+26,12,11,rf_var,Plain RF
+26,15,5,rf_var,Plain RF
+26,21,1594,rf_var,Plain RF
+26,23,84,rf_var,Plain RF
+26,24,2,rf_var,Plain RF
+26,26,24271,rf_var,Plain RF
+26,27,9,rf_var,Plain RF
+26,28,281,rf_var,Plain RF
+26,30,5132,rf_var,Plain RF
+26,33,10,rf_var,Plain RF
+26,34,1184,rf_var,Plain RF
+26,36,2151,rf_var,Plain RF
+26,39,341,rf_var,Plain RF
+26,40,821,rf_var,Plain RF
+26,41,41,rf_var,Plain RF
+26,44,445,rf_var,Plain RF
+26,46,116,rf_var,Plain RF
+26,47,341,rf_var,Plain RF
+26,48,7,rf_var,Plain RF
+26,49,2185,rf_var,Plain RF
+26,50,17,rf_var,Plain RF
+26,52,317,rf_var,Plain RF
+26,53,342,rf_var,Plain RF
+27,1,6,rf_var,Plain RF
+27,2,1485,rf_var,Plain RF
+27,3,35803,rf_var,Plain RF
+27,4,3583,rf_var,Plain RF
+27,5,3845,rf_var,Plain RF
+27,6,3676,rf_var,Plain RF
+27,7,26363,rf_var,Plain RF
+27,9,650,rf_var,Plain RF
+27,10,67,rf_var,Plain RF
+27,11,12667,rf_var,Plain RF
+27,12,5567,rf_var,Plain RF
+27,13,3595,rf_var,Plain RF
+27,14,6740,rf_var,Plain RF
+27,15,21582,rf_var,Plain RF
+27,16,4,rf_var,Plain RF
+27,18,19,rf_var,Plain RF
+27,19,1681,rf_var,Plain RF
+27,20,18,rf_var,Plain RF
+27,21,87,rf_var,Plain RF
+27,23,4501,rf_var,Plain RF
+27,24,4702,rf_var,Plain RF
+27,25,386,rf_var,Plain RF
+27,26,368,rf_var,Plain RF
+27,27,634094,rf_var,Plain RF
+27,28,5136,rf_var,Plain RF
+27,29,16,rf_var,Plain RF
+27,30,142,rf_var,Plain RF
+27,32,2133,rf_var,Plain RF
+27,33,16295,rf_var,Plain RF
+27,34,26,rf_var,Plain RF
+27,35,1,rf_var,Plain RF
+27,36,1695,rf_var,Plain RF
+27,37,30508,rf_var,Plain RF
+27,38,1721,rf_var,Plain RF
+27,39,143,rf_var,Plain RF
+27,40,250,rf_var,Plain RF
+27,41,17668,rf_var,Plain RF
+27,44,507,rf_var,Plain RF
+27,45,44,rf_var,Plain RF
+27,46,136,rf_var,Plain RF
+27,47,9190,rf_var,Plain RF
+27,48,67,rf_var,Plain RF
+27,49,34,rf_var,Plain RF
+28,1,625,rf_var,Plain RF
+28,2,52,rf_var,Plain RF
+28,3,1152,rf_var,Plain RF
+28,5,224,rf_var,Plain RF
+28,7,479,rf_var,Plain RF
+28,10,1198,rf_var,Plain RF
+28,13,25,rf_var,Plain RF
+28,15,50,rf_var,Plain RF
+28,16,49,rf_var,Plain RF
+28,18,746,rf_var,Plain RF
+28,19,8,rf_var,Plain RF
+28,20,32,rf_var,Plain RF
+28,21,640,rf_var,Plain RF
+28,23,121,rf_var,Plain RF
+28,24,29,rf_var,Plain RF
+28,25,29,rf_var,Plain RF
+28,26,797,rf_var,Plain RF
+28,27,1339,rf_var,Plain RF
+28,28,22579,rf_var,Plain RF
+28,30,1769,rf_var,Plain RF
+28,31,8,rf_var,Plain RF
+28,33,372,rf_var,Plain RF
+28,34,275,rf_var,Plain RF
+28,36,2789,rf_var,Plain RF
+28,37,3,rf_var,Plain RF
+28,39,1156,rf_var,Plain RF
+28,40,934,rf_var,Plain RF
+28,41,251,rf_var,Plain RF
+28,44,3319,rf_var,Plain RF
+28,45,222,rf_var,Plain RF
+28,46,733,rf_var,Plain RF
+28,47,2858,rf_var,Plain RF
+28,49,421,rf_var,Plain RF
+28,50,417,rf_var,Plain RF
+28,55,341,rf_var,Plain RF
+29,7,625,rf_var,Plain RF
+29,12,47,rf_var,Plain RF
+29,13,56,rf_var,Plain RF
+29,15,3758,rf_var,Plain RF
+29,19,1842,rf_var,Plain RF
+29,20,28,rf_var,Plain RF
+29,22,12,rf_var,Plain RF
+29,23,6845,rf_var,Plain RF
+29,24,14759,rf_var,Plain RF
+29,25,742,rf_var,Plain RF
+29,27,20,rf_var,Plain RF
+29,29,130071,rf_var,Plain RF
+29,31,2,rf_var,Plain RF
+29,32,1290,rf_var,Plain RF
+29,33,1502,rf_var,Plain RF
+29,35,1525,rf_var,Plain RF
+29,38,1075,rf_var,Plain RF
+29,40,13,rf_var,Plain RF
+29,49,5,rf_var,Plain RF
+30,1,223,rf_var,Plain RF
+30,3,5844,rf_var,Plain RF
+30,4,174,rf_var,Plain RF
+30,5,3126,rf_var,Plain RF
+30,7,2198,rf_var,Plain RF
+30,10,3873,rf_var,Plain RF
+30,11,58,rf_var,Plain RF
+30,13,1,rf_var,Plain RF
+30,18,13,rf_var,Plain RF
+30,21,54423,rf_var,Plain RF
+30,26,34076,rf_var,Plain RF
+30,27,674,rf_var,Plain RF
+30,28,10351,rf_var,Plain RF
+30,30,248532,rf_var,Plain RF
+30,33,473,rf_var,Plain RF
+30,34,1383,rf_var,Plain RF
+30,36,20250,rf_var,Plain RF
+30,37,354,rf_var,Plain RF
+30,39,7663,rf_var,Plain RF
+30,40,49411,rf_var,Plain RF
+30,41,2003,rf_var,Plain RF
+30,44,47851,rf_var,Plain RF
+30,45,364,rf_var,Plain RF
+30,46,2386,rf_var,Plain RF
+30,47,44389,rf_var,Plain RF
+30,48,872,rf_var,Plain RF
+30,49,28968,rf_var,Plain RF
+30,50,1798,rf_var,Plain RF
+30,52,219,rf_var,Plain RF
+30,53,2691,rf_var,Plain RF
+30,54,1009,rf_var,Plain RF
+30,55,585,rf_var,Plain RF
+31,1,4556,rf_var,Plain RF
+31,2,189,rf_var,Plain RF
+31,3,4,rf_var,Plain RF
+31,4,8,rf_var,Plain RF
+31,5,55,rf_var,Plain RF
+31,6,267,rf_var,Plain RF
+31,7,1324,rf_var,Plain RF
+31,10,46,rf_var,Plain RF
+31,11,27,rf_var,Plain RF
+31,12,1,rf_var,Plain RF
+31,13,8715,rf_var,Plain RF
+31,14,60,rf_var,Plain RF
+31,15,366,rf_var,Plain RF
+31,16,48586,rf_var,Plain RF
+31,17,19,rf_var,Plain RF
+31,18,10196,rf_var,Plain RF
+31,19,1779,rf_var,Plain RF
+31,20,43131,rf_var,Plain RF
+31,21,3,rf_var,Plain RF
+31,22,22214,rf_var,Plain RF
+31,23,720,rf_var,Plain RF
+31,24,4128,rf_var,Plain RF
+31,25,24811,rf_var,Plain RF
+31,27,15,rf_var,Plain RF
+31,29,46,rf_var,Plain RF
+31,30,11,rf_var,Plain RF
+31,31,593464,rf_var,Plain RF
+31,32,1441,rf_var,Plain RF
+31,33,1850,rf_var,Plain RF
+31,35,163,rf_var,Plain RF
+31,36,48,rf_var,Plain RF
+31,37,11,rf_var,Plain RF
+31,39,150,rf_var,Plain RF
+31,40,2,rf_var,Plain RF
+31,41,4,rf_var,Plain RF
+31,42,67454,rf_var,Plain RF
+31,43,555,rf_var,Plain RF
+31,44,2,rf_var,Plain RF
+31,45,4213,rf_var,Plain RF
+31,46,60,rf_var,Plain RF
+31,48,14,rf_var,Plain RF
+31,50,601,rf_var,Plain RF
+32,6,1,rf_var,Plain RF
+32,7,805,rf_var,Plain RF
+32,12,6,rf_var,Plain RF
+32,13,1587,rf_var,Plain RF
+32,14,306,rf_var,Plain RF
+32,15,1546,rf_var,Plain RF
+32,16,19,rf_var,Plain RF
+32,18,112,rf_var,Plain RF
+32,19,526,rf_var,Plain RF
+32,20,96,rf_var,Plain RF
+32,23,2492,rf_var,Plain RF
+32,24,5058,rf_var,Plain RF
+32,25,2932,rf_var,Plain RF
+32,27,146,rf_var,Plain RF
+32,29,887,rf_var,Plain RF
+32,31,299,rf_var,Plain RF
+32,32,40497,rf_var,Plain RF
+32,33,1976,rf_var,Plain RF
+32,35,665,rf_var,Plain RF
+32,38,210,rf_var,Plain RF
+32,42,315,rf_var,Plain RF
+32,43,1,rf_var,Plain RF
+33,1,1379,rf_var,Plain RF
+33,2,202,rf_var,Plain RF
+33,3,6049,rf_var,Plain RF
+33,4,2,rf_var,Plain RF
+33,5,2334,rf_var,Plain RF
+33,6,10,rf_var,Plain RF
+33,7,23120,rf_var,Plain RF
+33,10,376,rf_var,Plain RF
+33,11,3236,rf_var,Plain RF
+33,12,2930,rf_var,Plain RF
+33,13,22403,rf_var,Plain RF
+33,14,607,rf_var,Plain RF
+33,15,4404,rf_var,Plain RF
+33,16,427,rf_var,Plain RF
+33,18,508,rf_var,Plain RF
+33,19,36,rf_var,Plain RF
+33,20,365,rf_var,Plain RF
+33,23,3304,rf_var,Plain RF
+33,24,9885,rf_var,Plain RF
+33,25,6084,rf_var,Plain RF
+33,26,38,rf_var,Plain RF
+33,27,3487,rf_var,Plain RF
+33,28,474,rf_var,Plain RF
+33,29,2951,rf_var,Plain RF
+33,30,22,rf_var,Plain RF
+33,31,76,rf_var,Plain RF
+33,32,4626,rf_var,Plain RF
+33,33,259055,rf_var,Plain RF
+33,34,9,rf_var,Plain RF
+33,35,894,rf_var,Plain RF
+33,36,139,rf_var,Plain RF
+33,37,3188,rf_var,Plain RF
+33,39,41,rf_var,Plain RF
+33,40,112,rf_var,Plain RF
+33,41,24754,rf_var,Plain RF
+33,42,1,rf_var,Plain RF
+33,44,1250,rf_var,Plain RF
+33,45,635,rf_var,Plain RF
+33,46,29,rf_var,Plain RF
+33,47,188,rf_var,Plain RF
+33,49,72,rf_var,Plain RF
+33,50,3,rf_var,Plain RF
+33,52,41,rf_var,Plain RF
+34,3,50,rf_var,Plain RF
+34,7,8,rf_var,Plain RF
+34,10,416,rf_var,Plain RF
+34,18,4,rf_var,Plain RF
+34,26,21,rf_var,Plain RF
+34,27,23,rf_var,Plain RF
+34,28,6,rf_var,Plain RF
+34,30,32,rf_var,Plain RF
+34,33,2,rf_var,Plain RF
+34,34,3952,rf_var,Plain RF
+34,36,103,rf_var,Plain RF
+34,39,201,rf_var,Plain RF
+34,40,17,rf_var,Plain RF
+34,44,6,rf_var,Plain RF
+34,46,104,rf_var,Plain RF
+34,49,167,rf_var,Plain RF
+34,50,5,rf_var,Plain RF
+35,7,1,rf_var,Plain RF
+35,13,120,rf_var,Plain RF
+35,14,87,rf_var,Plain RF
+35,15,45,rf_var,Plain RF
+35,16,31,rf_var,Plain RF
+35,18,6,rf_var,Plain RF
+35,19,30,rf_var,Plain RF
+35,23,587,rf_var,Plain RF
+35,24,2082,rf_var,Plain RF
+35,25,750,rf_var,Plain RF
+35,29,533,rf_var,Plain RF
+35,32,335,rf_var,Plain RF
+35,33,270,rf_var,Plain RF
+35,35,27983,rf_var,Plain RF
+35,38,4,rf_var,Plain RF
+36,1,7,rf_var,Plain RF
+36,3,247,rf_var,Plain RF
+36,5,9,rf_var,Plain RF
+36,7,77,rf_var,Plain RF
+36,9,23,rf_var,Plain RF
+36,10,365,rf_var,Plain RF
+36,12,37,rf_var,Plain RF
+36,13,28,rf_var,Plain RF
+36,16,4,rf_var,Plain RF
+36,21,279,rf_var,Plain RF
+36,26,537,rf_var,Plain RF
+36,27,2,rf_var,Plain RF
+36,28,991,rf_var,Plain RF
+36,30,808,rf_var,Plain RF
+36,33,32,rf_var,Plain RF
+36,34,344,rf_var,Plain RF
+36,36,16388,rf_var,Plain RF
+36,39,141,rf_var,Plain RF
+36,40,394,rf_var,Plain RF
+36,41,152,rf_var,Plain RF
+36,44,924,rf_var,Plain RF
+36,45,4,rf_var,Plain RF
+36,46,102,rf_var,Plain RF
+36,47,319,rf_var,Plain RF
+36,48,22,rf_var,Plain RF
+36,49,239,rf_var,Plain RF
+36,50,37,rf_var,Plain RF
+36,53,38,rf_var,Plain RF
+36,55,25,rf_var,Plain RF
+37,1,286,rf_var,Plain RF
+37,2,109,rf_var,Plain RF
+37,3,11897,rf_var,Plain RF
+37,4,7,rf_var,Plain RF
+37,5,423,rf_var,Plain RF
+37,6,168,rf_var,Plain RF
+37,7,7241,rf_var,Plain RF
+37,9,84,rf_var,Plain RF
+37,10,828,rf_var,Plain RF
+37,11,332,rf_var,Plain RF
+37,12,428,rf_var,Plain RF
+37,13,1379,rf_var,Plain RF
+37,14,569,rf_var,Plain RF
+37,15,31,rf_var,Plain RF
+37,16,8,rf_var,Plain RF
+37,18,216,rf_var,Plain RF
+37,19,6,rf_var,Plain RF
+37,20,1,rf_var,Plain RF
+37,21,854,rf_var,Plain RF
+37,25,550,rf_var,Plain RF
+37,26,80,rf_var,Plain RF
+37,27,11561,rf_var,Plain RF
+37,28,253,rf_var,Plain RF
+37,30,570,rf_var,Plain RF
+37,32,4,rf_var,Plain RF
+37,33,4986,rf_var,Plain RF
+37,34,93,rf_var,Plain RF
+37,36,22,rf_var,Plain RF
+37,37,140102,rf_var,Plain RF
+37,39,244,rf_var,Plain RF
+37,40,32,rf_var,Plain RF
+37,41,7490,rf_var,Plain RF
+37,44,39,rf_var,Plain RF
+37,45,6,rf_var,Plain RF
+37,46,137,rf_var,Plain RF
+37,47,590,rf_var,Plain RF
+37,49,8,rf_var,Plain RF
+38,13,35,rf_var,Plain RF
+38,15,226,rf_var,Plain RF
+38,19,348,rf_var,Plain RF
+38,23,664,rf_var,Plain RF
+38,24,309,rf_var,Plain RF
+38,25,44,rf_var,Plain RF
+38,27,416,rf_var,Plain RF
+38,29,88,rf_var,Plain RF
+38,32,67,rf_var,Plain RF
+38,38,27834,rf_var,Plain RF
+39,1,31,rf_var,Plain RF
+39,5,57,rf_var,Plain RF
+39,7,21,rf_var,Plain RF
+39,10,3737,rf_var,Plain RF
+39,13,2,rf_var,Plain RF
+39,16,109,rf_var,Plain RF
+39,18,238,rf_var,Plain RF
+39,20,18,rf_var,Plain RF
+39,23,80,rf_var,Plain RF
+39,24,2,rf_var,Plain RF
+39,26,14,rf_var,Plain RF
+39,28,19,rf_var,Plain RF
+39,30,255,rf_var,Plain RF
+39,34,651,rf_var,Plain RF
+39,36,64,rf_var,Plain RF
+39,39,13633,rf_var,Plain RF
+39,40,63,rf_var,Plain RF
+39,43,1,rf_var,Plain RF
+39,44,73,rf_var,Plain RF
+39,45,86,rf_var,Plain RF
+39,46,2515,rf_var,Plain RF
+39,47,67,rf_var,Plain RF
+39,49,63,rf_var,Plain RF
+39,50,144,rf_var,Plain RF
+40,1,158,rf_var,Plain RF
+40,3,818,rf_var,Plain RF
+40,4,13,rf_var,Plain RF
+40,5,2177,rf_var,Plain RF
+40,7,1471,rf_var,Plain RF
+40,10,3487,rf_var,Plain RF
+40,11,6,rf_var,Plain RF
+40,13,3,rf_var,Plain RF
+40,16,4,rf_var,Plain RF
+40,20,30,rf_var,Plain RF
+40,21,27201,rf_var,Plain RF
+40,25,22,rf_var,Plain RF
+40,26,7088,rf_var,Plain RF
+40,27,104,rf_var,Plain RF
+40,28,6736,rf_var,Plain RF
+40,30,33080,rf_var,Plain RF
+40,31,86,rf_var,Plain RF
+40,33,29,rf_var,Plain RF
+40,34,702,rf_var,Plain RF
+40,36,14958,rf_var,Plain RF
+40,37,5,rf_var,Plain RF
+40,39,2261,rf_var,Plain RF
+40,40,131355,rf_var,Plain RF
+40,41,987,rf_var,Plain RF
+40,44,29351,rf_var,Plain RF
+40,45,173,rf_var,Plain RF
+40,46,2618,rf_var,Plain RF
+40,47,30837,rf_var,Plain RF
+40,48,486,rf_var,Plain RF
+40,49,26428,rf_var,Plain RF
+40,50,1437,rf_var,Plain RF
+40,52,4099,rf_var,Plain RF
+40,53,7244,rf_var,Plain RF
+40,54,1225,rf_var,Plain RF
+40,55,2616,rf_var,Plain RF
+41,1,4,rf_var,Plain RF
+41,2,25,rf_var,Plain RF
+41,3,3753,rf_var,Plain RF
+41,5,162,rf_var,Plain RF
+41,6,14,rf_var,Plain RF
+41,7,8828,rf_var,Plain RF
+41,10,114,rf_var,Plain RF
+41,11,12,rf_var,Plain RF
+41,12,320,rf_var,Plain RF
+41,13,536,rf_var,Plain RF
+41,15,32,rf_var,Plain RF
+41,18,6,rf_var,Plain RF
+41,21,399,rf_var,Plain RF
+41,25,3,rf_var,Plain RF
+41,26,450,rf_var,Plain RF
+41,27,3625,rf_var,Plain RF
+41,28,1464,rf_var,Plain RF
+41,30,1975,rf_var,Plain RF
+41,32,8,rf_var,Plain RF
+41,33,12000,rf_var,Plain RF
+41,34,5,rf_var,Plain RF
+41,36,2058,rf_var,Plain RF
+41,37,5444,rf_var,Plain RF
+41,39,18,rf_var,Plain RF
+41,40,223,rf_var,Plain RF
+41,41,47681,rf_var,Plain RF
+41,44,281,rf_var,Plain RF
+41,45,21,rf_var,Plain RF
+41,46,7,rf_var,Plain RF
+41,47,1663,rf_var,Plain RF
+41,49,80,rf_var,Plain RF
+42,4,1,rf_var,Plain RF
+42,7,199,rf_var,Plain RF
+42,11,3,rf_var,Plain RF
+42,13,57,rf_var,Plain RF
+42,14,2,rf_var,Plain RF
+42,15,86,rf_var,Plain RF
+42,16,399,rf_var,Plain RF
+42,18,47,rf_var,Plain RF
+42,19,631,rf_var,Plain RF
+42,20,11240,rf_var,Plain RF
+42,22,1355,rf_var,Plain RF
+42,23,20,rf_var,Plain RF
+42,24,1830,rf_var,Plain RF
+42,25,2276,rf_var,Plain RF
+42,31,15673,rf_var,Plain RF
+42,32,205,rf_var,Plain RF
+42,33,9,rf_var,Plain RF
+42,42,119281,rf_var,Plain RF
+42,43,1622,rf_var,Plain RF
+43,10,6,rf_var,Plain RF
+43,16,324,rf_var,Plain RF
+43,18,35,rf_var,Plain RF
+43,19,6,rf_var,Plain RF
+43,20,36,rf_var,Plain RF
+43,24,44,rf_var,Plain RF
+43,25,71,rf_var,Plain RF
+43,31,1,rf_var,Plain RF
+43,39,2,rf_var,Plain RF
+43,42,115,rf_var,Plain RF
+43,43,4937,rf_var,Plain RF
+43,46,115,rf_var,Plain RF
+44,1,562,rf_var,Plain RF
+44,2,10,rf_var,Plain RF
+44,3,2389,rf_var,Plain RF
+44,4,12,rf_var,Plain RF
+44,5,2424,rf_var,Plain RF
+44,7,2994,rf_var,Plain RF
+44,10,2166,rf_var,Plain RF
+44,13,600,rf_var,Plain RF
+44,16,115,rf_var,Plain RF
+44,18,1007,rf_var,Plain RF
+44,19,34,rf_var,Plain RF
+44,20,41,rf_var,Plain RF
+44,21,31487,rf_var,Plain RF
+44,24,12,rf_var,Plain RF
+44,26,13633,rf_var,Plain RF
+44,27,118,rf_var,Plain RF
+44,28,23542,rf_var,Plain RF
+44,30,67441,rf_var,Plain RF
+44,31,27,rf_var,Plain RF
+44,33,2114,rf_var,Plain RF
+44,34,995,rf_var,Plain RF
+44,36,36433,rf_var,Plain RF
+44,37,36,rf_var,Plain RF
+44,39,6165,rf_var,Plain RF
+44,40,53725,rf_var,Plain RF
+44,41,1282,rf_var,Plain RF
+44,44,194616,rf_var,Plain RF
+44,45,1211,rf_var,Plain RF
+44,46,1549,rf_var,Plain RF
+44,47,42797,rf_var,Plain RF
+44,48,80,rf_var,Plain RF
+44,49,28086,rf_var,Plain RF
+44,50,4727,rf_var,Plain RF
+44,52,4640,rf_var,Plain RF
+44,53,21611,rf_var,Plain RF
+44,54,8811,rf_var,Plain RF
+44,55,8009,rf_var,Plain RF
+45,1,120,rf_var,Plain RF
+45,2,1,rf_var,Plain RF
+45,5,183,rf_var,Plain RF
+45,10,145,rf_var,Plain RF
+45,13,143,rf_var,Plain RF
+45,15,4,rf_var,Plain RF
+45,16,1172,rf_var,Plain RF
+45,18,101,rf_var,Plain RF
+45,20,263,rf_var,Plain RF
+45,22,1,rf_var,Plain RF
+45,23,15,rf_var,Plain RF
+45,24,318,rf_var,Plain RF
+45,25,42,rf_var,Plain RF
+45,28,14,rf_var,Plain RF
+45,29,106,rf_var,Plain RF
+45,30,98,rf_var,Plain RF
+45,31,145,rf_var,Plain RF
+45,33,5,rf_var,Plain RF
+45,34,112,rf_var,Plain RF
+45,39,411,rf_var,Plain RF
+45,40,39,rf_var,Plain RF
+45,44,71,rf_var,Plain RF
+45,45,11562,rf_var,Plain RF
+45,46,1269,rf_var,Plain RF
+45,47,8,rf_var,Plain RF
+45,49,27,rf_var,Plain RF
+45,50,2,rf_var,Plain RF
+46,1,613,rf_var,Plain RF
+46,2,60,rf_var,Plain RF
+46,3,95,rf_var,Plain RF
+46,4,3,rf_var,Plain RF
+46,5,254,rf_var,Plain RF
+46,7,173,rf_var,Plain RF
+46,10,22925,rf_var,Plain RF
+46,13,243,rf_var,Plain RF
+46,16,9024,rf_var,Plain RF
+46,18,8416,rf_var,Plain RF
+46,20,1925,rf_var,Plain RF
+46,21,17,rf_var,Plain RF
+46,22,10,rf_var,Plain RF
+46,25,17,rf_var,Plain RF
+46,26,387,rf_var,Plain RF
+46,28,324,rf_var,Plain RF
+46,30,515,rf_var,Plain RF
+46,31,11,rf_var,Plain RF
+46,33,32,rf_var,Plain RF
+46,34,2012,rf_var,Plain RF
+46,36,644,rf_var,Plain RF
+46,37,17,rf_var,Plain RF
+46,39,9228,rf_var,Plain RF
+46,40,1078,rf_var,Plain RF
+46,43,201,rf_var,Plain RF
+46,44,616,rf_var,Plain RF
+46,45,8114,rf_var,Plain RF
+46,46,66031,rf_var,Plain RF
+46,47,1195,rf_var,Plain RF
+46,49,1888,rf_var,Plain RF
+46,50,207,rf_var,Plain RF
+47,1,111,rf_var,Plain RF
+47,3,1752,rf_var,Plain RF
+47,4,37,rf_var,Plain RF
+47,5,2881,rf_var,Plain RF
+47,6,38,rf_var,Plain RF
+47,7,2087,rf_var,Plain RF
+47,10,2766,rf_var,Plain RF
+47,11,52,rf_var,Plain RF
+47,13,6,rf_var,Plain RF
+47,15,7,rf_var,Plain RF
+47,21,7547,rf_var,Plain RF
+47,26,1578,rf_var,Plain RF
+47,27,2051,rf_var,Plain RF
+47,28,14158,rf_var,Plain RF
+47,30,14654,rf_var,Plain RF
+47,33,792,rf_var,Plain RF
+47,34,513,rf_var,Plain RF
+47,36,9165,rf_var,Plain RF
+47,37,191,rf_var,Plain RF
+47,39,1206,rf_var,Plain RF
+47,40,36284,rf_var,Plain RF
+47,41,709,rf_var,Plain RF
+47,44,31522,rf_var,Plain RF
+47,45,50,rf_var,Plain RF
+47,46,1972,rf_var,Plain RF
+47,47,202113,rf_var,Plain RF
+47,48,460,rf_var,Plain RF
+47,49,12910,rf_var,Plain RF
+47,50,2097,rf_var,Plain RF
+47,52,3890,rf_var,Plain RF
+47,53,17,rf_var,Plain RF
+47,55,174,rf_var,Plain RF
+48,4,6,rf_var,Plain RF
+48,21,33,rf_var,Plain RF
+48,26,1,rf_var,Plain RF
+48,27,8,rf_var,Plain RF
+48,28,4,rf_var,Plain RF
+48,30,13,rf_var,Plain RF
+48,40,3,rf_var,Plain RF
+48,43,9,rf_var,Plain RF
+48,44,1,rf_var,Plain RF
+48,47,6,rf_var,Plain RF
+48,48,1482,rf_var,Plain RF
+48,49,23,rf_var,Plain RF
+48,53,23,rf_var,Plain RF
+49,1,101,rf_var,Plain RF
+49,3,85,rf_var,Plain RF
+49,4,25,rf_var,Plain RF
+49,5,448,rf_var,Plain RF
+49,7,75,rf_var,Plain RF
+49,10,7791,rf_var,Plain RF
+49,20,20,rf_var,Plain RF
+49,21,3672,rf_var,Plain RF
+49,26,9352,rf_var,Plain RF
+49,28,1540,rf_var,Plain RF
+49,30,20405,rf_var,Plain RF
+49,34,2363,rf_var,Plain RF
+49,36,5046,rf_var,Plain RF
+49,37,8,rf_var,Plain RF
+49,39,1145,rf_var,Plain RF
+49,40,11566,rf_var,Plain RF
+49,41,10,rf_var,Plain RF
+49,44,7334,rf_var,Plain RF
+49,45,117,rf_var,Plain RF
+49,46,1177,rf_var,Plain RF
+49,47,3164,rf_var,Plain RF
+49,48,52,rf_var,Plain RF
+49,49,70032,rf_var,Plain RF
+49,50,413,rf_var,Plain RF
+49,52,9701,rf_var,Plain RF
+49,53,1463,rf_var,Plain RF
+49,54,41,rf_var,Plain RF
+49,55,357,rf_var,Plain RF
+50,2,3,rf_var,Plain RF
+50,7,2,rf_var,Plain RF
+50,10,27,rf_var,Plain RF
+50,21,11,rf_var,Plain RF
+50,26,1,rf_var,Plain RF
+50,28,25,rf_var,Plain RF
+50,30,5,rf_var,Plain RF
+50,34,7,rf_var,Plain RF
+50,39,49,rf_var,Plain RF
+50,40,28,rf_var,Plain RF
+50,44,38,rf_var,Plain RF
+50,46,15,rf_var,Plain RF
+50,47,25,rf_var,Plain RF
+50,48,2,rf_var,Plain RF
+50,49,1,rf_var,Plain RF
+50,50,1968,rf_var,Plain RF
+50,53,53,rf_var,Plain RF
+50,54,3,rf_var,Plain RF
+50,55,3,rf_var,Plain RF
+52,10,10,rf_var,Plain RF
+52,21,44,rf_var,Plain RF
+52,26,54,rf_var,Plain RF
+52,28,6,rf_var,Plain RF
+52,40,318,rf_var,Plain RF
+52,44,169,rf_var,Plain RF
+52,47,47,rf_var,Plain RF
+52,49,1132,rf_var,Plain RF
+52,50,1,rf_var,Plain RF
+52,52,20473,rf_var,Plain RF
+52,53,679,rf_var,Plain RF
+52,54,5,rf_var,Plain RF
+52,55,398,rf_var,Plain RF
+53,2,64,rf_var,Plain RF
+53,5,1,rf_var,Plain RF
+53,10,6,rf_var,Plain RF
+53,15,4,rf_var,Plain RF
+53,19,1,rf_var,Plain RF
+53,21,2153,rf_var,Plain RF
+53,26,454,rf_var,Plain RF
+53,28,54,rf_var,Plain RF
+53,29,6,rf_var,Plain RF
+53,30,352,rf_var,Plain RF
+53,34,201,rf_var,Plain RF
+53,35,1,rf_var,Plain RF
+53,36,32,rf_var,Plain RF
+53,39,26,rf_var,Plain RF
+53,40,1058,rf_var,Plain RF
+53,44,2301,rf_var,Plain RF
+53,46,12,rf_var,Plain RF
+53,47,29,rf_var,Plain RF
+53,48,19,rf_var,Plain RF
+53,49,1199,rf_var,Plain RF
+53,50,449,rf_var,Plain RF
+53,52,1887,rf_var,Plain RF
+53,53,49809,rf_var,Plain RF
+53,54,1686,rf_var,Plain RF
+53,55,1898,rf_var,Plain RF
+54,21,156,rf_var,Plain RF
+54,30,4,rf_var,Plain RF
+54,34,14,rf_var,Plain RF
+54,36,13,rf_var,Plain RF
+54,40,54,rf_var,Plain RF
+54,44,207,rf_var,Plain RF
+54,48,1,rf_var,Plain RF
+54,49,4,rf_var,Plain RF
+54,50,25,rf_var,Plain RF
+54,53,151,rf_var,Plain RF
+54,54,10742,rf_var,Plain RF
+55,21,10,rf_var,Plain RF
+55,28,52,rf_var,Plain RF
+55,36,6,rf_var,Plain RF
+55,40,93,rf_var,Plain RF
+55,44,172,rf_var,Plain RF
+55,49,3,rf_var,Plain RF
+55,50,3,rf_var,Plain RF
+55,52,377,rf_var,Plain RF
+55,53,214,rf_var,Plain RF
+55,55,5450,rf_var,Plain RF
