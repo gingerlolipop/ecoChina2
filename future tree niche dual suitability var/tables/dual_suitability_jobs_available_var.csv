@@ -1,0 +1,13 @@
+method,scenario,n_required_zones,n_missing_zones,missing_zones
+rf_var,2011-2040SSP245,29,0,""
+rf_var,2041-2070SSP245,29,0,""
+rf_var,2071-2100SSP245,29,0,""
+rf_var,2011-2040SSP585,29,0,""
+rf_var,2041-2070SSP585,29,0,""
+rf_var,2071-2100SSP585,29,0,""
+mf_var,2011-2040SSP245,29,0,""
+mf_var,2041-2070SSP245,29,0,""
+mf_var,2071-2100SSP245,29,0,""
+mf_var,2011-2040SSP585,29,0,""
+mf_var,2041-2070SSP585,29,0,""
+mf_var,2071-2100SSP585,29,0,""

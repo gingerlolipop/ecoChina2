@@ -1,0 +1,8 @@
+source_zone,PopulationID,Species,Zone,Population,reference_abundance,zone_name,COLOR,projected
+8,lariGme-Zone8,lariGme,Zone8,176,176,Rare / original raster odd value,#BDBDBD,FALSE
+8,lariOlg-Zone8,lariOlg,Zone8,60,60,Rare / original raster odd value,#BDBDBD,FALSE
+8,querVar-Zone8,querVar,Zone8,2962,2962,Rare / original raster odd value,#BDBDBD,FALSE
+8,robiPse-Zone8,robiPse,Zone8,123,123,Rare / original raster odd value,#BDBDBD,FALSE
+8,saliMat-Zone8,saliMat,Zone8,223,223,Rare / original raster odd value,#BDBDBD,FALSE
+8,phylPub-Zone8,phylPub,Zone8,190,190,Rare / original raster odd value,#BDBDBD,FALSE
+8,pinuYun-Zone8,pinuYun,Zone8,260,260,Rare / original raster odd value,#BDBDBD,FALSE
