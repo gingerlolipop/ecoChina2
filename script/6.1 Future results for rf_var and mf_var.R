@@ -7,7 +7,7 @@
 # Inputs:
 #   result maps/rf_var/
 #   result maps/mf_var/
-#   assigned-zone filenames with future novel threshold 0.3
+#   assigned-zone filenames with future novel threshold 0.4
 #
 # Outputs:
 #   1. Future ecosystem area by zone.
@@ -33,7 +33,7 @@ gc()
 
 # 0. Paths and settings ==========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(Sys.getenv("ECOCHINA2_DIR", getwd()), winslash = "/", mustWork = TRUE)
 
 result_map_root <- file.path(
   base_dir,
@@ -130,12 +130,17 @@ assigned_map_file <- function(
 
 raster_is_valid <- function(
     raster_file,
-    template) {
+    template,
+    input_files = character()) {
   
   if (!file.exists(raster_file)) {
     return(FALSE)
   }
   
+  if (length(input_files) && (!all(file.exists(input_files)) ||
+      as.numeric(file.info(raster_file)$mtime) < max(as.numeric(file.info(input_files)$mtime)))) {
+    return(FALSE)
+  }
   tryCatch({
     
     x <- rast(raster_file)
@@ -730,11 +735,13 @@ for (method_key in method_order) {
         reuse_existing_outputs &&
           raster_is_valid(
             population_output,
-            future_map
+            future_map,
+            input_files = c(map_file, population_file, reference_file)
           ) &&
           raster_is_valid(
             species_output,
-            future_map
+            future_map,
+            input_files = c(map_file, population_file, reference_file)
           )
       )
       
@@ -1038,3 +1045,5 @@ cat(
   "\n",
   sep = ""
 )
+
+

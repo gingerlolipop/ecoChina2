@@ -28,7 +28,8 @@ gc()
 
 # 0. Paths and settings ==========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- Sys.getenv("ECOCHINA2_DIR", unset = "H:/Jing/ecoChina2")
+source(file.path(base_dir, "functions", "dual_missing_policy.R"), local = TRUE)
 
 dual_root <- file.path(
   base_dir,
@@ -367,11 +368,13 @@ valid_rank_outputs <- function(
     template
   )
   
+  input_files <- c(file.path(dual_root, method, scenario,
+    paste0("dual_suitability_zone", zoneID, ".tif")), reference_file)
+  outputs <- unlist(output[c("ranked_zone_file", "ranked_suitability_file", "ranked_summary_file")])
+  fresh <- all(file.exists(input_files)) && all(file.exists(outputs)) &&
+    min(file.info(outputs)$mtime) >= max(file.info(input_files)$mtime)
   list(
-    all_valid =
-      valid_zone &&
-      valid_suitability &&
-      valid_summary,
+    all_valid = valid_zone && valid_suitability && valid_summary && isTRUE(fresh),
     valid_zone = valid_zone,
     valid_suitability =
       valid_suitability,
@@ -508,10 +511,8 @@ make_rank_function <- function(
   
   function(x) {
     
-    number_of_ranks <- min(
-      top_k,
-      length(zone_ids)
-    )
+    number_of_ranks <- min(top_k, length(zone_ids))
+    if (sum(is.finite(x)) != length(zone_ids)) return(rep(NA_real_, 2L * number_of_ranks + 6L))
     
     output_zone <- rep(
       NA_real_,

@@ -101,9 +101,9 @@ multiclass_reference_file <- file.path(
   "assigned_zone_normal_multiclass_rf.tif"
 )
 
-existing_top1_bubble_table <- file.path(
+current_top1_metric_file <- file.path(
   table_dir,
-  "Figure10a_all_binary_workflows_vs_multiclass_reference_map_F1.csv"
+  "Figure_var_10b_reference_map_zone_metrics_common_mask.csv"
 )
 
 population_source_file <- file.path(
@@ -184,6 +184,10 @@ target_plot_cells <- 120000L
 population_alpha <- 0.48
 chunk_rows <- 48L
 reuse_existing_species_maps <- TRUE
+figure_current <- function(outputs, inputs) {
+  all(file.exists(outputs)) && all(file.exists(inputs)) &&
+    min(file.info(outputs)$mtime) >= max(file.info(inputs)$mtime)
+}
 
 
 # 1. General helpers ============================================================
@@ -721,41 +725,59 @@ if (anyNA(
   )
 }
 
-# Regression check: the new common-mask Top-1 row must reproduce the existing
-# Figure 10d source table exactly, apart from floating-point representation.
-existing_top1 <- fread(
-  require_file(
-    existing_top1_bubble_table
-  )
-)[
-  method %in% method_order,
-  .(
-    method,
-    zone = as.integer(zone),
-    old_binary_f1 = as.numeric(binary_f1),
-    old_multiclass_f1 = as.numeric(multiclass_f1),
-    reference_area_km2 = as.numeric(area_km2)
-  )
-]
+# Compare against the independently recomputed three-map common-mask metrics
+# from 11.2, not a historical Figure10a table that no current script updates.
+# Both calculations use reference modeled ecotypes and all three assigned maps.
+read_current_top1_baseline <- function(metrics_file, input_files, zones, binary_methods) {
+  if (!file.exists(metrics_file) || !all(file.exists(input_files))) {
+    stop("Current common-mask comparison inputs are missing. Run 11.2 first.")
+  }
+  if (as.numeric(file.info(metrics_file)$mtime) < max(as.numeric(file.info(input_files)$mtime))) {
+    stop("Common-mask metrics predate their map inputs. Run 11.2 first.")
+  }
+  x <- fread(metrics_file)
+  required <- c("method", "zone", "f1", "precision", "sensitivity")
+  if (!all(required %in% names(x))) {
+    stop("Invalid current common-mask metric schema: ", metrics_file)
+  }
+  needed_methods <- c(binary_methods, "multiclass_rf")
+  x <- x[method %in% needed_methods & zone %in% zones,
+         .(method = as.character(method), zone = as.integer(zone),
+           f1 = as.numeric(f1), precision = as.numeric(precision),
+           sensitivity = as.numeric(sensitivity))]
+  expected <- CJ(method = needed_methods, zone = as.integer(zones))
+  if (anyDuplicated(paste(x$method, x$zone)) ||
+      !setequal(paste(x$method, x$zone), paste(expected$method, expected$zone))) {
+    stop("Current common-mask metrics must contain one row per method and modeled ecotype.")
+  }
+  # The older precision/recall formula can produce NA when TP=0. The equivalent
+  # count formula 2TP/(2TP+FP+FN) is exactly zero when either defined rate is zero.
+  x[!is.finite(f1) & ((is.finite(precision) & precision == 0) |
+                       (is.finite(sensitivity) & sensitivity == 0)), f1 := 0]
+  if (any(!is.finite(x$f1) | x$f1 < 0 | x$f1 > 1)) {
+    stop("Undefined or invalid F1 in current common-mask metrics.")
+  }
+  merge(x[method %in% binary_methods, .(method, zone, baseline_binary_f1 = f1)],
+        x[method == "multiclass_rf", .(zone, baseline_multiclass_f1 = f1)],
+        by = "zone", all.x = TRUE, sort = FALSE)
+}
 
-area_lookup <- existing_top1[
-  ,
-  .(
-    reference_area_km2 = mean(
-      reference_area_km2,
-      na.rm = TRUE
-    )
-  ),
-  by = zone
-]
-
-topk_bubble <- merge(
-  topk_bubble,
-  area_lookup,
-  by = "zone",
-  all.x = TRUE,
-  sort = FALSE
+current_top1 <- read_current_top1_baseline(
+  current_top1_metric_file,
+  c(reference_file, multiclass_reference_file,
+    vapply(method_order, function(m) assigned_map_file(m, "normal"), character(1))),
+  model_zoneID, method_order
 )
+
+# Bubble sizes now describe the current comparison domain, including its NA
+# exclusions; the old full-reference-area lookup is no longer required.
+topk_bubble[, `:=`(
+  reference_area_km2 = common_reference_area_km2,
+  reference_area_basis = "current_three_model_common_mask"
+)]
+if (any(!is.finite(topk_bubble$reference_area_km2) | topk_bubble$reference_area_km2 <= 0)) {
+  stop("Missing reference area on the current common comparison mask.")
+}
 
 top1_check <- merge(
   topk_bubble[
@@ -767,7 +789,7 @@ top1_check <- merge(
       new_multiclass_f1 = multiclass_f1
     )
   ],
-  existing_top1,
+  current_top1,
   by = c(
     "method",
     "zone"
@@ -787,18 +809,18 @@ if (
   max(
     abs(
       top1_check$new_binary_f1 -
-      top1_check$old_binary_f1
+      top1_check$baseline_binary_f1
     )
   ) > 1e-10 ||
   max(
     abs(
       top1_check$new_multiclass_f1 -
-      top1_check$old_multiclass_f1
+      top1_check$baseline_multiclass_f1
     )
   ) > 1e-10
 ) {
   stop(
-    "The Top-1 row does not reproduce the existing Figure 10d data."
+    "The Top-1 row does not reproduce the current three-model common-mask F1 data."
   )
 }
 
@@ -926,7 +948,7 @@ figure_10d_topk <- ggplot(
   scale_size_area(
     max_size = 6.5,
     name = expression(
-      "Reference ecotype area (million km"^2*")"
+      "Reference area on common mask (million km"^2*")"
     )
   ) +
   scale_x_continuous(
@@ -1567,14 +1589,8 @@ for (method in method_order) {
       )
     }
     
-    if (
-      reuse_existing_species_maps &&
-      all(
-        file.exists(
-          expected_outputs
-        )
-      )
-    ) {
+    figure_inputs <- c(assigned_file, rank_zone_path, rank_suitability_path, reference_file, population_source_file)
+    if (reuse_existing_species_maps && figure_current(expected_outputs, figure_inputs)) {
       cat(
         "[REUSE] ",
         method,
@@ -1647,10 +1663,7 @@ for (method in method_order) {
       output_file <- expected_outputs[[output_index]]
       
       if (
-        reuse_existing_species_maps &&
-        file.exists(
-          output_file
-        )
+        reuse_existing_species_maps && figure_current(output_file, figure_inputs)
       ) {
         next
       }

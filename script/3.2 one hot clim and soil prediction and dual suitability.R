@@ -30,6 +30,8 @@ base_dir <- if (nzchar(env_root)) {
   find_project_root()
 }
 
+source(file.path(base_dir, "functions", "dual_missing_policy.R"), local = TRUE)
+
 reference_file <- file.path(base_dir, "raster", "ecosys_ori.tif")
 if (!file.exists(reference_file)) stop("Run script/1. data.R first.")
 reference_map <- rast(reference_file)
@@ -140,9 +142,7 @@ get_varlist <- function(model, model_file) {
   vars <- model$varlist
   if (is.null(vars) || !length(vars)) vars <- rownames(model$importance)
   if (is.null(vars) || !length(vars)) stop("No predictors found in: ", model_file)
-  if (length(vars) != 9L) {
-    stop("Expected 9 selected predictors in ", model_file, "; found ", length(vars), ".")
-  }
+  if (anyNA(vars) || anyDuplicated(vars)) stop("Invalid fitted variable list in: ", model_file)
   as.character(vars)
 }
 
@@ -207,8 +207,7 @@ predict_suitability <- function(model_file, object_name, raster_dir,
 }
 
 dual_suitability <- function(climate, soil, gate) {
-  if (gate == 0) return(climate)
-  ifel(is.na(soil), NA, ifel(soil > gate, climate, 0))
+  eco_strict_dual(climate, soil, gate)
 }
 
 sensitivity_file <- file.path(assessment_dir, "soil_gate_sensitivity.csv")
@@ -216,7 +215,8 @@ sensitivity_complete <- function(file) {
   if (!file.exists(file)) return(FALSE)
   tryCatch({
     x <- fread(file)
-    required <- c("scenario", "soil_gate", "valid_pixels", "mean_max_dual")
+    required <- c("scenario", "soil_gate", "valid_pixels", "mean_max_dual", "missing_policy")
+    if (!"missing_policy" %in% names(x) || any(x$missing_policy != eco_missing_policy)) return(FALSE)
     if (length(setdiff(required, names(x)))) return(FALSE)
     observed <- unique(x[, .(scenario, soil_gate = round(soil_gate, 2))])
     expected <- CJ(
@@ -270,6 +270,9 @@ if (all(file.exists(unlist(gate_raster_jobs)))) {
           as.numeric(climate_info$mtime), as.numeric(soil_info$mtime)
         )
       )
+  gate_rasters_current <- gate_rasters_current && all(vapply(seq_len(nrow(gate_raster_jobs)), function(i) {
+    eco_policy_current(gate_raster_jobs$output[i], c(gate_raster_jobs$climate[i], gate_raster_jobs$soil[i], reference_file), "dual_gate_alternative")
+  }, logical(1)))
 }
 
 sensitivity_current <- sensitivity_complete(sensitivity_file)
@@ -291,7 +294,13 @@ dual_files_all <- unlist(lapply(scenario_table$scenario, function(scenario) {
     paste0("dual_suitability_zone", zoneID, ".tif")
   )
 }))
-need_primary_dual <- !reuse_dual || !all(vapply(dual_files_all, valid_raster, logical(1)))
+need_primary_dual <- !reuse_dual || !all(vapply(seq_along(dual_files_all), function(i) {
+  scenario_i <- scenario_table$scenario[((i - 1L) %/% length(zoneID)) + 1L]
+  zone_i <- zoneID[((i - 1L) %% length(zoneID)) + 1L]
+  inputs_i <- c(file.path(climate_root_out, scenario_i, paste0("clim_suit_zone", zone_i, ".tif")),
+    file.path(soil_out, paste0("soil_suit_zone", zone_i, ".tif")), reference_file)
+  valid_raster(dual_files_all[i]) && eco_policy_current(dual_files_all[i], inputs_i, "dual_gate_0.2")
+}, logical(1)))
 need_soil <- need_primary_dual || run_sensitivity
 
 if (need_soil) {
@@ -321,7 +330,9 @@ for (job in seq_len(nrow(scenario_table))) {
   for (zone in zoneID) {
     climate_file <- file.path(climate_dir_out, paste0("clim_suit_zone", zone, ".tif"))
     dual_file <- file.path(dual_dir_out, paste0("dual_suitability_zone", zone, ".tif"))
-    dual_ok <- reuse_dual && valid_raster(dual_file)
+    soil_file <- file.path(soil_out, paste0("soil_suit_zone", zone, ".tif"))
+    dual_ok <- reuse_dual && valid_raster(dual_file) &&
+      eco_policy_current(dual_file, c(climate_file, soil_file, reference_file), "dual_gate_0.2")
 
     if (dual_ok && !run_sensitivity) {
       cat("[USE DUAL]", scenario, "| zone", zone, "\n")
@@ -360,6 +371,7 @@ for (job in seq_len(nrow(scenario_table))) {
       dual, dual_file, overwrite = TRUE,
       wopt = list(datatype = "FLT4S", gdal = "COMPRESS=LZW")
     )
+    eco_record_policy(dual_file, c(climate_file, soil_file, reference_file), "dual_gate_0.2")
     cat("[SAVED DUAL]", scenario, "| zone", zone, "\n")
     rm(climate, soil, dual)
     gc()
@@ -426,12 +438,12 @@ if (!run_sensitivity) {
         candidates <- climate_values
         if (gate > 0) {
           candidates[!is.na(soil_values) & soil_values <= gate] <- 0
-          candidates[is.na(soil_values)] <- -Inf
+          candidates[!is.finite(climate_values) | !is.finite(soil_values)] <- -Inf
         }
         candidates[!is.finite(candidates)] <- -Inf
         max_col <- max.col(candidates, ties.method = "first")
         max_dual <- candidates[cbind(seq_len(nrow(candidates)), max_col)]
-        valid <- modeled & is.finite(max_dual)
+        valid <- modeled & rowSums(is.finite(candidates)) == nz
         analogue <- valid & max_dual >= novel_threshold
         below <- valid & max_dual < novel_threshold
 
@@ -450,6 +462,7 @@ if (!run_sensitivity) {
 
     result[, `:=`(
       scenario = scenario,
+      missing_policy = eco_missing_policy,
       climate_only = soil_gate == 0,
       novel_rule_applied = scenario != "normal",
       analogue_share = analogue_pixels / valid_pixels,
@@ -478,6 +491,7 @@ if (!run_sensitivity) {
         )
         gate_outputs_current <- vapply(seq_along(zoneID), function(z) {
           valid_raster(gate_outputs[z]) &&
+            eco_policy_current(gate_outputs[z], c(climate_files[z], soil_files[z], reference_file), "dual_gate_alternative") &&
             isTRUE(file.info(gate_outputs[z])$mtime >= max(file.info(c(
               climate_files[z], soil_files[z]
             ))$mtime))
@@ -495,6 +509,7 @@ if (!run_sensitivity) {
               gate_stack[[z]], output, overwrite = TRUE,
               wopt = list(datatype = "FLT4S", gdal = "COMPRESS=LZW")
             )
+            eco_record_policy(output, c(climate_files[z], soil_files[z], reference_file), "dual_gate_alternative")
           }
         }
         rm(gate_stack)

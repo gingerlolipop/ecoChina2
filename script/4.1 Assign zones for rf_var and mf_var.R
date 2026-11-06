@@ -53,7 +53,8 @@ gc()
 
 # 0. Paths and parameters ========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- Sys.getenv("ECOCHINA2_DIR", unset = "H:/Jing/ecoChina2")
+source(file.path(base_dir, "functions", "dual_missing_policy.R"), local = TRUE)
 
 dual_dir <- file.path(
   base_dir,
@@ -258,10 +259,8 @@ assign_zone_block <- function(
     )
   ]
   
-  valid <- (
-    valid &
-      is.finite(max_suitability)
-  )
+  # Map diagnostics require the complete set of candidate inputs.
+  valid <- valid & rowSums(is.finite(suit)) == nz & is.finite(max_suitability)
   
   if (!any(valid)) {
     attr(assigned, "n_draw") <- n_draw
@@ -616,6 +615,7 @@ for (j in seq_len(nrow(jobs))) {
   
   if (
     reuse_existing_outputs &&
+    eco_policy_current(output_file, c(files, reference_file), "assigned_complete_candidates") &&
     existing_output_is_valid(
       output_file = output_file,
       reference_map = reference_map,
@@ -699,6 +699,7 @@ for (j in seq_len(nrow(jobs))) {
   
   readStop(stack_with_reference)
   writeStop(out_r)
+  eco_record_policy(output_file, c(files, reference_file), "assigned_complete_candidates")
   
   
   # 4. Validate the saved file ===================================================

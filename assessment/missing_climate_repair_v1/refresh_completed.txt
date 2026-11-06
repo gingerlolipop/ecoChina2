@@ -1,0 +1,15 @@
+All refresh stages completed (refresh chain v2).
+Time: 2026-11-04 06:47:19.177425
+Training, held-out tests, feature importance and multiclass fitting were not rerun.
+5.11 Refresh map assessment after missing-climate repair.R
+6.1 Future results for rf_var and mf_var.R
+6.21 Future population and species niches from dual suitability.R
+8.1 Rank dual suitability by pixel.R
+8. future top k.R
+8.2future top k.R
+11.2 Visualization for corrected climate models.R
+8.3 Matched Top-k reference-to-future comparison.R
+11.3 Reference-period Top-k confusion flows on a common scale.R
+11.4 Top-k downstream figures.R
+11.5 Matched Top-k and novel-ecosystem figures.R
+11.7 Manuscript Top-k diagnostics and population-coloured species maps.R

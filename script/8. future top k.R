@@ -207,6 +207,9 @@ rank_paths <- function(scenario) {
 
 valid_rank_outputs <- function(paths, template) {
   if (!all(file.exists(unlist(paths[c("zone", "suitability", "summary")])))) return(FALSE)
+  input_files <- c(vapply(modeled_zones, function(z) dual_file(basename(paths$output_dir), z), character(1)), reference_file)
+  if (min(file.info(unlist(paths[c("zone", "suitability", "summary")]))$mtime) <
+      max(file.info(input_files)$mtime)) return(FALSE)
   tryCatch({
     zone <- rast(paths$zone)
     suitability <- rast(paths$suitability)
@@ -1745,7 +1748,7 @@ make_rank_cell <- function(zone_ids, rank_min, threshold, top_k) {
   
   function(x) {
     finite <- which(is.finite(x))
-    if (!length(finite)) return(rep(NA_real_, 2L * top_k + 6L))
+    if (length(finite) != length(zone_ids)) return(rep(NA_real_, 2L * top_k + 6L))
     
     rankable <- finite[x[finite] > rank_min]
     ordered <- if (length(rankable)) {
@@ -3133,4 +3136,3 @@ cat(
   "Future matched rows:", nrow(matched_change), "\n",
   "Output:", output_root, "\n"
 )
-

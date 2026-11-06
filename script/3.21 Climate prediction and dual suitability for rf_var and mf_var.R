@@ -24,7 +24,8 @@ library(data.table)
 rm(list = ls())
 gc()
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- Sys.getenv("ECOCHINA2_DIR", unset = "H:/Jing/ecoChina2")
+source(file.path(base_dir, "functions", "dual_missing_policy.R"), local = TRUE)
 
 reference_file <- file.path(base_dir, "raster/ecosys_ori.tif")
 r <- rast(reference_file)
@@ -154,11 +155,7 @@ mcPredict_terra <- function(x, y, filename, compress = FALSE,
 
 calculate_dual_suitability <- function(climate, soil,
                                        threshold = soil_threshold) {
-  ifel(
-    is.na(soil),
-    NA,
-    ifel(soil > threshold, climate, 0)
-  )
+  eco_strict_dual(climate, soil, threshold)
 }
 
 predict_one_climate_model <- function(model_file, object_name, raster_dir,
@@ -289,6 +286,7 @@ write_dual <- function(climate, soil_file, dual_file, template, label) {
     )
   )
   
+  eco_record_policy(dual_file, c(terra::sources(climate)[1], soil_file, reference_file), "dual_gate_0.2")
   rm(psoil, dual)
   gc()
   TRUE

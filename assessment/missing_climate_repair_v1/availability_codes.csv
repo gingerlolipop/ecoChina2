@@ -1,0 +1,6 @@
+code,meaning
+0,outside_reference_footprint_or_zone8
+1,all_required_climate_and_soil_candidates_available
+2,no_climate_candidate_available
+3,some_climate_candidates_missing_soil_may_also_be_missing
+4,climate_complete_but_soil_candidates_missing

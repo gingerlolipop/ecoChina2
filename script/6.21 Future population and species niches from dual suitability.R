@@ -38,7 +38,8 @@ gc()
 
 # 0. Paths and settings ==========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- Sys.getenv("ECOCHINA2_DIR", unset = "H:/Jing/ecoChina2")
+source(file.path(base_dir, "functions", "dual_missing_policy.R"), local = TRUE)
 
 dual_root <- file.path(
   base_dir,
@@ -122,6 +123,7 @@ suitability_threshold <- 0.4
 rank_min_suitability <- 0
 
 reuse_existing_outputs <- TRUE
+current_dual_inputs <- character()
 
 # Normally FALSE because each population layer already exists as a source-zone
 # dual suitability raster.
@@ -223,11 +225,11 @@ raster_valid <- function(
       }
     }
     
-    compareGeom(
-      x,
-      template,
-      stopOnError = FALSE
-    )
+    current_inputs <- get0("current_dual_inputs", inherits = TRUE, ifnotfound = character())
+    inputs_fresh <- !length(current_inputs) || (all(file.exists(current_inputs)) &&
+      file.info(raster_file)$mtime >= max(file.info(current_inputs)$mtime))
+    inputs_fresh <- isTRUE(inputs_fresh) || eco_policy_current(raster_file, current_inputs, "positive_population_rank_unchanged")
+    isTRUE(inputs_fresh) && compareGeom(x, template, stopOnError = FALSE)
     
   }, error = function(e) {
     FALSE
@@ -323,15 +325,15 @@ max_suitability <- function(suitability) {
 
 
 max_stack_na <- function(x) {
-  
-  if (all(is.na(x))) {
-    return(NA_real_)
+  if (is.matrix(x)) {
+    x[!is.finite(x)] <- -Inf
+    j <- max.col(x, ties.method = "first")
+    answer <- x[cbind(seq_len(nrow(x)), j)]
+    answer[!is.finite(answer)] <- NA_real_
+    return(answer)
   }
-  
-  max(
-    x,
-    na.rm = TRUE
-  )
+  if (!any(is.finite(x))) return(NA_real_)
+  max(x[is.finite(x)])
 }
 
 
@@ -354,9 +356,8 @@ rank_dual_cell <- function(
     rank_min,
     suitable_threshold) {
   
-  number_of_populations <- length(
-    population_zones
-  )
+  number_of_populations <- length(population_zones)
+  if (!any(is.finite(x))) return(rep(NA_real_, 2L * number_of_populations + 3L))
   
   output_zone <- rep(
     NA_real_,
@@ -824,6 +825,7 @@ for (job_index in seq_len(
       scenario,
       population_zones
     )
+    current_dual_inputs <- c(population_files, reference_file, population_lookup_file)
     
     if (!all(
       file.exists(population_files)
@@ -1080,6 +1082,13 @@ for (job_index in seq_len(
         )
     )
     
+    if (!reuse_rank && rank_min_suitability == 0 && all(file.exists(c(rank_zone_file, rank_suitability_file, rank_summary_file)))) {
+      reuse_rank <- eco_reuse_positive_population_ranks(base_dir, method, scenario, population_zones,
+        population_stack, c(rank_zone_file, rank_suitability_file, rank_summary_file),
+        rank_index_file, current_dual_inputs, reference_map)
+      if (reuse_rank) cat("[REUSE POSITIVE POPULATION RANKS; NA SUMMARY REPAIRED]", species_name, "\n")
+    }
+
     if (!reuse_rank) {
       
       rank_all <- app(
@@ -1225,9 +1234,10 @@ for (job_index in seq_len(
         seq_along(population_zones),
         function(layer_index) {
           
-          layer <-
-            population_stack[[layer_index]]
-          
+          layer <- population_stack[[layer_index]]
+          ss <- eco_surface_summary(layer, cell_area, suitability_threshold,
+            c(population_files[layer_index], reference_file),
+            file.path(table_dir, "surface_summary_cache", paste0("population_", method, "_", scenario, "_", population_zones[layer_index], ".rds")))
           data.table(
             Species = species_name,
             PopulationID =
@@ -1252,21 +1262,11 @@ for (job_index in seq_len(
               suitability_threshold,
             rank_min_suitability =
               rank_min_suitability,
-            suitable_area_km2 =
-              suitable_area(
-                layer,
-                cell_area,
-                suitability_threshold
-              ),
-            suitability_weighted_area_km2 =
-              weighted_area(
-                layer,
-                cell_area
-              ),
-            mean_dual_suitability =
-              mean_suitability(layer),
-            max_dual_suitability =
-              max_suitability(layer),
+            valid_pixels = ss$valid_pixels, valid_area_km2 = ss$valid_area_km2,
+            suitable_area_km2 = ss$suitable_area_km2,
+            suitability_weighted_area_km2 = ss$suitability_weighted_area_km2,
+            mean_dual_suitability = ss$mean_dual_suitability,
+            max_dual_suitability = ss$max_dual_suitability,
             population_niche_definition =
               "source-zone dual suitability raster",
             source_dual_raster =
@@ -1295,6 +1295,9 @@ for (job_index in seq_len(
     
     # 5.5 Species-level summary --------------------------------------------------
     
+    ss <- eco_surface_summary(species_map, cell_area, suitability_threshold,
+      c(species_file, reference_file),
+      file.path(table_dir, "surface_summary_cache", paste0("species_", method, "_", scenario, "_", safe_species, ".rds")))
     species_area_results[[length(species_area_results) + 1L]] <- data.table(
       Species = species_name,
       method = method,
@@ -1305,21 +1308,11 @@ for (job_index in seq_len(
         suitability_threshold,
       rank_min_suitability =
         rank_min_suitability,
-      suitable_area_km2 =
-        suitable_area(
-          species_map,
-          cell_area,
-          suitability_threshold
-        ),
-      suitability_weighted_area_km2 =
-        weighted_area(
-          species_map,
-          cell_area
-        ),
-      mean_dual_suitability =
-        mean_suitability(species_map),
-      max_dual_suitability =
-        max_suitability(species_map),
+      valid_pixels = ss$valid_pixels, valid_area_km2 = ss$valid_area_km2,
+      suitable_area_km2 = ss$suitable_area_km2,
+      suitability_weighted_area_km2 = ss$suitability_weighted_area_km2,
+      mean_dual_suitability = ss$mean_dual_suitability,
+      max_dual_suitability = ss$max_dual_suitability,
       species_niche_definition =
         "pixel-wise maximum of source population dual suitability rasters",
       species_raster = species_file,
