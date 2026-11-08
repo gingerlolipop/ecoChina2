@@ -41,7 +41,10 @@ gc()
 
 # 0. Paths and settings =========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(
+  Sys.getenv("ECOCHINA2_DIR", "H:/Jing/ecoChina2"),
+  winslash = "/", mustWork = TRUE
+)
 
 assessment_dir <- file.path(
   base_dir,

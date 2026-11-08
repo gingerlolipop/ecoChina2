@@ -249,25 +249,57 @@ local({
     while (!file.exists(file.path(root, "script", "1. data.R"))) {
       parent <- dirname(root); if (parent == root) stop("Run inside ecoChina2 or set ECOCHINA2_DIR."); root <- parent
     }
-    signature <- function(files) {
+    signature <- function(files, digits = 6L) {
       if (!length(files) || !all(file.exists(files))) return(NA_character_)
       z <- file.info(files)
       paste(paste(normalizePath(files, winslash = "/", mustWork = TRUE), z$size,
-        sprintf("%.6f", as.numeric(z$mtime)), sep = "|"), collapse = "\n")
+        sprintf(paste0("%.", digits, "f"), as.numeric(z$mtime)), sep = "|"), collapse = "\n")
     }
+    rule_file <- file.path(root, "functions", "future_topk_rule.R")
+    source(rule_file, local = environment())
     policy <- "complete_climate_soil_candidates_v1"
     completion <- file.path(root, "assessment/missing_climate_repair_v1/repair_completed.rds")
     if (!file.exists(completion)) stop("Complete 3.22 first.")
     state <- readRDS(completion)
+    repair_current <- FALSE
+    if (is.character(state$signature) && length(state$signature) == 1L) {
+      # The assignment rule changes future maps, while the repaired climate,
+      # soil and dual surfaces must still match the original repair record.
+      normalized_inputs <- normalizePath(state$input_files, winslash = "/", mustWork = TRUE)
+      revised_maps <- grepl(
+        "/result maps/(rf_var|mf_var)/assigned_zone_(2011-2040|2041-2070|2071-2100)SSP(245|585)_",
+        normalized_inputs
+      )
+      original_rows <- strsplit(state$signature, "\n", fixed = TRUE)[[1]]
+      maps_current <- function(file) {
+        marker <- paste0(file, ".future_assignment_rule.rds")
+        if (!file.exists(marker) || file.exists(paste0(file, ".assignment_pending.rds"))) return(FALSE)
+        tryCatch({
+          z <- readRDS(marker)
+          rows <- strsplit(z$inputs, "\n", fixed = TRUE)[[1]]
+          files <- sub("[|][^|]*[|][^|]*$", "", rows)
+          identical(z$rule, eco_topk_rule_version) && identical(z$threshold, eco_topk_threshold) &&
+            identical(z$output_size, unname(file.info(file)$size)) &&
+            identical(z$output_mtime, as.numeric(file.info(file)$mtime)) &&
+            identical(z$inputs, signature(files, digits = 9L))
+        }, error = function(e) FALSE)
+      }
+      repair_current <- length(original_rows) == length(state$input_files) &&
+        any(revised_maps) &&
+        identical(paste(original_rows[!revised_maps], collapse = "\n"),
+                  signature(state$input_files[!revised_maps])) &&
+        all(vapply(state$input_files[revised_maps], maps_current, logical(1)))
+    }
     if (!identical(state$policy, policy) || !isTRUE(state$sensitivity_ready) ||
-        !identical(state$signature, signature(state$input_files))) stop("3.22 outputs are incomplete or stale.")
+        !isTRUE(repair_current)) stop("Repaired suitability is incomplete/stale, or future assignments lack current rule markers.")
     method <- Sys.getenv("ECOCHINA2_BRIEF_METHOD", "mf_var")
     if (!method %in% c("mf_var", "rf_var")) stop("Choose mf_var or rf_var.")
     scenarios <- c("normal", "2071-2100SSP245", "2071-2100SSP585")
-    zones <- c(1:7, 9:50, 52:55); ks <- c(1L, 3L, 5L); threshold <- 0.4
+    zones <- c(1:7, 9:50, 52:55); ks <- c(1L, 3L, 5L); threshold <- eco_topk_threshold
     out <- Sys.getenv("ECOCHINA2_BRIEF_OUT", file.path(root, "assessment/collaborator_update_fast_v1"))
     dir.create(out, recursive = TRUE, showWarnings = FALSE)
-    cache <- file.path(out, "cache"); dir.create(cache, showWarnings = FALSE)
+    cache <- file.path(out, "cache", eco_topk_rule_version)
+    dir.create(cache, recursive = TRUE, showWarnings = FALSE)
     old_options <- terraOptions(print = FALSE)
     terraOptions(tempdir = cache, memfrac = 0.10)
     on.exit({
@@ -318,24 +350,33 @@ local({
     map_file <- function(s) file.path(root, "result maps", method, paste0("assigned_zone_", s,
       "_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif"))
     rank_file <- function(s) file.path(root, "dual suit ranking var", method, s, "ranked_zone.tif")
+    rank_suit_file <- function(s) file.path(root, "dual suit ranking var", method, s, "ranked_suitability.tif")
     dual_files <- function(s) file.path(root, "dual suit", method, s, paste0("dual_suitability_zone", sources, ".tif"))
-    inputs <- unique(c(ref_file, pop_file, palette_file, if (file.exists(label_file)) label_file,
-      unlist(lapply(scenarios, function(s) c(map_file(s), rank_file(s), dual_files(s))), use.names = FALSE)))
+    inputs <- unique(c(ref_file, pop_file, palette_file, rule_file, if (file.exists(label_file)) label_file,
+      unlist(lapply(scenarios, function(s) c(map_file(s), rank_file(s), rank_suit_file(s), dual_files(s))), use.names = FALSE)))
     if (!all(file.exists(inputs))) stop("Missing repaired input(s):\n", paste(inputs[!file.exists(inputs)], collapse = "\n"))
-    for (file in setdiff(inputs, c(pop_file, palette_file, label_file))) {
+    for (file in setdiff(inputs, c(pop_file, palette_file, label_file, rule_file))) {
       if (!compareGeom(rast(file)[[1]], ref, stopOnError = FALSE)) stop("Geometry mismatch: ", file)
     }
-    if (any(vapply(scenarios, function(s) nlyr(rast(rank_file(s))) < 5L, logical(1)))) stop("Five saved ranks are required.")
+    if (any(vapply(scenarios, function(s) nlyr(rast(rank_file(s))) < 5L ||
+      nlyr(rast(rank_suit_file(s))) < 5L, logical(1)))) stop("Five saved zone and suitability ranks are required.")
     input_signature <- signature(inputs)
     plot_factor <- as.integer(Sys.getenv("ECOCHINA2_BRIEF_PLOT_FACTOR", "12"))
     if (is.na(plot_factor) || plot_factor < 1L) stop("Invalid plot factor.")
-    config <- list(policy = policy, method = method, scenarios = scenarios, sources = sources,
+    config <- list(policy = policy, assignment_rule = eco_topk_rule_version,
+      method = method, scenarios = scenarios, sources = sources,
       population_keys = paste(pop$Species, pop$source_zone), threshold = threshold, ks = ks, plot_factor = plot_factor)
     run_state_file <- file.path(cache, "run_state.rds")
     if (file.exists(run_state_file)) {
       prior <- readRDS(run_state_file)
       if (!identical(prior$config, config) || !identical(prior$input_signature, input_signature)) {
-        stop("Report inputs changed. Set ECOCHINA2_BRIEF_OUT to a new report directory.")
+        # Invalidate this report's derived checkpoints when its saved maps or
+        # lookup change; never make a new report reuse mixed-generation rows.
+        old_checkpoints <- file.path(cache, c("normal_topk.tif", "normal_topk_partial.tif",
+          paste0(gsub("[^A-Za-z0-9_-]", "_", scenarios), "_done.rds")))
+        unlink(old_checkpoints)
+        saveRDS(list(config = config, input_signature = input_signature), run_state_file)
+        cat("[BRIEF INVALIDATE] Inputs changed; report checkpoints will be rebuilt.\n")
       }
     } else saveRDS(list(config = config, input_signature = input_signature), run_state_file)
     unlink(file.path(out, "RUN_COMPLETE.txt"))
@@ -343,7 +384,7 @@ local({
     area_column <- rast(nrows = nrow(ref), ncols = 1L, xmin = xmin(ref), xmax = xmin(ref) + res(ref)[1],
       ymin = ymin(ref), ymax = ymax(ref), crs = crs(ref))
     row_area <- as.numeric(values(cellSize(area_column, unit = "km")))
-    nr_block <- max(1L, min(64L, floor(6e6 / (ncol(ref) * (length(sources) + 12L)))))
+    nr_block <- max(1L, min(64L, floor(6e6 / (ncol(ref) * (length(sources) + 17L)))))
     plot_template <- rast(nrows = ceiling(nrow(ref) / plot_factor), ncols = ceiling(ncol(ref) / plot_factor),
       xmin = xmin(ref), xmax = xmin(ref) + ceiling(ncol(ref) / plot_factor) * res(ref)[1] * plot_factor,
       ymax = ymax(ref), ymin = ymax(ref) - ceiling(nrow(ref) / plot_factor) * res(ref)[2] * plot_factor, crs = crs(ref))
@@ -369,7 +410,8 @@ local({
       started <- proc.time()[[3]]
       cat("[BRIEF COMPUTE]", scenario, "\n"); flush.console()
       normal_mode <- identical(scenario, "normal")
-      input <- c(ref, rast(map_file(scenario)), rast(rank_file(scenario))[[1:5]], rast(dual_files(scenario)))
+      input <- c(ref, rast(map_file(scenario)), rast(rank_file(scenario))[[1:5]],
+        rast(dual_files(scenario)), rast(rank_suit_file(scenario))[[1:5]])
       if (!normal_mode) input <- c(input, rast(normal_cache))
       readStart(input)
       map_temp <- NULL; out_normal <- NULL
@@ -399,10 +441,14 @@ local({
           start <- starts[bi]; nr <- min(nr_block, nrow(ref) - start + 1L)
           v <- readValues(input, row = start, nrows = nr, mat = TRUE)
           observed <- v[, 1]; assigned <- v[, 2]; ranks <- v[, 3:7, drop = FALSE]
+          ranked_suits <- v[, 7L + length(sources) + 1:5, drop = FALSE]
           ar <- rep(row_area[start:(start + nr - 1L)], each = ncol(ref))
           labels <- matrix(assigned, nrow(v), 3L)
           for (ki in 2:3) {
-            hit <- rowSums(ranks[, seq_len(ks[ki]), drop = FALSE] == observed, na.rm = TRUE) > 0L
+            rank_matches <- ranks[, seq_len(ks[ki]), drop = FALSE] == observed
+            if (!normal_mode) rank_matches <- rank_matches &
+              ranked_suits[, seq_len(ks[ki]), drop = FALSE] >= threshold
+            hit <- rowSums(rank_matches, na.rm = TRUE) > 0L
             restore <- is.finite(assigned) & assigned != 99 & observed %in% zones & hit
             labels[restore, ki] <- observed[restore]
           }
@@ -432,7 +478,7 @@ local({
             }
           }
           if (!normal_mode) {
-            baseline <- v[, 7L + length(sources) + 1:3, drop = FALSE]
+            baseline <- v[, 12L + length(sources) + 1:3, drop = FALSE]
             for (ki in 1:3) {
               ok <- baseline[, ki] %in% zones & labels[, ki] %in% footprint_zones & is.finite(ar)
               code <- ifelse(labels[, ki] == 99, 3L, ifelse(labels[, ki] == baseline[, ki], 1L, 2L))
@@ -565,7 +611,8 @@ local({
       sprintf("Compared cells: %s; comparison area: %s km2.", fmt(normal_agreement$compared_cells[1], 0), fmt(normal_agreement$compared_area_km2[1])),
       vapply(seq_len(nrow(normal_agreement)), function(i) sprintf("Top-%d: pixel agreement %s%%; area agreement %s%%.",
         normal_agreement$k[i], fmt(100 * normal_agreement$pixel_agreement[i]), fmt(100 * normal_agreement$area_agreement[i])), character(1)),
-      "Top-3/5 restore the observed ecotype when it occurs among the leading suitability ranks.",
+      "Reference Top-3/5 restore the observed ecotype when it occurs among the leading suitability ranks.",
+      "Future Top-3/5 also require that ecotype's own dual suitability >=0.4; otherwise future Top-1 is used.",
       "They are reference-assisted map diagnostics, not independent validation accuracies.", "",
       "LATE-CENTURY MATCHED TOP-3 CHANGE:")
     for (s in scenarios[-1]) {

@@ -1,98 +1,102 @@
 path,size_bytes,modified
-H:/Jing/ecoChina2/raster/ecosys_ori.tif,3071739,2026-02-04 21:20:18.082523
-H:/Jing/ecoChina2/future tree niche var/tables/population_projection_lookup_var.csv,9981,2026-11-02 21:30:04.27594
-H:/Jing/ecoChina2/color_palette_China.csv,5983,2026-07-04 04:53:39.342442
-H:/Jing/ecoChina2/species_population_summary.csv,685,2026-07-07 01:56:05.672167
-H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_normal_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif,4960555,2026-11-02 14:15:58.066273
-H:/Jing/ecoChina2/dual suit ranking var/mf_var/normal/ranked_zone.tif,72915671,2026-11-02 14:17:01.380535
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone2.tif,14916283,2026-11-02 13:51:03.656736
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone3.tif,20106137,2026-11-02 13:51:28.454533
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone4.tif,17855009,2026-11-02 13:51:52.857222
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone5.tif,20454357,2026-11-02 13:52:17.661648
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone6.tif,16304321,2026-11-02 13:52:41.932062
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone7.tif,26011991,2026-11-02 13:53:02.616432
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone9.tif,10100193,2026-11-02 13:53:27.706127
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone10.tif,11623859,2026-11-02 13:53:51.992365
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone12.tif,16627211,2026-11-02 13:54:38.587278
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone18.tif,17617959,2026-11-02 13:57:09.735952
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone21.tif,15239277,2026-11-02 13:58:26.300234
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone26.tif,15485643,2026-11-02 14:00:28.776762
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone27.tif,15843431,2026-11-02 14:00:50.171703
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone28.tif,14913925,2026-11-02 14:01:13.985859
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone30.tif,16227881,2026-11-02 14:02:02.02672
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone33.tif,14988387,2026-11-02 14:03:19.694214
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone34.tif,9822449,2026-11-02 14:03:46.264303
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone36.tif,17805373,2026-11-02 14:04:32.414799
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone37.tif,11737315,2026-11-02 14:04:58.151939
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone39.tif,11704741,2026-11-02 14:05:54.665831
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone40.tif,15895859,2026-11-02 14:06:23.828773
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone41.tif,11364925,2026-11-02 14:06:48.632452
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone44.tif,16557533,2026-11-02 14:07:58.202967
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone45.tif,14286435,2026-11-02 14:08:18.297731
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone46.tif,16851923,2026-11-02 14:08:38.932348
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone47.tif,15887211,2026-11-02 14:09:02.86375
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone49.tif,15909129,2026-11-02 14:09:47.899347
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone50.tif,10305823,2026-11-02 14:10:12.61898
-H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone53.tif,7071997,2026-11-02 14:11:01.776657
-H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2071-2100SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif,4549369,2026-11-02 16:47:41.953239
-H:/Jing/ecoChina2/dual suit ranking var/mf_var/2071-2100SSP245/ranked_zone.tif,69187579,2026-11-02 16:48:45.231974
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone2.tif,15185363,2026-11-02 16:22:39.914913
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone3.tif,20011325,2026-11-02 16:23:06.169273
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone4.tif,18584933,2026-11-02 16:23:28.286116
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone5.tif,20284467,2026-11-02 16:23:54.472054
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone6.tif,16707157,2026-11-02 16:24:20.293808
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone7.tif,25592471,2026-11-02 16:24:47.037954
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone9.tif,9672723,2026-11-02 16:25:10.546972
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone10.tif,12948376,2026-11-02 16:25:35.910522
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone12.tif,16599799,2026-11-02 16:26:31.224686
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone18.tif,17357259,2026-11-02 16:28:57.629847
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone21.tif,16183243,2026-11-02 16:30:12.94982
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone26.tif,15381985,2026-11-02 16:32:17.840628
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone27.tif,16908250,2026-11-02 16:32:44.608416
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone28.tif,16967909,2026-11-02 16:33:06.662762
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone30.tif,16290896,2026-11-02 16:33:58.235678
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone33.tif,16329225,2026-11-02 16:35:16.533344
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone34.tif,11509736,2026-11-02 16:35:36.588406
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone36.tif,18959481,2026-11-02 16:36:24.776764
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone37.tif,12483503,2026-11-02 16:36:52.240463
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone39.tif,13748810,2026-11-02 16:37:37.30349
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone40.tif,15923137,2026-11-02 16:37:57.414038
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone41.tif,11783365,2026-11-02 16:38:19.336531
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone44.tif,17013214,2026-11-02 16:39:31.147207
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone45.tif,16946297,2026-11-02 16:39:57.047127
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone46.tif,19722394,2026-11-02 16:40:22.586836
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone47.tif,16968115,2026-11-02 16:40:48.599123
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone49.tif,16600954,2026-11-02 16:41:40.905369
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone50.tif,11814111,2026-11-02 16:42:06.129345
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone53.tif,8510148,2026-11-02 16:42:52.720348
-H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2071-2100SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif,4358883,2026-11-02 19:24:35.473169
-H:/Jing/ecoChina2/dual suit ranking var/mf_var/2071-2100SSP585/ranked_zone.tif,67842863,2026-11-02 19:25:39.438232
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone2.tif,14815233,2026-11-02 18:56:51.478323
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone3.tif,19933899,2026-11-02 18:57:19.632908
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone4.tif,18418467,2026-11-02 18:57:47.373585
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone5.tif,19958953,2026-11-02 18:58:16.614061
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone6.tif,16576755,2026-11-02 18:58:48.986927
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone7.tif,25279173,2026-11-02 18:59:19.469536
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone9.tif,8983649,2026-11-02 18:59:46.96806
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone10.tif,12941380,2026-11-02 19:00:12.84197
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone12.tif,16317191,2026-11-02 19:01:06.588198
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone18.tif,17372968,2026-11-02 19:03:56.250847
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone21.tif,16421759,2026-11-02 19:05:21.870256
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone26.tif,15376849,2026-11-02 19:07:43.955681
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone27.tif,16822375,2026-11-02 19:08:12.125875
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone28.tif,17886113,2026-11-02 19:08:40.725216
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone30.tif,16372193,2026-11-02 19:09:37.230558
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone33.tif,16278585,2026-11-02 19:11:05.52244
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone34.tif,11625936,2026-11-02 19:11:30.865179
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone36.tif,19182221,2026-11-02 19:12:21.783802
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone37.tif,12410659,2026-11-02 19:12:48.736431
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone39.tif,14113259,2026-11-02 19:13:43.051243
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone40.tif,16150837,2026-11-02 19:14:11.380573
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone41.tif,11996987,2026-11-02 19:14:40.853838
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone44.tif,17302883,2026-11-02 19:15:58.320494
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone45.tif,17031131,2026-11-02 19:16:25.637814
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone46.tif,20295919,2026-11-02 19:16:54.183653
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone47.tif,17416915,2026-11-02 19:17:22.512472
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone49.tif,16910292,2026-11-02 19:18:17.93063
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone50.tif,12367771,2026-11-02 19:18:43.699619
-H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone53.tif,8640885,2026-11-02 19:19:33.669395
+H:/Jing/ecoChina2/raster/ecosys_ori.tif,3071739,2026-02-05 05:20:18.082523
+H:/Jing/ecoChina2/future tree niche var/tables/population_projection_lookup_var.csv,9981,2026-11-07 03:31:37.441168
+H:/Jing/ecoChina2/color_palette_China.csv,5983,2026-07-04 11:53:39.342442
+H:/Jing/ecoChina2/functions/future_topk_rule.R,1539,2026-11-07 00:59:58
+H:/Jing/ecoChina2/species_population_summary.csv,685,2026-07-07 08:56:05.672167
+H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_normal_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif,4960555,2026-11-02 21:15:58.066273
+H:/Jing/ecoChina2/dual suit ranking var/mf_var/normal/ranked_zone.tif,72915671,2026-11-02 21:17:01.380535
+H:/Jing/ecoChina2/dual suit ranking var/mf_var/normal/ranked_suitability.tif,511915174,2026-11-02 21:18:35.901678
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone2.tif,14916283,2026-11-02 20:51:03.656736
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone3.tif,20106137,2026-11-02 20:51:28.454533
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone4.tif,17855009,2026-11-02 20:51:52.857222
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone5.tif,20454357,2026-11-02 20:52:17.661648
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone6.tif,16304321,2026-11-02 20:52:41.932062
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone7.tif,26011991,2026-11-02 20:53:02.616432
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone9.tif,10100193,2026-11-02 20:53:27.706127
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone10.tif,11623859,2026-11-02 20:53:51.992365
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone12.tif,16627211,2026-11-02 20:54:38.587278
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone18.tif,17617959,2026-11-02 20:57:09.735952
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone21.tif,15239277,2026-11-02 20:58:26.300234
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone26.tif,15485643,2026-11-02 21:00:28.776762
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone27.tif,15843431,2026-11-02 21:00:50.171703
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone28.tif,14913925,2026-11-02 21:01:13.985859
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone30.tif,16227881,2026-11-02 21:02:02.02672
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone33.tif,14988387,2026-11-02 21:03:19.694214
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone34.tif,9822449,2026-11-02 21:03:46.264303
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone36.tif,17805373,2026-11-02 21:04:32.414799
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone37.tif,11737315,2026-11-02 21:04:58.151939
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone39.tif,11704741,2026-11-02 21:05:54.665831
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone40.tif,15895859,2026-11-02 21:06:23.828773
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone41.tif,11364925,2026-11-02 21:06:48.632452
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone44.tif,16557533,2026-11-02 21:07:58.202967
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone45.tif,14286435,2026-11-02 21:08:18.297731
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone46.tif,16851923,2026-11-02 21:08:38.932348
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone47.tif,15887211,2026-11-02 21:09:02.86375
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone49.tif,15909129,2026-11-02 21:09:47.899347
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone50.tif,10305823,2026-11-02 21:10:12.61898
+H:/Jing/ecoChina2/dual suit/mf_var/normal/dual_suitability_zone53.tif,7071997,2026-11-02 21:11:01.776657
+H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2071-2100SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif,4549397,2026-11-07 03:08:02.577417
+H:/Jing/ecoChina2/dual suit ranking var/mf_var/2071-2100SSP245/ranked_zone.tif,69187579,2026-11-02 23:48:45.231974
+H:/Jing/ecoChina2/dual suit ranking var/mf_var/2071-2100SSP245/ranked_suitability.tif,518729283,2026-11-02 23:50:19.512247
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone2.tif,15185363,2026-11-02 23:22:39.914913
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone3.tif,20011325,2026-11-02 23:23:06.169273
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone4.tif,18584933,2026-11-02 23:23:28.286116
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone5.tif,20284467,2026-11-02 23:23:54.472054
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone6.tif,16707157,2026-11-02 23:24:20.293808
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone7.tif,25592471,2026-11-02 23:24:47.037954
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone9.tif,9672723,2026-11-02 23:25:10.546972
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone10.tif,12948376,2026-11-02 23:25:35.910522
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone12.tif,16599799,2026-11-02 23:26:31.224686
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone18.tif,17357259,2026-11-02 23:28:57.629847
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone21.tif,16183243,2026-11-02 23:30:12.94982
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone26.tif,15381985,2026-11-02 23:32:17.840628
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone27.tif,16908250,2026-11-02 23:32:44.608416
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone28.tif,16967909,2026-11-02 23:33:06.662762
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone30.tif,16290896,2026-11-02 23:33:58.235678
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone33.tif,16329225,2026-11-02 23:35:16.533344
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone34.tif,11509736,2026-11-02 23:35:36.588406
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone36.tif,18959481,2026-11-02 23:36:24.776764
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone37.tif,12483503,2026-11-02 23:36:52.240463
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone39.tif,13748810,2026-11-02 23:37:37.30349
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone40.tif,15923137,2026-11-02 23:37:57.414038
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone41.tif,11783365,2026-11-02 23:38:19.336531
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone44.tif,17013214,2026-11-02 23:39:31.147207
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone45.tif,16946297,2026-11-02 23:39:57.047127
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone46.tif,19722394,2026-11-02 23:40:22.586836
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone47.tif,16968115,2026-11-02 23:40:48.599123
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone49.tif,16600954,2026-11-02 23:41:40.905369
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone50.tif,11814111,2026-11-02 23:42:06.129345
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP245/dual_suitability_zone53.tif,8510148,2026-11-02 23:42:52.720348
+H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2071-2100SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif,4359001,2026-11-07 03:30:39.132145
+H:/Jing/ecoChina2/dual suit ranking var/mf_var/2071-2100SSP585/ranked_zone.tif,67842863,2026-11-03 02:25:39.438232
+H:/Jing/ecoChina2/dual suit ranking var/mf_var/2071-2100SSP585/ranked_suitability.tif,512013224,2026-11-03 02:27:13.594324
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone2.tif,14815233,2026-11-03 01:56:51.478323
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone3.tif,19933899,2026-11-03 01:57:19.632908
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone4.tif,18418467,2026-11-03 01:57:47.373585
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone5.tif,19958953,2026-11-03 01:58:16.614061
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone6.tif,16576755,2026-11-03 01:58:48.986927
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone7.tif,25279173,2026-11-03 01:59:19.469536
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone9.tif,8983649,2026-11-03 01:59:46.96806
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone10.tif,12941380,2026-11-03 02:00:12.84197
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone12.tif,16317191,2026-11-03 02:01:06.588198
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone18.tif,17372968,2026-11-03 02:03:56.250847
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone21.tif,16421759,2026-11-03 02:05:21.870256
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone26.tif,15376849,2026-11-03 02:07:43.955681
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone27.tif,16822375,2026-11-03 02:08:12.125875
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone28.tif,17886113,2026-11-03 02:08:40.725216
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone30.tif,16372193,2026-11-03 02:09:37.230558
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone33.tif,16278585,2026-11-03 02:11:05.52244
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone34.tif,11625936,2026-11-03 02:11:30.865179
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone36.tif,19182221,2026-11-03 02:12:21.783802
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone37.tif,12410659,2026-11-03 02:12:48.736431
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone39.tif,14113259,2026-11-03 02:13:43.051243
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone40.tif,16150837,2026-11-03 02:14:11.380573
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone41.tif,11996987,2026-11-03 02:14:40.853838
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone44.tif,17302883,2026-11-03 02:15:58.320494
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone45.tif,17031131,2026-11-03 02:16:25.637814
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone46.tif,20295919,2026-11-03 02:16:54.183653
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone47.tif,17416915,2026-11-03 02:17:22.512472
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone49.tif,16910292,2026-11-03 02:18:17.93063
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone50.tif,12367771,2026-11-03 02:18:43.699619
+H:/Jing/ecoChina2/dual suit/mf_var/2071-2100SSP585/dual_suitability_zone53.tif,8640885,2026-11-03 02:19:33.669395

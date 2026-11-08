@@ -9,7 +9,8 @@
 # Top-1 uses the assigned map from script 4 and therefore preserves its 1e-4
 # tie rule. Raw rank rasters use deterministic suitability order (zone ID breaks
 # exact ties). Top-k diagnostics are reference-conditioned sensitivity analyses,
-# not independent future vegetation forecasts.
+# not independent future vegetation forecasts. Future restoration also requires
+# the restored ecotype's own dual suitability >= 0.4; normal ranks are unchanged.
 
 library(terra)
 library(data.table)
@@ -70,7 +71,7 @@ if (exists("scenario_analogue", inherits = FALSE) &&
 
 rm(list = setdiff(ls(), "analogue_input_signature"))
 gc()
-script_revision <- "2026-10-05-analogue-scenario-v2"
+script_revision <- "2026-11-06-future-topk-threshold-v1"
 cat("[SCRIPT 8 REVISION]", script_revision, "\n")
 
 
@@ -88,6 +89,9 @@ find_project_root <- function() {
 }
 
 base_dir <- find_project_root()
+future_rule_file <- file.path(base_dir, "functions", "future_topk_rule.R")
+source(future_rule_file, local = TRUE)
+eco_topk_milestone("TOP-K START", eco_topk_rule_version)
 
 env_flag <- function(name, default = FALSE) {
   value <- Sys.getenv(name, unset = if (default) "true" else "false")
@@ -96,7 +100,7 @@ env_flag <- function(name, default = FALSE) {
 
 modeled_zones <- c(1:7, 9:50, 52:55)
 k_values <- 1:5
-dual_threshold <- 0.4
+dual_threshold <- eco_topk_threshold
 rank_min_suitability <- 0
 novel_value <- 99L
 force_ranking <- env_flag("ECOCHINA2_FORCE_RANKING", FALSE)
@@ -121,8 +125,8 @@ output_root <- file.path(base_dir, "assessment", "topk")
 table_dir <- file.path(output_root, "tables")
 cache_root <- file.path(output_root, "cache")
 reference_map_cache <- file.path(cache_root, "reference_topk_maps")
-future_map_cache <- file.path(cache_root, "future_topk_maps")
-summary_cache <- file.path(cache_root, "change_summaries")
+future_map_cache <- file.path(cache_root, "future_topk_maps", eco_topk_rule_version)
+summary_cache <- file.path(cache_root, "change_summaries", eco_topk_rule_version)
 legacy_reference_cache <- file.path(
   base_dir, "assessment_var", "future_topk_matched", "cache", "reference_topk_maps"
 )
@@ -413,7 +417,9 @@ normalize_matched_summary <- function(table, scenario, fields, k) {
     pixels = as.numeric(pixels),
     area_km2 = as.numeric(area_km2)
   )]
-  table[, .(code, pixels, area_km2, change_class, scenario, period, ssp, k)]
+  table[, future_assignment_rule := eco_topk_rule_version]
+  table[, .(code, pixels, area_km2, change_class, scenario, period, ssp, k,
+            future_assignment_rule)]
 }
 
 matched_cache_valid <- function(file, inputs = character(),
@@ -425,6 +431,7 @@ matched_cache_valid <- function(file, inputs = character(),
   if (!file.exists(file)) return(FALSE)
   tryCatch({
     table <- fread(file)
+    if (!future_rule_rows_current(table)) return(FALSE)
     columns <- names(table)
     has_code <- any(c("code", "change_code", "change_class") %in% columns)
     has_pixels <- any(c("pixels", "pixel_count") %in% columns)
@@ -570,6 +577,7 @@ recover_matched_bundle <- function(table, scenario, fields,
                                    expected_novel_area_km2) {
   tryCatch({
     table <- copy(as.data.table(table))
+    if (!future_rule_rows_current(table)) return(NULL)
     if ("pixel_count" %in% names(table) && !"pixels" %in% names(table)) {
       setnames(table, "pixel_count", "pixels")
     }
@@ -1081,10 +1089,17 @@ clean_future_retention_by_zone <- function(
   table[]
 }
 
+future_rule_rows_current <- function(table) {
+  "future_assignment_rule" %in% names(table) && nrow(table) > 0L &&
+    isTRUE(all(as.character(table$future_assignment_rule) == eco_topk_rule_version))
+}
+
 future_retention_cache_valid <- function(file, inputs = character()) {
   if (!file.exists(file) || !files_current(file, inputs)) return(FALSE)
   tryCatch({
-    clean_future_retention(fread(file))
+    table <- fread(file)
+    if (!future_rule_rows_current(table)) return(FALSE)
+    clean_future_retention(table)
     TRUE
   }, error = function(e) FALSE)
 }
@@ -1094,8 +1109,10 @@ future_retention_by_zone_cache_valid <- function(
     expected_area_km2 = NA_real_) {
   if (!file.exists(file) || !files_current(file, inputs)) return(FALSE)
   tryCatch({
+    table <- fread(file)
+    if (!future_rule_rows_current(table)) return(FALSE)
     clean_future_retention_by_zone(
-      fread(file), expected_pixels, expected_area_km2
+      table, expected_pixels, expected_area_km2
     )
     TRUE
   }, error = function(e) FALSE)
@@ -1635,10 +1652,8 @@ future_summary_repair_rows <- function(
     }
     
     if (block_index %% report_every == 0L || block_index == length(starts)) {
-      cat(
-        "[SUMMARY REPAIR]", scenario, "|",
-        sprintf("%d%%", round(100 * block_index / length(starts))), "\n"
-      )
+      eco_topk_milestone("SUMMARY SCAN", paste(scenario,
+        sprintf("%d%%", round(100 * block_index / length(starts)))))
     }
   }
   
@@ -1733,6 +1748,9 @@ future_summary_repair_rows <- function(
     )
   }))
   
+  retention_table[, future_assignment_rule := eco_topk_rule_version]
+  retention_by_zone_table[, future_assignment_rule := eco_topk_rule_version]
+  matched_table[, future_assignment_rule := eco_topk_rule_version]
   list(
     retention = retention_table,
     retention_by_zone = retention_by_zone_table,
@@ -2039,20 +2057,31 @@ for (scenario in future_scenarios) {
   fields <- scenario_fields(scenario)
   future_assigned_file <- assigned_map_file(scenario)
   future_rank_file <- rank_paths(scenario)$zone
+  future_suitability_file <- rank_paths(scenario)$suitability
   future_assigned <- rast(future_assigned_file)
-  future_ranked <- rast(future_rank_file)[[1:5]]
+  future_ranked_raw <- rast(future_rank_file)[[1:5]]
+  future_suitability <- rast(future_suitability_file)[[1:5]]
+  check_geometry(future_suitability, reference, paste("Future ranked suitability", scenario))
+  # Both the one-pass CSV summary and map builder consume these eligible ranks.
+  # Raw ranks and reference-period reconstruction remain unchanged.
+  future_ranked <- ifel(
+    !is.na(future_suitability) & future_suitability >= dual_threshold,
+    future_ranked_raw, NA
+  )
+  eco_topk_milestone("FUTURE SCENARIO", scenario)
   check_geometry(future_assigned, reference, paste("Future assigned", scenario))
   
   valid <- novel <- stable <- NULL
   
   retention_cache_file <- file.path(
-    cache_root, paste0("mf_var_", scenario, "_future_retention.csv")
+    cache_root, paste0("mf_var_", scenario, "_future_retention_", eco_topk_rule_version, ".csv")
   )
   retention_zone_cache_file <- file.path(
-    cache_root, paste0("mf_var_", scenario, "_future_retention_by_zone.csv")
+    cache_root, paste0("mf_var_", scenario, "_future_retention_by_zone_", eco_topk_rule_version, ".csv")
   )
   retention_inputs <- c(
-    reference_file, normal_assigned_file, future_assigned_file, future_rank_file
+    reference_file, normal_assigned_file, future_assigned_file, future_rank_file,
+    future_suitability_file, future_rule_file
   )
   
   retention_ok <- future_retention_cache_valid(
@@ -2148,7 +2177,8 @@ for (scenario in future_scenarios) {
   # and discovering the mismatch only after all scenarios finish.
   summary_bundle_inputs <- c(
     reference_file, normal_assigned_file, future_assigned_file,
-    future_rank_file, unname(unlist(reference_topk_files))
+    future_rank_file, future_suitability_file, future_rule_file,
+    unname(unlist(reference_topk_files))
   )
   scenario_bundle_file <- matched_bundle_file(scenario_value)
   scenario_matched_bundle <- NULL
@@ -2159,6 +2189,7 @@ for (scenario in future_scenarios) {
       reference_file,
       normal_assigned_file,
       future_assigned_file,
+      future_suitability_file, future_rule_file,
       if (k_value > 1L) future_rank_file else character(),
       reference_topk_files[[as.character(k_value)]]
     )
@@ -2309,6 +2340,7 @@ for (scenario in future_scenarios) {
       reference_file,
       normal_assigned_file,
       future_assigned_file,
+      future_suitability_file, future_rule_file,
       if (k > 1L) future_rank_file else character()
     )
     matched_inputs <- c(
@@ -2339,7 +2371,8 @@ for (scenario in future_scenarios) {
     future_topk_dir <- file.path(future_map_cache, scenario)
     dir.create(future_topk_dir, recursive = TRUE, showWarnings = FALSE)
     future_topk_file <- file.path(future_topk_dir, paste0("future_top", k, ".tif"))
-    future_topk_current <- k > 1L &&
+    future_topk_pending <- paste0(future_topk_file, ".pending")
+    future_topk_current <- k > 1L && !file.exists(future_topk_pending) &&
       raster_valid(future_topk_file, reference) &&
       files_current(future_topk_file, future_map_inputs)
     
@@ -2381,6 +2414,8 @@ for (scenario in future_scenarios) {
         ifel(observed_hit, reference, future_assigned)
       )
       future_topk <- ifel(valid, future_topk, NA)
+      eco_topk_milestone("WRITE FUTURE MAP", paste(scenario, "k =", k))
+      writeLines(eco_topk_rule_version, future_topk_pending)
       writeRaster(
         future_topk,
         future_topk_file,
@@ -2389,6 +2424,8 @@ for (scenario in future_scenarios) {
         NAflag = -32768,
         wopt = list(gdal = "COMPRESS=LZW")
       )
+      unlink(future_topk_pending)
+      eco_topk_milestone("FUTURE MAP SAVED", paste(scenario, "k =", k))
     }
     
     if (!is.na(cache_file)) {
@@ -2441,9 +2478,11 @@ for (scenario in future_scenarios) {
     rm(future_topk)
   }
   
+  eco_topk_milestone("FUTURE SCENARIO COMPLETE", scenario)
   rm(
     list = intersect(
-      c("future_assigned", "future_ranked", "valid", "novel", "stable",
+      c("future_assigned", "future_ranked", "future_ranked_raw", "future_suitability",
+        "valid", "novel", "stable",
         "hit", "observed_hit"),
       ls(envir = environment())
     ),
@@ -2545,6 +2584,7 @@ if (nrow(novel_consistency) != length(future_scenarios) * length(k_values) ||
 fwrite(future_retention, file.path(table_dir, "future_retention.csv"))
 fwrite(future_retention_by_zone, file.path(table_dir, "future_retention_by_zone.csv"))
 fwrite(matched_change, file.path(table_dir, "matched_change.csv"))
+eco_topk_milestone("FUTURE TABLES SAVED", "All six scenarios, k = 1:5")
 
 
 # 5. Suitable-analogue availability and source-zone Top-k area =================
@@ -3113,7 +3153,7 @@ fwrite(novel_check, file.path(table_dir, "novel_invariance_check.csv"))
 settings <- data.table(
   setting = c(
     "workflow", "k_values", "dual_threshold", "novel_value",
-    "ranking_rule", "top1_rule", "matched_rule"
+    "ranking_rule", "top1_rule", "matched_rule", "future_assignment_rule"
   ),
   value = c(
     "selected-variable Multi-Forest",
@@ -3125,7 +3165,10 @@ settings <- data.table(
       "; descending, zone ID breaks exact ties"
     ),
     "assigned map from script 4, including the 1e-4 tie rule",
-    "same k on reference and future sides; observed reference ecotype restored when within first k ranks"
+    paste0("same k on both sides; normal restoration uses rank membership; ",
+           "future restoration requires own dual suitability >= ", dual_threshold,
+           " and membership in first k ranks; otherwise future Top-1; Zone 99 unchanged"),
+    eco_topk_rule_version
   )
 )
 fwrite(settings, file.path(table_dir, "settings.csv"))
@@ -3136,3 +3179,4 @@ cat(
   "Future matched rows:", nrow(matched_change), "\n",
   "Output:", output_root, "\n"
 )
+eco_topk_milestone("TOP-K COMPLETE", output_root)

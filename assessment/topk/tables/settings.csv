@@ -5,4 +5,5 @@ dual_threshold,0.4
 novel_value,99
 ranking_rule,"finite dual suitability > 0; descending, zone ID breaks exact ties"
 top1_rule,"assigned map from script 4, including the 1e-4 tie rule"
-matched_rule,same k on reference and future sides; observed reference ecotype restored when within first k ranks
+matched_rule,same k on both sides; normal restoration uses rank membership; future restoration requires own dual suitability >= 0.4 and membership in first k ranks; otherwise future Top-1; Zone 99 unchanged
+future_assignment_rule,future-topk-own-suitability-v1

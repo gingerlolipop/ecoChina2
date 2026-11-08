@@ -2,6 +2,7 @@
 # ==============================================================================
 # Uses ONLY existing outputs:
 #   - dual suit ranking var/{method}/{scenario}/ranked_zone.tif
+#   - dual suit ranking var/{method}/{scenario}/ranked_suitability.tif
 #   - result maps/{method}/assigned_zone_*.tif
 #   - raster/ecosys_ori.tif
 #
@@ -26,9 +27,8 @@
 # Top-1 uses the existing assigned map, so the original tie-retention rule in
 # script 4.1 is preserved. Top-2/3/5 are cumulative: they retain every Top-1
 # match and add pixels where the observed zone occurs within the first k saved
-# ranks from script 8.1. Future retention is a relative-rank diagnostic. Except
-# for Zone 99, which still requires every ecotype to fall below 0.4, membership
-# in Top-3/Top-5 is not an additional threshold-based suitability claim.
+# ranks from script 8.1. Future retention also requires that former ecotype's
+# own dual suitability >= 0.4. Zone 99 still requires every ecotype below 0.4.
 # ==============================================================================
 
 library(terra)
@@ -40,7 +40,9 @@ gc()
 
 # 0. Paths and settings ==========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(Sys.getenv("ECOCHINA2_DIR", "H:/Jing/ecoChina2"), winslash = "/", mustWork = TRUE)
+rule_file <- file.path(base_dir, "functions", "future_topk_rule.R")
+source(rule_file, local = environment())
 
 reference_file <- file.path(
   base_dir,
@@ -80,6 +82,9 @@ dir.create(
   showWarnings = FALSE
 )
 
+future_cache_dir <- file.path(cache_dir, eco_topk_rule_version)
+dir.create(future_cache_dir, recursive = TRUE, showWarnings = FALSE)
+
 zoneID <- c(
   1:7,
   9:50,
@@ -110,7 +115,7 @@ scenario_order <- c(
   future_order
 )
 
-dual_threshold <- 0.4
+dual_threshold <- eco_topk_threshold
 tie_tol <- 1e-4
 novel_value <- 99L
 
@@ -160,6 +165,11 @@ ranked_zone_file <- function(
     scenario,
     "ranked_zone.tif"
   )
+}
+
+
+ranked_suitability_file <- function(method, scenario) {
+  file.path(ranking_root, method, scenario, "ranked_suitability.tif")
 }
 
 
@@ -701,7 +711,7 @@ for (method in method_order) {
   for (scenario in future_order) {
     
     cache_overall <- file.path(
-      cache_dir,
+      future_cache_dir,
       paste0(
         method,
         "_",
@@ -711,7 +721,7 @@ for (method in method_order) {
     )
     
     cache_by_zone <- file.path(
-      cache_dir,
+      future_cache_dir,
       paste0(
         method,
         "_",
@@ -724,6 +734,7 @@ for (method in method_order) {
       method,
       scenario
     )
+    suit_file <- ranked_suitability_file(method, scenario)
     
     future_file <- assigned_map_file(
       method,
@@ -739,7 +750,9 @@ for (method in method_order) {
         c(
           normal_file,
           rank_file,
-          future_file
+          suit_file,
+          future_file,
+          rule_file
         )
       )
     ) {
@@ -779,6 +792,8 @@ for (method in method_order) {
       ranked_zone <- rast(
         rank_file
       )[[1:top_k]]
+      check_raster(suit_file, reference_map, top_k)
+      ranked_suitability <- rast(suit_file)[[1:top_k]]
       
       category_pixels <- numeric(
         n_category
@@ -801,7 +816,9 @@ for (method in method_order) {
       readStart(normal_map)
       readStart(future_map)
       readStart(ranked_zone)
+      readStart(ranked_suitability)
       readStart(cell_area)
+      next_progress <- 10L
       
       for (
         row_start in seq(
@@ -842,6 +859,9 @@ for (method in method_order) {
           mat = TRUE
         )
         
+        suits <- as.matrix(readValues(
+          ranked_suitability, row = row_start, nrows = nrows_now, mat = TRUE
+        ))
         area <- readValues(
           cell_area,
           row = row_start,
@@ -913,7 +933,8 @@ for (method in method_order) {
             ] ==
               normal_zone[
                 changed_rows
-              ],
+              ] &
+              suits[changed_rows, 1:3, drop = FALSE] >= dual_threshold,
             na.rm = TRUE
           ) > 0
           
@@ -927,7 +948,8 @@ for (method in method_order) {
             ] ==
               normal_zone[
                 changed_rows
-              ],
+              ] &
+              suits[changed_rows, 1:5, drop = FALSE] >= dual_threshold,
             na.rm = TRUE
           ) > 0
         }
@@ -1018,11 +1040,18 @@ for (method in method_order) {
           as.numeric(
             zone_area_sum[, 1]
           )
+        progress <- floor(100 * (row_start + nrows_now - 1L) / nrow(reference_map))
+        if (progress >= next_progress || progress == 100L) {
+          cat("[LEGACY RETENTION]", method, "|", scenario, "|", progress, "%\n")
+          flush.console()
+          next_progress <- progress + 10L
+        }
       }
       
       readStop(normal_map)
       readStop(future_map)
       readStop(ranked_zone)
+      readStop(ranked_suitability)
       readStop(cell_area)
       
       fields <- scenario_fields(

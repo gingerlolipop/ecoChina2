@@ -5,8 +5,9 @@
 #
 # Main figures
 # ------------
-# 1. Matched Top-k change composition. Reference and future maps use the same
-#    Top-k assignment rule in each row.
+# 1. Matched Top-k change composition. The reference-period Top-k diagnostic
+#    is compared with the future Top-k map, where restoration also requires
+#    the observed ecotype's own dual suitability >= 0.4.
 # 2. Novel ecosystem area. This is the Zone 99 result (all 53 current ecotypes
 #    have dual suitability < 0.4), so it is independent of Top-k and is shown
 #    once rather than repeated as Top-1, Top-3, and Top-5.
@@ -21,7 +22,10 @@ gc()
 
 # 0. Paths and settings =========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(
+  Sys.getenv("ECOCHINA2_DIR", "H:/Jing/ecoChina2"),
+  winslash = "/", mustWork = TRUE
+)
 
 matched_file <- file.path(
   base_dir,
@@ -315,15 +319,16 @@ for (method_value in method_order) {
         method_title
       ),
       subtitle = paste0(
-        "Reference and future maps use the same Top-k assignment rule; ",
+        "Reference Top-k is compared with future Top-k; ",
         "areas are cell-size weighted."
       ),
       x = "Future period",
       y = "Mapped area (%)",
       fill = NULL,
       caption = paste0(
-        "Top-3 and Top-5 restore the observed ecotype when it occurs within ",
-        "the first k ranks. Novel ecosystem is Zone 99 and is independent of k."
+        "Future Top-3 and Top-5 restore the observed ecotype only within the first k ranks ",
+        "and at its own dual suitability >= 0.4; otherwise Top-1 is used. ",
+        "Reference diagnostics use ranks only. Zone 99 is independent of k."
       )
     ) +
     theme_article(

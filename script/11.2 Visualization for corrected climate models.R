@@ -43,7 +43,7 @@ gc()
 
 # 0. Paths and settings ==========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(Sys.getenv("ECOCHINA2_DIR", "H:/Jing/ecoChina2"), winslash = "/", mustWork = TRUE)
 assessment_dir <- file.path(base_dir, "assessment_var")
 assigned_result_root <- file.path(base_dir, "future tree niche var")
 assigned_table_dir <- file.path(assigned_result_root, "tables")

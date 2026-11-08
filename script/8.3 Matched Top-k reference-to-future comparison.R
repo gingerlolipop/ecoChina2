@@ -2,8 +2,7 @@
 # ==============================================================================
 # Purpose
 # -------
-# Compare reference-period and future ecotype-niche assignments using the same
-# Top-k rule on both sides of each comparison:
+# Compare reference-period and future ecotype-niche assignments at matched k:
 #   Top-1 reference map versus Top-1 future map
 #   Top-3 reference map versus Top-3 future map
 #   Top-5 reference map versus Top-5 future map
@@ -11,8 +10,9 @@
 # Top-1 is the existing assigned map and therefore retains the 1e-4 tie rule
 # used in script 4.1. For Top-3 and Top-5, the observed reference-map ecotype is
 # restored when it occurs among the first k dual-suitability ranks for that
-# period; otherwise the period-specific Top-1 assignment is retained. Future
-# cells already assigned to Zone 99 remain Zone 99.
+# period. Future restoration additionally requires that ecotype's own dual
+# suitability >= 0.4; otherwise the future Top-1 assignment is retained.
+# Future cells already assigned to Zone 99 remain Zone 99.
 #
 # This is a rank-based sensitivity analysis. It does not refit models, rerun
 # projections, recalculate dual suitability, or change the absolute definition
@@ -37,7 +37,9 @@ gc()
 
 # 0. Paths and settings =========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(Sys.getenv("ECOCHINA2_DIR", "H:/Jing/ecoChina2"), winslash = "/", mustWork = TRUE)
+rule_file <- file.path(base_dir, "functions", "future_topk_rule.R")
+source(rule_file, local = environment())
 
 reference_file <- file.path(
   base_dir,
@@ -85,6 +87,9 @@ for (directory in c(
   )
 }
 
+future_summary_cache <- file.path(summary_cache_dir, eco_topk_rule_version)
+dir.create(future_summary_cache, recursive = TRUE, showWarnings = FALSE)
+
 model_zoneID <- c(
   1:7,
   9:50,
@@ -116,7 +121,7 @@ topk_values <- c(
   5L
 )
 
-dual_threshold <- 0.4
+dual_threshold <- eco_topk_threshold
 tie_tol <- 1e-4
 novel_value <- 99L
 
@@ -174,6 +179,11 @@ ranked_zone_file <- function(
     scenario,
     "ranked_zone.tif"
   )
+}
+
+
+ranked_suitability_file <- function(method, scenario) {
+  file.path(ranking_root, method, scenario, "ranked_suitability.tif")
 }
 
 
@@ -264,16 +274,19 @@ build_topk_zone_map <- function(
     assigned_zone,
     ranked_zone,
     k,
-    keep_novel = FALSE) {
+    keep_novel = FALSE,
+    ranked_suitability = NULL) {
   if (k == 1L) {
     return(assigned_zone)
   }
   
-  hit <- reference_in_topk(
-    reference_zone,
-    ranked_zone,
-    k
-  )
+  hit <- if (keep_novel) {
+    if (is.null(ranked_suitability)) stop("Future Top-k requires ranked suitability.")
+    eco_topk_eligible(reference_zone, ranked_zone, ranked_suitability, k,
+                      threshold = dual_threshold)
+  } else {
+    reference_in_topk(reference_zone, ranked_zone, k)
+  }
   
   # The observed raster also contains classes that were not among the 53
   # modeled ecotypes. Such cells cannot restore their observed class under a
@@ -537,8 +550,10 @@ for (method in method_order) {
       )
     )
     
+    future_suit_file <- require_file(ranked_suitability_file(method, scenario))
     future_assigned <- NULL
     future_ranked <- NULL
+    future_suitability <- NULL
     
     for (k in topk_values) {
       reference_topk_file <- reference_topk_files[[method]][[
@@ -546,7 +561,7 @@ for (method in method_order) {
       ]]
       
       summary_file <- file.path(
-        summary_cache_dir,
+        if (k == 1L) summary_cache_dir else future_summary_cache,
         paste0(
           method,
           "_",
@@ -578,7 +593,9 @@ for (method in method_order) {
       if (k > 1L) {
         relevant_inputs <- c(
           relevant_inputs,
-          future_rank_file
+          future_rank_file,
+          future_suit_file,
+          rule_file
         )
       }
       
@@ -586,8 +603,11 @@ for (method in method_order) {
         summary_file,
         relevant_inputs
       )) {
+        cat("[REUSE MATCHED LEGACY]", method, "|", scenario, "| k =", k, "\n")
         next
       }
+      cat("[MATCHED LEGACY]", method, "|", scenario, "| k =", k, "\n")
+      flush.console()
       
       if (is.null(future_assigned)) {
         future_assigned <- rast(
@@ -620,12 +640,18 @@ for (method in method_order) {
           )
         }
         
+        if (is.null(future_suitability)) {
+          future_suitability <- rast(future_suit_file)[[1:max(topk_values)]]
+          check_geometry(future_suitability, reference_modeled,
+                         paste(method, scenario, "ranked suitability"))
+        }
         future_topk <- build_topk_zone_map(
           reference_zone = reference_modeled,
           assigned_zone = future_assigned,
           ranked_zone = future_ranked,
           k = k,
-          keep_novel = TRUE
+          keep_novel = TRUE,
+          ranked_suitability = future_suitability
         )
       }
       
@@ -677,7 +703,8 @@ for (method in method_order) {
             paste0(
               "observed ecotype restored when within first ",
               k,
-              " ranks; otherwise period-specific Top-1 retained"
+              " ranks in each period; future restoration also requires own dual suitability >= ",
+              dual_threshold, "; otherwise period-specific Top-1 retained"
             )
           },
           novel_definition = paste0(
@@ -954,7 +981,7 @@ stopifnot(
 
 cat(
   "Matched Top-k future comparison completed.\n",
-  "Reference and future maps use the same Top-k rule.\n",
+  "Future Top-k restoration also requires the ecotype's dual suitability >= 0.4.\n",
   "Novel ecosystem remains the k-independent Zone 99 definition.\n",
   "Output: ",
   file.path(

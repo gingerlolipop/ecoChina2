@@ -1,0 +1,6 @@
+k,figure_type,file,size_bytes,modified,script_revision
+1,unconditional_top1_projection,H:/Jing/ecoChina2/figures/topk/future_topk_k1.png,437966,2026-11-07 07:55:25.012873,2026-11-06-future-topk-threshold-v1
+2,reference_conditioned_topk_diagnostic,H:/Jing/ecoChina2/figures/topk/future_topk_k2.png,452341,2026-11-07 07:55:45.191809,2026-11-06-future-topk-threshold-v1
+3,reference_conditioned_topk_diagnostic,H:/Jing/ecoChina2/figures/topk/future_topk_k3.png,449343,2026-11-07 07:56:04.424164,2026-11-06-future-topk-threshold-v1
+4,reference_conditioned_topk_diagnostic,H:/Jing/ecoChina2/figures/topk/future_topk_k4.png,441327,2026-11-07 07:56:23.74299,2026-11-06-future-topk-threshold-v1
+5,reference_conditioned_topk_diagnostic,H:/Jing/ecoChina2/figures/topk/future_topk_k5.png,434657,2026-11-07 07:56:44.355133,2026-11-06-future-topk-threshold-v1

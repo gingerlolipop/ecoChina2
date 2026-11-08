@@ -1,0 +1,13 @@
+method,scenario,map_file
+rf_var,2011-2040SSP245,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_2011-2040SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+rf_var,2041-2070SSP245,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_2041-2070SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+rf_var,2071-2100SSP245,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_2071-2100SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+rf_var,2011-2040SSP585,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_2011-2040SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+rf_var,2041-2070SSP585,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_2041-2070SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+rf_var,2071-2100SSP585,H:/Jing/ecoChina2/result maps/rf_var/assigned_zone_2071-2100SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,2011-2040SSP245,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2011-2040SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,2041-2070SSP245,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2041-2070SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,2071-2100SSP245,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2071-2100SSP245_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,2011-2040SSP585,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2011-2040SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,2041-2070SSP585,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2041-2070SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif
+mf_var,2071-2100SSP585,H:/Jing/ecoChina2/result maps/mf_var/assigned_zone_2071-2100SSP585_threshold0.4_tol1e-04_novel99_maskNA8_noNovelNormal.tif

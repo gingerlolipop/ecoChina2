@@ -9,17 +9,18 @@ Compared cells: 12,374,320; comparison area: 8,487,854.50 km2.
 Top-1: pixel agreement 60.32%; area agreement 59.93%.
 Top-3: pixel agreement 86.60%; area agreement 86.34%.
 Top-5: pixel agreement 91.48%; area agreement 91.40%.
-Top-3/5 restore the observed ecotype when it occurs among the leading suitability ranks.
+Reference Top-3/5 restore the observed ecotype when it occurs among the leading suitability ranks.
+Future Top-3/5 also require that ecotype's own dual suitability >=0.4; otherwise future Top-1 is used.
 They are reference-assisted map diagnostics, not independent validation accuracies.
 
 LATE-CENTURY MATCHED TOP-3 CHANGE:
 2071-2100SSP245: 12,374,358 compared cells, 8,487,884.84 km2.
-  retained: 63.73% (5,409,565.47 km2).
-  different_current: 30.80% (2,614,069.18 km2).
+  retained: 56.74% (4,816,365.49 km2).
+  different_current: 37.79% (3,207,269.16 km2).
   novel: 5.47% (464,250.19 km2).
 2071-2100SSP585: 12,374,358 compared cells, 8,487,884.84 km2.
-  retained: 51.49% (4,370,090.94 km2).
-  different_current: 37.31% (3,166,606.59 km2).
+  retained: 42.32% (3,592,017.97 km2).
+  different_current: 46.47% (3,944,679.56 km2).
   novel: 11.21% (951,187.31 km2).
 
 POPULATION AND SPECIES NICHES:

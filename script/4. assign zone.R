@@ -6,7 +6,8 @@
 #   - cells outside the 53 modeled reference zones remain NA;
 #   - the normal-period map cannot contain novel Zone 99;
 #   - a future cell is Zone 99 when every dual suitability is below 0.40;
-#   - values within 1e-4 of the maximum are tied;
+#   - values within 1e-4 of the maximum are tied; future candidates must also
+#     have their own dual suitability >= 0.40;
 #   - a tied original zone is retained; other ties are resolved reproducibly.
 
 library(terra)
@@ -39,6 +40,9 @@ project_dir <- if (nzchar(env_root)) {
   find_project_root()
 }
 
+eco_topk_rule_file <- file.path(project_dir, "functions", "future_topk_rule.R")
+source(eco_topk_rule_file, local = TRUE)
+
 reference_file <- file.path(project_dir, "raster", "ecosys_ori.tif")
 dual_root <- file.path(project_dir, "dual suit", "mf_var")
 map_dir <- file.path(project_dir, "result maps", "mf_var")
@@ -51,7 +55,7 @@ scenario_order <- c(
   "2011-2040SSP585", "2041-2070SSP585", "2071-2100SSP585"
 )
 
-novel_threshold <- 0.40
+novel_threshold <- eco_topk_threshold
 novel_value <- 99L
 tie_tol <- 1e-4
 base_seed <- 49L
@@ -113,6 +117,8 @@ assign_zone_block <- function(values, is_normal) {
   }
 
   tied <- max_suit - suit <= tie_tol
+  # A near-maximum zone still needs to meet the future eligibility threshold.
+  if (!is_normal) tied <- tied & suit >= novel_threshold
   tied[is.na(tied)] <- FALSE
 
   original_col <- match(original_zone, zoneID)
@@ -141,7 +147,40 @@ assign_zone_block <- function(values, is_normal) {
   assigned
 }
 
+assignment_input_signature <- function(inputs) {
+  if (!length(inputs) || !all(file.exists(inputs))) return(NA_character_)
+  info <- file.info(inputs)
+  paste(paste(normalizePath(inputs, winslash = "/", mustWork = TRUE),
+    info$size, sprintf("%.9f", as.numeric(info$mtime)), sep = "|"),
+    collapse = "\n")
+}
+
+future_assignment_current <- function(file, inputs) {
+  marker <- paste0(file, ".future_assignment_rule.rds")
+  if (!file.exists(file) || !file.exists(marker) ||
+      file.exists(paste0(file, ".assignment_pending.rds"))) return(FALSE)
+  tryCatch({
+    state <- readRDS(marker)
+    identical(state$rule, eco_topk_rule_version) &&
+      identical(state$threshold, novel_threshold) &&
+      identical(state$inputs, assignment_input_signature(inputs)) &&
+      identical(state$output_size, unname(file.info(file)$size)) &&
+      identical(state$output_mtime, as.numeric(file.info(file)$mtime))
+  }, error = function(e) FALSE)
+}
+
+record_future_assignment <- function(file, inputs) {
+  signature <- assignment_input_signature(inputs)
+  if (is.na(signature)) stop("Cannot record future assignment with missing inputs.")
+  saveRDS(list(rule = eco_topk_rule_version, threshold = novel_threshold,
+    inputs = signature, output_size = unname(file.info(file)$size),
+    output_mtime = as.numeric(file.info(file)$mtime)),
+    paste0(file, ".future_assignment_rule.rds"))
+}
+
 valid_existing_map <- function(file, is_normal, inputs = character()) {
+  if (file.exists(paste0(file, ".assignment_pending.rds"))) return(FALSE)
+  if (!is_normal && !future_assignment_current(file, inputs)) return(FALSE)
   if (!file.exists(file) || is.na(file.info(file)$size) || file.info(file)$size <= 0) {
     return(FALSE)
   }
@@ -178,8 +217,10 @@ for (scenario in scenario_order) {
     )
   )
 
+  map_inputs <- c(reference_file, dual_files,
+    if (!is_normal) eco_topk_rule_file else character())
   if (reuse_existing && valid_existing_map(
-    output_file, is_normal, c(reference_file, dual_files)
+    output_file, is_normal, map_inputs
   )) {
     cat("[USE EXISTING]", output_file, "\n")
     next
@@ -194,7 +235,13 @@ for (scenario in scenario_order) {
     )
   }
 
-  cat("\n[ASSIGN]", scenario, "\n")
+  cat("\n[", format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+    "] [ASSIGN] ", scenario, "\n", sep = "")
+  scenario_started <- Sys.time()
+  # Only a validated, fully written map receives a reusable completion record.
+  unlink(paste0(output_file, ".future_assignment_rule.rds"))
+  saveRDS(list(started = scenario_started, scenario = scenario),
+    paste0(output_file, ".assignment_pending.rds"))
   set.seed(base_seed)
 
   dual_stack <- rast(dual_files)
@@ -239,7 +286,11 @@ for (scenario in scenario_order) {
       blocks$nrows[block]
     )
 
-    cat("  block", block, "/", blocks$n, "\n")
+    cat("[", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "] ",
+      scenario, " | block ", block, "/", blocks$n, " | ",
+      round(as.numeric(difftime(Sys.time(), scenario_started, units = "mins")), 1),
+      " min\n", sep = "")
+    flush.console()
   }
 
   readStop(assignment_input)
@@ -258,7 +309,10 @@ for (scenario in scenario_order) {
     stop("The normal-period map contains novel Zone 99.")
   }
 
-  cat("[SAVED]", output_file, "| random tie breaks:", draws, "\n")
+  if (!is_normal) record_future_assignment(output_file, map_inputs)
+  unlink(paste0(output_file, ".assignment_pending.rds"))
+  cat("[", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "] [SAVED] ",
+    output_file, " | random tie breaks: ", draws, "\n", sep = "")
 
   rm(dual_stack, assignment_input, output_raster)
   gc()

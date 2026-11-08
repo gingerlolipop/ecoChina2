@@ -1,0 +1,44 @@
+figure,section,status,message,seconds
+zone_palette_key,maps,complete,,1.8021879196167
+assessment_model_performance,assessment,skipped,section not selected,0
+assessment_reference_confusion,assessment,skipped,section not selected,0
+assessment_reference_metrics,assessment,skipped,section not selected,0
+assessment_chords,assessment,skipped,section not selected,0
+soil_gate_sensitivity,assessment,skipped,section not selected,0
+importance_multiclass_global,importance,skipped,section not selected,0
+importance_agreement,importance,skipped,section not selected,0
+importance_zone_variables,importance,skipped,section not selected,0
+importance_zone_groups,importance,skipped,section not selected,0
+importance_category_groups,importance,skipped,section not selected,0
+importance_category_variables,importance,skipped,section not selected,0
+importance_climate_period,importance,skipped,section not selected,0
+importance_climate_group_period,importance,skipped,section not selected,0
+importance_category_similarity,importance,skipped,section not selected,0
+importance_area_concentration,importance,skipped,section not selected,0
+importance_representative_zones,importance,skipped,section not selected,0
+reference_maps,maps,complete,,14.157842874527
+future_binary_maps,maps,complete,,21.8586821556091
+zone_bivariate_niches,maps,skipped,Set ECOCHINA2_BIVARIATE_ZONES and ECOCHINA2_BIVARIATE_SCENARIOS to draw zone-level climate x soil maps.,0.000298976898193359
+future_multiclass_maps,maps,complete,,20.5059921741486
+binary_multiclass_projection_comparison,maps,complete,,1.55893707275391
+future_area_and_transitions,maps,complete,,15.7847878932953
+multiclass_area_change,maps,complete,,1.34932088851929
+species_population_reference,niche,complete,,7.27669215202332
+species_niche_area,niche,complete,,7.52766680717468
+population_niche_summary,niche,complete,,59.4123349189758
+species_niche_maps,niche,complete,,128.067058086395
+species_bivariate_maps,niche,skipped,Set ECOCHINA2_BIVARIATE_SCENARIOS to draw bivariate species maps.,0.000236988067626953
+population_bivariate_maps,niche,skipped,Set ECOCHINA2_BIVARIATE_SCENARIOS to draw bivariate population maps.,0.000321865081787109
+population_overlay_maps,niche,complete,,211.352170944214
+topk_reference_agreement,topk,complete,,1.13277101516724
+topk_reference_confusion,topk,complete,,9.45911502838135
+topk_future_retention,topk,complete,,1.49711513519287
+topk_zone_diagnostics,topk,complete,,16.5277788639069
+topk_matched_change,topk,complete,,7.83187198638916
+topk_analogue_availability,topk,complete,,1.30928206443787
+topk_species_population,topk,complete,,73.3078789710999
+topk_f1_multiclass,topk,complete,,1.59377193450928
+topk_reference_maps,topk,complete,,18.0109372138977
+topk_future_maps,topk,complete,,154.801661014557
+topk_rank_panels,topk,skipped,Set ECOCHINA2_STACK_SCENARIOS to draw Top-5 candidate details.,0.000132083892822266
+topk_exploded_stack,topk,skipped,Set ECOCHINA2_STACK_SCENARIOS to draw Top-5 candidate maps.,0.000200986862182617

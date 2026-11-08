@@ -20,7 +20,7 @@ library(patchwork)
 rm(list = ls())
 gc()
 
-script_revision <- "2026-11-01-detailed-climate-stacks-v3"
+script_revision <- "2026-11-06-future-topk-threshold-v1"
 
 
 # 0. Paths, constants and palette ==============================================
@@ -40,6 +40,8 @@ find_project_root <- function(path = getwd()) {
 }
 
 base_dir <- find_project_root()
+future_rule_file <- file.path(base_dir, "functions", "future_topk_rule.R")
+source(future_rule_file, local = TRUE)
 figure_dir <- file.path(base_dir, "figures")
 figure_subdirs <- file.path(
   figure_dir,
@@ -187,7 +189,8 @@ files_current <- function(outputs, inputs) {
 first_current_raster <- function(paths, template_file, inputs, label) {
   template <- rast(template_file)
   valid <- vapply(paths, function(path) {
-    if (!file.exists(path) || !files_current(path, inputs)) return(FALSE)
+    if (!file.exists(path) || file.exists(paste0(path, ".pending")) ||
+        !files_current(path, inputs)) return(FALSE)
     tryCatch({
       candidate <- rast(path)
       nlyr(candidate) >= 1L &&
@@ -343,6 +346,7 @@ run_figure <- function(id, expression) {
     )
     return(invisible(NULL))
   }
+  eco_topk_milestone("FIGURE START", id)
   started <- Sys.time()
   result <- tryCatch({
     value <- force(expression)
@@ -372,6 +376,7 @@ run_figure <- function(id, expression) {
       seconds = as.numeric(difftime(Sys.time(), started, units = "secs"))
     )
   })
+  eco_topk_milestone("FIGURE END", paste(id, result$status))
   figure_log[[length(figure_log) + 1L]] <<- result
   invisible(result)
 }
@@ -2367,13 +2372,18 @@ future_topk_map_file <- function(scenario, k) {
     file.path(topk_raster_dir, scenario, "ranked_zone.tif"),
     paste("future ranked-zone raster", scenario)
   )
+  future_suitability_file <- required_file(
+    file.path(topk_raster_dir, scenario, "ranked_suitability.tif"),
+    paste("future ranked-suitability raster", scenario)
+  )
   future_inputs <- c(
-    reference_file, normal_assigned_file, future_assigned_file, future_rank_file
+    reference_file, normal_assigned_file, future_assigned_file, future_rank_file,
+    future_rule_file, future_suitability_file
   )
   first_current_raster(
     c(
-      file.path(base_dir, "assessment", "topk", "cache", "future_topk_maps", scenario, paste0("future_top", k, ".tif")),
-      file.path(topk_raster_dir, scenario, paste0("future_top", k, ".tif"))
+      file.path(base_dir, "assessment", "topk", "cache", "future_topk_maps",
+                eco_topk_rule_version, scenario, paste0("future_top", k, ".tif"))
     ),
     reference_file,
     future_inputs,
@@ -2822,7 +2832,8 @@ run_figure("topk_future_maps", {
       )
       figure_subtitle <- paste0(
         "The observed ecotype is retained when it occurs among the first ",
-        k, " future dual-suitability ranks; otherwise the future Top-1 ",
+        k, " future ranks AND its own dual suitability is >= ",
+        dual_threshold, "; otherwise the future Top-1 ",
         "assignment is shown."
       )
       figure_caption <- paste0(

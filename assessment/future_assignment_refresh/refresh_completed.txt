@@ -1,0 +1,16 @@
+Completed: 2026-11-07 09:04:30.198169
+Rule: future-topk-own-suitability-v1
+Future observed-zone restoration requires rank <= k and own dual suitability >= 0.4.
+Reference-period rules and raw dual-suitability ranks are unchanged.
+4.1 Assign zones for rf_var and mf_var.R
+6.1 Future results for rf_var and mf_var.R
+7.1 Refresh assigned-map multiclass comparison.R
+8. future top k.R
+8.2future top k.R
+11.2 Visualization for corrected climate models.R
+8.3 Matched Top-k reference-to-future comparison.R
+11. visualization.R
+11.4 Top-k downstream figures.R
+11.5 Matched Top-k and novel-ecosystem figures.R
+11.7 Manuscript Top-k diagnostics and population-coloured species maps.R
+quick_collaborator_update.R

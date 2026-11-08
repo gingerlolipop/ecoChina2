@@ -19,7 +19,8 @@
 #   4. Future periods:
 #        - if maximum dual suitability < novel_threshold, assign novel Zone 99;
 #        - otherwise assign the zone with the maximum dual suitability.
-#   5. Zones within tie_tol of the maximum are treated as tied.
+#   5. Zones within tie_tol of the maximum are treated as tied; future tied
+#      candidates must also have their own suitability >= novel_threshold.
 #   6. If the original zone is among the tied zones, retain the original zone.
 #   7. Otherwise, randomly select one of the tied zones with equal probability.
 #
@@ -55,6 +56,8 @@ gc()
 
 base_dir <- Sys.getenv("ECOCHINA2_DIR", unset = "H:/Jing/ecoChina2")
 source(file.path(base_dir, "functions", "dual_missing_policy.R"), local = TRUE)
+eco_topk_rule_file <- file.path(base_dir, "functions", "future_topk_rule.R")
+source(eco_topk_rule_file, local = TRUE)
 
 dual_dir <- file.path(
   base_dir,
@@ -78,8 +81,8 @@ zoneID <- c(
   52:55
 )
 
-# This threshold is used only to assign future novel Zone 99.
-novel_threshold <- 0.4
+# Future novel assignment and candidate eligibility use the same threshold.
+novel_threshold <- eco_topk_threshold
 
 novel_value <- 99
 tie_tol <- 1e-4
@@ -295,6 +298,8 @@ assign_zone_block <- function(
     max_suitability - suit <= tie_tol
   )
   
+  # Eligibility is required even for a near-maximum future tie.
+  if (!is_normal) tied <- tied & suit >= novel_threshold
   tied[
     is.na(tied)
   ] <- FALSE
@@ -367,6 +372,37 @@ assign_zone_block <- function(
 }
 
 
+assignment_input_signature <- function(inputs) {
+  if (!length(inputs) || !all(file.exists(inputs))) return(NA_character_)
+  info <- file.info(inputs)
+  paste(paste(normalizePath(inputs, winslash = "/", mustWork = TRUE),
+    info$size, sprintf("%.9f", as.numeric(info$mtime)), sep = "|"),
+    collapse = "\n")
+}
+
+future_assignment_current <- function(file, inputs) {
+  marker <- paste0(file, ".future_assignment_rule.rds")
+  if (!file.exists(file) || !file.exists(marker) ||
+      file.exists(paste0(file, ".assignment_pending.rds"))) return(FALSE)
+  tryCatch({
+    state <- readRDS(marker)
+    identical(state$rule, eco_topk_rule_version) &&
+      identical(state$threshold, novel_threshold) &&
+      identical(state$inputs, assignment_input_signature(inputs)) &&
+      identical(state$output_size, unname(file.info(file)$size)) &&
+      identical(state$output_mtime, as.numeric(file.info(file)$mtime))
+  }, error = function(e) FALSE)
+}
+
+record_future_assignment <- function(file, inputs) {
+  signature <- assignment_input_signature(inputs)
+  if (is.na(signature)) stop("Cannot record future assignment with missing inputs.")
+  saveRDS(list(rule = eco_topk_rule_version, threshold = novel_threshold,
+    inputs = signature, output_size = unname(file.info(file)$size),
+    output_mtime = as.numeric(file.info(file)$mtime)),
+    paste0(file, ".future_assignment_rule.rds"))
+}
+
 # Check whether an existing assigned-zone map is complete and valid.
 existing_output_is_valid <- function(
     output_file,
@@ -375,6 +411,7 @@ existing_output_is_valid <- function(
     zoneID,
     novel_value) {
   
+  if (file.exists(paste0(output_file, ".assignment_pending.rds"))) return(FALSE)
   if (!file.exists(output_file)) {
     return(FALSE)
   }
@@ -613,8 +650,11 @@ for (j in seq_len(nrow(jobs))) {
     )
   )
   
+  map_inputs <- c(files, reference_file,
+    if (!is_normal) eco_topk_rule_file else character())
   if (
     reuse_existing_outputs &&
+    (is_normal || future_assignment_current(output_file, map_inputs)) &&
     eco_policy_current(output_file, c(files, reference_file), "assigned_complete_candidates") &&
     existing_output_is_valid(
       output_file = output_file,
@@ -635,6 +675,11 @@ for (j in seq_len(nrow(jobs))) {
     next
   }
   
+  unlink(paste0(output_file, ".future_assignment_rule.rds"))
+  saveRDS(list(started = start_time, method = method, scenario = scenario),
+    paste0(output_file, ".assignment_pending.rds"))
+  cat("[", format(start_time, "%Y-%m-%d %H:%M:%S"), "] [ASSIGN] ",
+    method, " | ", scenario, "\n", sep = "")
   # Remove a partial or invalid file left by an interrupted run.
   remove_raster_files(
     output_file
@@ -688,18 +733,16 @@ for (j in seq_len(nrow(jobs))) {
       blocks$nrows[i]
     )
     
-    cat(
-      "  block",
-      i,
-      "/",
-      blocks$n,
-      "\n"
-    )
+    cat("[", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "] ",
+      method, " | ", scenario, " | block ", i, "/", blocks$n, " | ",
+      round(as.numeric(difftime(Sys.time(), start_time, units = "mins")), 1),
+      " min\n", sep = "")
+    flush.console()
   }
   
   readStop(stack_with_reference)
   writeStop(out_r)
-  eco_record_policy(output_file, c(files, reference_file), "assigned_complete_candidates")
+
   
   
   # 4. Validate the saved file ===================================================
@@ -748,6 +791,9 @@ for (j in seq_len(nrow(jobs))) {
     )
   }
   
+  eco_record_policy(output_file, c(files, reference_file), "assigned_complete_candidates")
+  if (!is_normal) record_future_assignment(output_file, map_inputs)
+  unlink(paste0(output_file, ".assignment_pending.rds"))
   cat(
     "[SAVED]",
     output_file,

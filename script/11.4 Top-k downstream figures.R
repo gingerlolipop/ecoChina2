@@ -10,10 +10,10 @@
 # -----------
 # Figure 6b:
 #   Top-k non-retention is the area where the workflow's normal-period Top-1
-#   ecotype is not retained within the future first k positive-suitability
-#   ranks. Novel cells are included. This is a relative-rank diagnostic, not
-#   novel niche space or a threshold-based suitable-area estimate, and must
-#   decrease or remain unchanged from Top-1 to Top-3 to Top-5.
+#   ecotype is not retained by the future Top-k rule. At k > 1, restoring the
+#   former ecotype requires a first-k rank and its own dual suitability >= 0.4.
+#   Novel cells are included. Non-retention must decrease or remain unchanged
+#   from Top-1 to Top-3 to Top-5.
 #
 # Supplementary analogue scarcity:
 #   Scarcity at minimum count k is the area with fewer than k current ecotype
@@ -52,7 +52,10 @@ gc()
 
 # 0. Paths and settings =========================================================
 
-base_dir <- "H:/Jing/ecoChina2"
+base_dir <- normalizePath(
+  Sys.getenv("ECOCHINA2_DIR", "H:/Jing/ecoChina2"),
+  winslash = "/", mustWork = TRUE
+)
 
 assessment_dir <- file.path(
   base_dir,
@@ -1434,9 +1437,8 @@ if (any(
 # This is distinct from novel niche space. Top-1 non-retention includes every
 # changed or novel cell. At Top-3 and Top-5, changed cells are removed from the
 # non-retained set when their normal-period Top-1 ecotype remains within the
-# corresponding future rank set. Novel cells remain non-retained at every k.
-# For non-novel cells, this is a relative-rank diagnostic; the former ecotype
-# itself is not additionally required to reach 0.4.
+# corresponding future rank set and its own dual suitability is >= 0.4.
+# Novel cells remain non-retained at every k.
 rank_nonretention <- rbindlist(
   lapply(
     rank_cutoffs,
@@ -1501,7 +1503,7 @@ rank_nonretention <- rbindlist(
           criterion = paste0(
             "normal_period_top1_not_retained_within_future_top",
             k,
-            "_including_novel"
+            "_own_suit_ge_0.4_including_novel"
           ),
           baseline =
             "workflow-specific normal-period Top-1 assigned map"
@@ -1977,12 +1979,12 @@ figure_6b_topk <- ggplot(
   ) +
   labs(
     x = "Future period",
-    y = expression("Area with the reference-period ecotype outside future Top-k (million km"^2*")"),
+    y = expression("Area with the reference-period ecotype not retained (million km"^2*")"),
     shape = NULL,
     linetype = NULL,
-    title = "Projected area with the reference-period ecotype outside future Top-k analogues",
+    title = "Projected area with the reference-period ecotype not retained by Top-k",
     subtitle = paste(
-      "A cell is counted when its reference-period Top-1 ecotype is absent from the first k future ranks.",
+      "At k > 1, retention requires a first-k future rank and the ecotype's own dual suitability >= 0.4.",
       "No-analogue niche space is included at every k; expanding k can only reduce the counted area.",
       sep = "\n"
     )
@@ -2065,15 +2067,15 @@ for (k in rank_cutoffs) {
     ) +
     labs(
       x = "Future period",
-      y = expression("Area with the reference-period ecotype outside future Top-k (million km"^2*")"),
+      y = expression("Area with the reference-period ecotype not retained (million km"^2*")"),
       shape = NULL,
       linetype = NULL,
       title = paste0(
-        "Reference-period ecotype absent from future Top-",
+        "Reference-period ecotype not retained by future Top-",
         k
       ),
       subtitle =
-        "Each workflow's reference-period Top-1 map is the baseline; no-analogue niche space is included."
+        "Baseline: reference-period Top-1; restoring its ecotype requires own dual suitability >= 0.4. Novel area is included."
     ) +
     theme_bw(
       base_size = 11
